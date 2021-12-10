@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.25.5">
     <meta name="project" content="Edgehog v0.1.0">
 
-    <title>Hardware Types — Edgehog v0.1.0</title>
+    <title>Appliance models — Edgehog v0.1.0</title>
     <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
 
     <script src="dist/sidebar_items-22b102d7f8.js"></script>
@@ -82,47 +82,54 @@ Edgehog
     <div id="content" class="content-inner">
 
 <h1 id="content">
-Hardware Types
+Appliance models
 
 </h1>
 
-<p>For each hardware type the following information can be displayed and edited.</p><ul><li>Name: a user friendly name, such as &quot;Strawberry Pi 5&quot;</li><li>Handle: a machine friendly identifier, such as &quot;strawberry-pi-5&quot; (it must be a lower case, alpha
-numeric string, with no spaces and dashes allowed in the middle)</li><li>Part Numbers: a list of part numbers, such as &quot;STBEPI-5-MA-2GB-REV1&quot;,&quot;STBEPI-5-MB-8GB-REV1&quot;,
-&quot;STBEPI-5-MB-8GB-REV2&quot;, etc... Multiple part numbers can be entered using the &quot;Add Part Number&quot;
-button.</li></ul><p><img src="assets/hardware_types.png" alt="Hardware Types Screenshot"/></p><h2 id="create-hardware-type" class="section-heading">
-  <a href="#create-hardware-type" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Create Hardware Type
+<p>As already mentioned in the <a href="core_concepts.html">core concepts</a>, Appliance Models represent a group
+of Appliances providing the same functionalities to users.</p><p>In Edgehog an Appliance Model has this information associated with it:</p><ul><li>Name: a user friendly name used to identify the Appliance Model (e.g. &quot;E-Bike v2&quot;)</li><li>Handle: a machine friendly identifier for the Appliance Model (e.g. &quot;e-bike-v2&quot;). A valid handle
+must begin with a lowercase letter followed by any number of lower case letters, numbers or dashes
+(<code class="inline">-</code>).</li><li>Hardware type: the Hardware Type that is used for this appliance model. As illustrated in <a href="core_concepts.html">core
+concepts</a>, each Appliance Model is associated with exactly one Hardware Type.</li><li>Part numbers: the Part Numbers for this Appliance Model. Each Appliance Model can have one or more
+Part Numbers associated with it, and Devices will be associated with an Appliance Model based on
+the Part Number they declare to implement.</li><li>Picture: each Appliance Model can have a picture associated with it, so that Devices using that
+Appliance Model can be identified at a glance.</li></ul><p>The following sections will illustrate all the pages that can be used to list, create and edit
+Appliance Models.</p><h2 id="appliance-model-list" class="section-heading">
+  <a href="#appliance-model-list" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Appliance Model List
 </h2>
-<p>This page allows creating a new hardware type, once created it can be edited at a later time.</p><p><img src="assets/create_hardware_type.png" alt="Create Hardware Type Screenshot"/></p><h2 id="update-hardware-type" class="section-heading">
-  <a href="#update-hardware-type" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Update Hardware Type
+<p><img src="assets/appliance_models.png" alt="Appliance Model List Screenshot"/></p><p>In the appliance model list you can see all the Appliance Models that are available. All information
+relative to each Appliance Model (minus the picture) is present in the table, and clicking on the
+name brings to the <a href="#appliance-model">Appliance Model</a> page.</p><p>Clicking on the &quot;Create Appliance Model&quot; button in the top right brings to <a href="#create-appliance-model">Create Appliance
+Model</a> page.</p><h2 id="appliance-model" class="section-heading">
+  <a href="#appliance-model" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Appliance Model
 </h2>
-<p>By clicking the link on the hardware type list it is possible to open the detailed Hardware Type
-page. It is possible to edit the existing hardware type and to update it clicking the &quot;Update&quot;
-button.</p>
+<p><img src="assets/appliance_model.png" alt="Appliance Model Page Screenshot"/></p><p>The Appliance Model page shows the information about a specific Appliance Model and allows updating
+all of them except the Hardware Type.</p><p>Editing any field and then pressing the &quot;Update&quot; button saves the new values for the Appliance
+Model. The &quot;Add Part Number&quot; button allows adding additional Part Numbers to an Appliance Model, and
+the thrash icon on the right of each of them allows deleting them.</p><h2 id="create-appliance-model" class="section-heading">
+  <a href="#create-appliance-model" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Create Appliance Model
+</h2>
+<p><img src="assets/create_appliance_model.png" alt="Create Appliance Model Screenshot"/></p><p>The Create Appliance Model page allows creating a new Appliance Model.</p><p>The Appliance Model information can be provided using the form, and pressing the &quot;Update&quot; button
+saves the Appliance Model. The Hardware Type must be chosen from a list of available Hardware Types
+using the dropdown menu. The &quot;Add Part Number&quot; button allows adding additional Part Numbers for the
+Appliance Model.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="core_concepts.html" class="bottom-actions-button" rel="prev">
+      <a href="hardware_types.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Core concepts
+Hardware Types
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
-
-      <a href="appliance_models.html" class="bottom-actions-button" rel="next">
-        <span class="subheader">
-          Next Page →
-        </span>
-        <span class="title">
-Appliance models
-        </span>
-      </a>
 
   </div>
 </div>
