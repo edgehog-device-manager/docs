@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.25.5">
+    <meta name="project" content="Edgehog v0.1.0">
+
+    <title>Devices — Edgehog v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
+
+    <script src="dist/sidebar_items-e4b890fa75.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-7b632b26f13d5e0d20e1.js"></script>
+
+
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName">
+Edgehog
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.1.0
+      </strong>
+    </div>
+
+      <a href="http://edgehog.io">
+        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1 id="content">
+Devices
+
+</h1>
+
+<p>As mentioned in the <a href="core_concepts.html">core concepts</a>, a Device is an entity connected to Astarte.</p><p>In the device list you can see all the Devices that are available.</p><p><img src="assets/devices.png" alt="Devices Screenshot"/></p><p>For each Device the following information can be displayed:</p><ul><li>Name: a user friendly name</li><li>Device ID: the ID that uniquely identifies the device connecting to Astarte</li><li>Appliance Model: the Appliance Model associated to the Device</li><li>Hardware Type: the Hardware Type associated to the Device's Appliance Model</li><li>Status: Reports the connection status, indicating whether the Device is connected to Astarte</li><li>Last Seen: Reports the time of the last connection activity of the Device</li></ul><p>Clicking on a Device's name brings to a page dedicated to that Device to display additional info.</p><h2 id="adding-a-device" class="section-heading">
+  <a href="#adding-a-device" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Adding a Device
+</h2>
+<p>Each Device will become visible in Edgehog automatically the first time it connects to Astarte.
+Indeed, Astarte informs Edgehog about the Device's presence and activity via Astarte Triggers, which
+should be configured to relay the appropriate events.</p><h2 id="associating-a-device-to-an-appliance-model" class="section-heading">
+  <a href="#associating-a-device-to-an-appliance-model" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Associating a Device to an Appliance Model
+</h2>
+<p>Each Device is associated to a specific Appliance, hence a specific Appliance Model. The Appliance
+Model is the fundamental identifier when it comes to software updates, since it dictates which
+software is supported and what functionalities should be configured.</p><p>However, during its lifetime, a Device can be tied to different Appliance Models. Say, for example,
+that two different models of e-bikes are sent to maintenance; if they share the same hardware, the
+working PCB board of one model could be fitted into the other one.</p><p>For this reason, each time a Device connects to Astarte, it can notify Astarte about the Appliance
+Model it is plugged into, exposing its Part Number. Astarte then informs Edgehog via Astarte
+Triggers, so that Edgehog can associate the Device to the correct Appliance Model by matching the
+Device's Part Number with the ones of the Appliance Model.</p><h2 id="device-info" class="section-heading">
+  <a href="#device-info" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Device info
+</h2>
+<p>On the page of each Device different sets of data are shown. On top of the basic info already
+visible in the device list, additional sections can be displayed here to report operational data
+exposed by the device.</p><p>The details about how devices publish such data are explained in
+<a href="interacting_with_edgehog.html">Interacting with Edgehog</a>.</p><h3 id="hardware-info" class="section-heading">
+  <a href="#hardware-info" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Hardware info
+</h3>
+<p>This section reports an overview on the general hardware capabilities of the Device.</p><p><img src="assets/device_hardware_info.png" alt="Device Hardware Info Screenshot"/></p><h3 id="system-status" class="section-heading">
+  <a href="#system-status" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  System status
+</h3>
+<p>This section reports an overview on the current system status of the Device.</p><p><img src="assets/device_system_status.png" alt="Device System Status Screenshot"/></p><h3 id="storage-status" class="section-heading">
+  <a href="#storage-status" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Storage Status
+</h3>
+<p>This section reports an overview on the capacity and usage of the storage units of the Device.</p><p><img src="assets/device_storage.png" alt="Device Storage Screenshot"/></p><h3 id="battery-status" class="section-heading">
+  <a href="#battery-status" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Battery status
+</h3>
+<p>This section reports an overview on the current status of the battery slots of the Device.</p><p><img src="assets/device_battery.png" alt="Device Battery Screenshot"/></p><h3 id="nearby-wifi-aps" class="section-heading">
+  <a href="#nearby-wifi-aps" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Nearby WiFi APs
+</h3>
+<p>This section reports the list of nearby Access Points that the Device found while scanning for WiFi
+signals.</p><p><img src="assets/device_wifi_aps.png" alt="Device WiFi APs Screenshot"/></p><h3 id="geolocation" class="section-heading">
+  <a href="#geolocation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Geolocation
+</h3>
+<p>This section reports the approximate location of the Device, using Edgehog's geolocation modules to
+estimate a set of GPS coordinates.</p><p><img src="assets/device_geolocation.png" alt="Device Geolocation Screenshot"/></p><p>Depending on the data exposed by the Device, the coordinates can be estimated from:</p><ul><li>nearby WiFi APs that the Device detected recently</li><li>the IP address used by the Device to connect to Astarte</li></ul><p>Based on the available data, Edgehog's geolocation modules try to find to best estimate by relying
+on the most up-to-date info and using the ones that provide the most accuracy.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="appliance_models.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Appliance models
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="interacting_with_edgehog.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Interacting with Edgehog
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.25.5) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

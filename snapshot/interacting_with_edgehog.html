@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.25.5">
+    <meta name="project" content="Edgehog v0.1.0">
+
+    <title>Interacting with Edgehog — Edgehog v0.1.0</title>
+    <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
+
+    <script src="dist/sidebar_items-e4b890fa75.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-7b632b26f13d5e0d20e1.js"></script>
+
+
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName">
+Edgehog
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.1.0
+      </strong>
+    </div>
+
+      <a href="http://edgehog.io">
+        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1 id="content">
+Interacting with Edgehog
+
+</h1>
+
+<p>Edgehog's interaction is logically divided amongst two main entities: devices and users.</p><p><em>Devices</em> are the bottom end, and represent the IoT fleet. They can access
+<a href="https://github.com/astarte-platform/astarte">Astarte</a> and exchange data via Astarte Interfaces
+which, in turn, also define on a very granular level which kind of data they can exchange. Data
+exposed by devices are relayed to Edgehog via Astarte Triggers.</p><p><em>Users</em> are actual users, applications or anything else which needs to interact with Edgehog.</p><h2 id="user-side-tools" class="section-heading">
+  <a href="#user-side-tools" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  User-side Tools
+</h2>
+<p>To interact with Edgehog, several options are available:</p><ul><li>Edgehog's dashboard interface: it provides a built-in UI that can be used for managing Devices,
+Hardware Types, and Appliance Models. It is meant to be a graphical, user-friendly tool to manage
+those entities.</li><li><a href="graphql-api-docs/">Edgehog's GraphQL APIs</a>: they are meant as a machine-friendly way to perform
+operations on Edgehog's entities and for integrating 3rd party applications.</li></ul><h2 id="publishing-device-data" class="section-heading">
+  <a href="#publishing-device-data" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Publishing Device data
+</h2>
+<p>Devices can publish any kind of data to Astarte via Astarte Interfaces. However, some standard
+interfaces are already supported by Edgehog in order to provide useful functionalities, such as
+device geolocation.</p><p>Hence, data that devices send via
+<a href="https://github.com/edgehog-device-manager/edgehog-astarte-interfaces/">Edgehog's Astarte Interfaces</a>
+are automatically understood, collected and reported by Edgehog.</p><h3 id="publishing-info-about-the-appliance" class="section-heading">
+  <a href="#publishing-info-about-the-appliance" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Publishing info about the Appliance
+</h3>
+<p>Each Device is supposed to notify Astarte, e.g. on each connection, about the Appliance Model it is
+plugged into.</p><p>To do so, the Device can use the <code class="inline">io.edgehog.devicemanager.ApplianceInfo</code> Astarte Interface to
+specify:</p><ul><li>the Serial Number: a code that uniquely identifies the Appliance</li><li>the Part Number: a code that uniquely identifies the Appliance Model</li></ul><p>When exposing the Part Number, Edgehog can associate the Device to the correct Appliance Model by
+matching the Device's Part Number with the ones of the registered Appliance Model.</p><h3 id="publishing-info-about-the-hardware" class="section-heading">
+  <a href="#publishing-info-about-the-hardware" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Publishing info about the hardware
+</h3>
+<p>Each Device can notify Astarte about the general capabilities of the Device. These info are
+hardware-related and are usually not intended to change over time.</p><p>A Device can expose this set of data via the <code class="inline">io.edgehog.devicemanager.HardwareInfo</code> Astarte
+Interface.</p><h3 id="publishing-info-about-the-device-status" class="section-heading">
+  <a href="#publishing-info-about-the-device-status" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Publishing info about the Device status
+</h3>
+<p>To expose info about its current status or measured data, some additional Astarte Interfaces are
+already defined for Edgehog. Their adoption is optional but recommended.</p><p>This section reports an overview on the current system status of the Device.</p><ul><li><code class="inline">io.edgehog.devicemanager.SystemStatus</code>: reports the current OS status.</li><li><code class="inline">io.edgehog.devicemanager.StorageUsage</code>: reports the capacity and usage of the storage units.</li><li><code class="inline">io.edgehog.devicemanager.BatteryStatus</code>: reports the current status of the battery slots.</li><li><code class="inline">io.edgehog.devicemanager.WiFiScanResults</code>: reports the list of nearby Access Points that the
+Device found while scanning for WiFi signals.</li></ul>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="devices.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Devices
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.25.5) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
