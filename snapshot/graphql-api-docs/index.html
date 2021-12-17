@@ -87,6 +87,7 @@
           <a href="#definition-LocalizedText"> LocalizedText </a>
           <a href="#definition-LocalizedTextInput"> LocalizedTextInput </a>
           <a href="#definition-Node"> Node </a>
+          <a href="#definition-OsInfo"> OsInfo </a>
           <a href="#definition-StorageUnit"> StorageUnit </a>
           <a href="#definition-String"> String </a>
           <a href="#definition-SystemStatus"> SystemStatus </a>
@@ -197,11 +198,11 @@ http://localhost:4000/api
   <span class="hljs-attr">"data"</span>: {
     <span class="hljs-attr">"applianceModel"</span>: {
       <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-      <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
+      <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
       <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"xyz789"</span>,
       <span class="hljs-attr">"hardwareType"</span>: <span class="hljs-string">HardwareType</span>,
-      <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>],
+      <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>],
       <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedText</span>
     }
   }
@@ -272,9 +273,9 @@ http://localhost:4000/api
     <span class="hljs-attr">"applianceModels"</span>: [
       {
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
         <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
-        <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"abc123"</span>,
+        <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"xyz789"</span>,
         <span class="hljs-attr">"hardwareType"</span>: <span class="hljs-string">HardwareType</span>,
         <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>],
         <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedText</span>
@@ -360,6 +361,9 @@ http://localhost:4000/api
     <span class="hljs-symbol">batteryStatus <span class="hljs-tag">{
       <span class="hljs-type">...BatterySlotFragment</span>
     }</span></span>
+    <span class="hljs-symbol">osInfo <span class="hljs-tag">{
+      <span class="hljs-type">...OsInfoFragment</span>
+    }</span></span>
   }</span></span>
 }</span></span>
 </code></pre> </body>
@@ -385,8 +389,8 @@ http://localhost:4000/api
     <span class="hljs-attr">"device"</span>: {
       <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-      <span class="hljs-attr">"deviceId"</span>: <span class="hljs-string">"xyz789"</span>,
-      <span class="hljs-attr">"online"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"deviceId"</span>: <span class="hljs-string">"abc123"</span>,
+      <span class="hljs-attr">"online"</span>: <span class="hljs-literal">true</span>,
       <span class="hljs-attr">"lastConnection"</span>: <span class="hljs-string">DateTime</span>,
       <span class="hljs-attr">"lastDisconnection"</span>: <span class="hljs-string">DateTime</span>,
       <span class="hljs-attr">"applianceModel"</span>: <span class="hljs-string">ApplianceModel</span>,
@@ -395,7 +399,8 @@ http://localhost:4000/api
       <span class="hljs-attr">"storageUsage"</span>: [<span class="hljs-string">StorageUnit</span>],
       <span class="hljs-attr">"systemStatus"</span>: <span class="hljs-string">SystemStatus</span>,
       <span class="hljs-attr">"wifiScanResults"</span>: [<span class="hljs-string">WifiScanResult</span>],
-      <span class="hljs-attr">"batteryStatus"</span>: [<span class="hljs-string">BatterySlot</span>]
+      <span class="hljs-attr">"batteryStatus"</span>: [<span class="hljs-string">BatterySlot</span>],
+      <span class="hljs-attr">"osInfo"</span>: <span class="hljs-string">OsInfo</span>
     }
   }
 }
@@ -477,6 +482,9 @@ http://localhost:4000/api
     <span class="hljs-symbol">batteryStatus <span class="hljs-tag">{
       <span class="hljs-type">...BatterySlotFragment</span>
     }</span></span>
+    <span class="hljs-symbol">osInfo <span class="hljs-tag">{
+      <span class="hljs-type">...OsInfoFragment</span>
+    }</span></span>
   }</span></span>
 }
 </code></pre> </body>
@@ -502,7 +510,7 @@ http://localhost:4000/api
     <span class="hljs-attr">"devices"</span>: [
       {
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
         <span class="hljs-attr">"deviceId"</span>: <span class="hljs-string">"xyz789"</span>,
         <span class="hljs-attr">"online"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"lastConnection"</span>: <span class="hljs-string">DateTime</span>,
@@ -513,7 +521,8 @@ http://localhost:4000/api
         <span class="hljs-attr">"storageUsage"</span>: [<span class="hljs-string">StorageUnit</span>],
         <span class="hljs-attr">"systemStatus"</span>: <span class="hljs-string">SystemStatus</span>,
         <span class="hljs-attr">"wifiScanResults"</span>: [<span class="hljs-string">WifiScanResult</span>],
-        <span class="hljs-attr">"batteryStatus"</span>: [<span class="hljs-string">BatterySlot</span>]
+        <span class="hljs-attr">"batteryStatus"</span>: [<span class="hljs-string">BatterySlot</span>],
+        <span class="hljs-attr">"osInfo"</span>: <span class="hljs-string">OsInfo</span>
       }
     ]
   }
@@ -663,8 +672,8 @@ http://localhost:4000/api
       {
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
         <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-        <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
-        <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>]
+        <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
+        <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>]
       }
     ]
   }
@@ -794,8 +803,8 @@ http://localhost:4000/api
   <span class="hljs-attr">"data"</span>: {
     <span class="hljs-attr">"tenantInfo"</span>: {
       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-      <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"xyz789"</span>,
-      <span class="hljs-attr">"defaultLocale"</span>: <span class="hljs-string">"abc123"</span>
+      <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"abc123"</span>,
+      <span class="hljs-attr">"defaultLocale"</span>: <span class="hljs-string">"xyz789"</span>
     }
   }
 }
@@ -1191,9 +1200,9 @@ http://localhost:4000/api
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"hardwareType"</span>: <span class="hljs-string">HardwareType</span>,
-  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>],
+  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>],
   <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedText</span>
 }
 </code></pre> </body>
@@ -1254,7 +1263,7 @@ http://localhost:4000/api
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"slot"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"slot"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"levelPercentage"</span>: <span class="hljs-number">987.65</span>,
   <span class="hljs-attr">"levelAbsoluteError"</span>: <span class="hljs-number">987.65</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">BatteryStatus</span>
@@ -1350,7 +1359,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-literal">true</span></span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-literal">false</span></span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -1441,11 +1450,11 @@ http://localhost:4000/api
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"pictureFile"</span>: <span class="hljs-string">Upload</span>,
   <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>],
+  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>],
   <span class="hljs-attr">"hardwareTypeId"</span>: <span class="hljs-string">ID</span>,
   <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedTextInput</span>
 }
@@ -1709,6 +1718,12 @@ http://localhost:4000/api
                       </td>
                       <td> The status of the battery slots of the device. </td>
                     </tr>
+                    <tr>
+                      <td data-property-name="osInfo"> <code>osInfo</code> -
+                        <a href="#definition-OsInfo"><code>OsInfo</code></a>
+                      </td>
+                      <td> Information about the operating system of the device. </td>
+                    </tr>
                   </table>
                 </section>
               </div>
@@ -1721,7 +1736,7 @@ http://localhost:4000/api
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"deviceId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"online"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"online"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"lastConnection"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"lastDisconnection"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"applianceModel"</span>: <span class="hljs-string">ApplianceModel</span>,
@@ -1730,7 +1745,8 @@ http://localhost:4000/api
   <span class="hljs-attr">"storageUsage"</span>: [<span class="hljs-string">StorageUnit</span>],
   <span class="hljs-attr">"systemStatus"</span>: <span class="hljs-string">SystemStatus</span>,
   <span class="hljs-attr">"wifiScanResults"</span>: [<span class="hljs-string">WifiScanResult</span>],
-  <span class="hljs-attr">"batteryStatus"</span>: [<span class="hljs-string">BatterySlot</span>]
+  <span class="hljs-attr">"batteryStatus"</span>: [<span class="hljs-string">BatterySlot</span>],
+  <span class="hljs-attr">"osInfo"</span>: <span class="hljs-string">OsInfo</span>
 }
 </code></pre> </body>
                   </html>
@@ -1831,14 +1847,14 @@ http://localhost:4000/api
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"online"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"online"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"deviceId"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"applianceModelPartNumber"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"applianceModelHandle"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"applianceModelName"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"hardwareTypePartNumber"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"hardwareTypeHandle"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"hardwareTypeName"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"hardwareTypeName"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -1906,8 +1922,8 @@ http://localhost:4000/api
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"latitude"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"longitude"</span>: <span class="hljs-number">123.45</span>,
-  <span class="hljs-attr">"accuracy"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"longitude"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"accuracy"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"address"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">DateTime</span>
 }
@@ -2003,9 +2019,9 @@ http://localhost:4000/api
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"cpuArchitecture"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"cpuModel"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"cpuModelName"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"cpuArchitecture"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"cpuModel"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"cpuModelName"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"cpuVendor"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"memoryTotalBytes"</span>: <span class="hljs-number">123</span>
 }
@@ -2070,7 +2086,7 @@ http://localhost:4000/api
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>]
 }
 </code></pre> </body>
@@ -2124,7 +2140,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">987</span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">123</span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -2170,7 +2186,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"locale"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"text"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"locale"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"text"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2220,7 +2236,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"locale"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"text"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"locale"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"text"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2258,6 +2274,52 @@ http://localhost:4000/api
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{<span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-OsInfo" class="definition panel" data-traverse-target="definition-OsInfo">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/OsInfo"></a>
+              <p><code>OsInfo</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Describes an operating system of a device.</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="name"> <code>name</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> The name of the operating system. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="version"> <code>version</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> The version of the operating system. </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"version"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2309,7 +2371,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"label"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"totalBytes"</span>: <span class="hljs-number">987</span>, <span class="hljs-attr">"freeBytes"</span>: <span class="hljs-number">123</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"label"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"totalBytes"</span>: <span class="hljs-number">987</span>, <span class="hljs-attr">"freeBytes"</span>: <span class="hljs-number">987</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2391,8 +2453,8 @@ http://localhost:4000/api
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"bootId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"memoryFreeBytes"</span>: <span class="hljs-number">123</span>,
-  <span class="hljs-attr">"taskCount"</span>: <span class="hljs-number">987</span>,
+  <span class="hljs-attr">"memoryFreeBytes"</span>: <span class="hljs-number">987</span>,
+  <span class="hljs-attr">"taskCount"</span>: <span class="hljs-number">123</span>,
   <span class="hljs-attr">"uptimeMilliseconds"</span>: <span class="hljs-number">987</span>,
   <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">DateTime</span>
 }
@@ -2447,7 +2509,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"defaultLocale"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"defaultLocale"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2539,11 +2601,11 @@ http://localhost:4000/api
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"applianceModelId"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"pictureFile"</span>: <span class="hljs-string">Upload</span>,
-  <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>],
+  <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>],
   <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedTextInput</span>
 }
 </code></pre> </body>
@@ -2648,8 +2710,8 @@ http://localhost:4000/api
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"hardwareTypeId"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>]
 }
 </code></pre> </body>
@@ -2779,10 +2841,10 @@ http://localhost:4000/api
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"channel"</span>: <span class="hljs-number">123</span>,
+  <span class="hljs-attr">"channel"</span>: <span class="hljs-number">987</span>,
   <span class="hljs-attr">"essid"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"macAddress"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"rssi"</span>: <span class="hljs-number">987</span>,
+  <span class="hljs-attr">"macAddress"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"rssi"</span>: <span class="hljs-number">123</span>,
   <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">DateTime</span>
 }
 </code></pre> </body>
