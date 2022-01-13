@@ -10,7 +10,7 @@
     <title>Interacting with Edgehog — Edgehog v0.1.0</title>
     <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
 
-    <script src="dist/sidebar_items-1f4757189b.js"></script>
+    <script src="dist/sidebar_items-6d246b1025.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -109,42 +109,44 @@ are automatically understood, collected and reported by Edgehog.</p><h3 id="publ
   Publishing info about the Appliance
 </h3>
 <p>Each Device is supposed to notify Astarte, e.g. on each connection, about the Appliance Model it is
-plugged into.</p><p>To do so, the Device can use the <code class="inline">io.edgehog.devicemanager.ApplianceInfo</code> Astarte Interface to
-specify:</p><ul><li>the Serial Number: a code that uniquely identifies the Appliance</li><li>the Part Number: a code that uniquely identifies the Appliance Model</li></ul><p>When exposing the Part Number, Edgehog can associate the Device to the correct Appliance Model by
+plugged into.</p><p>To do so, the Device can use the <a href="astarte_interfaces.html">io.edgehog.devicemanager.ApplianceInfo</a>
+Astarte Interface to specify:</p><ul><li>the Serial Number: a code that uniquely identifies the Appliance</li><li>the Part Number: a code that uniquely identifies the Appliance Model</li></ul><p>When exposing the Part Number, Edgehog can associate the Device to the correct Appliance Model by
 matching the Device's Part Number with the ones of the registered Appliance Model.</p><h3 id="publishing-info-about-the-hardware" class="section-heading">
   <a href="#publishing-info-about-the-hardware" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Publishing info about the hardware
 </h3>
 <p>Each Device can notify Astarte about the general capabilities of the Device. These info are
-hardware-related and are usually not intended to change over time.</p><p>A Device can expose this set of data via the <code class="inline">io.edgehog.devicemanager.HardwareInfo</code> Astarte
-Interface.</p><h3 id="publishing-info-about-the-device-status" class="section-heading">
+hardware-related and are usually not intended to change over time.</p><p>A Device can expose this set of data via the
+<a href="astarte_interfaces.html">io.edgehog.devicemanager.HardwareInfo</a> Astarte Interface.</p><h3 id="publishing-info-about-the-device-status" class="section-heading">
   <a href="#publishing-info-about-the-device-status" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Publishing info about the Device status
 </h3>
 <p>To expose info about its current status or measured data, some additional Astarte Interfaces are
-already defined for Edgehog. Their adoption is optional but recommended.</p><p>This section reports an overview on the current system status of the Device.</p><ul><li><code class="inline">io.edgehog.devicemanager.SystemStatus</code>: reports the current OS status.</li><li><code class="inline">io.edgehog.devicemanager.StorageUsage</code>: reports the capacity and usage of the storage units.</li><li><code class="inline">io.edgehog.devicemanager.BatteryStatus</code>: reports the current status of the battery slots.</li><li><code class="inline">io.edgehog.devicemanager.WiFiScanResults</code>: reports the list of nearby Access Points that the
-Device found while scanning for WiFi signals.</li></ul>
+already defined for Edgehog. Their adoption is optional but recommended.</p><p>This section reports an overview on the current system status of the Device.</p><ul><li><a href="astarte_interfaces.html">io.edgehog.devicemanager.SystemStatus</a>: reports the current OS status.</li><li><a href="astarte_interfaces.html">io.edgehog.devicemanager.StorageUsage</a>: reports the capacity and usage
+of the storage units.</li><li><a href="astarte_interfaces.html">io.edgehog.devicemanager.BatteryStatus</a>: reports the current status of
+the battery slots.</li><li><a href="astarte_interfaces.html">io.edgehog.devicemanager.WiFiScanResults</a>: reports the list of nearby
+Access Points that the Device found while scanning for WiFi signals.</li></ul>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="devices.html" class="bottom-actions-button" rel="prev">
+      <a href="overview.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Devices
+Architecture overview
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
 
-      <a href="overview.html" class="bottom-actions-button" rel="next">
+      <a href="astarte_interfaces.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-Architecture overview
+Astarte Interfaces
         </span>
       </a>
 
