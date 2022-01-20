@@ -12,6 +12,11 @@ var NAVTREEINDEX0 =
 "index.html":[0],
 "pages.html":[],
 "structedgehog__device__config__t.html":[1,0,0],
+"structedgehog__device__config__t.html#a1de77c809936d59dc4930d92e7efc0c2":[1,0,0,3],
+"structedgehog__device__config__t.html#a2e80f30b64683ab47a9247b2271be52a":[1,0,0,2],
 "structedgehog__device__config__t.html#a3d8516b4ae971ecfb1bc2b849282c539":[1,0,0,1],
-"structedgehog__device__config__t.html#a90fb389bb02e003dfbfe30d04ced06b3":[1,0,0,0]
+"structedgehog__device__config__t.html#a90fb389bb02e003dfbfe30d04ced06b3":[1,0,0,0],
+"structedgehog__device__telemetry__config__t.html":[1,0,1],
+"structedgehog__device__telemetry__config__t.html#aa89f30facb373f2b298e9b7ce495697c":[1,0,1,1],
+"structedgehog__device__telemetry__config__t.html#affe7d56d00af9cdeae20187f46a55cc0":[1,0,1,0]
 };
