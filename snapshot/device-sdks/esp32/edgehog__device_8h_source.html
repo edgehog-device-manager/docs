@@ -123,47 +123,48 @@ $(document).ready(function(){initNavTree('edgehog__device_8h_source.html',''); i
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    EDGEHOG_TELEMETRY_INVALID = 0, </div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    EDGEHOG_TELEMETRY_HW_INFO = 1, </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    EDGEHOG_TELEMETRY_WIFI_SCAN = 2, </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    EDGEHOG_TELEMETRY_SYSTEM_STATUS = 3 </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} telemetry_type_t;</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structedgehog__device__telemetry__config__t.html">   57</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;{</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    telemetry_type_t type;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordtype">long</span> period_seconds;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <a class="code" href="structedgehog__device__telemetry__config__t.html">edgehog_device_telemetry_config_t</a>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="structedgehog__device__config__t.html">   72</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    astarte_device_handle_t astarte_device;</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *partition_label;</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <a class="code" href="structedgehog__device__telemetry__config__t.html">edgehog_device_telemetry_config_t</a> *telemetry_config;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordtype">size_t</span> telemetry_config_len;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;} <a class="code" href="structedgehog__device__config__t.html">edgehog_device_config_t</a>;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;edgehog_device_handle_t edgehog_device_new(<a class="code" href="structedgehog__device__config__t.html">edgehog_device_config_t</a> *config);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="keywordtype">void</span> edgehog_device_destroy(edgehog_device_handle_t edgehog_device);</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;esp_err_t edgehog_device_set_appliance_serial_number(</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    edgehog_device_handle_t edgehog_device, <span class="keyword">const</span> <span class="keywordtype">char</span> *serial_num);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;esp_err_t edgehog_device_set_appliance_part_number(</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    edgehog_device_handle_t edgehog_device, <span class="keyword">const</span> <span class="keywordtype">char</span> *part_num);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="keywordtype">void</span> edgehog_device_astarte_event_handler(</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    edgehog_device_handle_t edgehog_device, astarte_device_data_event_t *event);</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;edgehog_err_t edgehog_device_start(edgehog_device_handle_t edgehog_device);</div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;}</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#endif // EDGEHOG_DEVICE_H</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    EDGEHOG_TELEMETRY_SYSTEM_STATUS = 3, </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    EDGEHOG_TELEMETRY_STORAGE_USAGE = 4 </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} telemetry_type_t;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structedgehog__device__telemetry__config__t.html">   58</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;{</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    telemetry_type_t type;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">long</span> period_seconds;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;} <a class="code" href="structedgehog__device__telemetry__config__t.html">edgehog_device_telemetry_config_t</a>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structedgehog__device__config__t.html">   73</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    astarte_device_handle_t astarte_device;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *partition_label;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <a class="code" href="structedgehog__device__telemetry__config__t.html">edgehog_device_telemetry_config_t</a> *telemetry_config;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keywordtype">size_t</span> telemetry_config_len;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;} <a class="code" href="structedgehog__device__config__t.html">edgehog_device_config_t</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;edgehog_device_handle_t edgehog_device_new(<a class="code" href="structedgehog__device__config__t.html">edgehog_device_config_t</a> *config);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keywordtype">void</span> edgehog_device_destroy(edgehog_device_handle_t edgehog_device);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;esp_err_t edgehog_device_set_appliance_serial_number(</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    edgehog_device_handle_t edgehog_device, <span class="keyword">const</span> <span class="keywordtype">char</span> *serial_num);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;esp_err_t edgehog_device_set_appliance_part_number(</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    edgehog_device_handle_t edgehog_device, <span class="keyword">const</span> <span class="keywordtype">char</span> *part_num);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keywordtype">void</span> edgehog_device_astarte_event_handler(</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    edgehog_device_handle_t edgehog_device, astarte_device_data_event_t *event);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;edgehog_err_t edgehog_device_start(edgehog_device_handle_t edgehog_device);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;}</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="preprocessor">#endif // EDGEHOG_DEVICE_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astructedgehog__device__config__t_html"><div class="ttname"><a href="structedgehog__device__config__t.html">edgehog_device_config_t</a></div><div class="ttdoc">Edgehog device configuration struct.</div><div class="ttdef"><b>Definition:</b> edgehog_device.h:72</div></div>
-<div class="ttc" id="astructedgehog__device__telemetry__config__t_html"><div class="ttname"><a href="structedgehog__device__telemetry__config__t.html">edgehog_device_telemetry_config_t</a></div><div class="ttdoc">Edgehog device configuration struct.</div><div class="ttdef"><b>Definition:</b> edgehog_device.h:57</div></div>
+<div class="ttc" id="astructedgehog__device__config__t_html"><div class="ttname"><a href="structedgehog__device__config__t.html">edgehog_device_config_t</a></div><div class="ttdoc">Edgehog device configuration struct.</div><div class="ttdef"><b>Definition:</b> edgehog_device.h:73</div></div>
+<div class="ttc" id="astructedgehog__device__telemetry__config__t_html"><div class="ttname"><a href="structedgehog__device__telemetry__config__t.html">edgehog_device_telemetry_config_t</a></div><div class="ttdoc">Edgehog device configuration struct.</div><div class="ttdef"><b>Definition:</b> edgehog_device.h:58</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
