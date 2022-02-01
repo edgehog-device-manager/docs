@@ -8,6 +8,7 @@ var NAVTREEINDEX0 =
 "edgehog__cellular__connection_8h_source.html":[2,0,0,2],
 "edgehog__device_8h_source.html":[2,0,0,3],
 "edgehog__event_8h_source.html":[2,0,0,4],
+"edgehog__network__interface_8h_source.html":[2,0,0,5],
 "files.html":[2,0],
 "index.html":[],
 "index.html":[0],
