@@ -24,12 +24,6 @@
             <a href="#tag-Queries">Queries</a>
             <ul>
               <li>
-                <a href="#operation-appliancemodel-Queries"> applianceModel </a>
-              </li>
-              <li>
-                <a href="#operation-appliancemodels-Queries"> applianceModels </a>
-              </li>
-              <li>
                 <a href="#operation-device-Queries"> device </a>
               </li>
               <li>
@@ -45,6 +39,12 @@
                 <a href="#operation-node-Queries"> node </a>
               </li>
               <li>
+                <a href="#operation-systemmodel-Queries"> systemModel </a>
+              </li>
+              <li>
+                <a href="#operation-systemmodels-Queries"> systemModels </a>
+              </li>
+              <li>
                 <a href="#operation-tenantinfo-Queries"> tenantInfo </a>
               </li>
             </ul>
@@ -53,33 +53,33 @@
             <a href="#tag-Mutations">Mutations</a>
             <ul>
               <li>
-                <a href="#operation-createappliancemodel-Mutations"> createApplianceModel </a>
-              </li>
-              <li>
                 <a href="#operation-createhardwaretype-Mutations"> createHardwareType </a>
               </li>
               <li>
                 <a href="#operation-createmanualotaoperation-Mutations"> createManualOtaOperation </a>
               </li>
               <li>
-                <a href="#operation-updateappliancemodel-Mutations"> updateApplianceModel </a>
+                <a href="#operation-createsystemmodel-Mutations"> createSystemModel </a>
               </li>
               <li>
                 <a href="#operation-updatehardwaretype-Mutations"> updateHardwareType </a>
               </li>
+              <li>
+                <a href="#operation-updatesystemmodel-Mutations"> updateSystemModel </a>
+              </li>
             </ul>
           </section>
           <h5>Types</h5>
-          <a href="#definition-ApplianceModel"> ApplianceModel </a>
+          <a href="#definition-BaseImage"> BaseImage </a>
           <a href="#definition-BatterySlot"> BatterySlot </a>
           <a href="#definition-BatteryStatus"> BatteryStatus </a>
           <a href="#definition-Boolean"> Boolean </a>
-          <a href="#definition-CreateApplianceModelInput"> CreateApplianceModelInput </a>
-          <a href="#definition-CreateApplianceModelPayload"> CreateApplianceModelPayload </a>
           <a href="#definition-CreateHardwareTypeInput"> CreateHardwareTypeInput </a>
           <a href="#definition-CreateHardwareTypePayload"> CreateHardwareTypePayload </a>
           <a href="#definition-CreateManualOtaOperationInput"> CreateManualOtaOperationInput </a>
           <a href="#definition-CreateManualOtaOperationPayload"> CreateManualOtaOperationPayload </a>
+          <a href="#definition-CreateSystemModelInput"> CreateSystemModelInput </a>
+          <a href="#definition-CreateSystemModelPayload"> CreateSystemModelPayload </a>
           <a href="#definition-DateTime"> DateTime </a>
           <a href="#definition-Device"> Device </a>
           <a href="#definition-DeviceFilter"> DeviceFilter </a>
@@ -91,20 +91,23 @@
           <a href="#definition-Int"> Int </a>
           <a href="#definition-LocalizedText"> LocalizedText </a>
           <a href="#definition-LocalizedTextInput"> LocalizedTextInput </a>
+          <a href="#definition-Modem"> Modem </a>
+          <a href="#definition-ModemRegistrationStatus"> ModemRegistrationStatus </a>
+          <a href="#definition-ModemTechnology"> ModemTechnology </a>
           <a href="#definition-Node"> Node </a>
-          <a href="#definition-OsBundle"> OsBundle </a>
           <a href="#definition-OsInfo"> OsInfo </a>
           <a href="#definition-OtaOperation"> OtaOperation </a>
           <a href="#definition-OtaOperationStatus"> OtaOperationStatus </a>
           <a href="#definition-OtaOperationStatusCode"> OtaOperationStatusCode </a>
           <a href="#definition-StorageUnit"> StorageUnit </a>
           <a href="#definition-String"> String </a>
+          <a href="#definition-SystemModel"> SystemModel </a>
           <a href="#definition-SystemStatus"> SystemStatus </a>
           <a href="#definition-TenantInfo"> TenantInfo </a>
-          <a href="#definition-UpdateApplianceModelInput"> UpdateApplianceModelInput </a>
-          <a href="#definition-UpdateApplianceModelPayload"> UpdateApplianceModelPayload </a>
           <a href="#definition-UpdateHardwareTypeInput"> UpdateHardwareTypeInput </a>
           <a href="#definition-UpdateHardwareTypePayload"> UpdateHardwareTypePayload </a>
+          <a href="#definition-UpdateSystemModelInput"> UpdateSystemModelInput </a>
+          <a href="#definition-UpdateSystemModelPayload"> UpdateSystemModelPayload </a>
           <a href="#definition-Upload"> Upload </a>
           <a href="#definition-WifiScanResult"> WifiScanResult </a>
         </nav>
@@ -135,178 +138,7 @@ http://localhost:4000/api
             </div>
           </div>
           <h1 id="tag-Queries" class="swagger-summary-tag tag-name" data-traverse-target="tag-Queries">Queries</h1>
-          <div id="operation-appliancemodel-Queries" class="operation panel" data-traverse-target="operation-appliancemodel-Queries">
-            <h2 class="operation-name "> <code>applianceModel</code> </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="swagger-operation-description operation-description"> Fetches a single appliance model. </section>
-              </div>
-            </div>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="swagger-request-body"> </section>
-                <section class="swagger-responses"> Returns an
-                  <a href="#definition-ApplianceModel"><code>ApplianceModel</code></a>
-                </section>
-                <br>
-                <section class="swagger-request-params">
-                  <table>
-                    <tr>
-                      <th>Name</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td><code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> The ID of the appliance model. </td>
-                    </tr>
-                  </table>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h4>Example</h4>
-                  <h5>Query</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> applianceModel<span class="hljs-tag">(<span class="hljs-code">$id</span>: ID!)</span> <span class="hljs-tag">{
-  <span class="hljs-symbol">applianceModel<span class="hljs-tag">(id: <span class="hljs-code">$id</span>)</span> <span class="hljs-tag">{
-    <span class="hljs-symbol">id</span>
-    <span class="hljs-symbol">name</span>
-    <span class="hljs-symbol">handle</span>
-    <span class="hljs-symbol">pictureUrl</span>
-    <span class="hljs-symbol">hardwareType <span class="hljs-tag">{
-      <span class="hljs-type">...HardwareTypeFragment</span>
-    }</span></span>
-    <span class="hljs-symbol">partNumbers</span>
-    <span class="hljs-symbol">description <span class="hljs-tag">{
-      <span class="hljs-type">...LocalizedTextFragment</span>
-    }</span></span>
-  }</span></span>
-}</span></span>
-</code></pre> </body>
-                  </html>
-                  <h5>Variables</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-            <div class="doc-row">
-              <div class="doc-copy"> </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Response </h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"data"</span>: {
-    <span class="hljs-attr">"applianceModel"</span>: {
-      <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
-      <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"hardwareType"</span>: <span class="hljs-string">HardwareType</span>,
-      <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>],
-      <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedText</span>
-    }
-  }
-}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="operation-appliancemodels-Queries" class="operation panel" data-traverse-target="operation-appliancemodels-Queries">
-            <!-- <section class="operation-tags row"> -->
-            <!-- <div class="doc-copy"> -->
-            <div class="operation-tags">
-              <a class="label" href="#tag-Queries">Queries</a>
-              <!---->
-            </div>
-            <!-- </div> -->
-            <!-- </section> -->
-            <h2 class="operation-name "> <code>applianceModels</code> </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="swagger-operation-description operation-description"> Fetches the list of all appliance models. </section>
-              </div>
-            </div>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="swagger-request-body"> </section>
-                <section class="swagger-responses"> Returns
-                  <a href="#definition-ApplianceModel"><code>[ApplianceModel!]!</code></a>
-                </section>
-                <br> </div>
-              <div class="doc-examples">
-                <section>
-                  <h4>Example</h4>
-                  <h5>Query</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> applianceModels <span class="hljs-tag">{
-  <span class="hljs-symbol">applianceModels <span class="hljs-tag">{
-    <span class="hljs-symbol">id</span>
-    <span class="hljs-symbol">name</span>
-    <span class="hljs-symbol">handle</span>
-    <span class="hljs-symbol">pictureUrl</span>
-    <span class="hljs-symbol">hardwareType <span class="hljs-tag">{
-      <span class="hljs-type">...HardwareTypeFragment</span>
-    }</span></span>
-    <span class="hljs-symbol">partNumbers</span>
-    <span class="hljs-symbol">description <span class="hljs-tag">{
-      <span class="hljs-type">...LocalizedTextFragment</span>
-    }</span></span>
-  }</span></span>
-}</span></span>
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-            <div class="doc-row">
-              <div class="doc-copy"> </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Response </h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"data"</span>: {
-    <span class="hljs-attr">"applianceModels"</span>: [
-      {
-        <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-        <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
-        <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"abc123"</span>,
-        <span class="hljs-attr">"hardwareType"</span>: <span class="hljs-string">HardwareType</span>,
-        <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>],
-        <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedText</span>
-      }
-    ]
-  }
-}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
           <div id="operation-device-Queries" class="operation panel" data-traverse-target="operation-device-Queries">
-            <!-- <section class="operation-tags row"> -->
-            <!-- <div class="doc-copy"> -->
-            <div class="operation-tags">
-              <a class="label" href="#tag-Queries">Queries</a>
-              <!---->
-            </div>
-            <!-- </div> -->
-            <!-- </section> -->
             <h2 class="operation-name "> <code>device</code> </h2>
             <div class="doc-row">
               <div class="doc-copy">
@@ -349,8 +181,8 @@ http://localhost:4000/api
     <span class="hljs-symbol">online</span>
     <span class="hljs-symbol">lastConnection</span>
     <span class="hljs-symbol">lastDisconnection</span>
-    <span class="hljs-symbol">applianceModel <span class="hljs-tag">{
-      <span class="hljs-type">...ApplianceModelFragment</span>
+    <span class="hljs-symbol">systemModel <span class="hljs-tag">{
+      <span class="hljs-type">...SystemModelFragment</span>
     }</span></span>
     <span class="hljs-symbol">hardwareInfo <span class="hljs-tag">{
       <span class="hljs-type">...HardwareInfoFragment</span>
@@ -370,14 +202,17 @@ http://localhost:4000/api
     <span class="hljs-symbol">batteryStatus <span class="hljs-tag">{
       <span class="hljs-type">...BatterySlotFragment</span>
     }</span></span>
-    <span class="hljs-symbol">osBundle <span class="hljs-tag">{
-      <span class="hljs-type">...OsBundleFragment</span>
+    <span class="hljs-symbol">baseImage <span class="hljs-tag">{
+      <span class="hljs-type">...BaseImageFragment</span>
     }</span></span>
     <span class="hljs-symbol">osInfo <span class="hljs-tag">{
       <span class="hljs-type">...OsInfoFragment</span>
     }</span></span>
     <span class="hljs-symbol">otaOperations <span class="hljs-tag">{
       <span class="hljs-type">...OtaOperationFragment</span>
+    }</span></span>
+    <span class="hljs-symbol">cellularConnection <span class="hljs-tag">{
+      <span class="hljs-type">...ModemFragment</span>
     }</span></span>
   }</span></span>
 }</span></span>
@@ -403,21 +238,22 @@ http://localhost:4000/api
   <span class="hljs-attr">"data"</span>: {
     <span class="hljs-attr">"device"</span>: {
       <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"deviceId"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"online"</span>: <span class="hljs-literal">false</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
+      <span class="hljs-attr">"deviceId"</span>: <span class="hljs-string">"xyz789"</span>,
+      <span class="hljs-attr">"online"</span>: <span class="hljs-literal">true</span>,
       <span class="hljs-attr">"lastConnection"</span>: <span class="hljs-string">DateTime</span>,
       <span class="hljs-attr">"lastDisconnection"</span>: <span class="hljs-string">DateTime</span>,
-      <span class="hljs-attr">"applianceModel"</span>: <span class="hljs-string">ApplianceModel</span>,
+      <span class="hljs-attr">"systemModel"</span>: <span class="hljs-string">SystemModel</span>,
       <span class="hljs-attr">"hardwareInfo"</span>: <span class="hljs-string">HardwareInfo</span>,
       <span class="hljs-attr">"location"</span>: <span class="hljs-string">DeviceLocation</span>,
       <span class="hljs-attr">"storageUsage"</span>: [<span class="hljs-string">StorageUnit</span>],
       <span class="hljs-attr">"systemStatus"</span>: <span class="hljs-string">SystemStatus</span>,
       <span class="hljs-attr">"wifiScanResults"</span>: [<span class="hljs-string">WifiScanResult</span>],
       <span class="hljs-attr">"batteryStatus"</span>: [<span class="hljs-string">BatterySlot</span>],
-      <span class="hljs-attr">"osBundle"</span>: <span class="hljs-string">OsBundle</span>,
+      <span class="hljs-attr">"baseImage"</span>: <span class="hljs-string">BaseImage</span>,
       <span class="hljs-attr">"osInfo"</span>: <span class="hljs-string">OsInfo</span>,
-      <span class="hljs-attr">"otaOperations"</span>: [<span class="hljs-string">OtaOperation</span>]
+      <span class="hljs-attr">"otaOperations"</span>: [<span class="hljs-string">OtaOperation</span>],
+      <span class="hljs-attr">"cellularConnection"</span>: [<span class="hljs-string">Modem</span>]
     }
   }
 }
@@ -478,8 +314,8 @@ http://localhost:4000/api
     <span class="hljs-symbol">online</span>
     <span class="hljs-symbol">lastConnection</span>
     <span class="hljs-symbol">lastDisconnection</span>
-    <span class="hljs-symbol">applianceModel <span class="hljs-tag">{
-      <span class="hljs-type">...ApplianceModelFragment</span>
+    <span class="hljs-symbol">systemModel <span class="hljs-tag">{
+      <span class="hljs-type">...SystemModelFragment</span>
     }</span></span>
     <span class="hljs-symbol">hardwareInfo <span class="hljs-tag">{
       <span class="hljs-type">...HardwareInfoFragment</span>
@@ -499,14 +335,17 @@ http://localhost:4000/api
     <span class="hljs-symbol">batteryStatus <span class="hljs-tag">{
       <span class="hljs-type">...BatterySlotFragment</span>
     }</span></span>
-    <span class="hljs-symbol">osBundle <span class="hljs-tag">{
-      <span class="hljs-type">...OsBundleFragment</span>
+    <span class="hljs-symbol">baseImage <span class="hljs-tag">{
+      <span class="hljs-type">...BaseImageFragment</span>
     }</span></span>
     <span class="hljs-symbol">osInfo <span class="hljs-tag">{
       <span class="hljs-type">...OsInfoFragment</span>
     }</span></span>
     <span class="hljs-symbol">otaOperations <span class="hljs-tag">{
       <span class="hljs-type">...OtaOperationFragment</span>
+    }</span></span>
+    <span class="hljs-symbol">cellularConnection <span class="hljs-tag">{
+      <span class="hljs-type">...ModemFragment</span>
     }</span></span>
   }</span></span>
 }
@@ -538,16 +377,17 @@ http://localhost:4000/api
         <span class="hljs-attr">"online"</span>: <span class="hljs-literal">false</span>,
         <span class="hljs-attr">"lastConnection"</span>: <span class="hljs-string">DateTime</span>,
         <span class="hljs-attr">"lastDisconnection"</span>: <span class="hljs-string">DateTime</span>,
-        <span class="hljs-attr">"applianceModel"</span>: <span class="hljs-string">ApplianceModel</span>,
+        <span class="hljs-attr">"systemModel"</span>: <span class="hljs-string">SystemModel</span>,
         <span class="hljs-attr">"hardwareInfo"</span>: <span class="hljs-string">HardwareInfo</span>,
         <span class="hljs-attr">"location"</span>: <span class="hljs-string">DeviceLocation</span>,
         <span class="hljs-attr">"storageUsage"</span>: [<span class="hljs-string">StorageUnit</span>],
         <span class="hljs-attr">"systemStatus"</span>: <span class="hljs-string">SystemStatus</span>,
         <span class="hljs-attr">"wifiScanResults"</span>: [<span class="hljs-string">WifiScanResult</span>],
         <span class="hljs-attr">"batteryStatus"</span>: [<span class="hljs-string">BatterySlot</span>],
-        <span class="hljs-attr">"osBundle"</span>: <span class="hljs-string">OsBundle</span>,
+        <span class="hljs-attr">"baseImage"</span>: <span class="hljs-string">BaseImage</span>,
         <span class="hljs-attr">"osInfo"</span>: <span class="hljs-string">OsInfo</span>,
-        <span class="hljs-attr">"otaOperations"</span>: [<span class="hljs-string">OtaOperation</span>]
+        <span class="hljs-attr">"otaOperations"</span>: [<span class="hljs-string">OtaOperation</span>],
+        <span class="hljs-attr">"cellularConnection"</span>: [<span class="hljs-string">Modem</span>]
       }
     ]
   }
@@ -632,7 +472,7 @@ http://localhost:4000/api
     <span class="hljs-attr">"hardwareType"</span>: {
       <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-      <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
+      <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
       <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>]
     }
   }
@@ -696,9 +536,9 @@ http://localhost:4000/api
     <span class="hljs-attr">"hardwareTypes"</span>: [
       {
         <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-        <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
-        <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>]
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
+        <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
+        <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>]
       }
     ]
   }
@@ -777,6 +617,177 @@ http://localhost:4000/api
               </div>
             </div>
           </div>
+          <div id="operation-systemmodel-Queries" class="operation panel" data-traverse-target="operation-systemmodel-Queries">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Queries">Queries</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-name "> <code>systemModel</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description operation-description"> Fetches a single system model. </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns a
+                  <a href="#definition-SystemModel"><code>SystemModel</code></a>
+                </section>
+                <br>
+                <section class="swagger-request-params">
+                  <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>id</code> -
+                        <a href="#definition-ID"><code>ID!</code></a>
+                      </td>
+                      <td> The ID of the system model. </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> systemModel<span class="hljs-tag">(<span class="hljs-code">$id</span>: ID!)</span> <span class="hljs-tag">{
+  <span class="hljs-symbol">systemModel<span class="hljs-tag">(id: <span class="hljs-code">$id</span>)</span> <span class="hljs-tag">{
+    <span class="hljs-symbol">id</span>
+    <span class="hljs-symbol">name</span>
+    <span class="hljs-symbol">handle</span>
+    <span class="hljs-symbol">pictureUrl</span>
+    <span class="hljs-symbol">hardwareType <span class="hljs-tag">{
+      <span class="hljs-type">...HardwareTypeFragment</span>
+    }</span></span>
+    <span class="hljs-symbol">partNumbers</span>
+    <span class="hljs-symbol">description <span class="hljs-tag">{
+      <span class="hljs-type">...LocalizedTextFragment</span>
+    }</span></span>
+  }</span></span>
+}</span></span>
+</code></pre> </body>
+                  </html>
+                  <h5>Variables</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"systemModel"</span>: {
+      <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
+      <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
+      <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"xyz789"</span>,
+      <span class="hljs-attr">"hardwareType"</span>: <span class="hljs-string">HardwareType</span>,
+      <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>],
+      <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedText</span>
+    }
+  }
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="operation-systemmodels-Queries" class="operation panel" data-traverse-target="operation-systemmodels-Queries">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Queries">Queries</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-name "> <code>systemModels</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description operation-description"> Fetches the list of all system models. </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns
+                  <a href="#definition-SystemModel"><code>[SystemModel!]!</code></a>
+                </section>
+                <br> </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">query</span> systemModels <span class="hljs-tag">{
+  <span class="hljs-symbol">systemModels <span class="hljs-tag">{
+    <span class="hljs-symbol">id</span>
+    <span class="hljs-symbol">name</span>
+    <span class="hljs-symbol">handle</span>
+    <span class="hljs-symbol">pictureUrl</span>
+    <span class="hljs-symbol">hardwareType <span class="hljs-tag">{
+      <span class="hljs-type">...HardwareTypeFragment</span>
+    }</span></span>
+    <span class="hljs-symbol">partNumbers</span>
+    <span class="hljs-symbol">description <span class="hljs-tag">{
+      <span class="hljs-type">...LocalizedTextFragment</span>
+    }</span></span>
+  }</span></span>
+}</span></span>
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"systemModels"</span>: [
+      {
+        <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
+        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
+        <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
+        <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"abc123"</span>,
+        <span class="hljs-attr">"hardwareType"</span>: <span class="hljs-string">HardwareType</span>,
+        <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>],
+        <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedText</span>
+      }
+    ]
+  }
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
           <div id="operation-tenantinfo-Queries" class="operation panel" data-traverse-target="operation-tenantinfo-Queries">
             <!-- <section class="operation-tags row"> -->
             <!-- <div class="doc-copy"> -->
@@ -828,7 +839,7 @@ http://localhost:4000/api
   <span class="hljs-attr">"data"</span>: {
     <span class="hljs-attr">"tenantInfo"</span>: {
       <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-      <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"xyz789"</span>,
+      <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"abc123"</span>,
       <span class="hljs-attr">"defaultLocale"</span>: <span class="hljs-string">"abc123"</span>
     }
   }
@@ -840,88 +851,7 @@ http://localhost:4000/api
             </div>
           </div>
           <h1 id="tag-Mutations" class="swagger-summary-tag tag-name" data-traverse-target="tag-Mutations">Mutations</h1>
-          <div id="operation-createappliancemodel-Mutations" class="operation panel" data-traverse-target="operation-createappliancemodel-Mutations">
-            <h2 class="operation-name "> <code>createApplianceModel</code> </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="swagger-operation-description operation-description"> Creates a new appliance model. </section>
-              </div>
-            </div>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="swagger-request-body"> </section>
-                <section class="swagger-responses"> Returns a
-                  <a href="#definition-CreateApplianceModelPayload"><code>CreateApplianceModelPayload</code></a>
-                </section>
-                <br>
-                <section class="swagger-request-params">
-                  <table>
-                    <tr>
-                      <th>Name</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td><code>input</code> -
-                        <a href="#definition-CreateApplianceModelInput"><code>CreateApplianceModelInput!</code></a>
-                      </td>
-                      <td> </td>
-                    </tr>
-                  </table>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h4>Example</h4>
-                  <h5>Query</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> createApplianceModel<span class="hljs-tag">(<span class="hljs-code">$input</span>:<span class="hljs-type"> CreateApplianceModelInput!</span>)</span> <span class="hljs-tag">{
-  <span class="hljs-symbol">createApplianceModel<span class="hljs-tag">(input: <span class="hljs-code">$input</span>)</span> <span class="hljs-tag">{
-    <span class="hljs-symbol">applianceModel <span class="hljs-tag">{
-      <span class="hljs-type">...ApplianceModelFragment</span>
-    }</span></span>
-  }</span></span>
-}</span></span>
-</code></pre> </body>
-                  </html>
-                  <h5>Variables</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"input"</span>: <span class="hljs-string">CreateApplianceModelInput</span>}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-            <div class="doc-row">
-              <div class="doc-copy"> </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Response </h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"data"</span>: {
-    <span class="hljs-attr">"createApplianceModel"</span>: {
-      <span class="hljs-attr">"applianceModel"</span>: <span class="hljs-string">ApplianceModel</span>
-    }
-  }
-}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
           <div id="operation-createhardwaretype-Mutations" class="operation panel" data-traverse-target="operation-createhardwaretype-Mutations">
-            <!-- <section class="operation-tags row"> -->
-            <!-- <div class="doc-copy"> -->
-            <div class="operation-tags">
-              <a class="label" href="#tag-Mutations">Mutations</a>
-              <!---->
-            </div>
-            <!-- </div> -->
-            <!-- </section> -->
             <h2 class="operation-name "> <code>createHardwareType</code> </h2>
             <div class="doc-row">
               <div class="doc-copy">
@@ -1073,7 +1003,7 @@ http://localhost:4000/api
               </div>
             </div>
           </div>
-          <div id="operation-updateappliancemodel-Mutations" class="operation panel" data-traverse-target="operation-updateappliancemodel-Mutations">
+          <div id="operation-createsystemmodel-Mutations" class="operation panel" data-traverse-target="operation-createsystemmodel-Mutations">
             <!-- <section class="operation-tags row"> -->
             <!-- <div class="doc-copy"> -->
             <div class="operation-tags">
@@ -1082,17 +1012,17 @@ http://localhost:4000/api
             </div>
             <!-- </div> -->
             <!-- </section> -->
-            <h2 class="operation-name "> <code>updateApplianceModel</code> </h2>
+            <h2 class="operation-name "> <code>createSystemModel</code> </h2>
             <div class="doc-row">
               <div class="doc-copy">
-                <section class="swagger-operation-description operation-description"> Updates an appliance model. </section>
+                <section class="swagger-operation-description operation-description"> Creates a new system model. </section>
               </div>
             </div>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="swagger-request-body"> </section>
-                <section class="swagger-responses"> Returns an
-                  <a href="#definition-UpdateApplianceModelPayload"><code>UpdateApplianceModelPayload</code></a>
+                <section class="swagger-responses"> Returns a
+                  <a href="#definition-CreateSystemModelPayload"><code>CreateSystemModelPayload</code></a>
                 </section>
                 <br>
                 <section class="swagger-request-params">
@@ -1103,7 +1033,7 @@ http://localhost:4000/api
                     </tr>
                     <tr>
                       <td><code>input</code> -
-                        <a href="#definition-UpdateApplianceModelInput"><code>UpdateApplianceModelInput!</code></a>
+                        <a href="#definition-CreateSystemModelInput"><code>CreateSystemModelInput!</code></a>
                       </td>
                       <td> </td>
                     </tr>
@@ -1116,10 +1046,10 @@ http://localhost:4000/api
                   <h5>Query</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updateApplianceModel<span class="hljs-tag">(<span class="hljs-code">$input</span>:<span class="hljs-type"> UpdateApplianceModelInput!</span>)</span> <span class="hljs-tag">{
-  <span class="hljs-symbol">updateApplianceModel<span class="hljs-tag">(input: <span class="hljs-code">$input</span>)</span> <span class="hljs-tag">{
-    <span class="hljs-symbol">applianceModel <span class="hljs-tag">{
-      <span class="hljs-type">...ApplianceModelFragment</span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> createSystemModel<span class="hljs-tag">(<span class="hljs-code">$input</span>:<span class="hljs-type"> CreateSystemModelInput!</span>)</span> <span class="hljs-tag">{
+  <span class="hljs-symbol">createSystemModel<span class="hljs-tag">(input: <span class="hljs-code">$input</span>)</span> <span class="hljs-tag">{
+    <span class="hljs-symbol">systemModel <span class="hljs-tag">{
+      <span class="hljs-type">...SystemModelFragment</span>
     }</span></span>
   }</span></span>
 }</span></span>
@@ -1128,7 +1058,7 @@ http://localhost:4000/api
                   <h5>Variables</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"input"</span>: <span class="hljs-string">UpdateApplianceModelInput</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"input"</span>: <span class="hljs-string">CreateSystemModelInput</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1143,9 +1073,7 @@ http://localhost:4000/api
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"data"</span>: {
-    <span class="hljs-attr">"updateApplianceModel"</span>: {
-      <span class="hljs-attr">"applianceModel"</span>: <span class="hljs-string">ApplianceModel</span>
-    }
+    <span class="hljs-attr">"createSystemModel"</span>: {<span class="hljs-attr">"systemModel"</span>: <span class="hljs-string">SystemModel</span>}
   }
 }
 </code></pre> </body>
@@ -1233,18 +1161,96 @@ http://localhost:4000/api
               </div>
             </div>
           </div>
+          <div id="operation-updatesystemmodel-Mutations" class="operation panel" data-traverse-target="operation-updatesystemmodel-Mutations">
+            <!-- <section class="operation-tags row"> -->
+            <!-- <div class="doc-copy"> -->
+            <div class="operation-tags">
+              <a class="label" href="#tag-Mutations">Mutations</a>
+              <!---->
+            </div>
+            <!-- </div> -->
+            <!-- </section> -->
+            <h2 class="operation-name "> <code>updateSystemModel</code> </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-operation-description operation-description"> Updates a system model. </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="swagger-request-body"> </section>
+                <section class="swagger-responses"> Returns an
+                  <a href="#definition-UpdateSystemModelPayload"><code>UpdateSystemModelPayload</code></a>
+                </section>
+                <br>
+                <section class="swagger-request-params">
+                  <table>
+                    <tr>
+                      <th>Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>input</code> -
+                        <a href="#definition-UpdateSystemModelInput"><code>UpdateSystemModelInput!</code></a>
+                      </td>
+                      <td> </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h4>Example</h4>
+                  <h5>Query</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-keyword">mutation</span> updateSystemModel<span class="hljs-tag">(<span class="hljs-code">$input</span>:<span class="hljs-type"> UpdateSystemModelInput!</span>)</span> <span class="hljs-tag">{
+  <span class="hljs-symbol">updateSystemModel<span class="hljs-tag">(input: <span class="hljs-code">$input</span>)</span> <span class="hljs-tag">{
+    <span class="hljs-symbol">systemModel <span class="hljs-tag">{
+      <span class="hljs-type">...SystemModelFragment</span>
+    }</span></span>
+  }</span></span>
+}</span></span>
+</code></pre> </body>
+                  </html>
+                  <h5>Variables</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"input"</span>: <span class="hljs-string">UpdateSystemModelInput</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+            <div class="doc-row">
+              <div class="doc-copy"> </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Response </h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"data"</span>: {
+    <span class="hljs-attr">"updateSystemModel"</span>: {<span class="hljs-attr">"systemModel"</span>: <span class="hljs-string">SystemModel</span>}
+  }
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
           <span id="tag-types"></span>
           <h1>Types</h1>
-          <div id="definition-ApplianceModel" class="definition panel" data-traverse-target="definition-ApplianceModel">
+          <div id="definition-BaseImage" class="definition panel" data-traverse-target="definition-BaseImage">
             <h2 class="panel-title">
-              <a name="/definitions/ApplianceModel"></a>
-              <p><code>ApplianceModel</code></p>
+              <a name="/definitions/BaseImage"></a>
+              <p><code>BaseImage</code></p>
             </h2>
             <div class="doc-row">
               <div class="doc-copy">
                 <section class="json-schema-description">
-                  <p>Represents a specific appliance model.</p>
-                  <p>An appliance model corresponds to what the users thinks as functionally equivalent appliances (e.g. two revisions of an appliance containing two different embedded chips but that have the same enclosure and the same functionality). Each ApplianceModel must be associated to a specific HardwareType.</p>
+                  <p>Describes an operating system&#39;s base image for a device.</p>
                 </section>
                 <section class="json-schema-properties-blank">
                   <table>
@@ -1253,46 +1259,28 @@ http://localhost:4000/api
                       <th>Description</th>
                     </tr>
                     <tr>
-                      <td data-property-name="id"> <code>id</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td> The ID of an object </td>
-                    </tr>
-                    <tr>
                       <td data-property-name="name"> <code>name</code> -
-                        <a href="#definition-String"><code>String!</code></a>
-                      </td>
-                      <td> The display name of the appliance model. </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="handle"> <code>handle</code> -
-                        <a href="#definition-String"><code>String!</code></a>
-                      </td>
-                      <td> The identifier of the appliance model. </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="pictureUrl"> <code>pictureUrl</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> The URL of the related picture. </td>
+                      <td> The name of the image. </td>
                     </tr>
                     <tr>
-                      <td data-property-name="hardwareType"> <code>hardwareType</code> -
-                        <a href="#definition-HardwareType"><code>HardwareType!</code></a>
+                      <td data-property-name="version"> <code>version</code> -
+                        <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> The type of hardware that can be plugged into the appliance model. </td>
+                      <td> The version of the image. </td>
                     </tr>
                     <tr>
-                      <td data-property-name="partNumbers"> <code>partNumbers</code> -
-                        <a href="#definition-String"><code>[String!]!</code></a>
+                      <td data-property-name="buildId"> <code>buildId</code> -
+                        <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> The list of part numbers associated with the appliance model. </td>
+                      <td> Human readable build identifier of the image. </td>
                     </tr>
                     <tr>
-                      <td data-property-name="description"> <code>description</code> -
-                        <a href="#definition-LocalizedText"><code>LocalizedText</code></a>
+                      <td data-property-name="fingerprint"> <code>fingerprint</code> -
+                        <a href="#definition-String"><code>String</code></a>
                       </td>
-                      <td> A localized description of the appliance model. The language of the description can be controlled passing an Accept-Language header in the request. If no such header is present, the default tenant language is returned. </td>
+                      <td> A unique string that identifies the release, usually the image hash. </td>
                     </tr>
                   </table>
                 </section>
@@ -1303,13 +1291,10 @@ http://localhost:4000/api
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"hardwareType"</span>: <span class="hljs-string">HardwareType</span>,
-  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>],
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedText</span>
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"buildId"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"fingerprint"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -1369,9 +1354,9 @@ http://localhost:4000/api
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"slot"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"levelPercentage"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"levelAbsoluteError"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"slot"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"levelPercentage"</span>: <span class="hljs-number">123.45</span>,
+  <span class="hljs-attr">"levelAbsoluteError"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"status"</span>: <span class="hljs-string">BatteryStatus</span>
 }
 </code></pre> </body>
@@ -1465,142 +1450,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-literal">false</span></span>
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-CreateApplianceModelInput" class="definition panel" data-traverse-target="definition-CreateApplianceModelInput">
-            <div class="definition-tags">
-              <a class="label" href="#tag-types">Types</a>
-            </div>
-            <h2 class="panel-title">
-              <a name="/definitions/CreateApplianceModelInput"></a>
-              <p><code>CreateApplianceModelInput</code></p>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-properties-blank">
-                  <table>
-                    <tr>
-                      <th>Input Field</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td><code>name</code> -
-                        <a href="#definition-String"><code>String!</code></a>
-                      </td>
-                      <td>
-                        <p>The display name of the appliance model.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>handle</code> -
-                        <a href="#definition-String"><code>String!</code></a>
-                      </td>
-                      <td>
-                        <p>The identifier of the appliance model.</p>
-                        <p>It should start with a lower case ASCII letter and only contain lower case ASCII letters, digits and the hyphen - symbol.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>pictureFile</code> -
-                        <a href="#definition-Upload"><code>Upload</code></a>
-                      </td>
-                      <td>
-                        <p>The file blob of a related picture.</p>
-                        <p>When this field is specified, the pictureUrl field is ignored.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>pictureUrl</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td>
-                        <p>The file URL of a related picture.</p>
-                        <p>Specifying a null value will remove the existing picture. When the pictureFile field is specified, this field is ignored.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>partNumbers</code> -
-                        <a href="#definition-String"><code>[String!]!</code></a>
-                      </td>
-                      <td>
-                        <p>The list of part numbers associated with the appliance model.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>hardwareTypeId</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td>
-                        <p>The ID of the hardware type that can be plugged into the appliance model.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>description</code> -
-                        <a href="#definition-LocalizedTextInput"><code>LocalizedTextInput</code></a>
-                      </td>
-                      <td>
-                        <p>An optional localized description. This description can only use the default tenant locale.</p>
-                      </td>
-                    </tr>
-                  </table>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"pictureFile"</span>: <span class="hljs-string">Upload</span>,
-  <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>],
-  <span class="hljs-attr">"hardwareTypeId"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedTextInput</span>
-}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-CreateApplianceModelPayload" class="definition panel" data-traverse-target="definition-CreateApplianceModelPayload">
-            <div class="definition-tags">
-              <a class="label" href="#tag-types">Types</a>
-            </div>
-            <h2 class="panel-title">
-              <a name="/definitions/CreateApplianceModelPayload"></a>
-              <p><code>CreateApplianceModelPayload</code></p>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-properties-blank">
-                  <table>
-                    <tr>
-                      <th>Field Name</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td data-property-name="applianceModel"> <code>applianceModel</code> -
-                        <a href="#definition-ApplianceModel"><code>ApplianceModel!</code></a>
-                      </td>
-                      <td> The created appliance model. </td>
-                    </tr>
-                  </table>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"applianceModel"</span>: <span class="hljs-string">ApplianceModel</span>}
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol"><span class="hljs-literal">true</span></span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -1656,7 +1506,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>]}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>]}
 </code></pre> </body>
                   </html>
                 </section>
@@ -1787,6 +1637,141 @@ http://localhost:4000/api
               </div>
             </div>
           </div>
+          <div id="definition-CreateSystemModelInput" class="definition panel" data-traverse-target="definition-CreateSystemModelInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/CreateSystemModelInput"></a>
+              <p><code>CreateSystemModelInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>name</code> -
+                        <a href="#definition-String"><code>String!</code></a>
+                      </td>
+                      <td>
+                        <p>The display name of the system model.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>handle</code> -
+                        <a href="#definition-String"><code>String!</code></a>
+                      </td>
+                      <td>
+                        <p>The identifier of the system model.</p>
+                        <p>It should start with a lower case ASCII letter and only contain lower case ASCII letters, digits and the hyphen - symbol.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>pictureFile</code> -
+                        <a href="#definition-Upload"><code>Upload</code></a>
+                      </td>
+                      <td>
+                        <p>The file blob of a related picture.</p>
+                        <p>When this field is specified, the pictureUrl field is ignored.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>pictureUrl</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>The file URL of a related picture.</p>
+                        <p>Specifying a null value will remove the existing picture. When the pictureFile field is specified, this field is ignored.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>partNumbers</code> -
+                        <a href="#definition-String"><code>[String!]!</code></a>
+                      </td>
+                      <td>
+                        <p>The list of part numbers associated with the system model.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>hardwareTypeId</code> -
+                        <a href="#definition-ID"><code>ID!</code></a>
+                      </td>
+                      <td>
+                        <p>The ID of the hardware type that can be used by devices of this model.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code> -
+                        <a href="#definition-LocalizedTextInput"><code>LocalizedTextInput</code></a>
+                      </td>
+                      <td>
+                        <p>An optional localized description. This description can only use the default tenant locale.</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"pictureFile"</span>: <span class="hljs-string">Upload</span>,
+  <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>],
+  <span class="hljs-attr">"hardwareTypeId"</span>: <span class="hljs-string">ID</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedTextInput</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-CreateSystemModelPayload" class="definition panel" data-traverse-target="definition-CreateSystemModelPayload">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/CreateSystemModelPayload"></a>
+              <p><code>CreateSystemModelPayload</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="systemModel"> <code>systemModel</code> -
+                        <a href="#definition-SystemModel"><code>SystemModel!</code></a>
+                      </td>
+                      <td> The created system model. </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"systemModel"</span>: <span class="hljs-string">SystemModel</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
           <div id="definition-DateTime" class="definition panel" data-traverse-target="definition-DateTime">
             <div class="definition-tags">
               <a class="label" href="#tag-types">Types</a>
@@ -1825,7 +1810,7 @@ http://localhost:4000/api
               <div class="doc-copy">
                 <section class="json-schema-description">
                   <p>Denotes a device instance that connects and exchanges data.</p>
-                  <p>Each Device is associated to a specific ApplianceModel, which in turn is associated to a specific HardwareType. A Device also exposes info about its connection status and some sets of data read by its operating system.</p>
+                  <p>Each Device is associated to a specific SystemModel, which in turn is associated to a specific HardwareType. A Device also exposes info about its connection status and some sets of data read by its operating system.</p>
                 </section>
                 <section class="json-schema-properties-blank">
                   <table>
@@ -1870,10 +1855,10 @@ http://localhost:4000/api
                       <td> The date at which the device last disconnected from Astarte. </td>
                     </tr>
                     <tr>
-                      <td data-property-name="applianceModel"> <code>applianceModel</code> -
-                        <a href="#definition-ApplianceModel"><code>ApplianceModel</code></a>
+                      <td data-property-name="systemModel"> <code>systemModel</code> -
+                        <a href="#definition-SystemModel"><code>SystemModel</code></a>
                       </td>
-                      <td> The appliance model of the device. </td>
+                      <td> The system model of the device. </td>
                     </tr>
                     <tr>
                       <td data-property-name="hardwareInfo"> <code>hardwareInfo</code> -
@@ -1912,10 +1897,10 @@ http://localhost:4000/api
                       <td> The status of the battery slots of the device. </td>
                     </tr>
                     <tr>
-                      <td data-property-name="osBundle"> <code>osBundle</code> -
-                        <a href="#definition-OsBundle"><code>OsBundle</code></a>
+                      <td data-property-name="baseImage"> <code>baseImage</code> -
+                        <a href="#definition-BaseImage"><code>BaseImage</code></a>
                       </td>
-                      <td> Information about the operating system bundle of the device. </td>
+                      <td> Information about the operating system's base image for the device. </td>
                     </tr>
                     <tr>
                       <td data-property-name="osInfo"> <code>osInfo</code> -
@@ -1929,6 +1914,12 @@ http://localhost:4000/api
                       </td>
                       <td> The existing OTA operations for this device </td>
                     </tr>
+                    <tr>
+                      <td data-property-name="cellularConnection"> <code>cellularConnection</code> -
+                        <a href="#definition-Modem"><code>[Modem!]</code></a>
+                      </td>
+                      <td> The status of cellular connection of the device. </td>
+                    </tr>
                   </table>
                 </section>
               </div>
@@ -1939,21 +1930,22 @@ http://localhost:4000/api
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"deviceId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"deviceId"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"online"</span>: <span class="hljs-literal">false</span>,
   <span class="hljs-attr">"lastConnection"</span>: <span class="hljs-string">DateTime</span>,
   <span class="hljs-attr">"lastDisconnection"</span>: <span class="hljs-string">DateTime</span>,
-  <span class="hljs-attr">"applianceModel"</span>: <span class="hljs-string">ApplianceModel</span>,
+  <span class="hljs-attr">"systemModel"</span>: <span class="hljs-string">SystemModel</span>,
   <span class="hljs-attr">"hardwareInfo"</span>: <span class="hljs-string">HardwareInfo</span>,
   <span class="hljs-attr">"location"</span>: <span class="hljs-string">DeviceLocation</span>,
   <span class="hljs-attr">"storageUsage"</span>: [<span class="hljs-string">StorageUnit</span>],
   <span class="hljs-attr">"systemStatus"</span>: <span class="hljs-string">SystemStatus</span>,
   <span class="hljs-attr">"wifiScanResults"</span>: [<span class="hljs-string">WifiScanResult</span>],
   <span class="hljs-attr">"batteryStatus"</span>: [<span class="hljs-string">BatterySlot</span>],
-  <span class="hljs-attr">"osBundle"</span>: <span class="hljs-string">OsBundle</span>,
+  <span class="hljs-attr">"baseImage"</span>: <span class="hljs-string">BaseImage</span>,
   <span class="hljs-attr">"osInfo"</span>: <span class="hljs-string">OsInfo</span>,
-  <span class="hljs-attr">"otaOperations"</span>: [<span class="hljs-string">OtaOperation</span>]
+  <span class="hljs-attr">"otaOperations"</span>: [<span class="hljs-string">OtaOperation</span>],
+  <span class="hljs-attr">"cellularConnection"</span>: [<span class="hljs-string">Modem</span>]
 }
 </code></pre> </body>
                   </html>
@@ -1998,27 +1990,27 @@ http://localhost:4000/api
                       </td>
                     </tr>
                     <tr>
-                      <td><code>applianceModelPartNumber</code> -
+                      <td><code>systemModelPartNumber</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td>
-                        <p>A string to match against the part number of the device&#39;s appliance model. The match is case-insensitive and tests whether the string is included in the part number of the device&#39;s appliance model.</p>
+                        <p>A string to match against the part number of the device&#39;s system model. The match is case-insensitive and tests whether the string is included in the part number of the device&#39;s system model.</p>
                       </td>
                     </tr>
                     <tr>
-                      <td><code>applianceModelHandle</code> -
+                      <td><code>systemModelHandle</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td>
-                        <p>A string to match against the handle of the device&#39;s appliance model. The match is case-insensitive and tests whether the string is included in the handle of the device&#39;s appliance model.</p>
+                        <p>A string to match against the handle of the device&#39;s system model. The match is case-insensitive and tests whether the string is included in the handle of the device&#39;s system model.</p>
                       </td>
                     </tr>
                     <tr>
-                      <td><code>applianceModelName</code> -
+                      <td><code>systemModelName</code> -
                         <a href="#definition-String"><code>String</code></a>
                       </td>
                       <td>
-                        <p>A string to match against the name of the device&#39;s appliance model. The match is case-insensitive and tests whether the string is included in the name of the device&#39;s appliance model.</p>
+                        <p>A string to match against the name of the device&#39;s system model. The match is case-insensitive and tests whether the string is included in the name of the device&#39;s system model.</p>
                       </td>
                     </tr>
                     <tr>
@@ -2055,13 +2047,13 @@ http://localhost:4000/api
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"online"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"deviceId"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"applianceModelPartNumber"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"applianceModelHandle"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"applianceModelName"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"deviceId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"systemModelPartNumber"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"systemModelHandle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"systemModelName"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"hardwareTypePartNumber"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"hardwareTypeHandle"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"hardwareTypeName"</span>: <span class="hljs-string">"abc123"</span>
+  <span class="hljs-attr">"hardwareTypeHandle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"hardwareTypeName"</span>: <span class="hljs-string">"xyz789"</span>
 }
 </code></pre> </body>
                   </html>
@@ -2129,7 +2121,7 @@ http://localhost:4000/api
                   <head></head>
                   <body><pre><code class="hljs language-json">{
   <span class="hljs-attr">"latitude"</span>: <span class="hljs-number">987.65</span>,
-  <span class="hljs-attr">"longitude"</span>: <span class="hljs-number">123.45</span>,
+  <span class="hljs-attr">"longitude"</span>: <span class="hljs-number">987.65</span>,
   <span class="hljs-attr">"accuracy"</span>: <span class="hljs-number">123.45</span>,
   <span class="hljs-attr">"address"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">DateTime</span>
@@ -2160,7 +2152,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">987.65</span>
+                  <body><pre><code class="hljs language-gql"><span class="hljs-symbol">123.45</span>
 </code></pre> </body>
                   </html>
                 </section>
@@ -2230,7 +2222,7 @@ http://localhost:4000/api
   <span class="hljs-attr">"cpuModel"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"cpuModelName"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"cpuVendor"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"memoryTotalBytes"</span>: <span class="hljs-number">987</span>
+  <span class="hljs-attr">"memoryTotalBytes"</span>: <span class="hljs-number">123</span>
 }
 </code></pre> </body>
                   </html>
@@ -2250,7 +2242,7 @@ http://localhost:4000/api
               <div class="doc-copy">
                 <section class="json-schema-description">
                   <p>Denotes a type of hardware that devices can have.</p>
-                  <p>It refers to the physical components embedded in an appliance. This can represent, e.g., multiple revisions of a PCB (each with a different part number) which are functionally equivalent from the appliance point of view.</p>
+                  <p>It refers to the physical components embedded in a device. This can represent, e.g., multiple revisions of a PCB (each with a different part number) which are functionally equivalent from the device point of view.</p>
                 </section>
                 <section class="json-schema-properties-blank">
                   <table>
@@ -2294,7 +2286,7 @@ http://localhost:4000/api
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
   <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"xyz789"</span>]
+  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>]
 }
 </code></pre> </body>
                   </html>
@@ -2393,7 +2385,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"locale"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"text"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"locale"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"text"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2443,9 +2435,260 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"locale"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"text"</span>: <span class="hljs-string">"abc123"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"locale"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"text"</span>: <span class="hljs-string">"xyz789"</span>}
 </code></pre> </body>
                   </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-Modem" class="definition panel" data-traverse-target="definition-Modem">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/Modem"></a>
+              <p><code>Modem</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Describes a modem of a device.</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="slot"> <code>slot</code> -
+                        <a href="#definition-String"><code>String!</code></a>
+                      </td>
+                      <td> The identifier of the modem. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="apn"> <code>apn</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> The operator apn address. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="imei"> <code>imei</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> The modem IMEI code. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="imsi"> <code>imsi</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> The SIM IMSI code. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="carrier"> <code>carrier</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> Carrier operator name. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="cellId"> <code>cellId</code> -
+                        <a href="#definition-Int"><code>Int</code></a>
+                      </td>
+                      <td> Unique identifier of the cell. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="mobileCountryCode"> <code>mobileCountryCode</code> -
+                        <a href="#definition-Int"><code>Int</code></a>
+                      </td>
+                      <td> The cell tower's Mobile Country Code (MCC). </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="mobileNetworkCode"> <code>mobileNetworkCode</code> -
+                        <a href="#definition-Int"><code>Int</code></a>
+                      </td>
+                      <td> The cell tower's Mobile Network Code. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="localAreaCode"> <code>localAreaCode</code> -
+                        <a href="#definition-Int"><code>Int</code></a>
+                      </td>
+                      <td> The Local Area Code. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="registrationStatus"> <code>registrationStatus</code> -
+                        <a href="#definition-ModemRegistrationStatus"><code>ModemRegistrationStatus</code></a>
+                      </td>
+                      <td> The current registration status of the modem. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="rssi"> <code>rssi</code> -
+                        <a href="#definition-Float"><code>Float</code></a>
+                      </td>
+                      <td> Signal strength in dBm. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="technology"> <code>technology</code> -
+                        <a href="#definition-ModemTechnology"><code>ModemTechnology</code></a>
+                      </td>
+                      <td> Access Technology </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"slot"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"apn"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"imei"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"imsi"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"carrier"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"cellId"</span>: <span class="hljs-number">987</span>,
+  <span class="hljs-attr">"mobileCountryCode"</span>: <span class="hljs-number">987</span>,
+  <span class="hljs-attr">"mobileNetworkCode"</span>: <span class="hljs-number">987</span>,
+  <span class="hljs-attr">"localAreaCode"</span>: <span class="hljs-number">987</span>,
+  <span class="hljs-attr">"registrationStatus"</span>: <span class="hljs-string">ModemRegistrationStatus</span>,
+  <span class="hljs-attr">"rssi"</span>: <span class="hljs-number">987.65</span>,
+  <span class="hljs-attr">"technology"</span>: <span class="hljs-string">ModemTechnology</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ModemRegistrationStatus" class="definition panel" data-traverse-target="definition-ModemRegistrationStatus">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/ModemRegistrationStatus"></a>
+              <p><code>ModemRegistrationStatus</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>The current GSM/LTE registration status of the modem.</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Enum Value</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>NOT_REGISTERED</code></p>
+                      </td>
+                      <td> Not registered, modem is not currently searching a new operator to register to. </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>REGISTERED</code></p>
+                      </td>
+                      <td> Registered, home network. </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>SEARCHING_OPERATOR</code></p>
+                      </td>
+                      <td> Not registered, but modem is currently searching a new operator to register to. </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>REGISTRATION_DENIED</code></p>
+                      </td>
+                      <td> Registration denied. </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>UNKNOWN</code></p>
+                      </td>
+                      <td> Unknown (e.g. out of GERAN/UTRAN/E-UTRAN coverage). </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>REGISTRERED_ROAMING</code></p>
+                      </td>
+                      <td> Registered, roaming. </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-ModemTechnology" class="definition panel" data-traverse-target="definition-ModemTechnology">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/ModemTechnology"></a>
+              <p><code>ModemTechnology</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>The current access technology of the serving cell.</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Enum Value</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>GSM</code></p>
+                      </td>
+                      <td> GSM. </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>GSM_COMPACT</code></p>
+                      </td>
+                      <td> GSM Compact. </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>UTRAN</code></p>
+                      </td>
+                      <td> UTRAN. </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>GSM_EGPRS</code></p>
+                      </td>
+                      <td> GSM with EGPRS. </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>UTRAN_HSDPA</code></p>
+                      </td>
+                      <td> UTRAN with HSDPA. </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>UTRAN_HSUPA</code></p>
+                      </td>
+                      <td> UTRAN with HSUPA. </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>UTRAN_HSDPA_HSUPA</code></p>
+                      </td>
+                      <td> UTRAN with HSDPA and HSUPA. </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <p><code>EUTRAN</code></p>
+                      </td>
+                      <td> E-UTRAN. </td>
+                    </tr>
+                  </table>
                 </section>
               </div>
             </div>
@@ -2481,69 +2724,6 @@ http://localhost:4000/api
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{<span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-OsBundle" class="definition panel" data-traverse-target="definition-OsBundle">
-            <div class="definition-tags">
-              <a class="label" href="#tag-types">Types</a>
-            </div>
-            <h2 class="panel-title">
-              <a name="/definitions/OsBundle"></a>
-              <p><code>OsBundle</code></p>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-description">
-                  <p>Describes an operating system bundle of a device.</p>
-                </section>
-                <section class="json-schema-properties-blank">
-                  <table>
-                    <tr>
-                      <th>Field Name</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td data-property-name="name"> <code>name</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> The name of the bundle. </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="version"> <code>version</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> The version of the bundle. </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="buildId"> <code>buildId</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> Human readable build identifier of the bundle. </td>
-                    </tr>
-                    <tr>
-                      <td data-property-name="fingerprint"> <code>fingerprint</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td> A unique string that identifies the release, usually the bundle hash. </td>
-                    </tr>
-                  </table>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"version"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"buildId"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"fingerprint"</span>: <span class="hljs-string">"xyz789"</span>
-}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2589,7 +2769,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"version"</span>: <span class="hljs-string">"xyz789"</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"version"</span>: <span class="hljs-string">"abc123"</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2833,7 +3013,7 @@ http://localhost:4000/api
                   <h5>Example</h5>
                   <html>
                   <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"label"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"totalBytes"</span>: <span class="hljs-number">123</span>, <span class="hljs-attr">"freeBytes"</span>: <span class="hljs-number">123</span>}
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"label"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"totalBytes"</span>: <span class="hljs-number">987</span>, <span class="hljs-attr">"freeBytes"</span>: <span class="hljs-number">123</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -2852,6 +3032,91 @@ http://localhost:4000/api
               <div class="doc-copy">
                 <section class="json-schema-description">
                   <p>The <code>String</code> scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.</p>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-SystemModel" class="definition panel" data-traverse-target="definition-SystemModel">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/SystemModel"></a>
+              <p><code>SystemModel</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-description">
+                  <p>Represents a specific system model.</p>
+                  <p>A system model corresponds to what the users thinks as functionally equivalent devices (e.g. two revisions of a device containing two different embedded chips but having the same enclosure and the same functionality).Each SystemModel must be associated to a specific HardwareType.</p>
+                </section>
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="id"> <code>id</code> -
+                        <a href="#definition-ID"><code>ID!</code></a>
+                      </td>
+                      <td> The ID of an object </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="name"> <code>name</code> -
+                        <a href="#definition-String"><code>String!</code></a>
+                      </td>
+                      <td> The display name of the system model. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="handle"> <code>handle</code> -
+                        <a href="#definition-String"><code>String!</code></a>
+                      </td>
+                      <td> The identifier of the system model. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="pictureUrl"> <code>pictureUrl</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td> The URL of the related picture. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="hardwareType"> <code>hardwareType</code> -
+                        <a href="#definition-HardwareType"><code>HardwareType!</code></a>
+                      </td>
+                      <td> The type of hardware that can be plugged into the system model. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="partNumbers"> <code>partNumbers</code> -
+                        <a href="#definition-String"><code>[String!]!</code></a>
+                      </td>
+                      <td> The list of part numbers associated with the system model. </td>
+                    </tr>
+                    <tr>
+                      <td data-property-name="description"> <code>description</code> -
+                        <a href="#definition-LocalizedText"><code>LocalizedText</code></a>
+                      </td>
+                      <td> A localized description of the system model. The language of the description can be controlled passing an Accept-Language header in the request. If no such header is present, the default tenant language is returned. </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">ID</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"hardwareType"</span>: <span class="hljs-string">HardwareType</span>,
+  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>],
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedText</span>
+}
+</code></pre> </body>
+                  </html>
                 </section>
               </div>
             </div>
@@ -2914,10 +3179,10 @@ http://localhost:4000/api
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"bootId"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"bootId"</span>: <span class="hljs-string">"xyz789"</span>,
   <span class="hljs-attr">"memoryFreeBytes"</span>: <span class="hljs-number">987</span>,
   <span class="hljs-attr">"taskCount"</span>: <span class="hljs-number">123</span>,
-  <span class="hljs-attr">"uptimeMilliseconds"</span>: <span class="hljs-number">123</span>,
+  <span class="hljs-attr">"uptimeMilliseconds"</span>: <span class="hljs-number">987</span>,
   <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">DateTime</span>
 }
 </code></pre> </body>
@@ -2972,141 +3237,6 @@ http://localhost:4000/api
                   <html>
                   <head></head>
                   <body><pre><code class="hljs language-json">{<span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>, <span class="hljs-attr">"slug"</span>: <span class="hljs-string">"abc123"</span>, <span class="hljs-attr">"defaultLocale"</span>: <span class="hljs-string">"xyz789"</span>}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-UpdateApplianceModelInput" class="definition panel" data-traverse-target="definition-UpdateApplianceModelInput">
-            <div class="definition-tags">
-              <a class="label" href="#tag-types">Types</a>
-            </div>
-            <h2 class="panel-title">
-              <a name="/definitions/UpdateApplianceModelInput"></a>
-              <p><code>UpdateApplianceModelInput</code></p>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-properties-blank">
-                  <table>
-                    <tr>
-                      <th>Input Field</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td><code>applianceModelId</code> -
-                        <a href="#definition-ID"><code>ID!</code></a>
-                      </td>
-                      <td>
-                        <p>The ID of the appliance model to be updated.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>name</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td>
-                        <p>The display name of the appliance model.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>handle</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td>
-                        <p>The identifier of the appliance model.</p>
-                        <p>It should start with a lower case ASCII letter and only contain lower case ASCII letters, digits and the hyphen - symbol.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>pictureFile</code> -
-                        <a href="#definition-Upload"><code>Upload</code></a>
-                      </td>
-                      <td>
-                        <p>The file blob of a related picture.</p>
-                        <p>When this field is specified, the pictureUrl field is ignored.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>pictureUrl</code> -
-                        <a href="#definition-String"><code>String</code></a>
-                      </td>
-                      <td>
-                        <p>The file URL of a related picture.</p>
-                        <p>Specifying a null value will remove the existing picture. When the pictureFile field is specified, this field is ignored.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>partNumbers</code> -
-                        <a href="#definition-String"><code>[String!]</code></a>
-                      </td>
-                      <td>
-                        <p>The list of part numbers associated with the appliance model.</p>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><code>description</code> -
-                        <a href="#definition-LocalizedTextInput"><code>LocalizedTextInput</code></a>
-                      </td>
-                      <td>
-                        <p>An optional localized description. This description can only use the default tenant locale.</p>
-                      </td>
-                    </tr>
-                  </table>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{
-  <span class="hljs-attr">"applianceModelId"</span>: <span class="hljs-string">ID</span>,
-  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"pictureFile"</span>: <span class="hljs-string">Upload</span>,
-  <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"xyz789"</span>,
-  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>],
-  <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedTextInput</span>
-}
-</code></pre> </body>
-                  </html>
-                </section>
-              </div>
-            </div>
-          </div>
-          <div id="definition-UpdateApplianceModelPayload" class="definition panel" data-traverse-target="definition-UpdateApplianceModelPayload">
-            <div class="definition-tags">
-              <a class="label" href="#tag-types">Types</a>
-            </div>
-            <h2 class="panel-title">
-              <a name="/definitions/UpdateApplianceModelPayload"></a>
-              <p><code>UpdateApplianceModelPayload</code></p>
-            </h2>
-            <div class="doc-row">
-              <div class="doc-copy">
-                <section class="json-schema-properties-blank">
-                  <table>
-                    <tr>
-                      <th>Field Name</th>
-                      <th>Description</th>
-                    </tr>
-                    <tr>
-                      <td data-property-name="applianceModel"> <code>applianceModel</code> -
-                        <a href="#definition-ApplianceModel"><code>ApplianceModel!</code></a>
-                      </td>
-                      <td> The updated appliance model. </td>
-                    </tr>
-                  </table>
-                </section>
-              </div>
-              <div class="doc-examples">
-                <section>
-                  <h5>Example</h5>
-                  <html>
-                  <head></head>
-                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"applianceModel"</span>: <span class="hljs-string">ApplianceModel</span>}
 </code></pre> </body>
                   </html>
                 </section>
@@ -3219,6 +3349,141 @@ http://localhost:4000/api
               </div>
             </div>
           </div>
+          <div id="definition-UpdateSystemModelInput" class="definition panel" data-traverse-target="definition-UpdateSystemModelInput">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/UpdateSystemModelInput"></a>
+              <p><code>UpdateSystemModelInput</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Input Field</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td><code>systemModelId</code> -
+                        <a href="#definition-ID"><code>ID!</code></a>
+                      </td>
+                      <td>
+                        <p>The ID of the system model to be updated.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>name</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>The display name of the system model.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>handle</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>The identifier of the system model.</p>
+                        <p>It should start with a lower case ASCII letter and only contain lower case ASCII letters, digits and the hyphen - symbol.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>pictureFile</code> -
+                        <a href="#definition-Upload"><code>Upload</code></a>
+                      </td>
+                      <td>
+                        <p>The file blob of a related picture.</p>
+                        <p>When this field is specified, the pictureUrl field is ignored.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>pictureUrl</code> -
+                        <a href="#definition-String"><code>String</code></a>
+                      </td>
+                      <td>
+                        <p>The file URL of a related picture.</p>
+                        <p>Specifying a null value will remove the existing picture. When the pictureFile field is specified, this field is ignored.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>partNumbers</code> -
+                        <a href="#definition-String"><code>[String!]</code></a>
+                      </td>
+                      <td>
+                        <p>The list of part numbers associated with the system model.</p>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><code>description</code> -
+                        <a href="#definition-LocalizedTextInput"><code>LocalizedTextInput</code></a>
+                      </td>
+                      <td>
+                        <p>An optional localized description. This description can only use the default tenant locale.</p>
+                      </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{
+  <span class="hljs-attr">"systemModelId"</span>: <span class="hljs-string">ID</span>,
+  <span class="hljs-attr">"name"</span>: <span class="hljs-string">"xyz789"</span>,
+  <span class="hljs-attr">"handle"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"pictureFile"</span>: <span class="hljs-string">Upload</span>,
+  <span class="hljs-attr">"pictureUrl"</span>: <span class="hljs-string">"abc123"</span>,
+  <span class="hljs-attr">"partNumbers"</span>: [<span class="hljs-string">"abc123"</span>],
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">LocalizedTextInput</span>
+}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
+          <div id="definition-UpdateSystemModelPayload" class="definition panel" data-traverse-target="definition-UpdateSystemModelPayload">
+            <div class="definition-tags">
+              <a class="label" href="#tag-types">Types</a>
+            </div>
+            <h2 class="panel-title">
+              <a name="/definitions/UpdateSystemModelPayload"></a>
+              <p><code>UpdateSystemModelPayload</code></p>
+            </h2>
+            <div class="doc-row">
+              <div class="doc-copy">
+                <section class="json-schema-properties-blank">
+                  <table>
+                    <tr>
+                      <th>Field Name</th>
+                      <th>Description</th>
+                    </tr>
+                    <tr>
+                      <td data-property-name="systemModel"> <code>systemModel</code> -
+                        <a href="#definition-SystemModel"><code>SystemModel!</code></a>
+                      </td>
+                      <td> The updated system model. </td>
+                    </tr>
+                  </table>
+                </section>
+              </div>
+              <div class="doc-examples">
+                <section>
+                  <h5>Example</h5>
+                  <html>
+                  <head></head>
+                  <body><pre><code class="hljs language-json">{<span class="hljs-attr">"systemModel"</span>: <span class="hljs-string">SystemModel</span>}
+</code></pre> </body>
+                  </html>
+                </section>
+              </div>
+            </div>
+          </div>
           <div id="definition-Upload" class="definition panel" data-traverse-target="definition-Upload">
             <div class="definition-tags">
               <a class="label" href="#tag-types">Types</a>
@@ -3306,7 +3571,7 @@ http://localhost:4000/api
   <span class="hljs-attr">"channel"</span>: <span class="hljs-number">123</span>,
   <span class="hljs-attr">"essid"</span>: <span class="hljs-string">"abc123"</span>,
   <span class="hljs-attr">"macAddress"</span>: <span class="hljs-string">"abc123"</span>,
-  <span class="hljs-attr">"rssi"</span>: <span class="hljs-number">123</span>,
+  <span class="hljs-attr">"rssi"</span>: <span class="hljs-number">987</span>,
   <span class="hljs-attr">"timestamp"</span>: <span class="hljs-string">DateTime</span>
 }
 </code></pre> </body>
