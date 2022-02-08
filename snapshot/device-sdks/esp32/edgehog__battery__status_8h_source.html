@@ -86,7 +86,7 @@ $(document).ready(function(){initNavTree('edgehog__battery__status_8h_source.htm
 <div class="title">edgehog_battery_status.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<a href="edgehog__battery__status_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * This file is part of Edgehog.</span></div>
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Copyright 2021 SECO Mind Srl</span></div>
@@ -104,48 +104,59 @@ $(document).ready(function(){initNavTree('edgehog__battery__status_8h_source.htm
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * limitations under the License.</span></div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> */</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef EDGEHOG_BATTERY_STATUS_H</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define EDGEHOG_BATTERY_STATUS_H</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;edgehog_device.h&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">// clang-format off</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    BATTERY_INVALID = 0, </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    BATTERY_IDLE, </div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    BATTERY_CHARGING, </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    BATTERY_DISCHARGING, </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    BATTERY_IDLE_OR_CHARGING, </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    BATTERY_FAILURE, </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    BATTERY_REMOVED, </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    BATTERY_UNKNOWN </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;} edgehog_battery_state;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">// clang-format on</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> astarte_interface_t battery_status_interface;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keywordtype">void</span> edgehog_battery_status_publish(edgehog_device_handle_t edgehog_device,</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *battery_slot, <span class="keywordtype">double</span> level_percentage, <span class="keywordtype">double</span> level_absolute_error,</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    edgehog_battery_state state);</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif // EDGEHOG_BATTERY_STATUS_H</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifndef EDGEHOG_BATTERY_STATUS_H</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define EDGEHOG_BATTERY_STATUS_H</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="edgehog__device_8h.html">edgehog_device.h</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// clang-format off</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0c">   38</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca9f943ce2f362a313f3bb83f5db24c36c">   40</a></span>&#160;    <a class="code" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca9f943ce2f362a313f3bb83f5db24c36c">BATTERY_INVALID</a> = 0, </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0caf80f300f4364dce6be1eab3370252680">   41</a></span>&#160;    <a class="code" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0caf80f300f4364dce6be1eab3370252680">BATTERY_IDLE</a>, </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0cab2c062d197cfbb1888af7a7de2d95879">   42</a></span>&#160;    <a class="code" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0cab2c062d197cfbb1888af7a7de2d95879">BATTERY_CHARGING</a>, </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0cab6e556b39b1dc142cbc8e628de5ccccd">   43</a></span>&#160;    <a class="code" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0cab6e556b39b1dc142cbc8e628de5ccccd">BATTERY_DISCHARGING</a>, </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca24f8aa82937c4cf315da231ebb01bf51">   44</a></span>&#160;    <a class="code" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca24f8aa82937c4cf315da231ebb01bf51">BATTERY_IDLE_OR_CHARGING</a>, </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca9f545ba97a9052cc2e350c49ef8ae458">   45</a></span>&#160;    <a class="code" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca9f545ba97a9052cc2e350c49ef8ae458">BATTERY_FAILURE</a>, </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca1ed19f741a8e8ca234663d12733a4ac9">   46</a></span>&#160;    <a class="code" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca1ed19f741a8e8ca234663d12733a4ac9">BATTERY_REMOVED</a>, </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0caab7809812a696275679e11238661dacf">   47</a></span>&#160;    <a class="code" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0caab7809812a696275679e11238661dacf">BATTERY_UNKNOWN</a> </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;} <a class="code" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0c">edgehog_battery_state</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">// clang-format on</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> astarte_interface_t battery_status_interface;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="keywordtype">void</span> <a class="code" href="edgehog__battery__status_8h.html#ac526a098f559f505b7759d067af3f1b0">edgehog_battery_status_publish</a>(edgehog_device_handle_t edgehog_device,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keyword">const</span> <span class="keywordtype">char</span> *battery_slot, <span class="keywordtype">double</span> level_percentage, <span class="keywordtype">double</span> level_absolute_error,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0c">edgehog_battery_state</a> state);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#endif // EDGEHOG_BATTERY_STATUS_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
+<div class="ttc" id="aedgehog__battery__status_8h_html_aec006e7d4fc4ddd04b79a4ea814fcc0ca9f545ba97a9052cc2e350c49ef8ae458"><div class="ttname"><a href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca9f545ba97a9052cc2e350c49ef8ae458">BATTERY_FAILURE</a></div><div class="ttdeci">@ BATTERY_FAILURE</div><div class="ttdef"><b>Definition:</b> edgehog_battery_status.h:45</div></div>
+<div class="ttc" id="aedgehog__battery__status_8h_html_aec006e7d4fc4ddd04b79a4ea814fcc0ca24f8aa82937c4cf315da231ebb01bf51"><div class="ttname"><a href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca24f8aa82937c4cf315da231ebb01bf51">BATTERY_IDLE_OR_CHARGING</a></div><div class="ttdeci">@ BATTERY_IDLE_OR_CHARGING</div><div class="ttdef"><b>Definition:</b> edgehog_battery_status.h:44</div></div>
+<div class="ttc" id="aedgehog__device_8h_html"><div class="ttname"><a href="edgehog__device_8h.html">edgehog_device.h</a></div><div class="ttdoc">Edgehog device SDK API.</div></div>
+<div class="ttc" id="aedgehog__battery__status_8h_html_ac526a098f559f505b7759d067af3f1b0"><div class="ttname"><a href="edgehog__battery__status_8h.html#ac526a098f559f505b7759d067af3f1b0">edgehog_battery_status_publish</a></div><div class="ttdeci">void edgehog_battery_status_publish(edgehog_device_handle_t edgehog_device, const char *battery_slot, double level_percentage, double level_absolute_error, edgehog_battery_state state)</div><div class="ttdoc">publish Battery status info.</div></div>
+<div class="ttc" id="aedgehog__battery__status_8h_html_aec006e7d4fc4ddd04b79a4ea814fcc0cab6e556b39b1dc142cbc8e628de5ccccd"><div class="ttname"><a href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0cab6e556b39b1dc142cbc8e628de5ccccd">BATTERY_DISCHARGING</a></div><div class="ttdeci">@ BATTERY_DISCHARGING</div><div class="ttdef"><b>Definition:</b> edgehog_battery_status.h:43</div></div>
+<div class="ttc" id="aedgehog__battery__status_8h_html_aec006e7d4fc4ddd04b79a4ea814fcc0caab7809812a696275679e11238661dacf"><div class="ttname"><a href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0caab7809812a696275679e11238661dacf">BATTERY_UNKNOWN</a></div><div class="ttdeci">@ BATTERY_UNKNOWN</div><div class="ttdef"><b>Definition:</b> edgehog_battery_status.h:47</div></div>
+<div class="ttc" id="aedgehog__battery__status_8h_html_aec006e7d4fc4ddd04b79a4ea814fcc0caf80f300f4364dce6be1eab3370252680"><div class="ttname"><a href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0caf80f300f4364dce6be1eab3370252680">BATTERY_IDLE</a></div><div class="ttdeci">@ BATTERY_IDLE</div><div class="ttdef"><b>Definition:</b> edgehog_battery_status.h:41</div></div>
+<div class="ttc" id="aedgehog__battery__status_8h_html_aec006e7d4fc4ddd04b79a4ea814fcc0c"><div class="ttname"><a href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0c">edgehog_battery_state</a></div><div class="ttdeci">edgehog_battery_state</div><div class="ttdoc">Edgehog Battery state codes.</div><div class="ttdef"><b>Definition:</b> edgehog_battery_status.h:38</div></div>
+<div class="ttc" id="aedgehog__battery__status_8h_html_aec006e7d4fc4ddd04b79a4ea814fcc0cab2c062d197cfbb1888af7a7de2d95879"><div class="ttname"><a href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0cab2c062d197cfbb1888af7a7de2d95879">BATTERY_CHARGING</a></div><div class="ttdeci">@ BATTERY_CHARGING</div><div class="ttdef"><b>Definition:</b> edgehog_battery_status.h:42</div></div>
+<div class="ttc" id="aedgehog__battery__status_8h_html_aec006e7d4fc4ddd04b79a4ea814fcc0ca9f943ce2f362a313f3bb83f5db24c36c"><div class="ttname"><a href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca9f943ce2f362a313f3bb83f5db24c36c">BATTERY_INVALID</a></div><div class="ttdeci">@ BATTERY_INVALID</div><div class="ttdef"><b>Definition:</b> edgehog_battery_status.h:40</div></div>
+<div class="ttc" id="aedgehog__battery__status_8h_html_aec006e7d4fc4ddd04b79a4ea814fcc0ca1ed19f741a8e8ca234663d12733a4ac9"><div class="ttname"><a href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0ca1ed19f741a8e8ca234663d12733a4ac9">BATTERY_REMOVED</a></div><div class="ttdeci">@ BATTERY_REMOVED</div><div class="ttdef"><b>Definition:</b> edgehog_battery_status.h:46</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>edgehog_battery_status.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="edgehog__battery__status_8h.html">edgehog_battery_status.h</a></li>
     <li class="footer">Generated by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.17 </li>

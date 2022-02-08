@@ -1,0 +1,17 @@
+digraph "/home/runner/work/edgehog-esp32-device/edgehog-esp32-device/edgehog-device-esp32/include/edgehog_battery_status.h"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node1 [label="/home/runner/work/edgehog\l-esp32-device/edgehog-esp32\l-device/edgehog-device-esp32\l/include/edgehog_battery_status.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Edgehog device battery status API."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node2 [label="edgehog_device.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$edgehog__device_8h.html",tooltip="Edgehog device SDK API."];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node3 [label="edgehog.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$edgehog_8h.html",tooltip="Edgehog types and defines."];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node4 [label="astarte_device.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node5 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node5 [label="esp_err.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node2 -> Node6 [color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="nvs.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+}
