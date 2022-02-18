@@ -324,12 +324,12 @@ Each mapping is treated as an independent value and is managed individually.</p>
   <a href="#mappings-6" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
-<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{led_id}/behavior</code> with <code class="inline">string</code> type. Enum describing the behavior of the given led. Possible values: [Blink60Seconds | DuobleBlink60Seconds | SlowBlink60Seconds]</li></ul><h3 id="led_id-behavior" class="section-heading">
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{led_id}/behavior</code> with <code class="inline">string</code> type. Enum describing the behavior of the given led. Possible values: [Blink60Seconds | DoubleBlink60Seconds | SlowBlink60Seconds]</li></ul><h3 id="led_id-behavior" class="section-heading">
   <a href="#led_id-behavior" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/%{led_id}/behavior</code>
 </h3>
-<p>Enum describing the behavior of the given led. Possible values: [Blink60Seconds | DuobleBlink60Seconds | SlowBlink60Seconds]</p><p>Blink60Seconds: Blinking
-DuobleBlink60Seconds: Double blinking
+<p>Enum describing the behavior of the given led. Possible values: [Blink60Seconds | DoubleBlink60Seconds | SlowBlink60Seconds]</p><p>Blink60Seconds: Blinking
+DoubleBlink60Seconds: Double blinking
 SlowBlink60Seconds: Slow blinking</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">led_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
