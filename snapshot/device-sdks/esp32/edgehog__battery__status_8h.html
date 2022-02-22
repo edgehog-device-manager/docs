@@ -83,9 +83,9 @@ $(document).ready(function(){initNavTree('edgehog__battery__status_8h.html','');
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Data Structures</a> &#124;
 <a href="#enum-members">Enumerations</a> &#124;
-<a href="#func-members">Functions</a> &#124;
-<a href="#var-members">Variables</a>  </div>
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">edgehog_battery_status.h File Reference</div>  </div>
 </div><!--header-->
@@ -103,6 +103,11 @@ Include dependency graph for edgehog_battery_status.h:</div>
 </div>
 <p><a href="edgehog__battery__status_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Data Structures</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structedgehog__battery__status__t.html">edgehog_battery_status_t</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
 <tr class="memitem:aec006e7d4fc4ddd04b79a4ea814fcc0c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0c">edgehog_battery_state</a> { <br />
@@ -122,15 +127,12 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ac526a098f559f505b7759d067af3f1b0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="edgehog__battery__status_8h.html#ac526a098f559f505b7759d067af3f1b0">edgehog_battery_status_publish</a> (edgehog_device_handle_t edgehog_device, const char *battery_slot, double level_percentage, double level_absolute_error, <a class="el" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0c">edgehog_battery_state</a> state)</td></tr>
-<tr class="memdesc:ac526a098f559f505b7759d067af3f1b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">publish Battery status info.  <a href="edgehog__battery__status_8h.html#ac526a098f559f505b7759d067af3f1b0">More...</a><br /></td></tr>
-<tr class="separator:ac526a098f559f505b7759d067af3f1b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:a6a17ac670b517ebefb8a0c4ef0f7f50d"><td class="memItemLeft" align="right" valign="top"><a id="a6a17ac670b517ebefb8a0c4ef0f7f50d"></a>
-const astarte_interface_t&#160;</td><td class="memItemRight" valign="bottom"><b>battery_status_interface</b></td></tr>
-<tr class="separator:a6a17ac670b517ebefb8a0c4ef0f7f50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae806d762b21597b71bb4e100828b4fef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="edgehog__battery__status_8h.html#ae806d762b21597b71bb4e100828b4fef">edgehog_battery_status_update</a> (edgehog_device_handle_t edgehog_device, const <a class="el" href="structedgehog__battery__status__t.html">edgehog_battery_status_t</a> *battery_status)</td></tr>
+<tr class="memdesc:ae806d762b21597b71bb4e100828b4fef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update battery status info.  <a href="edgehog__battery__status_8h.html#ae806d762b21597b71bb4e100828b4fef">More...</a><br /></td></tr>
+<tr class="separator:ae806d762b21597b71bb4e100828b4fef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee1755104ce55b6c362265184207adc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="edgehog__battery__status_8h.html#aee1755104ce55b6c362265184207adc7">edgehog_battery_status_publish</a> (edgehog_device_handle_t edgehog_device)</td></tr>
+<tr class="memdesc:aee1755104ce55b6c362265184207adc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish battery status info.  <a href="edgehog__battery__status_8h.html#aee1755104ce55b6c362265184207adc7">More...</a><br /></td></tr>
+<tr class="separator:aee1755104ce55b6c362265184207adc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Edgehog device battery status API. </p>
@@ -170,8 +172,8 @@ const astarte_interface_t&#160;</td><td class="memItemRight" valign="bottom"><b>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ac526a098f559f505b7759d067af3f1b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac526a098f559f505b7759d067af3f1b0">&#9670;&nbsp;</a></span>edgehog_battery_status_publish()</h2>
+<a id="aee1755104ce55b6c362265184207adc7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee1755104ce55b6c362265184207adc7">&#9670;&nbsp;</a></span>edgehog_battery_status_publish()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -180,31 +182,40 @@ const astarte_interface_t&#160;</td><td class="memItemRight" valign="bottom"><b>
           <td class="memname">void edgehog_battery_status_publish </td>
           <td>(</td>
           <td class="paramtype">edgehog_device_handle_t&#160;</td>
+          <td class="paramname"><em>edgehog_device</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publish battery status info. </p>
+<p>This function publishes to Astarte all available battery status updates.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">edgehog_device</td><td>A valid Edgehog device handle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae806d762b21597b71bb4e100828b4fef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae806d762b21597b71bb4e100828b4fef">&#9670;&nbsp;</a></span>edgehog_battery_status_update()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void edgehog_battery_status_update </td>
+          <td>(</td>
+          <td class="paramtype">edgehog_device_handle_t&#160;</td>
           <td class="paramname"><em>edgehog_device</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>battery_slot</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>level_percentage</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>level_absolute_error</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="edgehog__battery__status_8h.html#aec006e7d4fc4ddd04b79a4ea814fcc0c">edgehog_battery_state</a>&#160;</td>
-          <td class="paramname"><em>state</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="structedgehog__battery__status__t.html">edgehog_battery_status_t</a> *&#160;</td>
+          <td class="paramname"><em>battery_status</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -214,15 +225,12 @@ const astarte_interface_t&#160;</td><td class="memItemRight" valign="bottom"><b>
       </table>
 </div><div class="memdoc">
 
-<p>publish Battery status info. </p>
-<p>This function publishes battery status info to Astarte.</p>
+<p>Update battery status info. </p>
+<p>This function updates battery status info. This function does not immediately publish the update.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">edgehog_device</td><td>A valid Edgehog device handle. </td></tr>
-    <tr><td class="paramname">battery_slot</td><td>Battery slot name. </td></tr>
-    <tr><td class="paramname">level_percentage</td><td>Charge level in [0.0%-100.0%] range, such as 89.0%. </td></tr>
-    <tr><td class="paramname">level_absolute_error</td><td>The level measurement absolute error in [0.0-100.0] range </td></tr>
-    <tr><td class="paramname">state</td><td>Any value of edgehog_battery_state such as <code>BATTERY_CHARGING</code> </td></tr>
+    <tr><td class="paramname">battery_status</td><td>A battery status structure that contains current battery status. It can be safely allocated on the stack, a copy of it is automatically stored. </td></tr>
   </table>
   </dd>
 </dl>

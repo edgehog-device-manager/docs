@@ -1,12 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "bet",
+  0: "belt",
   1: "e",
   2: "e",
   3: "e",
-  4: "et",
-  5: "be",
-  6: "e"
+  4: "bl",
+  5: "et",
+  6: "be",
+  7: "e"
 };
 
 var indexSectionNames =
@@ -15,9 +16,10 @@ var indexSectionNames =
   1: "classes",
   2: "files",
   3: "functions",
-  4: "enums",
-  5: "enumvalues",
-  6: "pages"
+  4: "variables",
+  5: "enums",
+  6: "enumvalues",
+  7: "pages"
 };
 
 var indexSectionLabels =
@@ -26,8 +28,9 @@ var indexSectionLabels =
   1: "Data Structures",
   2: "Files",
   3: "Functions",
-  4: "Enumerations",
-  5: "Enumerator",
-  6: "Pages"
+  4: "Variables",
+  5: "Enumerations",
+  6: "Enumerator",
+  7: "Pages"
 };
 

@@ -8,7 +8,8 @@ var edgehog__device_8h =
       [ "EDGEHOG_TELEMETRY_HW_INFO", "edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940ae8b7237505625417e44ded71720e9719", null ],
       [ "EDGEHOG_TELEMETRY_WIFI_SCAN", "edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940ac668d0fe8bc361a2fe75088e696aa44b", null ],
       [ "EDGEHOG_TELEMETRY_SYSTEM_STATUS", "edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940a80ed05cac219d5ea9cd1fd4ada30cdf9", null ],
-      [ "EDGEHOG_TELEMETRY_STORAGE_USAGE", "edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940aeba516a8ae68ede828af7827f8672351", null ]
+      [ "EDGEHOG_TELEMETRY_STORAGE_USAGE", "edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940aeba516a8ae68ede828af7827f8672351", null ],
+      [ "EDGEHOG_TELEMETRY_BATTERY_STATUS", "edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940afc1f59f48d9bd1a64c124042ef97b4ca", null ]
     ] ],
     [ "edgehog_device_astarte_event_handler", "edgehog__device_8h.html#a8eb99d6f3f9a7200527209a2663810c8", null ],
     [ "edgehog_device_destroy", "edgehog__device_8h.html#a5bd8685b92f4d5120bb74d5f08ca7715", null ],
