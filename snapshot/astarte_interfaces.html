@@ -10,7 +10,7 @@
     <title>Astarte Interfaces — Edgehog v0.1.0</title>
     <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
 
-    <script src="dist/sidebar_items-5f9ecdc016.js"></script>
+    <script src="dist/sidebar_items-a7e3322432.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -277,17 +277,80 @@ Each mapping is treated as an independent value and is managed individually.</p>
 <p>Command request. Possible values  ['Reboot']</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-geolocation-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-geolocation-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  io.edgehog.devicemanager.Geolocation v0.1
+</h2>
+<p>Generic Geolocation sampled data.</p><p>Geolocation allows geolocation sensors to stream location data, such as GPS data. Values availability depends on what sensors are present on devices and what measurement systems are in use. The id represents a unique identifier for an individual sensor.</p><h3 id="about-5" class="section-heading">
+  <a href="#about-5" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  About
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-5" class="section-heading">
+  <a href="#mappings-5" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Mappings
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{id}/latitude</code> with <code class="inline">double</code> type. Sampled latitude value.</li><li><code class="inline">/%{id}/longitude</code> with <code class="inline">double</code> type. Sampled longitude value.</li><li><code class="inline">/%{id}/altitude</code> with <code class="inline">double</code> type. Sampled altitude value.</li><li><code class="inline">/%{id}/accuracy</code> with <code class="inline">double</code> type. Sampled accuracy of the latitude and longitude properties.</li><li><code class="inline">/%{id}/altitudeAccuracy</code> with <code class="inline">double</code> type. Sampled accuracy of the altitude property.</li><li><code class="inline">/%{id}/heading</code> with <code class="inline">double</code> type. Sampled value representing the direction towards which the device is facing.</li><li><code class="inline">/%{id}/speed</code> with <code class="inline">double</code> type. Sampled value representing the velocity of the device.</li></ul><h3 id="id-latitude" class="section-heading">
+  <a href="#id-latitude" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/%{id}/latitude</code>
+</h3>
+<p>Sampled latitude value.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-longitude" class="section-heading">
+  <a href="#id-longitude" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/%{id}/longitude</code>
+</h3>
+<p>Sampled longitude value.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-altitude" class="section-heading">
+  <a href="#id-altitude" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/%{id}/altitude</code>
+</h3>
+<p>Sampled altitude value.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-accuracy" class="section-heading">
+  <a href="#id-accuracy" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/%{id}/accuracy</code>
+</h3>
+<p>Sampled accuracy of the latitude and longitude properties.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-altitudeaccuracy" class="section-heading">
+  <a href="#id-altitudeaccuracy" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/%{id}/altitudeAccuracy</code>
+</h3>
+<p>Sampled accuracy of the altitude property.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-heading" class="section-heading">
+  <a href="#id-heading" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/%{id}/heading</code>
+</h3>
+<p>Sampled value representing the direction towards which the device is facing.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-speed" class="section-heading">
+  <a href="#id-speed" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/%{id}/speed</code>
+</h3>
+<p>Sampled value representing the velocity of the device.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-hardwareinfo-v0-1" class="section-heading">
   <a href="#io-edgehog-devicemanager-hardwareinfo-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.HardwareInfo v0.1
 </h2>
-<p>General hardware capabilities</p><h3 id="about-5" class="section-heading">
-  <a href="#about-5" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>General hardware capabilities</p><h3 id="about-6" class="section-heading">
+  <a href="#about-6" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
-Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-5" class="section-heading">
-  <a href="#mappings-5" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-6" class="section-heading">
+  <a href="#mappings-6" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/cpu/architecture</code> with <code class="inline">string</code> type. CPU Architecture </li><li><code class="inline">/cpu/model</code> with <code class="inline">string</code> type. CPU Model Code</li><li><code class="inline">/cpu/modelName</code> with <code class="inline">string</code> type. CPU Model Display Name</li><li><code class="inline">/cpu/vendor</code> with <code class="inline">string</code> type. CPU Vendor</li><li><code class="inline">/mem/totalBytes</code> with <code class="inline">longinteger</code> type. Total RAM quantity (Bytes)</li></ul><h3 id="cpu-architecture" class="section-heading">
@@ -314,14 +377,14 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
   <a href="#io-edgehog-devicemanager-ledbehavior-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.LedBehavior v0.1
 </h2>
-<h3 id="about-6" class="section-heading">
-  <a href="#about-6" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<h3 id="about-7" class="section-heading">
+  <a href="#about-7" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">individual</code> aggregation.
-Each mapping is treated as an independent value and is managed individually.</p><h3 id="mappings-6" class="section-heading">
-  <a href="#mappings-6" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Each mapping is treated as an independent value and is managed individually.</p><h3 id="mappings-7" class="section-heading">
+  <a href="#mappings-7" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/%{led_id}/behavior</code> with <code class="inline">string</code> type. Enum describing the behavior of the given led. Possible values: [Blink60Seconds | DoubleBlink60Seconds | SlowBlink60Seconds]</li></ul><h3 id="led_id-behavior" class="section-heading">
@@ -337,13 +400,13 @@ Delivered data is kept for 5184000 seconds before it is erased from the database
   <a href="#io-edgehog-devicemanager-networkinterfaceproperties-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.NetworkInterfaceProperties v0.1
 </h2>
-<h3 id="about-7" class="section-heading">
-  <a href="#about-7" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<h3 id="about-8" class="section-heading">
+  <a href="#about-8" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
-Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-7" class="section-heading">
-  <a href="#mappings-7" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-8" class="section-heading">
+  <a href="#mappings-8" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/%{iface_name}/macAddress</code> with <code class="inline">string</code> type. Normalized physical address. Example value is &quot;00:aa:bb:cc:dd:ee&quot; (always lower case)</li><li><code class="inline">/%{iface_name}/technologyType</code> with <code class="inline">string</code> type. Connection technology. Possible values: [Ethernet, Bluetooth, Cellular, WiFi]</li></ul><h3 id="iface_name-macaddress" class="section-heading">
@@ -358,13 +421,13 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
   <a href="#io-edgehog-devicemanager-osinfo-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.OSInfo v0.1
 </h2>
-<h3 id="about-8" class="section-heading">
-  <a href="#about-8" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<h3 id="about-9" class="section-heading">
+  <a href="#about-9" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
-Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-8" class="section-heading">
-  <a href="#mappings-8" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-9" class="section-heading">
+  <a href="#mappings-9" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/osName</code> with <code class="inline">string</code> type. Name of the Operating System</li><li><code class="inline">/osVersion</code> with <code class="inline">string</code> type. Version of the Operating System</li></ul><h3 id="osname" class="section-heading">
@@ -379,14 +442,14 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
   <a href="#io-edgehog-devicemanager-otarequest-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.OTARequest v0.1
 </h2>
-<h3 id="about-9" class="section-heading">
-  <a href="#about-9" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<h3 id="about-10" class="section-heading">
+  <a href="#about-10" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-9" class="section-heading">
-  <a href="#mappings-9" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-10" class="section-heading">
+  <a href="#mappings-10" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/request/url</code> with <code class="inline">string</code> type. File URL</li><li><code class="inline">/request/uuid</code> with <code class="inline">string</code> type. Request identifier</li></ul><h3 id="request-url" class="section-heading">
@@ -407,14 +470,14 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
   <a href="#io-edgehog-devicemanager-otaresponse-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.OTAResponse v0.1
 </h2>
-<h3 id="about-10" class="section-heading">
-  <a href="#about-10" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<h3 id="about-11" class="section-heading">
+  <a href="#about-11" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-10" class="section-heading">
-  <a href="#mappings-10" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-11" class="section-heading">
+  <a href="#mappings-11" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/response/uuid</code> with <code class="inline">string</code> type. Request identifier</li><li><code class="inline">/response/status</code> with <code class="inline">string</code> type. Possible values: [ InProgress | Error | Done ]</li><li><code class="inline">/response/statusCode</code> with <code class="inline">string</code> type. </li></ul><h3 id="response-uuid" class="section-heading">
@@ -442,13 +505,13 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
   <a href="#io-edgehog-devicemanager-runtimeinfo-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.RuntimeInfo v0.1
 </h2>
-<h3 id="about-11" class="section-heading">
-  <a href="#about-11" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<h3 id="about-12" class="section-heading">
+  <a href="#about-12" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
-Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-11" class="section-heading">
-  <a href="#mappings-11" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-12" class="section-heading">
+  <a href="#mappings-12" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/name</code> with <code class="inline">string</code> type. Name of the Edgehog runtime. Example value: <code class="inline">edgehog-esp32-device</code></li><li><code class="inline">/url</code> with <code class="inline">string</code> type. URL that uniquely identifies the Edgehog Edgehog runtime implementation. Example value: <code class="inline">https://github.com/edgehog-device-manager/edgehog-esp32-device</code>.</li><li><code class="inline">/version</code> with <code class="inline">string</code> type. Version of the Edgehog runtime. Example value: <code class="inline">0.5</code></li><li><code class="inline">/environment</code> with <code class="inline">string</code> type. Environment of the Edgehog runtime. Example value: <code class="inline">esp-idf VERSION</code>, <code class="inline">Rust 1.58</code> or <code class="inline">Java 8</code></li></ul><h3 id="name-1" class="section-heading">
@@ -471,14 +534,14 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
   <a href="#io-edgehog-devicemanager-storageusage-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.StorageUsage v0.1
 </h2>
-<h3 id="about-12" class="section-heading">
-  <a href="#about-12" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<h3 id="about-13" class="section-heading">
+  <a href="#about-13" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-12" class="section-heading">
-  <a href="#mappings-12" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-13" class="section-heading">
+  <a href="#mappings-13" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/%{label}/totalBytes</code> with <code class="inline">longinteger</code> type. Total storage size in bytes</li><li><code class="inline">/%{label}/freeBytes</code> with <code class="inline">longinteger</code> type. Available storage bytes</li></ul><h3 id="label-totalbytes" class="section-heading">
@@ -501,13 +564,13 @@ Delivered data is kept for 5184000 seconds before it is erased from the database
   <a href="#io-edgehog-devicemanager-systeminfo-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.SystemInfo v0.1
 </h2>
-<p>Information about the system</p><h3 id="about-13" class="section-heading">
-  <a href="#about-13" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<p>Information about the system</p><h3 id="about-14" class="section-heading">
+  <a href="#about-14" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
-Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-13" class="section-heading">
-  <a href="#mappings-13" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-14" class="section-heading">
+  <a href="#mappings-14" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/serialNumber</code> with <code class="inline">string</code> type. The serial number of the system</li><li><code class="inline">/partNumber</code> with <code class="inline">string</code> type. The part number of the system</li></ul><h3 id="serialnumber" class="section-heading">
@@ -522,14 +585,14 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
   <a href="#io-edgehog-devicemanager-systemstatus-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.SystemStatus v0.1
 </h2>
-<h3 id="about-14" class="section-heading">
-  <a href="#about-14" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<h3 id="about-15" class="section-heading">
+  <a href="#about-15" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-14" class="section-heading">
-  <a href="#mappings-14" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-15" class="section-heading">
+  <a href="#mappings-15" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/systemStatus/availMemoryBytes</code> with <code class="inline">longinteger</code> type. Available memory (Bytes)</li><li><code class="inline">/systemStatus/bootId</code> with <code class="inline">string</code> type. UUID representing the Boot Id</li><li><code class="inline">/systemStatus/taskCount</code> with <code class="inline">integer</code> type. Number of running tasks or processes</li><li><code class="inline">/systemStatus/uptimeMillis</code> with <code class="inline">longinteger</code> type. Get time in milliseconds since boot</li></ul><h3 id="systemstatus-availmemorybytes" class="section-heading">
@@ -568,14 +631,14 @@ Delivered data is kept for 5184000 seconds before it is erased from the database
   <a href="#io-edgehog-devicemanager-wifiscanresults-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.WiFiScanResults v0.1
 </h2>
-<h3 id="about-15" class="section-heading">
-  <a href="#about-15" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<h3 id="about-16" class="section-heading">
+  <a href="#about-16" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-15" class="section-heading">
-  <a href="#mappings-15" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-16" class="section-heading">
+  <a href="#mappings-16" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/ap/channel</code> with <code class="inline">integer</code> type. The channel over which the client is communicating with the access point.</li><li><code class="inline">/ap/essid</code> with <code class="inline">string</code> type. Extended Service Set Identification of the current AP, empty string if the AP is hidden.</li><li><code class="inline">/ap/macAddress</code> with <code class="inline">string</code> type. Lower case mac address string formatted like <code class="inline">de:ad:be:ff:11:22</code>.</li><li><code class="inline">/ap/rssi</code> with <code class="inline">integer</code> type. The current signal strength measured in dBm.</li></ul><h3 id="ap-channel" class="section-heading">
@@ -614,13 +677,13 @@ Delivered data is kept for 5184000 seconds before it is erased from the database
   <a href="#io-edgehog-devicemanager-config-telemetry-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.config.Telemetry v0.1
 </h2>
-<h3 id="about-16" class="section-heading">
-  <a href="#about-16" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+<h3 id="about-17" class="section-heading">
+  <a href="#about-17" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
-Thanks to this type of interface, the server can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-16" class="section-heading">
-  <a href="#mappings-16" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+Thanks to this type of interface, the server can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-17" class="section-heading">
+  <a href="#mappings-17" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/request/%{interface_name}/enable</code> with <code class="inline">boolean</code> type. Enable/Disable telemetry update. Unset returns to the previous state configured in the device.</li><li><code class="inline">/request/%{interface_name}/periodSeconds</code> with <code class="inline">longinteger</code> type. Set interval of period seconds between the end of the previous update and the start of the next one. Unset returns to the previous state configured in the device.</li></ul><h3 id="request-interface_name-enable" class="section-heading">
