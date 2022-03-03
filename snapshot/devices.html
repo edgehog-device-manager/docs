@@ -152,7 +152,9 @@ signals.</p><p><img src="assets/device_wifi_aps.png" alt="Device WiFi APs Screen
   Geolocation
 </h3>
 <p>This section reports the approximate location of the Device, using Edgehog's geolocation modules to
-estimate a set of GPS coordinates.</p><p><img src="assets/device_geolocation.png" alt="Device Geolocation Screenshot"/></p><p>Depending on the data exposed by the Device, the coordinates can be estimated from:</p><ul><li>nearby WiFi APs that the Device detected recently</li><li>the IP address used by the Device to connect to Astarte</li></ul><p>Based on the available data, Edgehog's geolocation modules try to find to best estimate by relying
+estimate a set of GPS coordinates.</p><p><img src="assets/device_geolocation.png" alt="Device Geolocation Screenshot"/></p><p>Depending on the data exposed by the Device, the coordinates can be estimated from:</p><ul><li>the GPS position published via the Astarte interface
+<a href="astarte_interfaces.html">io.edgehog.devicemanager.Geolocation</a>.</li><li>nearby WiFi APs that the Device detected recently, published via the Astarte interface
+<a href="astarte_interfaces.html">io.edgehog.devicemanager.WiFiScanResults</a></li><li>the IP address used by the Device to connect to Astarte</li></ul><p>Based on the available data, Edgehog's geolocation modules try to find to best estimate by relying
 on the most up-to-date info and using the ones that provide the most accuracy.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
