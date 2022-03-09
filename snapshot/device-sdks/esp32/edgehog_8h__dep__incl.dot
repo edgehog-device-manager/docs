@@ -11,5 +11,7 @@ digraph "/home/runner/work/edgehog-esp32-device/edgehog-esp32-device/edgehog-dev
   Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
   Node4 [label="/home/runner/work/edgehog\l-esp32-device/edgehog-esp32\l-device/edgehog-device-esp32\l/include/edgehog_cellular_connection.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$edgehog__cellular__connection_8h.html",tooltip="Edgehog device cellular connection API."];
   Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
-  Node5 [label="/home/runner/work/edgehog\l-esp32-device/edgehog-esp32\l-device/edgehog-device-esp32\l/include/edgehog_network_interface.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$edgehog__network__interface_8h.html",tooltip="Edgehog device network interface API."];
+  Node5 [label="/home/runner/work/edgehog\l-esp32-device/edgehog-esp32\l-device/edgehog-device-esp32\l/include/edgehog_geolocation.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$edgehog__geolocation_8h_source.html",tooltip=" "];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid",fontname="Helvetica"];
+  Node6 [label="/home/runner/work/edgehog\l-esp32-device/edgehog-esp32\l-device/edgehog-device-esp32\l/include/edgehog_network_interface.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$edgehog__network__interface_8h.html",tooltip="Edgehog device network interface API."];
 }
