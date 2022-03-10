@@ -102,39 +102,41 @@ $(document).ready(function(){initNavTree('edgehog__event_8h_source.html',''); in
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> * limitations under the License.</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifndef EDGEHOG_EVENT_H</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define EDGEHOG_EVENT_H</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;esp_event.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#ifndef EDGEHOG_EVENT_H</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define EDGEHOG_EVENT_H</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;ESP_EVENT_DECLARE_BASE(EDGEHOG_EVENTS);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;esp_event.h&quot;</span></div>
 <div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873">   38</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ab6d97ea75f26d31194e601038af3ca5c">   40</a></span>&#160;    <a class="code" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ab6d97ea75f26d31194e601038af3ca5c">EDGEHOG_INVALID_EVENT</a> = 0, </div>
-<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a70df5026f03a44d3e9c8a544aff83b11">   41</a></span>&#160;    <a class="code" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a70df5026f03a44d3e9c8a544aff83b11">EDGEHOG_OTA_INIT_EVENT</a>, </div>
-<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ae47cd0e88bc26ef682db038cc60b33bf">   42</a></span>&#160;    <a class="code" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ae47cd0e88bc26ef682db038cc60b33bf">EDGEHOG_OTA_FAILED_EVENT</a>, </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a64da146c14ad3ba0f27976d51eebdb2a">   43</a></span>&#160;    <a class="code" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a64da146c14ad3ba0f27976d51eebdb2a">EDGEHOG_OTA_SUCCESS_EVENT</a> </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;} <a class="code" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873">edgehog_event</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif // EDGEHOG_EVENT_H</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;ESP_EVENT_DECLARE_BASE(EDGEHOG_EVENTS);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873">   40</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">enum</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ab6d97ea75f26d31194e601038af3ca5c">   42</a></span>&#160;    <a class="code" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ab6d97ea75f26d31194e601038af3ca5c">EDGEHOG_INVALID_EVENT</a> = 0, </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a70df5026f03a44d3e9c8a544aff83b11">   43</a></span>&#160;    <a class="code" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a70df5026f03a44d3e9c8a544aff83b11">EDGEHOG_OTA_INIT_EVENT</a>, </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ae47cd0e88bc26ef682db038cc60b33bf">   44</a></span>&#160;    <a class="code" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ae47cd0e88bc26ef682db038cc60b33bf">EDGEHOG_OTA_FAILED_EVENT</a>, </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a64da146c14ad3ba0f27976d51eebdb2a">   45</a></span>&#160;    <a class="code" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a64da146c14ad3ba0f27976d51eebdb2a">EDGEHOG_OTA_SUCCESS_EVENT</a> </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <a class="code" href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873">edgehog_event</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif // EDGEHOG_EVENT_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aedgehog__event_8h_html_a653c675817dafda3a8c74901b3b02873ab6d97ea75f26d31194e601038af3ca5c"><div class="ttname"><a href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ab6d97ea75f26d31194e601038af3ca5c">EDGEHOG_INVALID_EVENT</a></div><div class="ttdeci">@ EDGEHOG_INVALID_EVENT</div><div class="ttdef"><b>Definition:</b> edgehog_event.h:40</div></div>
-<div class="ttc" id="aedgehog__event_8h_html_a653c675817dafda3a8c74901b3b02873a64da146c14ad3ba0f27976d51eebdb2a"><div class="ttname"><a href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a64da146c14ad3ba0f27976d51eebdb2a">EDGEHOG_OTA_SUCCESS_EVENT</a></div><div class="ttdeci">@ EDGEHOG_OTA_SUCCESS_EVENT</div><div class="ttdef"><b>Definition:</b> edgehog_event.h:43</div></div>
-<div class="ttc" id="aedgehog__event_8h_html_a653c675817dafda3a8c74901b3b02873ae47cd0e88bc26ef682db038cc60b33bf"><div class="ttname"><a href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ae47cd0e88bc26ef682db038cc60b33bf">EDGEHOG_OTA_FAILED_EVENT</a></div><div class="ttdeci">@ EDGEHOG_OTA_FAILED_EVENT</div><div class="ttdef"><b>Definition:</b> edgehog_event.h:42</div></div>
-<div class="ttc" id="aedgehog__event_8h_html_a653c675817dafda3a8c74901b3b02873"><div class="ttname"><a href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873">edgehog_event</a></div><div class="ttdeci">edgehog_event</div><div class="ttdoc">Edgehog event codes.</div><div class="ttdef"><b>Definition:</b> edgehog_event.h:38</div></div>
-<div class="ttc" id="aedgehog__event_8h_html_a653c675817dafda3a8c74901b3b02873a70df5026f03a44d3e9c8a544aff83b11"><div class="ttname"><a href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a70df5026f03a44d3e9c8a544aff83b11">EDGEHOG_OTA_INIT_EVENT</a></div><div class="ttdeci">@ EDGEHOG_OTA_INIT_EVENT</div><div class="ttdef"><b>Definition:</b> edgehog_event.h:41</div></div>
+<div class="ttc" id="aedgehog__event_8h_html_a653c675817dafda3a8c74901b3b02873ab6d97ea75f26d31194e601038af3ca5c"><div class="ttname"><a href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ab6d97ea75f26d31194e601038af3ca5c">EDGEHOG_INVALID_EVENT</a></div><div class="ttdeci">@ EDGEHOG_INVALID_EVENT</div><div class="ttdef"><b>Definition:</b> edgehog_event.h:42</div></div>
+<div class="ttc" id="aedgehog__event_8h_html_a653c675817dafda3a8c74901b3b02873a64da146c14ad3ba0f27976d51eebdb2a"><div class="ttname"><a href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a64da146c14ad3ba0f27976d51eebdb2a">EDGEHOG_OTA_SUCCESS_EVENT</a></div><div class="ttdeci">@ EDGEHOG_OTA_SUCCESS_EVENT</div><div class="ttdef"><b>Definition:</b> edgehog_event.h:45</div></div>
+<div class="ttc" id="aedgehog__event_8h_html_a653c675817dafda3a8c74901b3b02873ae47cd0e88bc26ef682db038cc60b33bf"><div class="ttname"><a href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ae47cd0e88bc26ef682db038cc60b33bf">EDGEHOG_OTA_FAILED_EVENT</a></div><div class="ttdeci">@ EDGEHOG_OTA_FAILED_EVENT</div><div class="ttdef"><b>Definition:</b> edgehog_event.h:44</div></div>
+<div class="ttc" id="aedgehog__event_8h_html_a653c675817dafda3a8c74901b3b02873"><div class="ttname"><a href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873">edgehog_event</a></div><div class="ttdeci">edgehog_event</div><div class="ttdoc">Edgehog event codes.</div><div class="ttdef"><b>Definition:</b> edgehog_event.h:40</div></div>
+<div class="ttc" id="aedgehog__event_8h_html_a653c675817dafda3a8c74901b3b02873a70df5026f03a44d3e9c8a544aff83b11"><div class="ttname"><a href="edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a70df5026f03a44d3e9c8a544aff83b11">EDGEHOG_OTA_INIT_EVENT</a></div><div class="ttdeci">@ EDGEHOG_OTA_INIT_EVENT</div><div class="ttdef"><b>Definition:</b> edgehog_event.h:43</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
