@@ -10,7 +10,7 @@
     <title>Astarte Interfaces — Edgehog v0.1.0</title>
     <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
 
-    <script src="dist/sidebar_items-a7e3322432.js"></script>
+    <script src="dist/sidebar_items-67bbef3ead.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -276,7 +276,7 @@ Each mapping is treated as an independent value and is managed individually.</p>
 </h3>
 <p>Command request. Possible values  ['Reboot']</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
-Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-geolocation-v0-1" class="section-heading">
   <a href="#io-edgehog-devicemanager-geolocation-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.Geolocation v0.1
@@ -298,49 +298,56 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
 <p>Sampled latitude value.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
-Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-longitude" class="section-heading">
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-longitude" class="section-heading">
   <a href="#id-longitude" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/%{id}/longitude</code>
 </h3>
 <p>Sampled longitude value.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
-Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-altitude" class="section-heading">
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-altitude" class="section-heading">
   <a href="#id-altitude" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/%{id}/altitude</code>
 </h3>
 <p>Sampled altitude value.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
-Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-accuracy" class="section-heading">
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-accuracy" class="section-heading">
   <a href="#id-accuracy" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/%{id}/accuracy</code>
 </h3>
 <p>Sampled accuracy of the latitude and longitude properties.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
-Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-altitudeaccuracy" class="section-heading">
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-altitudeaccuracy" class="section-heading">
   <a href="#id-altitudeaccuracy" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/%{id}/altitudeAccuracy</code>
 </h3>
 <p>Sampled accuracy of the altitude property.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
-Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-heading" class="section-heading">
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-heading" class="section-heading">
   <a href="#id-heading" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/%{id}/heading</code>
 </h3>
 <p>Sampled value representing the direction towards which the device is facing.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
-Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="id-speed" class="section-heading">
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-speed" class="section-heading">
   <a href="#id-speed" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/%{id}/speed</code>
 </h3>
 <p>Sampled value representing the velocity of the device.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
-Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-hardwareinfo-v0-1" class="section-heading">
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-hardwareinfo-v0-1" class="section-heading">
   <a href="#io-edgehog-devicemanager-hardwareinfo-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   io.edgehog.devicemanager.HardwareInfo v0.1
 </h2>
@@ -394,7 +401,7 @@ Each mapping is treated as an independent value and is managed individually.</p>
 <p>Enum describing the behavior of the given led. Possible values: [Blink60Seconds | DoubleBlink60Seconds | SlowBlink60Seconds]</p><p>Blink60Seconds: Blinking
 DoubleBlink60Seconds: Double blinking
 SlowBlink60Seconds: Slow blinking</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">led_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-networkinterfaceproperties-v0-1" class="section-heading">
   <a href="#io-edgehog-devicemanager-networkinterfaceproperties-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
@@ -457,14 +464,14 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
   <code class="inline">/request/url</code>
 </h3>
 <p>File URL</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when it has been received at least once by the recipient.
+Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="request-uuid" class="section-heading">
   <a href="#request-uuid" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/request/uuid</code>
 </h3>
 <p>Request identifier</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when it has been received at least once by the recipient.
+Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-otaresponse-v0-1" class="section-heading">
   <a href="#io-edgehog-devicemanager-otaresponse-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
@@ -485,21 +492,21 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
   <code class="inline">/response/uuid</code>
 </h3>
 <p>Request identifier</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when it has been received at least once by the recipient.
+Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="response-status" class="section-heading">
   <a href="#response-status" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/response/status</code>
 </h3>
 <p>Possible values: [ InProgress | Error | Done ]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when it has been received at least once by the recipient.
+Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="response-statuscode" class="section-heading">
   <a href="#response-statuscode" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/response/statusCode</code>
 </h3>
 <p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when it has been received at least once by the recipient.
+Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-runtimeinfo-v0-1" class="section-heading">
   <a href="#io-edgehog-devicemanager-runtimeinfo-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
