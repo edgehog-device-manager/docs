@@ -10,7 +10,7 @@
     <title>Astarte Interfaces — Edgehog v0.5.0</title>
     <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
 
-    <script src="dist/sidebar_items-67bbef3ead.js"></script>
+    <script src="dist/sidebar_items-3b33eb4417.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -634,9 +634,9 @@ Delivered data is kept for 5184000 seconds before it is erased from the database
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-wifiscanresults-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-wifiscanresults-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  io.edgehog.devicemanager.WiFiScanResults v0.1
+Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-wifiscanresults-v0-2" class="section-heading">
+  <a href="#io-edgehog-devicemanager-wifiscanresults-v0-2" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  io.edgehog.devicemanager.WiFiScanResults v0.2
 </h2>
 <h3 id="about-16" class="section-heading">
   <a href="#about-16" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
@@ -648,11 +648,19 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
   <a href="#mappings-16" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
-<p>The interface has the following mappings:</p><ul><li><code class="inline">/ap/channel</code> with <code class="inline">integer</code> type. The channel over which the client is communicating with the access point.</li><li><code class="inline">/ap/essid</code> with <code class="inline">string</code> type. Extended Service Set Identification of the current AP, empty string if the AP is hidden.</li><li><code class="inline">/ap/macAddress</code> with <code class="inline">string</code> type. Lower case mac address string formatted like <code class="inline">de:ad:be:ff:11:22</code>.</li><li><code class="inline">/ap/rssi</code> with <code class="inline">integer</code> type. The current signal strength measured in dBm.</li></ul><h3 id="ap-channel" class="section-heading">
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/ap/channel</code> with <code class="inline">integer</code> type. The channel over which the client is communicating with the access point.</li><li><code class="inline">/ap/connected</code> with <code class="inline">boolean</code> type. Identifies if the device is connected to this Access Point</li><li><code class="inline">/ap/essid</code> with <code class="inline">string</code> type. Extended Service Set Identification of the current AP, empty string if the AP is hidden.</li><li><code class="inline">/ap/macAddress</code> with <code class="inline">string</code> type. Lower case mac address string formatted like <code class="inline">de:ad:be:ff:11:22</code>.</li><li><code class="inline">/ap/rssi</code> with <code class="inline">integer</code> type. The current signal strength measured in dBm.</li></ul><h3 id="ap-channel" class="section-heading">
   <a href="#ap-channel" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/ap/channel</code>
 </h3>
 <p>The channel over which the client is communicating with the access point.</p><p>The channel represents one of the ranges into which the reference frequency is divided and it's identified by an integer number in the range 1 - 165, depending on the frequency itself and the region.</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="ap-connected" class="section-heading">
+  <a href="#ap-connected" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/ap/connected</code>
+</h3>
+<p>Identifies if the device is connected to this Access Point</p><p>This endpoint accepts values of type <code class="inline">boolean</code>: either true or false, adhering to JSON boolean type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
