@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.25.5">
+    <meta name="project" content="Edgehog v0.5.0">
+
+    <title>Deploying with Kubernetes — Edgehog v0.5.0</title>
+    <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
+
+    <script src="dist/sidebar_items-3b33eb4417.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-7b632b26f13d5e0d20e1.js"></script>
+
+
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName">
+Edgehog
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.5.0
+      </strong>
+    </div>
+
+      <a href="http://edgehog.io">
+        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1 id="content">
+Deploying with Kubernetes
+
+</h1>
+
+<p>Edgehog was designed as a Kubernetes native application, this guide will show how to deploy an
+Edgehog instance in a Kubernetes cluster.</p><p><em>Note: currently Edgehog requires some manual initialization operations to be performed in the
+Elixir interactive shell and is not completely automated. All required operations are detailed
+below in the guide.</em></p><h2 id="requirements" class="section-heading">
+  <a href="#requirements" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Requirements
+</h2>
+<ul><li>A Kubernetes cluster</li><li><code class="inline">kubectl</code> correctly configured to target the aforementioned cluster</li><li>An Ingress Controller deployed in the cluster (the guide contains examples for the NGINX Ingress
+Controller)</li><li>An Astarte instance, with an existing realm and its private key</li><li>A PostgreSQL database</li><li>S3-compatible storage with its credentials</li><li>The <code class="inline">jq</code> utility installed in the system</li><li>(Optional) A Google Geolocation API Key</li><li>(Optional) A Google Geocoding API Key</li><li>(Optional) An ipbase.com API Key</li></ul><p>The guide does not cover in detail how Edgehog is exposed to the internet, since administrators are
+free to use their favorite Ingress Controller to achieve that. An example Ingress using the NGINX
+Ingress Controller is provided, but advanced operations (e.g. certificate management) are out of the
+scope of this guide.</p><p>The guide assumes everything is deployed to the <code class="inline">edgehog</code> namespace in the Kubernetes cluster, but
+Edgehog can be deployed in any namespace adjusting the <code class="inline">yaml</code> files and the commands accordingly.</p><p>All fields that have to be customized will be indicated <code class="inline">&lt;WITH-THIS-SYNTAX&gt;</code>.</p><h2 id="deploying-edgehog" class="section-heading">
+  <a href="#deploying-edgehog" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Deploying Edgehog
+</h2>
+<p>This part of the guide will detail all the operations to deploy Edgehog into an existing Kubernetes
+cluster.</p><h3 id="namespace" class="section-heading">
+  <a href="#namespace" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Namespace
+</h3>
+<p>First of all, the <code class="inline">edgehog</code> namespace has to be created</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl create namespace edgehog
+</span></code></pre><h3 id="installing-nginx-ingress-controller-and-cert-manager-example" class="section-heading">
+  <a href="#installing-nginx-ingress-controller-and-cert-manager-example" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Installing NGINX Ingress Controller and cert-manager (example)
+</h3>
+<p>At this point you should install an Ingress Controller in your cluster. As an example, we will show
+the procedure to install the NGINX Ingress Controller and cert-manager (to manager SSL certificates)
+using <code class="inline">helm</code>. To do so, use these commands</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">helm repo add jetstack https://charts.jetstack.io
+</span><span class="gp unselectable">$ </span><span class="">helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+</span><span class="gp unselectable">$ </span><span class="">helm repo update
+</span><span class="gp unselectable">$ </span><span class="">helm install cert-manager jetstack/cert-manager \
+</span><span class="">  --create-namespace --namespace cert-manager --set installCRDs=true
+</span><span class="gp unselectable">$ </span><span class="">helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx \
+</span><span class="">  --create-namespace --namespace ingress-nginx
+</span></code></pre><p>After some minutes, you can retrieve the Load Balancer IP with</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl get svc -n ingress-nginx
+</span></code></pre><p>in the <code class="inline">EXTERNAL-IP</code> column.</p><p>Note that NGINX is only one of the possible Ingress Controllers, instructions for other Ingress
+Controllers are outside the scope of this guide.</p><h3 id="creating-dns-entries" class="section-heading">
+  <a href="#creating-dns-entries" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Creating DNS entries
+</h3>
+<p>Once you have the Load Balancer IP (obtained in the <a href="#installing-nginx-ingress-controller-and-cert-manager-example">previous
+step</a>), head to your DNS provider and
+point two domains (one for the backend and one for the frontend) to that IP address.</p><p>Save the two hosts (e.g. <code class="inline">api.edgehog.example.com</code> and <code class="inline">edgehog.example.com</code>) since they're going to
+be needed for the following steps.</p><h3 id="secrets" class="section-heading">
+  <a href="#secrets" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Secrets
+</h3>
+<p>A series of secrets containing various credentials have to be created.</p><h4>Database connection</h4><p>This command creates the secret containing the details for the database connection:</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-db-connection \
+</span><span class="">  --from-literal=&quot;database=&lt;DATABASE-NAME&gt;&quot; \
+</span><span class="">  --from-literal=&quot;username=&lt;DATABASE-USER&gt;&quot; \
+</span><span class="">  --from-literal=&quot;password=&lt;DATABASE-PASSWORD&gt;&quot;
+</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">DATABASE-NAME</code>: the name of the PostgreSQL database.</li><li><code class="inline">DATABASE-USER</code>: the username to access the database.</li><li><code class="inline">DATABASE-PASSWORD</code>: the password to access the database.</li></ul><h4>Secret key base</h4><p>This command creates the secret key base used by Phoenix:</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-secret-key-base \
+</span><span class="">  --from-literal=&quot;secret-key-base=$(openssl rand -base64 48)&quot;
+</span></code></pre><h4>S3 Credentials (Google Cloud)</h4><p>To create an S3-compatbile bucket on Google Cloud to be used with Edgehog, the following steps have
+to be performed:</p><ul><li><p><a href="https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating">Create a service
+account</a> in your
+project.</p></li><li><p><a href="https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating">Create JSON
+credentials</a> for
+the service account and rewrite them as a single line JSON:</p></li></ul><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">gcloud iam service-accounts keys create service_account_credentials.json \
+</span><span class="">  --iam-account=&lt;SERVICE-ACCOUNT-EMAIL&gt;
+</span><span class="gp unselectable">$ </span><span class="">cat service_account_credentials.json | jq -c &gt; s3_credentials.json
+</span></code></pre><ul><li><p><a href="https://cloud.google.com/storage/docs/creating-buckets">Create a Cloud Storage Bucket</a> on GCP</p><ul><li>Choose a multiregion in the preferred zones (e.g. Europe)</li><li>Remove public access prevention</li><li>Choose a fine-grained Access Control, instead of a uniform one</li></ul></li><li><p>After making sure of having the right project selected for the <code class="inline">gcloud</code> CLI, assign the
+<code class="inline">objectAdmin</code> permission to the service account for the newly created bucket:</p></li></ul><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">gsutil iam ch serviceAccount:&lt;SERVICE-ACCOUNT-EMAIL&gt;:objectAdmin gs://&lt;BUCKET-NAME&gt;
+</span></code></pre><ul><li>Create a secret containing the service account credentials</li></ul><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-s3-credentials \
+</span><span class="">  --from-file=&quot;gcp-credentials=s3_credentials.json&quot;
+</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">SERVICE-ACCOUNT-EMAIL</code>: the email associated with the service account.</li><li><code class="inline">BUCKET-NAME</code>: the bucket name for the S3 storage.</li></ul><h4>S3 Credentials (Generic)</h4><p>Consult the documentation of your cloud provider for more details about obtaining an access key ID
+and a secret access key for your S3-compatible storage.</p><p>This command creates the secret containing the S3 credentials:</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-s3-credentials \
+</span><span class="">  --from-literal=&quot;access-key-id=&lt;ACCESS-KEY-ID&gt;&quot; \
+</span><span class="">  --from-literal=&quot;secret-access-key=&lt;SECRET-ACCESS-KEY&gt;&quot;
+</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">ACCESS-KEY-ID</code>: the access key ID for your S3 storage.</li><li><code class="inline">SECRET-ACCESS-KEY</code>: the secret access key for your S3 storage.</li></ul><h4>Google Geolocation API Key (optional)</h4><p>Activate the Geolocation API for your project in GCP and
+<a href="https://developers.google.com/maps/documentation/geolocation/get-api-key">create an API key</a> to be
+used with Google Geolocation.</p><p>After that, create the secret containing the API key with:</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-google-geolocation-credentials \
+</span><span class="">  --from-literal=&quot;api-key=&lt;API-KEY&gt;&quot; \
+</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">API-KEY</code>: the Google Geolocation API Key obtained from GCP.</li></ul><h4>Google Geocoding API Key (optional)</h4><p>Activate the Geocoding API for your project in GCP and
+<a href="https://developers.google.com/maps/documentation/geocoding/get-api-key">create an API key</a> to be
+used with Google Geocoding.</p><p>After that, create the secret containing the API key with:</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-google-geocoding-credentials \
+</span><span class="">  --from-literal=&quot;api-key=&lt;API-KEY&gt;&quot;
+</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">API-KEY</code>: the Google Geocoding API Key obtained from GCP.</li></ul><h4>ipbase.com API Key (optional)</h4><p>Register an account at <a href="https://ipbase.com/">ipbase.com</a> to obtain an API key.</p><p>After that, create the secret containing the API key with:</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-ipbase-credentials \
+</span><span class="">  --from-literal=&quot;api-key=&lt;API-KEY&gt;&quot;
+</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">API-KEY</code>: the API Key obtained from ipbase.com.</li></ul><h3 id="deployments" class="section-heading">
+  <a href="#deployments" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Deployments
+</h3>
+<p>After secrets are deployed, the deployments can be applied to the cluster.</p><h4>Backend</h4><p>To deploy the backend, copy the following <code class="inline">yaml</code> snippet in <code class="inline">backend-deployment.yaml</code>, fill the
+missing values (detailed below) and execute</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl apply -f backend-deployment.yaml
+</span></code></pre><pre><code class="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: edgehog-backend
+  name: edgehog-backend
+  namespace: edgehog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: edgehog-backend
+  template:
+    metadata:
+      labels:
+        app: edgehog-backend
+    spec:
+      containers:
+      - env:
+        - name: RELEASE_NAME
+          value: edgehog
+        - name: PORT
+          value: &quot;4000&quot;
+        - name: DATABASE_HOSTNAME
+          value: &lt;DATABASE-HOSTNAME&gt;
+        - name: DATABASE_NAME
+          valueFrom:
+            secretKeyRef:
+              key: database
+              name: edgehog-db-connection
+        - name: DATABASE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              key: username
+              name: edgehog-db-connection
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: password
+              name: edgehog-db-connection
+        - name: SECRET_KEY_BASE
+          valueFrom:
+            secretKeyRef:
+              key: secret-key-base
+              name: edgehog-secret-key-base
+
+        # Uncomment this env if you have installed an optional ipbase.com API Key in the secrets
+        #
+        #- name: IPBASE_API_KEY
+        #  valueFrom:
+        #    secretKeyRef:
+        #      key: api-key
+        #      name: edgehog-ipbase-credential
+
+        # Uncomment this env if you have installed an optional Google Geolocation API Key in the
+        # secrets
+        #
+        #- name: GOOGLE_GEOLOCATION_API_KEY
+        #  valueFrom:
+        #    secretKeyRef:
+        #      key: api-key
+        #      name: edgehog-google-geolocation-credentials
+
+        # Uncomment these envs if you have installed an optional Google Geocoding API Key in
+        # the secrets
+        #- name: GOOGLE_GEOCODING_API_KEY
+        #  valueFrom:
+        #    secretKeyRef:
+        #      key: api-key
+        #      name: edgehog-google-geocoding-credentials
+
+        - name: S3_GCP_CREDENTIALS
+          valueFrom:
+            secretKeyRef:
+              key: gcp-credentials
+              name: edgehog-s3-credentials
+
+        # If you're using another S3 provider which is not Google Cloud, uncomment these envs and
+        # delete the previous env
+        #
+        #- name: S3_ACCESS_KEY_ID
+        # valueFrom:
+        #   secretKeyRef:
+        #     key: access-key-id
+        #     name: edgehog-s3-credentials
+        #- name: S3_SECRET_ACCESS_KEY
+        # valueFrom:
+        #   secretKeyRef:
+        #     key: secret-access-key
+        #     name: edgehog-s3-credentials
+
+        - name: S3_SCHEME
+          value: &lt;S3-SCHEME&gt;
+        - name: S3_HOST
+          value: &lt;S3-HOST&gt;
+        - name: S3_PORT
+          value: &quot;&lt;S3-PORT&gt;&quot;
+        - name: S3_BUCKET
+          value: &lt;S3-BUCKET&gt;
+        - name: S3_ASSET_HOST
+          value: &lt;S3-ASSET-HOST&gt;
+        - name: S3_REGION
+          value: &lt;S3-REGION&gt;
+        image: edgehogdevicemanager/edgehog-backend:snapshot
+        imagePullPolicy: Always
+        name: edgehog-backend
+        ports:
+        - containerPort: 4000
+          name: http
+          protocol: TCP</code></pre><p>Values to be replaced</p><ul><li><code class="inline">DATABASE-HOSTNAME</code>: the hostname of the PostgreSQL database.</li><li><code class="inline">S3-SCHEME</code>: the scheme (<code class="inline">http</code> or <code class="inline">https</code>) for the S3 storage.</li><li><code class="inline">S3-HOST</code>: the host for the S3 storage.</li><li><code class="inline">S3-PORT</code>: the port for the S3 storage. This has to be put in double quotes to force it to be
+interpreted as a string.</li><li><code class="inline">S3-BUCKET</code>: the bucket name for the S3 storage.</li><li><code class="inline">S3-ASSET-HOST</code>: the asset host for the S3 storage, e.g. <code class="inline">storage.googleapis.com/&lt;S3-BUCKET&gt;</code> for
+GCP or <code class="inline">&lt;S3-BUCKET&gt;.s3.amazonaws.com</code> for AWS.</li><li><code class="inline">S3-REGION</code>: the region where the S3 storage resides.</li></ul><p>The optional env variable in the <code class="inline">yaml</code> also have to be uncommented where relevant (see comments
+above the commented blocks for more information).</p><h4>Frontend</h4><p>To deploy the frontend, copy the following <code class="inline">yaml</code> snippet in <code class="inline">frontend-deployment.yaml</code>, fill the
+missing values (detailed below) and execute</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl apply -f frontend-deployment.yaml
+</span></code></pre><pre><code class="yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: edgehog-frontend
+  name: edgehog-frontend
+  namespace: edgehog
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: edgehog-frontend
+  template:
+    metadata:
+      labels:
+        app: edgehog-frontend
+    spec:
+      containers:
+      - env:
+        - name: BACKEND_URL
+          value: &lt;BACKEND-HOST&gt;
+        image: edgehogdevicemanager/edgehog-frontend:snapshot
+        imagePullPolicy: Always
+        name: edgehog-frontend
+        ports:
+        - containerPort: 80
+          name: httpout
+          protocol: TCP</code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-URL</code>: the API base URL of the Edgehog backend (see the <a href="#creating-dns-entries">Creating DNS
+entries</a> section). This should be, e.g., <code class="inline">https://&lt;BACKEND-HOST&gt;</code>.</li></ul><h3 id="services" class="section-heading">
+  <a href="#services" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Services
+</h3>
+<h4>Backend</h4><p>To deploy the backend service, copy the following <code class="inline">yaml</code> snippet in <code class="inline">backend-service.yaml</code> and
+execute</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl apply -f backend-service.yaml
+</span></code></pre><pre><code class="yaml">apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: edgehog-backend
+  name: edgehog-backend
+  namespace: edgehog
+spec:
+  ports:
+  - port: 4000
+    protocol: TCP
+    targetPort: 4000
+  selector:
+    app: edgehog-backend</code></pre><h4>Frontend</h4><p>To deploy the frontend service, copy the following <code class="inline">yaml</code> snippet in <code class="inline">frontend-service.yaml</code> and
+execute </p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl apply -f frontend-service.yaml
+</span></code></pre><pre><code class="yaml">apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: edgehog-frontend
+  name: edgehog-frontend
+  namespace: edgehog
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: edgehog-frontend</code></pre><h3 id="exposing-edgehog-to-the-internet" class="section-heading">
+  <a href="#exposing-edgehog-to-the-internet" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Exposing Edgehog to the Internet
+</h3>
+<h4>SSL Certificates</h4><p>This is an example certificates configuration for Edgehog. This is provided as a starting point and
+it uses <code class="inline">certmanager</code> to obtain LetsEncrypt SSL certificates. All advanced topics (advanced
+certificate management, self-provided certificates) are not discussed here and are outside the scope
+of this guide.</p><p>First of all, create a <code class="inline">ClusterIssuer</code> by copying the following <code class="inline">yaml</code> snippet in
+<code class="inline">cluster-issuer.yaml</code> and executing</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl apply -f cluster-issuer.yaml
+</span></code></pre><pre><code class="yaml">apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: &lt;EMAIL-ADDRESS&gt;
+    privateKeySecretRef:
+      name: letsencrypt
+    solvers:
+    - http01:
+        ingress:
+          class: nginx</code></pre><p>Values to be replaced</p><ul><li><code class="inline">EMAIL-ADDRESS</code>: a valid email address that will be used for the ACME account for LetsEncrypt.</li></ul><p>After that, create a certificate for your frontend and backend hosts, copying the following <code class="inline">yaml</code>
+snippet in <code class="inline">certificate.yaml</code> and executing</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl apply -f certificate.yaml
+</span></code></pre><pre><code class="yaml">apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: tls-secret
+  namespace: edgehog
+spec:
+  secretName: tls-secret
+  dnsNames:
+  - &lt;FRONTEND-HOST&gt;
+  - &lt;BACKEND-HOST&gt;
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: letsencrypt</code></pre><p>Values to be replaced</p><ul><li><code class="inline">FRONTEND-HOST</code>: the frontend host.</li><li><code class="inline">BACKEND-HOST</code>: the backend host.</li></ul><p>Note that this step must be performed after DNS for the frontend and backend hosts are correctly
+propagated (see <a href="#creating-dns-entries">Creating DNS Entries</a>).</p><h4>Ingress</h4><p>This is an example Ingress configuration for Edgehog. This is provided as a starting point and it
+uses the NGINX Ingress Controller. All advanced topics (e.g. certificate management) are not discussed here
+and are outside the scope of this guide.</p><p>Copy this <code class="inline">yaml</code> snippet to <code class="inline">ingress.yaml</code> and execute</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl apply -f ingress.yaml
+</span></code></pre><pre><code class="yaml">apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: nginx
+  name: edgehog-ingress
+  namespace: edgehog
+spec:
+  rules:
+  - host: &lt;FRONTEND-HOST&gt;
+    http:
+      paths:
+      - backend:
+          service:
+            name: edgehog-frontend
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: &lt;BACKEND-HOST&gt;
+    http:
+      paths:
+      - backend:
+          service:
+            name: edgehog-backend
+            port:
+              number: 4000
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - &lt;FRONTEND-HOST&gt;
+    - &lt;BACKEND-HOST&gt;
+    secretName: tls-secret</code></pre><p>Values to be replaced</p><ul><li><code class="inline">FRONTEND-HOST</code>: the frontend host.</li><li><code class="inline">BACKEND-HOST</code>: the backend host.</li></ul><h2 id="edgehog-initialization" class="section-heading">
+  <a href="#edgehog-initialization" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Edgehog Initialization
+</h2>
+<p>These are some manual operation that have to be performed to initialize the Edgehog instance. In the
+future these operation will be automated and/or will be performed using a dedicated API.</p><h3 id="creating-a-keypair" class="section-heading">
+  <a href="#creating-a-keypair" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Creating a keypair
+</h3>
+<p>A keypair is needed to emit and validate tokens to access your tenant. You can generate an EC
+keypair with the following OpenSSL commands</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">openssl ecparam -name prime256v1 -genkey -noout &gt; private_key.pem
+</span><span class="gp unselectable">$ </span><span class="">openssl ec -in private_key.pem -pubout &gt; public_key.pem
+</span></code></pre><p>After those commands are executed, you will have two files: <code class="inline">private_key.pem</code> and <code class="inline">public_key.pem</code>.
+The content of <code class="inline">public_key.pem</code> will be needed in the next steps, while <code class="inline">private_key.pem</code> will be
+used to emit Edgehog tokens. Make sure to store the private key somewhere safe.</p><h3 id="connecting-to-iex" class="section-heading">
+  <a href="#connecting-to-iex" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Connecting to <code class="inline">iex</code>
+</h3>
+<p>Connect to the <code class="inline">iex</code> interactive shell of the Edgehog backend using</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">kubectl exec -it deploy/edgehog-backend -n edgehog -- /app/bin/edgehog remote
+</span></code></pre><p>All the following commands have to be executed inside that shell, in a single session (since some
+commands will reuse the result of previous commands)</p><h3 id="creating-a-cluster" class="section-heading">
+  <a href="#creating-a-cluster" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Creating a cluster
+</h3>
+<p>The following commands will create a database entry representing the Astarte cluster this Edgehog
+instance points to</p><pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">Edgehog.Astarte</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">cluster_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;CLUSTER-NAME&gt;&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">base_api_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;ASTARTE-BASE-API-URL&gt;&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="2036219086-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">cluster</span><span class="p" data-group-id="2036219086-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Astarte</span><span class="o">.</span><span class="n">create_cluster</span><span class="p" data-group-id="2036219086-2">(</span><span class="p" data-group-id="2036219086-3">%{</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">cluster_name</span><span class="p">,</span><span class="w"> </span><span class="ss">base_api_url</span><span class="p">:</span><span class="w"> </span><span class="n">base_api_url</span><span class="p" data-group-id="2036219086-3">}</span><span class="p" data-group-id="2036219086-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">CLUSTER-NAME</code>: a name for the Astarte cluster.</li><li><code class="inline">ASTARTE-BASE-API-URL</code>: the base API url of the Astarte instance (e.g.
+<a href="https://api.astarte.example.com).">https://api.astarte.example.com).</a></li></ul><h3 id="creating-the-tenant" class="section-heading">
+  <a href="#creating-the-tenant" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Creating the tenant
+</h3>
+<p>The following commands will create a database entry representing the tenant and will use its ID to
+scope the following calls to the database</p><pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">Edgehog.Tenants</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">tenant_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;TENANT-NAME&gt;&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">tenant_slug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;TENANT-SLUG&gt;&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">tenant_public_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;
+&lt;TENANT-PUBLIC-KEY&gt;
+&quot;&quot;&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4824901134-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="4824901134-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tenants</span><span class="o">.</span><span class="n">create_tenant</span><span class="p" data-group-id="4824901134-2">(</span><span class="p" data-group-id="4824901134-3">%{</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_name</span><span class="p">,</span><span class="w"> </span><span class="ss">slug</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_slug</span><span class="p">,</span><span class="w"> </span><span class="ss">public_key</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_public_key</span><span class="p" data-group-id="4824901134-3">}</span><span class="p" data-group-id="4824901134-2">)</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="bp">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Edgehog.Repo</span><span class="o">.</span><span class="n">put_tenant_id</span><span class="p" data-group-id="4824901134-4">(</span><span class="n">tenant</span><span class="o">.</span><span class="n">tenant_id</span><span class="p" data-group-id="4824901134-4">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
+step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
+the file in the <code class="inline">iex</code> shell and then close the multiline string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li></ul><h3 id="creating-the-realm" class="section-heading">
+  <a href="#creating-the-realm" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Creating the realm
+</h3>
+<p>The following commands will create a database entry representing the realm used by the tenant</p><pre><code class="makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">Edgehog.Tenants</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">realm_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;REALM-NAME&gt;&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">realm_private_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;
+&lt;REALM-PRIVATE-KEY&gt;
+&quot;&quot;&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4379389880-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">realm</span><span class="p" data-group-id="4379389880-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Astarte</span><span class="o">.</span><span class="n">create_realm</span><span class="p" data-group-id="4379389880-2">(</span><span class="n">cluster</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4379389880-3">%{</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">realm_name</span><span class="p">,</span><span class="w"> </span><span class="ss">private_key</span><span class="p">:</span><span class="w"> </span><span class="n">realm_private_key</span><span class="p" data-group-id="4379389880-3">}</span><span class="p" data-group-id="4379389880-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">REALM-PRIVATE-KEY</code>: the content of you realm's private key. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>,
+press Enter, paste the content of the file in the <code class="inline">iex</code> shell and then close the multiline string
+with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li></ul><h3 id="installing-triggers" class="section-heading">
+  <a href="#installing-triggers" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Installing triggers
+</h3>
+<p>In your Astarte instance, install these 3 triggers.</p><p>Connection trigger:</p><pre><code class="json">{
+    &quot;name&quot;: &quot;edgehog-connection&quot;,
+    &quot;action&quot;: {
+        &quot;http_url&quot;: &quot;&lt;BACKEND-TRIGGER-URL&gt;&quot;,
+        &quot;ignore_ssl_errors&quot;: false,
+        &quot;http_method&quot;: &quot;post&quot;,
+        &quot;http_static_headers&quot;: {}
+    },
+    &quot;simple_triggers&quot;: [
+        {
+            &quot;type&quot;: &quot;device_trigger&quot;,
+            &quot;on&quot;: &quot;device_connected&quot;
+        }
+    ]
+}</code></pre><p>Disconnection trigger:</p><pre><code class="json">{
+    &quot;name&quot;: &quot;edgehog-disconnection&quot;,
+    &quot;action&quot;: {
+        &quot;http_url&quot;: &quot;&lt;BACKEND-TRIGGER-URL&gt;&quot;,
+        &quot;ignore_ssl_errors&quot;: false,
+        &quot;http_method&quot;: &quot;post&quot;,
+        &quot;http_static_headers&quot;: {}
+    },
+    &quot;simple_triggers&quot;: [
+        {
+            &quot;type&quot;: &quot;device_trigger&quot;,
+            &quot;on&quot;: &quot;device_disconnected&quot;
+        }
+    ]
+}</code></pre><p>OTA trigger:</p><pre><code class="json">{
+    &quot;name&quot;: &quot;edgehog-ota&quot;,
+    &quot;action&quot;: {
+        &quot;http_url&quot;: &quot;&lt;BACKEND-TRIGGER-URL&gt;&quot;,
+        &quot;ignore_ssl_errors&quot;: false,
+        &quot;http_method&quot;: &quot;post&quot;,
+        &quot;http_static_headers&quot;: {}
+    },
+    &quot;simple_triggers&quot;: [
+        {
+            &quot;type&quot;: &quot;data_trigger&quot;,
+            &quot;interface_name&quot;: &quot;io.edgehog.devicemanager.OTAResponse&quot;,
+            &quot;interface_major&quot;: 0,
+            &quot;on&quot;: &quot;incoming_data&quot;,
+            &quot;match_path&quot;: &quot;/*&quot;,
+            &quot;value_match_operator&quot;: &quot;*&quot;
+        }
+    ]
+}</code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-TRIGGER-URL</code>: the URL where the backend receives triggers. This is
+<code class="inline">&lt;BASE-BACKEND-URL&gt;/tenants/&lt;TENANT-NAME&gt;/triggers</code>, where <code class="inline">BASE-BACKEND-URL</code> is the URL to your
+Edgehog backend and <code class="inline">TENANT-NAME</code> is the name of the tenant you chose in the <a href="#creating-a-tenant">previous
+step</a>.</li></ul><h3 id="accessing-edgehog" class="section-heading">
+  <a href="#accessing-edgehog" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Accessing Edgehog
+</h3>
+<p>At this point your Edgehog instance is ready to use. The last step is generating a token to access
+your Edgehog frontend instance. You can do so using the <code class="inline">gen-edgehog-jwt</code> tool contained in the
+<code class="inline">tools</code> directory of the <a href="https://github.com/edgehog-device-manager/edgehog/tree/main/tools">Edgehog
+repo</a>.</p><pre><code class="makeup bash"><span class="gp unselectable">$ </span><span class="">pip3 install pyjwt
+</span><span class="gp unselectable">$ </span><span class="">./gen-edgehog-jwt -k &lt;PATH-TO-TENANT-PRIVATE-KEY&gt;
+</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">PATH-TO-TENANT-PRIVATE-KEY</code>: path to the <code class="inline">private_key.pem</code> file created in the <a href="#creating-a-keypair">previous
+step</a>.</li></ul><p>Note that the token expires after 24 hours by default. If you want to have a token with a different
+expiry time, you can pass <code class="inline">-e &lt;EXPIRY-SECONDS&gt;</code> to the <code class="inline">gen-edgehog-jwt</code> command.</p><p>After that, you can open your frontend URL in your browser and insert your tenant slug and token to
+log into your Edgehog instance, and use to the <a href="#intro_user">user guide</a> to discover all Edgehog
+features.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="overview.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Architecture overview
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="interacting_with_edgehog.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Interacting with Edgehog
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.25.5) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
