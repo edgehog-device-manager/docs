@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.25.5">
+    <meta name="project" content="Edgehog v0.5.0">
+
+    <title>OTA Updates — Edgehog v0.5.0</title>
+    <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
+
+    <script src="dist/sidebar_items-129a6b6347.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/app-7b632b26f13d5e0d20e1.js"></script>
+
+
+  </head>
+  <body data-type="extras">
+    <script>
+
+      try {
+        if (localStorage.getItem('night-mode') === 'true') {
+          document.body.classList.add('night-mode');
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle">
+  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+    </button>
+    <label class="search-label">
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName">
+Edgehog
+      </a>
+      <strong class="sidebar-projectVersion">
+        v0.5.0
+      </strong>
+    </div>
+
+      <a href="http://edgehog.io">
+        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
+      </a>
+
+  </div>
+
+  <ul class="sidebar-listNav">
+    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+
+  </ul>
+  <div class="gradient"></div>
+  <ul id="full-list" class="sidebar-fullList"></ul>
+</section>
+
+<section class="content">
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1 id="content">
+OTA Updates
+
+</h1>
+
+<p>Edgehog provides an OTA update mechanism that allows remotely updating devices. The OTA update
+mechanism is not tied to a specific platform and can be used on any <a href="device_sdks_runtime.html">Edgehog
+runtime</a> which implements the
+<a href="astarte_interfaces.html#io-edgehog-devicemanager-otarequest-v0-1"><code class="inline">io.edgehog.devicemanager.OTARequest</code></a>,
+<a href="astarte_interfaces.html#io-edgehog-devicemanager-otaresponse-v0-1"><code class="inline">io.edgehog.devicemanager.OTAResponse</code></a>
+and
+<a href="astarte_interfaces.html#io-edgehog-devicemanager-baseimage-v0-1"><code class="inline">io.edgehog.devicemanager.BaseImage</code></a>
+interfaces.</p><p>OTA Concepts are detailed in the <a href="core_concepts.html#ota-concepts">Core Concepts</a> page, this guide
+presents some of the operations which can be performed using Edgehog.</p><h2 id="managed-ota-updates" class="section-heading">
+  <a href="#managed-ota-updates" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Managed OTA Updates
+</h2>
+<p>Edgehog provides a mechanism to roll-out OTA updates to devices automatically, based on their System
+Model and their membership to specific groups.</p><p>The sections below detail the operations that have to be performed to use managed OTA Updates.</p><h3 id="creating-a-base-image-collection" class="section-heading">
+  <a href="#creating-a-base-image-collection" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Creating a Base Image Collection
+</h3>
+<p>The first step to start using the OTA functionalities of Edgehog is creating at least one Base Image
+Collection. The Base Image Collection will be tied to a specific System Model, which has to be
+selected during the creation.</p><p>When creating a Base Image Collection, the following information must be provided</p><ul><li>Name: the display name of the Base Image Collection.</li><li>Handle: an handle matching the <code class="inline">^[a-z][a-z\d\-]*$</code> regular expression.</li><li>System Model ID: the ID of the System Model this Base Image Collection will be associated with.</li></ul><p>A new Base Image Collection should be created for each group of Images implementing different
+functionalities or implementing the same functionalities on different hardware.</p><h3 id="uploading-a-base-image" class="section-heading">
+  <a href="#uploading-a-base-image" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Uploading a Base Image
+</h3>
+<p>Once a new Base Image is baked, it can be uploaded into a specific Base Image Collection.</p><p>When uploading a Base Image, the following information must be provided</p><ul><li>Version: a version number following the <a href="https://semver.org">Semantic Versioning</a> spec. The
+version number must be unique.</li><li>Release Display Name (optional): a localized user-friendly name for the release.</li><li>Description (optional): a localized description of the content of the Base Image.</li><li>Supported starting versions (optional): a version requirement that the Device must satisfy with
+its current Base Image to be updated with this Base Image. If a Device that does not satisfy the
+requirement is included in an Update Campaign that uses this Base Image, the result of the OTA
+Operation is an error.</li></ul><p>Some information can be automatically filled in if the Base Image can be parsed by one of the
+<a href="#supported-base-image-parsers">supported Base Image parsers</a>. Other than that, users are free to
+use whatever format they choose for the artifact that will be pushed towards the device, provided
+the Device is able to handle it.</p><p>When you upload a new Base Image in a Base Image Collection, no update is pushed towards devices,
+the Base Image is just uploaded in Edgehog's storage. To start pushing updates towards devices, an
+<a href="#creating-an-update-campaign">Update Campaign</a> must be created.</p><h4>Supported Base Image parsers</h4><p>Base Image parsers are not implemented yet. As soon as they are implemented, this section will be
+populated with the supported formats.</p><h3 id="creating-an-update-channel" class="section-heading">
+  <a href="#creating-an-update-channel" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Creating an Update Channel
+</h3>
+<p>Before creating the first Update Campaign, at least an Update Channel must be created.</p><p>The first Update Channel is automatically marked as the default one. All Devices that are not
+assigned to any other Update Channel will be implicitly assigned to this one.</p><p>When creating an Update Channel, the following information must be provided</p><ul><li>Name: the display name of the Update Channel</li><li>Handle: an handle matching the <code class="inline">^[a-z][a-z\d\-]*$</code> regular expression.</li><li>Target Groups (optional): a list of <a href="groups.html">groups</a> containing Devices which will
+automatically get assigned to this Update Channel.</li></ul><p>Note that only a single Update Campaign can be active for a given Update Channel and System Model
+combination. This means that to implement A/B beta testing, two separate Update Channels (e.g.
+<code class="inline">beta-a</code> and <code class="inline">beta-b</code>) must be created.</p><p>A group can be associated only with a single Update Channel. To change the auto-assignment of a
+specific group from an Update Channel to another, the group must be removed from the previous Update
+Channel and then added to the new one.</p><p>Note that even if a group can be associated with a single Update Channel, conflicts can still arise
+(since two different groups can include the same Device). Since the set of Devices that receive
+updates from an Update Channel is snapshotted when an Update Campaign is created, if there are
+conflicts the Device will always receive the update from the most recent Update Campaign.</p><h3 id="creating-an-update-campaign" class="section-heading">
+  <a href="#creating-an-update-campaign" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Creating an Update Campaign
+</h3>
+<p>To actually push updates towards Devices, an Update Campaign must be started. Note that an Update
+Campaign can only send updates for the same Base Image Collection, and special operations (like
+converting a Device from a System Model to another) must always be done with a <a href="#manual-ota-updates">Manual OTA
+Update</a>.</p><p>When creating an Update Campaign, the following information must be provided</p><ul><li>Base Image: the target Base Image for the Update Campaign.</li><li>Update Channel: the target Update Channel for the Update Campaign.</li><li>Roll-out mechanism: a supported <a href="#roll-out-mechanism">Roll-out Mechanism</a>.</li><li>Allow downgrade (optional): if <code class="inline">true</code>, the Update Campaign allows downgrading a Device which is
+currently using a later version of the Base Image. Defaults to <code class="inline">false</code>.</li></ul><p>Once created, the Update Campaign will start rolling out updates towards the devices, and its
+progress can be checked from the Edgehog Dashboard or through Edgehog GraphQL API.</p><p>Note that the campaign will &quot;snapshot&quot; the Devices belonging to the Update Channel when it's
+started, and will target only those. If additional Devices are added to the Update Channel (either
+manually or automatically via auto-assignment) <em>after</em> the Update Campaign is created, they won't
+receive the Base Image and will require a separate campaign to be started.</p><p>Only a single Update Campaign can be started for a given System Model and Update Channel
+combination, so creating a new Update Campaign while another one is already running will implicitly
+cancel the old one. This means that Devices that didn't yet receive the Base Image of the old Update
+Campaign will directly receive the new one, without any intermediate step.</p><h4>Roll-out mechanism</h4><p>Here are the currently supported Roll-out Mechanisms and their properties</p><h5><code class="inline">push</code></h5><p>This Roll-out mechanism pushes the update towards the device unconditionally. This can be used to
+provide automatic updates where the user should not have the choice of refusing the update.</p><p>The properties of this Roll-out Mechanism are</p><ul><li>Devices per hour: the target number of Devices that will be updated in a sliding 1-hour window.</li><li>Max pending confirmations: the maximum number of Devices with a pending OTA Operation.</li><li>Max errors: the maximum number of OTA Operation errors. If more OTA Operations produce an error,
+the Update Campaign is aborted with an error state.</li><li>Retries: the number of times an update must be retried on a specific Device before considering it
+an error.</li><li>Timeout: the time after which a pending OTA Operation is considered an error.</li></ul><h5><code class="inline">optional</code></h5><p>This Roll-out mechanism just pushes a message towards the Device informing that an update is
+available. The update is downloaded to the device only after the user accepts the update. The update
+is not required to be pushed immediately, to provide a backpressure mechanism if many users accept
+the update at the same time.</p><p>The properties of this Roll-out Mechanism are</p><ul><li>Max pending confirmations: the maximum number of Devices with a pending OTA Operation.</li><li>Max errors: the maximum number of OTA Operation errors. If more OTA Operations produce an error,
+the Update Campaign is aborted with an error state.</li><li>Retries: the number of times an update must be retried on a specific Device before considering it
+an error.</li><li>Timeout: the time after which a pending OTA Operation is considered an error.</li></ul><h2 id="manual-ota-updates" class="section-heading">
+  <a href="#manual-ota-updates" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Manual OTA Updates
+</h2>
+<p>As an escape hatch, it's always possible to manually update a Device from its page on the Edgehog
+dashboard (or using the Edgehog GraphQL API).</p><p>Note that Manual OTA Updates do not perform any check on the System Model, so they can effectively
+be used to change the System Model of a Device. This also means that the user must exercise
+particular attention to avoid bricking a Device, if the Device does not implement the necessary
+safety checks.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="groups.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Groups
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="batch_operations.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Batch Operations
+        </span>
+      </a>
+
+  </div>
+</div>
+
+      <footer class="footer">
+
+        <p>
+          <span class="line">
+            Built using
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.25.5) for the
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
+          </span>
+          <span class="line">
+            Designed by
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+          </span>
+        </p>
+        <p>
+
+          <button class="line footer-button display-shortcuts-help">
+            Display keyboard shortcuts
+          </button>
+          <button class="line footer-button night-mode-toggle">
+            Toggle night mode
+          </button>
+          <button class="line footer-button display-quick-switch">
+            Go to a HexDocs package
+          </button>
+          <button class="line footer-button tooltips-toggle">
+            <span class="tooltips-option-disable">Disable tooltips</span>
+            <span class="tooltips-option-enable">Enable tooltips</span>
+          </button>
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

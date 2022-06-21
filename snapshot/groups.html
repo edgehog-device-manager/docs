@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.25.5">
     <meta name="project" content="Edgehog v0.5.0">
 
-    <title>SDKs & Runtime — Edgehog v0.5.0</title>
+    <title>Groups — Edgehog v0.5.0</title>
     <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
 
     <script src="dist/sidebar_items-129a6b6347.js"></script>
@@ -82,41 +82,45 @@ Edgehog
     <div id="content" class="content-inner">
 
 <h1 id="content">
-SDKs &amp; Runtime
+Groups
 
 </h1>
 
-<h2 id="edgehog-device-esp32-sdk" class="section-heading">
-  <a href="#edgehog-device-esp32-sdk" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Edgehog Device ESP32 SDK
+<p>Edgehog allows creating groups of Devices based on tags and attributes. This makes it easy to target
+them with fleet operations.</p><p>All the concepts used below are detailed in the <a href="core_concepts.html#tags-attributes-and-groups">Core
+Concepts</a> page, this guide is oriented towards
+operational details to create a group.</p><h2 id="creating-a-group" class="section-heading">
+  <a href="#creating-a-group" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Creating a group
 </h2>
-<p>Edgehog Device ESP32 is an <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/index.html">ESP-IDF component</a>
-written in C, that enables remote device management using Edgehog.</p><ul><li><a href="https://github.com/edgehog-device-manager/edgehog-esp32-device2">edgehog-esp32-device</a></li><li><a href="device-sdks/esp32/index.html">documentation</a></li></ul><h2 id="edgehog-device-runtime" class="section-heading">
-  <a href="#edgehog-device-runtime" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Edgehog Device Runtime
+<p>A new group can be created from the Groups section of Edgehog.</p><p>When creating a group, the following information must be provided:</p><ul><li>Name: the display name of the group</li><li>Handle: an handle matching the <code class="inline">^[a-z][a-z\d\-]*$</code> regular expression.</li><li>Selector: a <a href="core_concepts.html#selector">Selector</a> that will determine which Devices belong to
+this group (i.e. all Devices that match the Selector)</li></ul><h2 id="deleting-a-group" class="section-heading">
+  <a href="#deleting-a-group" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Deleting a group
 </h2>
-<p>Edgehog Device Runtime is a portable middleware written in Rust, that enables remote device management using Edgehog.</p><ul><li><a href="https://github.com/edgehog-device-manager/edgehog-device-runtime">edgehog-device-runtime</a></li></ul>
+<p>To delete a group, just press the Delete icon next to it in the group list.</p><p>Note that deleting a group means that all automatic operations based on that group (e.g. Update
+Channel auto-assignment) will cease to work.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="devices.html" class="bottom-actions-button" rel="prev">
+      <a href="attribute_value_sources.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Devices
+Attribute Value Sources
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
 
-      <a href="attribute_value_sources.html" class="bottom-actions-button" rel="next">
+      <a href="ota_updates.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-Attribute Value Sources
+OTA Updates
         </span>
       </a>
 

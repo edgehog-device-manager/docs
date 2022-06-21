@@ -10,7 +10,7 @@
     <title>Devices — Edgehog v0.5.0</title>
     <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
 
-    <script src="dist/sidebar_items-3b33eb4417.js"></script>
+    <script src="dist/sidebar_items-129a6b6347.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -103,7 +103,15 @@ that two different models of e-bikes are sent to maintenance; if they share the 
 working PCB board of one model could be fitted into the other one.</p><p>For this reason, each time a Device connects to Astarte, it can notify Astarte about the System
 Model it refers to, exposing its Part Number. Astarte then informs Edgehog via Astarte Triggers, so
 that Edgehog can associate the Device to the correct System Model by matching the Device's Part
-Number with the ones of the System Model.</p><h2 id="device-info" class="section-heading">
+Number with the ones of the System Model.</p><h2 id="tags-and-attributes" class="section-heading">
+  <a href="#tags-and-attributes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Tags and Attributes
+</h2>
+<p>A Device can have some <a href="core_concepts.html#tags-attributes-and-groups">Tags and Attributes</a>
+associated with it.</p><p>Tags are purely user-defined and can be added and removed from the Device page.</p><p>Attributes are mostly automatically populated but the <code class="inline">custom</code> namespace attributes can be assigned
+freely from the Device page.</p><p>Tags and attributes can be used to determine the membership of a Device to a specific
+<a href="groups.html">group</a>, which in turn can be used to assign a Device to a specific Update Channel when
+receiving <a href="ota_updates.html">OTA Updates</a>.</p><h2 id="device-info" class="section-heading">
   <a href="#device-info" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Device info
 </h2>

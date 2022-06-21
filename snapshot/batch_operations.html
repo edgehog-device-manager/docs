@@ -7,7 +7,7 @@
     <meta name="generator" content="ExDoc v0.25.5">
     <meta name="project" content="Edgehog v0.5.0">
 
-    <title>SDKs & Runtime — Edgehog v0.5.0</title>
+    <title>Batch Operations — Edgehog v0.5.0</title>
     <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
 
     <script src="dist/sidebar_items-129a6b6347.js"></script>
@@ -82,41 +82,41 @@ Edgehog
     <div id="content" class="content-inner">
 
 <h1 id="content">
-SDKs &amp; Runtime
+Batch Operations
 
 </h1>
 
-<h2 id="edgehog-device-esp32-sdk" class="section-heading">
-  <a href="#edgehog-device-esp32-sdk" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Edgehog Device ESP32 SDK
+<p>Edgehog provides facilities to perform batch operations on groups of devices. These are used to
+avoid having to perform repetitive tasks on many devices.</p><p>This guide presents the batch operations which can be performed using Edgehog.</p><h2 id="maintenance-window-setting" class="section-heading">
+  <a href="#maintenance-window-setting" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Maintenance Window Setting
 </h2>
-<p>Edgehog Device ESP32 is an <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/index.html">ESP-IDF component</a>
-written in C, that enables remote device management using Edgehog.</p><ul><li><a href="https://github.com/edgehog-device-manager/edgehog-esp32-device2">edgehog-esp32-device</a></li><li><a href="device-sdks/esp32/index.html">documentation</a></li></ul><h2 id="edgehog-device-runtime" class="section-heading">
-  <a href="#edgehog-device-runtime" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  Edgehog Device Runtime
-</h2>
-<p>Edgehog Device Runtime is a portable middleware written in Rust, that enables remote device management using Edgehog.</p><ul><li><a href="https://github.com/edgehog-device-manager/edgehog-device-runtime">edgehog-device-runtime</a></li></ul>
+<p>Using the Edgehog API or its frontend, it is possible to set the same <a href="core_concepts.html#maintenance-window">Maintenance
+Window</a> to all devices belonging to a Group.</p><p>When performing the operation, the following information must be provided</p><ul><li>Maintenance Window Start: the UTC timestamp that marks the beginning of the Maintenance Window</li><li>Maintenance Window End: the UTC timestamp that marks the end of the Maintenance Window</li><li>Group: the name of the target group</li></ul><p>All devices belonging to the Group when the operation is started will be assigned the new
+Maintenance Window. Note that the Maintenance Window remains a property of the single device and the
+assignment is performed one-shot when the operation is performed (i.e. Devices that become member of
+the group later are not affected by it).</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="devices.html" class="bottom-actions-button" rel="prev">
+      <a href="ota_updates.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Devices
+OTA Updates
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
 
-      <a href="attribute_value_sources.html" class="bottom-actions-button" rel="next">
+      <a href="overview.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-Attribute Value Sources
+Architecture overview
         </span>
       </a>
 

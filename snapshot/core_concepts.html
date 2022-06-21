@@ -10,7 +10,7 @@
     <title>Core concepts — Edgehog v0.5.0</title>
     <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
 
-    <script src="dist/sidebar_items-3b33eb4417.js"></script>
+    <script src="dist/sidebar_items-129a6b6347.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -121,7 +121,117 @@ System Model's Part Number is delivered along with the device, or on the box con
 System Models, even if they use the same Hardware Type (e.g. an ESP32 with a GSM module). It is also
 possible that the e-bikes are further split into different System Models depending on the country
 they are deployed in if, for example, the software has to conform to speed limitations which are
-specific for each country.</p>
+specific for each country.</p><h2 id="tags-attributes-and-groups" class="section-heading">
+  <a href="#tags-attributes-and-groups" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Tags, attributes and groups
+</h2>
+<p>This section will deal with various types of properties that can be added to devices to identify
+and group them.</p><h3 id="tags" class="section-heading">
+  <a href="#tags" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Tags
+</h3>
+<p>Tags are string values that can be freely attached to Devices. There is no predefined semantics so
+users are free to use them as they see fit.</p><p>Some examples of tags that can be assigned to the e-bikes or electric scooters in our examples
+could be <code class="inline">out-of-order</code>, <code class="inline">test_machine</code> or <code class="inline">Upgraded Brakes</code>.</p><h3 id="attributes" class="section-heading">
+  <a href="#attributes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Attributes
+</h3>
+<p>Attributes are namespaced key-value pairs that can be attached to Devices. The namespacing happens
+by prepending the namespace to the key using a colon as separator (i.e. <code class="inline">namespace:key</code>). This
+ensures that the same key in different namespaces can be addressed unambiguously.</p><p>The attribute keys are always strings, while values support all the types <a href="https://docs.astarte-platform.org/latest/030-interface.html#supported-data-types">supported by Astarte
+Interfaces</a>.</p><p>The majority of attributes are automatically populated using different mechanisms depending on the
+namespaces, but there's also the possibility of manually defining custom attributes for a specific
+device.</p><p>The supported namespaces are:</p><ul><li><code class="inline">edgehog-synthetic</code>: automatically populated with values coming from Device data that is derived
+from Edgehog (e.g. Geolocation, System Model, Hardware Type, etc...)</li><li><code class="inline">edgehog-policy</code>: automatically populated with Edgehog values which are imposed on the cloud side
+(e.g. Geolocation disabled due to GDPR restrictions).</li><li><code class="inline">astarte-values</code>: automatically populated with values coming from device-owned Astarte interfaces
+using an <a href="#attribute-value-source">Attribute Value Source</a> with type <code class="inline">astarte-value</code>.</li><li><code class="inline">astarte-attributes</code>: automatically populated using the <code class="inline">attributes</code> map in the Device status
+returned from Astarte AppEngine API. Since Astarte attributes don't provide a trigger mechanism,
+these attributes are lazily populated and should be considered eventually consistent.</li><li><code class="inline">custom</code>: user-defined key-value pairs which are manually assigned to a Device.</li></ul><p>Note that all values will be converted to a string when using them as attribute values</p><h3 id="attribute-value-source" class="section-heading">
+  <a href="#attribute-value-source" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Attribute Value Source
+</h3>
+<p>An Attribute Value Source populates the attributes of a Device according to some rule.</p><p>Currently, the only supported type of Attribute Value Source is <code class="inline">astarte-value</code>, which updates
+Device attributes using a value from an Astarte interface.</p><h3 id="selector" class="section-heading">
+  <a href="#selector" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Selector
+</h3>
+<p>A Selector allows selecting a subset of devices based on their tags and attributes. The Selector
+can be evaluated for a Device and return <code class="inline">true</code> if the device matches the Selector and <code class="inline">false</code>
+otherwise.</p><p>Each Selector can be made of one or more expressions, combined using <code class="inline">and</code> and <code class="inline">or</code>.</p><p>These are the supported expressions:</p><ul><li><code class="inline">&quot;&lt;value&gt;&quot; in tags</code>: returns <code class="inline">true</code> if <code class="inline">value</code> is included in the Device tags</li><li><code class="inline">&quot;&lt;value&gt;&quot; in attributes[&quot;&lt;namespace&gt;:&lt;key&gt;&quot;]</code>: returns <code class="inline">true</code> if <code class="inline">value</code> is included in the
+chosen attribute. Note that the attribute must be an array for the expression to be valid.</li><li><code class="inline">attributes[&quot;&lt;namespace&gt;:&lt;key&gt;&quot;] &lt;operator&gt; &lt;value&gt;</code>: returns <code class="inline">true</code> if the value of the chosen
+attribute satisfies the expression. The available operators are <code class="inline">==</code>, <code class="inline">!=</code>, <code class="inline">&gt;</code>, <code class="inline">&gt;=</code>, <code class="inline">&lt;</code>, <code class="inline">&lt;=</code>.
+Note that numeric comparison operators are valid only when used with an attribute with a numeric
+value or a datetime value.</li></ul><p>Selector expressions also provide some builtin functions:</p><ul><li><code class="inline">now()</code> this indicates the current datetime (when the Selector is evaluated). This can be used to
+do comparisons with other <code class="inline">datetime</code> attributes.</li></ul><p>To provide some examples, here is a Selector to target all out of order devices in Milan:</p><pre><code class="makeup elixir"><span class="s">&quot;out-of-order&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">tags</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">attributes</span><span class="p" data-group-id="4588050858-1">[</span><span class="s">&quot;edgehog-synthetic:city&quot;</span><span class="p" data-group-id="4588050858-1">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Milan&quot;</span></code></pre><p>Here is a selector to target all devices that have their service timestamp in the past so they have
+to be serviced, imagining this information is contained in the <code class="inline">com.foo.ServiceInfo</code> Astarte
+interface in the <code class="inline">/nextServiceTimestamp</code>:</p><pre><code class="makeup elixir"><span class="n">attributes</span><span class="p" data-group-id="2411163597-1">[</span><span class="s">&quot;astarte-values:com.foo.ServiceInfo/serviceTimestamp&quot;</span><span class="p" data-group-id="2411163597-1">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">now</span><span class="p" data-group-id="2411163597-2">(</span><span class="p" data-group-id="2411163597-2">)</span></code></pre><h3 id="group" class="section-heading">
+  <a href="#group" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Group
+</h3>
+<p>A Group represents a subset of devices filtered by a Selector.</p><p>The Group can be used to perform operations on Devices contained in it (e.g. an <a href="#update-campaign">Update
+Campaign</a>).</p><p>Since Tags and Attributes of a Device can change, Groups do not statically define the set of Devices
+they contain but they change dynamically following Device changes.</p><p>Note that a Device can't be manually assigned to a Group, its tags and attributes must be
+used to make it satisfy the group Selector.</p><h2 id="ota-update-concepts" class="section-heading">
+  <a href="#ota-update-concepts" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OTA Update Concepts
+</h2>
+<p>This section will deal with the concepts used by Edgehog's OTA update mechanism, and it covers
+various aspects of the software running on Devices. The <a href="ota_updates.html">OTA Updates</a> page adds
+operative details to the concepts presented here.</p><h3 id="base-image" class="section-heading">
+  <a href="#base-image" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Base Image
+</h3>
+<p>A Base Image is an image created to be run on a Device. The exact content of the Base Image can vary
+depending on the use case, but it usually contains the operating system image or the device
+firmware. Each Base Image belongs to a <a href="#base-image-collection">Base Image Collection</a>.</p><p>Base Images follow semantic versioning, so that the user is able to know when a specific update can
+contain breaking changes. Each Base Image must have a unique version number.</p><h2 id="base-image-collection" class="section-heading">
+  <a href="#base-image-collection" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Base Image Collection
+</h2>
+<p>A Base Image Collection is a set of Base Images associated with a specific <a href="#system-models">System
+Model</a> and, implicitly via the System Model, with a specific <a href="#hardware-types">Hardware
+Type</a>. The mapping relation between Base Image Collection and System Models is 1:1,
+so a Base Image Collection is associated with a single System Model and viceversa.</p><p>A Base Image Collection contains all the Base Images that ran, are running or could be run on a
+System Model. Drawing from the bike sharing example, there would be a different Base Image
+Collection for, e.g., e-bikes from each specific country to handle the different speed limitations.</p><p>Basically the job of a Base Image Collection is to limit what can be installed to a System Model, to
+avoid accidentally installing the firmware for an electric scooter on an e-bike.</p><h2 id="update-channels" class="section-heading">
+  <a href="#update-channels" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Update Channels
+</h2>
+<p>An Update Channel represents the subscription of a Device to a specific set of Base Images.</p><p>Each Device is always associated with an Update Channel (e.g. <code class="inline">default</code>, <code class="inline">stable</code>, <code class="inline">beta</code>, <code class="inline">devel</code>,
+...). To assign a Device to a specific Update Channel (other than the default one) the device must
+belong to a <a href="#group">Group</a> and that Group has to be assigned to the Target Groups of the Update
+Channel.</p><p>The same Base Image can be associated with multiple Update Channels. This guarantees
+that once testers in the <code class="inline">beta</code> Update Channel validate the Base Image, the exact same Base Image
+will be used to update devices in the <code class="inline">default</code> Update Channel.</p><p>It's possible to automatically assign an Update Channel to one or more <a href="#group">Groups</a>.</p><h2 id="update-campaign" class="section-heading">
+  <a href="#update-campaign" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Update Campaign
+</h2>
+<p>An Update Campaign is the operation that tracks the distribution of a specific Base Image to all
+devices belonging to an Update Channel.</p><p>Each Update Channel can have only one live campaign at a time for a specific System Model, so
+creating a new campaign implicitly replaces the old one if it was still active.</p><p>An Update Campaign can define additional constraints about which devices can be updated (e.g.
+minimum current version, allow downgrade, etc).</p><h2 id="rollout-mechanism" class="section-heading">
+  <a href="#rollout-mechanism" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Rollout Mechanism
+</h2>
+<p>The Rollout Mechanism determines the details of how an Update Campaign is carried out.</p><p>It is responsible of deciding if the update is pushed towards the devices or pulled by users
+interacting with them.</p><p>It also defines other details like how many devices are updated at a time, how many errors should be
+supported before aborting the campaign etc.</p><p>There are currently two main Mechanisms available: Push and Optional. The Push mechanism pushes the
+update towards the device unconditionally, while the Optional mechanism waits for a confirmation on
+the Device side (usually given by a user) before starting to download the update.</p><h2 id="ota-operation" class="section-heading">
+  <a href="#ota-operation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  OTA Operation
+</h2>
+<p>An OTA Operation tracks the progress of an update to a specific Device. It is started when Edgehog
+starts pushing the update to the Device and ends either with a success or with an error (possibly
+due to a timeout).</p><h2 id="maintenance-window" class="section-heading">
+  <a href="#maintenance-window" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  Maintenance Window
+</h2>
+<p>Each Device can have an optional Maintenance Window. This is used by Update Campaign to determine
+which Devices can be updated at a specific time.</p><p>If a Device declares a Maintenance Window, the updates targeting it will start only in the interval
+defined by it. Note that there's no guarantee that the update will also terminate inside the
+Maintenance Window.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
