@@ -10,7 +10,7 @@
     <title>Astarte Interfaces — Edgehog v0.5.0</title>
     <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
 
-    <script src="dist/sidebar_items-129a6b6347.js"></script>
+    <script src="dist/sidebar_items-d51a8d5eb0.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -445,68 +445,96 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
   <a href="#osversion" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   <code class="inline">/osVersion</code>
 </h3>
-<p>Version of the Operating System</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h2 id="io-edgehog-devicemanager-otarequest-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-otarequest-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  io.edgehog.devicemanager.OTARequest v0.1
+<p>Version of the Operating System</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h2 id="io-edgehog-devicemanager-otaevent-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-otaevent-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  io.edgehog.devicemanager.OTAEvent v0.1
 </h2>
-<h3 id="about-10" class="section-heading">
+<p>OTA Events sampled data.</p><p>Allows to stream OTA Events data, including OTA Update status, its progress, code and internal message.</p><h3 id="about-10" class="section-heading">
   <a href="#about-10" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
-<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
-Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
 Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-10" class="section-heading">
   <a href="#mappings-10" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
-<p>The interface has the following mappings:</p><ul><li><code class="inline">/request/url</code> with <code class="inline">string</code> type. File URL</li><li><code class="inline">/request/uuid</code> with <code class="inline">string</code> type. Request identifier</li></ul><h3 id="request-url" class="section-heading">
-  <a href="#request-url" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  <code class="inline">/request/url</code>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/event/requestUUID</code> with <code class="inline">string</code> type. OTA Request identifier.</li><li><code class="inline">/event/status</code> with <code class="inline">string</code> type. OTA Update status.</li><li><code class="inline">/event/statusProgress</code> with <code class="inline">integer</code> type. Current OTA Update status progress percentage [0%-100%].</li><li><code class="inline">/event/statusCode</code> with <code class="inline">string</code> type. Status code expands OTA Update status with additional information.</li><li><code class="inline">/event/message</code> with <code class="inline">string</code> type. Contains internal message for status code or empty string otherwise.</li></ul><h3 id="event-requestuuid" class="section-heading">
+  <a href="#event-requestuuid" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/event/requestUUID</code>
 </h3>
-<p>File URL</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+<p>OTA Request identifier.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="request-uuid" class="section-heading">
-  <a href="#request-uuid" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  <code class="inline">/request/uuid</code>
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="event-status" class="section-heading">
+  <a href="#event-status" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/event/status</code>
 </h3>
-<p>Request identifier</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+<p>OTA Update status.</p><p>Value is one of the following strings:</p><ul><li><code class="inline">Acknowledged</code>: the device received an OTA Request.</li><li><code class="inline">Downloading</code>: an update is in the process of downloading.</li><li><code class="inline">Deploying</code>: an update is in the process of deploying.</li><li><code class="inline">Deployed</code>: an update deployed on the device.</li><li><code class="inline">Rebooting</code>: the device is in the process of rebooting.</li><li><code class="inline">Success</code>: an update succeeded. This is a final status of OTA Update.</li><li><code class="inline">Error</code>: an error happened during the update. Also this status can be used to notify about handled errors.</li><li><code class="inline">Failure</code>: an update failed. This is a final status of OTA Update.</li></ul><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-otaresponse-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-otaresponse-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  io.edgehog.devicemanager.OTAResponse v0.1
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="event-statusprogress" class="section-heading">
+  <a href="#event-statusprogress" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/event/statusProgress</code>
+</h3>
+<p>Current OTA Update status progress percentage [0%-100%].</p><p>Every OTA Update status has own progress that starts from 0 and ends at 100, for example (pairs of <code class="inline">&quot;status, progress&quot;</code>): <code class="inline">&quot;Downloading, 0&quot;</code>, <code class="inline">&quot;Downloading, 50&quot;</code>, <code class="inline">&quot;Downloading, 100&quot;</code>, <code class="inline">&quot;Deploying, 10&quot;</code>, etc.</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when it has been received exactly once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="event-statuscode" class="section-heading">
+  <a href="#event-statuscode" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/event/statusCode</code>
+</h3>
+<p>Status code expands OTA Update status with additional information.</p><p>Some common status codes are:</p><ul><li><code class="inline">InvalidRequest</code>: an update request contains incorrect data.</li><li><code class="inline">UpdateAlreadyInProgress</code>: another update is currently in progress.</li><li><code class="inline">NetworkError</code>: a network error happened during the update.</li><li><code class="inline">IOError</code>: a filesystem error happened during the update.</li><li><code class="inline">InternalError</code>: an internal error happened during the update.</li><li><code class="inline">InvalidBaseImage</code>: an update failed to apply due to an invalid base image.</li><li><code class="inline">SystemRollback</code>: a system rollback has occurred.</li><li><code class="inline">Canceled</code>: an update was canceled.</li></ul><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when it has been received exactly once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="event-message" class="section-heading">
+  <a href="#event-message" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/event/message</code>
+</h3>
+<p>Contains internal message for status code or empty string otherwise.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when it has been received exactly once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-otarequest-v1-0" class="section-heading">
+  <a href="#io-edgehog-devicemanager-otarequest-v1-0" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  io.edgehog.devicemanager.OTARequest v1.0
 </h2>
 <h3 id="about-11" class="section-heading">
   <a href="#about-11" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   About
 </h3>
-<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
-Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
 Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-11" class="section-heading">
   <a href="#mappings-11" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Mappings
 </h3>
-<p>The interface has the following mappings:</p><ul><li><code class="inline">/response/uuid</code> with <code class="inline">string</code> type. Request identifier</li><li><code class="inline">/response/status</code> with <code class="inline">string</code> type. Possible values: [ InProgress | Error | Done ]</li><li><code class="inline">/response/statusCode</code> with <code class="inline">string</code> type. </li></ul><h3 id="response-uuid" class="section-heading">
-  <a href="#response-uuid" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  <code class="inline">/response/uuid</code>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/request/operation</code> with <code class="inline">string</code> type. OTA Request operation</li><li><code class="inline">/request/url</code> with <code class="inline">string</code> type. File URL</li><li><code class="inline">/request/uuid</code> with <code class="inline">string</code> type. Request identifier</li></ul><h3 id="request-operation" class="section-heading">
+  <a href="#request-operation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/request/operation</code>
 </h3>
-<p>Request identifier</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when it has been received exactly once by the recipient.
+<p>OTA Request operation</p><p>Value is one of the following strings:</p><ul><li><code class="inline">Update</code>: push an OTA update operation.</li><li><code class="inline">Cancel</code>: cancel an OTA update if it can still be cancelled.</li></ul><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="response-status" class="section-heading">
-  <a href="#response-status" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  <code class="inline">/response/status</code>
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="request-url" class="section-heading">
+  <a href="#request-url" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/request/url</code>
 </h3>
-<p>Possible values: [ InProgress | Error | Done ]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when it has been received exactly once by the recipient.
+<p>File URL</p><p>If the operation is Update, this will contain the URL that can be used to download the Update.
+ If the operation is Cancel, this will be an empty string.
+ Note that the URL will be valid only until the OTA update is active (i.e. it didn't reach a Failure or Success state), after that it's possible that the URL can become invalid.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="response-statuscode" class="section-heading">
-  <a href="#response-statuscode" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
-  <code class="inline">/response/statusCode</code>
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="request-uuid" class="section-heading">
+  <a href="#request-uuid" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <code class="inline">/request/uuid</code>
 </h3>
-<p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when it has been received exactly once by the recipient.
+<p>Request identifier</p><p>A UUID that uniquely identifies the OTA request. It must be stored when receiving an Update operation so that it can be matched against in case a Cancel operation is received.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-runtimeinfo-v0-1" class="section-heading">
   <a href="#io-edgehog-devicemanager-runtimeinfo-v0-1" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
