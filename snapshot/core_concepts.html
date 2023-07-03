@@ -4,46 +4,55 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.25.5">
+    <meta name="generator" content="ExDoc v0.29.4">
     <meta name="project" content="Edgehog v0.7.0-dev">
 
     <title>Core concepts — Edgehog v0.7.0-dev</title>
-    <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
+    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
 
-    <script src="dist/sidebar_items-1d129feb4b.js"></script>
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-1D129FEB.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-7b632b26f13d5e0d20e1.js"></script>
+    <script async src="dist/html-JDI3AVDD.js"></script>
 
 
   </head>
-  <body data-type="extras">
+  <body data-type="extras" class="page-extra">
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
 <section class="sidebar">
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
     </label>
   </form>
 
@@ -53,48 +62,59 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="http://edgehog.io" class="sidebar-projectName">
-Edgehog
-      </a>
-      <strong class="sidebar-projectVersion">
-        v0.7.0-dev
-      </strong>
-    </div>
 
       <a href="http://edgehog.io">
         <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Edgehog
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v0.7.0-dev
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
-  <ul id="full-list" class="sidebar-fullList"></ul>
+  <ul id="full-list"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-Core concepts
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+
+  <span>Core concepts</span>
 </h1>
 
 <p>This page will illustrate some of the core concepts used in Edgehog.</p><h2 id="hardware-types-devices-and-system-models" class="section-heading">
-  <a href="#hardware-types-devices-and-system-models" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#hardware-types-devices-and-system-models" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">hardware-types-devices-and-system-models</p>
+  </a>
   Hardware types, Devices and System Models
 </h2>
 <p>This section will deal with the difference between three main concepts used throughout Edgehog:
 Hardware Types, Devices and System Models.</p><p>To better illustrate this, we will use as example the ACME Inc company, which manages a fleet of
 e-bikes and electric scooters. We will illustrate the hierarchy going from the bottom up, showing
 how each concept relates to the other ones.</p><h3 id="hardware-type" class="section-heading">
-  <a href="#hardware-type" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#hardware-type" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">hardware-type</p>
+  </a>
   Hardware Type
 </h3>
 <p>An Hardware Type represents the electronic hardware components embedded in an device. As an example,
@@ -103,12 +123,16 @@ LTE modem&quot;.</p><p>Each Hardware Type can have one or more Hardware Type Par
 sure that the user is able to map, e.g., a new revision of the PCB to the same Hardware Type, since
 different hardware with the same Hardware Type is assumed to be compatible. Usually (but not
 necessarily) the Hardware Type Part Number is a code that is written on the PCB.</p><h3 id="device" class="section-heading">
-  <a href="#device" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#device" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">device</p>
+  </a>
   Device
 </h3>
 <p>A device is an entity connected to Astarte. A Device has a uniquely identified by its Device ID, and
 it usually lives inside a product such as an e-bike (if it is not on a shelf or in a repair shop).</p><h3 id="system-models" class="section-heading">
-  <a href="#system-models" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#system-models" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">system-models</p>
+  </a>
   System Models
 </h3>
 <p>A System Model constitutes a group of devices implementing the same functionality for some users.
@@ -122,18 +146,24 @@ System Models, even if they use the same Hardware Type (e.g. an ESP32 with a GSM
 possible that the e-bikes are further split into different System Models depending on the country
 they are deployed in if, for example, the software has to conform to speed limitations which are
 specific for each country.</p><h2 id="tags-attributes-and-groups" class="section-heading">
-  <a href="#tags-attributes-and-groups" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#tags-attributes-and-groups" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">tags-attributes-and-groups</p>
+  </a>
   Tags, attributes and groups
 </h2>
 <p>This section will deal with various types of properties that can be added to devices to identify
 and group them.</p><h3 id="tags" class="section-heading">
-  <a href="#tags" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#tags" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">tags</p>
+  </a>
   Tags
 </h3>
 <p>Tags are string values that can be freely attached to Devices. There is no predefined semantics so
 users are free to use them as they see fit.</p><p>Some examples of tags that can be assigned to the e-bikes or electric scooters in our examples
 could be <code class="inline">out-of-order</code>, <code class="inline">test_machine</code> or <code class="inline">Upgraded Brakes</code>.</p><h3 id="attributes" class="section-heading">
-  <a href="#attributes" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#attributes" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">attributes</p>
+  </a>
   Attributes
 </h3>
 <p>Attributes are namespaced key-value pairs that can be attached to Devices. The namespacing happens
@@ -147,12 +177,16 @@ from Edgehog (e.g. Geolocation, System Model, Hardware Type, etc...)</li><li><co
 using an <a href="#attribute-value-source">Attribute Value Source</a> with type <code class="inline">astarte-value</code>.</li><li><code class="inline">astarte-attributes</code>: automatically populated using the <code class="inline">attributes</code> map in the Device status
 returned from Astarte AppEngine API. Since Astarte attributes don't provide a trigger mechanism,
 these attributes are lazily populated and should be considered eventually consistent.</li><li><code class="inline">custom</code>: user-defined key-value pairs which are manually assigned to a Device.</li></ul><p>Note that all values will be converted to a string when using them as attribute values</p><h3 id="attribute-value-source" class="section-heading">
-  <a href="#attribute-value-source" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#attribute-value-source" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">attribute-value-source</p>
+  </a>
   Attribute Value Source
 </h3>
 <p>An Attribute Value Source populates the attributes of a Device according to some rule.</p><p>Currently, the only supported type of Attribute Value Source is <code class="inline">astarte-value</code>, which updates
 Device attributes using a value from an Astarte interface.</p><h3 id="selector" class="section-heading">
-  <a href="#selector" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#selector" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">selector</p>
+  </a>
   Selector
 </h3>
 <p>A Selector allows selecting a subset of Devices based on their tags and attributes. The Selector
@@ -169,36 +203,44 @@ contained in double quotes must be a valid UTC ISO8601 timestamp. Example:
 <code class="inline">datetime(&quot;2022-06-27T16:27:40.254795Z&quot;)</code>.</li><li><code class="inline">binaryblob(&quot;&lt;base64 encoded value&gt;&quot;)</code> is used to pass <code class="inline">binaryblob</code> values in expressions. The
 string contained in double quotes must be a valid Base64 encoding of the binary value. Example:
 <code class="inline">binaryblob(&quot;Zm9vYmFy&quot;)</code> to encode the string <code class="inline">&quot;foobar&quot;</code>.</li></ul><h5>Attribute inclusion filter (Not supported yet)</h5><ul><li><code class="inline">&quot;&lt;value&gt;&quot; in attributes[&quot;&lt;namespace&gt;:&lt;key&gt;&quot;]</code>: returns <code class="inline">true</code> if <code class="inline">value</code> is included in the
-chosen attribute. Note that the attribute must be an array for the expression to be valid.</li></ul><h4>Examples</h4><p>To provide some examples, here is a Selector to target all out of order Devices in Milan:</p><pre><code class="makeup elixir"><span class="s">&quot;out-of-order&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">tags</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">attributes</span><span class="p" data-group-id="2752451482-1">[</span><span class="s">&quot;edgehog-synthetic:city&quot;</span><span class="p" data-group-id="2752451482-1">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Milan&quot;</span></code></pre><p>Here is a selector to target all Devices that have their service timestamp in the past so they have
+chosen attribute. Note that the attribute must be an array for the expression to be valid.</li></ul><h4>Examples</h4><p>To provide some examples, here is a Selector to target all out of order Devices in Milan:</p><pre><code class="makeup elixir" translate="no"><span class="s">&quot;out-of-order&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">tags</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">attributes</span><span class="p" data-group-id="6290623953-1">[</span><span class="s">&quot;edgehog-synthetic:city&quot;</span><span class="p" data-group-id="6290623953-1">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Milan&quot;</span></code></pre><p>Here is a selector to target all Devices that have their service timestamp in the past so they have
 to be serviced, imagining this information is contained in the <code class="inline">com.foo.ServiceInfo</code> Astarte
-interface in the <code class="inline">/serviceTimestamp</code>:</p><pre><code class="makeup elixir"><span class="n">attributes</span><span class="p" data-group-id="2524033581-1">[</span><span class="s">&quot;astarte-values:com.foo.ServiceInfo/serviceTimestamp&quot;</span><span class="p" data-group-id="2524033581-1">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">now</span><span class="p" data-group-id="2524033581-2">(</span><span class="p" data-group-id="2524033581-2">)</span></code></pre><h4>Caveats</h4><p>Note that numeric values are conflated in a single numeric type, i.e. a selector with
+interface in the <code class="inline">/serviceTimestamp</code>:</p><pre><code class="makeup elixir" translate="no"><span class="n">attributes</span><span class="p" data-group-id="9178916699-1">[</span><span class="s">&quot;astarte-values:com.foo.ServiceInfo/serviceTimestamp&quot;</span><span class="p" data-group-id="9178916699-1">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">now</span><span class="p" data-group-id="9178916699-2">(</span><span class="p" data-group-id="9178916699-2">)</span></code></pre><h4>Caveats</h4><p>Note that numeric values are conflated in a single numeric type, i.e. a selector with
 <code class="inline">attributes[&quot;custom:foo&quot;] == 42</code> will match either if <code class="inline">foo</code> is <code class="inline">integer</code>, <code class="inline">longinteger</code> or <code class="inline">double</code>
 (e.g it will also match <code class="inline">42.0</code>).</p><p>Another important thing to notice is that using an Attribute Filter will implicitly match only
 Devices that have that attribute. As an example, if there are 3 devices, one with attribute <code class="inline">foo:bar == 42</code>, the other with attribute <code class="inline">foo:bar == 3</code> and the third one with no <code class="inline">foo:bar</code> attribute, the
 Attribute Filter <code class="inline">attributes[&quot;foo:bar&quot;] != 42</code> will match the second Device but <em>not</em> the third one,
 since it doesn't have the target attribute.</p><p>In the future, additional syntax could be added to Selectors to allow filtering based just on the
 presence or absence of an attribute.</p><h3 id="group" class="section-heading">
-  <a href="#group" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#group" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">group</p>
+  </a>
   Group
 </h3>
 <p>A Group represents a subset of devices filtered by a Selector.</p><p>The Group can be used to perform operations on Devices contained in it (e.g. an <a href="#update-campaign">Update
 Campaign</a>).</p><p>Since Tags and Attributes of a Device can change, Groups do not statically define the set of Devices
 they contain but they change dynamically following Device changes.</p><p>Note that a Device can't be manually assigned to a Group, its tags and attributes must be
 used to make it satisfy the group Selector.</p><h2 id="ota-update-concepts" class="section-heading">
-  <a href="#ota-update-concepts" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#ota-update-concepts" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">ota-update-concepts</p>
+  </a>
   OTA Update Concepts
 </h2>
 <p>This section will deal with the concepts used by Edgehog's OTA update mechanism, and it covers
 various aspects of the software running on Devices. The <a href="ota_updates.html">OTA Updates</a> page adds
 operative details to the concepts presented here.</p><h3 id="base-image" class="section-heading">
-  <a href="#base-image" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#base-image" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">base-image</p>
+  </a>
   Base Image
 </h3>
 <p>A Base Image is an image created to be run on a Device. The exact content of the Base Image can vary
 depending on the use case, but it usually contains the operating system image or the device
 firmware. Each Base Image belongs to a <a href="#base-image-collection">Base Image Collection</a>.</p><p>Base Images follow semantic versioning, so that the user is able to know when a specific update can
 contain breaking changes. Each Base Image must have a unique version number.</p><h2 id="base-image-collection" class="section-heading">
-  <a href="#base-image-collection" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#base-image-collection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">base-image-collection</p>
+  </a>
   Base Image Collection
 </h2>
 <p>A Base Image Collection is a set of Base Images associated with a specific <a href="#system-models">System
@@ -208,7 +250,9 @@ so a Base Image Collection is associated with a single System Model and vicevers
 System Model. Drawing from the bike sharing example, there would be a different Base Image
 Collection for, e.g., e-bikes from each specific country to handle the different speed limitations.</p><p>Basically the job of a Base Image Collection is to limit what can be installed to a System Model, to
 avoid accidentally installing the firmware for an electric scooter on an e-bike.</p><h2 id="update-channels" class="section-heading">
-  <a href="#update-channels" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#update-channels" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">update-channels</p>
+  </a>
   Update Channels
 </h2>
 <p>An Update Channel represents the subscription of a Device to a specific set of Base Images.</p><p>Each Device is always associated with an Update Channel (e.g. <code class="inline">default</code>, <code class="inline">stable</code>, <code class="inline">beta</code>, <code class="inline">devel</code>,
@@ -217,14 +261,18 @@ belong to a <a href="#group">Group</a> and that Group has to be assigned to the 
 Channel.</p><p>The same Base Image can be associated with multiple Update Channels. This guarantees
 that once testers in the <code class="inline">beta</code> Update Channel validate the Base Image, the exact same Base Image
 will be used to update devices in the <code class="inline">default</code> Update Channel.</p><p>It's possible to automatically assign an Update Channel to one or more <a href="#group">Groups</a>.</p><h2 id="update-campaign" class="section-heading">
-  <a href="#update-campaign" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#update-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">update-campaign</p>
+  </a>
   Update Campaign
 </h2>
 <p>An Update Campaign is the operation that tracks the distribution of a specific Base Image to all
 devices belonging to an Update Channel.</p><p>Each Update Channel can have only one live campaign at a time for a specific System Model, so
 creating a new campaign implicitly replaces the old one if it was still active.</p><p>An Update Campaign can define additional constraints about which devices can be updated (e.g.
 minimum current version, allow downgrade, etc).</p><h2 id="rollout-mechanism" class="section-heading">
-  <a href="#rollout-mechanism" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#rollout-mechanism" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">rollout-mechanism</p>
+  </a>
   Rollout Mechanism
 </h2>
 <p>The Rollout Mechanism determines the details of how an Update Campaign is carried out.</p><p>It is responsible of deciding if the update is pushed towards the devices or pulled by users
@@ -232,13 +280,17 @@ interacting with them.</p><p>It also defines other details like how many devices
 supported before aborting the campaign etc.</p><p>There are currently two main Mechanisms available: Push and Optional. The Push mechanism pushes the
 update towards the device unconditionally, while the Optional mechanism waits for a confirmation on
 the Device side (usually given by a user) before starting to download the update.</p><h2 id="ota-operation" class="section-heading">
-  <a href="#ota-operation" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#ota-operation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">ota-operation</p>
+  </a>
   OTA Operation
 </h2>
 <p>An OTA Operation tracks the progress of an update to a specific Device. It is started when Edgehog
 starts pushing the update to the Device and ends either with a success or with an error (possibly
 due to a timeout).</p><h2 id="maintenance-window" class="section-heading">
-  <a href="#maintenance-window" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#maintenance-window" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">maintenance-window</p>
+  </a>
   Maintenance Window
 </h2>
 <p>Each Device can have an optional Maintenance Window. This is used by Update Campaign to determine
@@ -271,35 +323,27 @@ Hardware Types
 
   </div>
 </div>
-
       <footer class="footer">
-
         <p>
+
           <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.25.5) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="Edgehog.epub" title="ePub version">
+                Download ePub version
+              </a>
+
           </span>
         </p>
-        <p>
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button night-mode-toggle">
-            Toggle night mode
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button tooltips-toggle">
-            <span class="tooltips-option-disable">Disable tooltips</span>
-            <span class="tooltips-option-enable">Enable tooltips</span>
-          </button>
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>

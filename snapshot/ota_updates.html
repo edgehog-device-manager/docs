@@ -4,46 +4,55 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.25.5">
+    <meta name="generator" content="ExDoc v0.29.4">
     <meta name="project" content="Edgehog v0.7.0-dev">
 
     <title>OTA Updates — Edgehog v0.7.0-dev</title>
-    <link rel="stylesheet" href="dist/elixir-d1506dba1db7cdc5483e.css" />
+    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
 
-    <script src="dist/sidebar_items-1d129feb4b.js"></script>
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-1D129FEB.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/app-7b632b26f13d5e0d20e1.js"></script>
+    <script async src="dist/html-JDI3AVDD.js"></script>
 
 
   </head>
-  <body data-type="extras">
+  <body data-type="extras" class="page-extra">
     <script>
 
       try {
-        if (localStorage.getItem('night-mode') === 'true') {
-          document.body.classList.add('night-mode');
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
         }
       } catch (error) { }
     </script>
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle">
-  <span class="icon-menu" title="Collapse/expand sidebar"></span>
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
 <section class="sidebar">
   <form class="sidebar-search" action="search.html">
     <button type="submit" class="search-button" aria-label="Submit Search">
-      <span class="icon-search" aria-hidden="true" title="Submit search"></span>
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
     <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <span class="icon-cross" aria-hidden="true" title="Cancel search"></span>
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
     </button>
     <label class="search-label">
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" />
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
     </label>
   </form>
 
@@ -53,37 +62,44 @@
   </div>
 
   <div class="sidebar-header">
-    <div class="sidebar-projectDetails">
-      <a href="http://edgehog.io" class="sidebar-projectName">
-Edgehog
-      </a>
-      <strong class="sidebar-projectVersion">
-        v0.7.0-dev
-      </strong>
-    </div>
 
       <a href="http://edgehog.io">
         <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
       </a>
 
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Edgehog
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v0.7.0-dev
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+
+    </ul>
   </div>
 
-  <ul class="sidebar-listNav">
-    <li><a id="extras-list-link" href="#full-list">Pages</a></li>
-
-
-  </ul>
   <div class="gradient"></div>
-  <ul id="full-list" class="sidebar-fullList"></ul>
+  <ul id="full-list"></ul>
 </section>
 
 <section class="content">
+  <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
 
-<h1 id="content">
-OTA Updates
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
 
+
+
+  <span>OTA Updates</span>
 </h1>
 
 <p>Edgehog provides an OTA update mechanism that allows remotely updating devices. The OTA update
@@ -95,19 +111,25 @@ and
 <a href="astarte_interfaces.html#io-edgehog-devicemanager-baseimage-v0-1"><code class="inline">io.edgehog.devicemanager.BaseImage</code></a>
 interfaces.</p><p>OTA Concepts are detailed in the <a href="core_concepts.html#ota-concepts">Core Concepts</a> page, this guide
 presents some of the operations which can be performed using Edgehog.</p><h2 id="managed-ota-updates" class="section-heading">
-  <a href="#managed-ota-updates" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#managed-ota-updates" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">managed-ota-updates</p>
+  </a>
   Managed OTA Updates
 </h2>
 <p>Edgehog provides a mechanism to roll-out OTA updates to devices automatically, based on their System
 Model and their membership to specific groups.</p><p>The sections below detail the operations that have to be performed to use managed OTA Updates.</p><h3 id="creating-a-base-image-collection" class="section-heading">
-  <a href="#creating-a-base-image-collection" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#creating-a-base-image-collection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">creating-a-base-image-collection</p>
+  </a>
   Creating a Base Image Collection
 </h3>
 <p>The first step to start using the OTA functionalities of Edgehog is creating at least one Base Image
 Collection. The Base Image Collection will be tied to a specific System Model, which has to be
 selected during the creation.</p><p>When creating a Base Image Collection, the following information must be provided</p><ul><li>Name: the display name of the Base Image Collection.</li><li>Handle: an handle matching the <code class="inline">^[a-z][a-z\d\-]*$</code> regular expression.</li><li>System Model ID: the ID of the System Model this Base Image Collection will be associated with.</li></ul><p>A new Base Image Collection should be created for each group of Images implementing different
 functionalities or implementing the same functionalities on different hardware.</p><h3 id="uploading-a-base-image" class="section-heading">
-  <a href="#uploading-a-base-image" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#uploading-a-base-image" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">uploading-a-base-image</p>
+  </a>
   Uploading a Base Image
 </h3>
 <p>Once a new Base Image is baked, it can be uploaded into a specific Base Image Collection.</p><p>When uploading a Base Image, the following information must be provided</p><ul><li>Version: a version number following the <a href="https://semver.org">Semantic Versioning</a> spec. The
@@ -121,7 +143,9 @@ the Device is able to handle it.</p><p>When you upload a new Base Image in a Bas
 the Base Image is just uploaded in Edgehog's storage. To start pushing updates towards devices, an
 <a href="#creating-an-update-campaign">Update Campaign</a> must be created.</p><h4>Supported Base Image parsers</h4><p>Base Image parsers are not implemented yet. As soon as they are implemented, this section will be
 populated with the supported formats.</p><h3 id="creating-an-update-channel" class="section-heading">
-  <a href="#creating-an-update-channel" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#creating-an-update-channel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">creating-an-update-channel</p>
+  </a>
   Creating an Update Channel
 </h3>
 <p>Before creating the first Update Campaign, at least an Update Channel must be created.</p><p>The first Update Channel is automatically marked as the default one. All Devices that are not
@@ -134,7 +158,9 @@ Channel and then added to the new one.</p><p>Note that even if a group can be as
 (since two different groups can include the same Device). Since the set of Devices that receive
 updates from an Update Channel is snapshotted when an Update Campaign is created, if there are
 conflicts the Device will always receive the update from the most recent Update Campaign.</p><h3 id="creating-an-update-campaign" class="section-heading">
-  <a href="#creating-an-update-campaign" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#creating-an-update-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">creating-an-update-campaign</p>
+  </a>
   Creating an Update Campaign
 </h3>
 <p>To actually push updates towards Devices, an Update Campaign must be started. Note that an Update
@@ -157,7 +183,9 @@ is not required to be pushed immediately, to provide a backpressure mechanism if
 the update at the same time.</p><p>The properties of this Roll-out Mechanism are</p><ul><li>Max pending confirmations: the maximum number of Devices with a pending OTA Operation.</li><li>Max errors: the maximum number of OTA Operation errors. If more OTA Operations produce an error,
 the Update Campaign is aborted with an error state.</li><li>Retries: the number of times an update must be retried on a specific Device before considering it
 an error.</li><li>Timeout: the time after which a pending OTA Operation is considered an error.</li></ul><h2 id="manual-ota-updates" class="section-heading">
-  <a href="#manual-ota-updates" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
+  <a href="#manual-ota-updates" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">manual-ota-updates</p>
+  </a>
   Manual OTA Updates
 </h2>
 <p>As an escape hatch, it's always possible to manually update a Device from its page on the Edgehog
@@ -191,35 +219,27 @@ Batch Operations
 
   </div>
 </div>
-
       <footer class="footer">
-
         <p>
+
           <span class="line">
-            Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.25.5) for the
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank">Elixir programming language</a>.
-          </span>
-          <span class="line">
-            Designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="Edgehog.epub" title="ePub version">
+                Download ePub version
+              </a>
+
           </span>
         </p>
-        <p>
 
-          <button class="line footer-button display-shortcuts-help">
-            Display keyboard shortcuts
-          </button>
-          <button class="line footer-button night-mode-toggle">
-            Toggle night mode
-          </button>
-          <button class="line footer-button display-quick-switch">
-            Go to a HexDocs package
-          </button>
-          <button class="line footer-button tooltips-toggle">
-            <span class="tooltips-option-disable">Disable tooltips</span>
-            <span class="tooltips-option-enable">Enable tooltips</span>
-          </button>
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
         </p>
       </footer>
     </div>
