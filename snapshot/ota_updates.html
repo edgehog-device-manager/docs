@@ -13,7 +13,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
-    <script src="dist/sidebar_items-1D129FEB.js"></script>
+    <script src="dist/sidebar_items-1A844532.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -177,12 +177,10 @@ cancel the old one. This means that Devices that didn't yet receive the Base Ima
 Campaign will directly receive the new one, without any intermediate step.</p><h4>Roll-out mechanism</h4><p>Here are the currently supported Roll-out Mechanisms and their properties</p><h5><code class="inline">push</code></h5><p>This Roll-out mechanism pushes the update towards the device unconditionally. This can be used to
 provide automatic updates where the user should not have the choice of refusing the update.</p><p>The properties of this Roll-out Mechanism are</p><ul><li>Devices per hour: the target number of Devices that will be updated in a sliding 1-hour window.</li><li>Max pending confirmations: the maximum number of Devices with a pending OTA Operation.</li><li>Max errors: the maximum number of OTA Operation errors. If more OTA Operations produce an error,
 the Update Campaign is aborted with an error state.</li><li>Retries: the number of times an update must be retried on a specific Device before considering it
-an error.</li><li>Timeout: the time after which a pending OTA Operation is considered an error.</li></ul><h5><code class="inline">optional</code></h5><p>This Roll-out mechanism just pushes a message towards the Device informing that an update is
+an error.</li><li>Timeout: the time after which a pending OTA Operation is considered an error.</li></ul><h5><code class="inline">optional</code>*</h5><p>*<em>The Optional rollout mechanism is planned for a future release</em></p><p>This Roll-out mechanism just pushes a message towards the Device informing that an update is
 available. The update is downloaded to the device only after the user accepts the update. The update
 is not required to be pushed immediately, to provide a backpressure mechanism if many users accept
-the update at the same time.</p><p>The properties of this Roll-out Mechanism are</p><ul><li>Max pending confirmations: the maximum number of Devices with a pending OTA Operation.</li><li>Max errors: the maximum number of OTA Operation errors. If more OTA Operations produce an error,
-the Update Campaign is aborted with an error state.</li><li>Retries: the number of times an update must be retried on a specific Device before considering it
-an error.</li><li>Timeout: the time after which a pending OTA Operation is considered an error.</li></ul><h2 id="manual-ota-updates" class="section-heading">
+the update at the same time.</p><h2 id="manual-ota-updates" class="section-heading">
   <a href="#manual-ota-updates" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">manual-ota-updates</p>
   </a>
@@ -213,7 +211,7 @@ Groups
           Next Page →
         </span>
         <span class="title">
-Batch Operations
+Batch Operations*
         </span>
       </a>
 
