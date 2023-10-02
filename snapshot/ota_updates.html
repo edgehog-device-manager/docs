@@ -13,7 +13,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
-    <script src="dist/sidebar_items-1A844532.js"></script>
+    <script src="dist/sidebar_items-931F215B.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -132,11 +132,11 @@ functionalities or implementing the same functionalities on different hardware.<
   </a>
   Uploading a Base Image
 </h3>
-<p>Once a new Base Image is baked, it can be uploaded into a specific Base Image Collection.</p><p>When uploading a Base Image, the following information must be provided</p><ul><li>Version: a version number following the <a href="https://semver.org">Semantic Versioning</a> spec. The
-version number must be unique.</li><li>Release Display Name (optional): a localized user-friendly name for the release.</li><li>Description (optional): a localized description of the content of the Base Image.</li><li>Supported starting versions (optional): a version requirement that the Device must satisfy with
-its current Base Image to be updated with this Base Image. If a Device that does not satisfy the
-requirement is included in an Update Campaign that uses this Base Image, the result of the OTA
-Operation is an error.</li></ul><p>Some information can be automatically filled in if the Base Image can be parsed by one of the
+<p>Once a new Base Image is baked, it can be uploaded into a specific Base Image Collection.</p><p>When uploading a Base Image, the following information must be provided:</p><ul><li>Version: a version number following the <a href="https://semver.org">Semantic Versioning</a> spec. The
+version number must be unique.</li><li>Release Display Name (optional): a localized user-friendly name for the release.</li><li>Description (optional): a localized description of the content of the Base Image.</li><li>Supported starting versions (optional): a <a href="core_concepts.html#version-requirement">Version Requirement</a>
+that the Device must satisfy with its current Base Image to be updated with this Base Image.
+If a Device that does not satisfy the requirement is included in an Update Campaign
+that uses this Base Image, the result of the <a href="core_concepts.html#ota-operation">OTA Operation</a> is an error.</li></ul><p>Some information can be automatically filled in if the Base Image can be parsed by one of the
 <a href="#supported-base-image-parsers">supported Base Image parsers</a>. Other than that, users are free to
 use whatever format they choose for the artifact that will be pushed towards the device, provided
 the Device is able to handle it.</p><p>When you upload a new Base Image in a Base Image Collection, no update is pushed towards devices,
