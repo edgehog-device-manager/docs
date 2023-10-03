@@ -148,8 +148,8 @@ populated with the supported formats.</p><h3 id="creating-an-update-channel" cla
   </a>
   Creating an Update Channel
 </h3>
-<p>Before creating the first Update Campaign, at least an Update Channel must be created.</p><p>The first Update Channel is automatically marked as the default one. All Devices that are not
-assigned to any other Update Channel will be implicitly assigned to this one.</p><p>When creating an Update Channel, the following information must be provided</p><ul><li>Name: the display name of the Update Channel</li><li>Handle: an handle matching the <code class="inline">^[a-z][a-z\d\-]*$</code> regular expression.</li><li>Target Groups (optional): a list of <a href="groups.html">groups</a> containing Devices which will
+<p>Before creating the first Update Campaign, at least an Update Channel must be created.</p><p>The first Update Channel is automatically marked as the default* one. All Devices that are not
+assigned to any other Update Channel will be implicitly assigned to this one.</p><p>*<em>The default Update Channel feature is planned for a future release</em></p><p>When creating an Update Channel, the following information must be provided</p><ul><li>Name: the display name of the Update Channel</li><li>Handle: an handle matching the <code class="inline">^[a-z][a-z\d\-]*$</code> regular expression.</li><li>Target Groups (optional): a list of <a href="groups.html">groups</a> containing Devices which will
 automatically get assigned to this Update Channel.</li></ul><p>Note that only a single Update Campaign can be active for a given Update Channel and System Model
 combination. This means that to implement A/B beta testing, two separate Update Channels (e.g.
 <code class="inline">beta-a</code> and <code class="inline">beta-b</code>) must be created.</p><p>A group can be associated only with a single Update Channel. To change the auto-assignment of a
@@ -166,18 +166,20 @@ conflicts the Device will always receive the update from the most recent Update 
 <p>To actually push updates towards Devices, an Update Campaign must be started. Note that an Update
 Campaign can only send updates for the same Base Image Collection, and special operations (like
 converting a Device from a System Model to another) must always be done with a <a href="#manual-ota-updates">Manual OTA
-Update</a>.</p><p>When creating an Update Campaign, the following information must be provided</p><ul><li>Base Image: the target Base Image for the Update Campaign.</li><li>Update Channel: the target Update Channel for the Update Campaign.</li><li>Roll-out mechanism: a supported <a href="#roll-out-mechanism">Roll-out Mechanism</a>.</li><li>Allow downgrade (optional): if <code class="inline">true</code>, the Update Campaign allows downgrading a Device which is
-currently using a later version of the Base Image. Defaults to <code class="inline">false</code>.</li></ul><p>Once created, the Update Campaign will start rolling out updates towards the devices, and its
+Update</a>.</p><p>When creating an Update Campaign, the following information must be provided</p><ul><li>Base Image: the target Base Image for the Update Campaign.</li><li>Update Channel: the target Update Channel for the Update Campaign.</li><li><a href="#roll-out-mechanism">Roll-out Mechanism</a> properties.</li></ul><p>Once created, the Update Campaign will start rolling out updates towards the devices, and its
 progress can be checked from the Edgehog Dashboard or through Edgehog GraphQL API.</p><p>Note that the campaign will &quot;snapshot&quot; the Devices belonging to the Update Channel when it's
 started, and will target only those. If additional Devices are added to the Update Channel (either
 manually or automatically via auto-assignment) <em>after</em> the Update Campaign is created, they won't
 receive the Base Image and will require a separate campaign to be started.</p><p>Only a single Update Campaign can be started for a given System Model and Update Channel
 combination, so creating a new Update Campaign while another one is already running will implicitly
-cancel the old one. This means that Devices that didn't yet receive the Base Image of the old Update
-Campaign will directly receive the new one, without any intermediate step.</p><h4>Roll-out mechanism</h4><p>Here are the currently supported Roll-out Mechanisms and their properties</p><h5><code class="inline">push</code></h5><p>This Roll-out mechanism pushes the update towards the device unconditionally. This can be used to
-provide automatic updates where the user should not have the choice of refusing the update.</p><p>The properties of this Roll-out Mechanism are</p><ul><li>Devices per hour: the target number of Devices that will be updated in a sliding 1-hour window.</li><li>Max pending confirmations: the maximum number of Devices with a pending OTA Operation.</li><li>Max errors: the maximum number of OTA Operation errors. If more OTA Operations produce an error,
-the Update Campaign is aborted with an error state.</li><li>Retries: the number of times an update must be retried on a specific Device before considering it
-an error.</li><li>Timeout: the time after which a pending OTA Operation is considered an error.</li></ul><h5><code class="inline">optional</code>*</h5><p>*<em>The Optional rollout mechanism is planned for a future release</em></p><p>This Roll-out mechanism just pushes a message towards the Device informing that an update is
+cancel* the old one. This means that Devices that didn't yet receive the Base Image of the old Update
+Campaign will directly receive the new one, without any intermediate step.</p><p>*<em>Implicit Cancellation feature is planned for a future release</em></p><h4>Roll-out mechanism</h4><p>Here are the currently supported Roll-out Mechanisms and their properties</p><h5><code class="inline">push</code></h5><p>This Roll-out mechanism pushes the update towards the device unconditionally. This can be used to
+provide automatic updates where the user should not have the choice of refusing the update.</p><p>The properties of this Roll-out Mechanism are</p><ul><li>Max Pending Operations: the maximum number of pending <a href="core_concepts.html#ota-operation">OTA Operations</a>.
+The Update Campaign will have at most this number of OTA Operations that are started 
+but not yet finished (either successfully or not).</li><li>Max Failures: the maximum percentage of failures allowed over the number of total targets. If the failures 
+exceed this threshold, the Update Campaign terminates with a failure.</li><li>Request Retries: the number of times an update must be retried on a specific Device before considering it
+a failure. Note that the update is retried only if the OTA Request doesn't get acknowledged from the device.</li><li>Request Timeout: the timeout (in seconds) to wait before considering an OTA Request lost (and possibly retry).</li><li>Allow downgrade (optional): when checked allows downgrading a Device which is currently using a later version
+of the Base Image.</li></ul><h5><code class="inline">optional</code>*</h5><p>*<em>The Optional rollout mechanism is planned for a future release</em></p><p>This Roll-out mechanism just pushes a message towards the Device informing that an update is
 available. The update is downloaded to the device only after the user accepts the update. The update
 is not required to be pushed immediately, to provide a backpressure mechanism if many users accept
 the update at the same time.</p><h2 id="manual-ota-updates" class="section-heading">
