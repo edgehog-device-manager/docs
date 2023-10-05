@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="project" content="Edgehog v0.7.0-alpha.1">
+
+    <title>Base Image Collections — Edgehog v0.7.0-alpha.1</title>
+    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-1BC53A97.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/html-JDI3AVDD.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="http://edgehog.io">
+        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Edgehog
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v0.7.0-alpha.1
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>Base Image Collections</span>
+</h1>
+
+<p>As mentioned in the <a href="ota_update_concepts.html">OTA Update concepts</a>, Base Image Collection represent
+a set of Base Images associated with a specific <a href="core_concepts.html#system-model">System Model</a> and,
+implicitly via the System Model, with a specific <a href="core_concepts.html#hardware-types">Hardware Type</a>.
+The mapping relation between Base Image Collection and System Models is 1:1, so a Base Image Collection
+is associated with a single System Model and viceversa.</p><p>A Base Image Collection contains all the Base Images that ran, are running or could be run on a
+System Model. Drawing from the bike sharing example, there would be a different Base Image
+Collection for, e.g., e-bikes from each specific country to handle the different speed limitations.</p><p>The primary purpose of a Base Image Collection is to limit what can be installed to a System Model,
+preventing unintended installations, such as electric scooter firmware on an e-bike.</p><p>In Edgehog a Base Image Collection has this information associated with it:</p><ul><li>Name: a user friendly name used to identify the Base Image Collection (e.g. &quot;E-Scooter OS&quot;)</li><li>Handle: a machine friendly identifier for the Base Image Collection (e.g. &quot;e-scooter-os&quot;). A valid handle
+must begin with a lowercase letter followed by any number of lower case letters, numbers or dashes (<code class="inline">-</code>).</li><li>System Model: the System Model that is associated with this Base Image Collection.</li><li>Base Images: a set of Base Images associated with this Base Image Collection.</li></ul><p>The following sections will illustrate all the pages that can be used to list, create, edit and delete
+Base Image Collections.</p><h2 id="base-image-collection-list" class="section-heading">
+  <a href="#base-image-collection-list" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">base-image-collection-list</p>
+  </a>
+  Base Image Collection List
+</h2>
+<p><img src="assets/base_image_collection_list.png" alt="Base Image Collection List Screenshot"/></p><p>In the base image collection list you can see the table with all Base Image Collections that are available.
+Clicking on the name brings to the <a href="#base-image-collection">Base Image Collection</a> page.</p><p>Clicking on the &quot;Create Base Image Collection&quot; button in the top right brings to
+<a href="#create-base-image-collection">Create Base Image Collection</a> page.</p><h2 id="base-image-collection" class="section-heading">
+  <a href="#base-image-collection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">base-image-collection</p>
+  </a>
+  Base Image Collection
+</h2>
+<p><img src="assets/base_image_collection.png" alt="Base Image Collection Page Screenshot"/></p><p>The Base Image Collection page shows the information about a specific Base Image Collection and Base Images
+associated with it in table below.</p><p>Editing any field and then pressing the &quot;Update&quot; button saves the new values for the Base Image Collection.
+The &quot;Create Base Image&quot; button allows adding additional Base Images to the Base Image Collection.
+Clicking on the Base Image Version brings to the Base Image page.
+The &quot;Delete&quot; button allows to delete the Base Image Collection.</p><h2 id="create-base-image-collection" class="section-heading">
+  <a href="#create-base-image-collection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">create-base-image-collection</p>
+  </a>
+  Create Base Image Collection
+</h2>
+<p><img src="assets/base_image_collection_create.png" alt="Create Base Image Collection Screenshot"/></p><p>The Create Base Image Collection page allows creating a new Base Image Collection.</p><p>The Base Image Collection information can be provided using the form, and pressing the &quot;Create&quot; button saves
+the Base Image Collection. The System Model must be chosen from a list of available System Models using the
+dropdown menu.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="base_images.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Base Images
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="update_channels.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Update Channels
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="Edgehog.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>

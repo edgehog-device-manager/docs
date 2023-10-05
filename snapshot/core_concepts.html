@@ -13,7 +13,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
-    <script src="dist/sidebar_items-931F215B.js"></script>
+    <script src="dist/sidebar_items-1BC53A97.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -129,11 +129,11 @@ necessarily) the Hardware Type Part Number is a code that is written on the PCB.
   Device
 </h3>
 <p>A device is an entity connected to Astarte. A Device has a uniquely identified by its Device ID, and
-it usually lives inside a product such as an e-bike (if it is not on a shelf or in a repair shop).</p><h3 id="system-models" class="section-heading">
-  <a href="#system-models" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">system-models</p>
+it usually lives inside a product such as an e-bike (if it is not on a shelf or in a repair shop).</p><h3 id="system-model" class="section-heading">
+  <a href="#system-model" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">system-model</p>
   </a>
-  System Models
+  System Model
 </h3>
 <p>A System Model constitutes a group of devices implementing the same functionality for some users.
 For example, two e-bikes can be physically identical and still belong to different System Models,
@@ -204,9 +204,9 @@ contained in double quotes must be a valid UTC ISO8601 timestamp. Example:
 <code class="inline">datetime(&quot;2022-06-27T16:27:40.254795Z&quot;)</code>.</li><li><code class="inline">binaryblob(&quot;&lt;base64 encoded value&gt;&quot;)</code> is used to pass <code class="inline">binaryblob</code> values in expressions. The
 string contained in double quotes must be a valid Base64 encoding of the binary value. Example:
 <code class="inline">binaryblob(&quot;Zm9vYmFy&quot;)</code> to encode the string <code class="inline">&quot;foobar&quot;</code>.</li></ul><h5>Attribute inclusion filter*</h5><p>*<em>This feature is planned for a future release</em></p><ul><li><code class="inline">&quot;&lt;value&gt;&quot; in attributes[&quot;&lt;namespace&gt;:&lt;key&gt;&quot;]</code>: returns <code class="inline">true</code> if <code class="inline">value</code> is included in the
-chosen attribute. Note that the attribute must be an array for the expression to be valid.</li></ul><h4>Examples</h4><p>To provide some examples, here is a Selector to target all out of order Devices in Milan:</p><pre><code class="makeup elixir" translate="no"><span class="s">&quot;out-of-order&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">tags</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">attributes</span><span class="p" data-group-id="0137140700-1">[</span><span class="s">&quot;edgehog-synthetic:city&quot;</span><span class="p" data-group-id="0137140700-1">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Milan&quot;</span></code></pre><p>Here is a selector to target all Devices that have their service timestamp in the past so they have
+chosen attribute. Note that the attribute must be an array for the expression to be valid.</li></ul><h4>Examples</h4><p>To provide some examples, here is a Selector to target all out of order Devices in Milan:</p><pre><code class="makeup elixir" translate="no"><span class="s">&quot;out-of-order&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">tags</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">attributes</span><span class="p" data-group-id="5698700917-1">[</span><span class="s">&quot;edgehog-synthetic:city&quot;</span><span class="p" data-group-id="5698700917-1">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Milan&quot;</span></code></pre><p>Here is a selector to target all Devices that have their service timestamp in the past so they have
 to be serviced, imagining this information is contained in the <code class="inline">com.foo.ServiceInfo</code> Astarte
-interface in the <code class="inline">/serviceTimestamp</code>:</p><pre><code class="makeup elixir" translate="no"><span class="n">attributes</span><span class="p" data-group-id="6108131520-1">[</span><span class="s">&quot;astarte-values:com.foo.ServiceInfo/serviceTimestamp&quot;</span><span class="p" data-group-id="6108131520-1">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">now</span><span class="p" data-group-id="6108131520-2">(</span><span class="p" data-group-id="6108131520-2">)</span></code></pre><h4>Caveats</h4><p>Note that numeric values are conflated in a single numeric type, i.e. a selector with
+interface in the <code class="inline">/serviceTimestamp</code>:</p><pre><code class="makeup elixir" translate="no"><span class="n">attributes</span><span class="p" data-group-id="6955883790-1">[</span><span class="s">&quot;astarte-values:com.foo.ServiceInfo/serviceTimestamp&quot;</span><span class="p" data-group-id="6955883790-1">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">now</span><span class="p" data-group-id="6955883790-2">(</span><span class="p" data-group-id="6955883790-2">)</span></code></pre><h4>Caveats</h4><p>Note that numeric values are conflated in a single numeric type, i.e. a selector with
 <code class="inline">attributes[&quot;custom:foo&quot;] == 42</code> will match either if <code class="inline">foo</code> is <code class="inline">integer</code>, <code class="inline">longinteger</code> or <code class="inline">double</code>
 (e.g it will also match <code class="inline">42.0</code>).</p><p>Another important thing to notice is that using an Attribute Filter will implicitly match only
 Devices that have that attribute. As an example, if there are 3 devices, one with attribute <code class="inline">foo:bar == 42</code>, the other with attribute <code class="inline">foo:bar == 3</code> and the third one with no <code class="inline">foo:bar</code> attribute, the
@@ -218,97 +218,9 @@ presence or absence of an attribute.</p><h3 id="group" class="section-heading">
   </a>
   Group
 </h3>
-<p>A Group represents a subset of devices filtered by a Selector.</p><p>The Group can be used to perform operations on Devices contained in it (e.g. an <a href="#update-campaign">Update
-Campaign</a>).</p><p>Since Tags and Attributes of a Device can change, Groups do not statically define the set of Devices
+<p>A Group represents a subset of devices filtered by a Selector.</p><p>The Group can be used to perform operations on Devices contained in it.</p><p>Since Tags and Attributes of a Device can change, Groups do not statically define the set of Devices
 they contain but they change dynamically following Device changes.</p><p>Note that a Device can't be manually assigned to a Group, its tags and attributes must be
-used to make it satisfy the group Selector.</p><h2 id="ota-update-concepts" class="section-heading">
-  <a href="#ota-update-concepts" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">ota-update-concepts</p>
-  </a>
-  OTA Update Concepts
-</h2>
-<p>This section will deal with the concepts used by Edgehog's OTA update mechanism, and it covers
-various aspects of the software running on Devices. The <a href="ota_updates.html">OTA Updates</a> page adds
-operative details to the concepts presented here.</p><h3 id="base-image" class="section-heading">
-  <a href="#base-image" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">base-image</p>
-  </a>
-  Base Image
-</h3>
-<p>A Base Image is an image created to be run on a Device. The exact content of the Base Image can vary
-depending on the use case, but it usually contains the operating system image or the device
-firmware. Each Base Image belongs to a <a href="#base-image-collection">Base Image Collection</a>.</p><p>Base Images follow semantic versioning, so that the user is able to know when a specific update can
-contain breaking changes. Each Base Image must have a unique version number.</p><h3 id="base-image-collection" class="section-heading">
-  <a href="#base-image-collection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">base-image-collection</p>
-  </a>
-  Base Image Collection
-</h3>
-<p>A Base Image Collection is a set of Base Images associated with a specific <a href="#system-models">System
-Model</a> and, implicitly via the System Model, with a specific <a href="#hardware-types">Hardware
-Type</a>. The mapping relation between Base Image Collection and System Models is 1:1,
-so a Base Image Collection is associated with a single System Model and viceversa.</p><p>A Base Image Collection contains all the Base Images that ran, are running or could be run on a
-System Model. Drawing from the bike sharing example, there would be a different Base Image
-Collection for, e.g., e-bikes from each specific country to handle the different speed limitations.</p><p>The primary purpose of a Base Image Collection is to limit what can be installed to a System Model,
-preventing unintended installations, such as electric scooter firmware on an e-bike.</p><h3 id="version-requirement" class="section-heading">
-  <a href="#version-requirement" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">version-requirement</p>
-  </a>
-  Version Requirement
-</h3>
-<p>A Version Requirement specifies compatibility between versions. It is expressed as a string containing
-various criteria and adheres to syntax detailed in
-<a href="https://hexdocs.pm/elixir/Version.html#module-requirements">Elixir's Version.Requirement</a>.
-For example, when the Version Requirement <code class="inline">&gt;= 2.0.0 and &lt; 3.0.0</code> is used to define the
-<code class="inline">Supported starting versions</code> of Base Image <code class="inline">foo</code>, it identifies a subset of Base Images
-within the same Base Image Collection that can be updated to the Base Image <code class="inline">foo</code>.</p><h3 id="update-channels" class="section-heading">
-  <a href="#update-channels" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">update-channels</p>
-  </a>
-  Update Channels
-</h3>
-<p>An Update Channel represents the subscription of a Device to a specific set of Base Images.</p><p>Each Device is always associated with an Update Channel (e.g. <code class="inline">default</code>, <code class="inline">stable</code>, <code class="inline">beta</code>, <code class="inline">devel</code>,
-...). To assign a Device to a specific Update Channel (other than the default one) the device must
-belong to a <a href="#group">Group</a> and that Group has to be assigned to the Target Groups of the Update
-Channel.</p><p>The same Base Image can be associated with multiple Update Channels. This guarantees
-that once testers in the <code class="inline">beta</code> Update Channel validate the Base Image, the exact same Base Image
-will be used to update devices in the <code class="inline">default</code> Update Channel.</p><p>It's possible to automatically assign an Update Channel to one or more <a href="#group">Groups</a>.</p><h3 id="update-campaign" class="section-heading">
-  <a href="#update-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">update-campaign</p>
-  </a>
-  Update Campaign
-</h3>
-<p>An Update Campaign is the operation that tracks the distribution of a specific Base Image to all
-devices belonging to an Update Channel.</p><p>Each Update Channel can have only one live campaign at a time for a specific System Model, so
-creating a new campaign implicitly replaces the old one if it was still active.</p><p>An Update Campaign can define additional constraints about which devices can be updated (e.g.
-minimum current version, allow downgrade, etc).</p><h3 id="rollout-mechanism" class="section-heading">
-  <a href="#rollout-mechanism" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">rollout-mechanism</p>
-  </a>
-  Rollout Mechanism
-</h3>
-<p>The Rollout Mechanism determines the details of how an Update Campaign is carried out.</p><p>It is responsible of deciding if the update is pushed towards the devices or pulled by users
-interacting with them.</p><p>It also defines other details like how many devices are updated at a time, how many errors should be
-supported before aborting the campaign etc.</p><p>There are currently two main Mechanisms available: Push and Optional*. The Push mechanism pushes the
-update towards the device unconditionally, while the Optional mechanism waits for a confirmation on
-the Device side (usually given by a user) before starting to download the update.</p><p>*<em>The Optional rollout mechanism is planned for a future release</em></p><h3 id="ota-operation" class="section-heading">
-  <a href="#ota-operation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">ota-operation</p>
-  </a>
-  OTA Operation
-</h3>
-<p>An OTA Operation tracks the progress of an update to a specific Device. It is started when Edgehog
-starts pushing the update to the Device and ends either with a success or with an error (possibly
-due to a timeout).</p><h3 id="maintenance-window" class="section-heading">
-  <a href="#maintenance-window" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">maintenance-window</p>
-  </a>
-  Maintenance Window*
-</h3>
-<p>*<em>This feature is planned for a future release</em></p><p>Each Device can have an optional Maintenance Window. This is used by Update Campaign to determine
-which Devices can be updated at a specific time.</p><p>If a Device declares a Maintenance Window, the updates targeting it will start only in the interval
-defined by it. Note that there's no guarantee that the update will also terminate inside the
-Maintenance Window.</p>
+used to make it satisfy the group Selector.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 

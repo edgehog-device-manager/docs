@@ -13,7 +13,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
-    <script src="dist/sidebar_items-931F215B.js"></script>
+    <script src="dist/sidebar_items-1BC53A97.js"></script>
 
       <script src="docs_config.js"></script>
 
@@ -109,111 +109,56 @@ runtime</a> which implements the
 <a href="astarte_interfaces.html#io-edgehog-devicemanager-otaevent-v0-1"><code class="inline">io.edgehog.devicemanager.OTAEvent</code></a>
 and
 <a href="astarte_interfaces.html#io-edgehog-devicemanager-baseimage-v0-1"><code class="inline">io.edgehog.devicemanager.BaseImage</code></a>
-interfaces.</p><p>OTA Concepts are detailed in the <a href="core_concepts.html#ota-concepts">Core Concepts</a> page, this guide
-presents some of the operations which can be performed using Edgehog.</p><h2 id="managed-ota-updates" class="section-heading">
+interfaces.</p><p>OTA Update concepts are detailed in the <a href="ota_update_concepts.html">dedicated page</a>, this guide 
+demonstrates the usage of an OTA update mechanism.</p><h2 id="managed-ota-updates" class="section-heading">
   <a href="#managed-ota-updates" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">managed-ota-updates</p>
   </a>
   Managed OTA Updates
 </h2>
-<p>Edgehog provides a mechanism to roll-out OTA updates to devices automatically, based on their System
-Model and their membership to specific groups.</p><p>The sections below detail the operations that have to be performed to use managed OTA Updates.</p><h3 id="creating-a-base-image-collection" class="section-heading">
-  <a href="#creating-a-base-image-collection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">creating-a-base-image-collection</p>
-  </a>
-  Creating a Base Image Collection
-</h3>
-<p>The first step to start using the OTA functionalities of Edgehog is creating at least one Base Image
-Collection. The Base Image Collection will be tied to a specific System Model, which has to be
-selected during the creation.</p><p>When creating a Base Image Collection, the following information must be provided</p><ul><li>Name: the display name of the Base Image Collection.</li><li>Handle: an handle matching the <code class="inline">^[a-z][a-z\d\-]*$</code> regular expression.</li><li>System Model ID: the ID of the System Model this Base Image Collection will be associated with.</li></ul><p>A new Base Image Collection should be created for each group of Images implementing different
-functionalities or implementing the same functionalities on different hardware.</p><h3 id="uploading-a-base-image" class="section-heading">
-  <a href="#uploading-a-base-image" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">uploading-a-base-image</p>
-  </a>
-  Uploading a Base Image
-</h3>
-<p>Once a new Base Image is baked, it can be uploaded into a specific Base Image Collection.</p><p>When uploading a Base Image, the following information must be provided:</p><ul><li>Version: a version number following the <a href="https://semver.org">Semantic Versioning</a> spec. The
-version number must be unique.</li><li>Release Display Name (optional): a localized user-friendly name for the release.</li><li>Description (optional): a localized description of the content of the Base Image.</li><li>Supported starting versions (optional): a <a href="core_concepts.html#version-requirement">Version Requirement</a>
-that the Device must satisfy with its current Base Image to be updated with this Base Image.
-If a Device that does not satisfy the requirement is included in an Update Campaign
-that uses this Base Image, the result of the <a href="core_concepts.html#ota-operation">OTA Operation</a> is an error.</li></ul><p>Some information can be automatically filled in if the Base Image can be parsed by one of the
-<a href="#supported-base-image-parsers">supported Base Image parsers</a>. Other than that, users are free to
-use whatever format they choose for the artifact that will be pushed towards the device, provided
-the Device is able to handle it.</p><p>When you upload a new Base Image in a Base Image Collection, no update is pushed towards devices,
-the Base Image is just uploaded in Edgehog's storage. To start pushing updates towards devices, an
-<a href="#creating-an-update-campaign">Update Campaign</a> must be created.</p><h4>Supported Base Image parsers</h4><p>Base Image parsers are not implemented yet. As soon as they are implemented, this section will be
-populated with the supported formats.</p><h3 id="creating-an-update-channel" class="section-heading">
-  <a href="#creating-an-update-channel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">creating-an-update-channel</p>
-  </a>
-  Creating an Update Channel
-</h3>
-<p>Before creating the first Update Campaign, at least an Update Channel must be created.</p><p>The first Update Channel is automatically marked as the default* one. All Devices that are not
-assigned to any other Update Channel will be implicitly assigned to this one.</p><p>*<em>The default Update Channel feature is planned for a future release</em></p><p>When creating an Update Channel, the following information must be provided</p><ul><li>Name: the display name of the Update Channel</li><li>Handle: an handle matching the <code class="inline">^[a-z][a-z\d\-]*$</code> regular expression.</li><li>Target Groups (optional): a list of <a href="groups.html">groups</a> containing Devices which will
-automatically get assigned to this Update Channel.</li></ul><p>Note that only a single Update Campaign can be active for a given Update Channel and System Model
-combination. This means that to implement A/B beta testing, two separate Update Channels (e.g.
-<code class="inline">beta-a</code> and <code class="inline">beta-b</code>) must be created.</p><p>A group can be associated only with a single Update Channel. To change the auto-assignment of a
-specific group from an Update Channel to another, the group must be removed from the previous Update
-Channel and then added to the new one.</p><p>Note that even if a group can be associated with a single Update Channel, conflicts can still arise
-(since two different groups can include the same Device). Since the set of Devices that receive
-updates from an Update Channel is snapshotted when an Update Campaign is created, if there are
-conflicts the Device will always receive the update from the most recent Update Campaign.</p><h3 id="creating-an-update-campaign" class="section-heading">
-  <a href="#creating-an-update-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">creating-an-update-campaign</p>
-  </a>
-  Creating an Update Campaign
-</h3>
-<p>To actually push updates towards Devices, an Update Campaign must be started. Note that an Update
-Campaign can only send updates for the same Base Image Collection, and special operations (like
-converting a Device from a System Model to another) must always be done with a <a href="#manual-ota-updates">Manual OTA
-Update</a>.</p><p>When creating an Update Campaign, the following information must be provided</p><ul><li>Base Image: the target Base Image for the Update Campaign.</li><li>Update Channel: the target Update Channel for the Update Campaign.</li><li><a href="#roll-out-mechanism">Roll-out Mechanism</a> properties.</li></ul><p>Once created, the Update Campaign will start rolling out updates towards the devices, and its
+<p>Edgehog provides a mechanism to roll-out OTA updates to devices automatically, based on their <a href="core_concepts.html#system-model">System
+Model</a> and their membership to specific <a href="core_concepts.html#group">Groups</a>.</p><p>To push updates towards Devices, an Update Campaign must be created. It's important to note that an Update
+Campaign can only send updates for the same Base Image Collection. Special operations, such as 
+converting a Device from one System Model to another, must always be done with a <a href="#manual-ota-updates">Manual OTA
+Update</a>.</p><p>Once created, the Update Campaign will start rolling out updates towards the devices, and its
 progress can be checked from the Edgehog Dashboard or through Edgehog GraphQL API.</p><p>Note that the campaign will &quot;snapshot&quot; the Devices belonging to the Update Channel when it's
-started, and will target only those. If additional Devices are added to the Update Channel (either
-manually or automatically via auto-assignment) <em>after</em> the Update Campaign is created, they won't
-receive the Base Image and will require a separate campaign to be started.</p><p>Only a single Update Campaign can be started for a given System Model and Update Channel
-combination, so creating a new Update Campaign while another one is already running will implicitly
-cancel* the old one. This means that Devices that didn't yet receive the Base Image of the old Update
-Campaign will directly receive the new one, without any intermediate step.</p><p>*<em>Implicit Cancellation feature is planned for a future release</em></p><h4>Roll-out mechanism</h4><p>Here are the currently supported Roll-out Mechanisms and their properties</p><h5><code class="inline">push</code></h5><p>This Roll-out mechanism pushes the update towards the device unconditionally. This can be used to
-provide automatic updates where the user should not have the choice of refusing the update.</p><p>The properties of this Roll-out Mechanism are</p><ul><li>Max Pending Operations: the maximum number of pending <a href="core_concepts.html#ota-operation">OTA Operations</a>.
-The Update Campaign will have at most this number of OTA Operations that are started 
-but not yet finished (either successfully or not).</li><li>Max Failures: the maximum percentage of failures allowed over the number of total targets. If the failures 
-exceed this threshold, the Update Campaign terminates with a failure.</li><li>Request Retries: the number of times an update must be retried on a specific Device before considering it
-a failure. Note that the update is retried only if the OTA Request doesn't get acknowledged from the device.</li><li>Request Timeout: the timeout (in seconds) to wait before considering an OTA Request lost (and possibly retry).</li><li>Allow downgrade (optional): when checked allows downgrading a Device which is currently using a later version
-of the Base Image.</li></ul><h5><code class="inline">optional</code>*</h5><p>*<em>The Optional rollout mechanism is planned for a future release</em></p><p>This Roll-out mechanism just pushes a message towards the Device informing that an update is
-available. The update is downloaded to the device only after the user accepts the update. The update
-is not required to be pushed immediately, to provide a backpressure mechanism if many users accept
-the update at the same time.</p><h2 id="manual-ota-updates" class="section-heading">
+started, and will <a href="ota_update_concepts.html#update-target">target</a> only those.</p><p>Once started, the Update Campaign waits for device to come online, at which point it initiates the OTA Update.
+<a href="update_campaigns.html#roll-out-mechanism">Roll-out mechanim</a> properties can affect this process.
+For example, <code class="inline">Max Pending Operations</code> setting may postpone some OTA Operations.</p><p>Before actual push to the Device corresponding <a href="ota_update_concepts.html#update-target">Update Target</a>
+is verified for fulfillment of Base Image and Roll-out mechanism criteria. For example:</p><ul><li>Devices having same Base Image version will be silently marked as successful.</li><li>Devices with Base Images that don't meet <a href="ota_update_concepts.html#version-requirement">Version Requirement</a>
+of distributed Base Image will be marked as failed, unless the <code class="inline">Force Downgrade</code> option 
+of <a href="update_campaigns.html#roll-out-mechanism">Push Roll-out mechanism</a> is enabled.</li></ul><h2 id="manual-ota-updates" class="section-heading">
   <a href="#manual-ota-updates" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">manual-ota-updates</p>
   </a>
   Manual OTA Updates
 </h2>
-<p>As an escape hatch, it's always possible to manually update a Device from its page on the Edgehog
-dashboard (or using the Edgehog GraphQL API).</p><p>Note that Manual OTA Updates do not perform any check on the System Model, so they can effectively
-be used to change the System Model of a Device. This also means that the user must exercise
-particular attention to avoid bricking a Device, if the Device does not implement the necessary
-safety checks.</p>
+<p>As an escape hatch, it's always possible to manually update a <a href="core_concepts.html#device">Device</a>
+from its page on the Edgehog dashboard (or using the Edgehog GraphQL API).</p><p>Note that Manual OTA Updates do not perform any check on the <a href="core_concepts.html#system-model">System Model</a>,
+so they can effectively be used to change the System Model of a Device. This also means that the user 
+must exercise particular attention to avoid bricking a Device, if the Device does not implement the necessary
+safety checks.</p><p><img src="assets/manual_ota_update.png" alt="Manual OTA Update Screenshot"/></p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="groups.html" class="bottom-actions-button" rel="prev">
+      <a href="update_campaigns.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Groups
+Update Campaigns
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
 
-      <a href="batch_operations.html" class="bottom-actions-button" rel="next">
+      <a href="overview.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-Batch Operations*
+Architecture overview
         </span>
       </a>
 
