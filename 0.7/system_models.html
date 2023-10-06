@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="project" content="Edgehog v0.7.0">
+
+    <title>System Models — Edgehog v0.7.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/sidebar_items-1BC53A97.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/html-JDI3AVDD.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<section class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
+      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    </button>
+    <label class="search-label">
+      <p class="sr-only">Search</p>
+      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="http://edgehog.io">
+        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Edgehog
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v0.7.0
+      </div>
+    </div>
+    <ul class="sidebar-listNav">
+      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+
+
+    </ul>
+  </div>
+
+  <div class="gradient"></div>
+  <ul id="full-list"></ul>
+</section>
+
+<section class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>System Models</span>
+</h1>
+
+<p>As already mentioned in the <a href="core_concepts.html">Core concepts</a>, System Model represent a group of
+devices providing the same functionalities to users.</p><p>In Edgehog a System Model has this information associated with it:</p><ul><li>Name: a user friendly name used to identify the System Model (e.g. &quot;E-Bike v2&quot;)</li><li>Handle: a machine friendly identifier for the System Model (e.g. &quot;e-bike-v2&quot;). A valid handle must
+begin with a lowercase letter followed by any number of lower case letters, numbers or dashes
+(<code class="inline">-</code>).</li><li>Hardware type: the <a href="core_concepts.html#hardware-type">Hardware Type</a> that is used for this system model. 
+Each System Model is associated with exactly one Hardware Type.</li><li>Part numbers: the Part Numbers for this System Model. Each System Model can have one or more Part
+Numbers associated with it, and Devices will be associated with a System Model based on the Part
+Number they declare to implement.</li><li>Picture: each System Model can have a picture associated with it, so that Devices using that
+System Model can be identified at a glance.</li></ul><p>The following sections will illustrate all the pages that can be used to list, create and edit
+System Models.</p><h2 id="system-model-list" class="section-heading">
+  <a href="#system-model-list" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">system-model-list</p>
+  </a>
+  System Model List
+</h2>
+<p><img src="assets/system_models.png" alt="System Model List Screenshot"/></p><p>In the system model list you can see all the System Models that are available. All information
+relative to each System Model (minus the picture) is present in the table, and clicking on the name
+brings to the <a href="#system-model">System Model</a> page.</p><p>Clicking on the &quot;Create System Model&quot; button in the top right brings to
+<a href="#create-system-model">Create System Model</a> page.</p><h2 id="system-model" class="section-heading">
+  <a href="#system-model" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">system-model</p>
+  </a>
+  System Model
+</h2>
+<p><img src="assets/system_model.png" alt="System Model Page Screenshot"/></p><p>The System Model page shows the information about a specific System Model and allows updating all of
+them except the Hardware Type.</p><p>Editing any field and then pressing the &quot;Update&quot; button saves the new values for the System Model.
+The &quot;Add Part Number&quot; button allows adding additional Part Numbers to a System Model, and the thrash
+icon on the right of each of them allows deleting them.</p><h2 id="create-system-model" class="section-heading">
+  <a href="#create-system-model" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
+  <p class="sr-only">create-system-model</p>
+  </a>
+  Create System Model
+</h2>
+<p><img src="assets/create_system_model.png" alt="Create System Model Screenshot"/></p><p>The Create System Model page allows creating a new System Model.</p><p>The System Model information can be provided using the form, and pressing the &quot;Update&quot; button saves
+the System Model. The Hardware Type must be chosen from a list of available Hardware Types using the
+dropdown menu. The &quot;Add Part Number&quot; button allows adding additional Part Numbers for the System
+Model.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="hardware_types.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Hardware Types
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="devices.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Devices
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="Edgehog.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</section>
+</div>
+
+
+  </body>
+</html>
