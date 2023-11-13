@@ -225,6 +225,8 @@ spec:
           value: edgehog
         - name: PORT
           value: &quot;4000&quot;
+        - name: URL_HOST
+          value: &lt;BACKEND-HOST&gt;
         - name: DATABASE_HOSTNAME
           value: &lt;DATABASE-HOSTNAME&gt;
         - name: DATABASE_NAME
@@ -313,7 +315,8 @@ spec:
         ports:
         - containerPort: 4000
           name: http
-          protocol: TCP</code></pre><p>Values to be replaced</p><ul><li><code class="inline">DATABASE-HOSTNAME</code>: the hostname of the PostgreSQL database.</li><li><code class="inline">MAX-UPLOAD-SIZE-BYTES</code>: the maximum dimension for uploads, particularly relevant for OTA updates.
+          protocol: TCP</code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-HOST</code>: the host of the Edgehog backend (see the <a href="#creating-dns-entries">Creating DNS
+entries</a> section).</li><li><code class="inline">DATABASE-HOSTNAME</code>: the hostname of the PostgreSQL database.</li><li><code class="inline">MAX-UPLOAD-SIZE-BYTES</code>: the maximum dimension for uploads, particularly relevant for OTA updates.
 If omitted, it defaults to 4 Gigabytes.</li><li><code class="inline">S3-SCHEME</code>: the scheme (<code class="inline">http</code> or <code class="inline">https</code>) for the S3 storage.</li><li><code class="inline">S3-HOST</code>: the host for the S3 storage.</li><li><code class="inline">S3-PORT</code>: the port for the S3 storage. This has to be put in double quotes to force it to be
 interpreted as a string.</li><li><code class="inline">S3-BUCKET</code>: the bucket name for the S3 storage.</li><li><code class="inline">S3-ASSET-HOST</code>: the asset host for the S3 storage, e.g. <code class="inline">storage.googleapis.com/&lt;S3-BUCKET&gt;</code> for
 GCP or <code class="inline">&lt;S3-BUCKET&gt;.s3.amazonaws.com</code> for AWS.</li><li><code class="inline">S3-REGION</code>: the region where the S3 storage resides.</li></ul><p>The optional env variable in the <code class="inline">yaml</code> also have to be uncommented where relevant (see comments
@@ -491,139 +494,40 @@ used to emit Edgehog tokens. Make sure to store the private key somewhere safe.<
 </h3>
 <p>Connect to the <code class="inline">iex</code> interactive shell of the Edgehog backend using</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl exec -it deploy/edgehog-backend -n edgehog -- /app/bin/edgehog remote
 </span></code></pre><p>All the following commands have to be executed inside that shell, in a single session (since some
-commands will reuse the result of previous commands)</p><h3 id="creating-a-cluster" class="section-heading">
-  <a href="#creating-a-cluster" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">creating-a-cluster</p>
-  </a>
-  Creating a cluster
-</h3>
-<p>The following commands will create a database entry representing the Astarte cluster this Edgehog
-instance points to</p><pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">Edgehog.Astarte</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">cluster_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;CLUSTER-NAME&gt;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">base_api_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;ASTARTE-BASE-API-URL&gt;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4388892845-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">cluster</span><span class="p" data-group-id="4388892845-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Astarte</span><span class="o">.</span><span class="n">create_cluster</span><span class="p" data-group-id="4388892845-2">(</span><span class="p" data-group-id="4388892845-3">%{</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">cluster_name</span><span class="p">,</span><span class="w"> </span><span class="ss">base_api_url</span><span class="p">:</span><span class="w"> </span><span class="n">base_api_url</span><span class="p" data-group-id="4388892845-3">}</span><span class="p" data-group-id="4388892845-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">CLUSTER-NAME</code>: a name for the Astarte cluster.</li><li><code class="inline">ASTARTE-BASE-API-URL</code>: the base API url of the Astarte instance (e.g.
-<a href="https://api.astarte.example.com">https://api.astarte.example.com</a>).</li></ul><h3 id="creating-the-tenant" class="section-heading">
+commands will reuse the result of previous commands)</p><h3 id="creating-the-tenant" class="section-heading">
   <a href="#creating-the-tenant" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">creating-the-tenant</p>
   </a>
   Creating the tenant
 </h3>
-<p>The following commands will create a database entry representing the tenant and will use its ID to
-scope the following calls to the database</p><pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">Edgehog.Tenants</span><span class="w">
+<p>The following commands will create a database entry representing the tenant, with its associated
+Astarte cluster and Realm.</p><pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">Edgehog.Provisioning</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">tenant_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;TENANT-NAME&gt;&quot;</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">tenant_slug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;TENANT-SLUG&gt;&quot;</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">tenant_public_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;
 &lt;TENANT-PUBLIC-KEY&gt;
 &quot;&quot;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="4553370100-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="4553370100-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tenants</span><span class="o">.</span><span class="n">create_tenant</span><span class="p" data-group-id="4553370100-2">(</span><span class="p" data-group-id="4553370100-3">%{</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_name</span><span class="p">,</span><span class="w"> </span><span class="ss">slug</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_slug</span><span class="p">,</span><span class="w"> </span><span class="ss">public_key</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_public_key</span><span class="p" data-group-id="4553370100-3">}</span><span class="p" data-group-id="4553370100-2">)</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="bp">_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Edgehog.Repo</span><span class="o">.</span><span class="n">put_tenant_id</span><span class="p" data-group-id="4553370100-4">(</span><span class="n">tenant</span><span class="o">.</span><span class="n">tenant_id</span><span class="p" data-group-id="4553370100-4">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
-step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
-the file in the <code class="inline">iex</code> shell and then close the multiline string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li></ul><h3 id="creating-the-realm" class="section-heading">
-  <a href="#creating-the-realm" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">creating-the-realm</p>
-  </a>
-  Creating the realm
-</h3>
-<p>The following commands will create a database entry representing the realm used by the tenant</p><pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">Edgehog.Tenants</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="n">realm_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;REALM-NAME&gt;&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">base_api_url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;ASTARTE-BASE-API-URL&gt;&quot;</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="n">realm_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;ASTARTE-REALM-NAME&gt;&quot;</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">realm_private_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;
-&lt;REALM-PRIVATE-KEY&gt;
+&lt;ASTARTE-REALM-PRIVATE-KEY&gt;
 &quot;&quot;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="3232716104-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">realm</span><span class="p" data-group-id="3232716104-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Astarte</span><span class="o">.</span><span class="n">create_realm</span><span class="p" data-group-id="3232716104-2">(</span><span class="n">cluster</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3232716104-3">%{</span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">realm_name</span><span class="p">,</span><span class="w"> </span><span class="ss">private_key</span><span class="p">:</span><span class="w"> </span><span class="n">realm_private_key</span><span class="p" data-group-id="3232716104-3">}</span><span class="p" data-group-id="3232716104-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">REALM-PRIVATE-KEY</code>: the content of you realm's private key. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>,
-press Enter, paste the content of the file in the <code class="inline">iex</code> shell and then close the multiline string
-with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li></ul><h3 id="installing-triggers" class="section-heading">
-  <a href="#installing-triggers" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">installing-triggers</p>
-  </a>
-  Installing triggers
-</h3>
-<p>In your Astarte instance, install these 4 triggers.</p><p>Connection trigger:</p><pre><code class="json">{
-    &quot;name&quot;: &quot;edgehog-connection&quot;,
-    &quot;action&quot;: {
-        &quot;http_url&quot;: &quot;&lt;BACKEND-TRIGGER-URL&gt;&quot;,
-        &quot;ignore_ssl_errors&quot;: false,
-        &quot;http_method&quot;: &quot;post&quot;,
-        &quot;http_static_headers&quot;: {}
-    },
-    &quot;simple_triggers&quot;: [
-        {
-            &quot;type&quot;: &quot;device_trigger&quot;,
-            &quot;on&quot;: &quot;device_connected&quot;
-        }
-    ]
-}</code></pre><p>Disconnection trigger:</p><pre><code class="json">{
-    &quot;name&quot;: &quot;edgehog-disconnection&quot;,
-    &quot;action&quot;: {
-        &quot;http_url&quot;: &quot;&lt;BACKEND-TRIGGER-URL&gt;&quot;,
-        &quot;ignore_ssl_errors&quot;: false,
-        &quot;http_method&quot;: &quot;post&quot;,
-        &quot;http_static_headers&quot;: {}
-    },
-    &quot;simple_triggers&quot;: [
-        {
-            &quot;type&quot;: &quot;device_trigger&quot;,
-            &quot;on&quot;: &quot;device_disconnected&quot;
-        }
-    ]
-}</code></pre><p>OTA Response trigger:</p><pre><code class="json">{
-    &quot;name&quot;: &quot;edgehog-ota&quot;,
-    &quot;action&quot;: {
-        &quot;http_url&quot;: &quot;&lt;BACKEND-TRIGGER-URL&gt;&quot;,
-        &quot;ignore_ssl_errors&quot;: false,
-        &quot;http_method&quot;: &quot;post&quot;,
-        &quot;http_static_headers&quot;: {}
-    },
-    &quot;simple_triggers&quot;: [
-        {
-            &quot;type&quot;: &quot;data_trigger&quot;,
-            &quot;interface_name&quot;: &quot;io.edgehog.devicemanager.OTAResponse&quot;,
-            &quot;interface_major&quot;: 0,
-            &quot;on&quot;: &quot;incoming_data&quot;,
-            &quot;match_path&quot;: &quot;/*&quot;,
-            &quot;value_match_operator&quot;: &quot;*&quot;
-        }
-    ]
-}</code></pre><p>OTA Event trigger:</p><pre><code class="json">{
-    &quot;name&quot;: &quot;edgehog-ota-event&quot;,
-    &quot;action&quot;: {
-        &quot;http_url&quot;: &quot;&lt;BACKEND-TRIGGER-URL&gt;&quot;,
-        &quot;ignore_ssl_errors&quot;: false,
-        &quot;http_method&quot;: &quot;post&quot;,
-        &quot;http_static_headers&quot;: {}
-    },
-    &quot;simple_triggers&quot;: [
-        {
-            &quot;type&quot;: &quot;data_trigger&quot;,
-            &quot;interface_name&quot;: &quot;io.edgehog.devicemanager.OTAEvent&quot;,
-            &quot;interface_major&quot;: 0,
-            &quot;on&quot;: &quot;incoming_data&quot;,
-            &quot;match_path&quot;: &quot;/*&quot;,
-            &quot;value_match_operator&quot;: &quot;*&quot;
-        }
-    ]
-}</code></pre><p>System Info trigger:</p><pre><code class="json">{
-    &quot;name&quot;: &quot;edgehog-system-info&quot;,
-    &quot;action&quot;: {
-        &quot;http_url&quot;: &quot;&lt;BACKEND-TRIGGER-URL&gt;&quot;,
-        &quot;ignore_ssl_errors&quot;: false,
-        &quot;http_method&quot;: &quot;post&quot;,
-        &quot;http_static_headers&quot;: {}
-    },
-    &quot;simple_triggers&quot;: [
-        {
-            &quot;type&quot;: &quot;data_trigger&quot;,
-            &quot;on&quot;: &quot;incoming_data&quot;,
-            &quot;interface_name&quot;: &quot;io.edgehog.devicemanager.SystemInfo&quot;,
-            &quot;interface_major&quot;: 0,
-            &quot;match_path&quot;: &quot;/*&quot;,
-            &quot;value_match_operator&quot;: &quot;*&quot;
-        }
-    ]
-}
-</code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-TRIGGER-URL</code>: the URL where the backend receives triggers. This is
-<code class="inline">&lt;BASE-BACKEND-URL&gt;/tenants/&lt;TENANT-SLUG&gt;/triggers</code>, where <code class="inline">BASE-BACKEND-URL</code> is the URL to your
-Edgehog backend and <code class="inline">TENANT-SLUG</code> is the slug of the tenant you chose in the <a href="#creating-the-tenant">previous
-step</a>.</li></ul><h3 id="accessing-edgehog" class="section-heading">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="3136207373-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="3136207373-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Provisioning</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="3136207373-2">(</span><span class="w">
+  </span><span class="p" data-group-id="3136207373-3">%{</span><span class="w">
+    </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_name</span><span class="p">,</span><span class="w">
+    </span><span class="ss">slug</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_slug</span><span class="p">,</span><span class="w">
+    </span><span class="ss">public_key</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_public_key</span><span class="p">,</span><span class="w">
+    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3136207373-4">%{</span><span class="w">
+      </span><span class="ss">base_api_url</span><span class="p">:</span><span class="w"> </span><span class="n">base_api_url</span><span class="p">,</span><span class="w">
+      </span><span class="ss">realm_name</span><span class="p">:</span><span class="w"> </span><span class="n">realm_name</span><span class="p">,</span><span class="w">
+      </span><span class="ss">realm_private_key</span><span class="p">:</span><span class="w"> </span><span class="n">realm_private_key</span><span class="w">
+    </span><span class="p" data-group-id="3136207373-4">}</span><span class="w">
+  </span><span class="p" data-group-id="3136207373-3">}</span><span class="p" data-group-id="3136207373-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
+step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
+the file in the <code class="inline">iex</code> shell and then close the multiline string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li><li><code class="inline">ASTARTE-BASE-API-URL</code>: the base API url of the Astarte instance (e.g.
+<a href="https://api.astarte.example.com">https://api.astarte.example.com</a>).</li><li><code class="inline">ASTARTE-REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">ASTARTE-REALM-PRIVATE-KEY</code>: the content of you realm's private key. Open a multiline string with
+<code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of the file in the <code class="inline">iex</code> shell and then close the multiline
+string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li></ul><h3 id="accessing-edgehog" class="section-heading">
   <a href="#accessing-edgehog" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
   <p class="sr-only">accessing-edgehog</p>
   </a>
