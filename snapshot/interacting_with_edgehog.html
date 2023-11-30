@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.30.9">
     <meta name="project" content="Edgehog v0.8.0-dev">
 
     <title>Interacting with Edgehog — Edgehog v0.8.0-dev</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
     <script src="dist/sidebar_items-1BC53A97.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-J2ASZTQE.js"></script>
 
 
   </head>
@@ -38,22 +38,22 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
+<nav id="sidebar" class="sidebar">
   <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
     </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
   </form>
 
   <div class="autocomplete">
@@ -75,18 +75,25 @@ Edgehog
         v0.8.0-dev
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
@@ -106,45 +113,45 @@ Edgehog
 <a href="https://github.com/astarte-platform/astarte">Astarte</a> and exchange data via Astarte Interfaces
 which, in turn, also define on a very granular level which kind of data they can exchange. Data
 exposed by devices are relayed to Edgehog via Astarte Triggers.</p><p><em>Users</em> are actual users, applications or anything else which needs to interact with Edgehog.</p><h2 id="user-side-tools" class="section-heading">
-  <a href="#user-side-tools" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">user-side-tools</p>
+  <a href="#user-side-tools" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  User-side Tools
+  <span class="text">User-side Tools</span>
 </h2>
 <p>To interact with Edgehog, several options are available:</p><ul><li>Edgehog's dashboard interface: it provides a built-in UI that can be used for managing Devices,
 Hardware Types, and System Models. It is meant to be a graphical, user-friendly tool to manage
 those entities.</li><li><a href="graphql-api-docs/">Edgehog's GraphQL APIs</a>: they are meant as a machine-friendly way to perform
 operations on Edgehog's entities and for integrating 3rd party applications.</li></ul><h2 id="publishing-device-data" class="section-heading">
-  <a href="#publishing-device-data" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">publishing-device-data</p>
+  <a href="#publishing-device-data" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Publishing Device data
+  <span class="text">Publishing Device data</span>
 </h2>
 <p>Devices can publish any kind of data to Astarte via Astarte Interfaces. However, some standard
 interfaces are already supported by Edgehog in order to provide useful functionalities, such as
 device geolocation.</p><p>Hence, data that devices send via
 <a href="https://github.com/edgehog-device-manager/edgehog-astarte-interfaces/">Edgehog's Astarte Interfaces</a>
 are automatically understood, collected and reported by Edgehog.</p><h3 id="publishing-info-about-the-system" class="section-heading">
-  <a href="#publishing-info-about-the-system" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">publishing-info-about-the-system</p>
+  <a href="#publishing-info-about-the-system" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Publishing info about the System
+  <span class="text">Publishing info about the System</span>
 </h3>
 <p>Each Device is supposed to notify Astarte, e.g. on each connection, about its System.</p><p>To do so, the Device can use the <a href="astarte_interfaces.html">io.edgehog.devicemanager.SystemInfo</a>
 Astarte Interface to specify:</p><ul><li>the Serial Number: a code that uniquely identifies the System</li><li>the Part Number: a code that uniquely identifies the System Model</li></ul><p>When exposing the Part Number, Edgehog can associate the Device to the correct System Model by
 matching the Device's Part Number with the ones of the registered System Model.</p><h3 id="publishing-info-about-the-hardware" class="section-heading">
-  <a href="#publishing-info-about-the-hardware" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">publishing-info-about-the-hardware</p>
+  <a href="#publishing-info-about-the-hardware" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Publishing info about the hardware
+  <span class="text">Publishing info about the hardware</span>
 </h3>
 <p>Each Device can notify Astarte about the general capabilities of the Device. These info are
 hardware-related and are usually not intended to change over time.</p><p>A Device can expose this set of data via the
 <a href="astarte_interfaces.html">io.edgehog.devicemanager.HardwareInfo</a> Astarte Interface.</p><h3 id="publishing-info-about-the-device-status" class="section-heading">
-  <a href="#publishing-info-about-the-device-status" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">publishing-info-about-the-device-status</p>
+  <a href="#publishing-info-about-the-device-status" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Publishing info about the Device status
+  <span class="text">Publishing info about the Device status</span>
 </h3>
 <p>To expose info about its current status or measured data, some additional Astarte Interfaces are
 already defined for Edgehog. Their adoption is optional but recommended.</p><ul><li><a href="astarte_interfaces.html">io.edgehog.devicemanager.SystemStatus</a>: reports the current OS status.</li><li><a href="astarte_interfaces.html">io.edgehog.devicemanager.StorageUsage</a>: reports the capacity and usage
@@ -195,7 +202,7 @@ Astarte Interfaces
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -203,7 +210,7 @@ Astarte Interfaces
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

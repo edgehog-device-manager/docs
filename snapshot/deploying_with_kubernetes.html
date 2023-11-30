@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.30.9">
     <meta name="project" content="Edgehog v0.8.0-dev">
 
     <title>Deploying with Kubernetes — Edgehog v0.8.0-dev</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
     <script src="dist/sidebar_items-1BC53A97.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-J2ASZTQE.js"></script>
 
 
   </head>
@@ -38,22 +38,22 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
+<nav id="sidebar" class="sidebar">
   <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
     </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
   </form>
 
   <div class="autocomplete">
@@ -75,18 +75,25 @@ Edgehog
         v0.8.0-dev
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
@@ -106,10 +113,10 @@ Edgehog
 Edgehog instance in a Kubernetes cluster.</p><p><em>Note: currently Edgehog requires some manual initialization operations to be performed in the
 Elixir interactive shell and is not completely automated. All required operations are detailed
 below in the guide.</em></p><h2 id="requirements" class="section-heading">
-  <a href="#requirements" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">requirements</p>
+  <a href="#requirements" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Requirements
+  <span class="text">Requirements</span>
 </h2>
 <ul><li>A Kubernetes cluster</li><li><code class="inline">kubectl</code> correctly configured to target the aforementioned cluster</li><li>An Ingress Controller deployed in the cluster (the guide contains examples for the NGINX Ingress
 Controller)</li><li>An Astarte instance, with an existing realm and its private key</li><li>A PostgreSQL database</li><li>S3-compatible storage with its credentials</li><li>The <code class="inline">jq</code> utility installed in the system</li><li>(Optional) A Google Geolocation API Key</li><li>(Optional) A Google Geocoding API Key</li><li>(Optional) An ipbase.com API Key</li></ul><p>The guide does not cover in detail how Edgehog is exposed to the internet, since administrators are
@@ -117,24 +124,24 @@ free to use their favorite Ingress Controller to achieve that. An example Ingres
 Ingress Controller is provided, but advanced operations (e.g. certificate management) are out of the
 scope of this guide.</p><p>The guide assumes everything is deployed to the <code class="inline">edgehog</code> namespace in the Kubernetes cluster, but
 Edgehog can be deployed in any namespace adjusting the <code class="inline">yaml</code> files and the commands accordingly.</p><p>All fields that have to be customized will be indicated <code class="inline">&lt;WITH-THIS-SYNTAX&gt;</code>.</p><h2 id="deploying-edgehog" class="section-heading">
-  <a href="#deploying-edgehog" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">deploying-edgehog</p>
+  <a href="#deploying-edgehog" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Deploying Edgehog
+  <span class="text">Deploying Edgehog</span>
 </h2>
 <p>This part of the guide will detail all the operations to deploy Edgehog into an existing Kubernetes
 cluster.</p><h3 id="namespace" class="section-heading">
-  <a href="#namespace" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">namespace</p>
+  <a href="#namespace" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Namespace
+  <span class="text">Namespace</span>
 </h3>
 <p>First of all, the <code class="inline">edgehog</code> namespace has to be created</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl create namespace edgehog
 </span></code></pre><h3 id="installing-nginx-ingress-controller-and-cert-manager-example" class="section-heading">
-  <a href="#installing-nginx-ingress-controller-and-cert-manager-example" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">installing-nginx-ingress-controller-and-cert-manager-example</p>
+  <a href="#installing-nginx-ingress-controller-and-cert-manager-example" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Installing NGINX Ingress Controller and cert-manager (example)
+  <span class="text">Installing NGINX Ingress Controller and cert-manager (example)</span>
 </h3>
 <p>At this point you should install an Ingress Controller in your cluster. As an example, we will show
 the procedure to install the NGINX Ingress Controller and cert-manager (to manager SSL certificates)
@@ -148,19 +155,19 @@ using <code class="inline">helm</code>. To do so, use these commands</p><pre><co
 </span></code></pre><p>After some minutes, you can retrieve the Load Balancer IP with</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl get svc -n ingress-nginx
 </span></code></pre><p>in the <code class="inline">EXTERNAL-IP</code> column.</p><p>Note that NGINX is only one of the possible Ingress Controllers, instructions for other Ingress
 Controllers are outside the scope of this guide.</p><h3 id="creating-dns-entries" class="section-heading">
-  <a href="#creating-dns-entries" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">creating-dns-entries</p>
+  <a href="#creating-dns-entries" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Creating DNS entries
+  <span class="text">Creating DNS entries</span>
 </h3>
 <p>Once you have the Load Balancer IP (obtained in the <a href="#installing-nginx-ingress-controller-and-cert-manager-example">previous
 step</a>), head to your DNS provider and
 point two domains (one for the backend and one for the frontend) to that IP address.</p><p>Save the two hosts (e.g. <code class="inline">api.edgehog.example.com</code> and <code class="inline">edgehog.example.com</code>) since they're going to
 be needed for the following steps.</p><h3 id="secrets" class="section-heading">
-  <a href="#secrets" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">secrets</p>
+  <a href="#secrets" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Secrets
+  <span class="text">Secrets</span>
 </h3>
 <p>A series of secrets containing various credentials have to be created.</p><h4>Database connection</h4><p>This command creates the secret containing the details for the database connection:</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-db-connection \
 </span><span class="">  --from-literal=&quot;database=&lt;DATABASE-NAME&gt;&quot; \
@@ -195,10 +202,10 @@ used with Google Geocoding.</p><p>After that, create the secret containing the A
 </span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">API-KEY</code>: the Google Geocoding API Key obtained from GCP.</li></ul><h4>ipbase.com API Key (optional)</h4><p>Register an account at <a href="https://ipbase.com/">ipbase.com</a> to obtain an API key.</p><p>After that, create the secret containing the API key with:</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-ipbase-credentials \
 </span><span class="">  --from-literal=&quot;api-key=&lt;API-KEY&gt;&quot;
 </span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">API-KEY</code>: the API Key obtained from ipbase.com.</li></ul><h3 id="deployments" class="section-heading">
-  <a href="#deployments" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">deployments</p>
+  <a href="#deployments" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Deployments
+  <span class="text">Deployments</span>
 </h3>
 <p>After secrets are deployed, the deployments can be applied to the cluster.</p><h4>Backend</h4><p>To deploy the backend, copy the following <code class="inline">yaml</code> snippet in <code class="inline">backend-deployment.yaml</code>, fill the
 missing values (detailed below) and execute</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl apply -f backend-deployment.yaml
@@ -351,10 +358,10 @@ spec:
           name: httpout
           protocol: TCP</code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-URL</code>: the API base URL of the Edgehog backend (see the <a href="#creating-dns-entries">Creating DNS
 entries</a> section). This should be, e.g., <code class="inline">https://&lt;BACKEND-HOST&gt;</code>.</li></ul><h3 id="services" class="section-heading">
-  <a href="#services" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">services</p>
+  <a href="#services" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Services
+  <span class="text">Services</span>
 </h3>
 <h4>Backend</h4><p>To deploy the backend service, copy the following <code class="inline">yaml</code> snippet in <code class="inline">backend-service.yaml</code> and
 execute</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl apply -f backend-service.yaml
@@ -387,10 +394,10 @@ spec:
     targetPort: 80
   selector:
     app: edgehog-frontend</code></pre><h3 id="exposing-edgehog-to-the-internet" class="section-heading">
-  <a href="#exposing-edgehog-to-the-internet" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">exposing-edgehog-to-the-internet</p>
+  <a href="#exposing-edgehog-to-the-internet" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Exposing Edgehog to the Internet
+  <span class="text">Exposing Edgehog to the Internet</span>
 </h3>
 <h4>SSL Certificates</h4><p>This is an example certificates configuration for Edgehog. This is provided as a starting point and
 it uses <code class="inline">certmanager</code> to obtain LetsEncrypt SSL certificates. All advanced topics (advanced
@@ -469,17 +476,17 @@ deployment</a>.
 Note that NGINX accepts also size suffixes, so you can put, e.g., <code class="inline">4G</code> for 4 gigabytes. Also note
 that, differently from the value in the Deployment, this is required because NGINX default is 1
 megabyte.</li></ul><h2 id="edgehog-initialization" class="section-heading">
-  <a href="#edgehog-initialization" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">edgehog-initialization</p>
+  <a href="#edgehog-initialization" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Edgehog Initialization
+  <span class="text">Edgehog Initialization</span>
 </h2>
 <p>These are some manual operation that have to be performed to initialize the Edgehog instance. In the
 future these operation will be automated and/or will be performed using a dedicated API.</p><h3 id="creating-a-keypair" class="section-heading">
-  <a href="#creating-a-keypair" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">creating-a-keypair</p>
+  <a href="#creating-a-keypair" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Creating a keypair
+  <span class="text">Creating a keypair</span>
 </h3>
 <p>A keypair is needed to emit and validate tokens to access your tenant. You can generate an EC
 keypair with the following OpenSSL commands</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">openssl ecparam -name prime256v1 -genkey -noout &gt; private_key.pem
@@ -487,18 +494,18 @@ keypair with the following OpenSSL commands</p><pre><code class="makeup bash" tr
 </span></code></pre><p>After those commands are executed, you will have two files: <code class="inline">private_key.pem</code> and <code class="inline">public_key.pem</code>.
 The content of <code class="inline">public_key.pem</code> will be needed in the next steps, while <code class="inline">private_key.pem</code> will be
 used to emit Edgehog tokens. Make sure to store the private key somewhere safe.</p><h3 id="connecting-to-iex" class="section-heading">
-  <a href="#connecting-to-iex" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">connecting-to-iex</p>
+  <a href="#connecting-to-iex" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Connecting to <code class="inline">iex</code>
+  <span class="text">Connecting to <code class="inline">iex</code></span>
 </h3>
 <p>Connect to the <code class="inline">iex</code> interactive shell of the Edgehog backend using</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl exec -it deploy/edgehog-backend -n edgehog -- /app/bin/edgehog remote
 </span></code></pre><p>All the following commands have to be executed inside that shell, in a single session (since some
 commands will reuse the result of previous commands)</p><h3 id="creating-the-tenant" class="section-heading">
-  <a href="#creating-the-tenant" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">creating-the-tenant</p>
+  <a href="#creating-the-tenant" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Creating the tenant
+  <span class="text">Creating the tenant</span>
 </h3>
 <p>The following commands will create a database entry representing the tenant, with its associated
 Astarte cluster and Realm.</p><pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">Edgehog.Provisioning</span><span class="w">
@@ -512,26 +519,26 @@ Astarte cluster and Realm.</p><pre><code class="makeup elixir" translate="no"><s
 </span><span class="gp unselectable">iex&gt; </span><span class="n">realm_private_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;
 &lt;ASTARTE-REALM-PRIVATE-KEY&gt;
 &quot;&quot;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="7546030758-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="7546030758-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Provisioning</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="7546030758-2">(</span><span class="w">
-  </span><span class="p" data-group-id="7546030758-3">%{</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="2025925351-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="2025925351-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Provisioning</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="2025925351-2">(</span><span class="w">
+  </span><span class="p" data-group-id="2025925351-3">%{</span><span class="w">
     </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_name</span><span class="p">,</span><span class="w">
     </span><span class="ss">slug</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_slug</span><span class="p">,</span><span class="w">
     </span><span class="ss">public_key</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_public_key</span><span class="p">,</span><span class="w">
-    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7546030758-4">%{</span><span class="w">
+    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2025925351-4">%{</span><span class="w">
       </span><span class="ss">base_api_url</span><span class="p">:</span><span class="w"> </span><span class="n">base_api_url</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_name</span><span class="p">:</span><span class="w"> </span><span class="n">realm_name</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_private_key</span><span class="p">:</span><span class="w"> </span><span class="n">realm_private_key</span><span class="w">
-    </span><span class="p" data-group-id="7546030758-4">}</span><span class="w">
-  </span><span class="p" data-group-id="7546030758-3">}</span><span class="p" data-group-id="7546030758-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
+    </span><span class="p" data-group-id="2025925351-4">}</span><span class="w">
+  </span><span class="p" data-group-id="2025925351-3">}</span><span class="p" data-group-id="2025925351-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
 step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
 the file in the <code class="inline">iex</code> shell and then close the multiline string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li><li><code class="inline">ASTARTE-BASE-API-URL</code>: the base API url of the Astarte instance (e.g.
 <a href="https://api.astarte.example.com">https://api.astarte.example.com</a>).</li><li><code class="inline">ASTARTE-REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">ASTARTE-REALM-PRIVATE-KEY</code>: the content of you realm's private key. Open a multiline string with
 <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of the file in the <code class="inline">iex</code> shell and then close the multiline
 string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li></ul><h3 id="accessing-edgehog" class="section-heading">
-  <a href="#accessing-edgehog" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">accessing-edgehog</p>
+  <a href="#accessing-edgehog" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Accessing Edgehog
+  <span class="text">Accessing Edgehog</span>
 </h3>
 <p>At this point your Edgehog instance is ready to use. The last step is generating a token to access
 your Edgehog frontend instance. You can do so using the <code class="inline">gen-edgehog-jwt</code> tool contained in the
@@ -586,7 +593,7 @@ Interacting with Edgehog
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -594,7 +601,7 @@ Interacting with Edgehog
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

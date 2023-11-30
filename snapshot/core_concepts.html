@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.30.9">
     <meta name="project" content="Edgehog v0.8.0-dev">
 
     <title>Core concepts — Edgehog v0.8.0-dev</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
     <script src="dist/sidebar_items-1BC53A97.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-J2ASZTQE.js"></script>
 
 
   </head>
@@ -38,22 +38,22 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
+<nav id="sidebar" class="sidebar">
   <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
     </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
   </form>
 
   <div class="autocomplete">
@@ -75,18 +75,25 @@ Edgehog
         v0.8.0-dev
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
@@ -103,19 +110,19 @@ Edgehog
 </h1>
 
 <p>This page will illustrate some of the core concepts used in Edgehog.</p><h2 id="hardware-types-devices-and-system-models" class="section-heading">
-  <a href="#hardware-types-devices-and-system-models" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">hardware-types-devices-and-system-models</p>
+  <a href="#hardware-types-devices-and-system-models" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Hardware types, Devices and System Models
+  <span class="text">Hardware types, Devices and System Models</span>
 </h2>
 <p>This section will deal with the difference between three main concepts used throughout Edgehog:
 Hardware Types, Devices and System Models.</p><p>To better illustrate this, we will use as example the ACME Inc company, which manages a fleet of
 e-bikes and electric scooters. We will illustrate the hierarchy going from the bottom up, showing
 how each concept relates to the other ones.</p><h3 id="hardware-type" class="section-heading">
-  <a href="#hardware-type" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">hardware-type</p>
+  <a href="#hardware-type" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Hardware Type
+  <span class="text">Hardware Type</span>
 </h3>
 <p>An Hardware Type represents the electronic hardware components embedded in an device. As an example,
 a possible Hardware Type description could be &quot;ESP32 with a GSM module&quot; or &quot;RaspberryPi 0 with an
@@ -123,17 +130,17 @@ LTE modem&quot;.</p><p>Each Hardware Type can have one or more Hardware Type Par
 sure that the user is able to map, e.g., a new revision of the PCB to the same Hardware Type, since
 different hardware with the same Hardware Type is assumed to be compatible. Usually (but not
 necessarily) the Hardware Type Part Number is a code that is written on the PCB.</p><h3 id="device" class="section-heading">
-  <a href="#device" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">device</p>
+  <a href="#device" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Device
+  <span class="text">Device</span>
 </h3>
 <p>A device is an entity connected to Astarte. A Device has a uniquely identified by its Device ID, and
 it usually lives inside a product such as an e-bike (if it is not on a shelf or in a repair shop).</p><h3 id="system-model" class="section-heading">
-  <a href="#system-model" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">system-model</p>
+  <a href="#system-model" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  System Model
+  <span class="text">System Model</span>
 </h3>
 <p>A System Model constitutes a group of devices implementing the same functionality for some users.
 For example, two e-bikes can be physically identical and still belong to different System Models,
@@ -146,25 +153,25 @@ System Models, even if they use the same Hardware Type (e.g. an ESP32 with a GSM
 possible that the e-bikes are further split into different System Models depending on the country
 they are deployed in if, for example, the software has to conform to speed limitations which are
 specific for each country.</p><h2 id="tags-attributes-and-groups" class="section-heading">
-  <a href="#tags-attributes-and-groups" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">tags-attributes-and-groups</p>
+  <a href="#tags-attributes-and-groups" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Tags, attributes and groups
+  <span class="text">Tags, attributes and groups</span>
 </h2>
 <p>This section will deal with various types of properties that can be added to devices to identify
 and group them.</p><h3 id="tags" class="section-heading">
-  <a href="#tags" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">tags</p>
+  <a href="#tags" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Tags
+  <span class="text">Tags</span>
 </h3>
 <p>Tags are string values that can be freely attached to Devices. There is no predefined semantics so
 users are free to use them as they see fit.</p><p>Some examples of tags that can be assigned to the e-bikes or electric scooters in our examples
 could be <code class="inline">out-of-order</code>, <code class="inline">test_machine</code> or <code class="inline">Upgraded Brakes</code>.</p><h3 id="attributes" class="section-heading">
-  <a href="#attributes" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">attributes</p>
+  <a href="#attributes" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Attributes*
+  <span class="text">Attributes*</span>
 </h3>
 <p>*<em>This feature is planned for a future release</em></p><p>Attributes are namespaced key-value pairs that can be attached to Devices. The namespacing happens
 by prepending the namespace to the key using a colon as separator (i.e. <code class="inline">namespace:key</code>). This
@@ -177,17 +184,17 @@ from Edgehog (e.g. Geolocation, System Model, Hardware Type, etc...)</li><li><co
 using an <a href="#attribute-value-source">Attribute Value Source</a> with type <code class="inline">astarte-value</code>.</li><li><code class="inline">astarte-attributes</code>: automatically populated using the <code class="inline">attributes</code> map in the Device status
 returned from Astarte AppEngine API. Since Astarte attributes don't provide a trigger mechanism,
 these attributes are lazily populated and should be considered eventually consistent.</li><li><code class="inline">custom</code>: user-defined key-value pairs which are manually assigned to a Device.</li></ul><p>Note that all values will be converted to a string when using them as attribute values</p><h3 id="attribute-value-source" class="section-heading">
-  <a href="#attribute-value-source" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">attribute-value-source</p>
+  <a href="#attribute-value-source" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Attribute Value Source*
+  <span class="text">Attribute Value Source*</span>
 </h3>
 <p>*<em>This feature is planned for a future release</em></p><p>An Attribute Value Source populates the attributes of a Device according to some rule.</p><p>Currently, the only supported type of Attribute Value Source is <code class="inline">astarte-value</code>, which updates
 Device attributes using a value from an Astarte interface.</p><h3 id="selector" class="section-heading">
-  <a href="#selector" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">selector</p>
+  <a href="#selector" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Selector
+  <span class="text">Selector</span>
 </h3>
 <p>A Selector allows selecting a subset of Devices based on their tags and attributes. The Selector
 can be evaluated for a Device and return <code class="inline">true</code> if the Device matches the Selector and <code class="inline">false</code>
@@ -204,19 +211,19 @@ contained in double quotes must be a valid UTC ISO8601 timestamp. Example:
 <code class="inline">datetime(&quot;2022-06-27T16:27:40.254795Z&quot;)</code>.</li><li><code class="inline">binaryblob(&quot;&lt;base64 encoded value&gt;&quot;)</code> is used to pass <code class="inline">binaryblob</code> values in expressions. The
 string contained in double quotes must be a valid Base64 encoding of the binary value. Example:
 <code class="inline">binaryblob(&quot;Zm9vYmFy&quot;)</code> to encode the string <code class="inline">&quot;foobar&quot;</code>.</li></ul><h5>Attribute inclusion filter*</h5><p>*<em>This feature is planned for a future release</em></p><ul><li><code class="inline">&quot;&lt;value&gt;&quot; in attributes[&quot;&lt;namespace&gt;:&lt;key&gt;&quot;]</code>: returns <code class="inline">true</code> if <code class="inline">value</code> is included in the
-chosen attribute. Note that the attribute must be an array for the expression to be valid.</li></ul><h4>Examples</h4><p>To provide some examples, here is a Selector to target all out of order Devices in Milan:</p><pre><code class="makeup elixir" translate="no"><span class="s">&quot;out-of-order&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">tags</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">attributes</span><span class="p" data-group-id="1618771553-1">[</span><span class="s">&quot;edgehog-synthetic:city&quot;</span><span class="p" data-group-id="1618771553-1">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Milan&quot;</span></code></pre><p>Here is a selector to target all Devices that have their service timestamp in the past so they have
+chosen attribute. Note that the attribute must be an array for the expression to be valid.</li></ul><h4>Examples</h4><p>To provide some examples, here is a Selector to target all out of order Devices in Milan:</p><pre><code class="makeup elixir" translate="no"><span class="s">&quot;out-of-order&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">tags</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">attributes</span><span class="p" data-group-id="6835888378-1">[</span><span class="s">&quot;edgehog-synthetic:city&quot;</span><span class="p" data-group-id="6835888378-1">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Milan&quot;</span></code></pre><p>Here is a selector to target all Devices that have their service timestamp in the past so they have
 to be serviced, imagining this information is contained in the <code class="inline">com.foo.ServiceInfo</code> Astarte
-interface in the <code class="inline">/serviceTimestamp</code>:</p><pre><code class="makeup elixir" translate="no"><span class="n">attributes</span><span class="p" data-group-id="5526268809-1">[</span><span class="s">&quot;astarte-values:com.foo.ServiceInfo/serviceTimestamp&quot;</span><span class="p" data-group-id="5526268809-1">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">now</span><span class="p" data-group-id="5526268809-2">(</span><span class="p" data-group-id="5526268809-2">)</span></code></pre><h4>Caveats</h4><p>Note that numeric values are conflated in a single numeric type, i.e. a selector with
+interface in the <code class="inline">/serviceTimestamp</code>:</p><pre><code class="makeup elixir" translate="no"><span class="n">attributes</span><span class="p" data-group-id="5059107710-1">[</span><span class="s">&quot;astarte-values:com.foo.ServiceInfo/serviceTimestamp&quot;</span><span class="p" data-group-id="5059107710-1">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">now</span><span class="p" data-group-id="5059107710-2">(</span><span class="p" data-group-id="5059107710-2">)</span></code></pre><h4>Caveats</h4><p>Note that numeric values are conflated in a single numeric type, i.e. a selector with
 <code class="inline">attributes[&quot;custom:foo&quot;] == 42</code> will match either if <code class="inline">foo</code> is <code class="inline">integer</code>, <code class="inline">longinteger</code> or <code class="inline">double</code>
 (e.g it will also match <code class="inline">42.0</code>).</p><p>Another important thing to notice is that using an Attribute Filter will implicitly match only
 Devices that have that attribute. As an example, if there are 3 devices, one with attribute <code class="inline">foo:bar == 42</code>, the other with attribute <code class="inline">foo:bar == 3</code> and the third one with no <code class="inline">foo:bar</code> attribute, the
 Attribute Filter <code class="inline">attributes[&quot;foo:bar&quot;] != 42</code> will match the second Device but <em>not</em> the third one,
 since it doesn't have the target attribute.</p><p>In the future, additional syntax could be added to Selectors to allow filtering based just on the
 presence or absence of an attribute.</p><h3 id="group" class="section-heading">
-  <a href="#group" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">group</p>
+  <a href="#group" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Group
+  <span class="text">Group</span>
 </h3>
 <p>A Group represents a subset of devices filtered by a Selector.</p><p>The Group can be used to perform operations on Devices contained in it.</p><p>Since Tags and Attributes of a Device can change, Groups do not statically define the set of Devices
 they contain but they change dynamically following Device changes.</p><p>Note that a Device can't be manually assigned to a Group, its tags and attributes must be
@@ -264,7 +271,7 @@ Hardware Types
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -272,7 +279,7 @@ Hardware Types
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

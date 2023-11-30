@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.30.9">
     <meta name="project" content="Edgehog v0.8.0-dev">
 
     <title>Update Campaigns — Edgehog v0.8.0-dev</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
     <script src="dist/sidebar_items-1BC53A97.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-J2ASZTQE.js"></script>
 
 
   </head>
@@ -38,22 +38,22 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
+<nav id="sidebar" class="sidebar">
   <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
     </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
   </form>
 
   <div class="autocomplete">
@@ -75,18 +75,25 @@ Edgehog
         v0.8.0-dev
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
@@ -108,18 +115,18 @@ belonging to an <a href="ota_update_concepts.html#update-channel">Update Channel
 <a href="ota_update_concepts.html#base-image-collection">Base Image Collection</a>, and special operations
 (like converting a Device from a one System Model to another) must always be done with a <a href="ota_updates.html#manual-ota-updates">Manual OTA
 Update</a>.</p><p>The following sections will illustrate all the pages that can be used to list, create and view Update Campaigns.</p><h2 id="update-campaign-list" class="section-heading">
-  <a href="#update-campaign-list" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">update-campaign-list</p>
+  <a href="#update-campaign-list" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Update Campaign List
+  <span class="text">Update Campaign List</span>
 </h2>
 <p><img src="assets/update_campaign_list.png" alt="Update Campaign List Screenshot"/></p><p>In the Update Campaign list you can see the table with all Update Campaigns. Clicking on the name brings
 to the <a href="#update-campaign">Update Campaign</a> page.</p><p>Clicking on the &quot;Create Update Campaign&quot; button in the top right brings to
 <a href="#create-update-campaign">Create Update Campaign</a> page.</p><h2 id="create-update-campaign" class="section-heading">
-  <a href="#create-update-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">create-update-campaign</p>
+  <a href="#create-update-campaign" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Create Update Campaign
+  <span class="text">Create Update Campaign</span>
 </h2>
 <p><img src="assets/update_campaign_create.png" alt="Create Update Campaign Screenshot"/></p><p>The Create Update Campaign page allows creating a new Update Campaign.</p><p>When creating an Update Campaign, the following information must be provided</p><ul><li>Base Image: the target Base Image for the Update Campaign.</li><li>Update Channel: the target Update Channel for the Update Campaign.</li><li><a href="#roll-out-mechanism">Roll-out Mechanism</a> properties.</li></ul><p>The Update Campaign information can be provided using the form, and pressing the &quot;Create&quot; button saves
 the Update Campaign.</p><p>Once created, the Update Campaign will start rolling out updates towards the devices, and its
@@ -130,10 +137,10 @@ receive the Base Image and will require a separate campaign to be started.</p><p
 combination, so creating a new Update Campaign while another one is already running will implicitly
 cancel* the old one. This means that Devices that didn't yet receive the Base Image of the old Update
 Campaign will directly receive the new one, without any intermediate step.</p><p>*<em>Implicit Cancellation feature is planned for a future release</em></p><h3 id="roll-out-mechanism" class="section-heading">
-  <a href="#roll-out-mechanism" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">roll-out-mechanism</p>
+  <a href="#roll-out-mechanism" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Roll-out mechanism
+  <span class="text">Roll-out mechanism</span>
 </h3>
 <p>Here are the currently supported Roll-out Mechanisms and their properties</p><h5><code class="inline">push</code></h5><p>This Roll-out mechanism pushes the update towards the device unconditionally. This can be used to
 provide automatic updates where the user should not have the choice of refusing the update.</p><p>The properties of this Roll-out Mechanism are:</p><ul><li>Max Pending Operations: the maximum number of pending <a href="ota_update_concepts.html#ota-operation">OTA Operations</a>.
@@ -145,10 +152,10 @@ of the Base Image.</li></ul><h5><code class="inline">optional</code>*</h5><p>*<e
 available. The update is downloaded to the device only after the user accepts the update. The update
 is not required to be pushed immediately, to provide a backpressure mechanism if many users accept
 the update at the same time.</p><h2 id="update-campaign" class="section-heading">
-  <a href="#update-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">update-campaign</p>
+  <a href="#update-campaign" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Update Campaign
+  <span class="text">Update Campaign</span>
 </h2>
 <p><img src="assets/update_campaign.png" alt="Update Campaign Page Screenshot"/></p><p>The Update Campaign page shows the information about a specific Update Campaign and Devices associated 
 with it in table below.</p><p>Clicking on the Base Image Collection, Base Image, Update Channel or Device name bring to the corresponding page.</p>
@@ -195,7 +202,7 @@ OTA Updates
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -203,7 +210,7 @@ OTA Updates
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

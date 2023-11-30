@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.30.9">
     <meta name="project" content="Edgehog v0.8.0-dev">
 
     <title>Base Images — Edgehog v0.8.0-dev</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
     <script src="dist/sidebar_items-1BC53A97.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-J2ASZTQE.js"></script>
 
 
   </head>
@@ -38,22 +38,22 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
+<nav id="sidebar" class="sidebar">
   <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
     </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
   </form>
 
   <div class="autocomplete">
@@ -75,18 +75,25 @@ Edgehog
         v0.8.0-dev
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
@@ -112,25 +119,25 @@ that the Device must satisfy with its current Base Image to be updated with this
 If a Device that does not satisfy the requirement is included in an Update Campaign
 that uses this Base Image, the result of the <a href="ota_update_concepts.html#ota-operation">OTA Operation</a> is an error.</li><li>Release Display Name (optional): a localized user-friendly name for the release.</li><li>Description (optional): a localized description of the content of the Base Image.</li></ul><p>The following sections will illustrate all the pages that can be used to list, create, edit and delete
 Base Images.</p><h2 id="base-image-list" class="section-heading">
-  <a href="#base-image-list" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">base-image-list</p>
+  <a href="#base-image-list" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Base Image List
+  <span class="text">Base Image List</span>
 </h2>
 <p><img src="assets/base_image_list.png" alt="Base Image List Screenshot"/></p><p>The Base Image Collection page shows table with associated Base Images.
 Clicking on the Base Image Version brings to the <a href="#base-image">Base Image</a> page.
 Clicking on the &quot;Create Base Image&quot; button in the right brings to the <a href="#create-base-image">Create Base Image</a> page.</p><h2 id="base-image" class="section-heading">
-  <a href="#base-image" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">base-image</p>
+  <a href="#base-image" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Base Image
+  <span class="text">Base Image</span>
 </h2>
 <p><img src="assets/base_image.png" alt="Base Image Page Screenshot"/></p><p>The Base Image page shows the information about a specific Base Image and allows updating some of them.</p><p>Editing any field and then pressing the &quot;Update&quot; button saves the new values for the Base Image.
 The &quot;Delete&quot; button allows to delete the Base Image.</p><h2 id="create-base-image" class="section-heading">
-  <a href="#create-base-image" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">create-base-image</p>
+  <a href="#create-base-image" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Create Base Image
+  <span class="text">Create Base Image</span>
 </h2>
 <p><img src="assets/base_image_create.png" alt="Create Base Image Screenshot"/></p><p>The Create Base Image page allows creating a new Base Image.</p><p>The Base Image information can be provided using the form, and pressing the &quot;Create&quot; button saves the Base Image.</p><p>Some information can be automatically filled in if the Base Image can be parsed by one of the
 <a href="#supported-base-image-parsers">supported Base Image parsers</a>. Other than that, users are free to
@@ -138,10 +145,10 @@ use whatever format they choose for the artifact that will be pushed towards the
 the Device is able to handle it.</p><p>When you upload add Base Image in a Base Image Collection, no update is pushed towards devices,
 the Base Image is just uploaded in Edgehog's storage. To start pushing updates towards devices, an
 <a href="ota_update_concepts.html#update-campaign">Update Campaign</a> must be created.</p><h3 id="supported-base-image-parsers" class="section-heading">
-  <a href="#supported-base-image-parsers" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">supported-base-image-parsers</p>
+  <a href="#supported-base-image-parsers" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Supported Base Image parsers
+  <span class="text">Supported Base Image parsers</span>
 </h3>
 <p>Base Image parsers are not implemented yet. As soon as they are implemented, this section will be
 populated with the supported formats.</p>
@@ -188,7 +195,7 @@ Base Image Collections
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -196,7 +203,7 @@ Base Image Collections
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

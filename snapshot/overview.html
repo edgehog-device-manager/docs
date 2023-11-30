@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.30.9">
     <meta name="project" content="Edgehog v0.8.0-dev">
 
     <title>Architecture overview — Edgehog v0.8.0-dev</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
     <script src="dist/sidebar_items-1BC53A97.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-J2ASZTQE.js"></script>
 
 
   </head>
@@ -38,22 +38,22 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
+<nav id="sidebar" class="sidebar">
   <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
     </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
   </form>
 
   <div class="autocomplete">
@@ -75,18 +75,25 @@ Edgehog
         v0.8.0-dev
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
@@ -104,27 +111,27 @@ Edgehog
 
 <p>This is an overview of Edgehog's architecture.</p><p><img src="assets/edgehog_architecture.png" alt="Edgehog Architecture"/></p><p>The following sections will detail the interactions between Edgehog and the other components
 represented in the architecture diagram.</p><h2 id="user-interaction" class="section-heading">
-  <a href="#user-interaction" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">user-interaction</p>
+  <a href="#user-interaction" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  User interaction
+  <span class="text">User interaction</span>
 </h2>
 <p>Edgehog exposes two ways to interact with it: a frontend that can be used by users and a GraphQL
 API which can be used by third party applications to programmatically perform all actions that can
 be performed in the frontend. As a matter of fact, the frontend itself uses the GraphQL API to
 perform its tasks.</p><h2 id="database-interaction" class="section-heading">
-  <a href="#database-interaction" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">database-interaction</p>
+  <a href="#database-interaction" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Database interaction
+  <span class="text">Database interaction</span>
 </h2>
 <p>Edgehog uses PostgreSQL to store its data. The database schema supports multiple tenants which are
 isolated at the database level. This makes it possible to use a single Edgehog instance with
 multiple tenants (e.g. in a SaaS scenario).</p><h2 id="device-interaction-through-astarte" class="section-heading">
-  <a href="#device-interaction-through-astarte" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">device-interaction-through-astarte</p>
+  <a href="#device-interaction-through-astarte" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Device interaction (through Astarte)
+  <span class="text">Device interaction (through Astarte)</span>
 </h2>
 <p>To interact with the other side of the domain (i.e. devices), Edgehog is built upon
 <a href="https://github.com/astarte-platform/astarte">Astarte</a> and it exchanges data with it using two of
@@ -132,30 +139,30 @@ its mechanisms: its <a href="https://docs.astarte-platform.org/latest/api/index.
 Triggers</a>. Each Edgehog tenant is mapped
 to an Astarte Realm, and it owns the credentials to interact with all the Realm APIs for that
 specific Realm.</p><h3 id="edgehog-astarte-interfaces" class="section-heading">
-  <a href="#edgehog-astarte-interfaces" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">edgehog-astarte-interfaces</p>
+  <a href="#edgehog-astarte-interfaces" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Edgehog Astarte Interfaces
+  <span class="text">Edgehog Astarte Interfaces</span>
 </h3>
 <p>The interaction between Edgehog and Astarte is defined by a <a href="https://github.com/edgehog-device-manager/edgehog-astarte-interfaces">set of
 interfaces</a> that define which
 data is sent both from Edgehog to the Devices and from the Devices towards Edgehog. Additionally,
 connection and disconnection triggers ar installed in the Astarte Realm, and point to the triggers
 endpoint of the Edgehog tenant.</p><h3 id="astarte-appengine-api" class="section-heading">
-  <a href="#astarte-appengine-api" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">astarte-appengine-api</p>
+  <a href="#astarte-appengine-api" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Astarte AppEngine API
+  <span class="text">Astarte AppEngine API</span>
 </h3>
 <p>The REST API is called every time Edgehog needs to retrieve data contained in
 an Astarte interface or when it needs to send data to the Devices. In the first case, Edgehog issues
 a <code class="inline">GET</code> HTTP request to retrieve the data from AppEngine API, which reads the data from the Astarte
 database. When Edgehog needs to send data towards a Device instead, it sends a <code class="inline">POST</code> HTTP to
 AppEngine API, which takes care of delivering data via MQTT to the device.</p><h3 id="astarte-triggers" class="section-heading">
-  <a href="#astarte-triggers" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">astarte-triggers</p>
+  <a href="#astarte-triggers" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Astarte Triggers
+  <span class="text">Astarte Triggers</span>
 </h3>
 <p>Astarte Triggers are used to update the online state of the device. Each time a Device connects or
 disconnects from Astarte, Astarte Trigger Engine sends an HTTP <code class="inline">POST</code> request to the Edgehog
@@ -203,7 +210,7 @@ Deploying with Kubernetes
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -211,7 +218,7 @@ Deploying with Kubernetes
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

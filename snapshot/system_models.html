@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.30.9">
     <meta name="project" content="Edgehog v0.8.0-dev">
 
     <title>System Models — Edgehog v0.8.0-dev</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
     <script src="dist/sidebar_items-1BC53A97.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-J2ASZTQE.js"></script>
 
 
   </head>
@@ -38,22 +38,22 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
+<nav id="sidebar" class="sidebar">
   <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
     </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
   </form>
 
   <div class="autocomplete">
@@ -75,18 +75,25 @@ Edgehog
         v0.8.0-dev
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
@@ -111,28 +118,28 @@ Numbers associated with it, and Devices will be associated with a System Model b
 Number they declare to implement.</li><li>Picture: each System Model can have a picture associated with it, so that Devices using that
 System Model can be identified at a glance.</li></ul><p>The following sections will illustrate all the pages that can be used to list, create and edit
 System Models.</p><h2 id="system-model-list" class="section-heading">
-  <a href="#system-model-list" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">system-model-list</p>
+  <a href="#system-model-list" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  System Model List
+  <span class="text">System Model List</span>
 </h2>
 <p><img src="assets/system_models.png" alt="System Model List Screenshot"/></p><p>In the system model list you can see all the System Models that are available. All information
 relative to each System Model (minus the picture) is present in the table, and clicking on the name
 brings to the <a href="#system-model">System Model</a> page.</p><p>Clicking on the &quot;Create System Model&quot; button in the top right brings to
 <a href="#create-system-model">Create System Model</a> page.</p><h2 id="system-model" class="section-heading">
-  <a href="#system-model" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">system-model</p>
+  <a href="#system-model" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  System Model
+  <span class="text">System Model</span>
 </h2>
 <p><img src="assets/system_model.png" alt="System Model Page Screenshot"/></p><p>The System Model page shows the information about a specific System Model and allows updating all of
 them except the Hardware Type.</p><p>Editing any field and then pressing the &quot;Update&quot; button saves the new values for the System Model.
 The &quot;Add Part Number&quot; button allows adding additional Part Numbers to a System Model, and the thrash
 icon on the right of each of them allows deleting them.</p><h2 id="create-system-model" class="section-heading">
-  <a href="#create-system-model" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">create-system-model</p>
+  <a href="#create-system-model" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Create System Model
+  <span class="text">Create System Model</span>
 </h2>
 <p><img src="assets/create_system_model.png" alt="Create System Model Screenshot"/></p><p>The Create System Model page allows creating a new System Model.</p><p>The System Model information can be provided using the form, and pressing the &quot;Update&quot; button saves
 the System Model. The Hardware Type must be chosen from a list of available Hardware Types using the
@@ -181,7 +188,7 @@ Devices
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -189,7 +196,7 @@ Devices
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 

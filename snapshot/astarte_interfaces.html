@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.29.4">
+    <meta name="generator" content="ExDoc v0.30.9">
     <meta name="project" content="Edgehog v0.8.0-dev">
 
     <title>Astarte Interfaces — Edgehog v0.8.0-dev</title>
-    <link rel="stylesheet" href="dist/html-elixir-HHVY3JYD.css" />
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-XWGFFSCD.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
     <script src="dist/sidebar_items-1BC53A97.js"></script>
 
       <script src="docs_config.js"></script>
 
-    <script async src="dist/html-JDI3AVDD.js"></script>
+    <script async src="dist/html-J2ASZTQE.js"></script>
 
 
   </head>
@@ -38,22 +38,22 @@
 
 <div class="main">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar">
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
-<section class="sidebar">
+<nav id="sidebar" class="sidebar">
   <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
     <button type="submit" class="search-button" aria-label="Submit Search">
       <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
     </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-label="Cancel Search">
-      <i class="ri-close-line ri-lg" aria-hidden="true" title="Cancel search"></i>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
     </button>
-    <label class="search-label">
-      <p class="sr-only">Search</p>
-      <input name="q" type="text" class="search-input" placeholder="Search..." aria-label="Input your search terms" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
   </form>
 
   <div class="autocomplete">
@@ -75,18 +75,25 @@ Edgehog
         v0.8.0-dev
       </div>
     </div>
-    <ul class="sidebar-listNav">
-      <li><a id="extras-list-link" href="#full-list">Pages</a></li>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
 
 
     </ul>
   </div>
 
-  <div class="gradient"></div>
-  <ul id="full-list"></ul>
-</section>
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
 
-<section class="content">
+
+</nav>
+
+<main class="content">
   <output role="status" id="toast"></output>
   <div class="content-outer">
     <div id="content" class="content-inner">
@@ -103,428 +110,428 @@ Edgehog
 </h1>
 
 <h2 id="io-edgehog-devicemanager-baseimage-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-baseimage-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-baseimage-v0-1</p>
+  <a href="#io-edgehog-devicemanager-baseimage-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.BaseImage v0.1
+  <span class="text">io.edgehog.devicemanager.BaseImage v0.1</span>
 </h2>
 <h3 id="about" class="section-heading">
-  <a href="#about" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about</p>
+  <a href="#about" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings" class="section-heading">
-  <a href="#mappings" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings</p>
+  <a href="#mappings" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/fingerprint</code> with <code class="inline">string</code> type. OS bundle release identification code</li><li><code class="inline">/name</code> with <code class="inline">string</code> type. Name of the bundle</li><li><code class="inline">/version</code> with <code class="inline">string</code> type. Version of the bundle</li><li><code class="inline">/buildId</code> with <code class="inline">string</code> type. Human readable build identifier. Examples are <code class="inline">[date][time]</code> or <code class="inline">[date]-[time]-[git-commit]</code></li></ul><h3 id="fingerprint" class="section-heading">
-  <a href="#fingerprint" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">fingerprint</p>
+  <a href="#fingerprint" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/fingerprint</code>
+  <span class="text"><code class="inline">/fingerprint</code></span>
 </h3>
 <p>OS bundle release identification code</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="name" class="section-heading">
-  <a href="#name" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">name</p>
+  <a href="#name" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/name</code>
+  <span class="text"><code class="inline">/name</code></span>
 </h3>
 <p>Name of the bundle</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="version" class="section-heading">
-  <a href="#version" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">version</p>
+  <a href="#version" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/version</code>
+  <span class="text"><code class="inline">/version</code></span>
 </h3>
 <p>Version of the bundle</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="buildid" class="section-heading">
-  <a href="#buildid" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">buildid</p>
+  <a href="#buildid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/buildId</code>
+  <span class="text"><code class="inline">/buildId</code></span>
 </h3>
 <p>Human readable build identifier. Examples are <code class="inline">[date][time]</code> or <code class="inline">[date]-[time]-[git-commit]</code></p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h2 id="io-edgehog-devicemanager-batterystatus-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-batterystatus-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-batterystatus-v0-1</p>
+  <a href="#io-edgehog-devicemanager-batterystatus-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.BatteryStatus v0.1
+  <span class="text">io.edgehog.devicemanager.BatteryStatus v0.1</span>
 </h2>
 <h3 id="about-1" class="section-heading">
-  <a href="#about-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-1</p>
+  <a href="#about-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
 Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-1" class="section-heading">
-  <a href="#mappings-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-1</p>
+  <a href="#mappings-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/%{battery_slot}/levelPercentage</code> with <code class="inline">double</code> type. Battery level estimated percentage [0.0%-100.0%]</li><li><code class="inline">/%{battery_slot}/levelAbsoluteError</code> with <code class="inline">double</code> type. Battery level measurement absolute error [0.0-100.0]</li><li><code class="inline">/%{battery_slot}/status</code> with <code class="inline">string</code> type. Battery status string, any of: Charging, Discharging, Idle, EitherIdleOrCharging, Failure, Removed, Unknown</li></ul><h3 id="battery_slot-levelpercentage" class="section-heading">
-  <a href="#battery_slot-levelpercentage" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">battery_slot-levelpercentage</p>
+  <a href="#battery_slot-levelpercentage" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{battery_slot}/levelPercentage</code>
+  <span class="text"><code class="inline">/%{battery_slot}/levelPercentage</code></span>
 </h3>
 <p>Battery level estimated percentage [0.0%-100.0%]</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">battery_slot</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="battery_slot-levelabsoluteerror" class="section-heading">
-  <a href="#battery_slot-levelabsoluteerror" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">battery_slot-levelabsoluteerror</p>
+  <a href="#battery_slot-levelabsoluteerror" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{battery_slot}/levelAbsoluteError</code>
+  <span class="text"><code class="inline">/%{battery_slot}/levelAbsoluteError</code></span>
 </h3>
 <p>Battery level measurement absolute error [0.0-100.0]</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">battery_slot</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="battery_slot-status" class="section-heading">
-  <a href="#battery_slot-status" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">battery_slot-status</p>
+  <a href="#battery_slot-status" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{battery_slot}/status</code>
+  <span class="text"><code class="inline">/%{battery_slot}/status</code></span>
 </h3>
 <p>Battery status string, any of: Charging, Discharging, Idle, EitherIdleOrCharging, Failure, Removed, Unknown</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">battery_slot</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-cellularconnectionproperties-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-cellularconnectionproperties-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-cellularconnectionproperties-v0-1</p>
+  <a href="#io-edgehog-devicemanager-cellularconnectionproperties-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.CellularConnectionProperties v0.1
+  <span class="text">io.edgehog.devicemanager.CellularConnectionProperties v0.1</span>
 </h2>
 <h3 id="about-2" class="section-heading">
-  <a href="#about-2" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-2</p>
+  <a href="#about-2" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-2" class="section-heading">
-  <a href="#mappings-2" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-2</p>
+  <a href="#mappings-2" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/%{id}/apn</code> with <code class="inline">string</code> type. Operator apn address.</li><li><code class="inline">/%{id}/imei</code> with <code class="inline">string</code> type. The modem IMEI code of the device.</li><li><code class="inline">/%{id}/imsi</code> with <code class="inline">string</code> type. The SIM IMSI code of the device.</li></ul><h3 id="id-apn" class="section-heading">
-  <a href="#id-apn" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-apn</p>
+  <a href="#id-apn" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/apn</code>
+  <span class="text"><code class="inline">/%{id}/apn</code></span>
 </h3>
 <p>Operator apn address.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h3 id="id-imei" class="section-heading">
-  <a href="#id-imei" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-imei</p>
+  <a href="#id-imei" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/imei</code>
+  <span class="text"><code class="inline">/%{id}/imei</code></span>
 </h3>
 <p>The modem IMEI code of the device.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h3 id="id-imsi" class="section-heading">
-  <a href="#id-imsi" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-imsi</p>
+  <a href="#id-imsi" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/imsi</code>
+  <span class="text"><code class="inline">/%{id}/imsi</code></span>
 </h3>
 <p>The SIM IMSI code of the device.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h2 id="io-edgehog-devicemanager-cellularconnectionstatus-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-cellularconnectionstatus-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-cellularconnectionstatus-v0-1</p>
+  <a href="#io-edgehog-devicemanager-cellularconnectionstatus-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.CellularConnectionStatus v0.1
+  <span class="text">io.edgehog.devicemanager.CellularConnectionStatus v0.1</span>
 </h2>
 <h3 id="about-3" class="section-heading">
-  <a href="#about-3" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-3</p>
+  <a href="#about-3" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
 Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-3" class="section-heading">
-  <a href="#mappings-3" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-3</p>
+  <a href="#mappings-3" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/%{id}/carrier</code> with <code class="inline">string</code> type. Connectivity carrier operator name.</li><li><code class="inline">/%{id}/cellId</code> with <code class="inline">longinteger</code> type. The Cell ID in hexadecimal format, either 16 bit for 2G or 28 bit for 3G or 4G.</li><li><code class="inline">/%{id}/mobileCountryCode</code> with <code class="inline">integer</code> type. The mobile country code (MCC) for the device's home network. Valid range: 0–999.</li><li><code class="inline">/%{id}/mobileNetworkCode</code> with <code class="inline">integer</code> type. The Mobile Network Code for the device's home network. This is the MNC for GSM, WCDMA, LTE and NR. CDMA uses the System ID (SID). Valid range for MNC: 0–999. Valid range for SID: 0–32767.</li><li><code class="inline">/%{id}/localAreaCode</code> with <code class="inline">integer</code> type. Two byte location area code in hexadecimal format.</li><li><code class="inline">/%{id}/registrationStatus</code> with <code class="inline">string</code> type. GSM/LTE registration status. Possible values: [NotRegistered, Registered, SearchingOperator, RegistrationDenied, Unknown, RegisteredRoaming]</li><li><code class="inline">/%{id}/rssi</code> with <code class="inline">double</code> type. Signal strenght of the device in dBm.</li><li><code class="inline">/%{id}/technology</code> with <code class="inline">string</code> type. Access Technology. Possible values [GSM, GSMCompact, UTRAN, GSMwEGPRS, UTRANwHSDPA, UTRANwHSUPA, UTRANwHSDPAandHSUPA, EUTRAN]</li></ul><h3 id="id-carrier" class="section-heading">
-  <a href="#id-carrier" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-carrier</p>
+  <a href="#id-carrier" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/carrier</code>
+  <span class="text"><code class="inline">/%{id}/carrier</code></span>
 </h3>
 <p>Connectivity carrier operator name.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-cellid" class="section-heading">
-  <a href="#id-cellid" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-cellid</p>
+  <a href="#id-cellid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/cellId</code>
+  <span class="text"><code class="inline">/%{id}/cellId</code></span>
 </h3>
 <p>The Cell ID in hexadecimal format, either 16 bit for 2G or 28 bit for 3G or 4G.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-mobilecountrycode" class="section-heading">
-  <a href="#id-mobilecountrycode" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-mobilecountrycode</p>
+  <a href="#id-mobilecountrycode" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/mobileCountryCode</code>
+  <span class="text"><code class="inline">/%{id}/mobileCountryCode</code></span>
 </h3>
 <p>The mobile country code (MCC) for the device's home network. Valid range: 0–999.</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-mobilenetworkcode" class="section-heading">
-  <a href="#id-mobilenetworkcode" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-mobilenetworkcode</p>
+  <a href="#id-mobilenetworkcode" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/mobileNetworkCode</code>
+  <span class="text"><code class="inline">/%{id}/mobileNetworkCode</code></span>
 </h3>
 <p>The Mobile Network Code for the device's home network. This is the MNC for GSM, WCDMA, LTE and NR. CDMA uses the System ID (SID). Valid range for MNC: 0–999. Valid range for SID: 0–32767.</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-localareacode" class="section-heading">
-  <a href="#id-localareacode" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-localareacode</p>
+  <a href="#id-localareacode" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/localAreaCode</code>
+  <span class="text"><code class="inline">/%{id}/localAreaCode</code></span>
 </h3>
 <p>Two byte location area code in hexadecimal format.</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-registrationstatus" class="section-heading">
-  <a href="#id-registrationstatus" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-registrationstatus</p>
+  <a href="#id-registrationstatus" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/registrationStatus</code>
+  <span class="text"><code class="inline">/%{id}/registrationStatus</code></span>
 </h3>
 <p>GSM/LTE registration status. Possible values: [NotRegistered, Registered, SearchingOperator, RegistrationDenied, Unknown, RegisteredRoaming]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-rssi" class="section-heading">
-  <a href="#id-rssi" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-rssi</p>
+  <a href="#id-rssi" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/rssi</code>
+  <span class="text"><code class="inline">/%{id}/rssi</code></span>
 </h3>
 <p>Signal strenght of the device in dBm.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-technology" class="section-heading">
-  <a href="#id-technology" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-technology</p>
+  <a href="#id-technology" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/technology</code>
+  <span class="text"><code class="inline">/%{id}/technology</code></span>
 </h3>
 <p>Access Technology. Possible values [GSM, GSMCompact, UTRAN, GSMwEGPRS, UTRANwHSDPA, UTRANwHSUPA, UTRANwHSDPAandHSUPA, EUTRAN]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-commands-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-commands-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-commands-v0-1</p>
+  <a href="#io-edgehog-devicemanager-commands-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.Commands v0.1
+  <span class="text">io.edgehog.devicemanager.Commands v0.1</span>
 </h2>
 <h3 id="about-4" class="section-heading">
-  <a href="#about-4" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-4</p>
+  <a href="#about-4" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">individual</code> aggregation.
 Each mapping is treated as an independent value and is managed individually.</p><h3 id="mappings-4" class="section-heading">
-  <a href="#mappings-4" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-4</p>
+  <a href="#mappings-4" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/request</code> with <code class="inline">string</code> type. Command request. Possible values  ['Reboot']</li></ul><h3 id="request" class="section-heading">
-  <a href="#request" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">request</p>
+  <a href="#request" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/request</code>
+  <span class="text"><code class="inline">/request</code></span>
 </h3>
 <p>Command request. Possible values  ['Reboot']</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-geolocation-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-geolocation-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-geolocation-v0-1</p>
+  <a href="#io-edgehog-devicemanager-geolocation-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.Geolocation v0.1
+  <span class="text">io.edgehog.devicemanager.Geolocation v0.1</span>
 </h2>
 <p>Generic Geolocation sampled data.</p><p>Geolocation allows geolocation sensors to stream location data, such as GPS data. Values availability depends on what sensors are present on devices and what measurement systems are in use. The id represents a unique identifier for an individual sensor.</p><h3 id="about-5" class="section-heading">
-  <a href="#about-5" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-5</p>
+  <a href="#about-5" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
 Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-5" class="section-heading">
-  <a href="#mappings-5" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-5</p>
+  <a href="#mappings-5" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/%{id}/latitude</code> with <code class="inline">double</code> type. Sampled latitude value.</li><li><code class="inline">/%{id}/longitude</code> with <code class="inline">double</code> type. Sampled longitude value.</li><li><code class="inline">/%{id}/altitude</code> with <code class="inline">double</code> type. Sampled altitude value.</li><li><code class="inline">/%{id}/accuracy</code> with <code class="inline">double</code> type. Sampled accuracy of the latitude and longitude properties.</li><li><code class="inline">/%{id}/altitudeAccuracy</code> with <code class="inline">double</code> type. Sampled accuracy of the altitude property.</li><li><code class="inline">/%{id}/heading</code> with <code class="inline">double</code> type. Sampled value representing the direction towards which the device is facing.</li><li><code class="inline">/%{id}/speed</code> with <code class="inline">double</code> type. Sampled value representing the velocity of the device.</li></ul><h3 id="id-latitude" class="section-heading">
-  <a href="#id-latitude" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-latitude</p>
+  <a href="#id-latitude" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/latitude</code>
+  <span class="text"><code class="inline">/%{id}/latitude</code></span>
 </h3>
 <p>Sampled latitude value.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-longitude" class="section-heading">
-  <a href="#id-longitude" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-longitude</p>
+  <a href="#id-longitude" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/longitude</code>
+  <span class="text"><code class="inline">/%{id}/longitude</code></span>
 </h3>
 <p>Sampled longitude value.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-altitude" class="section-heading">
-  <a href="#id-altitude" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-altitude</p>
+  <a href="#id-altitude" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/altitude</code>
+  <span class="text"><code class="inline">/%{id}/altitude</code></span>
 </h3>
 <p>Sampled altitude value.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-accuracy" class="section-heading">
-  <a href="#id-accuracy" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-accuracy</p>
+  <a href="#id-accuracy" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/accuracy</code>
+  <span class="text"><code class="inline">/%{id}/accuracy</code></span>
 </h3>
 <p>Sampled accuracy of the latitude and longitude properties.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-altitudeaccuracy" class="section-heading">
-  <a href="#id-altitudeaccuracy" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-altitudeaccuracy</p>
+  <a href="#id-altitudeaccuracy" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/altitudeAccuracy</code>
+  <span class="text"><code class="inline">/%{id}/altitudeAccuracy</code></span>
 </h3>
 <p>Sampled accuracy of the altitude property.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-heading" class="section-heading">
-  <a href="#id-heading" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-heading</p>
+  <a href="#id-heading" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/heading</code>
+  <span class="text"><code class="inline">/%{id}/heading</code></span>
 </h3>
 <p>Sampled value representing the direction towards which the device is facing.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="id-speed" class="section-heading">
-  <a href="#id-speed" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">id-speed</p>
+  <a href="#id-speed" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{id}/speed</code>
+  <span class="text"><code class="inline">/%{id}/speed</code></span>
 </h3>
 <p>Sampled value representing the velocity of the device.</p><p>This endpoint accepts values of type <code class="inline">double</code>: a double-precision floating-point number as specified by binary64, by the IEEE 754 standard.</p><p>The endpoint is parametric and <code class="inline">id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-hardwareinfo-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-hardwareinfo-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-hardwareinfo-v0-1</p>
+  <a href="#io-edgehog-devicemanager-hardwareinfo-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.HardwareInfo v0.1
+  <span class="text">io.edgehog.devicemanager.HardwareInfo v0.1</span>
 </h2>
 <p>General hardware capabilities</p><h3 id="about-6" class="section-heading">
-  <a href="#about-6" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-6</p>
+  <a href="#about-6" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-6" class="section-heading">
-  <a href="#mappings-6" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-6</p>
+  <a href="#mappings-6" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/cpu/architecture</code> with <code class="inline">string</code> type. CPU Architecture </li><li><code class="inline">/cpu/model</code> with <code class="inline">string</code> type. CPU Model Code</li><li><code class="inline">/cpu/modelName</code> with <code class="inline">string</code> type. CPU Model Display Name</li><li><code class="inline">/cpu/vendor</code> with <code class="inline">string</code> type. CPU Vendor</li><li><code class="inline">/mem/totalBytes</code> with <code class="inline">longinteger</code> type. Total RAM quantity (Bytes)</li></ul><h3 id="cpu-architecture" class="section-heading">
-  <a href="#cpu-architecture" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">cpu-architecture</p>
+  <a href="#cpu-architecture" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/cpu/architecture</code>
+  <span class="text"><code class="inline">/cpu/architecture</code></span>
 </h3>
 <p>CPU Architecture </p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="cpu-model" class="section-heading">
-  <a href="#cpu-model" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">cpu-model</p>
+  <a href="#cpu-model" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/cpu/model</code>
+  <span class="text"><code class="inline">/cpu/model</code></span>
 </h3>
 <p>CPU Model Code</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="cpu-modelname" class="section-heading">
-  <a href="#cpu-modelname" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">cpu-modelname</p>
+  <a href="#cpu-modelname" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/cpu/modelName</code>
+  <span class="text"><code class="inline">/cpu/modelName</code></span>
 </h3>
 <p>CPU Model Display Name</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="cpu-vendor" class="section-heading">
-  <a href="#cpu-vendor" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">cpu-vendor</p>
+  <a href="#cpu-vendor" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/cpu/vendor</code>
+  <span class="text"><code class="inline">/cpu/vendor</code></span>
 </h3>
 <p>CPU Vendor</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="mem-totalbytes" class="section-heading">
-  <a href="#mem-totalbytes" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mem-totalbytes</p>
+  <a href="#mem-totalbytes" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/mem/totalBytes</code>
+  <span class="text"><code class="inline">/mem/totalBytes</code></span>
 </h3>
 <p>Total RAM quantity (Bytes)</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The value of the property cannot be unset.</p><h2 id="io-edgehog-devicemanager-ledbehavior-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-ledbehavior-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-ledbehavior-v0-1</p>
+  <a href="#io-edgehog-devicemanager-ledbehavior-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.LedBehavior v0.1
+  <span class="text">io.edgehog.devicemanager.LedBehavior v0.1</span>
 </h2>
 <h3 id="about-7" class="section-heading">
-  <a href="#about-7" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-7</p>
+  <a href="#about-7" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">individual</code> aggregation.
 Each mapping is treated as an independent value and is managed individually.</p><h3 id="mappings-7" class="section-heading">
-  <a href="#mappings-7" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-7</p>
+  <a href="#mappings-7" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><p><code class="inline">/%{led_id}/behavior</code> with <code class="inline">string</code> type. Enum describing the behavior of the given led. Possible values: [Blink60Seconds | DoubleBlink60Seconds | SlowBlink60Seconds]</p></li></ul><h3 id="led_id-behavior" class="section-heading">
-  <a href="#led_id-behavior" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">led_id-behavior</p>
+  <a href="#led_id-behavior" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{led_id}/behavior</code>
+  <span class="text"><code class="inline">/%{led_id}/behavior</code></span>
 </h3>
 <p>Enum describing the behavior of the given led. Possible values: [Blink60Seconds | DoubleBlink60Seconds | SlowBlink60Seconds]</p><p>Blink60Seconds: Blinking
 DoubleBlink60Seconds: Double blinking
@@ -532,171 +539,171 @@ SlowBlink60Seconds: Slow blinking</p><p>This endpoint accepts values of type <co
 Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-networkinterfaceproperties-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-networkinterfaceproperties-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-networkinterfaceproperties-v0-1</p>
+  <a href="#io-edgehog-devicemanager-networkinterfaceproperties-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.NetworkInterfaceProperties v0.1
+  <span class="text">io.edgehog.devicemanager.NetworkInterfaceProperties v0.1</span>
 </h2>
 <h3 id="about-8" class="section-heading">
-  <a href="#about-8" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-8</p>
+  <a href="#about-8" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-8" class="section-heading">
-  <a href="#mappings-8" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-8</p>
+  <a href="#mappings-8" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/%{iface_name}/macAddress</code> with <code class="inline">string</code> type. Normalized physical address. Example value is &quot;00:aa:bb:cc:dd:ee&quot; (always lower case)</li><li><code class="inline">/%{iface_name}/technologyType</code> with <code class="inline">string</code> type. Connection technology. Possible values: [Ethernet, Bluetooth, Cellular, WiFi]</li></ul><h3 id="iface_name-macaddress" class="section-heading">
-  <a href="#iface_name-macaddress" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">iface_name-macaddress</p>
+  <a href="#iface_name-macaddress" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{iface_name}/macAddress</code>
+  <span class="text"><code class="inline">/%{iface_name}/macAddress</code></span>
 </h3>
 <p>Normalized physical address. Example value is &quot;00:aa:bb:cc:dd:ee&quot; (always lower case)</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">iface_name</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h3 id="iface_name-technologytype" class="section-heading">
-  <a href="#iface_name-technologytype" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">iface_name-technologytype</p>
+  <a href="#iface_name-technologytype" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{iface_name}/technologyType</code>
+  <span class="text"><code class="inline">/%{iface_name}/technologyType</code></span>
 </h3>
 <p>Connection technology. Possible values: [Ethernet, Bluetooth, Cellular, WiFi]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">iface_name</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h2 id="io-edgehog-devicemanager-osinfo-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-osinfo-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-osinfo-v0-1</p>
+  <a href="#io-edgehog-devicemanager-osinfo-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.OSInfo v0.1
+  <span class="text">io.edgehog.devicemanager.OSInfo v0.1</span>
 </h2>
 <h3 id="about-9" class="section-heading">
-  <a href="#about-9" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-9</p>
+  <a href="#about-9" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-9" class="section-heading">
-  <a href="#mappings-9" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-9</p>
+  <a href="#mappings-9" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/osName</code> with <code class="inline">string</code> type. Name of the Operating System</li><li><code class="inline">/osVersion</code> with <code class="inline">string</code> type. Version of the Operating System</li></ul><h3 id="osname" class="section-heading">
-  <a href="#osname" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">osname</p>
+  <a href="#osname" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/osName</code>
+  <span class="text"><code class="inline">/osName</code></span>
 </h3>
 <p>Name of the Operating System</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="osversion" class="section-heading">
-  <a href="#osversion" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">osversion</p>
+  <a href="#osversion" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/osVersion</code>
+  <span class="text"><code class="inline">/osVersion</code></span>
 </h3>
 <p>Version of the Operating System</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h2 id="io-edgehog-devicemanager-otaevent-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-otaevent-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-otaevent-v0-1</p>
+  <a href="#io-edgehog-devicemanager-otaevent-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.OTAEvent v0.1
+  <span class="text">io.edgehog.devicemanager.OTAEvent v0.1</span>
 </h2>
 <p>OTA Events sampled data.</p><p>Allows to stream OTA Events data, including OTA Update status, its progress, code and internal message.</p><h3 id="about-10" class="section-heading">
-  <a href="#about-10" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-10</p>
+  <a href="#about-10" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
 Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-10" class="section-heading">
-  <a href="#mappings-10" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-10</p>
+  <a href="#mappings-10" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/event/requestUUID</code> with <code class="inline">string</code> type. OTA Request identifier.</li><li><code class="inline">/event/status</code> with <code class="inline">string</code> type. OTA Update status.</li><li><code class="inline">/event/statusProgress</code> with <code class="inline">integer</code> type. Current OTA Update status progress percentage [0%-100%].</li><li><code class="inline">/event/statusCode</code> with <code class="inline">string</code> type. Status code expands OTA Update status with additional information.</li><li><code class="inline">/event/message</code> with <code class="inline">string</code> type. Contains internal message for status code or empty string otherwise.</li></ul><h3 id="event-requestuuid" class="section-heading">
-  <a href="#event-requestuuid" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">event-requestuuid</p>
+  <a href="#event-requestuuid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/event/requestUUID</code>
+  <span class="text"><code class="inline">/event/requestUUID</code></span>
 </h3>
 <p>OTA Request identifier.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="event-status" class="section-heading">
-  <a href="#event-status" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">event-status</p>
+  <a href="#event-status" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/event/status</code>
+  <span class="text"><code class="inline">/event/status</code></span>
 </h3>
 <p>OTA Update status.</p><p>Value is one of the following strings:</p><ul><li><code class="inline">Acknowledged</code>: the device received an OTA Request.</li><li><code class="inline">Downloading</code>: an update is in the process of downloading.</li><li><code class="inline">Deploying</code>: an update is in the process of deploying.</li><li><code class="inline">Deployed</code>: an update deployed on the device.</li><li><code class="inline">Rebooting</code>: the device is in the process of rebooting.</li><li><code class="inline">Success</code>: an update succeeded. This is a final status of OTA Update.</li><li><code class="inline">Error</code>: an error happened during the update. Also this status can be used to notify about handled errors.</li><li><code class="inline">Failure</code>: an update failed. This is a final status of OTA Update.</li></ul><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="event-statusprogress" class="section-heading">
-  <a href="#event-statusprogress" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">event-statusprogress</p>
+  <a href="#event-statusprogress" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/event/statusProgress</code>
+  <span class="text"><code class="inline">/event/statusProgress</code></span>
 </h3>
 <p>Current OTA Update status progress percentage [0%-100%].</p><p>Every OTA Update status has own progress that starts from 0 and ends at 100, for example (pairs of <code class="inline">&quot;status, progress&quot;</code>): <code class="inline">&quot;Downloading, 0&quot;</code>, <code class="inline">&quot;Downloading, 50&quot;</code>, <code class="inline">&quot;Downloading, 100&quot;</code>, <code class="inline">&quot;Deploying, 10&quot;</code>, etc.</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="event-statuscode" class="section-heading">
-  <a href="#event-statuscode" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">event-statuscode</p>
+  <a href="#event-statuscode" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/event/statusCode</code>
+  <span class="text"><code class="inline">/event/statusCode</code></span>
 </h3>
 <p>Status code expands OTA Update status with additional information.</p><p>Some common status codes are:</p><ul><li><code class="inline">InvalidRequest</code>: an update request contains incorrect data.</li><li><code class="inline">UpdateAlreadyInProgress</code>: another update is currently in progress.</li><li><code class="inline">NetworkError</code>: a network error happened during the update.</li><li><code class="inline">IOError</code>: a filesystem error happened during the update.</li><li><code class="inline">InternalError</code>: an internal error happened during the update.</li><li><code class="inline">InvalidBaseImage</code>: an update failed to apply due to an invalid base image.</li><li><code class="inline">SystemRollback</code>: a system rollback has occurred.</li><li><code class="inline">Canceled</code>: an update was canceled.</li></ul><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="event-message" class="section-heading">
-  <a href="#event-message" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">event-message</p>
+  <a href="#event-message" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/event/message</code>
+  <span class="text"><code class="inline">/event/message</code></span>
 </h3>
 <p>Contains internal message for status code or empty string otherwise.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when it has been received exactly once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-otarequest-v1-0" class="section-heading">
-  <a href="#io-edgehog-devicemanager-otarequest-v1-0" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-otarequest-v1-0</p>
+  <a href="#io-edgehog-devicemanager-otarequest-v1-0" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.OTARequest v1.0
+  <span class="text">io.edgehog.devicemanager.OTARequest v1.0</span>
 </h2>
 <h3 id="about-11" class="section-heading">
-  <a href="#about-11" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-11</p>
+  <a href="#about-11" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
 Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-11" class="section-heading">
-  <a href="#mappings-11" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-11</p>
+  <a href="#mappings-11" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/request/operation</code> with <code class="inline">string</code> type. OTA Request operation</li><li><code class="inline">/request/url</code> with <code class="inline">string</code> type. File URL</li><li><code class="inline">/request/uuid</code> with <code class="inline">string</code> type. Request identifier</li></ul><h3 id="request-operation" class="section-heading">
-  <a href="#request-operation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">request-operation</p>
+  <a href="#request-operation" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/request/operation</code>
+  <span class="text"><code class="inline">/request/operation</code></span>
 </h3>
 <p>OTA Request operation</p><p>Value is one of the following strings:</p><ul><li><code class="inline">Update</code>: push an OTA update operation.</li><li><code class="inline">Cancel</code>: cancel an OTA update if it can still be cancelled.</li></ul><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="request-url" class="section-heading">
-  <a href="#request-url" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">request-url</p>
+  <a href="#request-url" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/request/url</code>
+  <span class="text"><code class="inline">/request/url</code></span>
 </h3>
 <p>File URL</p><p>If the operation is Update, this will contain the URL that can be used to download the Update.
  If the operation is Cancel, this will be an empty string.
@@ -704,288 +711,288 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="request-uuid" class="section-heading">
-  <a href="#request-uuid" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">request-uuid</p>
+  <a href="#request-uuid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/request/uuid</code>
+  <span class="text"><code class="inline">/request/uuid</code></span>
 </h3>
 <p>Request identifier</p><p>A UUID that uniquely identifies the OTA request. It must be stored when receiving an Update operation so that it can be matched against in case a Cancel operation is received.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-runtimeinfo-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-runtimeinfo-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-runtimeinfo-v0-1</p>
+  <a href="#io-edgehog-devicemanager-runtimeinfo-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.RuntimeInfo v0.1
+  <span class="text">io.edgehog.devicemanager.RuntimeInfo v0.1</span>
 </h2>
 <h3 id="about-12" class="section-heading">
-  <a href="#about-12" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-12</p>
+  <a href="#about-12" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-12" class="section-heading">
-  <a href="#mappings-12" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-12</p>
+  <a href="#mappings-12" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/name</code> with <code class="inline">string</code> type. Name of the Edgehog runtime. Example value: <code class="inline">edgehog-esp32-device</code></li><li><code class="inline">/url</code> with <code class="inline">string</code> type. URL that uniquely identifies the Edgehog Edgehog runtime implementation. Example value: <code class="inline">https://github.com/edgehog-device-manager/edgehog-esp32-device</code>.</li><li><code class="inline">/version</code> with <code class="inline">string</code> type. Version of the Edgehog runtime. Example value: <code class="inline">0.5</code></li><li><code class="inline">/environment</code> with <code class="inline">string</code> type. Environment of the Edgehog runtime. Example value: <code class="inline">esp-idf VERSION</code>, <code class="inline">Rust 1.58</code> or <code class="inline">Java 8</code></li></ul><h3 id="name-1" class="section-heading">
-  <a href="#name-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">name-1</p>
+  <a href="#name-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/name</code>
+  <span class="text"><code class="inline">/name</code></span>
 </h3>
 <p>Name of the Edgehog runtime. Example value: <code class="inline">edgehog-esp32-device</code></p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="url" class="section-heading">
-  <a href="#url" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">url</p>
+  <a href="#url" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/url</code>
+  <span class="text"><code class="inline">/url</code></span>
 </h3>
 <p>URL that uniquely identifies the Edgehog Edgehog runtime implementation. Example value: <code class="inline">https://github.com/edgehog-device-manager/edgehog-esp32-device</code>.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="version-1" class="section-heading">
-  <a href="#version-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">version-1</p>
+  <a href="#version-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/version</code>
+  <span class="text"><code class="inline">/version</code></span>
 </h3>
 <p>Version of the Edgehog runtime. Example value: <code class="inline">0.5</code></p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="environment" class="section-heading">
-  <a href="#environment" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">environment</p>
+  <a href="#environment" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/environment</code>
+  <span class="text"><code class="inline">/environment</code></span>
 </h3>
 <p>Environment of the Edgehog runtime. Example value: <code class="inline">esp-idf VERSION</code>, <code class="inline">Rust 1.58</code> or <code class="inline">Java 8</code></p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h2 id="io-edgehog-devicemanager-storageusage-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-storageusage-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-storageusage-v0-1</p>
+  <a href="#io-edgehog-devicemanager-storageusage-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.StorageUsage v0.1
+  <span class="text">io.edgehog.devicemanager.StorageUsage v0.1</span>
 </h2>
 <h3 id="about-13" class="section-heading">
-  <a href="#about-13" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-13</p>
+  <a href="#about-13" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
 Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-13" class="section-heading">
-  <a href="#mappings-13" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-13</p>
+  <a href="#mappings-13" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/%{label}/totalBytes</code> with <code class="inline">longinteger</code> type. Total storage size in bytes</li><li><code class="inline">/%{label}/freeBytes</code> with <code class="inline">longinteger</code> type. Available storage bytes</li></ul><h3 id="label-totalbytes" class="section-heading">
-  <a href="#label-totalbytes" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">label-totalbytes</p>
+  <a href="#label-totalbytes" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{label}/totalBytes</code>
+  <span class="text"><code class="inline">/%{label}/totalBytes</code></span>
 </h3>
 <p>Total storage size in bytes</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">label</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="label-freebytes" class="section-heading">
-  <a href="#label-freebytes" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">label-freebytes</p>
+  <a href="#label-freebytes" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/%{label}/freeBytes</code>
+  <span class="text"><code class="inline">/%{label}/freeBytes</code></span>
 </h3>
 <p>Available storage bytes</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">label</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-systeminfo-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-systeminfo-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-systeminfo-v0-1</p>
+  <a href="#io-edgehog-devicemanager-systeminfo-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.SystemInfo v0.1
+  <span class="text">io.edgehog.devicemanager.SystemInfo v0.1</span>
 </h2>
 <p>Information about the system</p><h3 id="about-14" class="section-heading">
-  <a href="#about-14" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-14</p>
+  <a href="#about-14" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-14" class="section-heading">
-  <a href="#mappings-14" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-14</p>
+  <a href="#mappings-14" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/serialNumber</code> with <code class="inline">string</code> type. The serial number of the system</li><li><code class="inline">/partNumber</code> with <code class="inline">string</code> type. The part number of the system</li></ul><h3 id="serialnumber" class="section-heading">
-  <a href="#serialnumber" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">serialnumber</p>
+  <a href="#serialnumber" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/serialNumber</code>
+  <span class="text"><code class="inline">/serialNumber</code></span>
 </h3>
 <p>The serial number of the system</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h3 id="partnumber" class="section-heading">
-  <a href="#partnumber" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">partnumber</p>
+  <a href="#partnumber" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/partNumber</code>
+  <span class="text"><code class="inline">/partNumber</code></span>
 </h3>
 <p>The part number of the system</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The value of the property cannot be unset.</p><h2 id="io-edgehog-devicemanager-systemstatus-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-systemstatus-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-systemstatus-v0-1</p>
+  <a href="#io-edgehog-devicemanager-systemstatus-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.SystemStatus v0.1
+  <span class="text">io.edgehog.devicemanager.SystemStatus v0.1</span>
 </h2>
 <h3 id="about-15" class="section-heading">
-  <a href="#about-15" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-15</p>
+  <a href="#about-15" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
 Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-15" class="section-heading">
-  <a href="#mappings-15" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-15</p>
+  <a href="#mappings-15" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/systemStatus/availMemoryBytes</code> with <code class="inline">longinteger</code> type. Available memory (Bytes)</li><li><code class="inline">/systemStatus/bootId</code> with <code class="inline">string</code> type. UUID representing the Boot Id</li><li><code class="inline">/systemStatus/taskCount</code> with <code class="inline">integer</code> type. Number of running tasks or processes</li><li><code class="inline">/systemStatus/uptimeMillis</code> with <code class="inline">longinteger</code> type. Get time in milliseconds since boot</li></ul><h3 id="systemstatus-availmemorybytes" class="section-heading">
-  <a href="#systemstatus-availmemorybytes" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">systemstatus-availmemorybytes</p>
+  <a href="#systemstatus-availmemorybytes" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/systemStatus/availMemoryBytes</code>
+  <span class="text"><code class="inline">/systemStatus/availMemoryBytes</code></span>
 </h3>
 <p>Available memory (Bytes)</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="systemstatus-bootid" class="section-heading">
-  <a href="#systemstatus-bootid" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">systemstatus-bootid</p>
+  <a href="#systemstatus-bootid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/systemStatus/bootId</code>
+  <span class="text"><code class="inline">/systemStatus/bootId</code></span>
 </h3>
 <p>UUID representing the Boot Id</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="systemstatus-taskcount" class="section-heading">
-  <a href="#systemstatus-taskcount" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">systemstatus-taskcount</p>
+  <a href="#systemstatus-taskcount" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/systemStatus/taskCount</code>
+  <span class="text"><code class="inline">/systemStatus/taskCount</code></span>
 </h3>
 <p>Number of running tasks or processes</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="systemstatus-uptimemillis" class="section-heading">
-  <a href="#systemstatus-uptimemillis" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">systemstatus-uptimemillis</p>
+  <a href="#systemstatus-uptimemillis" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/systemStatus/uptimeMillis</code>
+  <span class="text"><code class="inline">/systemStatus/uptimeMillis</code></span>
 </h3>
 <p>Get time in milliseconds since boot</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-wifiscanresults-v0-2" class="section-heading">
-  <a href="#io-edgehog-devicemanager-wifiscanresults-v0-2" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-wifiscanresults-v0-2</p>
+  <a href="#io-edgehog-devicemanager-wifiscanresults-v0-2" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.WiFiScanResults v0.2
+  <span class="text">io.edgehog.devicemanager.WiFiScanResults v0.2</span>
 </h2>
 <h3 id="about-16" class="section-heading">
-  <a href="#about-16" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-16</p>
+  <a href="#about-16" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
 Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-16" class="section-heading">
-  <a href="#mappings-16" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-16</p>
+  <a href="#mappings-16" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/ap/channel</code> with <code class="inline">integer</code> type. The channel over which the client is communicating with the access point.</li><li><code class="inline">/ap/connected</code> with <code class="inline">boolean</code> type. Identifies if the device is connected to this Access Point</li><li><code class="inline">/ap/essid</code> with <code class="inline">string</code> type. Extended Service Set Identification of the current AP, empty string if the AP is hidden.</li><li><code class="inline">/ap/macAddress</code> with <code class="inline">string</code> type. Lower case mac address string formatted like <code class="inline">de:ad:be:ff:11:22</code>.</li><li><code class="inline">/ap/rssi</code> with <code class="inline">integer</code> type. The current signal strength measured in dBm.</li></ul><h3 id="ap-channel" class="section-heading">
-  <a href="#ap-channel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">ap-channel</p>
+  <a href="#ap-channel" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/ap/channel</code>
+  <span class="text"><code class="inline">/ap/channel</code></span>
 </h3>
 <p>The channel over which the client is communicating with the access point.</p><p>The channel represents one of the ranges into which the reference frequency is divided and it's identified by an integer number in the range 1 - 165, depending on the frequency itself and the region.</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="ap-connected" class="section-heading">
-  <a href="#ap-connected" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">ap-connected</p>
+  <a href="#ap-connected" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/ap/connected</code>
+  <span class="text"><code class="inline">/ap/connected</code></span>
 </h3>
 <p>Identifies if the device is connected to this Access Point</p><p>This endpoint accepts values of type <code class="inline">boolean</code>: either true or false, adhering to JSON boolean type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="ap-essid" class="section-heading">
-  <a href="#ap-essid" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">ap-essid</p>
+  <a href="#ap-essid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/ap/essid</code>
+  <span class="text"><code class="inline">/ap/essid</code></span>
 </h3>
 <p>Extended Service Set Identification of the current AP, empty string if the AP is hidden.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="ap-macaddress" class="section-heading">
-  <a href="#ap-macaddress" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">ap-macaddress</p>
+  <a href="#ap-macaddress" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/ap/macAddress</code>
+  <span class="text"><code class="inline">/ap/macAddress</code></span>
 </h3>
 <p>Lower case mac address string formatted like <code class="inline">de:ad:be:ff:11:22</code>.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h3 id="ap-rssi" class="section-heading">
-  <a href="#ap-rssi" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">ap-rssi</p>
+  <a href="#ap-rssi" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/ap/rssi</code>
+  <span class="text"><code class="inline">/ap/rssi</code></span>
 </h3>
 <p>The current signal strength measured in dBm.</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-config-telemetry-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-config-telemetry-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">io-edgehog-devicemanager-config-telemetry-v0-1</p>
+  <a href="#io-edgehog-devicemanager-config-telemetry-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  io.edgehog.devicemanager.config.Telemetry v0.1
+  <span class="text">io.edgehog.devicemanager.config.Telemetry v0.1</span>
 </h2>
 <h3 id="about-17" class="section-heading">
-  <a href="#about-17" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">about-17</p>
+  <a href="#about-17" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  About
+  <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-17" class="section-heading">
-  <a href="#mappings-17" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">mappings-17</p>
+  <a href="#mappings-17" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  Mappings
+  <span class="text">Mappings</span>
 </h3>
 <p>The interface has the following mappings:</p><ul><li><code class="inline">/request/%{interface_name}/enable</code> with <code class="inline">boolean</code> type. Enable/Disable telemetry update. Unset returns to the previous state configured in the device.</li><li><code class="inline">/request/%{interface_name}/periodSeconds</code> with <code class="inline">longinteger</code> type. Set interval of period seconds between the end of the previous update and the start of the next one. Unset returns to the previous state configured in the device.</li></ul><h3 id="request-interface_name-enable" class="section-heading">
-  <a href="#request-interface_name-enable" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">request-interface_name-enable</p>
+  <a href="#request-interface_name-enable" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/request/%{interface_name}/enable</code>
+  <span class="text"><code class="inline">/request/%{interface_name}/enable</code></span>
 </h3>
 <p>Enable/Disable telemetry update. Unset returns to the previous state configured in the device.</p><p>This endpoint accepts values of type <code class="inline">boolean</code>: either true or false, adhering to JSON boolean type.</p><p>The endpoint is parametric and <code class="inline">interface_name</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h3 id="request-interface_name-periodseconds" class="section-heading">
-  <a href="#request-interface_name-periodseconds" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i>
-  <p class="sr-only">request-interface_name-periodseconds</p>
+  <a href="#request-interface_name-periodseconds" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <code class="inline">/request/%{interface_name}/periodSeconds</code>
+  <span class="text"><code class="inline">/request/%{interface_name}/periodSeconds</code></span>
 </h3>
 <p>Set interval of period seconds between the end of the previous update and the start of the next one. Unset returns to the previous state configured in the device.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">interface_name</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p>
 <div class="bottom-actions">
@@ -1022,7 +1029,7 @@ Interacting with Edgehog
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.29.4) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
@@ -1030,7 +1037,7 @@ Interacting with Edgehog
       </footer>
     </div>
   </div>
-</section>
+</main>
 </div>
 
 
