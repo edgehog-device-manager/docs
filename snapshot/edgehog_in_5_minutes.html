@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.30.9">
+    <meta name="project" content="Edgehog v0.8.0-dev">
+
+    <title>Edgehog in 5 minutes — Edgehog v0.8.0-dev</title>
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
+    <script src="dist/sidebar_items-AB7D9E0A.js"></script>
+
+      <script src="docs_config.js"></script>
+
+    <script async src="dist/html-J2ASZTQE.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
+    </button>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="http://edgehog.io">
+        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Edgehog
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v0.8.0-dev
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>Edgehog in 5 minutes</span>
+</h1>
+
+<h2 id="prerequisite-setup-your-local-astarte-instance" class="section-heading">
+  <a href="#prerequisite-setup-your-local-astarte-instance" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Prerequisite: setup your local Astarte instance</span>
+</h2>
+<p>You need a working astarte instance for edgehog to connect to. If you don't already have one, the
+easiest way is by following the <a href="https://docs.astarte-platform.org/astarte/latest/010-astarte_in_5_minutes.html">Astarte in 5 minutes</a>
+guide, up until the creation of a <code class="inline">test</code> realm.</p><p>To make sure your astarte instance is working and up to date, try running this command:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">curl api.astarte.localhost &amp;&gt; /dev/null &amp;&amp; echo &#39;Connected!&#39; || echo &#39;Astarte is unreachable&#39;
+</span></code></pre><p>If you get &quot;Astarte is unreachable&quot;, make sure your running astarte version is &gt;= v1.1.0</p><h2 id="run-a-local-edgehog-instance" class="section-heading">
+  <a href="#run-a-local-edgehog-instance" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Run a local Edgehog instance</span>
+</h2>
+<p>To setup edgehog, you must first clone a copy of edgehog locally</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">git clone https://github.com/edgehog-device-manager/edgehog &amp;&amp; cd edgehog
+</span></code></pre><p>You can then run edgehog with</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker-compose up -d
+</span></code></pre><p>Try navigating to <code class="inline">http://edgehog.localhost</code>: you should be presented with a login screen!</p><h2 id="setup-the-environment" class="section-heading">
+  <a href="#setup-the-environment" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Setup the environment</span>
+</h2>
+<blockquote><p>If you just want to try out Edgehog, you can jump to
+<a href="#populate-the-database-and-log-in-to-edgehog">the next section</a>.
+Astarte communication will not work this way though.</p></blockquote><p>Open the <code class="inline">.env</code> file in your favorite text editor.
+Here you can edit docker's variables to match your current environment.
+Right now we're only interested in the <code class="inline">SEEDS_*</code> variables, which are used to populate the database.</p><table><thead><tr><th style="text-align: left;">Variable</th><th style="text-align: left;">Description</th></tr></thead><tbody><tr><td style="text-align: left;"><code class="inline">SEEDS_REALM</code></td><td style="text-align: left;">The name of your astarte realm. It should match what you've created in your astarte setup</td></tr><tr><td style="text-align: left;"><code class="inline">SEEDS_REALM_PRIVATE_KEY_FILE</code></td><td style="text-align: left;">The location of the realm's private key file (<code class="inline">test_private.pem</code> from the Astarte in 5 minutes guide)</td></tr><tr><td style="text-align: left;"><code class="inline">SEEDS_TENANT_PRIVATE_KEY_FILE</code></td><td style="text-align: left;">The location of the <a href="#generate-a-key-pair-for-the-tenant">tenant's private key file</a></td></tr><tr><td style="text-align: left;"><code class="inline">SEEDS_ASTARTE_BASE_API_URL</code></td><td style="text-align: left;">The endpoint for Astarte API.</td></tr></tbody></table><p>If for whatever reason you don't want to edit the <code class="inline">.env</code> file, you can also export
+environment variables of the same name.</p><p><code class="inline">SEEDS_REALM</code> and <code class="inline">SEEDS_ASTARTE_BASE_API_URL</code> should already be set for you, so only edit those if
+needed.</p><h3 id="generate-a-key-pair-for-the-tenant" class="section-heading">
+  <a href="#generate-a-key-pair-for-the-tenant" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Generate a key pair for the tenant</span>
+</h3>
+<p>Although it is possible to use a default key, it is recommended to have your own key pair for the
+tenant.</p><p>You should already have <a href="https://github.com/astarte-platform/astartectl#installation"><code class="inline">astartectl</code></a>
+installed from the Astarte in 5 minutes guide.</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">astartectl utils gen-keypair acme
+</span></code></pre><p><strong>Remember to update</strong> the <code class="inline">.env</code> file with the <code class="inline">acme_private.pem</code> location!</p><h2 id="populate-the-database-and-log-in-to-edgehog" class="section-heading">
+  <a href="#populate-the-database-and-log-in-to-edgehog" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Populate the database and log in to Edgehog</span>
+</h2>
+<p>Run this command to populate the database</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker-compose exec edgehog-backend bin/edgehog eval Edgehog.Release.seed
+</span></code></pre><p>This will create the tenant <code class="inline">acme-inc</code> and add a sample device to it.</p><blockquote><p><em>&quot;I had the wrong variables set, and now I can't run the seed again. What now?&quot;</em>
+If this happens, the easiest solution is to just recreate the edgehog volumes:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker-compose down -v &amp;&amp; docker-compose up -d
+</span></code></pre></blockquote><p>Nice! Now we have our tenant but we can't access to it yet, we need a token.
+Luckily Edgehog includes a scripts to generate one!</p><p>First you'll need to make sure to have python version 3 installed.</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">python3 --version
+</span><span class="">Python 3.x.y
+</span></code></pre><blockquote><p>While not mandatory, it is advised to use a python virtual environment to make sure your
+globally installed python packages don't mess with this script's dependencies and vice versa.
+Doing this is pretty straightforward, but you may need to install the <code class="inline">python3-venv</code> package if
+you are using a Debian/Ubuntu-based system.</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">python3 -m venv pyenv
+</span><span class="gp unselectable">$ </span><span class="">source pyenv/bin/activate
+</span></code></pre></blockquote><p>Then, navigate to the <code class="inline">tools/</code> subdirectory and install the required dependencies</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">cd tools &amp;&amp; pip install -r requirements.txt
+</span></code></pre><p>Now you can generate the login token with</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">./gen-edgehog-jwt -k ../acme_private.pem
+</span></code></pre><blockquote><p>If in the previous section you had decided not to use a custom key, use this command instead</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">./gen-edgehog-jwt -k ../backend/priv/repo/seeds/keys/tenant_private.pem
+</span></code></pre></blockquote><p>You can finally navigate to <code class="inline">http://edgehog.localhost</code> in your browser and login to the
+<code class="inline">acme-inc</code> tenant using your newly generated token.</p><h2 id="test-astarte-connection" class="section-heading">
+  <a href="#test-astarte-connection" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Test Astarte connection</span>
+</h2>
+<p>Astarte connectivity may not work right away, as edgehog has not yet reconciled
+its interfaces and triggers with astarte. Without waiting, we can force it to execute
+the reconciler using:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker compose exec edgehog-backend bin/edgehog rpc &quot;Edgehog.Tenants.list_tenants |&gt; Enum.each(&amp;Edgehog.Tenants.reconcile_tenant/1)&quot;
+</span></code></pre><p>If you now connect a device to astarte and open or reload the edgehog web page,
+you should see the new device in the appropriate section.</p><blockquote><p>You can use <a href="https://docs.astarte-platform.org/astarte/latest/010-astarte_in_5_minutes.html#stream-data">stream-qt5-test</a>.
+If you do so the device won't have any edgehog interface, but it will still show up as connected.</p></blockquote><h2 id="cleaning-up" class="section-heading">
+  <a href="#cleaning-up" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Cleaning up</span>
+</h2>
+<p>As with astarte, you can clean your environment by running</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker-compose down
+</span></code></pre><p>to stop all the running edgehog containers.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="astarte_interfaces.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Astarte Interfaces
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="Edgehog.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</main>
+</div>
+
+
+  </body>
+</html>
