@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.30.9">
+    <meta name="project" content="Edgehog v0.8.0-rc.0">
+
+    <title>Update Campaigns — Edgehog v0.8.0-rc.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
+    <script src="dist/sidebar_items-AB7D9E0A.js"></script>
+
+      <script src="../versions.js"></script>
+
+    <script async src="dist/html-J2ASZTQE.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
+    </button>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="http://edgehog.io">
+        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Edgehog
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v0.8.0-rc.0
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>Update Campaigns</span>
+</h1>
+
+<p>As mentioned in the <a href="ota_update_concepts.html">OTA Update concepts</a>, Update Campaign is the operation
+that tracks the distribution of a specific <a href="ota_update_concepts.html#base-image">Base Image</a> to all devices
+belonging to an <a href="ota_update_concepts.html#update-channel">Update Channel</a>.</p><p>Note that an Update Campaign can only send updates for the same
+<a href="ota_update_concepts.html#base-image-collection">Base Image Collection</a>, and special operations
+(like converting a Device from a one System Model to another) must always be done with a <a href="ota_updates.html#manual-ota-updates">Manual OTA
+Update</a>.</p><p>The following sections will illustrate all the pages that can be used to list, create and view Update Campaigns.</p><h2 id="update-campaign-list" class="section-heading">
+  <a href="#update-campaign-list" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Update Campaign List</span>
+</h2>
+<p><img src="assets/update_campaign_list.png" alt="Update Campaign List Screenshot"/></p><p>In the Update Campaign list you can see the table with all Update Campaigns. Clicking on the name brings
+to the <a href="#update-campaign">Update Campaign</a> page.</p><p>Clicking on the &quot;Create Update Campaign&quot; button in the top right brings to
+<a href="#create-update-campaign">Create Update Campaign</a> page.</p><h2 id="create-update-campaign" class="section-heading">
+  <a href="#create-update-campaign" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Create Update Campaign</span>
+</h2>
+<p><img src="assets/update_campaign_create.png" alt="Create Update Campaign Screenshot"/></p><p>The Create Update Campaign page allows creating a new Update Campaign.</p><p>When creating an Update Campaign, the following information must be provided</p><ul><li>Base Image: the target Base Image for the Update Campaign.</li><li>Update Channel: the target Update Channel for the Update Campaign.</li><li><a href="#roll-out-mechanism">Roll-out Mechanism</a> properties.</li></ul><p>The Update Campaign information can be provided using the form, and pressing the &quot;Create&quot; button saves
+the Update Campaign.</p><p>Once created, the Update Campaign will start rolling out updates towards the devices, and its
+progress can be checked from the Edgehog Dashboard or through Edgehog GraphQL API.</p><p>Note that the campaign will &quot;snapshot&quot; the Devices belonging to the Update Channel when it's
+started, and will target only those. If additional Devices are added to the Update Channel (either
+manually or automatically via auto-assignment) <em>after</em> the Update Campaign is created, they won't
+receive the Base Image and will require a separate campaign to be started.</p><p>Only a single Update Campaign can be started for a given System Model and Update Channel
+combination, so creating a new Update Campaign while another one is already running will implicitly
+cancel* the old one. This means that Devices that didn't yet receive the Base Image of the old Update
+Campaign will directly receive the new one, without any intermediate step.</p><p>*<em>Implicit Cancellation feature is planned for a future release</em></p><h3 id="roll-out-mechanism" class="section-heading">
+  <a href="#roll-out-mechanism" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Roll-out mechanism</span>
+</h3>
+<p>Here are the currently supported Roll-out Mechanisms and their properties</p><h5><code class="inline">push</code></h5><p>This Roll-out mechanism pushes the update towards the device unconditionally. This can be used to
+provide automatic updates where the user should not have the choice of refusing the update.</p><p>The properties of this Roll-out Mechanism are:</p><ul><li>Max Pending Operations: the maximum number of pending <a href="ota_update_concepts.html#ota-operation">OTA Operations</a>.
+The Update Campaign will have at most this number of OTA Operations that are started 
+but not yet finished (either successfully or not).</li><li>Max Failures: the maximum percentage of failures allowed over the number of total targets. If the failures 
+exceed this threshold, the Update Campaign terminates with a failure.</li><li>Request Retries: the number of times an update must be retried on a specific Device before considering it
+a failure. Note that the update is retried only if the OTA Request doesn't get acknowledged from the device.</li><li>Request Timeout: the timeout (in seconds) to wait before considering an OTA Request lost (and possibly retry).</li><li>Force Downgrade (optional): when checked forces downgrading a Device which is currently using a later version
+of the Base Image.</li></ul><h5><code class="inline">optional</code>*</h5><p>*<em>The Optional rollout mechanism is planned for a future release</em></p><p>This Roll-out mechanism just pushes a message towards the Device informing that an update is
+available. The update is downloaded to the device only after the user accepts the update. The update
+is not required to be pushed immediately, to provide a backpressure mechanism if many users accept
+the update at the same time.</p><h2 id="update-campaign" class="section-heading">
+  <a href="#update-campaign" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Update Campaign</span>
+</h2>
+<p><img src="assets/update_campaign.png" alt="Update Campaign Page Screenshot"/></p><p>The Update Campaign page shows the information about a specific Update Campaign and Devices associated 
+with it in table below.</p><p>Clicking on the Base Image Collection, Base Image, Update Channel or Device name bring to the corresponding page.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="update_channels.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Update Channels
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="ota_updates.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+OTA Updates
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="Edgehog.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</main>
+</div>
+
+
+  </body>
+</html>

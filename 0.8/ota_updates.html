@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.30.9">
+    <meta name="project" content="Edgehog v0.8.0-rc.0">
+
+    <title>OTA Updates — Edgehog v0.8.0-rc.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
+    <script src="dist/sidebar_items-AB7D9E0A.js"></script>
+
+      <script src="../versions.js"></script>
+
+    <script async src="dist/html-J2ASZTQE.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
+    </button>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="http://edgehog.io">
+        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Edgehog
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v0.8.0-rc.0
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>OTA Updates</span>
+</h1>
+
+<p>Edgehog provides an OTA update mechanism that allows remotely updating devices. The OTA update
+mechanism is not tied to a specific platform and can be used on any <a href="device_sdks_runtime.html">Edgehog
+runtime</a> which implements the
+<a href="astarte_interfaces.html#io-edgehog-devicemanager-otarequest-v1-0"><code class="inline">io.edgehog.devicemanager.OTARequest</code></a>,
+<a href="astarte_interfaces.html#io-edgehog-devicemanager-otaevent-v0-1"><code class="inline">io.edgehog.devicemanager.OTAEvent</code></a>
+and
+<a href="astarte_interfaces.html#io-edgehog-devicemanager-baseimage-v0-1"><code class="inline">io.edgehog.devicemanager.BaseImage</code></a>
+interfaces.</p><p>OTA Update concepts are detailed in the <a href="ota_update_concepts.html">dedicated page</a>, this guide 
+demonstrates the usage of an OTA update mechanism.</p><h2 id="managed-ota-updates" class="section-heading">
+  <a href="#managed-ota-updates" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Managed OTA Updates</span>
+</h2>
+<p>Edgehog provides a mechanism to roll-out OTA updates to devices automatically, based on their <a href="core_concepts.html#system-model">System
+Model</a> and their membership to specific <a href="core_concepts.html#group">Groups</a>.</p><p>To push updates towards Devices, an Update Campaign must be created. It's important to note that an Update
+Campaign can only send updates for the same Base Image Collection. Special operations, such as 
+converting a Device from one System Model to another, must always be done with a <a href="#manual-ota-updates">Manual OTA
+Update</a>.</p><p>Once created, the Update Campaign will start rolling out updates towards the devices, and its
+progress can be checked from the Edgehog Dashboard or through Edgehog GraphQL API.</p><p>Note that the campaign will &quot;snapshot&quot; the Devices belonging to the Update Channel when it's
+started, and will <a href="ota_update_concepts.html#update-target">target</a> only those.</p><p>Once started, the Update Campaign waits for device to come online, at which point it initiates the OTA Update.
+<a href="update_campaigns.html#roll-out-mechanism">Roll-out mechanim</a> properties can affect this process.
+For example, <code class="inline">Max Pending Operations</code> setting may postpone some OTA Operations.</p><p>Before actual push to the Device corresponding <a href="ota_update_concepts.html#update-target">Update Target</a>
+is verified for fulfillment of Base Image and Roll-out mechanism criteria. For example:</p><ul><li>Devices having same Base Image version will be silently marked as successful.</li><li>Devices with Base Images that don't meet <a href="ota_update_concepts.html#version-requirement">Version Requirement</a>
+of distributed Base Image will be marked as failed, unless the <code class="inline">Force Downgrade</code> option 
+of <a href="update_campaigns.html#roll-out-mechanism">Push Roll-out mechanism</a> is enabled.</li></ul><h2 id="manual-ota-updates" class="section-heading">
+  <a href="#manual-ota-updates" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Manual OTA Updates</span>
+</h2>
+<p>As an escape hatch, it's always possible to manually update a <a href="core_concepts.html#device">Device</a>
+from its page on the Edgehog dashboard (or using the Edgehog GraphQL API).</p><p>Note that Manual OTA Updates do not perform any check on the <a href="core_concepts.html#system-model">System Model</a>,
+so they can effectively be used to change the System Model of a Device. This also means that the user 
+must exercise particular attention to avoid bricking a Device, if the Device does not implement the necessary
+safety checks.</p><p><img src="assets/manual_ota_update.png" alt="Manual OTA Update Screenshot"/></p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="update_campaigns.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Update Campaigns
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="overview.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Architecture overview
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="Edgehog.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</main>
+</div>
+
+
+  </body>
+</html>

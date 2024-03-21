@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.30.9">
+    <meta name="project" content="Edgehog v0.8.0-rc.0">
+
+    <title>Core concepts — Edgehog v0.8.0-rc.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
+    <script src="dist/sidebar_items-AB7D9E0A.js"></script>
+
+      <script src="../versions.js"></script>
+
+    <script async src="dist/html-J2ASZTQE.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
+    </button>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="http://edgehog.io">
+        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Edgehog
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v0.8.0-rc.0
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>Core concepts</span>
+</h1>
+
+<p>This page will illustrate some of the core concepts used in Edgehog.</p><h2 id="hardware-types-devices-and-system-models" class="section-heading">
+  <a href="#hardware-types-devices-and-system-models" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Hardware types, Devices and System Models</span>
+</h2>
+<p>This section will deal with the difference between three main concepts used throughout Edgehog:
+Hardware Types, Devices and System Models.</p><p>To better illustrate this, we will use as example the ACME Inc company, which manages a fleet of
+e-bikes and electric scooters. We will illustrate the hierarchy going from the bottom up, showing
+how each concept relates to the other ones.</p><h3 id="hardware-type" class="section-heading">
+  <a href="#hardware-type" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Hardware Type</span>
+</h3>
+<p>An Hardware Type represents the electronic hardware components embedded in an device. As an example,
+a possible Hardware Type description could be &quot;ESP32 with a GSM module&quot; or &quot;RaspberryPi 0 with an
+LTE modem&quot;.</p><p>Each Hardware Type can have one or more Hardware Type Part Numbers associated with it. This makes
+sure that the user is able to map, e.g., a new revision of the PCB to the same Hardware Type, since
+different hardware with the same Hardware Type is assumed to be compatible. Usually (but not
+necessarily) the Hardware Type Part Number is a code that is written on the PCB.</p><h3 id="device" class="section-heading">
+  <a href="#device" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Device</span>
+</h3>
+<p>A device is an entity connected to Astarte. A Device has a uniquely identified by its Device ID, and
+it usually lives inside a product such as an e-bike (if it is not on a shelf or in a repair shop).</p><h3 id="system-model" class="section-heading">
+  <a href="#system-model" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">System Model</span>
+</h3>
+<p>A System Model constitutes a group of devices implementing the same functionality for some users.
+For example, two e-bikes can be physically identical and still belong to different System Models,
+since they can have different software running on them.</p><p>A System Model is associated with a specific Hardware Type, so two devices implementing the same
+functionality but using different Hardware Types will belong to two different System Models. This
+makes it so that the System Model is the fundamental identifier when it comes to software updates.</p><p>A System Model has one or more System Model Part Numbers asociated with it, allowing to track newer
+versions of a product which do not change its main functionality. Usually (but not necessarily) the
+System Model's Part Number is delivered along with the device, or on the box containing it.</p><p>Drawing again from our bike sharing example, e-bikes and electric scooters would have two different
+System Models, even if they use the same Hardware Type (e.g. an ESP32 with a GSM module). It is also
+possible that the e-bikes are further split into different System Models depending on the country
+they are deployed in if, for example, the software has to conform to speed limitations which are
+specific for each country.</p><h2 id="tags-attributes-and-groups" class="section-heading">
+  <a href="#tags-attributes-and-groups" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Tags, attributes and groups</span>
+</h2>
+<p>This section will deal with various types of properties that can be added to devices to identify
+and group them.</p><h3 id="tags" class="section-heading">
+  <a href="#tags" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Tags</span>
+</h3>
+<p>Tags are string values that can be freely attached to Devices. There is no predefined semantics so
+users are free to use them as they see fit.</p><p>Some examples of tags that can be assigned to the e-bikes or electric scooters in our examples
+could be <code class="inline">out-of-order</code>, <code class="inline">test_machine</code> or <code class="inline">Upgraded Brakes</code>.</p><h3 id="attributes" class="section-heading">
+  <a href="#attributes" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Attributes*</span>
+</h3>
+<p>*<em>This feature is planned for a future release</em></p><p>Attributes are namespaced key-value pairs that can be attached to Devices. The namespacing happens
+by prepending the namespace to the key using a colon as separator (i.e. <code class="inline">namespace:key</code>). This
+ensures that the same key in different namespaces can be addressed unambiguously.</p><p>The attribute keys are always strings, while values support all the types <a href="https://docs.astarte-platform.org/latest/030-interface.html#supported-data-types">supported by Astarte
+Interfaces</a>.</p><p>The majority of attributes are automatically populated using different mechanisms depending on the
+namespaces, but there's also the possibility of manually defining custom attributes for a specific
+device.</p><p>The supported namespaces are:</p><ul><li><code class="inline">edgehog-synthetic</code>: automatically populated with values coming from Device data that is derived
+from Edgehog (e.g. Geolocation, System Model, Hardware Type, etc...)</li><li><code class="inline">edgehog-policy</code>: automatically populated with Edgehog values which are imposed on the cloud side
+(e.g. Geolocation disabled due to GDPR restrictions).</li><li><code class="inline">astarte-values</code>: automatically populated with values coming from device-owned Astarte interfaces
+using an <a href="#attribute-value-source">Attribute Value Source</a> with type <code class="inline">astarte-value</code>.</li><li><code class="inline">astarte-attributes</code>: automatically populated using the <code class="inline">attributes</code> map in the Device status
+returned from Astarte AppEngine API. Since Astarte attributes don't provide a trigger mechanism,
+these attributes are lazily populated and should be considered eventually consistent.</li><li><code class="inline">custom</code>: user-defined key-value pairs which are manually assigned to a Device.</li></ul><p>Note that all values will be converted to a string when using them as attribute values</p><h3 id="attribute-value-source" class="section-heading">
+  <a href="#attribute-value-source" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Attribute Value Source*</span>
+</h3>
+<p>*<em>This feature is planned for a future release</em></p><p>An Attribute Value Source populates the attributes of a Device according to some rule.</p><p>Currently, the only supported type of Attribute Value Source is <code class="inline">astarte-value</code>, which updates
+Device attributes using a value from an Astarte interface.</p><h3 id="selector" class="section-heading">
+  <a href="#selector" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Selector</span>
+</h3>
+<p>A Selector allows selecting a subset of Devices based on their tags and attributes. The Selector
+can be evaluated for a Device and return <code class="inline">true</code> if the Device matches the Selector and <code class="inline">false</code>
+otherwise.</p><p>Each Selector can be made of one or more filters, combined using <code class="inline">and</code> and <code class="inline">or</code> and (possibly)
+parenthesized. When no parenthesis are present, <code class="inline">and</code> has a higher priority than <code class="inline">or</code> in
+expressions.</p><h4>Supported filters</h4><h5>Tag filter</h5><p>Created with the syntax <code class="inline">&quot;&lt;value&gt;&quot; in tags</code>, it returns <code class="inline">true</code> if <code class="inline">value</code> is included in the Device
+tags. It's also possible to use a negative filter with <code class="inline">&quot;value&quot; not in tags</code>, in this case the
+filter will match all Devices which <em>don't</em> have the tag.</p><h5>Attribute filter*</h5><p>*<em>Note that while Attribute filters are already supported, Attributes are going to be available in a
+future release</em></p><p>Created with the syntax <code class="inline">attributes[&quot;&lt;namespace&gt;:&lt;key&gt;&quot;] &lt;operator&gt; &lt;value&gt;</code>, it returns <code class="inline">true</code> if
+the value of the chosen attribute satisfies the expression.</p><p>The supported operators are:</p><ul><li><code class="inline">==</code> and <code class="inline">!=</code> for all value types</li><li><code class="inline">&gt;</code>, <code class="inline">&gt;=</code>, <code class="inline">&lt;</code>, <code class="inline">&lt;=</code> for numeric or <code class="inline">datetime</code> values</li></ul><p><code class="inline">&lt;value&gt;</code> can be a boolean (<code class="inline">true</code> or <code class="inline">false</code>), a string, a number (either integer or float), or one
+of the values supported using special syntax:</p><ul><li><code class="inline">now()</code> indicates the current datetime at the time the Selector is evaluated. This can be used to
+do comparisons with other <code class="inline">datetime</code> attributes.</li><li><code class="inline">datetime(&quot;&lt;ISO8601 string&gt;&quot;)</code> is used to pass <code class="inline">datetime</code> values in expressions. The string
+contained in double quotes must be a valid UTC ISO8601 timestamp. Example:
+<code class="inline">datetime(&quot;2022-06-27T16:27:40.254795Z&quot;)</code>.</li><li><code class="inline">binaryblob(&quot;&lt;base64 encoded value&gt;&quot;)</code> is used to pass <code class="inline">binaryblob</code> values in expressions. The
+string contained in double quotes must be a valid Base64 encoding of the binary value. Example:
+<code class="inline">binaryblob(&quot;Zm9vYmFy&quot;)</code> to encode the string <code class="inline">&quot;foobar&quot;</code>.</li></ul><h5>Attribute inclusion filter*</h5><p>*<em>This feature is planned for a future release</em></p><ul><li><code class="inline">&quot;&lt;value&gt;&quot; in attributes[&quot;&lt;namespace&gt;:&lt;key&gt;&quot;]</code>: returns <code class="inline">true</code> if <code class="inline">value</code> is included in the
+chosen attribute. Note that the attribute must be an array for the expression to be valid.</li></ul><h4>Examples</h4><p>To provide some examples, here is a Selector to target all out of order Devices in Milan:</p><pre><code class="makeup elixir" translate="no"><span class="s">&quot;out-of-order&quot;</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">tags</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">attributes</span><span class="p" data-group-id="1260450165-1">[</span><span class="s">&quot;edgehog-synthetic:city&quot;</span><span class="p" data-group-id="1260450165-1">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;Milan&quot;</span></code></pre><p>Here is a selector to target all Devices that have their service timestamp in the past so they have
+to be serviced, imagining this information is contained in the <code class="inline">com.foo.ServiceInfo</code> Astarte
+interface in the <code class="inline">/serviceTimestamp</code>:</p><pre><code class="makeup elixir" translate="no"><span class="n">attributes</span><span class="p" data-group-id="1369404350-1">[</span><span class="s">&quot;astarte-values:com.foo.ServiceInfo/serviceTimestamp&quot;</span><span class="p" data-group-id="1369404350-1">]</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="n">now</span><span class="p" data-group-id="1369404350-2">(</span><span class="p" data-group-id="1369404350-2">)</span></code></pre><h4>Caveats</h4><p>Note that numeric values are conflated in a single numeric type, i.e. a selector with
+<code class="inline">attributes[&quot;custom:foo&quot;] == 42</code> will match either if <code class="inline">foo</code> is <code class="inline">integer</code>, <code class="inline">longinteger</code> or <code class="inline">double</code>
+(e.g it will also match <code class="inline">42.0</code>).</p><p>Another important thing to notice is that using an Attribute Filter will implicitly match only
+Devices that have that attribute. As an example, if there are 3 devices, one with attribute <code class="inline">foo:bar == 42</code>, the other with attribute <code class="inline">foo:bar == 3</code> and the third one with no <code class="inline">foo:bar</code> attribute, the
+Attribute Filter <code class="inline">attributes[&quot;foo:bar&quot;] != 42</code> will match the second Device but <em>not</em> the third one,
+since it doesn't have the target attribute.</p><p>In the future, additional syntax could be added to Selectors to allow filtering based just on the
+presence or absence of an attribute.</p><h3 id="group" class="section-heading">
+  <a href="#group" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Group</span>
+</h3>
+<p>A Group represents a subset of devices filtered by a Selector.</p><p>The Group can be used to perform operations on Devices contained in it.</p><p>Since Tags and Attributes of a Device can change, Groups do not statically define the set of Devices
+they contain but they change dynamically following Device changes.</p><p>Note that a Device can't be manually assigned to a Group, its tags and attributes must be
+used to make it satisfy the group Selector.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="intro_user.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Introduction
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="hardware_types.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Hardware Types
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="Edgehog.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</main>
+</div>
+
+
+  </body>
+</html>
