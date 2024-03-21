@@ -5,9 +5,9 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.30.9">
-    <meta name="project" content="Edgehog v0.8.0-rc.0">
+    <meta name="project" content="Edgehog v0.9.0-dev">
 
-    <title>Deploying with Kubernetes — Edgehog v0.8.0-rc.0</title>
+    <title>Deploying with Kubernetes — Edgehog v0.9.0-dev</title>
     <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
 
 
@@ -72,7 +72,7 @@
 Edgehog
       </a>
       <div class="sidebar-projectVersion" translate="no">
-        v0.8.0-rc.0
+        v0.9.0-dev
       </div>
     </div>
     <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
@@ -323,7 +323,7 @@ spec:
           value: &lt;EDGEHOG-FORWARDER-PORT&gt;
         - name: EDGEHOG_FORWARDER_SECURE_SESSIONS
           value: &lt;EDGEHOG-FORWARDER-SECURE-SESSIONS&gt;
-        image: edgehogdevicemanager/edgehog-backend:0.8.0-rc.0
+        image: edgehogdevicemanager/edgehog-backend:snapshot
         imagePullPolicy: Always
         name: edgehog-backend
         ports:
@@ -357,7 +357,7 @@ spec:
       - env:
         - name: BACKEND_URL
           value: &lt;BACKEND-HOST&gt;
-        image: edgehogdevicemanager/edgehog-frontend:0.8.0-rc.0
+        image: edgehogdevicemanager/edgehog-frontend:snapshot
         imagePullPolicy: Always
         name: edgehog-frontend
         ports:
@@ -596,17 +596,17 @@ Astarte cluster and Realm.</p><pre><code class="makeup elixir" translate="no"><s
 </span><span class="gp unselectable">iex&gt; </span><span class="n">realm_private_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;
 &lt;ASTARTE-REALM-PRIVATE-KEY&gt;
 &quot;&quot;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="6967819693-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="6967819693-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Provisioning</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="6967819693-2">(</span><span class="w">
-  </span><span class="p" data-group-id="6967819693-3">%{</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="9350968135-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="9350968135-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Provisioning</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="9350968135-2">(</span><span class="w">
+  </span><span class="p" data-group-id="9350968135-3">%{</span><span class="w">
     </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_name</span><span class="p">,</span><span class="w">
     </span><span class="ss">slug</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_slug</span><span class="p">,</span><span class="w">
     </span><span class="ss">public_key</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_public_key</span><span class="p">,</span><span class="w">
-    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6967819693-4">%{</span><span class="w">
+    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9350968135-4">%{</span><span class="w">
       </span><span class="ss">base_api_url</span><span class="p">:</span><span class="w"> </span><span class="n">base_api_url</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_name</span><span class="p">:</span><span class="w"> </span><span class="n">realm_name</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_private_key</span><span class="p">:</span><span class="w"> </span><span class="n">realm_private_key</span><span class="w">
-    </span><span class="p" data-group-id="6967819693-4">}</span><span class="w">
-  </span><span class="p" data-group-id="6967819693-3">}</span><span class="p" data-group-id="6967819693-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
+    </span><span class="p" data-group-id="9350968135-4">}</span><span class="w">
+  </span><span class="p" data-group-id="9350968135-3">}</span><span class="p" data-group-id="9350968135-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
 step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
 the file in the <code class="inline">iex</code> shell and then close the multiline string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li><li><code class="inline">ASTARTE-BASE-API-URL</code>: the base API url of the Astarte instance (e.g.
 <a href="https://api.astarte.example.com">https://api.astarte.example.com</a>).</li><li><code class="inline">ASTARTE-REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">ASTARTE-REALM-PRIVATE-KEY</code>: the content of you realm's private key. Open a multiline string with
