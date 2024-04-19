@@ -13,7 +13,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
-    <script src="dist/sidebar_items-AB7D9E0A.js"></script>
+    <script src="dist/sidebar_items-A38D3061.js"></script>
 
       <script src="../versions.js"></script>
 
@@ -109,15 +109,21 @@ Pages
   <span>Edgehog in 5 minutes</span>
 </h1>
 
-<h2 id="prerequisite-setup-your-local-astarte-instance" class="section-heading">
-  <a href="#prerequisite-setup-your-local-astarte-instance" class="hover-link">
+<h2 id="prerequisites" class="section-heading">
+  <a href="#prerequisites" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <span class="text">Prerequisite: setup your local Astarte instance</span>
+  <span class="text">Prerequisites</span>
 </h2>
-<p>You need a working astarte instance for edgehog to connect to. If you don't already have one, the
-easiest way is by following the <a href="https://docs.astarte-platform.org/astarte/latest/010-astarte_in_5_minutes.html">Astarte in 5 minutes</a>
-guide, up until the creation of a <code class="inline">test</code> realm.</p><p>To make sure your astarte instance is working and up to date, try running this command:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">curl api.astarte.localhost &amp;&gt; /dev/null &amp;&amp; echo &#39;Connected!&#39; || echo &#39;Astarte is unreachable&#39;
+<p>Edgehog interacts with devices through <a href="https://github.com/astarte-platform/astarte">Astarte</a>.
+While it's possible to run an instance of Edgehog without the local instance of Astarte for development purposes,
+it's recommended to setup Astarte locally for full functionality.</p><h3 id="setup-your-local-astarte-instance" class="section-heading">
+  <a href="#setup-your-local-astarte-instance" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Setup your local Astarte instance</span>
+</h3>
+<p>The easiest way to setup local Astarte instance is to follow the <a href="https://docs.astarte-platform.org/astarte/latest/010-astarte_in_5_minutes.html">Astarte in 5 minutes</a> guide, up until the creation of a <code class="inline">test</code> realm.</p><p>To make sure your astarte instance is working and up to date, try running this command:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">curl api.astarte.localhost &amp;&gt; /dev/null &amp;&amp; echo &#39;Connected!&#39; || echo &#39;Astarte is unreachable&#39;
 </span></code></pre><p>If you get &quot;Astarte is unreachable&quot;, make sure your running astarte version is &gt;= v1.1.0</p><h2 id="run-a-local-edgehog-instance" class="section-heading">
   <a href="#run-a-local-edgehog-instance" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
@@ -125,16 +131,18 @@ guide, up until the creation of a <code class="inline">test</code> realm.</p><p>
   <span class="text">Run a local Edgehog instance</span>
 </h2>
 <p>To setup edgehog, you must first clone a copy of edgehog locally</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">git clone https://github.com/edgehog-device-manager/edgehog &amp;&amp; cd edgehog
-</span></code></pre><p>You can then run edgehog with</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker-compose up -d
+</span></code></pre><blockquote><p>If you just want to try out Edgehog without interacting with the device, run it without the Astarte instance:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker compose \
+</span><span class="gp unselectable">$ </span><span class="">  -f docker-compose.yml \
+</span><span class="gp unselectable">$ </span><span class="">  -f docker-compose.without-astarte.yml \
+</span><span class="gp unselectable">$ </span><span class="">  up -d
+</span></code></pre><p>Then jump to the <a href="#populate-the-database-and-log-in-to-edgehog">populate the database section</a>.</p></blockquote><p>Run Edgehog along with a local instance of Astarte with</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker compose up -d
 </span></code></pre><p>Try navigating to <code class="inline">http://edgehog.localhost</code>: you should be presented with a login screen!</p><h2 id="setup-the-environment" class="section-heading">
   <a href="#setup-the-environment" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Setup the environment</span>
 </h2>
-<blockquote><p>If you just want to try out Edgehog, you can jump to
-<a href="#populate-the-database-and-log-in-to-edgehog">the next section</a>.
-Astarte communication will not work this way though.</p></blockquote><p>Open the <code class="inline">.env</code> file in your favorite text editor.
+<p>Open the <code class="inline">.env</code> file in your favorite text editor.
 Here you can edit docker's variables to match your current environment.
 Right now we're only interested in the <code class="inline">SEEDS_*</code> variables, which are used to populate the database.</p><table><thead><tr><th style="text-align: left;">Variable</th><th style="text-align: left;">Description</th></tr></thead><tbody><tr><td style="text-align: left;"><code class="inline">SEEDS_REALM</code></td><td style="text-align: left;">The name of your astarte realm. It should match what you've created in your astarte setup</td></tr><tr><td style="text-align: left;"><code class="inline">SEEDS_REALM_PRIVATE_KEY_FILE</code></td><td style="text-align: left;">The location of the realm's private key file (<code class="inline">test_private.pem</code> from the Astarte in 5 minutes guide)</td></tr><tr><td style="text-align: left;"><code class="inline">SEEDS_TENANT_PRIVATE_KEY_FILE</code></td><td style="text-align: left;">The location of the <a href="#generate-a-key-pair-for-the-tenant">tenant's private key file</a></td></tr><tr><td style="text-align: left;"><code class="inline">SEEDS_ASTARTE_BASE_API_URL</code></td><td style="text-align: left;">The endpoint for Astarte API.</td></tr></tbody></table><p>If for whatever reason you don't want to edit the <code class="inline">.env</code> file, you can also export
 environment variables of the same name.</p><p><code class="inline">SEEDS_REALM</code> and <code class="inline">SEEDS_ASTARTE_BASE_API_URL</code> should already be set for you, so only edit those if
@@ -153,9 +161,9 @@ installed from the Astarte in 5 minutes guide.</p><pre><code class="makeup sh" t
   </a>
   <span class="text">Populate the database and log in to Edgehog</span>
 </h2>
-<p>Run this command to populate the database</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker-compose exec edgehog-backend bin/edgehog eval Edgehog.Release.seed
+<p>Run this command to populate the database</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker compose exec edgehog-backend bin/edgehog eval Edgehog.Release.seed
 </span></code></pre><p>This will create the tenant <code class="inline">acme-inc</code> and add a sample device to it.</p><blockquote><p><em>&quot;I had the wrong variables set, and now I can't run the seed again. What now?&quot;</em>
-If this happens, the easiest solution is to just recreate the edgehog volumes:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker-compose down -v &amp;&amp; docker-compose up -d
+If this happens, the easiest solution is to just recreate the edgehog volumes:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker compose down -v &amp;&amp; docker compose up -d
 </span></code></pre></blockquote><p>Nice! Now we have our tenant but we can't access to it yet, we need a token.
 Luckily Edgehog includes a scripts to generate one!</p><p>First you'll need to make sure to have python version 3 installed.</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">python3 --version
 </span><span class="">Python 3.x.y
@@ -185,7 +193,7 @@ If you do so the device won't have any edgehog interface, but it will still show
   </a>
   <span class="text">Cleaning up</span>
 </h2>
-<p>As with astarte, you can clean your environment by running</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker-compose down
+<p>As with astarte, you can clean your environment by running</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker compose down
 </span></code></pre><p>to stop all the running edgehog containers.</p>
 <div class="bottom-actions">
   <div class="bottom-actions-item">
