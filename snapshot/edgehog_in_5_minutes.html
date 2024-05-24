@@ -173,8 +173,8 @@ Doing this is pretty straightforward, but you may need to install the <code clas
 you are using a Debian/Ubuntu-based system.</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">python3 -m venv pyenv
 </span><span class="gp unselectable">$ </span><span class="">source pyenv/bin/activate
 </span></code></pre></blockquote><p>Then, navigate to the <code class="inline">tools/</code> subdirectory and install the required dependencies</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">cd tools &amp;&amp; pip install -r requirements.txt
-</span></code></pre><p>Now you can generate the login token with</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">./gen-edgehog-jwt -k ../acme_private.pem
-</span></code></pre><blockquote><p>If in the previous section you had decided not to use a custom key, use this command instead</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">./gen-edgehog-jwt -k ../backend/priv/repo/seeds/keys/tenant_private.pem
+</span></code></pre><p>Now you can generate the login token with</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">./gen-edgehog-jwt -t tenant -k ../acme_private.pem
+</span></code></pre><blockquote><p>If in the previous section you had decided not to use a custom key, use this command instead</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">./gen-edgehog-jwt -t tenant -k ../backend/priv/repo/seeds/keys/tenant_private.pem
 </span></code></pre></blockquote><p>You can finally navigate to <code class="inline">http://edgehog.localhost</code> in your browser and login to the
 <code class="inline">acme-inc</code> tenant using your newly generated token.</p><h2 id="test-astarte-connection" class="section-heading">
   <a href="#test-astarte-connection" class="hover-link">
