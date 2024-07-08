@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.30.9">
+    <meta name="project" content="Edgehog v0.9.0-rc.0">
+
+    <title>Devices — Edgehog v0.9.0-rc.0</title>
+    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
+
+
+    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
+    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
+    <script src="dist/sidebar_items-A38D3061.js"></script>
+
+      <script src="../versions.js"></script>
+
+    <script async src="dist/html-J2ASZTQE.js"></script>
+
+
+  </head>
+  <body data-type="extras" class="page-extra">
+    <script>
+
+      try {
+        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
+
+        if (settings.theme === 'dark' ||
+           ((settings.theme === 'system' || settings.theme == null) &&
+             window.matchMedia('(prefers-color-scheme: dark)').matches)
+           ) {
+          document.body.classList.add('dark')
+        }
+      } catch (error) { }
+    </script>
+
+<div class="main">
+
+<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+  <form class="sidebar-search" action="search.html">
+    <label class="search-label">
+      <span class="sr-only">Search documentation of Edgehog</span>
+      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+    </label>
+    <button type="submit" class="search-button" aria-label="Submit Search">
+      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
+    </button>
+    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+      <i class="ri-close-line ri-lg" title="Cancel search"></i>
+    </button>
+  </form>
+
+  <div class="autocomplete">
+    <div class="autocomplete-results">
+    </div>
+  </div>
+
+  <div class="sidebar-header">
+
+      <a href="http://edgehog.io">
+        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
+      </a>
+
+    <div class="sidebar-projectDetails">
+      <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Edgehog
+      </a>
+      <div class="sidebar-projectVersion" translate="no">
+        v0.9.0-rc.0
+      </div>
+    </div>
+    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
+      <li>
+        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
+Pages
+        </button>
+      </li>
+
+
+    </ul>
+  </div>
+
+  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
+    <ul id="extras-full-list" class="full-list"></ul>
+  </div>
+
+
+</nav>
+
+<main class="content">
+  <output role="status" id="toast"></output>
+  <div class="content-outer">
+    <div id="content" class="content-inner">
+
+<h1>
+<button class="icon-action display-settings">
+  <i class="ri-settings-3-line"></i>
+  <span class="sr-only">Settings</span>
+</button>
+
+
+
+  <span>Devices</span>
+</h1>
+
+<p>As mentioned in the <a href="core_concepts.html">core concepts</a>, a Device is an entity connected to Astarte.</p><p>In the device list you can see all the Devices that are available.</p><p><img src="assets/devices.png" alt="Devices Screenshot"/></p><p>For each Device the following information can be displayed:</p><ul><li>Name: a user friendly name</li><li>Device ID: the ID that uniquely identifies the device connecting to Astarte</li><li>System Model: the System Model associated to the Device</li><li>Hardware Type: the Hardware Type associated to the Device's System Model</li><li>Status: Reports the connection status, indicating whether the Device is connected to Astarte</li><li>Last Seen: Reports the time of the last connection activity of the Device</li></ul><p>Clicking on a Device's name brings to a page dedicated to that Device to display additional info.</p><h2 id="adding-a-device" class="section-heading">
+  <a href="#adding-a-device" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Adding a Device</span>
+</h2>
+<p>Each Device will become visible in Edgehog automatically the first time it connects to Astarte.
+Indeed, Astarte informs Edgehog about the Device's presence and activity via Astarte Triggers, which
+should be configured to relay the appropriate events.</p><h2 id="associating-a-device-to-a-system-model" class="section-heading">
+  <a href="#associating-a-device-to-a-system-model" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Associating a Device to a System Model</span>
+</h2>
+<p>Each Device is associated to a specific System Model. The System Model is the fundamental identifier
+when it comes to software updates, since it dictates which software is supported and what
+functionalities should be configured.</p><p>However, during its lifetime, a Device can be tied to different System Models. Say, for example,
+that two different models of e-bikes are sent to maintenance; if they share the same hardware, the
+working PCB board of one model could be fitted into the other one.</p><p>For this reason, each time a Device connects to Astarte, it can notify Astarte about the System
+Model it refers to, exposing its Part Number. Astarte then informs Edgehog via Astarte Triggers, so
+that Edgehog can associate the Device to the correct System Model by matching the Device's Part
+Number with the ones of the System Model.</p><h2 id="tags-and-attributes" class="section-heading">
+  <a href="#tags-and-attributes" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Tags and Attributes</span>
+</h2>
+<p>A Device can have some <a href="core_concepts.html#tags-attributes-and-groups">Tags and Attributes</a>
+associated with it.</p><p>Tags are purely user-defined and can be added and removed from the Device page.</p><p>Attributes are mostly automatically populated but the <code class="inline">custom</code> namespace attributes can be assigned
+freely from the Device page.</p><p>Tags and attributes can be used to determine the membership of a Device to a specific
+<a href="groups.html">group</a>, which in turn can be used to assign a Device to a specific Update Channel when
+receiving <a href="ota_updates.html">OTA Updates</a>.</p><h2 id="device-info" class="section-heading">
+  <a href="#device-info" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Device info</span>
+</h2>
+<p>On the page of each Device different sets of data are shown. On top of the basic info already
+visible in the device list, additional sections can be displayed here to report operational data
+exposed by the device.</p><p>The details about how devices publish such data are explained in
+<a href="interacting_with_edgehog.html">Interacting with Edgehog</a>.</p><h3 id="hardware-info" class="section-heading">
+  <a href="#hardware-info" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Hardware info</span>
+</h3>
+<p>This section reports an overview on the general hardware capabilities of the Device.</p><p><img src="assets/device_hardware_info.png" alt="Device Hardware Info Screenshot"/></p><h3 id="operating-system" class="section-heading">
+  <a href="#operating-system" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Operating System</span>
+</h3>
+<p>This section reports an overview of the operating system of the Device.</p><p><img src="assets/device_operating_system.png" alt="Device Operating System Screenshot"/></p><h3 id="runtime" class="section-heading">
+  <a href="#runtime" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Runtime</span>
+</h3>
+<p>This section reports an overview about the Edgehog runtime running on the Device.</p><p><img src="assets/device_runtime.png" alt="Device Runtime Screenshot"/></p><h3 id="base-image" class="section-heading">
+  <a href="#base-image" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Base Image</span>
+</h3>
+<p>This section reports an overview of the Base Image of the Device.</p><p><img src="assets/device_base_image.png" alt="Device Base Image Screenshot"/></p><h3 id="system-status" class="section-heading">
+  <a href="#system-status" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">System status</span>
+</h3>
+<p>This section reports an overview on the current system status of the Device.</p><p><img src="assets/device_system_status.png" alt="Device System Status Screenshot"/></p><h3 id="storage-status" class="section-heading">
+  <a href="#storage-status" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Storage Status</span>
+</h3>
+<p>This section reports an overview on the capacity and usage of the storage units of the Device.</p><p><img src="assets/device_storage.png" alt="Device Storage Screenshot"/></p><h3 id="battery-status" class="section-heading">
+  <a href="#battery-status" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Battery status</span>
+</h3>
+<p>This section reports an overview on the current status of the battery slots of the Device.</p><p><img src="assets/device_battery.png" alt="Device Battery Screenshot"/></p><h3 id="cellular-connection" class="section-heading">
+  <a href="#cellular-connection" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Cellular Connection</span>
+</h3>
+<p>This section reports an overview of the cellular connection of the Device.</p><p><img src="assets/device_cellular_connection.png" alt="Device Cellular Connection Screenshot"/></p><h3 id="network-interfaces" class="section-heading">
+  <a href="#network-interfaces" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Network Interfaces</span>
+</h3>
+<p>This section reports the list of network interfaces of the Device.
+<img src="assets/device_network_interfaces.png" alt="Device Network Interfaces Screenshot"/></p><h3 id="nearby-wifi-aps" class="section-heading">
+  <a href="#nearby-wifi-aps" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Nearby WiFi APs</span>
+</h3>
+<p>This section reports the list of nearby Access Points that the Device found while scanning for WiFi
+signals.</p><p><img src="assets/device_wifi_aps.png" alt="Device WiFi APs Screenshot"/></p><h3 id="geolocation" class="section-heading">
+  <a href="#geolocation" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Geolocation</span>
+</h3>
+<p>This section reports the approximate location of the Device, using Edgehog's geolocation modules to
+estimate a set of GPS coordinates.</p><p><img src="assets/device_geolocation.png" alt="Device Geolocation Screenshot"/></p><p>Depending on the data exposed by the Device, the coordinates can be estimated from:</p><ul><li>the GPS position published via the Astarte interface
+<a href="astarte_interfaces.html">io.edgehog.devicemanager.Geolocation</a>.</li><li>nearby WiFi APs that the Device detected recently, published via the Astarte interface
+<a href="astarte_interfaces.html">io.edgehog.devicemanager.WiFiScanResults</a></li><li>the IP address used by the Device to connect to Astarte</li></ul><p>Based on the available data, Edgehog's geolocation modules try to find to best estimate by relying
+on the most up-to-date info and using the ones that provide the most accuracy.</p>
+<div class="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="system_models.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+System Models
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="device_sdks_runtime.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+SDKs & Runtime
+        </span>
+      </a>
+
+  </div>
+</div>
+      <footer class="footer">
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+              Search HexDocs
+            </button>
+
+              <a href="Edgehog.epub" title="ePub version">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+      </footer>
+    </div>
+  </div>
+</main>
+</div>
+
+
+  </body>
+</html>

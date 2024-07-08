@@ -1,0 +1,458 @@
+---
+components:
+  responses:
+    errors:
+      content:
+        application/vnd.api+json:
+          schema:
+            $ref: '#/components/schemas/errors'
+      description: General Error
+  schemas:
+    error:
+      additionalProperties: false
+      properties:
+        code:
+          description: An application-specific error code, expressed as a string value.
+          type: string
+        detail:
+          description: A human-readable explanation specific to this occurrence of the problem.
+          type: string
+        id:
+          description: A unique identifier for this particular occurrence of the problem.
+          type: string
+        links:
+          $ref: '#/components/schemas/links'
+        source:
+          properties:
+            parameter:
+              description: A string indicating which query parameter caused the error.
+              type: string
+            pointer:
+              description: A JSON Pointer [RFC6901] to the associated entity in the request document [e.g. "/data" for a primary data object, or "/data/attributes/title" for a specific attribute].
+              type: string
+          type: object
+        status:
+          description: The HTTP status code applicable to this problem, expressed as a string value.
+          type: string
+        title:
+          description: A short, human-readable summary of the problem. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization.
+          type: string
+      type: object
+    errors:
+      items:
+        $ref: '#/components/schemas/error'
+      type: array
+      uniqueItems: true
+    link:
+      description: "A link MUST be represented as either: a string containing the link's URL or a link object."
+      type: string
+    links:
+      additionalProperties:
+        $ref: '#/components/schemas/link'
+      type: object
+    tenant:
+      additionalProperties: false
+      description: A "Resource object" representing a tenant
+      properties:
+        attributes:
+          additionalProperties: false
+          description: An attributes object for a tenant
+          properties:
+            default_locale:
+              description: The default locale supported by the tenant. Field included by default.
+              type: string
+            name:
+              description: The tenant name. Field included by default.
+              type: string
+            public_key:
+              description: The tenant public key. Field included by default.
+              type: string
+            slug:
+              description: The tenant slug. Field included by default.
+              type: string
+          required:
+            - name
+            - slug
+            - default_locale
+            - public_key
+          type: object
+        id:
+          type: string
+        relationships:
+          additionalProperties: false
+          description: A relationships object for a tenant
+          properties: {}
+          type: object
+        type:
+          type: string
+      required:
+        - type
+        - id
+      type: object
+    tenant-filter:
+      additionalProperties: false
+      description: Filters the query to results matching the given filter object
+      example: ''
+      properties:
+        and:
+          $ref: '#/components/schemas/tenant-filter'
+        default_locale:
+          $ref: '#/components/schemas/tenant-filter-default_locale'
+        name:
+          $ref: '#/components/schemas/tenant-filter-name'
+        not:
+          $ref: '#/components/schemas/tenant-filter'
+        or:
+          $ref: '#/components/schemas/tenant-filter'
+        public_key:
+          $ref: '#/components/schemas/tenant-filter-public_key'
+        slug:
+          $ref: '#/components/schemas/tenant-filter-slug'
+        tenant_id:
+          $ref: '#/components/schemas/tenant-filter-tenant_id'
+      type: object
+    tenant-filter-default_locale:
+      additionalProperties: false
+      properties:
+        eq:
+          type: string
+        greater_than:
+          type: string
+        greater_than_or_equal:
+          type: string
+        ilike:
+          type: string
+        in:
+          items:
+            type: string
+          type: array
+        is_nil:
+          type: boolean
+        less_than:
+          type: string
+        less_than_or_equal:
+          type: string
+        like:
+          type: string
+        not_eq:
+          type: string
+      type: object
+    tenant-filter-name:
+      additionalProperties: false
+      properties:
+        eq:
+          type: string
+        greater_than:
+          type: string
+        greater_than_or_equal:
+          type: string
+        ilike:
+          type: string
+        in:
+          items:
+            type: string
+          type: array
+        is_nil:
+          type: boolean
+        less_than:
+          type: string
+        less_than_or_equal:
+          type: string
+        like:
+          type: string
+        not_eq:
+          type: string
+      type: object
+    tenant-filter-public_key:
+      additionalProperties: false
+      properties:
+        eq:
+          type: string
+        greater_than:
+          type: string
+        greater_than_or_equal:
+          type: string
+        ilike:
+          type: string
+        in:
+          items:
+            type: string
+          type: array
+        is_nil:
+          type: boolean
+        less_than:
+          type: string
+        less_than_or_equal:
+          type: string
+        like:
+          type: string
+        not_eq:
+          type: string
+      type: object
+    tenant-filter-slug:
+      additionalProperties: false
+      properties:
+        eq:
+          type: string
+        greater_than:
+          type: string
+        greater_than_or_equal:
+          type: string
+        ilike:
+          type: string
+        in:
+          items:
+            type: string
+          type: array
+        is_nil:
+          type: boolean
+        less_than:
+          type: string
+        less_than_or_equal:
+          type: string
+        like:
+          type: string
+        not_eq:
+          type: string
+      type: object
+    tenant-filter-tenant_id:
+      additionalProperties: false
+      properties:
+        eq:
+          type: integer
+        greater_than:
+          type: integer
+        greater_than_or_equal:
+          type: integer
+        in:
+          items:
+            type: integer
+          type: array
+        is_nil:
+          type: boolean
+        less_than:
+          type: integer
+        less_than_or_equal:
+          type: integer
+        not_eq:
+          type: integer
+      type: object
+  securitySchemes:
+    api_key:
+      description: API Key provided in the Authorization header
+      in: header
+      name: api_key
+      type: apiKey
+info:
+  title: Edgehog Admin API
+  version: '1'
+openapi: 3.0.0
+paths:
+  /admin-api/v1/tenants:
+    get:
+      callbacks: {}
+      deprecated: false
+      description: /tenants operation on tenant resource
+      parameters:
+        - description: Filters the query to results with attributes matching the given filter object
+          in: query
+          name: filter
+          required: false
+          schema:
+            $ref: '#/components/schemas/tenant-filter'
+          style: deepObject
+        - description: Sort order to apply to the results
+          explode: false
+          in: query
+          name: sort
+          required: false
+          schema:
+            pattern: ^(tenant_id|-tenant_id|\+\+tenant_id|--tenant_id|name|-name|\+\+name|--name|slug|-slug|\+\+slug|--slug|default_locale|-default_locale|\+\+default_locale|--default_locale|public_key|-public_key|\+\+public_key|--public_key)(,(tenant_id|-tenant_id|\+\+tenant_id|--tenant_id|name|-name|\+\+name|--name|slug|-slug|\+\+slug|--slug|default_locale|-default_locale|\+\+default_locale|--default_locale|public_key|-public_key|\+\+public_key|--public_key))*$
+            type: string
+          style: form
+        - description: Paginates the response with the limit and offset or keyset pagination.
+          in: query
+          name: page
+          required: false
+          schema:
+            anyOf:
+              - properties:
+                  after:
+                    type: string
+                  before:
+                    type: string
+                  count:
+                    default: false
+                    type: boolean
+                  limit:
+                    minimum: 1
+                    type: integer
+                type: object
+              - properties:
+                  count:
+                    default: false
+                    type: boolean
+                  limit:
+                    minimum: 1
+                    type: integer
+                  offset:
+                    minimum: 0
+                    type: integer
+                type: object
+          style: deepObject
+        - description: Relationship paths to include in the response
+          explode: false
+          in: query
+          name: include
+          required: false
+          schema:
+            pattern: ^()(,())*$
+            type: string
+          style: form
+        - description: Limits the response fields to only those listed for each type
+          in: query
+          name: fields
+          required: false
+          schema:
+            additionalProperties: true
+            properties:
+              tenant:
+                description: Comma separated field names for tenant
+                example: tenant_id,name,slug,default_locale,public_key
+                type: string
+            type: object
+          style: deepObject
+      responses:
+        200:
+          content:
+            application/vnd.api+json:
+              schema:
+                properties:
+                  data:
+                    description: An array of resource objects representing a tenant
+                    items:
+                      $ref: '#/components/schemas/tenant'
+                    type: array
+                    uniqueItems: true
+                  included:
+                    items:
+                      oneOf: []
+                    type: array
+                    uniqueItems: true
+                  meta:
+                    additionalProperties: true
+                    type: object
+                type: object
+          description: Success
+        default:
+          $ref: '#/components/responses/errors'
+      tags:
+        - tenant
+    post:
+      callbacks: {}
+      deprecated: false
+      description: /tenants operation on tenant resource
+      parameters:
+        - description: Relationship paths to include in the response
+          explode: false
+          in: query
+          name: include
+          required: false
+          schema:
+            pattern: ^()(,())*$
+            type: string
+          style: form
+        - description: Limits the response fields to only those listed for each type
+          in: query
+          name: fields
+          required: false
+          schema:
+            additionalProperties: true
+            properties:
+              tenant:
+                description: Comma separated field names for tenant
+                example: tenant_id,name,slug,default_locale,public_key
+                type: string
+            type: object
+          style: deepObject
+      requestBody:
+        content:
+          application/vnd.api+json:
+            schema:
+              additionalProperties: false
+              properties:
+                data:
+                  additionalProperties: false
+                  properties:
+                    attributes:
+                      additionalProperties: false
+                      properties:
+                        astarte_config:
+                          properties:
+                            base_api_url:
+                              type: string
+                            realm_name:
+                              type: string
+                            realm_private_key:
+                              type: string
+                          required:
+                            - base_api_url
+                            - realm_name
+                            - realm_private_key
+                          type: object
+                        default_locale:
+                          type: string
+                        name:
+                          type: string
+                        public_key:
+                          type: string
+                        slug:
+                          type: string
+                      required:
+                        - name
+                        - slug
+                        - public_key
+                        - astarte_config
+                      type: object
+                    relationships:
+                      additionalProperties: false
+                      properties: {}
+                      type: object
+                    type:
+                      enum:
+                        - tenant
+                  type: object
+              required:
+                - data
+              type: object
+        description: Request body for the /tenants operation on tenant resource
+        required: true
+      responses:
+        201:
+          content:
+            application/vnd.api+json:
+              schema:
+                properties:
+                  data:
+                    $ref: '#/components/schemas/tenant'
+                  included:
+                    items:
+                      oneOf: []
+                    type: array
+                    uniqueItems: true
+                  meta:
+                    additionalProperties: true
+                    type: object
+          description: Success
+        default:
+          $ref: '#/components/responses/errors'
+      tags:
+        - tenant
+security:
+  - api_key: []
+servers:
+  - url: http://localhost:4000
+    variables: {}
+tags:
+  - description: Operations on the tenant resource.
+    name: tenant
