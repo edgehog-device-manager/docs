@@ -453,6 +453,4 @@ security:
 servers:
   - url: http://localhost:4000
     variables: {}
-tags:
-  - description: Operations on the tenant resource.
-    name: tenant
+tags: []
