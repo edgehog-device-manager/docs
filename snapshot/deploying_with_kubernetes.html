@@ -4,21 +4,19 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.30.9">
-    <meta name="project" content="Edgehog v0.9.0-dev">
+    <meta name="generator" content="ExDoc v0.34.2">
+    <meta name="project" content="Edgehog v0.9.0-rc.2">
 
-    <title>Deploying with Kubernetes — Edgehog v0.9.0-dev</title>
-    <link rel="stylesheet" href="dist/html-elixir-XFYN5IVA.css" />
+
+    <title>Deploying with Kubernetes — Edgehog v0.9.0-rc.2</title>
+    <link rel="stylesheet" href="dist/html-elixir-F2VRIOKR.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-EPF2X7PV.js"></script>
+    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
     <script src="dist/sidebar_items-A38D3061.js"></script>
-
-      <script src="../versions.js"></script>
-
-    <script async src="dist/html-J2ASZTQE.js"></script>
-
+    <script src="docs_config.js"></script>
+    <script async src="dist/html-YIPIRHGU.js"></script>
 
   </head>
   <body data-type="extras" class="page-extra">
@@ -36,43 +34,28 @@
       } catch (error) { }
     </script>
 
-<div class="main">
+<div class="body-wrapper">
 
-<button class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
   <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
 </button>
 
 <nav id="sidebar" class="sidebar">
-  <form class="sidebar-search" action="search.html">
-    <label class="search-label">
-      <span class="sr-only">Search documentation of Edgehog</span>
-      <input name="q" type="text" class="search-input" placeholder="Search..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
-    </label>
-    <button type="submit" class="search-button" aria-label="Submit Search">
-      <i class="ri-search-2-line" aria-hidden="true" title="Submit search"></i>
-    </button>
-    <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-      <i class="ri-close-line ri-lg" title="Cancel search"></i>
-    </button>
-  </form>
-
-  <div class="autocomplete">
-    <div class="autocomplete-results">
-    </div>
-  </div>
 
   <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
 
-      <a href="http://edgehog.io">
-        <img src="assets/logo.png" alt="Edgehog" class="sidebar-projectImage">
-      </a>
+        <a href="http://edgehog.io" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Edgehog" />
+        </a>
 
-    <div class="sidebar-projectDetails">
-      <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+      <div>
+        <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
 Edgehog
-      </a>
-      <div class="sidebar-projectVersion" translate="no">
-        v0.9.0-dev
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.9.0-rc.2
+        </div>
       </div>
     </div>
     <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
@@ -95,19 +78,37 @@ Pages
 
 <main class="content">
   <output role="status" id="toast"></output>
-  <div class="content-outer">
-    <div id="content" class="content-inner">
 
-<h1>
-<button class="icon-action display-settings">
-  <i class="ri-settings-3-line"></i>
-  <span class="sr-only">Settings</span>
-</button>
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Edgehog</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <h1>
 
 
-
-  <span>Deploying with Kubernetes</span>
-</h1>
+    <span>Deploying with Kubernetes</span>
+  </h1>
 
 <p>Edgehog was designed as a Kubernetes native application, this guide will show how to deploy an
 Edgehog instance in a Kubernetes cluster.</p><p><em>Note: currently Edgehog requires some manual initialization operations to be performed in the
@@ -323,7 +324,7 @@ spec:
           value: &lt;EDGEHOG-FORWARDER-PORT&gt;
         - name: EDGEHOG_FORWARDER_SECURE_SESSIONS
           value: &lt;EDGEHOG-FORWARDER-SECURE-SESSIONS&gt;
-        image: edgehogdevicemanager/edgehog-backend:snapshot
+        image: edgehogdevicemanager/edgehog-backend:0.9.0-rc.2
         imagePullPolicy: Always
         name: edgehog-backend
         ports:
@@ -357,7 +358,7 @@ spec:
       - env:
         - name: BACKEND_URL
           value: &lt;BACKEND-HOST&gt;
-        image: edgehogdevicemanager/edgehog-frontend:snapshot
+        image: edgehogdevicemanager/edgehog-frontend:0.9.0-rc.2
         imagePullPolicy: Always
         name: edgehog-frontend
         ports:
@@ -545,7 +546,7 @@ spec:
     - &lt;FRONTEND-HOST&gt;
     - &lt;BACKEND-HOST&gt;
     - &lt;DEVICE-FORWARDER-HOST&gt;
-    secretName: tls-secret</code></pre><p>Values to be replaced</p><ul><li><code class="inline">FRONTEND-HOST</code>: the frontend host.</li><li><code class="inline">BACKEND-HOST</code>: the backend host.</li><li><code class="inline">DEVICE-FORWARDER-HOST</code>: the device forwarder host.</li><li><code class="inline">MAX-UPLOAD-SIZE</code>: the maximum upload size that you defined in the <a href="https://edgehog-device-manager.github.io/docs/snapshot/deploying_with_kubernetes.html#deployments">Edgehog backend
+    secretName: tls-secret</code></pre><p>Values to be replaced</p><ul><li><code class="inline">FRONTEND-HOST</code>: the frontend host.</li><li><code class="inline">BACKEND-HOST</code>: the backend host.</li><li><code class="inline">DEVICE-FORWARDER-HOST</code>: the device forwarder host.</li><li><code class="inline">MAX-UPLOAD-SIZE</code>: the maximum upload size that you defined in the <a href="https://edgehog-device-manager.github.io/docs/0.9/deploying_with_kubernetes.html#deployments">Edgehog backend
 deployment</a>.
 Note that NGINX accepts also size suffixes, so you can put, e.g., <code class="inline">4G</code> for 4 gigabytes. Also note
 that, differently from the value in the Deployment, this is required because NGINX default is 1
@@ -596,17 +597,17 @@ Astarte cluster and Realm.</p><pre><code class="makeup elixir" translate="no"><s
 </span><span class="gp unselectable">iex&gt; </span><span class="n">realm_private_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;
 &lt;ASTARTE-REALM-PRIVATE-KEY&gt;
 &quot;&quot;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="8786521492-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="8786521492-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Provisioning</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="8786521492-2">(</span><span class="w">
-  </span><span class="p" data-group-id="8786521492-3">%{</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="3556121972-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="3556121972-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Provisioning</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="3556121972-2">(</span><span class="w">
+  </span><span class="p" data-group-id="3556121972-3">%{</span><span class="w">
     </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_name</span><span class="p">,</span><span class="w">
     </span><span class="ss">slug</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_slug</span><span class="p">,</span><span class="w">
     </span><span class="ss">public_key</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_public_key</span><span class="p">,</span><span class="w">
-    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8786521492-4">%{</span><span class="w">
+    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3556121972-4">%{</span><span class="w">
       </span><span class="ss">base_api_url</span><span class="p">:</span><span class="w"> </span><span class="n">base_api_url</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_name</span><span class="p">:</span><span class="w"> </span><span class="n">realm_name</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_private_key</span><span class="p">:</span><span class="w"> </span><span class="n">realm_private_key</span><span class="w">
-    </span><span class="p" data-group-id="8786521492-4">}</span><span class="w">
-  </span><span class="p" data-group-id="8786521492-3">}</span><span class="p" data-group-id="8786521492-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
+    </span><span class="p" data-group-id="3556121972-4">}</span><span class="w">
+  </span><span class="p" data-group-id="3556121972-3">}</span><span class="p" data-group-id="3556121972-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
 step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
 the file in the <code class="inline">iex</code> shell and then close the multiline string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li><li><code class="inline">ASTARTE-BASE-API-URL</code>: the base API url of the Astarte instance (e.g.
 <a href="https://api.astarte.example.com">https://api.astarte.example.com</a>).</li><li><code class="inline">ASTARTE-REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">ASTARTE-REALM-PRIVATE-KEY</code>: the content of you realm's private key. Open a multiline string with
@@ -627,7 +628,9 @@ step</a>.</li></ul><p>Note that the token expires after 24 hours by default. If 
 expiry time, you can pass <code class="inline">-e &lt;EXPIRY-SECONDS&gt;</code> to the <code class="inline">gen-edgehog-jwt</code> command.</p><p>After that, you can open your frontend URL in your browser and insert your tenant slug and token to
 log into your Edgehog instance, and use to the <a href="#intro_user">user guide</a> to discover all Edgehog
 features.</p>
-<div class="bottom-actions">
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
   <div class="bottom-actions-item">
 
       <a href="overview.html" class="bottom-actions-button" rel="prev">
@@ -653,34 +656,33 @@ Interacting with Edgehog
 
   </div>
 </div>
-      <footer class="footer">
-        <p>
+    <footer class="footer">
+      <p>
 
-          <span class="line">
-            <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-              Search HexDocs
-            </button>
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
 
-              <a href="Edgehog.epub" title="ePub version">
-                Download ePub version
-              </a>
+            <a href="Edgehog.epub" title="ePub version">
+              Download ePub version
+            </a>
 
-          </span>
-        </p>
+        </span>
+      </p>
 
-        <p class="built-using">
-          Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.30.9) for the
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.2) for the
 
-            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
-        </p>
-      </footer>
-    </div>
+      </p>
+
+    </footer>
   </div>
 </main>
 </div>
-
 
   </body>
 </html>
