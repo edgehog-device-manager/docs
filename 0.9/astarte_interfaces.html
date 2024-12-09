@@ -5,16 +5,16 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.34.2">
-    <meta name="project" content="Edgehog v0.9.1">
+    <meta name="project" content="Edgehog v0.9.2">
 
 
-    <title>Astarte Interfaces — Edgehog v0.9.1</title>
+    <title>Astarte Interfaces — Edgehog v0.9.2</title>
     <link rel="stylesheet" href="dist/html-elixir-F2VRIOKR.css" />
 
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-K7URE6B4.js"></script>
-    <script src="dist/sidebar_items-A38D3061.js"></script>
+    <script src="dist/sidebar_items-D777512F.js"></script>
     <script src="docs_config.js"></script>
     <script async src="dist/html-YIPIRHGU.js"></script>
 
@@ -54,7 +54,7 @@
 Edgehog
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.9.1
+          v0.9.2
         </div>
       </div>
     </div>
@@ -1045,11 +1045,11 @@ Delivered data is kept for 5184000 seconds before it is erased from the database
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-config-telemetry-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-config-telemetry-v0-1" class="hover-link">
+Delivered data is kept for 5184000 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-availablecontainers-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-availablecontainers-v0-1" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <span class="text">io.edgehog.devicemanager.config.Telemetry v0.1</span>
+  <span class="text">io.edgehog.devicemanager.apps.AvailableContainers v0.1</span>
 </h2>
 <h3 id="about-19" class="section-heading">
   <a href="#about-19" class="hover-link">
@@ -1057,9 +1057,564 @@ Delivered data is kept for 5184000 seconds before it is erased from the database
   </a>
   <span class="text">About</span>
 </h3>
-<p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
-Thanks to this type of interface, the server can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-19" class="section-heading">
+<p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-19" class="section-heading">
   <a href="#mappings-19" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{container_id}/status</code> with <code class="inline">string</code> type. Container status</li></ul><h3 id="container_id-status" class="section-heading">
+  <a href="#container_id-status" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/status</code></span>
+</h3>
+<p>Container status</p><p>Possible values [Received, Created, Running, Stopped]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h2 id="io-edgehog-devicemanager-apps-availabledeployments-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-availabledeployments-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.AvailableDeployments v0.1</span>
+</h2>
+<h3 id="about-20" class="section-heading">
+  <a href="#about-20" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-20" class="section-heading">
+  <a href="#mappings-20" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{deployment_id}/status</code> with <code class="inline">string</code> type. Status of the deployment</li></ul><h3 id="deployment_id-status" class="section-heading">
+  <a href="#deployment_id-status" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{deployment_id}/status</code></span>
+</h3>
+<p>Status of the deployment</p><p>Possible values: [Stopped, Started]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h2 id="io-edgehog-devicemanager-apps-availableimages-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-availableimages-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.AvailableImages v0.1</span>
+</h2>
+<p>Properties available for a specific Docker image on the device</p><h3 id="about-21" class="section-heading">
+  <a href="#about-21" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-21" class="section-heading">
+  <a href="#mappings-21" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{image_id}/pulled</code> with <code class="inline">boolean</code> type. Pulled image</li></ul><h3 id="image_id-pulled" class="section-heading">
+  <a href="#image_id-pulled" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{image_id}/pulled</code></span>
+</h3>
+<p>Pulled image</p><p>This endpoint accepts values of type <code class="inline">boolean</code>: either true or false, adhering to JSON boolean type.</p><p>The endpoint is parametric and <code class="inline">image_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h2 id="io-edgehog-devicemanager-apps-availablenetworks-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-availablenetworks-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.AvailableNetworks v0.1</span>
+</h2>
+<h3 id="about-22" class="section-heading">
+  <a href="#about-22" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-22" class="section-heading">
+  <a href="#mappings-22" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{network_id}/created</code> with <code class="inline">boolean</code> type. Network was created</li></ul><h3 id="network_id-created" class="section-heading">
+  <a href="#network_id-created" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{network_id}/created</code></span>
+</h3>
+<p>Network was created</p><p>This endpoint accepts values of type <code class="inline">boolean</code>: either true or false, adhering to JSON boolean type.</p><p>The endpoint is parametric and <code class="inline">network_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h2 id="io-edgehog-devicemanager-apps-availablevolumes-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-availablevolumes-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.AvailableVolumes v0.1</span>
+</h2>
+<h3 id="about-23" class="section-heading">
+  <a href="#about-23" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-23" class="section-heading">
+  <a href="#mappings-23" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{volume_id}/created</code> with <code class="inline">boolean</code> type. Volume created</li></ul><h3 id="volume_id-created" class="section-heading">
+  <a href="#volume_id-created" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{volume_id}/created</code></span>
+</h3>
+<p>Volume created</p><p>This endpoint accepts values of type <code class="inline">boolean</code>: either true or false, adhering to JSON boolean type.</p><p>The endpoint is parametric and <code class="inline">volume_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h2 id="io-edgehog-devicemanager-apps-createcontainerrequest-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-createcontainerrequest-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.CreateContainerRequest v0.1</span>
+</h2>
+<h3 id="about-24" class="section-heading">
+  <a href="#about-24" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-24" class="section-heading">
+  <a href="#mappings-24" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/container/id</code> with <code class="inline">string</code> type. Create Container Request id</li><li><code class="inline">/container/imageId</code> with <code class="inline">string</code> type. Container image id</li><li><code class="inline">/container/networkIds</code> with <code class="inline">stringarray</code> type. Container network ids</li><li><code class="inline">/container/volumeIds</code> with <code class="inline">stringarray</code> type. Container volume ids</li><li><code class="inline">/container/image</code> with <code class="inline">string</code> type. Container image</li><li><code class="inline">/container/hostname</code> with <code class="inline">string</code> type. Container hostname</li><li><code class="inline">/container/restartPolicy</code> with <code class="inline">string</code> type. Container restart policy</li><li><code class="inline">/container/env</code> with <code class="inline">stringarray</code> type. Container environment</li><li><code class="inline">/container/binds</code> with <code class="inline">stringarray</code> type. Container binds</li><li><code class="inline">/container/networkMode</code> with <code class="inline">string</code> type. Network mode used for this container.</li><li><code class="inline">/container/portBindings</code> with <code class="inline">stringarray</code> type. Container port bindings</li><li><code class="inline">/container/privileged</code> with <code class="inline">boolean</code> type. Run privileged</li></ul><h3 id="container-id" class="section-heading">
+  <a href="#container-id" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/id</code></span>
+</h3>
+<p>Create Container Request id</p><p>Unique id for the container.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-imageid" class="section-heading">
+  <a href="#container-imageid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/imageId</code></span>
+</h3>
+<p>Container image id</p><p>The id of the image to use when creating the container.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-networkids" class="section-heading">
+  <a href="#container-networkids" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/networkIds</code></span>
+</h3>
+<p>Container network ids</p><p>The ids of the network to connect with the container.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-volumeids" class="section-heading">
+  <a href="#container-volumeids" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/volumeIds</code></span>
+</h3>
+<p>Container volume ids</p><p>The ids of the volumes to mount on the container.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-image" class="section-heading">
+  <a href="#container-image" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/image</code></span>
+</h3>
+<p>Container image</p><p>TODO: this will be remove (by only sending the image_id), when it will be supported on the device.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-hostname" class="section-heading">
+  <a href="#container-hostname" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/hostname</code></span>
+</h3>
+<p>Container hostname</p><p>The hostname to use for the container, as a valid RFC 1123 hostname.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-restartpolicy" class="section-heading">
+  <a href="#container-restartpolicy" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/restartPolicy</code></span>
+</h3>
+<p>Container restart policy</p><p>The behavior to apply when the container exits. Possible values are: ['', 'no', 'always' 'unless-stopped', 'on-failure']</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-env" class="section-heading">
+  <a href="#container-env" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/env</code></span>
+</h3>
+<p>Container environment</p><p>Array of KEY=value environment variables</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-binds" class="section-heading">
+  <a href="#container-binds" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/binds</code></span>
+</h3>
+<p>Container binds</p><p>A list of volume bindings for this container. Each volume binding is a string in one of these forms: host-src:container-dest[:options], or volume-name:container-dest[:options]. The container-dest must be an absolute path.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-networkmode" class="section-heading">
+  <a href="#container-networkmode" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/networkMode</code></span>
+</h3>
+<p>Network mode used for this container.</p><p>Supported standard values are: bridge, host, none, and container:&lt;name|id&gt;. Any other value is taken as a custom network's name to which this container should connect to. If you are using a different container engine than docker, there could be other values.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-portbindings" class="section-heading">
+  <a href="#container-portbindings" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/portBindings</code></span>
+</h3>
+<p>Container port bindings</p><p>Array of ip:[host_port:]container_port[/protocol] | [hostPort:]containerPort[/protocol]. Protocol is TCP by default</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-privileged" class="section-heading">
+  <a href="#container-privileged" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/privileged</code></span>
+</h3>
+<p>Run privileged</p><p>Runs the exec process with extended privileges.</p><p>This endpoint accepts values of type <code class="inline">boolean</code>: either true or false, adhering to JSON boolean type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-createdeploymentrequest-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-createdeploymentrequest-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.CreateDeploymentRequest v0.1</span>
+</h2>
+<h3 id="about-25" class="section-heading">
+  <a href="#about-25" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-25" class="section-heading">
+  <a href="#mappings-25" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/deployment/id</code> with <code class="inline">string</code> type. Create Deployment Request id</li><li><code class="inline">/deployment/containers</code> with <code class="inline">stringarray</code> type. Deployment containers</li></ul><h3 id="deployment-id" class="section-heading">
+  <a href="#deployment-id" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/deployment/id</code></span>
+</h3>
+<p>Create Deployment Request id</p><p>Unique id for the deployment.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="deployment-containers" class="section-heading">
+  <a href="#deployment-containers" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/deployment/containers</code></span>
+</h3>
+<p>Deployment containers</p><p>Containers used by the deployment.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-createimagerequest-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-createimagerequest-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.CreateImageRequest v0.1</span>
+</h2>
+<p>Request to pull and create a container image.</p><p>The ttl of this datastream is short to keep the sensitive fields private.</p><h3 id="about-26" class="section-heading">
+  <a href="#about-26" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-26" class="section-heading">
+  <a href="#mappings-26" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/image/id</code> with <code class="inline">string</code> type. Create Image Request id</li><li><code class="inline">/image/reference</code> with <code class="inline">string</code> type. Image reference to be pulled</li><li><code class="inline">/image/registryAuth</code> with <code class="inline">string</code> type. Image registry authentication header</li></ul><h3 id="image-id" class="section-heading">
+  <a href="#image-id" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/image/id</code></span>
+</h3>
+<p>Create Image Request id</p><p>Unique id for the container image.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 600 seconds before it is erased from the database.</p><h3 id="image-reference" class="section-heading">
+  <a href="#image-reference" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/image/reference</code></span>
+</h3>
+<p>Image reference to be pulled</p><p>Name of the image to pull. It should be in the form [regitry-host[:port]/][image-repo/]image-name[:(tag|digest)]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 600 seconds before it is erased from the database.</p><h3 id="image-registryauth" class="section-heading">
+  <a href="#image-registryauth" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/image/registryAuth</code></span>
+</h3>
+<p>Image registry authentication header</p><p>Optional base64url-encoded JSON for the auth configuration to the registry. An empty string means the image is public and doesn't require authentication. See <a href="https://docs.docker.com/reference/api/engine/version/v1.43/#section/Authentication">https://docs.docker.com/reference/api/engine/version/v1.43/#section/Authentication</a> for more information.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 600 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-createnetworkrequest-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-createnetworkrequest-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.CreateNetworkRequest v0.1</span>
+</h2>
+<h3 id="about-27" class="section-heading">
+  <a href="#about-27" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-27" class="section-heading">
+  <a href="#mappings-27" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/network/id</code> with <code class="inline">string</code> type. Create Network Request id</li><li><code class="inline">/network/driver</code> with <code class="inline">string</code> type. Network driver</li><li><code class="inline">/network/internal</code> with <code class="inline">boolean</code> type. Internal network</li><li><code class="inline">/network/enableIpv6</code> with <code class="inline">boolean</code> type. Enable IPv6</li><li><code class="inline">/network/options</code> with <code class="inline">stringarray</code> type. Network driver options</li></ul><h3 id="network-id" class="section-heading">
+  <a href="#network-id" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/network/id</code></span>
+</h3>
+<p>Create Network Request id</p><p>Unique id for the container network.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="network-driver" class="section-heading">
+  <a href="#network-driver" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/network/driver</code></span>
+</h3>
+<p>Network driver</p><p>Name of the network driver plugin to use.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="network-internal" class="section-heading">
+  <a href="#network-internal" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/network/internal</code></span>
+</h3>
+<p>Internal network</p><p>Restrict external access to the network.</p><p>This endpoint accepts values of type <code class="inline">boolean</code>: either true or false, adhering to JSON boolean type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="network-enableipv6" class="section-heading">
+  <a href="#network-enableipv6" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/network/enableIpv6</code></span>
+</h3>
+<p>Enable IPv6</p><p>Enable IPv6 on the network.</p><p>This endpoint accepts values of type <code class="inline">boolean</code>: either true or false, adhering to JSON boolean type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="network-options" class="section-heading">
+  <a href="#network-options" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/network/options</code></span>
+</h3>
+<p>Network driver options</p><p>An array of key=value options to set for the driver.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-createvolumerequest-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-createvolumerequest-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.CreateVolumeRequest v0.1</span>
+</h2>
+<h3 id="about-28" class="section-heading">
+  <a href="#about-28" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-28" class="section-heading">
+  <a href="#mappings-28" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/volume/id</code> with <code class="inline">string</code> type. Create Volume Request id</li><li><code class="inline">/volume/driver</code> with <code class="inline">string</code> type. Volume driver name</li><li><code class="inline">/volume/options</code> with <code class="inline">stringarray</code> type. Volume driver options</li></ul><h3 id="volume-id" class="section-heading">
+  <a href="#volume-id" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/volume/id</code></span>
+</h3>
+<p>Create Volume Request id</p><p>Unique id for the volume.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="volume-driver" class="section-heading">
+  <a href="#volume-driver" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/volume/driver</code></span>
+</h3>
+<p>Volume driver name</p><p>Name of the volume driver to use.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="volume-options" class="section-heading">
+  <a href="#volume-options" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/volume/options</code></span>
+</h3>
+<p>Volume driver options</p><p>An array of key=value options to set for the driver.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-deploymentcommand-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-deploymentcommand-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.DeploymentCommand v0.1</span>
+</h2>
+<h3 id="about-29" class="section-heading">
+  <a href="#about-29" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">individual</code> aggregation.
+Each mapping is treated as an independent value and is managed individually.</p><h3 id="mappings-29" class="section-heading">
+  <a href="#mappings-29" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{deployment_id}/command</code> with <code class="inline">string</code> type. Deployment command</li></ul><h3 id="deployment_id-command" class="section-heading">
+  <a href="#deployment_id-command" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{deployment_id}/command</code></span>
+</h3>
+<p>Deployment command</p><p>Possible values [Start, Stop, Delete]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-deploymentevent-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-deploymentevent-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.DeploymentEvent v0.1</span>
+</h2>
+<h3 id="about-30" class="section-heading">
+  <a href="#about-30" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-30" class="section-heading">
+  <a href="#mappings-30" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{deployment_id}/status</code> with <code class="inline">string</code> type. Deployment status</li><li><code class="inline">/%{deployment_id}/message</code> with <code class="inline">string</code> type. Optional message for the event</li></ul><h3 id="deployment_id-status-1" class="section-heading">
+  <a href="#deployment_id-status-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{deployment_id}/status</code></span>
+</h3>
+<p>Deployment status</p><p>Possible values: [Starting, Stopping, Updating, Deleting, Error]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="deployment_id-message" class="section-heading">
+  <a href="#deployment_id-message" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{deployment_id}/message</code></span>
+</h3>
+<p>Optional message for the event</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-deploymentupdate-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-deploymentupdate-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.DeploymentUpdate v0.1</span>
+</h2>
+<h3 id="about-31" class="section-heading">
+  <a href="#about-31" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-31" class="section-heading">
+  <a href="#mappings-31" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/deployment/from</code> with <code class="inline">string</code> type. Id of the deployment to update from</li><li><code class="inline">/deployment/to</code> with <code class="inline">string</code> type. Id of the deployment to update to</li></ul><h3 id="deployment-from" class="section-heading">
+  <a href="#deployment-from" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/deployment/from</code></span>
+</h3>
+<p>Id of the deployment to update from</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="deployment-to" class="section-heading">
+  <a href="#deployment-to" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/deployment/to</code></span>
+</h3>
+<p>Id of the deployment to update to</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-config-telemetry-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-config-telemetry-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.config.Telemetry v0.1</span>
+</h2>
+<h3 id="about-32" class="section-heading">
+  <a href="#about-32" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-32" class="section-heading">
+  <a href="#mappings-32" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
