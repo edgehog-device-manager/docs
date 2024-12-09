@@ -183,10 +183,7 @@ you are using a Debian/Ubuntu-based system.</p><pre><code class="makeup sh" tran
   </a>
   <span class="text">Test Astarte connection</span>
 </h2>
-<p>Astarte connectivity may not work right away, as edgehog has not yet reconciled
-its interfaces and triggers with astarte. Without waiting, we can force it to execute
-the reconciler using:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">docker compose exec edgehog-backend bin/edgehog rpc &quot;Edgehog.Tenants.list_tenants |&gt; Enum.each(&amp;Edgehog.Tenants.reconcile_tenant/1)&quot;
-</span></code></pre><p>If you now connect a device to astarte and open or reload the edgehog web page,
+<p>If you now connect a device to astarte and open or reload the edgehog web page,
 you should see the new device in the appropriate section.</p><blockquote><p>You can use <a href="https://docs.astarte-platform.org/astarte/latest/010-astarte_in_5_minutes.html#stream-data">stream-qt5-test</a>.
 If you do so the device won't have any edgehog interface, but it will still show up as connected.</p></blockquote><h2 id="cleaning-up" class="section-heading">
   <a href="#cleaning-up" class="hover-link">
