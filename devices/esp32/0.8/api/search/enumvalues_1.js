@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['edgehog_5ferr_0',['EDGEHOG_ERR',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539a613965d7b5ef1547d18869da7df0cfcd',1,'edgehog.h']]],
+  ['edgehog_5ferr_5fdevice_5fnot_5fready_1',['EDGEHOG_ERR_DEVICE_NOT_READY',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539a8a23fafe6024e75d6d5f723495f30748',1,'edgehog.h']]],
+  ['edgehog_5ferr_5fnetwork_2',['EDGEHOG_ERR_NETWORK',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539a305765b54ea2c641c6e4ad32db3aa955',1,'edgehog.h']]],
+  ['edgehog_5ferr_5fnvs_3',['EDGEHOG_ERR_NVS',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539aa45f1e21e8d399cbd2a8e31171e3f212',1,'edgehog.h']]],
+  ['edgehog_5ferr_5fota_5falready_5fin_5fprogress_4',['EDGEHOG_ERR_OTA_ALREADY_IN_PROGRESS',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539a745d9cbe8ef3f96cb036da557f238ed8',1,'edgehog.h']]],
+  ['edgehog_5ferr_5fota_5fcanceled_5',['EDGEHOG_ERR_OTA_CANCELED',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539a2c45ff8fe447a7a96cb301df3df8d4d0',1,'edgehog.h']]],
+  ['edgehog_5ferr_5fota_5finternal_6',['EDGEHOG_ERR_OTA_INTERNAL',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539ab451b2db112719e8962eae8ccaee9805',1,'edgehog.h']]],
+  ['edgehog_5ferr_5fota_5finvalid_5fimage_7',['EDGEHOG_ERR_OTA_INVALID_IMAGE',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539ada8cade8706122fb8f1b22be44369230',1,'edgehog.h']]],
+  ['edgehog_5ferr_5fota_5finvalid_5frequest_8',['EDGEHOG_ERR_OTA_INVALID_REQUEST',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539a292670a35d7b72a60d4f815038be8659',1,'edgehog.h']]],
+  ['edgehog_5ferr_5fota_5fsystem_5frollback_9',['EDGEHOG_ERR_OTA_SYSTEM_ROLLBACK',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539a7eb14c4605cb407a82f1e0e724ebbbfa',1,'edgehog.h']]],
+  ['edgehog_5ferr_5ftask_5fcreate_10',['EDGEHOG_ERR_TASK_CREATE',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539a005822e4f2c3825ee507584ae10acc9d',1,'edgehog.h']]],
+  ['edgehog_5finvalid_5fevent_11',['EDGEHOG_INVALID_EVENT',['../edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ab6d97ea75f26d31194e601038af3ca5c',1,'edgehog_event.h']]],
+  ['edgehog_5fok_12',['EDGEHOG_OK',['../edgehog_8h.html#aae1a4720860b0f86b35aa74aa0675539ad8acdf2cd03da4b67804a7efafbfd911',1,'edgehog.h']]],
+  ['edgehog_5fota_5ffailed_5fevent_13',['EDGEHOG_OTA_FAILED_EVENT',['../edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873ae47cd0e88bc26ef682db038cc60b33bf',1,'edgehog_event.h']]],
+  ['edgehog_5fota_5finit_5fevent_14',['EDGEHOG_OTA_INIT_EVENT',['../edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a70df5026f03a44d3e9c8a544aff83b11',1,'edgehog_event.h']]],
+  ['edgehog_5fota_5fsuccess_5fevent_15',['EDGEHOG_OTA_SUCCESS_EVENT',['../edgehog__event_8h.html#a653c675817dafda3a8c74901b3b02873a64da146c14ad3ba0f27976d51eebdb2a',1,'edgehog_event.h']]],
+  ['edgehog_5ftelemetry_5fbattery_5fstatus_16',['EDGEHOG_TELEMETRY_BATTERY_STATUS',['../edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940afc1f59f48d9bd1a64c124042ef97b4ca',1,'edgehog_device.h']]],
+  ['edgehog_5ftelemetry_5fgeolocation_5finfo_17',['EDGEHOG_TELEMETRY_GEOLOCATION_INFO',['../edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940a6da89f2fa9ed924fa5164aae9884bfb5',1,'edgehog_device.h']]],
+  ['edgehog_5ftelemetry_5fhw_5finfo_18',['EDGEHOG_TELEMETRY_HW_INFO',['../edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940ae8b7237505625417e44ded71720e9719',1,'edgehog_device.h']]],
+  ['edgehog_5ftelemetry_5finvalid_19',['EDGEHOG_TELEMETRY_INVALID',['../edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940a0f44dedb277a54d37f8450537dd61183',1,'edgehog_device.h']]],
+  ['edgehog_5ftelemetry_5fstorage_5fusage_20',['EDGEHOG_TELEMETRY_STORAGE_USAGE',['../edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940aeba516a8ae68ede828af7827f8672351',1,'edgehog_device.h']]],
+  ['edgehog_5ftelemetry_5fsystem_5fstatus_21',['EDGEHOG_TELEMETRY_SYSTEM_STATUS',['../edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940a80ed05cac219d5ea9cd1fd4ada30cdf9',1,'edgehog_device.h']]],
+  ['edgehog_5ftelemetry_5fwifi_5fscan_22',['EDGEHOG_TELEMETRY_WIFI_SCAN',['../edgehog__device_8h.html#a135c0cc7ffc82bfa693dd7fcc14fd940ac668d0fe8bc361a2fe75088e696aa44b',1,'edgehog_device.h']]]
+];

@@ -1,0 +1,18 @@
+digraph "/home/runner/work/edgehog-esp32-device/edgehog-esp32-device/edgehog-device-esp32/include/edgehog.h"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [id="Node000001",label="/home/runner/work/edgehog\l-esp32-device/edgehog-esp32\l-device/edgehog-device-esp32\l/include/edgehog.h",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Edgehog types and defines."];
+  Node1 -> Node2 [id="edge1_Node000001_Node000002",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node2 [id="Node000002",label="/home/runner/work/edgehog\l-esp32-device/edgehog-esp32\l-device/edgehog-device-esp32\l/include/edgehog_device.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$edgehog__device_8h.html",tooltip="Edgehog device SDK API."];
+  Node2 -> Node3 [id="edge2_Node000002_Node000003",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node3 [id="Node000003",label="/home/runner/work/edgehog\l-esp32-device/edgehog-esp32\l-device/edgehog-device-esp32\l/include/edgehog_battery_status.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$edgehog__battery__status_8h.html",tooltip="Edgehog device battery status API."];
+  Node2 -> Node4 [id="edge3_Node000002_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node4 [id="Node000004",label="/home/runner/work/edgehog\l-esp32-device/edgehog-esp32\l-device/edgehog-device-esp32\l/include/edgehog_cellular_connection.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$edgehog__cellular__connection_8h.html",tooltip="Edgehog device cellular connection API."];
+  Node2 -> Node5 [id="edge4_Node000002_Node000005",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node5 [id="Node000005",label="/home/runner/work/edgehog\l-esp32-device/edgehog-esp32\l-device/edgehog-device-esp32\l/include/edgehog_geolocation.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$edgehog__geolocation_8h_source.html",tooltip=" "];
+  Node2 -> Node6 [id="edge5_Node000002_Node000006",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node6 [id="Node000006",label="/home/runner/work/edgehog\l-esp32-device/edgehog-esp32\l-device/edgehog-device-esp32\l/include/edgehog_network_interface.h",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$edgehog__network__interface_8h.html",tooltip="Edgehog device network interface API."];
+}
