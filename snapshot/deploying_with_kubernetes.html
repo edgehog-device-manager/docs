@@ -193,7 +193,11 @@ the service account and rewrite them as a single line JSON:</p></li></ul><pre><c
 and a secret access key for your S3-compatible storage.</p><p>This command creates the secret containing the S3 credentials:</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-s3-credentials \
 </span><span class="">  --from-literal=&quot;access-key-id=&lt;ACCESS-KEY-ID&gt;&quot; \
 </span><span class="">  --from-literal=&quot;secret-access-key=&lt;SECRET-ACCESS-KEY&gt;&quot;
-</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">ACCESS-KEY-ID</code>: the access key ID for your S3 storage.</li><li><code class="inline">SECRET-ACCESS-KEY</code>: the secret access key for your S3 storage.</li></ul><h4>Google Geolocation API Key (optional)</h4><p>Activate the Geolocation API for your project in GCP and
+</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">ACCESS-KEY-ID</code>: the access key ID for your S3 storage.</li><li><code class="inline">SECRET-ACCESS-KEY</code>: the secret access key for your S3 storage.</li></ul><h4>Azure Blob Credentials</h4><p>To get started, follow the 
+<a href="https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container">documentation</a>
+to create a container.</p><p>Then, you can create a secret containing your connection string:</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-azure-credentials \
+</span><span class="">  --from-literal=&quot;connection-string=&lt;CONNECTION-STRING&gt;&quot;
+</span></code></pre><h4>Google Geolocation API Key (optional)</h4><p>Activate the Geolocation API for your project in GCP and
 <a href="https://developers.google.com/maps/documentation/geolocation/get-api-key">create an API key</a> to be
 used with Google Geolocation.</p><p>After that, create the secret containing the API key with:</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-google-geolocation-credentials \
 </span><span class="">  --from-literal=&quot;api-key=&lt;API-KEY&gt;&quot; \
@@ -324,6 +328,30 @@ spec:
           value: &lt;EDGEHOG-FORWARDER-PORT&gt;
         - name: EDGEHOG_FORWARDER_SECURE_SESSIONS
           value: &lt;EDGEHOG-FORWARDER-SECURE-SESSIONS&gt;
+
+        # If you're using Azure instead, use the following configuration instead of the S3
+        # configuration above
+        # - name: STORAGE_TYPE
+        #   value: azure
+        # - name: AZURE_CONNECTION_STRING
+        #   valueFrom:
+        #     secretKeyRef:
+        #       name: edgehog-azure-credentials
+        #       key: connection-string 
+        # - name: AZURE_CONTAINER
+        #   value: &lt;AZURE_CONTAINER&gt;
+
+        # You can also use standalone values instead of a connection string
+        # - name: AZURE_REGION
+        #   value: &lt;AZURE_REGION&gt;
+        # - name: AZURE_STORAGE_ACCOUNT_NAME
+        #   value: &lt;AZURE_STORAGE_ACCOUNT_NAME&gt;
+        # - name: AZURE_STORAGE_ACCOUNT_KEY
+        #   value: &lt;AZURE_STORAGE_ACCOUNT_KEY&gt;
+        # - name: AZURE_BLOB_ENDPOINT
+        #   value: &lt;AZURE_BLOB_ENDPOINT&gt;
+
+
         image: edgehogdevicemanager/edgehog-backend:0.9.2
         imagePullPolicy: Always
         name: edgehog-backend
@@ -597,17 +625,17 @@ Astarte cluster and Realm.</p><pre><code class="makeup elixir" translate="no"><s
 </span><span class="gp unselectable">iex&gt; </span><span class="n">realm_private_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;
 &lt;ASTARTE-REALM-PRIVATE-KEY&gt;
 &quot;&quot;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="2697474285-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="2697474285-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Provisioning</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="2697474285-2">(</span><span class="w">
-  </span><span class="p" data-group-id="2697474285-3">%{</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="7618701819-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="7618701819-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Provisioning</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="7618701819-2">(</span><span class="w">
+  </span><span class="p" data-group-id="7618701819-3">%{</span><span class="w">
     </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_name</span><span class="p">,</span><span class="w">
     </span><span class="ss">slug</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_slug</span><span class="p">,</span><span class="w">
     </span><span class="ss">public_key</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_public_key</span><span class="p">,</span><span class="w">
-    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2697474285-4">%{</span><span class="w">
+    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7618701819-4">%{</span><span class="w">
       </span><span class="ss">base_api_url</span><span class="p">:</span><span class="w"> </span><span class="n">base_api_url</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_name</span><span class="p">:</span><span class="w"> </span><span class="n">realm_name</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_private_key</span><span class="p">:</span><span class="w"> </span><span class="n">realm_private_key</span><span class="w">
-    </span><span class="p" data-group-id="2697474285-4">}</span><span class="w">
-  </span><span class="p" data-group-id="2697474285-3">}</span><span class="p" data-group-id="2697474285-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
+    </span><span class="p" data-group-id="7618701819-4">}</span><span class="w">
+  </span><span class="p" data-group-id="7618701819-3">}</span><span class="p" data-group-id="7618701819-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
 step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
 the file in the <code class="inline">iex</code> shell and then close the multiline string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li><li><code class="inline">ASTARTE-BASE-API-URL</code>: the base API url of the Astarte instance (e.g.
 <a href="https://api.astarte.example.com">https://api.astarte.example.com</a>).</li><li><code class="inline">ASTARTE-REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">ASTARTE-REALM-PRIVATE-KEY</code>: the content of you realm's private key. Open a multiline string with
