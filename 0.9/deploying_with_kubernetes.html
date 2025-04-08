@@ -14,7 +14,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-K7URE6B4.js"></script>
-    <script src="dist/sidebar_items-CB029ACA.js"></script>
+    <script src="dist/sidebar_items-E1BF04DF.js"></script>
     <script src="docs_config.js"></script>
     <script async src="dist/html-YIPIRHGU.js"></script>
 
@@ -169,7 +169,13 @@ point three domains (one for the backend, one for the frontend, and one for the 
   </a>
   <span class="text">Secrets</span>
 </h3>
-<p>A series of secrets containing various credentials have to be created.</p><h4>Database connection</h4><p>This command creates the secret containing the details for the database connection:</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-db-connection \
+<p>A series of secrets containing various credentials have to be created.</p><h4>Admin API authentication</h4><p>Edgehog's backend exposes an Admin Rest API used to provision and manage tenants.
+We need to seed some credentials to setup authentication for these APIs.</p><p>Specifically, a cryptographic keypair is needed to emit and validate auth tokens. You can generate an EC keypair with the following OpenSSL commands</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">openssl ecparam -name prime256v1 -genkey -noout &gt; admin_private.pem
+</span><span class="gp unselectable">$ </span><span class="">openssl ec -in admin_private.pem -pubout &gt; admin_public.pem
+</span></code></pre><p>After those commands are executed, you will have two files: <code class="inline">admin_private.pem</code> and <code class="inline">admin_public.pem</code>.
+The <code class="inline">admin_private.pem</code> key is used to generate auth tokens to access the Admin API, and it is meant to be kept private.
+The content of <code class="inline">admin_public.pem</code> will instead be used by Edgehog to validate incoming API requests.</p><p>To provide Edgehog's backend with the public key, create a Kubernetes secret containing the key which will be used later on in the deployment.</p><pre><code class="makeup bash" translate="no"><span class="">kubectl create secret generic edgehog-admin-api-public-key --from-file=admin_public.pem=./admin_public.pem
+</span></code></pre><h4>Database connection</h4><p>This command creates the secret containing the details for the database connection:</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl create secret generic -n edgehog edgehog-db-connection \
 </span><span class="">  --from-literal=&quot;database=&lt;DATABASE-NAME&gt;&quot; \
 </span><span class="">  --from-literal=&quot;username=&lt;DATABASE-USER&gt;&quot; \
 </span><span class="">  --from-literal=&quot;password=&lt;DATABASE-PASSWORD&gt;&quot;
@@ -324,13 +330,26 @@ spec:
           value: &lt;EDGEHOG-FORWARDER-PORT&gt;
         - name: EDGEHOG_FORWARDER_SECURE_SESSIONS
           value: &lt;EDGEHOG-FORWARDER-SECURE-SESSIONS&gt;
+        - name: ADMIN_JWT_PUBLIC_KEY_PATH
+          value: /keys/admin_public.pem
+        volumeMounts:
+        - name: admin-public-key
+          mountPath: /keys
+          readOnly: true
         image: edgehogdevicemanager/edgehog-backend:0.9.2
         imagePullPolicy: Always
         name: edgehog-backend
         ports:
         - containerPort: 4000
           name: http
-          protocol: TCP</code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-HOST</code>: the host of the Edgehog backend (see the <a href="#creating-dns-entries">Creating DNS
+          protocol: TCP
+      volumes:
+      - name: admin-public-key
+        secret:
+          secretName: edgehog-admin-api-public-key
+          items:
+          - key: admin_public.pem
+            path: admin_public.pem</code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-HOST</code>: the host of the Edgehog backend (see the <a href="#creating-dns-entries">Creating DNS
 entries</a> section).</li><li><code class="inline">DATABASE-HOSTNAME</code>: the hostname of the PostgreSQL database.</li><li><code class="inline">MAX-UPLOAD-SIZE-BYTES</code>: the maximum dimension for uploads, particularly relevant for OTA updates.
 If omitted, it defaults to 4 Gigabytes.</li><li><code class="inline">S3-SCHEME</code>: the scheme (<code class="inline">http</code> or <code class="inline">https</code>) for the S3 storage.</li><li><code class="inline">S3-HOST</code>: the host for the S3 storage.</li><li><code class="inline">S3-PORT</code>: the port for the S3 storage. This has to be put in double quotes to force it to be
 interpreted as a string.</li><li><code class="inline">S3-BUCKET</code>: the bucket name for the S3 storage.</li><li><code class="inline">S3-ASSET-HOST</code>: the asset host for the S3 storage, e.g. <code class="inline">storage.googleapis.com/&lt;S3-BUCKET&gt;</code> for
@@ -553,39 +572,66 @@ that, differently from the value in the Deployment, this is required because NGI
 megabyte.</li></ul><p>Note that we are setting <code class="inline">proxy-read-timeout</code> and <code class="inline">proxy-send-timeout</code> to 120 seconds.
 This value represents the timeout after which inactive connections are terminated.
 This configuration has implications on the inactive sessions of the Device Forwarder: the forwarder has its own default timeout of 1 minute for terminating inactive WebSocket connections, and setting a lower timeout here would conflict with the forwarder's internal processes. For this reason, we leave that responsibility to the forwarder by setting a slightly higher timeout here, such as 2 minutes.
-When changing the value, one should also evaluate the implications on connections to Edgehog's frontend and backend. In addition, higher values may lead to higher risk of DoS attacks. </p><h2 id="edgehog-initialization" class="section-heading">
-  <a href="#edgehog-initialization" class="hover-link">
+When changing the value, one should also evaluate the implications on connections to Edgehog's frontend and backend. In addition, higher values may lead to higher risk of DoS attacks. </p><h2 id="creating-an-edgehog-tenant" class="section-heading">
+  <a href="#creating-an-edgehog-tenant" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <span class="text">Edgehog Initialization</span>
+  <span class="text">Creating an Edgehog tenant</span>
 </h2>
-<p>These are some manual operation that have to be performed to initialize the Edgehog instance. In the
-future these operation will be automated and/or will be performed using a dedicated API.</p><h3 id="creating-a-keypair" class="section-heading">
-  <a href="#creating-a-keypair" class="hover-link">
+<p>By now, Edgehog should already be properly initialized and we are ready to create our first tenant.</p><p>We first need to have a backing Astarte instance with an already existing Astarte realm which will be a 1:1 match with the Edgehog tenant.</p><p>Then we can create the Edgehog tenant with a couple of steps.</p><h3 id="creating-a-key-pair-for-the-tenant" class="section-heading">
+  <a href="#creating-a-key-pair-for-the-tenant" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <span class="text">Creating a keypair</span>
+  <span class="text">Creating a key pair for the tenant</span>
 </h3>
-<p>A keypair is needed to emit and validate tokens to access your tenant. You can generate an EC
-keypair with the following OpenSSL commands</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">openssl ecparam -name prime256v1 -genkey -noout &gt; private_key.pem
-</span><span class="gp unselectable">$ </span><span class="">openssl ec -in private_key.pem -pubout &gt; public_key.pem
-</span></code></pre><p>After those commands are executed, you will have two files: <code class="inline">private_key.pem</code> and <code class="inline">public_key.pem</code>.
-The content of <code class="inline">public_key.pem</code> will be needed in the next steps, while <code class="inline">private_key.pem</code> will be
-used to emit Edgehog tokens. Make sure to store the private key somewhere safe.</p><h3 id="connecting-to-iex" class="section-heading">
-  <a href="#connecting-to-iex" class="hover-link">
+<p>A cryptographic keypair is needed to emit and validate tokens to access your tenant. 
+You can generate an EC keypair with the following OpenSSL commands</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">openssl ecparam -name prime256v1 -genkey -noout &gt; tenant_private.pem
+</span><span class="gp unselectable">$ </span><span class="">openssl ec -in tenant_private.pem -pubout &gt; tenant_public.pem
+</span></code></pre><h3 id="creating-a-tenant-with-the-admin-api" class="section-heading">
+  <a href="#creating-a-tenant-with-the-admin-api" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <span class="text">Connecting to <code class="inline">iex</code></span>
+  <span class="text">Creating a tenant with the Admin API</span>
 </h3>
-<p>Connect to the <code class="inline">iex</code> interactive shell of the Edgehog backend using</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl exec -it deploy/edgehog-backend -n edgehog -- /app/bin/edgehog remote
+<p>The next step is generating a token to access Edgehog Admin Rest API. You can do so using the <code class="inline">gen-edgehog-jwt</code> tool contained in the
+<code class="inline">tools</code> directory of the <a href="https://github.com/edgehog-device-manager/edgehog/tree/main/tools">Edgehog
+repo</a>.
+Starting from the private key we generated earlier in the deployment process for the Admin API, <code class="inline">admin_public.pem</code>, this command should give you a valid auth token to access the API.</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">pip3 install pyjwt
+</span><span class="gp unselectable">$ </span><span class="">./gen-edgehog-jwt -t admin -k &lt;PATH-TO-ADMIN-PRIVATE-KEY&gt;
+</span></code></pre><p>Note that the token expires after 24 hours by default. If you want to have a token with a different expiry time, you can pass <code class="inline">-e &lt;EXPIRY-SECONDS&gt;</code> to the <code class="inline">gen-edgehog-jwt</code> command.</p><p>You can test the auth token by listing the existing tenants in the Edgehog instance:</p><pre><code class="makeup bash" translate="no"><span class="">curl -X GET --location &#39;https://&lt;EDGEHOG-API-HOST&gt;/admin-api/v1/tenants&#39; \
+</span><span class="">--header &#39;Content-Type: application/vnd.api+json&#39; \
+</span><span class="">--header &#39;Authorization: Bearer &lt;ADMIN-TOKEN&gt;&#39;
+</span></code></pre><p>Then, to actually create the tenant:</p><pre><code class="makeup bash" translate="no"><span class="">curl -X POST --location &#39;https://&lt;BACKEND-HOST&gt;/admin-api/v1/tenants&#39; \
+</span><span class="">--header &#39;Content-Type: application/vnd.api+json&#39; \
+</span><span class="">--header &#39;Authorization: Bearer &lt;ADMIN-TOKEN&gt;&#39; \
+</span><span class="">--data &#39;{
+</span><span class="">  &quot;data&quot;: {
+</span><span class="">    &quot;attributes&quot;: {
+</span><span class="">      &quot;astarte_config&quot;: {
+</span><span class="">        &quot;base_api_url&quot;: &quot;&lt;ASTARTE-BASE-API-URL&gt;&quot;,
+</span><span class="">        &quot;realm_name&quot;: &quot;&lt;ASTARTE-REALM-NAME&gt;&quot;,
+</span><span class="">        &quot;realm_private_key&quot;: &lt;ASTARTE-REALM-PRIVATE-KEY&gt;
+</span><span class="">      },
+</span><span class="">      &quot;default_locale&quot;: &quot;en-US&quot;,
+</span><span class="">      &quot;name&quot;: &quot;&lt;TENANT-NAME&gt;&quot;,
+</span><span class="">      &quot;public_key&quot;: &quot;&lt;TENANT-PUBLIC-KEY&gt;&quot;,
+</span><span class="">      &quot;slug&quot;: &quot;&lt;TENANT-SLUG&gt;&quot;
+</span><span class="">    },
+</span><span class="">    &quot;relationships&quot;: {},
+</span><span class="">    &quot;type&quot;: &quot;tenant&quot;
+</span><span class="">  }
+</span><span class="">}&#39;
+</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-HOST</code>: the domain which exposes Edgehog API. This is the same as <code class="inline">BACKEND-HOST</code> from the Ingress definition.</li><li><code class="inline">ADMIN-TOKEN</code>: the auth token generated from the admin private key to access Edgehog Admin API.</li><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">tenant_public.pem</code> created in the previous
+step.</li><li><code class="inline">ASTARTE-BASE-API-URL</code>: the base API url of the Astarte instance (e.g.
+<a href="https://api.astarte.example.com">https://api.astarte.example.com</a>).</li><li><code class="inline">ASTARTE-REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">ASTARTE-REALM-PRIVATE-KEY</code>: the content of the Astarte realm's private key.</li></ul><h3 id="creating-a-tenant-with-an-iex-session" class="section-heading">
+  <a href="#creating-a-tenant-with-an-iex-session" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Creating a tenant with an iEx session</span>
+</h3>
+<p>If the Admin API cannot be used for some reason, an alternative way can be to establish a live terminal session with Edgehog's backend and issue commands in the Elixir shell.</p><p>Connect to the <code class="inline">iex</code> interactive shell of the Edgehog backend using</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl exec -it deploy/edgehog-backend -n edgehog -- /app/bin/edgehog remote
 </span></code></pre><p>All the following commands have to be executed inside that shell, in a single session (since some
-commands will reuse the result of previous commands)</p><h3 id="creating-the-tenant" class="section-heading">
-  <a href="#creating-the-tenant" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Creating the tenant</span>
-</h3>
-<p>The following commands will create a database entry representing the tenant, with its associated
+commands will reuse the result of previous commands)</p><p>The following commands will create a database entry representing the tenant, with its associated
 Astarte cluster and Realm.</p><pre><code class="makeup elixir" translate="no"><span class="gp unselectable">iex&gt; </span><span class="kn">alias</span><span class="w"> </span><span class="nc">Edgehog.Provisioning</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">tenant_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;TENANT-NAME&gt;&quot;</span><span class="w">
 </span><span class="gp unselectable">iex&gt; </span><span class="n">tenant_slug</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&lt;TENANT-SLUG&gt;&quot;</span><span class="w">
@@ -597,36 +643,35 @@ Astarte cluster and Realm.</p><pre><code class="makeup elixir" translate="no"><s
 </span><span class="gp unselectable">iex&gt; </span><span class="n">realm_private_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;
 &lt;ASTARTE-REALM-PRIVATE-KEY&gt;
 &quot;&quot;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="5736482976-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="5736482976-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Provisioning</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="5736482976-2">(</span><span class="w">
-  </span><span class="p" data-group-id="5736482976-3">%{</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="0188564265-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="0188564265-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Provisioning</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="0188564265-2">(</span><span class="w">
+  </span><span class="p" data-group-id="0188564265-3">%{</span><span class="w">
     </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_name</span><span class="p">,</span><span class="w">
     </span><span class="ss">slug</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_slug</span><span class="p">,</span><span class="w">
     </span><span class="ss">public_key</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_public_key</span><span class="p">,</span><span class="w">
-    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5736482976-4">%{</span><span class="w">
+    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0188564265-4">%{</span><span class="w">
       </span><span class="ss">base_api_url</span><span class="p">:</span><span class="w"> </span><span class="n">base_api_url</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_name</span><span class="p">:</span><span class="w"> </span><span class="n">realm_name</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_private_key</span><span class="p">:</span><span class="w"> </span><span class="n">realm_private_key</span><span class="w">
-    </span><span class="p" data-group-id="5736482976-4">}</span><span class="w">
-  </span><span class="p" data-group-id="5736482976-3">}</span><span class="p" data-group-id="5736482976-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">public_key.pem</code> created in the <a href="#creating-a-keypair">previous
+    </span><span class="p" data-group-id="0188564265-4">}</span><span class="w">
+  </span><span class="p" data-group-id="0188564265-3">}</span><span class="p" data-group-id="0188564265-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">tenant_public.pem</code> created in the <a href="#creating-a-keypair">previous
 step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
 the file in the <code class="inline">iex</code> shell and then close the multiline string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li><li><code class="inline">ASTARTE-BASE-API-URL</code>: the base API url of the Astarte instance (e.g.
-<a href="https://api.astarte.example.com">https://api.astarte.example.com</a>).</li><li><code class="inline">ASTARTE-REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">ASTARTE-REALM-PRIVATE-KEY</code>: the content of you realm's private key. Open a multiline string with
+<a href="https://api.astarte.example.com">https://api.astarte.example.com</a>).</li><li><code class="inline">ASTARTE-REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">ASTARTE-REALM-PRIVATE-KEY</code>: the content of the Astarte realm's private key. Open a multiline string with
 <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of the file in the <code class="inline">iex</code> shell and then close the multiline
-string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li></ul><h3 id="accessing-edgehog" class="section-heading">
-  <a href="#accessing-edgehog" class="hover-link">
+string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li></ul><h2 id="accessing-the-edgehog-tenant" class="section-heading">
+  <a href="#accessing-the-edgehog-tenant" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <span class="text">Accessing Edgehog</span>
-</h3>
-<p>At this point your Edgehog instance is ready to use. The last step is generating a token to access
-your Edgehog frontend instance. You can do so using the <code class="inline">gen-edgehog-jwt</code> tool contained in the
+  <span class="text">Accessing the Edgehog tenant</span>
+</h2>
+<p>At this point the Edgehog instance should be ready and healthy, with an existing tenant.</p><p>To access the tenant we can once more use the <code class="inline">gen-edgehog-jwt</code> tool contained in the
 <code class="inline">tools</code> directory of the <a href="https://github.com/edgehog-device-manager/edgehog/tree/main/tools">Edgehog
 repo</a>.</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">pip3 install pyjwt
 </span><span class="gp unselectable">$ </span><span class="">./gen-edgehog-jwt -t tenant -k &lt;PATH-TO-TENANT-PRIVATE-KEY&gt;
-</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">PATH-TO-TENANT-PRIVATE-KEY</code>: path to the <code class="inline">private_key.pem</code> file created in the <a href="#creating-a-keypair">previous
+</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">PATH-TO-TENANT-PRIVATE-KEY</code>: path to the <code class="inline">tenant_private.pem</code> file created in the <a href="#creating-a-key-pair-for-the-tenant">previous
 step</a>.</li></ul><p>Note that the token expires after 24 hours by default. If you want to have a token with a different
 expiry time, you can pass <code class="inline">-e &lt;EXPIRY-SECONDS&gt;</code> to the <code class="inline">gen-edgehog-jwt</code> command.</p><p>After that, you can open your frontend URL in your browser and insert your tenant slug and token to
-log into your Edgehog instance, and use to the <a href="#intro_user">user guide</a> to discover all Edgehog
+log into your Edgehog instance, and use to the <a href="intro_user.html">user guide</a> to discover all Edgehog
 features.</p>
 </div>
 
