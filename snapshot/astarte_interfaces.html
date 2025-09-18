@@ -14,7 +14,7 @@
 
     <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
     <script src="dist/handlebars.templates-K7URE6B4.js"></script>
-    <script src="dist/sidebar_items-E1BF04DF.js"></script>
+    <script src="dist/sidebar_items-1112F2A1.js"></script>
     <script src="docs_config.js"></script>
     <script async src="dist/html-YIPIRHGU.js"></script>
 
@@ -1095,13 +1095,13 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
   </a>
   <span class="text"><code class="inline">/%{deployment_id}/status</code></span>
 </h3>
-<p>Status of the deployment</p><p>Possible values: [Stopped, Started]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h2 id="io-edgehog-devicemanager-apps-availableimages-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-apps-availableimages-v0-1" class="hover-link">
+<p>Status of the deployment</p><p>Possible values: [Stopped, Started]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h2 id="io-edgehog-devicemanager-apps-availabledevicemappings-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-availabledevicemappings-v0-1" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <span class="text">io.edgehog.devicemanager.apps.AvailableImages v0.1</span>
+  <span class="text">io.edgehog.devicemanager.apps.AvailableDeviceMappings v0.1</span>
 </h2>
-<p>Properties available for a specific Docker image on the device</p><h3 id="about-21" class="section-heading">
+<h3 id="about-21" class="section-heading">
   <a href="#about-21" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
@@ -1110,6 +1110,31 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-21" class="section-heading">
   <a href="#mappings-21" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{device_mapping_id}/present</code> with <code class="inline">boolean</code> type. The device is present on the host</li></ul><h3 id="device_mapping_id-present" class="section-heading">
+  <a href="#device_mapping_id-present" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{device_mapping_id}/present</code></span>
+</h3>
+<p>The device is present on the host</p><p>This endpoint accepts values of type <code class="inline">boolean</code>: either true or false, adhering to JSON boolean type.</p><p>The endpoint is parametric and <code class="inline">device_mapping_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The value of the property can be unset.</p><h2 id="io-edgehog-devicemanager-apps-availableimages-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-availableimages-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.AvailableImages v0.1</span>
+</h2>
+<p>Properties available for a specific Docker image on the device</p><h3 id="about-22" class="section-heading">
+  <a href="#about-22" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-22" class="section-heading">
+  <a href="#mappings-22" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
@@ -1126,15 +1151,15 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
   </a>
   <span class="text">io.edgehog.devicemanager.apps.AvailableNetworks v0.1</span>
 </h2>
-<h3 id="about-22" class="section-heading">
-  <a href="#about-22" class="hover-link">
+<h3 id="about-23" class="section-heading">
+  <a href="#about-23" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
-Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-22" class="section-heading">
-  <a href="#mappings-22" class="hover-link">
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-23" class="section-heading">
+  <a href="#mappings-23" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
@@ -1151,15 +1176,15 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
   </a>
   <span class="text">io.edgehog.devicemanager.apps.AvailableVolumes v0.1</span>
 </h2>
-<h3 id="about-23" class="section-heading">
-  <a href="#about-23" class="hover-link">
+<h3 id="about-24" class="section-heading">
+  <a href="#about-24" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
-Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-23" class="section-heading">
-  <a href="#mappings-23" class="hover-link">
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-24" class="section-heading">
+  <a href="#mappings-24" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
@@ -1176,27 +1201,36 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
   </a>
   <span class="text">io.edgehog.devicemanager.apps.CreateContainerRequest v0.1</span>
 </h2>
-<h3 id="about-24" class="section-heading">
-  <a href="#about-24" class="hover-link">
+<h3 id="about-25" class="section-heading">
+  <a href="#about-25" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-24" class="section-heading">
-  <a href="#mappings-24" class="hover-link">
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-25" class="section-heading">
+  <a href="#mappings-25" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
 </h3>
-<p>The interface has the following mappings:</p><ul><li><code class="inline">/container/id</code> with <code class="inline">string</code> type. Create Container Request id</li><li><code class="inline">/container/imageId</code> with <code class="inline">string</code> type. Container image id</li><li><code class="inline">/container/networkIds</code> with <code class="inline">stringarray</code> type. Container network ids</li><li><code class="inline">/container/volumeIds</code> with <code class="inline">stringarray</code> type. Container volume ids</li><li><code class="inline">/container/image</code> with <code class="inline">string</code> type. Container image</li><li><code class="inline">/container/hostname</code> with <code class="inline">string</code> type. Container hostname</li><li><code class="inline">/container/restartPolicy</code> with <code class="inline">string</code> type. Container restart policy</li><li><code class="inline">/container/env</code> with <code class="inline">stringarray</code> type. Container environment</li><li><code class="inline">/container/binds</code> with <code class="inline">stringarray</code> type. Container binds</li><li><code class="inline">/container/networkMode</code> with <code class="inline">string</code> type. Network mode used for this container.</li><li><code class="inline">/container/portBindings</code> with <code class="inline">stringarray</code> type. Container port bindings</li><li><code class="inline">/container/privileged</code> with <code class="inline">boolean</code> type. Run privileged</li></ul><h3 id="container-id" class="section-heading">
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/container/id</code> with <code class="inline">string</code> type. Create Container Request id</li><li><code class="inline">/container/deploymentId</code> with <code class="inline">string</code> type. Reference to a Deployment using the container</li><li><code class="inline">/container/imageId</code> with <code class="inline">string</code> type. Container image id</li><li><code class="inline">/container/networkIds</code> with <code class="inline">stringarray</code> type. Container network ids</li><li><code class="inline">/container/volumeIds</code> with <code class="inline">stringarray</code> type. Container volume ids</li><li><code class="inline">/container/deviceMappingIds</code> with <code class="inline">stringarray</code> type. Container device mappings ids</li><li><code class="inline">/container/hostname</code> with <code class="inline">string</code> type. Container hostname</li><li><code class="inline">/container/restartPolicy</code> with <code class="inline">string</code> type. Container restart policy</li><li><code class="inline">/container/env</code> with <code class="inline">stringarray</code> type. Container environment</li><li><code class="inline">/container/binds</code> with <code class="inline">stringarray</code> type. Container binds</li><li><code class="inline">/container/networkMode</code> with <code class="inline">string</code> type. Network mode used for this container.</li><li><code class="inline">/container/portBindings</code> with <code class="inline">stringarray</code> type. Container port bindings</li><li><code class="inline">/container/extraHosts</code> with <code class="inline">stringarray</code> type. List of hostname/IP to add to the container's /etc/hosts</li><li><code class="inline">/container/capAdd</code> with <code class="inline">stringarray</code> type. A list of kernel capabilities to add to the container.</li><li><code class="inline">/container/capDrop</code> with <code class="inline">stringarray</code> type. A list of kernel capabilities to drop from the container.</li><li><code class="inline">/container/cpuPeriod</code> with <code class="inline">longinteger</code> type. The length of a CPU period in microseconds.</li><li><code class="inline">/container/cpuQuota</code> with <code class="inline">longinteger</code> type. Microseconds of CPU time that the container can get in a CPU period.</li><li><code class="inline">/container/cpuRealtimePeriod</code> with <code class="inline">longinteger</code> type. The length of a CPU real-time period in microseconds.</li><li><code class="inline">/container/cpuRealtimeRuntime</code> with <code class="inline">longinteger</code> type. The length of a CPU real-time runtime in microseconds.</li><li><code class="inline">/container/memory</code> with <code class="inline">longinteger</code> type. Memory limit in bytes.</li><li><code class="inline">/container/memoryReservation</code> with <code class="inline">longinteger</code> type. Memory soft limit in bytes. Default to 0 for unlimited. Unset if the value is -1 (or negative).</li><li><code class="inline">/container/memorySwap</code> with <code class="inline">longinteger</code> type. Total memory limit (memory + swap).</li><li><code class="inline">/container/memorySwappiness</code> with <code class="inline">integer</code> type. Memory swappiness</li><li><code class="inline">/container/volumeDriver</code> with <code class="inline">string</code> type. Driver that this container uses to mount volumes.</li><li><code class="inline">/container/storageOpt</code> with <code class="inline">stringarray</code> type. Storage driver options for this container.</li><li><code class="inline">/container/readOnlyRootfs</code> with <code class="inline">boolean</code> type. Mount the container's root filesystem as read only.</li><li><code class="inline">/container/tmpfs</code> with <code class="inline">stringarray</code> type. A map of container directories which should be replaced by tmpfs mounts.</li><li><code class="inline">/container/privileged</code> with <code class="inline">boolean</code> type. Run privileged</li></ul><h3 id="container-id" class="section-heading">
   <a href="#container-id" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text"><code class="inline">/container/id</code></span>
 </h3>
 <p>Create Container Request id</p><p>Unique id for the container.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-deploymentid" class="section-heading">
+  <a href="#container-deploymentid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/deploymentId</code></span>
+</h3>
+<p>Reference to a Deployment using the container</p><p>The deployment in which the container is used, so the device can send deployment events to Astarte for the create request</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-imageid" class="section-heading">
@@ -1226,13 +1260,13 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
 <p>Container volume ids</p><p>The ids of the volumes to mount on the container.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-image" class="section-heading">
-  <a href="#container-image" class="hover-link">
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-devicemappingids" class="section-heading">
+  <a href="#container-devicemappingids" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <span class="text"><code class="inline">/container/image</code></span>
+  <span class="text"><code class="inline">/container/deviceMappingIds</code></span>
 </h3>
-<p>Container image</p><p>TODO: this will be remove (by only sending the image_id), when it will be supported on the device.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+<p>Container device mappings ids</p><p>The ids of the device mappings to mount on the container.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-hostname" class="section-heading">
@@ -1259,7 +1293,7 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
   </a>
   <span class="text"><code class="inline">/container/env</code></span>
 </h3>
-<p>Container environment</p><p>Array of KEY=value environment variables</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+<p>Container environment</p><p>Array of key=value environment variables. The key cannot contain <code class="inline">=</code>.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-binds" class="section-heading">
@@ -1289,6 +1323,142 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
 <p>Container port bindings</p><p>Array of ip:[host_port:]container_port[/protocol] | [hostPort:]containerPort[/protocol]. Protocol is TCP by default</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-extrahosts" class="section-heading">
+  <a href="#container-extrahosts" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/extraHosts</code></span>
+</h3>
+<p>List of hostname/IP to add to the container's /etc/hosts</p><p>A list of hostnames/IP mappings to add to the container's /etc/hosts file. Specified in the form [&quot;hostname:IP&quot;]. You can use the <code class="inline">host-gateway</code> to connect to the host IP</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-capadd" class="section-heading">
+  <a href="#container-capadd" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/capAdd</code></span>
+</h3>
+<p>A list of kernel capabilities to add to the container.</p><p>A list of kernel capabilities to add to the container.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-capdrop" class="section-heading">
+  <a href="#container-capdrop" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/capDrop</code></span>
+</h3>
+<p>A list of kernel capabilities to drop from the container.</p><p>A list of kernel capabilities to drop from the container.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-cpuperiod" class="section-heading">
+  <a href="#container-cpuperiod" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/cpuPeriod</code></span>
+</h3>
+<p>The length of a CPU period in microseconds.</p><p>Unset if the value is -1 (or negative) and the cpuQuota must also be unset.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-cpuquota" class="section-heading">
+  <a href="#container-cpuquota" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/cpuQuota</code></span>
+</h3>
+<p>Microseconds of CPU time that the container can get in a CPU period.</p><p>Unset if the value is -1 (or negative) and the cpuPeriod must also be unset.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-cpurealtimeperiod" class="section-heading">
+  <a href="#container-cpurealtimeperiod" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/cpuRealtimePeriod</code></span>
+</h3>
+<p>The length of a CPU real-time period in microseconds.</p><p>The length of a CPU real-time period in microseconds. Set to 0 to allocate no time allocated to real-time tasks. Unset if the value is -1 (or negative).</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-cpurealtimeruntime" class="section-heading">
+  <a href="#container-cpurealtimeruntime" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/cpuRealtimeRuntime</code></span>
+</h3>
+<p>The length of a CPU real-time runtime in microseconds.</p><p>The length of a CPU real-time runtime in microseconds. Set to 0 to allocate no time allocated to real-time tasks. Unset if the value is -1 (or negative).</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-memory" class="section-heading">
+  <a href="#container-memory" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/memory</code></span>
+</h3>
+<p>Memory limit in bytes.</p><p>Memory limit in bytes. Default to 0 for unlimited. Unset if the value is -1 (or negative).</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-memoryreservation" class="section-heading">
+  <a href="#container-memoryreservation" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/memoryReservation</code></span>
+</h3>
+<p>Memory soft limit in bytes. Default to 0 for unlimited. Unset if the value is -1 (or negative).</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-memoryswap" class="section-heading">
+  <a href="#container-memoryswap" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/memorySwap</code></span>
+</h3>
+<p>Total memory limit (memory + swap).</p><p>Total memory limit (memory + swap). Set as -1 to enable unlimited swap. Unset if the value is -2 (or more negative).</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-memoryswappiness" class="section-heading">
+  <a href="#container-memoryswappiness" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/memorySwappiness</code></span>
+</h3>
+<p>Memory swappiness</p><p>Tune a container's memory swappiness behavior. Accepts an integer between 0 and 100. Unset if the value is -1 (or negative).</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-volumedriver" class="section-heading">
+  <a href="#container-volumedriver" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/volumeDriver</code></span>
+</h3>
+<p>Driver that this container uses to mount volumes.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-storageopt" class="section-heading">
+  <a href="#container-storageopt" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/storageOpt</code></span>
+</h3>
+<p>Storage driver options for this container.</p><p>Storage driver options for this container, in the form &quot;size=120G&quot;.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-readonlyrootfs" class="section-heading">
+  <a href="#container-readonlyrootfs" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/readOnlyRootfs</code></span>
+</h3>
+<p>Mount the container's root filesystem as read only.</p><p>This endpoint accepts values of type <code class="inline">boolean</code>: either true or false, adhering to JSON boolean type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-tmpfs" class="section-heading">
+  <a href="#container-tmpfs" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/container/tmpfs</code></span>
+</h3>
+<p>A map of container directories which should be replaced by tmpfs mounts.</p><p>A map of container directories which should be replaced by tmpfs mounts, and their corresponding mount options. For example:
+ &quot;/run=rw,noexec,nosuid,size=65536k&quot;</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="container-privileged" class="section-heading">
   <a href="#container-privileged" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
@@ -1304,16 +1474,16 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
   </a>
   <span class="text">io.edgehog.devicemanager.apps.CreateDeploymentRequest v0.1</span>
 </h2>
-<h3 id="about-25" class="section-heading">
-  <a href="#about-25" class="hover-link">
+<h3 id="about-26" class="section-heading">
+  <a href="#about-26" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-25" class="section-heading">
-  <a href="#mappings-25" class="hover-link">
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-26" class="section-heading">
+  <a href="#mappings-26" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
@@ -1336,33 +1506,107 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
 <p>Deployment containers</p><p>Containers used by the deployment.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-createimagerequest-v0-1" class="section-heading">
-  <a href="#io-edgehog-devicemanager-apps-createimagerequest-v0-1" class="hover-link">
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-createdevicemappingrequest-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-createdevicemappingrequest-v0-1" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
-  <span class="text">io.edgehog.devicemanager.apps.CreateImageRequest v0.1</span>
+  <span class="text">io.edgehog.devicemanager.apps.CreateDeviceMappingRequest v0.1</span>
 </h2>
-<p>Request to pull and create a container image.</p><p>The ttl of this datastream is short to keep the sensitive fields private.</p><h3 id="about-26" class="section-heading">
-  <a href="#about-26" class="hover-link">
+<h3 id="about-27" class="section-heading">
+  <a href="#about-27" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-26" class="section-heading">
-  <a href="#mappings-26" class="hover-link">
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-27" class="section-heading">
+  <a href="#mappings-27" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
 </h3>
-<p>The interface has the following mappings:</p><ul><li><code class="inline">/image/id</code> with <code class="inline">string</code> type. Create Image Request id</li><li><code class="inline">/image/reference</code> with <code class="inline">string</code> type. Image reference to be pulled</li><li><code class="inline">/image/registryAuth</code> with <code class="inline">string</code> type. Image registry authentication header</li></ul><h3 id="image-id" class="section-heading">
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/deviceMapping/id</code> with <code class="inline">string</code> type. Create Device Mapping Request id</li><li><code class="inline">/deviceMapping/deploymentId</code> with <code class="inline">string</code> type. Reference to a Deployment using the device mapping</li><li><code class="inline">/deviceMapping/pathOnHost</code> with <code class="inline">string</code> type. Path on host for the device</li><li><code class="inline">/deviceMapping/pathInContainer</code> with <code class="inline">string</code> type. Path in the container for the device</li><li><code class="inline">/deviceMapping/cGroupPermissions</code> with <code class="inline">string</code> type. Permissions on the device.</li></ul><h3 id="devicemapping-id" class="section-heading">
+  <a href="#devicemapping-id" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/deviceMapping/id</code></span>
+</h3>
+<p>Create Device Mapping Request id</p><p>Unique id for the container.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="devicemapping-deploymentid" class="section-heading">
+  <a href="#devicemapping-deploymentid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/deviceMapping/deploymentId</code></span>
+</h3>
+<p>Reference to a Deployment using the device mapping</p><p>The deployment in which the device mapping is used, so the device can send deployment events to Astarte for the create request</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="devicemapping-pathonhost" class="section-heading">
+  <a href="#devicemapping-pathonhost" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/deviceMapping/pathOnHost</code></span>
+</h3>
+<p>Path on host for the device</p><p>Path on host for the device, for example '/dev/deviceName'</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="devicemapping-pathincontainer" class="section-heading">
+  <a href="#devicemapping-pathincontainer" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/deviceMapping/pathInContainer</code></span>
+</h3>
+<p>Path in the container for the device</p><p>Path in the container for the device, for example '/dev/deviceName'</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="devicemapping-cgrouppermissions" class="section-heading">
+  <a href="#devicemapping-cgrouppermissions" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/deviceMapping/cGroupPermissions</code></span>
+</h3>
+<p>Permissions on the device.</p><p>Permissions on the device, for example 'mrw'</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-createimagerequest-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-createimagerequest-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.CreateImageRequest v0.1</span>
+</h2>
+<p>Request to pull and create a container image.</p><p>The ttl of this datastream is short to keep the sensitive fields private.</p><h3 id="about-28" class="section-heading">
+  <a href="#about-28" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-28" class="section-heading">
+  <a href="#mappings-28" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/image/id</code> with <code class="inline">string</code> type. Create Image Request id</li><li><code class="inline">/image/deploymentId</code> with <code class="inline">string</code> type. Reference to a Deployment using the image</li><li><code class="inline">/image/reference</code> with <code class="inline">string</code> type. Image reference to be pulled</li><li><code class="inline">/image/registryAuth</code> with <code class="inline">string</code> type. Image registry authentication header</li></ul><h3 id="image-id" class="section-heading">
   <a href="#image-id" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text"><code class="inline">/image/id</code></span>
 </h3>
 <p>Create Image Request id</p><p>Unique id for the container image.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 600 seconds before it is erased from the database.</p><h3 id="image-deploymentid" class="section-heading">
+  <a href="#image-deploymentid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/image/deploymentId</code></span>
+</h3>
+<p>Reference to a Deployment using the image</p><p>The deployment in which the image is used, so the device can send deployment events to Astarte for the create request</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 600 seconds before it is erased from the database.</p><h3 id="image-reference" class="section-heading">
@@ -1389,27 +1633,36 @@ Delivered data is kept for 600 seconds before it is erased from the database.</p
   </a>
   <span class="text">io.edgehog.devicemanager.apps.CreateNetworkRequest v0.1</span>
 </h2>
-<h3 id="about-27" class="section-heading">
-  <a href="#about-27" class="hover-link">
+<h3 id="about-29" class="section-heading">
+  <a href="#about-29" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-27" class="section-heading">
-  <a href="#mappings-27" class="hover-link">
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-29" class="section-heading">
+  <a href="#mappings-29" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
 </h3>
-<p>The interface has the following mappings:</p><ul><li><code class="inline">/network/id</code> with <code class="inline">string</code> type. Create Network Request id</li><li><code class="inline">/network/driver</code> with <code class="inline">string</code> type. Network driver</li><li><code class="inline">/network/internal</code> with <code class="inline">boolean</code> type. Internal network</li><li><code class="inline">/network/enableIpv6</code> with <code class="inline">boolean</code> type. Enable IPv6</li><li><code class="inline">/network/options</code> with <code class="inline">stringarray</code> type. Network driver options</li></ul><h3 id="network-id" class="section-heading">
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/network/id</code> with <code class="inline">string</code> type. Create Network Request id</li><li><code class="inline">/network/deploymentId</code> with <code class="inline">string</code> type. Reference to a Deployment using the network</li><li><code class="inline">/network/driver</code> with <code class="inline">string</code> type. Network driver</li><li><code class="inline">/network/internal</code> with <code class="inline">boolean</code> type. Internal network</li><li><code class="inline">/network/enableIpv6</code> with <code class="inline">boolean</code> type. Enable IPv6</li><li><code class="inline">/network/options</code> with <code class="inline">stringarray</code> type. Network driver options</li></ul><h3 id="network-id" class="section-heading">
   <a href="#network-id" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text"><code class="inline">/network/id</code></span>
 </h3>
 <p>Create Network Request id</p><p>Unique id for the container network.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="network-deploymentid" class="section-heading">
+  <a href="#network-deploymentid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/network/deploymentId</code></span>
+</h3>
+<p>Reference to a Deployment using the network</p><p>The deployment in which the network is used, so the device can send deployment events to Astarte for the create request</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="network-driver" class="section-heading">
@@ -1445,7 +1698,7 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
   </a>
   <span class="text"><code class="inline">/network/options</code></span>
 </h3>
-<p>Network driver options</p><p>An array of key=value options to set for the driver.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+<p>Network driver options</p><p>An array of key=value options to set for the driver. The key cannot contain an <code class="inline">=</code>.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-createvolumerequest-v0-1" class="section-heading">
@@ -1454,27 +1707,36 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
   </a>
   <span class="text">io.edgehog.devicemanager.apps.CreateVolumeRequest v0.1</span>
 </h2>
-<h3 id="about-28" class="section-heading">
-  <a href="#about-28" class="hover-link">
+<h3 id="about-30" class="section-heading">
+  <a href="#about-30" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-28" class="section-heading">
-  <a href="#mappings-28" class="hover-link">
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-30" class="section-heading">
+  <a href="#mappings-30" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
 </h3>
-<p>The interface has the following mappings:</p><ul><li><code class="inline">/volume/id</code> with <code class="inline">string</code> type. Create Volume Request id</li><li><code class="inline">/volume/driver</code> with <code class="inline">string</code> type. Volume driver name</li><li><code class="inline">/volume/options</code> with <code class="inline">stringarray</code> type. Volume driver options</li></ul><h3 id="volume-id" class="section-heading">
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/volume/id</code> with <code class="inline">string</code> type. Create Volume Request id</li><li><code class="inline">/volume/deploymentId</code> with <code class="inline">string</code> type. Reference to a Deployment using the volume</li><li><code class="inline">/volume/driver</code> with <code class="inline">string</code> type. Volume driver name</li><li><code class="inline">/volume/options</code> with <code class="inline">stringarray</code> type. Volume driver options</li></ul><h3 id="volume-id" class="section-heading">
   <a href="#volume-id" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text"><code class="inline">/volume/id</code></span>
 </h3>
 <p>Create Volume Request id</p><p>Unique id for the volume.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="volume-deploymentid" class="section-heading">
+  <a href="#volume-deploymentid" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/volume/deploymentId</code></span>
+</h3>
+<p>Reference to a Deployment using the volume</p><p>The deployment in which the volume is used, so the device can send deployment events to Astarte for the create request</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="volume-driver" class="section-heading">
@@ -1492,7 +1754,7 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
   </a>
   <span class="text"><code class="inline">/volume/options</code></span>
 </h3>
-<p>Volume driver options</p><p>An array of key=value options to set for the driver.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+<p>Volume driver options</p><p>An array of key=value options to set for the driver. The key cannot contain an <code class="inline">=</code>.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-deploymentcommand-v0-1" class="section-heading">
@@ -1501,16 +1763,16 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
   </a>
   <span class="text">io.edgehog.devicemanager.apps.DeploymentCommand v0.1</span>
 </h2>
-<h3 id="about-29" class="section-heading">
-  <a href="#about-29" class="hover-link">
+<h3 id="about-31" class="section-heading">
+  <a href="#about-31" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">individual</code> aggregation.
-Each mapping is treated as an independent value and is managed individually.</p><h3 id="mappings-29" class="section-heading">
-  <a href="#mappings-29" class="hover-link">
+Each mapping is treated as an independent value and is managed individually.</p><h3 id="mappings-31" class="section-heading">
+  <a href="#mappings-31" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
@@ -1530,16 +1792,16 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
   </a>
   <span class="text">io.edgehog.devicemanager.apps.DeploymentEvent v0.1</span>
 </h2>
-<h3 id="about-30" class="section-heading">
-  <a href="#about-30" class="hover-link">
+<h3 id="about-32" class="section-heading">
+  <a href="#about-32" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-30" class="section-heading">
-  <a href="#mappings-30" class="hover-link">
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-32" class="section-heading">
+  <a href="#mappings-32" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
@@ -1550,7 +1812,8 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
   </a>
   <span class="text"><code class="inline">/%{deployment_id}/status</code></span>
 </h3>
-<p>Deployment status</p><p>Possible values: [Starting, Stopping, Updating, Deleting, Error]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+<p>Deployment status</p><p>Possible values: [Starting, Started, Stopping, Stopped, Updating, Deleting, Error]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="deployment_id-message" class="section-heading">
@@ -1560,6 +1823,7 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
   <span class="text"><code class="inline">/%{deployment_id}/message</code></span>
 </h3>
 <p>Optional message for the event</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-deploymentupdate-v0-1" class="section-heading">
@@ -1568,16 +1832,16 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
   </a>
   <span class="text">io.edgehog.devicemanager.apps.DeploymentUpdate v0.1</span>
 </h2>
-<h3 id="about-31" class="section-heading">
-  <a href="#about-31" class="hover-link">
+<h3 id="about-33" class="section-heading">
+  <a href="#about-33" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
 Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-31" class="section-heading">
-  <a href="#mappings-31" class="hover-link">
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-33" class="section-heading">
+  <a href="#mappings-33" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
@@ -1600,21 +1864,566 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
 <p>Id of the deployment to update to</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-config-telemetry-v0-1" class="section-heading">
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-stats-containerblkio-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-stats-containerblkio-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.stats.ContainerBlkio v0.1</span>
+</h2>
+<p>BlkioStats stores all IO service stats for data read and write.</p><h3 id="about-34" class="section-heading">
+  <a href="#about-34" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-34" class="section-heading">
+  <a href="#mappings-34" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{container_id}/name</code> with <code class="inline">string</code> type. </li><li><code class="inline">/%{container_id}/major</code> with <code class="inline">longinteger</code> type. </li><li><code class="inline">/%{container_id}/minor</code> with <code class="inline">longinteger</code> type. </li><li><code class="inline">/%{container_id}/op</code> with <code class="inline">string</code> type. </li><li><code class="inline">/%{container_id}/value</code> with <code class="inline">longinteger</code> type. </li></ul><h3 id="container_id-name" class="section-heading">
+  <a href="#container_id-name" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/name</code></span>
+</h3>
+<p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-major" class="section-heading">
+  <a href="#container_id-major" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/major</code></span>
+</h3>
+<p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-minor" class="section-heading">
+  <a href="#container_id-minor" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/minor</code></span>
+</h3>
+<p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-op" class="section-heading">
+  <a href="#container_id-op" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/op</code></span>
+</h3>
+<p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-value" class="section-heading">
+  <a href="#container_id-value" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/value</code></span>
+</h3>
+<p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-apps-stats-containercpu-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-stats-containercpu-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.stats.ContainerCpu v0.1</span>
+</h2>
+<p>The precpu stats is the CPU statistic of the previous read, and is used to calculate the CPU usage percentage. It is not an exact copy of the cpu_stats field.</p><h3 id="about-35" class="section-heading">
+  <a href="#about-35" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-35" class="section-heading">
+  <a href="#mappings-35" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{container_id}/cpuUsageTotalUsage</code> with <code class="inline">longinteger</code> type. Total CPU time consumed in nanoseconds</li><li><code class="inline">/%{container_id}/cpuUsagePercpuUsage</code> with <code class="inline">longintegerarray</code> type. Total CPU time (in nanoseconds) consumed per core</li><li><code class="inline">/%{container_id}/cpuUsageUsageInKernelmode</code> with <code class="inline">longinteger</code> type. Time (in nanoseconds) spent by tasks of the cgroup in kernel mode</li><li><code class="inline">/%{container_id}/cpuUsageUsageInUsermode</code> with <code class="inline">longinteger</code> type. Time (in nanoseconds) spent by tasks of the cgroup in user mode</li><li><code class="inline">/%{container_id}/systemCpuUsage</code> with <code class="inline">longinteger</code> type. System Usage.</li><li><code class="inline">/%{container_id}/onlineCpus</code> with <code class="inline">integer</code> type. Number of online CPUs.</li><li><code class="inline">/%{container_id}/throttlingDataPeriods</code> with <code class="inline">longinteger</code> type. Number of periods with throttling active.</li><li><code class="inline">/%{container_id}/throttlingDataThrottledPeriods</code> with <code class="inline">longinteger</code> type. Number of periods when the container hit its throttling limit.</li><li><code class="inline">/%{container_id}/throttlingDataThrottledTime</code> with <code class="inline">longinteger</code> type. Aggregated time (in nanoseconds) the container was throttled for.</li><li><code class="inline">/%{container_id}/preCpuUsageTotalUsage</code> with <code class="inline">longinteger</code> type. Total CPU time consumed in nanoseconds</li><li><code class="inline">/%{container_id}/preCpuUsagePercpuUsage</code> with <code class="inline">longintegerarray</code> type. Total CPU time (in nanoseconds) consumed per core</li><li><code class="inline">/%{container_id}/preCpuUsageUsageInKernelmode</code> with <code class="inline">longinteger</code> type. Time (in nanoseconds) spent by tasks of the cgroup in kernel mode</li><li><code class="inline">/%{container_id}/preCpuUsageUsageInUsermode</code> with <code class="inline">longinteger</code> type. Time (in nanoseconds) spent by tasks of the cgroup in user mode</li><li><code class="inline">/%{container_id}/preSystemCpuUsage</code> with <code class="inline">longinteger</code> type. System Usage.</li><li><code class="inline">/%{container_id}/preOnlineCpus</code> with <code class="inline">integer</code> type. Number of online CPUs.</li><li><code class="inline">/%{container_id}/preThrottlingDataPeriods</code> with <code class="inline">longinteger</code> type. Number of periods with throttling active.</li><li><code class="inline">/%{container_id}/preThrottlingDataThrottledPeriods</code> with <code class="inline">longinteger</code> type. Number of periods when the container hit its throttling limit.</li><li><code class="inline">/%{container_id}/preThrottlingDataThrottledTime</code> with <code class="inline">longinteger</code> type. Aggregated time (in nanoseconds) the container was throttled for.</li></ul><h3 id="container_id-cpuusagetotalusage" class="section-heading">
+  <a href="#container_id-cpuusagetotalusage" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/cpuUsageTotalUsage</code></span>
+</h3>
+<p>Total CPU time consumed in nanoseconds</p><p>Total CPU time consumed by the container, in nanoseconds.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-cpuusagepercpuusage" class="section-heading">
+  <a href="#container_id-cpuusagepercpuusage" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/cpuUsagePercpuUsage</code></span>
+</h3>
+<p>Total CPU time (in nanoseconds) consumed per core</p><p>This field is Linux-specific when using cgroups v1.</p><p>This endpoint accepts values of type <code class="inline">longintegerarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-cpuusageusageinkernelmode" class="section-heading">
+  <a href="#container_id-cpuusageusageinkernelmode" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/cpuUsageUsageInKernelmode</code></span>
+</h3>
+<p>Time (in nanoseconds) spent by tasks of the cgroup in kernel mode</p><p>CPU time spent in kernel mode by the container's tasks, in nanoseconds.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-cpuusageusageinusermode" class="section-heading">
+  <a href="#container_id-cpuusageusageinusermode" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/cpuUsageUsageInUsermode</code></span>
+</h3>
+<p>Time (in nanoseconds) spent by tasks of the cgroup in user mode</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-systemcpuusage" class="section-heading">
+  <a href="#container_id-systemcpuusage" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/systemCpuUsage</code></span>
+</h3>
+<p>System Usage.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-onlinecpus" class="section-heading">
+  <a href="#container_id-onlinecpus" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/onlineCpus</code></span>
+</h3>
+<p>Number of online CPUs.</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-throttlingdataperiods" class="section-heading">
+  <a href="#container_id-throttlingdataperiods" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/throttlingDataPeriods</code></span>
+</h3>
+<p>Number of periods with throttling active.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-throttlingdatathrottledperiods" class="section-heading">
+  <a href="#container_id-throttlingdatathrottledperiods" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/throttlingDataThrottledPeriods</code></span>
+</h3>
+<p>Number of periods when the container hit its throttling limit.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-throttlingdatathrottledtime" class="section-heading">
+  <a href="#container_id-throttlingdatathrottledtime" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/throttlingDataThrottledTime</code></span>
+</h3>
+<p>Aggregated time (in nanoseconds) the container was throttled for.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-precpuusagetotalusage" class="section-heading">
+  <a href="#container_id-precpuusagetotalusage" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/preCpuUsageTotalUsage</code></span>
+</h3>
+<p>Total CPU time consumed in nanoseconds</p><p>Total CPU time consumed by the container, in nanoseconds.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-precpuusagepercpuusage" class="section-heading">
+  <a href="#container_id-precpuusagepercpuusage" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/preCpuUsagePercpuUsage</code></span>
+</h3>
+<p>Total CPU time (in nanoseconds) consumed per core</p><p>This field is Linux-specific when using cgroups v1.</p><p>This endpoint accepts values of type <code class="inline">longintegerarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-precpuusageusageinkernelmode" class="section-heading">
+  <a href="#container_id-precpuusageusageinkernelmode" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/preCpuUsageUsageInKernelmode</code></span>
+</h3>
+<p>Time (in nanoseconds) spent by tasks of the cgroup in kernel mode</p><p>CPU time spent in kernel mode by the container's tasks, in nanoseconds.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-precpuusageusageinusermode" class="section-heading">
+  <a href="#container_id-precpuusageusageinusermode" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/preCpuUsageUsageInUsermode</code></span>
+</h3>
+<p>Time (in nanoseconds) spent by tasks of the cgroup in user mode</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-presystemcpuusage" class="section-heading">
+  <a href="#container_id-presystemcpuusage" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/preSystemCpuUsage</code></span>
+</h3>
+<p>System Usage.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-preonlinecpus" class="section-heading">
+  <a href="#container_id-preonlinecpus" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/preOnlineCpus</code></span>
+</h3>
+<p>Number of online CPUs.</p><p>This endpoint accepts values of type <code class="inline">integer</code>: a signed 32 bit integer.</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-prethrottlingdataperiods" class="section-heading">
+  <a href="#container_id-prethrottlingdataperiods" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/preThrottlingDataPeriods</code></span>
+</h3>
+<p>Number of periods with throttling active.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-prethrottlingdatathrottledperiods" class="section-heading">
+  <a href="#container_id-prethrottlingdatathrottledperiods" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/preThrottlingDataThrottledPeriods</code></span>
+</h3>
+<p>Number of periods when the container hit its throttling limit.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-prethrottlingdatathrottledtime" class="section-heading">
+  <a href="#container_id-prethrottlingdatathrottledtime" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/preThrottlingDataThrottledTime</code></span>
+</h3>
+<p>Aggregated time (in nanoseconds) the container was throttled for.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-apps-stats-containermemory-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-stats-containermemory-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.stats.ContainerMemory v0.1</span>
+</h2>
+<h3 id="about-36" class="section-heading">
+  <a href="#about-36" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-36" class="section-heading">
+  <a href="#mappings-36" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{container_id}/usage</code> with <code class="inline">longinteger</code> type. Current res_counter usage for memory.</li><li><code class="inline">/%{container_id}/maxUsage</code> with <code class="inline">longinteger</code> type. Maximum usage ever recorded.</li><li><code class="inline">/%{container_id}/failcnt</code> with <code class="inline">longinteger</code> type. Number of times memory usage hits limits.</li><li><code class="inline">/%{container_id}/limit</code> with <code class="inline">longinteger</code> type. Memory usage limit</li></ul><h3 id="container_id-usage" class="section-heading">
+  <a href="#container_id-usage" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/usage</code></span>
+</h3>
+<p>Current res_counter usage for memory.</p><p>Current total memory usage (RAM + swap) of the container, in bytes.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-maxusage" class="section-heading">
+  <a href="#container_id-maxusage" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/maxUsage</code></span>
+</h3>
+<p>Maximum usage ever recorded.</p><p>The maximum memory usage recorded since the container's start, in bytes.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-failcnt" class="section-heading">
+  <a href="#container_id-failcnt" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/failcnt</code></span>
+</h3>
+<p>Number of times memory usage hits limits.</p><p>The number of times the memory limit has been reached.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-limit" class="section-heading">
+  <a href="#container_id-limit" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/limit</code></span>
+</h3>
+<p>Memory usage limit</p><p>The memory usage limit for the container</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-apps-stats-containermemorystats-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-stats-containermemorystats-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.stats.ContainerMemoryStats v0.1</span>
+</h2>
+<p>All the stats exported via memory.stat. when using cgroups v2.</p><h3 id="about-37" class="section-heading">
+  <a href="#about-37" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-37" class="section-heading">
+  <a href="#mappings-37" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{container_id}/name</code> with <code class="inline">string</code> type. Name of the stat</li><li><code class="inline">/%{container_id}/value</code> with <code class="inline">longinteger</code> type. Value of the stat</li></ul><h3 id="container_id-name-1" class="section-heading">
+  <a href="#container_id-name-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/name</code></span>
+</h3>
+<p>Name of the stat</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-value-1" class="section-heading">
+  <a href="#container_id-value-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/value</code></span>
+</h3>
+<p>Value of the stat</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-apps-stats-containernetworks-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-stats-containernetworks-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.stats.ContainerNetworks v0.1</span>
+</h2>
+<p>Network statistics for the container per interface.</p><h3 id="about-38" class="section-heading">
+  <a href="#about-38" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-38" class="section-heading">
+  <a href="#mappings-38" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{container_id}/interface</code> with <code class="inline">string</code> type. Network interface name</li><li><code class="inline">/%{container_id}/rxBytes</code> with <code class="inline">longinteger</code> type. Bytes received.</li><li><code class="inline">/%{container_id}/rxPackets</code> with <code class="inline">longinteger</code> type. Packets received.</li><li><code class="inline">/%{container_id}/rxDropped</code> with <code class="inline">longinteger</code> type. Incoming packets dropped.</li><li><code class="inline">/%{container_id}/rxErrors</code> with <code class="inline">longinteger</code> type. Received errors.</li><li><code class="inline">/%{container_id}/txBytes</code> with <code class="inline">longinteger</code> type. Bytes sent.</li><li><code class="inline">/%{container_id}/txPackets</code> with <code class="inline">longinteger</code> type. Packets sent.</li><li><code class="inline">/%{container_id}/txErrors</code> with <code class="inline">longinteger</code> type. Sent errors.</li><li><code class="inline">/%{container_id}/txDropped</code> with <code class="inline">longinteger</code> type. Outgoing packets dropped.</li></ul><h3 id="container_id-interface" class="section-heading">
+  <a href="#container_id-interface" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/interface</code></span>
+</h3>
+<p>Network interface name</p><p>Name of the network for which the statistics are provided.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-rxbytes" class="section-heading">
+  <a href="#container_id-rxbytes" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/rxBytes</code></span>
+</h3>
+<p>Bytes received.</p><p>Total number of bytes received on the interface.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-rxpackets" class="section-heading">
+  <a href="#container_id-rxpackets" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/rxPackets</code></span>
+</h3>
+<p>Packets received.</p><p>Total number of packets successfully received on the interface.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-rxdropped" class="section-heading">
+  <a href="#container_id-rxdropped" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/rxDropped</code></span>
+</h3>
+<p>Incoming packets dropped.</p><p>Total number of incoming packets that were dropped.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-rxerrors" class="section-heading">
+  <a href="#container_id-rxerrors" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/rxErrors</code></span>
+</h3>
+<p>Received errors.</p><p>Total number of errors that occurred while receiving.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-txbytes" class="section-heading">
+  <a href="#container_id-txbytes" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/txBytes</code></span>
+</h3>
+<p>Bytes sent.</p><p>Total number of bytes transmitted on the interface.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-txpackets" class="section-heading">
+  <a href="#container_id-txpackets" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/txPackets</code></span>
+</h3>
+<p>Packets sent.</p><p>Total number of packets successfully transmitted on the interface.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-txerrors" class="section-heading">
+  <a href="#container_id-txerrors" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/txErrors</code></span>
+</h3>
+<p>Sent errors.</p><p>Total number of errors that occurred while transmitting.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-txdropped" class="section-heading">
+  <a href="#container_id-txdropped" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/txDropped</code></span>
+</h3>
+<p>Outgoing packets dropped.</p><p>Total number of outgoing packets that were dropped.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-apps-stats-containerprocesses-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-stats-containerprocesses-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.stats.ContainerProcesses v0.1</span>
+</h2>
+<p>PidsStats contains Linux-specific stats of a container's process-IDs (PIDs).</p><h3 id="about-39" class="section-heading">
+  <a href="#about-39" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-39" class="section-heading">
+  <a href="#mappings-39" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{container_id}/current</code> with <code class="inline">longinteger</code> type. Current is the number of PIDs in the cgroup.</li><li><code class="inline">/%{container_id}/limit</code> with <code class="inline">longinteger</code> type. Limit is the hard limit on the number of pids in the cgroup.</li></ul><h3 id="container_id-current" class="section-heading">
+  <a href="#container_id-current" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/current</code></span>
+</h3>
+<p>Current is the number of PIDs in the cgroup.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="container_id-limit-1" class="section-heading">
+  <a href="#container_id-limit-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{container_id}/limit</code></span>
+</h3>
+<p>Limit is the hard limit on the number of pids in the cgroup.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">container_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-apps-stats-volumeusage-v0-1" class="section-heading">
+  <a href="#io-edgehog-devicemanager-apps-stats-volumeusage-v0-1" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">io.edgehog.devicemanager.apps.stats.VolumeUsage v0.1</span>
+</h2>
+<p>Statistics on the volumes</p><h3 id="about-40" class="section-heading">
+  <a href="#about-40" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">About</span>
+</h3>
+<p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-40" class="section-heading">
+  <a href="#mappings-40" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text">Mappings</span>
+</h3>
+<p>The interface has the following mappings:</p><ul><li><code class="inline">/%{volume_id}/driver</code> with <code class="inline">string</code> type. Name of the volume driver used by the volume.</li><li><code class="inline">/%{volume_id}/mountpoint</code> with <code class="inline">string</code> type. Mount path of the volume on the host.</li><li><code class="inline">/%{volume_id}/createdAt</code> with <code class="inline">datetime</code> type. Date/Time the volume was created.</li><li><code class="inline">/%{volume_id}/usageDataSize</code> with <code class="inline">longinteger</code> type. Amount of disk space used by the volume (in bytes).</li><li><code class="inline">/%{volume_id}/usageDataRefCount</code> with <code class="inline">longinteger</code> type. The number of containers referencing this volume.</li></ul><h3 id="volume_id-driver" class="section-heading">
+  <a href="#volume_id-driver" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{volume_id}/driver</code></span>
+</h3>
+<p>Name of the volume driver used by the volume.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">volume_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="volume_id-mountpoint" class="section-heading">
+  <a href="#volume_id-mountpoint" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{volume_id}/mountpoint</code></span>
+</h3>
+<p>Mount path of the volume on the host.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">volume_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="volume_id-createdat" class="section-heading">
+  <a href="#volume_id-createdat" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{volume_id}/createdAt</code></span>
+</h3>
+<p>Date/Time the volume was created.</p><p>This endpoint accepts values of type <code class="inline">datetime</code>: a UTC timestamp, internally represented as milliseconds since 1st Jan 1970 using a signed 64 bits integer. (datetime is represented as an ISO 8601 string by default in JSON based APIs.)</p><p>The endpoint is parametric and <code class="inline">volume_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="volume_id-usagedatasize" class="section-heading">
+  <a href="#volume_id-usagedatasize" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{volume_id}/usageDataSize</code></span>
+</h3>
+<p>Amount of disk space used by the volume (in bytes).</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">volume_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h3 id="volume_id-usagedatarefcount" class="section-heading">
+  <a href="#volume_id-usagedatarefcount" class="hover-link">
+    <i class="ri-link-m" aria-hidden="true"></i>
+  </a>
+  <span class="text"><code class="inline">/%{volume_id}/usageDataRefCount</code></span>
+</h3>
+<p>The number of containers referencing this volume.</p><p>This endpoint accepts values of type <code class="inline">longinteger</code>: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).</p><p>The endpoint is parametric and <code class="inline">volume_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.</p><h2 id="io-edgehog-devicemanager-config-telemetry-v0-1" class="section-heading">
   <a href="#io-edgehog-devicemanager-config-telemetry-v0-1" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">io.edgehog.devicemanager.config.Telemetry v0.1</span>
 </h2>
-<h3 id="about-32" class="section-heading">
-  <a href="#about-32" class="hover-link">
+<h3 id="about-41" class="section-heading">
+  <a href="#about-41" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">About</span>
 </h3>
 <p>This interface is of type <code class="inline">properties</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
-Thanks to this type of interface, the server can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-32" class="section-heading">
-  <a href="#mappings-32" class="hover-link">
+Thanks to this type of interface, the server can set a persistent, stateful, synchronized state with no concept of history or timestamping.</p><h3 id="mappings-41" class="section-heading">
+  <a href="#mappings-41" class="hover-link">
     <i class="ri-link-m" aria-hidden="true"></i>
   </a>
   <span class="text">Mappings</span>
