@@ -14,12 +14,18 @@ components:
         code:
           description: An application-specific error code, expressed as a string value.
           type: string
+          x-struct:
+          x-validate:
         detail:
           description: A human-readable explanation specific to this occurrence of the problem.
           type: string
+          x-struct:
+          x-validate:
         id:
           description: A unique identifier for this particular occurrence of the problem.
           type: string
+          x-struct:
+          x-validate:
         links:
           $ref: '#/components/schemas/links'
         source:
@@ -27,29 +33,47 @@ components:
             parameter:
               description: A string indicating which query parameter caused the error.
               type: string
+              x-struct:
+              x-validate:
             pointer:
               description: A JSON Pointer [RFC6901] to the associated entity in the request document [e.g. "/data" for a primary data object, or "/data/attributes/title" for a specific attribute].
               type: string
+              x-struct:
+              x-validate:
           type: object
+          x-struct:
+          x-validate:
         status:
           description: The HTTP status code applicable to this problem, expressed as a string value.
           type: string
+          x-struct:
+          x-validate:
         title:
           description: A short, human-readable summary of the problem. It SHOULD NOT change from occurrence to occurrence of the problem, except for purposes of localization.
           type: string
+          x-struct:
+          x-validate:
       type: object
+      x-struct:
+      x-validate:
     errors:
       items:
         $ref: '#/components/schemas/error'
       type: array
       uniqueItems: true
+      x-struct:
+      x-validate:
     link:
       description: "A link MUST be represented as either: a string containing the link's URL or a link object."
       type: string
+      x-struct:
+      x-validate:
     links:
       additionalProperties:
         $ref: '#/components/schemas/link'
       type: object
+      x-struct:
+      x-validate:
     tenant:
       additionalProperties: false
       description: A "Resource object" representing a tenant
@@ -61,21 +85,31 @@ components:
             default_locale:
               description: The default locale supported by the tenant. Field included by default.
               type: string
+              x-struct:
+              x-validate:
             name:
               description: The tenant name. Field included by default.
               type: string
+              x-struct:
+              x-validate:
             public_key:
               description: The tenant public key. Field included by default.
               type: string
+              x-struct:
+              x-validate:
             slug:
               description: The tenant slug. Field included by default.
               type: string
+              x-struct:
+              x-validate:
           required:
             - name
             - slug
             - default_locale
             - public_key
           type: object
+          x-struct:
+          x-validate:
         id:
           type: string
         relationships:
@@ -83,19 +117,30 @@ components:
           description: A relationships object for a tenant
           properties: {}
           type: object
+          x-struct:
+          x-validate:
         type:
           type: string
+          x-struct:
+          x-validate:
       required:
         - type
         - id
       type: object
+      x-struct:
+      x-validate:
     tenant-filter:
       additionalProperties: false
       description: Filters the query to results matching the given filter object
       example: ''
       properties:
         and:
-          $ref: '#/components/schemas/tenant-filter'
+          items:
+            $ref: '#/components/schemas/tenant-filter'
+          type: array
+          uniqueItems: true
+          x-struct:
+          x-validate:
         default_locale:
           $ref: '#/components/schemas/tenant-filter-default_locale'
         name:
@@ -103,146 +148,311 @@ components:
         not:
           $ref: '#/components/schemas/tenant-filter'
         or:
-          $ref: '#/components/schemas/tenant-filter'
+          items:
+            $ref: '#/components/schemas/tenant-filter'
+          type: array
+          uniqueItems: true
+          x-struct:
+          x-validate:
         public_key:
           $ref: '#/components/schemas/tenant-filter-public_key'
         slug:
           $ref: '#/components/schemas/tenant-filter-slug'
         tenant_id:
           $ref: '#/components/schemas/tenant-filter-tenant_id'
-      type: object
+      type: deepObject
+      x-struct:
+      x-validate:
     tenant-filter-default_locale:
       additionalProperties: false
+      description: The default locale supported by the tenant.
       properties:
+        contains:
+          type: string
+          x-struct:
+          x-validate:
         eq:
           type: string
+          x-struct:
+          x-validate:
         greater_than:
           type: string
+          x-struct:
+          x-validate:
         greater_than_or_equal:
           type: string
+          x-struct:
+          x-validate:
         ilike:
           type: string
+          x-struct:
+          x-validate:
         in:
           items:
             type: string
+            x-struct:
+            x-validate:
           type: array
+          x-struct:
+          x-validate:
         is_nil:
           type: boolean
+          x-struct:
+          x-validate:
         less_than:
           type: string
+          x-struct:
+          x-validate:
         less_than_or_equal:
           type: string
+          x-struct:
+          x-validate:
         like:
           type: string
+          x-struct:
+          x-validate:
         not_eq:
           type: string
+          x-struct:
+          x-validate:
       type: object
+      x-struct:
+      x-validate:
     tenant-filter-name:
       additionalProperties: false
+      description: The tenant name.
       properties:
+        contains:
+          type: string
+          x-struct:
+          x-validate:
         eq:
           type: string
+          x-struct:
+          x-validate:
         greater_than:
           type: string
+          x-struct:
+          x-validate:
         greater_than_or_equal:
           type: string
+          x-struct:
+          x-validate:
         ilike:
           type: string
+          x-struct:
+          x-validate:
         in:
           items:
             type: string
+            x-struct:
+            x-validate:
           type: array
+          x-struct:
+          x-validate:
         is_nil:
           type: boolean
+          x-struct:
+          x-validate:
         less_than:
           type: string
+          x-struct:
+          x-validate:
         less_than_or_equal:
           type: string
+          x-struct:
+          x-validate:
         like:
           type: string
+          x-struct:
+          x-validate:
         not_eq:
           type: string
+          x-struct:
+          x-validate:
       type: object
+      x-struct:
+      x-validate:
     tenant-filter-public_key:
       additionalProperties: false
+      description: The tenant public key.
       properties:
+        contains:
+          type: string
+          x-struct:
+          x-validate:
         eq:
           type: string
+          x-struct:
+          x-validate:
         greater_than:
           type: string
+          x-struct:
+          x-validate:
         greater_than_or_equal:
           type: string
+          x-struct:
+          x-validate:
         ilike:
           type: string
+          x-struct:
+          x-validate:
         in:
           items:
             type: string
+            x-struct:
+            x-validate:
           type: array
+          x-struct:
+          x-validate:
         is_nil:
           type: boolean
+          x-struct:
+          x-validate:
         less_than:
           type: string
+          x-struct:
+          x-validate:
         less_than_or_equal:
           type: string
+          x-struct:
+          x-validate:
         like:
           type: string
+          x-struct:
+          x-validate:
         not_eq:
           type: string
+          x-struct:
+          x-validate:
       type: object
+      x-struct:
+      x-validate:
     tenant-filter-slug:
       additionalProperties: false
+      description: The tenant slug.
       properties:
+        contains:
+          type: string
+          x-struct:
+          x-validate:
         eq:
           type: string
+          x-struct:
+          x-validate:
         greater_than:
           type: string
+          x-struct:
+          x-validate:
         greater_than_or_equal:
           type: string
+          x-struct:
+          x-validate:
         ilike:
           type: string
+          x-struct:
+          x-validate:
         in:
           items:
             type: string
+            x-struct:
+            x-validate:
           type: array
+          x-struct:
+          x-validate:
         is_nil:
           type: boolean
+          x-struct:
+          x-validate:
         less_than:
           type: string
+          x-struct:
+          x-validate:
         less_than_or_equal:
           type: string
+          x-struct:
+          x-validate:
         like:
           type: string
+          x-struct:
+          x-validate:
         not_eq:
           type: string
+          x-struct:
+          x-validate:
       type: object
+      x-struct:
+      x-validate:
     tenant-filter-tenant_id:
       additionalProperties: false
       properties:
         eq:
           type: integer
+          x-struct:
+          x-validate:
         greater_than:
           type: integer
+          x-struct:
+          x-validate:
         greater_than_or_equal:
           type: integer
+          x-struct:
+          x-validate:
         in:
           items:
             type: integer
+            x-struct:
+            x-validate:
           type: array
+          x-struct:
+          x-validate:
         is_nil:
           type: boolean
+          x-struct:
+          x-validate:
         less_than:
           type: integer
+          x-struct:
+          x-validate:
         less_than_or_equal:
           type: integer
+          x-struct:
+          x-validate:
         not_eq:
           type: integer
+          x-struct:
+          x-validate:
       type: object
+      x-struct:
+      x-validate:
+    tenant_astarte_config-input-create-type:
+      additionalProperties: false
+      properties:
+        base_api_url:
+          type: string
+          x-struct:
+          x-validate:
+        realm_name:
+          type: string
+          x-struct:
+          x-validate:
+        realm_private_key:
+          type: string
+          x-struct:
+          x-validate:
+      required:
+        - base_api_url
+        - realm_name
+        - realm_private_key
+      type: object
+      x-struct:
+      x-validate:
   securitySchemes:
-    api_key:
-      description: API Key provided in the Authorization header
-      in: header
-      name: api_key
-      type: apiKey
+    bearerAuth:
+      bearerFormat: JWT
+      description: JWT for bearer authentication
+      scheme: bearer
+      type: http
 info:
   title: Edgehog Admin API
   version: '1'
@@ -269,36 +479,43 @@ paths:
           schema:
             pattern: ^(tenant_id|-tenant_id|\+\+tenant_id|--tenant_id|name|-name|\+\+name|--name|slug|-slug|\+\+slug|--slug|default_locale|-default_locale|\+\+default_locale|--default_locale|public_key|-public_key|\+\+public_key|--public_key)(,(tenant_id|-tenant_id|\+\+tenant_id|--tenant_id|name|-name|\+\+name|--name|slug|-slug|\+\+slug|--slug|default_locale|-default_locale|\+\+default_locale|--default_locale|public_key|-public_key|\+\+public_key|--public_key))*$
             type: string
+            x-struct:
+            x-validate:
           style: form
         - description: Paginates the response with the limit and offset or keyset pagination.
           in: query
           name: page
           required: false
           schema:
-            anyOf:
-              - properties:
-                  after:
-                    type: string
-                  before:
-                    type: string
-                  count:
-                    default: false
-                    type: boolean
-                  limit:
-                    minimum: 1
-                    type: integer
-                type: object
-              - properties:
-                  count:
-                    default: false
-                    type: boolean
-                  limit:
-                    minimum: 1
-                    type: integer
-                  offset:
-                    minimum: 0
-                    type: integer
-                type: object
+            example:
+              limit: 25
+            properties:
+              after:
+                type: string
+                x-struct:
+                x-validate:
+              before:
+                type: string
+                x-struct:
+                x-validate:
+              count:
+                default: false
+                type: boolean
+                x-struct:
+                x-validate:
+              limit:
+                minimum: 1
+                type: integer
+                x-struct:
+                x-validate:
+              offset:
+                minimum: 0
+                type: integer
+                x-struct:
+                x-validate:
+            type: object
+            x-struct:
+            x-validate:
           style: deepObject
         - description: Relationship paths to include in the response
           explode: false
@@ -308,6 +525,8 @@ paths:
           schema:
             pattern: ^()(,())*$
             type: string
+            x-struct:
+            x-validate:
           style: form
         - description: Limits the response fields to only those listed for each type
           in: query
@@ -315,18 +534,25 @@ paths:
           required: false
           schema:
             additionalProperties: true
+            example:
+              tenant: tenant_id,name,slug,default_locale,public_key
             properties:
               tenant:
                 description: Comma separated field names for tenant
                 example: tenant_id,name,slug,default_locale,public_key
                 type: string
+                x-struct:
+                x-validate:
             type: object
+            x-struct:
+            x-validate:
           style: deepObject
       responses:
         '200':
           content:
             application/vnd.api+json:
               schema:
+                additionalProperties: false
                 properties:
                   data:
                     description: An array of resource objects representing a tenant
@@ -334,15 +560,25 @@ paths:
                       $ref: '#/components/schemas/tenant'
                     type: array
                     uniqueItems: true
+                    x-struct:
+                    x-validate:
                   included:
                     items:
                       oneOf: []
+                      x-struct:
+                      x-validate:
                     type: array
                     uniqueItems: true
+                    x-struct:
+                    x-validate:
                   meta:
                     additionalProperties: true
                     type: object
+                    x-struct:
+                    x-validate:
                 type: object
+                x-struct:
+                x-validate:
           description: Success
         default:
           $ref: '#/components/responses/errors'
@@ -361,6 +597,8 @@ paths:
           schema:
             pattern: ^()(,())*$
             type: string
+            x-struct:
+            x-validate:
           style: form
         - description: Limits the response fields to only those listed for each type
           in: query
@@ -368,12 +606,18 @@ paths:
           required: false
           schema:
             additionalProperties: true
+            example:
+              tenant: tenant_id,name,slug,default_locale,public_key
             properties:
               tenant:
                 description: Comma separated field names for tenant
                 example: tenant_id,name,slug,default_locale,public_key
                 type: string
+                x-struct:
+                x-validate:
             type: object
+            x-struct:
+            x-validate:
           style: deepObject
       requestBody:
         content:
@@ -388,43 +632,56 @@ paths:
                       additionalProperties: false
                       properties:
                         astarte_config:
-                          properties:
-                            base_api_url:
-                              type: string
-                            realm_name:
-                              type: string
-                            realm_private_key:
-                              type: string
-                          required:
-                            - base_api_url
-                            - realm_name
-                            - realm_private_key
-                          type: object
+                          $ref: '#/components/schemas/tenant_astarte_config-input-create-type'
                         default_locale:
-                          type: string
+                          anyOf:
+                            - type: string
+                              x-struct:
+                              x-validate:
+                            - type: 'null'
+                          description: The default locale supported by the tenant.
                         name:
+                          description: The tenant name.
                           type: string
+                          x-struct:
+                          x-validate:
                         public_key:
+                          description: The tenant public key.
                           type: string
+                          x-struct:
+                          x-validate:
                         slug:
+                          description: The tenant slug.
                           type: string
+                          x-struct:
+                          x-validate:
                       required:
                         - name
                         - slug
                         - public_key
                         - astarte_config
                       type: object
+                      x-struct:
+                      x-validate:
                     relationships:
                       additionalProperties: false
                       properties: {}
                       type: object
+                      x-struct:
+                      x-validate:
                     type:
                       enum:
                         - tenant
+                      x-struct:
+                      x-validate:
                   type: object
+                  x-struct:
+                  x-validate:
               required:
                 - data
               type: object
+              x-struct:
+              x-validate:
         description: Request body for the /tenants operation on tenant resource
         required: true
       responses:
@@ -432,24 +689,33 @@ paths:
           content:
             application/vnd.api+json:
               schema:
+                additionalProperties: false
                 properties:
                   data:
                     $ref: '#/components/schemas/tenant'
                   included:
                     items:
                       oneOf: []
+                      x-struct:
+                      x-validate:
                     type: array
                     uniqueItems: true
+                    x-struct:
+                    x-validate:
                   meta:
                     additionalProperties: true
                     type: object
+                    x-struct:
+                    x-validate:
+                x-struct:
+                x-validate:
           description: Success
         default:
           $ref: '#/components/responses/errors'
       tags:
         - tenant
 security:
-  - api_key: []
+  - bearerAuth: []
 servers:
   - url: http://localhost:4000
     variables: {}
