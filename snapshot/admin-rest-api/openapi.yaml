@@ -714,6 +714,57 @@ paths:
           $ref: '#/components/responses/errors'
       tags:
         - tenant
+  /admin-api/v1/tenants/{id}:
+    delete:
+      callbacks: {}
+      deprecated: false
+      description: Destroy tenant handling resource cleanup.
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+            x-struct:
+            x-validate:
+          style: form
+        - description: Relationship paths to include in the response
+          explode: false
+          in: query
+          name: include
+          required: false
+          schema:
+            pattern: ^()(,())*$
+            type: string
+            x-struct:
+            x-validate:
+          style: form
+        - description: Limits the response fields to only those listed for each type
+          in: query
+          name: fields
+          required: false
+          schema:
+            additionalProperties: true
+            example:
+              tenant: tenant_id,name,slug,default_locale,public_key
+            properties:
+              tenant:
+                description: Comma separated field names for tenant
+                example: tenant_id,name,slug,default_locale,public_key
+                type: string
+                x-struct:
+                x-validate:
+            type: object
+            x-struct:
+            x-validate:
+          style: deepObject
+      responses:
+        '200':
+          description: Deleted successfully
+        default:
+          $ref: '#/components/responses/errors'
+      tags:
+        - tenant
 security:
   - bearerAuth: []
 servers:
