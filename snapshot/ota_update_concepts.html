@@ -4,35 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.34.2">
+    <meta name="generator" content="ExDoc v0.39.1">
     <meta name="project" content="Clea Edgehog v0.10.0-alpha.7">
 
 
     <title>OTA Update concepts — Clea Edgehog v0.10.0-alpha.7</title>
-    <link rel="stylesheet" href="dist/html-elixir-F2VRIOKR.css" />
 
+    <link rel="stylesheet" href="dist/html-elixir-ZFNMEJKT.css" />
 
-    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
-    <script src="dist/sidebar_items-1112F2A1.js"></script>
-    <script src="docs_config.js"></script>
-    <script async src="dist/html-YIPIRHGU.js"></script>
+    <script defer src="dist/sidebar_items-FC16B03D.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-HBZYRXZS.js"></script>
 
   </head>
-  <body data-type="extras" class="page-extra">
-    <script>
-
-      try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
-        }
-      } catch (error) { }
-    </script>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
 
 <div class="body-wrapper">
 
@@ -58,43 +45,47 @@ Clea Edgehog
         </div>
       </div>
     </div>
-    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
-      <li>
-        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
-Pages
-        </button>
-      </li>
-
-
-    </ul>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras=""></ul>
   </div>
-
-  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
-    <ul id="extras-full-list" class="full-list"></ul>
-  </div>
-
-
 </nav>
 
-<main class="content">
-  <output role="status" id="toast"></output>
+<output role="status" id="toast"></output>
 
+<main class="content page-extra" id="main" data-type="extras">
   <div id="content" class="content-inner">
     <div class="top-search">
       <div class="search-settings">
         <form class="search-bar" action="search.html">
           <label class="search-label">
             <span class="sr-only">Search documentation of Clea Edgehog</span>
-            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
           </label>
-          <button type="submit" class="search-button" aria-label="Submit Search">
-            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
-          </button>
-          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-            <i class="ri-close-line ri-lg" title="Cancel search"></i>
-          </button>
         </form>
         <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
         </div>
         <button class="icon-settings display-settings">
           <i class="ri-settings-3-line"></i>
@@ -104,98 +95,46 @@ Pages
     </div>
 
 <div id="top-content">
-  <h1>
+  <div class="heading-with-actions top-heading">
+    <h1>OTA Update concepts</h1>
 
 
-    <span>OTA Update concepts</span>
-  </h1>
+  </div>
 
-<p>This page will illustrate some of the OTA Update concepts used in Edgehog.</p><h2 id="base-image" class="section-heading">
-  <a href="#base-image" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Base Image</span>
-</h2>
-<p>A Base Image is an image created to be run on a Device. The exact content of the Base Image can vary
+
+<p>This page will illustrate some of the OTA Update concepts used in Edgehog.</p><h2 id="base-image" class="section-heading"><a href="#base-image" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Base Image</span></h2><p>A Base Image is an image created to be run on a Device. The exact content of the Base Image can vary
 depending on the use case, but it usually contains the operating system image or the device
 firmware. Each Base Image belongs to a <a href="#base-image-collection">Base Image Collection</a>.</p><p>Base Images follow semantic versioning, so that the user is able to know when a specific update can
-contain breaking changes. Each Base Image must have a unique version number.</p><h2 id="base-image-collection" class="section-heading">
-  <a href="#base-image-collection" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Base Image Collection</span>
-</h2>
-<p>A Base Image Collection is a set of Base Images associated with a specific <a href="core_concepts.html#system-model">System
+contain breaking changes. Each Base Image must have a unique version number.</p><h2 id="base-image-collection" class="section-heading"><a href="#base-image-collection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Base Image Collection</span></h2><p>A Base Image Collection is a set of Base Images associated with a specific <a href="core_concepts.html#system-model">System
 Model</a> and, implicitly via the System Model, with a specific <a href="core_concepts.html#hardware-type">Hardware
 Type</a>. The mapping relation between Base Image Collection and System Models is 1:1,
 so a Base Image Collection is associated with a single System Model and viceversa.</p><p>A Base Image Collection contains all the Base Images that ran, are running or could be run on a
 System Model. Drawing from the bike sharing example, there would be a different Base Image
 Collection for, e.g., e-bikes from each specific country to handle the different speed limitations.</p><p>The primary purpose of a Base Image Collection is to limit what can be installed to a System Model,
-preventing unintended installations, such as electric scooter firmware on an e-bike.</p><h2 id="version-requirement" class="section-heading">
-  <a href="#version-requirement" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Version Requirement</span>
-</h2>
-<p>A Version Requirement specifies compatibility between versions. It is expressed as a string containing
+preventing unintended installations, such as electric scooter firmware on an e-bike.</p><h2 id="version-requirement" class="section-heading"><a href="#version-requirement" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Version Requirement</span></h2><p>A Version Requirement specifies compatibility between versions. It is expressed as a string containing
 various criteria and adheres to syntax detailed in
 <a href="https://hexdocs.pm/elixir/Version.html#module-requirements">Elixir's Version.Requirement</a>.
 For example, when the Version Requirement <code class="inline">&gt;= 2.0.0 and &lt; 3.0.0</code> is used to define the
 <code class="inline">Supported starting versions</code> of Base Image <code class="inline">foo</code>, it identifies a subset of Base Images
-within the same Base Image Collection that can be updated to the Base Image <code class="inline">foo</code>.</p><h2 id="update-channel" class="section-heading">
-  <a href="#update-channel" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Update Channel</span>
-</h2>
-<p>An Update Channel represents the subscription of a Device to a specific set of Base Images.
+within the same Base Image Collection that can be updated to the Base Image <code class="inline">foo</code>.</p><h2 id="update-channel" class="section-heading"><a href="#update-channel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Update Channel</span></h2><p>An Update Channel represents the subscription of a Device to a specific set of Base Images.
 To assign a Device to a specific Update Channel (other than the default one) the device must
 belong to a <a href="core_concepts.html#group">Group</a> and that Group has to be assigned to the Target Groups of the Update
 Channel.</p><p>The same Base Image can be associated with multiple Update Channels. This guarantees
 that once testers in the <code class="inline">beta</code> Update Channel validate the Base Image, the exact same Base Image
-will be used to update devices in the <code class="inline">default</code> Update Channel.</p><h2 id="update-campaign" class="section-heading">
-  <a href="#update-campaign" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Update Campaign</span>
-</h2>
-<p>An Update Campaign is the operation that tracks the distribution of a specific Base Image to all
+will be used to update devices in the <code class="inline">default</code> Update Channel.</p><h2 id="update-campaign" class="section-heading"><a href="#update-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Update Campaign</span></h2><p>An Update Campaign is the operation that tracks the distribution of a specific Base Image to all
 devices belonging to an Update Channel.</p><p>An Update Campaign can define additional constraints about which devices can be updated (e.g.
-minimum current version, force downgrade, etc).</p><h2 id="rollout-mechanism" class="section-heading">
-  <a href="#rollout-mechanism" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Rollout Mechanism</span>
-</h2>
-<p>The Rollout Mechanism determines the details of how an Update Campaign is carried out.</p><p>It is responsible of deciding if the update is pushed towards the devices or pulled by users
+minimum current version, force downgrade, etc).</p><h2 id="rollout-mechanism" class="section-heading"><a href="#rollout-mechanism" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Rollout Mechanism</span></h2><p>The Rollout Mechanism determines the details of how an Update Campaign is carried out.</p><p>It is responsible of deciding if the update is pushed towards the devices or pulled by users
 interacting with them.</p><p>It also defines other details like how many devices are updated at a time, how many errors should be
 supported before aborting the campaign etc.</p><p>There are currently two main Mechanisms available: Push and Optional*. The Push mechanism pushes the
 update towards the device unconditionally, while the Optional mechanism waits for a confirmation on
-the Device side (usually given by a user) before starting to download the update.</p><p>*<em>The Optional rollout mechanism is planned for a future release</em></p><h2 id="ota-operation" class="section-heading">
-  <a href="#ota-operation" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">OTA Operation</span>
-</h2>
-<p>An OTA Operation tracks the progress of an update to a specific Device. It is started when Edgehog
+the Device side (usually given by a user) before starting to download the update.</p><p>*<em>The Optional rollout mechanism is planned for a future release</em></p><h2 id="ota-operation" class="section-heading"><a href="#ota-operation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">OTA Operation</span></h2><p>An OTA Operation tracks the progress of an update to a specific Device. It is started when Edgehog
 starts pushing the update to the Device and ends either with a success or with an error (possibly
-due to a timeout).</p><h2 id="update-target" class="section-heading">
-  <a href="#update-target" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Update Target</span>
-</h2>
-<p>An Update Target is the target of an Update Campaign, which is composed by the targeted device, 
-the status of the target in the linked Update Campaign, OTA Operation and additional metadata.</p><h2 id="maintenance-window" class="section-heading">
-  <a href="#maintenance-window" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Maintenance Window*</span>
-</h2>
-<p>*<em>This feature is planned for a future release</em></p><p>Each Device can have an optional Maintenance Window. This is used by Update Campaign to determine
+due to a timeout).</p><h2 id="update-target" class="section-heading"><a href="#update-target" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Update Target</span></h2><p>An Update Target is the target of an Update Campaign, which is composed by the targeted device, 
+the status of the target in the linked Update Campaign, OTA Operation and additional metadata.</p><h2 id="maintenance-window" class="section-heading"><a href="#maintenance-window" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Maintenance Window*</span></h2><p>*<em>This feature is planned for a future release</em></p><p>Each Device can have an optional Maintenance Window. This is used by Update Campaign to determine
 which Devices can be updated at a specific time.</p><p>If a Device declares a Maintenance Window, the updates targeting it will start only in the interval
 defined by it. Note that there's no guarantee that the update will also terminate inside the
 Maintenance Window.</p>
+
 </div>
 
 <div class="bottom-actions" id="bottom-actions">
@@ -241,7 +180,7 @@ Base Images
 
       <p class="built-using">
         Built using
-        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.2) for the
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.39.1) for the
 
           <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 

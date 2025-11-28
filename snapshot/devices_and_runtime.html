@@ -4,35 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.34.2">
+    <meta name="generator" content="ExDoc v0.39.1">
     <meta name="project" content="Clea Edgehog v0.10.0-alpha.7">
 
 
     <title>Devices & runtime — Clea Edgehog v0.10.0-alpha.7</title>
-    <link rel="stylesheet" href="dist/html-elixir-F2VRIOKR.css" />
 
+    <link rel="stylesheet" href="dist/html-elixir-ZFNMEJKT.css" />
 
-    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
-    <script src="dist/sidebar_items-1112F2A1.js"></script>
-    <script src="docs_config.js"></script>
-    <script async src="dist/html-YIPIRHGU.js"></script>
+    <script defer src="dist/sidebar_items-FC16B03D.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-HBZYRXZS.js"></script>
 
   </head>
-  <body data-type="extras" class="page-extra">
-    <script>
-
-      try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
-        }
-      } catch (error) { }
-    </script>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
 
 <div class="body-wrapper">
 
@@ -58,43 +45,47 @@ Clea Edgehog
         </div>
       </div>
     </div>
-    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
-      <li>
-        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
-Pages
-        </button>
-      </li>
-
-
-    </ul>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras=""></ul>
   </div>
-
-  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
-    <ul id="extras-full-list" class="full-list"></ul>
-  </div>
-
-
 </nav>
 
-<main class="content">
-  <output role="status" id="toast"></output>
+<output role="status" id="toast"></output>
 
+<main class="content page-extra" id="main" data-type="extras">
   <div id="content" class="content-inner">
     <div class="top-search">
       <div class="search-settings">
         <form class="search-bar" action="search.html">
           <label class="search-label">
             <span class="sr-only">Search documentation of Clea Edgehog</span>
-            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
           </label>
-          <button type="submit" class="search-button" aria-label="Submit Search">
-            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
-          </button>
-          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-            <i class="ri-close-line ri-lg" title="Cancel search"></i>
-          </button>
         </form>
         <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
         </div>
         <button class="icon-settings display-settings">
           <i class="ri-settings-3-line"></i>
@@ -104,32 +95,22 @@ Pages
     </div>
 
 <div id="top-content">
-  <h1>
+  <div class="heading-with-actions top-heading">
+    <h1>Devices &amp; runtime</h1>
 
 
-    <span>Devices &amp; runtime</span>
-  </h1>
+  </div>
 
-<h2 id="edgehog-device-for-esp32" class="section-heading">
-  <a href="#edgehog-device-for-esp32" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Edgehog device for ESP32</span>
-</h2>
-<p>The Edgehog device for ESP32 is an
+
+<h2 id="edgehog-device-for-esp32" class="section-heading"><a href="#edgehog-device-for-esp32" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Edgehog device for ESP32</span></h2><p>The Edgehog device for ESP32 is an
 <a href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/index.html">ESP-IDF component</a>
 written in C, that enables remote device management using Edgehog.
 You can find:</p><ul><li>The source code and installation instructions in the
-<a href="https://github.com/edgehog-device-manager/edgehog-esp32-device">GitHub page</a>.</li><li>The APIs for each version at the following links:<ul><li><a href="../devices/esp32/0.8/api/index.html">0.8</a>.</li></ul></li></ul><h2 id="edgehog-device-runtime" class="section-heading">
-  <a href="#edgehog-device-runtime" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Edgehog device runtime</span>
-</h2>
-<p>The Edgehog device runtime is a portable middleware written in Rust, that enables remote device
+<a href="https://github.com/edgehog-device-manager/edgehog-esp32-device">GitHub page</a>.</li><li>The APIs for each version at the following links:<ul><li><a href="../devices/esp32/0.8/api/index.html">0.8</a>.</li></ul></li></ul><h2 id="edgehog-device-runtime" class="section-heading"><a href="#edgehog-device-runtime" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Edgehog device runtime</span></h2><p>The Edgehog device runtime is a portable middleware written in Rust, that enables remote device
 management using Edgehog.
 You can find:</p><ul><li>The source code and installation instructions in the
 <a href="https://github.com/edgehog-device-manager/edgehog-device-runtime">GitHub page</a>.</li></ul>
+
 </div>
 
 <div class="bottom-actions" id="bottom-actions">
@@ -175,7 +156,7 @@ Attribute Value Sources
 
       <p class="built-using">
         Built using
-        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.2) for the
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.39.1) for the
 
           <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 

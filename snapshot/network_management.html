@@ -8,7 +8,7 @@
     <meta name="project" content="Clea Edgehog v0.10.0-alpha.7">
 
 
-    <title>Architecture overview — Clea Edgehog v0.10.0-alpha.7</title>
+    <title>Network management — Clea Edgehog v0.10.0-alpha.7</title>
 
     <link rel="stylesheet" href="dist/html-elixir-ZFNMEJKT.css" />
 
@@ -96,58 +96,37 @@ Clea Edgehog
 
 <div id="top-content">
   <div class="heading-with-actions top-heading">
-    <h1>Architecture overview</h1>
+    <h1>Network management</h1>
 
 
   </div>
 
 
-<p>This is an overview of Edgehog's architecture.</p><p><img src="assets/edgehog_architecture.png" alt="Edgehog Architecture"/></p><p>The following sections will detail the interactions between Edgehog and the other components
-represented in the architecture diagram.</p><h2 id="user-interaction" class="section-heading"><a href="#user-interaction" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">User interaction</span></h2><p>Edgehog exposes two ways to interact with it: a frontend that can be used by users and a GraphQL
-API which can be used by third party applications to programmatically perform all actions that can
-be performed in the frontend. As a matter of fact, the frontend itself uses the GraphQL API to
-perform its tasks.</p><h2 id="database-interaction" class="section-heading"><a href="#database-interaction" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Database interaction</span></h2><p>Edgehog uses PostgreSQL to store its data. The database schema supports multiple tenants which are
-isolated at the database level. This makes it possible to use a single Edgehog instance with
-multiple tenants (e.g. in a SaaS scenario).</p><h2 id="device-interaction-through-astarte" class="section-heading"><a href="#device-interaction-through-astarte" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Device interaction (through Astarte)</span></h2><p>To interact with the other side of the domain (i.e. devices), Edgehog is built upon
-<a href="https://github.com/astarte-platform/astarte">Astarte</a> and it exchanges data with it using two of
-its mechanisms: its <a href="https://docs.astarte-platform.org/latest/api/index.html">REST API</a> and <a href="https://docs.astarte-platform.org/latest/060-triggers.html">Astarte
-Triggers</a>. Each Edgehog tenant is mapped
-to an Astarte Realm, and it owns the credentials to interact with all the Realm APIs for that
-specific Realm.</p><h3 id="edgehog-astarte-interfaces" class="section-heading"><a href="#edgehog-astarte-interfaces" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Edgehog Astarte Interfaces</span></h3><p>The interaction between Edgehog and Astarte is defined by a <a href="https://github.com/edgehog-device-manager/edgehog-astarte-interfaces">set of
-interfaces</a> that define which
-data is sent both from Edgehog to the Devices and from the Devices towards Edgehog. Additionally,
-connection and disconnection triggers ar installed in the Astarte Realm, and point to the triggers
-endpoint of the Edgehog tenant.</p><h3 id="astarte-appengine-api" class="section-heading"><a href="#astarte-appengine-api" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Astarte AppEngine API</span></h3><p>The REST API is called every time Edgehog needs to retrieve data contained in
-an Astarte interface or when it needs to send data to the Devices. In the first case, Edgehog issues
-a <code class="inline">GET</code> HTTP request to retrieve the data from AppEngine API, which reads the data from the Astarte
-database. When Edgehog needs to send data towards a Device instead, it sends a <code class="inline">POST</code> HTTP to
-AppEngine API, which takes care of delivering data via MQTT to the device.</p><h3 id="astarte-triggers" class="section-heading"><a href="#astarte-triggers" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Astarte Triggers</span></h3><p>Astarte Triggers are used to update the online state of the device. Each time a Device connects or
-disconnects from Astarte, Astarte Trigger Engine sends an HTTP <code class="inline">POST</code> request to the Edgehog
-backend, which in turn updates the Device online status in its own database.</p>
+
 
 </div>
 
 <div class="bottom-actions" id="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="campaigns.html" class="bottom-actions-button" rel="prev">
+      <a href="volume_management.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Deployment Campaigns
+Volume management
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
 
-      <a href="deploying_with_kubernetes.html" class="bottom-actions-button" rel="next">
+      <a href="image_credentials_management.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-Deploying with Kubernetes
+Image Credentials management
         </span>
       </a>
 

@@ -4,35 +4,22 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.34.2">
+    <meta name="generator" content="ExDoc v0.39.1">
     <meta name="project" content="Clea Edgehog v0.10.0-alpha.7">
 
 
     <title>System Models — Clea Edgehog v0.10.0-alpha.7</title>
-    <link rel="stylesheet" href="dist/html-elixir-F2VRIOKR.css" />
 
+    <link rel="stylesheet" href="dist/html-elixir-ZFNMEJKT.css" />
 
-    <script src="dist/handlebars.runtime-NWIB6V2M.js"></script>
-    <script src="dist/handlebars.templates-K7URE6B4.js"></script>
-    <script src="dist/sidebar_items-1112F2A1.js"></script>
-    <script src="docs_config.js"></script>
-    <script async src="dist/html-YIPIRHGU.js"></script>
+    <script defer src="dist/sidebar_items-FC16B03D.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-HBZYRXZS.js"></script>
 
   </head>
-  <body data-type="extras" class="page-extra">
-    <script>
-
-      try {
-        var settings = JSON.parse(localStorage.getItem('ex_doc:settings') || '{}');
-
-        if (settings.theme === 'dark' ||
-           ((settings.theme === 'system' || settings.theme == null) &&
-             window.matchMedia('(prefers-color-scheme: dark)').matches)
-           ) {
-          document.body.classList.add('dark')
-        }
-      } catch (error) { }
-    </script>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
 
 <div class="body-wrapper">
 
@@ -58,43 +45,47 @@ Clea Edgehog
         </div>
       </div>
     </div>
-    <ul id="sidebar-listNav" class="sidebar-listNav" role="tablist">
-      <li>
-        <button id="extras-list-tab-button" role="tab" data-type="extras" aria-controls="extras-tab-panel" aria-selected="true" tabindex="0">
-Pages
-        </button>
-      </li>
-
-
-    </ul>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras=""></ul>
   </div>
-
-  <div id="extras-tab-panel" class="sidebar-tabpanel" role="tabpanel" aria-labelledby="extras-list-tab-button">
-    <ul id="extras-full-list" class="full-list"></ul>
-  </div>
-
-
 </nav>
 
-<main class="content">
-  <output role="status" id="toast"></output>
+<output role="status" id="toast"></output>
 
+<main class="content page-extra" id="main" data-type="extras">
   <div id="content" class="content-inner">
     <div class="top-search">
       <div class="search-settings">
         <form class="search-bar" action="search.html">
           <label class="search-label">
             <span class="sr-only">Search documentation of Clea Edgehog</span>
-            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
           </label>
-          <button type="submit" class="search-button" aria-label="Submit Search">
-            <i class="ri-search-2-line ri-lg" aria-hidden="true" title="Submit search"></i>
-          </button>
-          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
-            <i class="ri-close-line ri-lg" title="Cancel search"></i>
-          </button>
         </form>
         <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
         </div>
         <button class="icon-settings display-settings">
           <i class="ri-settings-3-line"></i>
@@ -104,11 +95,12 @@ Pages
     </div>
 
 <div id="top-content">
-  <h1>
+  <div class="heading-with-actions top-heading">
+    <h1>System Models</h1>
 
 
-    <span>System Models</span>
-  </h1>
+  </div>
+
 
 <p>As already mentioned in the <a href="core_concepts.html">Core concepts</a>, System Model represent a group of
 devices providing the same functionalities to users.</p><p>In Edgehog a System Model has this information associated with it:</p><ul><li>Name: a user friendly name used to identify the System Model (e.g. &quot;E-Bike v2&quot;)</li><li>Handle: a machine friendly identifier for the System Model (e.g. &quot;e-bike-v2&quot;). A valid handle must
@@ -118,34 +110,17 @@ Each System Model is associated with exactly one Hardware Type.</li><li>Part num
 Numbers associated with it, and Devices will be associated with a System Model based on the Part
 Number they declare to implement.</li><li>Picture: each System Model can have a picture associated with it, so that Devices using that
 System Model can be identified at a glance.</li></ul><p>The following sections will illustrate all the pages that can be used to list, create and edit
-System Models.</p><h2 id="system-model-list" class="section-heading">
-  <a href="#system-model-list" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">System Model List</span>
-</h2>
-<p><img src="assets/system_models.png" alt="System Model List Screenshot"/></p><p>In the system model list you can see all the System Models that are available. All information
+System Models.</p><h2 id="system-model-list" class="section-heading"><a href="#system-model-list" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">System Model List</span></h2><p><img src="assets/system_models.png" alt="System Model List Screenshot"/></p><p>In the system model list you can see all the System Models that are available. All information
 relative to each System Model (minus the picture) is present in the table, and clicking on the name
 brings to the <a href="#system-model">System Model</a> page.</p><p>Clicking on the &quot;Create System Model&quot; button in the top right brings to
-<a href="#create-system-model">Create System Model</a> page.</p><h2 id="system-model" class="section-heading">
-  <a href="#system-model" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">System Model</span>
-</h2>
-<p><img src="assets/system_model.png" alt="System Model Page Screenshot"/></p><p>The System Model page shows the information about a specific System Model and allows updating all of
+<a href="#create-system-model">Create System Model</a> page.</p><h2 id="system-model" class="section-heading"><a href="#system-model" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">System Model</span></h2><p><img src="assets/system_model.png" alt="System Model Page Screenshot"/></p><p>The System Model page shows the information about a specific System Model and allows updating all of
 them except the Hardware Type.</p><p>Editing any field and then pressing the &quot;Update&quot; button saves the new values for the System Model.
 The &quot;Add Part Number&quot; button allows adding additional Part Numbers to a System Model, and the thrash
-icon on the right of each of them allows deleting them.</p><h2 id="create-system-model" class="section-heading">
-  <a href="#create-system-model" class="hover-link">
-    <i class="ri-link-m" aria-hidden="true"></i>
-  </a>
-  <span class="text">Create System Model</span>
-</h2>
-<p><img src="assets/create_system_model.png" alt="Create System Model Screenshot"/></p><p>The Create System Model page allows creating a new System Model.</p><p>The System Model information can be provided using the form, and pressing the &quot;Update&quot; button saves
+icon on the right of each of them allows deleting them.</p><h2 id="create-system-model" class="section-heading"><a href="#create-system-model" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Create System Model</span></h2><p><img src="assets/create_system_model.png" alt="Create System Model Screenshot"/></p><p>The Create System Model page allows creating a new System Model.</p><p>The System Model information can be provided using the form, and pressing the &quot;Update&quot; button saves
 the System Model. The Hardware Type must be chosen from a list of available Hardware Types using the
 dropdown menu. The &quot;Add Part Number&quot; button allows adding additional Part Numbers for the System
 Model.</p>
+
 </div>
 
 <div class="bottom-actions" id="bottom-actions">
@@ -191,7 +166,7 @@ Devices
 
       <p class="built-using">
         Built using
-        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.34.2) for the
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.39.1) for the
 
           <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
