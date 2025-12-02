@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-ZFNMEJKT.css" />
 
-    <script defer src="dist/sidebar_items-D9323260.js"></script>
+    <script defer src="dist/sidebar_items-12E975EC.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-HBZYRXZS.js"></script>
 
@@ -116,20 +116,20 @@ various criteria and adheres to syntax detailed in
 <a href="https://hexdocs.pm/elixir/Version.html#module-requirements">Elixir's Version.Requirement</a>.
 For example, when the Version Requirement <code class="inline">&gt;= 2.0.0 and &lt; 3.0.0</code> is used to define the
 <code class="inline">Supported starting versions</code> of Base Image <code class="inline">foo</code>, it identifies a subset of Base Images
-within the same Base Image Collection that can be updated to the Base Image <code class="inline">foo</code>.</p><h2 id="update-channel" class="section-heading"><a href="#update-channel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Update Channel</span></h2><p>An Update Channel represents the subscription of a Device to a specific set of Base Images.
-To assign a Device to a specific Update Channel (other than the default one) the device must
-belong to a <a href="core_concepts.html#group">Group</a> and that Group has to be assigned to the Target Groups of the Update
-Channel.</p><p>The same Base Image can be associated with multiple Update Channels. This guarantees
-that once testers in the <code class="inline">beta</code> Update Channel validate the Base Image, the exact same Base Image
-will be used to update devices in the <code class="inline">default</code> Update Channel.</p><h2 id="update-campaign" class="section-heading"><a href="#update-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Update Campaign</span></h2><p>An Update Campaign is the operation that tracks the distribution of a specific Base Image to all
-devices belonging to an Update Channel.</p><p>An Update Campaign can define additional constraints about which devices can be updated (e.g.
+within the same Base Image Collection that can be updated to the Base Image <code class="inline">foo</code>.</p><h2 id="channel" class="section-heading"><a href="#channel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Channel</span></h2><p>A Channel is an aggregation of <a href="core_concepts-1.html#group">Groups</a> that can be targeted in campaigns
+(either update or deployment campaigns).</p><p>To assign a Device to a specific Channel (other than the default one) the device must
+belong to a <a href="core_concepts-1.html#group">Group</a> and that Group has to be assigned to the Target Groups of the Channel.</p><p>Channels enable structured rollouts across device groups. For example, the same Base Image can be associated
+with multiple Channels. This guarantees that once testers in the <code class="inline">beta</code> Channel validate the Base Image,
+the exact same Base Image will be used to update devices in the <code class="inline">default</code> Channel. The same applies
+to deployment campaigns targeting container releases.</p><h2 id="update-campaign" class="section-heading"><a href="#update-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Update Campaign</span></h2><p>An Update Campaign is the operation that tracks the distribution of a specific Base Image to all
+devices belonging to a Channel.</p><p>An Update Campaign can define additional constraints about which devices can be updated (e.g.
 minimum current version, force downgrade, etc).</p><h2 id="rollout-mechanism" class="section-heading"><a href="#rollout-mechanism" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Rollout Mechanism</span></h2><p>The Rollout Mechanism determines the details of how an Update Campaign is carried out.</p><p>It is responsible of deciding if the update is pushed towards the devices or pulled by users
 interacting with them.</p><p>It also defines other details like how many devices are updated at a time, how many errors should be
 supported before aborting the campaign etc.</p><p>There are currently two main Mechanisms available: Push and Optional*. The Push mechanism pushes the
 update towards the device unconditionally, while the Optional mechanism waits for a confirmation on
 the Device side (usually given by a user) before starting to download the update.</p><p>*<em>The Optional rollout mechanism is planned for a future release</em></p><h2 id="ota-operation" class="section-heading"><a href="#ota-operation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">OTA Operation</span></h2><p>An OTA Operation tracks the progress of an update to a specific Device. It is started when Edgehog
 starts pushing the update to the Device and ends either with a success or with an error (possibly
-due to a timeout).</p><h2 id="update-target" class="section-heading"><a href="#update-target" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Update Target</span></h2><p>An Update Target is the target of an Update Campaign, which is composed by the targeted device, 
+due to a timeout).</p><h2 id="update-target" class="section-heading"><a href="#update-target" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Update Target</span></h2><p>An Update Target is the target of an Update Campaign, which is composed by the targeted device,
 the status of the target in the linked Update Campaign, OTA Operation and additional metadata.</p><h2 id="maintenance-window" class="section-heading"><a href="#maintenance-window" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Maintenance Window*</span></h2><p>*<em>This feature is planned for a future release</em></p><p>Each Device can have an optional Maintenance Window. This is used by Update Campaign to determine
 which Devices can be updated at a specific time.</p><p>If a Device declares a Maintenance Window, the updates targeting it will start only in the interval
 defined by it. Note that there's no guarantee that the update will also terminate inside the
