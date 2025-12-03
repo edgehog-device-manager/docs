@@ -714,14 +714,14 @@ paths:
           $ref: '#/components/responses/errors'
       tags:
         - tenant
-  /admin-api/v1/tenants/{id}:
+  /admin-api/v1/tenants/{tenant_id}:
     delete:
       callbacks: {}
       deprecated: false
       description: Destroy tenant handling resource cleanup.
       parameters:
         - in: path
-          name: id
+          name: tenant_id
           required: true
           schema:
             type: string
