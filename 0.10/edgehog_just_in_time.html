@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.39.1">
+    <meta name="project" content="Clea Edgehog v0.10.0">
+
+
+    <title>Edgehog Just in Time — Clea Edgehog v0.10.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-ZFNMEJKT.css" />
+
+    <script defer src="dist/sidebar_items-174FA473.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-HBZYRXZS.js"></script>
+
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="http://edgehog.io" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.10.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras=""></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>Edgehog Just in Time</h1>
+
+
+  </div>
+
+
+<h2 id="introduction" class="section-heading"><a href="#introduction" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Introduction</span></h2><p>Why spend 5 minutes setting up Edgehog when you can do it <strong>just</strong> right? This tutorial will guide you through setting up Edgehog using the <code class="inline">justfile</code>.</p><h2 id="prerequisites" class="section-heading"><a href="#prerequisites" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Prerequisites</span></h2><p>Before we get started, make sure you have the following tools installed:</p><ul><li><strong>Git</strong>: For cloning repositories</li><li><strong>Docker</strong>: For running containers</li><li><strong>Docker Compose</strong>: For orchestrating services</li><li><strong>astartectl</strong>: For managing Astarte (<a href="https://github.com/astarte-platform/astartectl#installation">installation guide</a>)</li><li><strong>just</strong>: The command runner that makes this all possible. You can install it using <a href="https://asdf-vm.com/">asdf</a>, your system package manager, or follow the <a href="https://github.com/casey/just#installation">official installation guide</a></li><li><strong>Rust toolchain</strong> (optional, only needed for connecting devices): You can install it using <a href="https://asdf-vm.com/">asdf</a>, <a href="https://rustup.rs/">rustup</a>, or your preferred method</li></ul><h2 id="clone-the-edgehog-repository" class="section-heading"><a href="#clone-the-edgehog-repository" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Clone the Edgehog Repository</span></h2><p>First, clone the Edgehog repository and navigate into it:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">git clone https://github.com/edgehog-device-manager/edgehog &amp;&amp; cd edgehog
+</span></code></pre><h2 id="discover-available-commands" class="section-heading"><a href="#discover-available-commands" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Discover Available Commands</span></h2><p>The beauty of <code class="inline">just</code> is its discoverability. See all available commands with:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just --list
+</span></code></pre><p>Or simply:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just help
+</span></code></pre><p>This will show you all the recipes (tasks) available in the justfile, nicely organized by category.</p><h2 id="setting-up-your-environment" class="section-heading"><a href="#setting-up-your-environment" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Setting Up Your Environment</span></h2><p>To set up the complete Edgehog stack with Astarte and a test tenant, run:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just provision-tenant
+</span></code></pre><p>This single command will:</p><ol><li>✅ Check system prerequisites</li><li>🔧 Configure system settings (adjusting <code class="inline">aio-max-nr</code> if needed)</li><li>🌟 Clone and initialize Astarte</li><li>🏠 Create an Astarte <code class="inline">test</code> realm</li><li>🚀 Start Edgehog services</li><li>👤 Create a test tenant in Edgehog</li><li>🌐 Automatically open the dashboards in your browser</li></ol><p>Sit back, relax, and watch the magic happen!</p><blockquote><p><strong>Other setup options:</strong> If you need more granular control, check out the available commands with <code class="inline">just --list</code> or <code class="inline">just help</code>.</p></blockquote><h2 id="accessing-the-dashboards" class="section-heading"><a href="#accessing-the-dashboards" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Accessing the Dashboards</span></h2><p>After provisioning, your dashboards should open automatically. If not, or if you closed them, just run:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just open-dashboards
+</span></code></pre><p>This will open:</p><ul><li><strong>Astarte Dashboard</strong>: <a href="http://dashboard.astarte.localhost"><code class="inline">http://dashboard.astarte.localhost</code></a></li><li><strong>Edgehog Dashboard</strong>: <a href="http://edgehog.localhost"><code class="inline">http://edgehog.localhost</code></a></li></ul><p>You'll be automatically logged in with the appropriate JWT tokens!</p><h2 id="connecting-a-device" class="section-heading"><a href="#connecting-a-device" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Connecting a Device</span></h2><p>Want to see Edgehog in action with a real (simulated) device? It's just one command away:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just connect-device
+</span></code></pre><p>This will:</p><ol><li>🔍 Check Rust prerequisites</li><li>📦 Clone the Edgehog Device Runtime repository</li><li>📝 Register a new device with Astarte</li><li>⚙️ Generate the device configuration</li><li>🚀 Start the device runtime</li></ol><p>Your device will start sending telemetry data to Edgehog. Watch it appear in the Edgehog dashboard!</p><blockquote><p><strong>Note:</strong> If you encounter issues with the device runtime, check the <a href="https://github.com/edgehog-device-manager/edgehog-device-runtime/blob/main/doc/os_requirements.md">OS requirements documentation</a> for system-specific setup details.</p></blockquote><h3 id="reconnecting-the-same-device" class="section-heading"><a href="#reconnecting-the-same-device" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Reconnecting the Same Device</span></h3><p>Already have a device configured but want to restart it with a clean state? Use:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just reconnect-device
+</span></code></pre><p>This command:</p><ul><li>✅ Uses your existing device configuration (no re-registration needed)</li><li>🧹 Cleans device state (<code class="inline">.store/</code> and <code class="inline">.updates/</code> directories)</li><li>🚀 Starts the device runtime with existing build artifacts</li><li>⚡ Fast startup - no compilation or registration overhead!</li></ul><p>If no device is configured yet, it will automatically run <code class="inline">just connect-device</code> to set everything up.</p><h3 id="connecting-a-new-device" class="section-heading"><a href="#connecting-a-new-device" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Connecting a New Device</span></h3><p>Want to test with multiple devices? Register and connect a new device with:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just new-device
+</span></code></pre><p>This command:</p><ul><li>📝 Registers a new device with Astarte (new device ID and credentials)</li><li>🧹 Cleans previous device state</li><li>⚙️ Generates fresh device configuration</li><li>🚀 Starts the device runtime</li><li>⚡ Reuses compiled runtime - faster than full <code class="inline">connect-device</code>!</li></ul><p>This is perfect for testing scenarios with multiple devices without waiting for a full recompilation.</p><blockquote><p><strong>Running Multiple Devices</strong>: You can run multiple devices simultaneously by using separate terminals! Once a device is running, it has its own runtime context in memory. Simply open a new terminal, run <code class="inline">just new-device</code> to register a different device (which overwrites the config file), and both devices will run in parallel. Each device maintains its own state since they have unique device IDs.</p></blockquote><blockquote><p><strong>Important</strong>: Remember that all simulated devices are running on the same physical hardware (your PC/laptop). Features that require exclusive access to the same hardware resources may conflict or fail when running multiple devices simultaneously.</p></blockquote><h2 id="development-workflows" class="section-heading"><a href="#development-workflows" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Development Workflows</span></h2><h3 id="running-backend-in-development-mode" class="section-heading"><a href="#running-backend-in-development-mode" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Running Backend in Development Mode</span></h3><p>Want to work on the Edgehog backend? Start it in development mode:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just dev-backend
+</span></code></pre><p>This will:</p><ul><li>✅ Ensure Astarte is running</li><li>🐘 Start supporting services (PostgreSQL, MinIO, Registry)</li><li>🔥 Run the backend with <code class="inline">mix phx.server</code> for hot reloading</li><li>🌐 Make the API available at <code class="inline">http://localhost:4000</code></li></ul><h3 id="running-frontend-in-development-mode" class="section-heading"><a href="#running-frontend-in-development-mode" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Running Frontend in Development Mode</span></h3><p>To work on the frontend:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just dev-frontend
+</span></code></pre><p>This starts the Vite dev server with hot module replacement at <code class="inline">http://localhost:5173</code>.</p><h3 id="running-both-in-parallel" class="section-heading"><a href="#running-both-in-parallel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Running Both in Parallel</span></h3><p>Open two terminal windows and run:</p><pre><code class="makeup sh" translate="no"><span class=""># Terminal 1
+</span><span class="gp unselectable">$ </span><span class="">just dev-backend
+</span><span class="">
+</span><span class=""># Terminal 2
+</span><span class="gp unselectable">$ </span><span class="">just dev-frontend
+</span></code></pre><h2 id="monitoring-your-services" class="section-heading"><a href="#monitoring-your-services" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Monitoring Your Services</span></h2><h3 id="check-service-status" class="section-heading"><a href="#check-service-status" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Check Service Status</span></h3><p>Want to see what's running?</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just status
+</span></code></pre><p>This shows:</p><ul><li>All running Docker containers</li><li>Health check status for all services</li></ul><h3 id="view-logs" class="section-heading"><a href="#view-logs" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">View Logs</span></h3><p>To tail logs from all Edgehog services:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just logs
+</span></code></pre><p>Or just Astarte services:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just logs-astarte
+</span></code></pre><h2 id="cleaning-up" class="section-heading"><a href="#cleaning-up" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Cleaning Up</span></h2><h3 id="tear-down-everything" class="section-heading"><a href="#tear-down-everything" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Tear Down Everything</span></h3><p>When you're done and want to clean up completely:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just deprovision-tenant
+</span></code></pre><p>This removes:</p><ul><li>All Edgehog services and volumes</li><li>All Astarte services and volumes</li><li>Generated files and directories</li><li>Device runtime files</li></ul><h3 id="keep-astarte-remove-edgehog" class="section-heading"><a href="#keep-astarte-remove-edgehog" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Keep Astarte, Remove Edgehog</span></h3><p>If you want to keep Astarte running but clean up Edgehog and device runtime:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just deprovision-edgehog
+</span></code></pre><p>This is useful when you want to restart Edgehog fresh while keeping your Astarte realm intact.</p><h2 id="troubleshooting" class="section-heading"><a href="#troubleshooting" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Troubleshooting</span></h2><h3 id="services-not-starting" class="section-heading"><a href="#services-not-starting" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Services Not Starting</span></h3><p>Check the status first:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just status
+</span></code></pre><p>If services are down, check the logs:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just logs
+</span></code></pre><h2 id="conclusion" class="section-heading"><a href="#conclusion" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Conclusion</span></h2><p>With <code class="inline">just</code>, setting up Edgehog is... well, just easy! No more remembering complex Docker commands or multi-step setup procedures. Just run <code class="inline">just provision-tenant</code> and you're ready to manage your IoT devices.</p><p>Remember: when in doubt, <code class="inline">just help</code> will show you the way!</p><hr class="thin"/><p><strong>Pro tip</strong>: You can create your own custom recipes in the justfile. It's just a regular text file with a simple syntax. Check out the <a href="https://just.systems">just documentation</a> to learn more.</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="edgehog_in_5_minutes.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Edgehog in 5 minutes
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+    <footer class="footer">
+      <p>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+            <a href="Clea Edgehog.epub" title="ePub version">
+              Download ePub version
+            </a>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.39.1) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
