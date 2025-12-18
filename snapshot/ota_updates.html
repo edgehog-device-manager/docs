@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-ZFNMEJKT.css" />
 
-    <script defer src="dist/sidebar_items-174FA473.js"></script>
+    <script defer src="dist/sidebar_items-D4741118.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-HBZYRXZS.js"></script>
 
@@ -103,21 +103,18 @@ Clea Edgehog
 
 
 <p>Edgehog provides an OTA update mechanism that allows remotely updating devices. The OTA update
-mechanism is not tied to a specific platform and can be used on any <a href="devices_and_runtime.html">Edgehog
-runtime</a> which implements the
+mechanism is not tied to a specific platform and can be used on any <a href="devices_and_runtime.html">Edgehog runtime</a> which implements the
 <a href="astarte_interfaces.html#io-edgehog-devicemanager-otarequest-v1-0"><code class="inline">io.edgehog.devicemanager.OTARequest</code></a>,
 <a href="astarte_interfaces.html#io-edgehog-devicemanager-otaevent-v0-1"><code class="inline">io.edgehog.devicemanager.OTAEvent</code></a>
 and
 <a href="astarte_interfaces.html#io-edgehog-devicemanager-baseimage-v0-1"><code class="inline">io.edgehog.devicemanager.BaseImage</code></a>
 interfaces.</p><p>OTA Update concepts are detailed in the <a href="ota_update_concepts.html">dedicated page</a>, this guide
-demonstrates the usage of an OTA update mechanism.</p><h2 id="managed-ota-updates" class="section-heading"><a href="#managed-ota-updates" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Managed OTA Updates</span></h2><p>Edgehog provides a mechanism to roll-out OTA updates to devices automatically, based on their <a href="core_concepts.html#system-model">System
-Model</a> and their membership to specific <a href="core_concepts-1.html#group">Groups</a>.</p><p>To push updates towards Devices, an Update Campaign must be created. It's important to note that an Update
+demonstrates the usage of an OTA update mechanism.</p><h2 id="managed-ota-updates" class="section-heading"><a href="#managed-ota-updates" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Managed OTA Updates</span></h2><p>Edgehog provides a mechanism to roll-out OTA updates to devices automatically, based on their <a href="core_concepts.html#system-model">System Model</a> and their membership to specific <a href="core_concepts-1.html#group">Groups</a>.</p><p>To push updates towards Devices, an Update Campaign must be created. It's important to note that an Update
 Campaign can only send updates for the same Base Image Collection. Special operations, such as
-converting a Device from one System Model to another, must always be done with a <a href="#manual-ota-updates">Manual OTA
-Update</a>.</p><p>Once created, the Update Campaign will start rolling out updates towards the devices, and its
+converting a Device from one System Model to another, must always be done with a <a href="#manual-ota-updates">Manual OTA Update</a>.</p><p>Once created, the Update Campaign will start rolling out updates towards the devices, and its
 progress can be checked from the Edgehog Dashboard or through Edgehog GraphQL API.</p><p>Note that the campaign will &quot;snapshot&quot; the Devices belonging to the Channel when it's
 started, and will <a href="ota_update_concepts.html#update-target">target</a> only those.</p><p>Once started, the Update Campaign waits for device to come online, at which point it initiates the OTA Update.
-<a href="update_campaigns.html#roll-out-mechanism">Roll-out mechanim</a> properties can affect this process.
+<a href="update_campaigns.html#roll-out-mechanism">Roll-out mechanism</a> properties can affect this process.
 For example, <code class="inline">Max Pending Operations</code> setting may postpone some OTA Operations.</p><p>Before actual push to the Device corresponding <a href="ota_update_concepts.html#update-target">Update Target</a>
 is verified for fulfillment of Base Image and Roll-out mechanism criteria. For example:</p><ul><li>Devices having same Base Image version will be silently marked as successful.</li><li>Devices with Base Images that don't meet <a href="ota_update_concepts.html#version-requirement">Version Requirement</a>
 of distributed Base Image will be marked as failed, unless the <code class="inline">Force Downgrade</code> option

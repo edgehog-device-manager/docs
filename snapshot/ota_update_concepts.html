@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-ZFNMEJKT.css" />
 
-    <script defer src="dist/sidebar_items-174FA473.js"></script>
+    <script defer src="dist/sidebar_items-D4741118.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-HBZYRXZS.js"></script>
 
@@ -105,9 +105,7 @@ Clea Edgehog
 <p>This page will illustrate some of the OTA Update concepts used in Edgehog.</p><h2 id="base-image" class="section-heading"><a href="#base-image" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Base Image</span></h2><p>A Base Image is an image created to be run on a Device. The exact content of the Base Image can vary
 depending on the use case, but it usually contains the operating system image or the device
 firmware. Each Base Image belongs to a <a href="#base-image-collection">Base Image Collection</a>.</p><p>Base Images follow semantic versioning, so that the user is able to know when a specific update can
-contain breaking changes. Each Base Image must have a unique version number.</p><h2 id="base-image-collection" class="section-heading"><a href="#base-image-collection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Base Image Collection</span></h2><p>A Base Image Collection is a set of Base Images associated with a specific <a href="core_concepts.html#system-model">System
-Model</a> and, implicitly via the System Model, with a specific <a href="core_concepts.html#hardware-type">Hardware
-Type</a>. The mapping relation between Base Image Collection and System Models is 1:1,
+contain breaking changes. Each Base Image must have a unique version number.</p><h2 id="base-image-collection" class="section-heading"><a href="#base-image-collection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Base Image Collection</span></h2><p>A Base Image Collection is a set of Base Images associated with a specific <a href="core_concepts.html#system-model">System Model</a> and, implicitly via the System Model, with a specific <a href="core_concepts.html#hardware-type">Hardware Type</a>. The mapping relation between Base Image Collection and System Models is 1:1,
 so a Base Image Collection is associated with a single System Model and viceversa.</p><p>A Base Image Collection contains all the Base Images that ran, are running or could be run on a
 System Model. Drawing from the bike sharing example, there would be a different Base Image
 Collection for, e.g., e-bikes from each specific country to handle the different speed limitations.</p><p>The primary purpose of a Base Image Collection is to limit what can be installed to a System Model,
