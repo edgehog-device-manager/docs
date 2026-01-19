@@ -195,8 +195,16 @@ components:
           type: array
           x-struct:
           x-validate:
+        is_distinct_from:
+          type: string
+          x-struct:
+          x-validate:
         is_nil:
           type: boolean
+          x-struct:
+          x-validate:
+        is_not_distinct_from:
+          type: string
           x-struct:
           x-validate:
         less_than:
@@ -250,8 +258,16 @@ components:
           type: array
           x-struct:
           x-validate:
+        is_distinct_from:
+          type: string
+          x-struct:
+          x-validate:
         is_nil:
           type: boolean
+          x-struct:
+          x-validate:
+        is_not_distinct_from:
+          type: string
           x-struct:
           x-validate:
         less_than:
@@ -305,8 +321,16 @@ components:
           type: array
           x-struct:
           x-validate:
+        is_distinct_from:
+          type: string
+          x-struct:
+          x-validate:
         is_nil:
           type: boolean
+          x-struct:
+          x-validate:
+        is_not_distinct_from:
+          type: string
           x-struct:
           x-validate:
         less_than:
@@ -360,8 +384,16 @@ components:
           type: array
           x-struct:
           x-validate:
+        is_distinct_from:
+          type: string
+          x-struct:
+          x-validate:
         is_nil:
           type: boolean
+          x-struct:
+          x-validate:
+        is_not_distinct_from:
+          type: string
           x-struct:
           x-validate:
         less_than:
@@ -406,8 +438,16 @@ components:
           type: array
           x-struct:
           x-validate:
+        is_distinct_from:
+          type: string
+          x-struct:
+          x-validate:
         is_nil:
           type: boolean
+          x-struct:
+          x-validate:
+        is_not_distinct_from:
+          type: string
           x-struct:
           x-validate:
         less_than:
