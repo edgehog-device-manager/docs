@@ -4,21 +4,40 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.39.1">
+    <meta name="generator" content="ExDoc v0.40.0">
     <meta name="project" content="Clea Edgehog v0.10.0">
 
 
     <title>Core concepts — Clea Edgehog v0.10.0</title>
 
-    <link rel="stylesheet" href="dist/html-elixir-ZFNMEJKT.css" />
+    <link rel="stylesheet" href="dist/html-elixir-PEPNOX6A.css" />
 
-    <script defer src="dist/sidebar_items-D4741118.js"></script>
+    <script defer src="dist/sidebar_items-2D4441A7.js"></script>
     <script defer src="docs_config.js"></script>
-    <script defer src="dist/html-HBZYRXZS.js"></script>
+    <script defer src="dist/html-E23W6NAF.js"></script>
 
   </head>
   <body>
-    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+    <script>(() => {
+  // js/constants.js
+  var t = "ex_doc:settings", e = "dark";
+  var o = "dark", s = "light";
+
+  // js/sidebar/constants.js
+  var E = "sidebar_state", n = "closed";
+  var r = "sidebar_width";
+  var a = "sidebar-open";
+
+  // js/entry/inline_html.js
+  var i = new URLSearchParams(window.location.search), S = i.get("theme") || JSON.parse(localStorage.getItem(t) || "{}").theme;
+  (S === o || S !== s && window.matchMedia("(prefers-color-scheme: dark)").matches) && document.body.classList.add(e);
+  var d = sessionStorage.getItem(E), A = d !== n && !window.matchMedia(`screen and (max-width: ${768}px)`).matches;
+  document.body.classList.toggle(a, A);
+  var c = sessionStorage.getItem(r);
+  c && document.body.style.setProperty("--sidebarWidth", `${c}px`);
+  var p = /(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);
+  document.documentElement.classList.toggle("apple-os", p);
+})();
 </script>
 
 <div class="body-wrapper">
@@ -45,7 +64,7 @@ Clea Edgehog
         </div>
       </div>
     </div>
-    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras=""></ul>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
   </div>
 </nav>
 
@@ -98,12 +117,17 @@ Clea Edgehog
   <div class="heading-with-actions top-heading">
     <h1>Core concepts</h1>
 
+<a href="core_concepts-2.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
 
   </div>
 
 
 <p>This page illustrates the core concepts of Edgehog's container management system.</p><h2 id="images" class="section-heading"><a href="#images" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Images</span></h2><p>Images in Edgehog are not managed directly by the platform. Instead, Edgehog treats images as external references that are passed to the device’s container runtime (such as Docker or Podman). Edgehog does not store, pull or validate images, it simply records the image reference string provided in a container definition.</p><h3 id="image-reference-format" class="section-heading"><a href="#image-reference-format" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Image Reference Format</span></h3><p>The image reference represents the name of the image to pull.
-It follows the pattern:</p><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="2392747022-1">[</span><span class="n">registry</span><span class="o">-</span><span class="n">host</span><span class="p" data-group-id="2392747022-2">[</span><span class="ss">:port</span><span class="p" data-group-id="2392747022-2">]</span><span class="o">/</span><span class="p" data-group-id="2392747022-1">]</span><span class="p" data-group-id="2392747022-3">[</span><span class="n">image</span><span class="o">-</span><span class="n">repo</span><span class="o">/</span><span class="p" data-group-id="2392747022-3">]</span><span class="n">image</span><span class="o">-</span><span class="n">name</span><span class="p" data-group-id="2392747022-4">[</span><span class="p">:</span><span class="p" data-group-id="2392747022-5">(</span><span class="n">tag</span><span class="o">|</span><span class="n">digest</span><span class="p" data-group-id="2392747022-5">)</span><span class="p" data-group-id="2392747022-4">]</span></code></pre><h3 id="image-reference-examples" class="section-heading"><a href="#image-reference-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Image Reference Examples</span></h3><h4>Basic Examples</h4><pre><code class="makeup elixir" translate="no"><span class="n">nginx</span><span class="w">
+It follows the pattern:</p><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="1691085889-1">[</span><span class="n">registry</span><span class="o">-</span><span class="n">host</span><span class="p" data-group-id="1691085889-2">[</span><span class="ss">:port</span><span class="p" data-group-id="1691085889-2">]</span><span class="o">/</span><span class="p" data-group-id="1691085889-1">]</span><span class="p" data-group-id="1691085889-3">[</span><span class="n">image</span><span class="o">-</span><span class="n">repo</span><span class="o">/</span><span class="p" data-group-id="1691085889-3">]</span><span class="n">image</span><span class="o">-</span><span class="n">name</span><span class="p" data-group-id="1691085889-4">[</span><span class="p">:</span><span class="p" data-group-id="1691085889-5">(</span><span class="n">tag</span><span class="o">|</span><span class="n">digest</span><span class="p" data-group-id="1691085889-5">)</span><span class="p" data-group-id="1691085889-4">]</span></code></pre><h3 id="image-reference-examples" class="section-heading"><a href="#image-reference-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Image Reference Examples</span></h3><h4>Basic Examples</h4><pre><code class="makeup elixir" translate="no"><span class="n">nginx</span><span class="w">
 </span><span class="n">redis</span><span class="w">
 </span><span class="n">python</span></code></pre><h4>With Explicit Tags</h4><pre><code class="makeup elixir" translate="no"><span class="n">nginx</span><span class="p">:</span><span class="mf">1.27</span><span class="w">
 </span><span class="n">python</span><span class="p">:</span><span class="mf">3.12</span><span class="o">-</span><span class="n">alpine</span></code></pre><h4>With Image Repository</h4><pre><code class="makeup elixir" translate="no"><span class="n">library</span><span class="o">/</span><span class="n">ubuntu</span><span class="p">:</span><span class="mf">24.04</span><span class="w">
@@ -145,27 +169,34 @@ Volume management
   </div>
 </div>
     <footer class="footer">
-      <p>
 
-        <span class="line">
-          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-            Search HexDocs
-          </button>
+        <p>
 
-            <a href="Clea Edgehog.epub" title="ePub version">
-              Download ePub version
-            </a>
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
 
-        </span>
-      </p>
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
 
-      <p class="built-using">
-        Built using
-        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.39.1) for the
 
-          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
 
-      </p>
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.0) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
 
     </footer>
   </div>

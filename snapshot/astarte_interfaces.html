@@ -4,21 +4,40 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.39.1">
+    <meta name="generator" content="ExDoc v0.40.0">
     <meta name="project" content="Clea Edgehog v0.10.0">
 
 
     <title>Astarte Interfaces — Clea Edgehog v0.10.0</title>
 
-    <link rel="stylesheet" href="dist/html-elixir-ZFNMEJKT.css" />
+    <link rel="stylesheet" href="dist/html-elixir-PEPNOX6A.css" />
 
-    <script defer src="dist/sidebar_items-D4741118.js"></script>
+    <script defer src="dist/sidebar_items-2D4441A7.js"></script>
     <script defer src="docs_config.js"></script>
-    <script defer src="dist/html-HBZYRXZS.js"></script>
+    <script defer src="dist/html-E23W6NAF.js"></script>
 
   </head>
   <body>
-    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+    <script>(() => {
+  // js/constants.js
+  var t = "ex_doc:settings", e = "dark";
+  var o = "dark", s = "light";
+
+  // js/sidebar/constants.js
+  var E = "sidebar_state", n = "closed";
+  var r = "sidebar_width";
+  var a = "sidebar-open";
+
+  // js/entry/inline_html.js
+  var i = new URLSearchParams(window.location.search), S = i.get("theme") || JSON.parse(localStorage.getItem(t) || "{}").theme;
+  (S === o || S !== s && window.matchMedia("(prefers-color-scheme: dark)").matches) && document.body.classList.add(e);
+  var d = sessionStorage.getItem(E), A = d !== n && !window.matchMedia(`screen and (max-width: ${768}px)`).matches;
+  document.body.classList.toggle(a, A);
+  var c = sessionStorage.getItem(r);
+  c && document.body.style.setProperty("--sidebarWidth", `${c}px`);
+  var p = /(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);
+  document.documentElement.classList.toggle("apple-os", p);
+})();
 </script>
 
 <div class="body-wrapper">
@@ -45,7 +64,7 @@ Clea Edgehog
         </div>
       </div>
     </div>
-    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras=""></ul>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
   </div>
 </nav>
 
@@ -97,6 +116,11 @@ Clea Edgehog
 <div id="top-content">
   <div class="heading-with-actions top-heading">
     <h1>Astarte Interfaces</h1>
+
+<a href="astarte_interfaces.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
 
 
   </div>
@@ -470,13 +494,17 @@ Thanks to this type of interface, the server can send a mutable, ordered stream 
 Each mapping is treated as an independent value and is managed individually.</p><h3 id="mappings-31" class="section-heading"><a href="#mappings-31" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Mappings</span></h3><p>The interface has the following mappings:</p><ul><li><code class="inline">/%{deployment_id}/command</code> with <code class="inline">string</code> type. Deployment command</li></ul><h3 id="deployment_id-command" class="section-heading"><a href="#deployment_id-command" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text"><code class="inline">/%{deployment_id}/command</code></span></h3><p>Deployment command</p><p>Possible values [Start, Stop, Delete]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-deploymentevent-v0-1" class="section-heading"><a href="#io-edgehog-devicemanager-apps-deploymentevent-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">io.edgehog.devicemanager.apps.DeploymentEvent v0.1</span></h2><h3 id="about-32" class="section-heading"><a href="#about-32" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">About</span></h3><p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-deploymentevent-v0-2" class="section-heading"><a href="#io-edgehog-devicemanager-apps-deploymentevent-v0-2" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">io.edgehog.devicemanager.apps.DeploymentEvent v0.2</span></h2><h3 id="about-32" class="section-heading"><a href="#about-32" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">About</span></h3><p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">device</code>, meaning that it is the device which initiates the data flow.
 Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.</p><p>Data gets sent with an <code class="inline">object</code> aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-32" class="section-heading"><a href="#mappings-32" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Mappings</span></h3><p>The interface has the following mappings:</p><ul><li><code class="inline">/%{deployment_id}/status</code> with <code class="inline">string</code> type. Deployment status</li><li><code class="inline">/%{deployment_id}/message</code> with <code class="inline">string</code> type. Optional message for the event</li></ul><h3 id="deployment_id-status-1" class="section-heading"><a href="#deployment_id-status-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text"><code class="inline">/%{deployment_id}/status</code></span></h3><p>Deployment status</p><p>Possible values: [Starting, Started, Stopping, Stopped, Updating, Deleting, Error]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.</p><h3 id="mappings-32" class="section-heading"><a href="#mappings-32" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Mappings</span></h3><p>The interface has the following mappings:</p><ul><li><code class="inline">/%{deployment_id}/status</code> with <code class="inline">string</code> type. Deployment status</li><li><code class="inline">/%{deployment_id}/message</code> with <code class="inline">string</code> type. Optional message for the event</li><li><code class="inline">/%{deployment_id}/addInfo</code> with <code class="inline">stringarray</code> type. Additional info</li></ul><h3 id="deployment_id-status-1" class="section-heading"><a href="#deployment_id-status-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text"><code class="inline">/%{deployment_id}/status</code></span></h3><p>Deployment status</p><p>Possible values: [Starting, Started, Stopping, Stopped, Updating, Deleting, Error]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="deployment_id-message" class="section-heading"><a href="#deployment_id-message" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text"><code class="inline">/%{deployment_id}/message</code></span></h3><p>Optional message for the event</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.</p><h3 id="deployment_id-addinfo" class="section-heading"><a href="#deployment_id-addinfo" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text"><code class="inline">/%{deployment_id}/addInfo</code></span></h3><p>Additional info</p><p>Additional info about the event.</p><p>This endpoint accepts values of type <code class="inline">stringarray</code>: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.</p><p>The endpoint is parametric and <code class="inline">deployment_id</code> can be replaced with any valid string to send data on specialized paths.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
@@ -669,27 +697,34 @@ Edgehog in 5 minutes
   </div>
 </div>
     <footer class="footer">
-      <p>
 
-        <span class="line">
-          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
-            Search HexDocs
-          </button>
+        <p>
 
-            <a href="Clea Edgehog.epub" title="ePub version">
-              Download ePub version
-            </a>
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
 
-        </span>
-      </p>
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
 
-      <p class="built-using">
-        Built using
-        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.39.1) for the
 
-          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
 
-      </p>
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.0) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
 
     </footer>
   </div>
