@@ -4,40 +4,21 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.40.0">
+    <meta name="generator" content="ExDoc v0.40.1">
     <meta name="project" content="Clea Edgehog v0.10.0">
 
 
     <title>Deploying with Kubernetes — Clea Edgehog v0.10.0</title>
 
-    <link rel="stylesheet" href="dist/html-elixir-PEPNOX6A.css" />
+    <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
 
     <script defer src="dist/sidebar_items-2D4441A7.js"></script>
     <script defer src="docs_config.js"></script>
-    <script defer src="dist/html-E23W6NAF.js"></script>
+    <script defer src="dist/html-YU4BZFVS.js"></script>
 
   </head>
   <body>
-    <script>(() => {
-  // js/constants.js
-  var t = "ex_doc:settings", e = "dark";
-  var o = "dark", s = "light";
-
-  // js/sidebar/constants.js
-  var E = "sidebar_state", n = "closed";
-  var r = "sidebar_width";
-  var a = "sidebar-open";
-
-  // js/entry/inline_html.js
-  var i = new URLSearchParams(window.location.search), S = i.get("theme") || JSON.parse(localStorage.getItem(t) || "{}").theme;
-  (S === o || S !== s && window.matchMedia("(prefers-color-scheme: dark)").matches) && document.body.classList.add(e);
-  var d = sessionStorage.getItem(E), A = d !== n && !window.matchMedia(`screen and (max-width: ${768}px)`).matches;
-  document.body.classList.toggle(a, A);
-  var c = sessionStorage.getItem(r);
-  c && document.body.style.setProperty("--sidebarWidth", `${c}px`);
-  var p = /(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);
-  document.documentElement.classList.toggle("apple-os", p);
-})();
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
 </script>
 
 <div class="body-wrapper">
@@ -601,17 +582,17 @@ Astarte cluster and Realm.</p><pre><code class="makeup elixir" translate="no"><s
 </span><span class="gp unselectable">iex&gt; </span><span class="n">realm_private_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;
 &lt;ASTARTE-REALM-PRIVATE-KEY&gt;
 &quot;&quot;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="6039496524-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="6039496524-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tenants</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="6039496524-2">(</span><span class="w">
-  </span><span class="p" data-group-id="6039496524-3">%{</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="0243719169-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="0243719169-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tenants</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="0243719169-2">(</span><span class="w">
+  </span><span class="p" data-group-id="0243719169-3">%{</span><span class="w">
     </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_name</span><span class="p">,</span><span class="w">
     </span><span class="ss">slug</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_slug</span><span class="p">,</span><span class="w">
     </span><span class="ss">public_key</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_public_key</span><span class="p">,</span><span class="w">
-    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="6039496524-4">%{</span><span class="w">
+    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0243719169-4">%{</span><span class="w">
       </span><span class="ss">base_api_url</span><span class="p">:</span><span class="w"> </span><span class="n">base_api_url</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_name</span><span class="p">:</span><span class="w"> </span><span class="n">realm_name</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_private_key</span><span class="p">:</span><span class="w"> </span><span class="n">realm_private_key</span><span class="w">
-    </span><span class="p" data-group-id="6039496524-4">}</span><span class="w">
-  </span><span class="p" data-group-id="6039496524-3">}</span><span class="p" data-group-id="6039496524-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">tenant_public.pem</code> created in the <a href="#creating-a-keypair">previous step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
+    </span><span class="p" data-group-id="0243719169-4">}</span><span class="w">
+  </span><span class="p" data-group-id="0243719169-3">}</span><span class="p" data-group-id="0243719169-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">tenant_public.pem</code> created in the <a href="#creating-a-keypair">previous step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
 the file in the <code class="inline">iex</code> shell and then close the multiline string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li><li><code class="inline">ASTARTE-BASE-API-URL</code>: the base API url of the Astarte instance (e.g.
 <a href="https://api.astarte.example.com">https://api.astarte.example.com</a>).</li><li><code class="inline">ASTARTE-REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">ASTARTE-REALM-PRIVATE-KEY</code>: the content of the Astarte realm's private key. Open a multiline string with
 <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of the file in the <code class="inline">iex</code> shell and then close the multiline
@@ -674,7 +655,7 @@ Interacting with Edgehog
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.0) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.1) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
