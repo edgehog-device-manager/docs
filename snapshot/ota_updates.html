@@ -127,7 +127,14 @@ of <a href="update_campaigns.html#roll-out-mechanism">Push Roll-out mechanism</a
 from its page on the Edgehog dashboard (or using the Edgehog GraphQL API).</p><p>Note that Manual OTA Updates do not perform any check on the <a href="core_concepts.html#system-model">System Model</a>,
 so they can effectively be used to change the System Model of a Device. This also means that the user
 must exercise particular attention to avoid bricking a Device, if the Device does not implement the necessary
-safety checks.</p><p><img src="assets/manual_ota_update.png" alt="Manual OTA Update Screenshot"/></p>
+safety checks.</p><p>A Manual OTA Update can be started in two ways, depending on the source of the
+Base Image: via a Base Image file from local storage, or via a Base Image already
+in a Collection.</p><h3 id="from-a-file-in-local-storage" class="section-heading"><a href="#from-a-file-in-local-storage" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">From a File in local storage</span></h3><p>The first option is selecting a file containing the Base Image from the user's
+local storage. After the selection, the Base Image will be uploaded and
+temporarily stored by Edgehog, until the <a href="ota_update_concepts.html#ota-operation">OTA Operation</a>
+is completed, regardless of the outcome.</p><p><img src="assets/manual_ota_update_file.png" alt="Manual OTA Update from File Screenshot"/></p><h3 id="from-an-existing-base-image" class="section-heading"><a href="#from-an-existing-base-image" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">From an existing Base Image</span></h3><p>The second option is selecting a Base Image from the ones already belonging to a
+Base Image Collection; in this case, one can simply pass the URL assigned to the
+Base Image, which will then be used for the <a href="ota_update_concepts.html#ota-operation">OTA Operation</a>.</p><p><img src="assets/manual_ota_update_collection.png" alt="Manual OTA Update from Collection Screenshot"/></p>
 
 </div>
 
