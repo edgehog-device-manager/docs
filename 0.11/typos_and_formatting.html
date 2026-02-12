@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.1">
+    <meta name="project" content="Clea Edgehog v0.11.0">
+
+
+    <title>Typos and formatting — Clea Edgehog v0.11.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
+
+    <script defer src="dist/sidebar_items-31C77D69.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-YU4BZFVS.js"></script>
+
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="http://edgehog.io" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.11.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>Typos and formatting</h1>
+
+<a href="typos_and_formatting.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+  </div>
+
+
+<p>In CI we check for typos and the formatting of documents with two tools:</p><h2 id="create-ci-typos" class="section-heading"><a href="#create-ci-typos" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text"><a href="https://github.com/crate-ci/typos">create-ci/typos</a></span></h2><p>For more information on how to install <code class="inline">typos</code> we link you to their <a href="https://github.com/crate-ci/typos#install">up-to date documentation</a>. If you have the <code class="inline">asdf</code> package manager however, you can just</p><pre><code class="makeup sh" translate="no"><span class="">asdf plugin add typos
+</span><span class="">asdf install
+</span></code></pre><p>since this project publishes a <code class="inline">.tool-versions</code> file containing <code class="inline">typos</code>.</p><h2 id="dprint-check" class="section-heading"><a href="#dprint-check" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text"><a href="https://github.com/dprint/check">dprint/check</a></span></h2><p><code class="inline">dprint</code> also has its own <a href="https://dprint.dev/install/">up-to date documentation for installing it</a>. However, this package too can be installed trough <code class="inline">asdf</code>, hence</p><pre><code class="makeup sh" translate="no"><span class="">asdf plugin add dprint
+</span><span class="">asdf install
+</span></code></pre><p>should install it.</p><h2 id="format-markdowns-dockerfiles-and-jsons" class="section-heading"><a href="#format-markdowns-dockerfiles-and-jsons" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Format markdowns, dockerfiles and jsons</span></h2><p>From the root of the project, just run</p><pre><code class="makeup sh" translate="no"><span class="">dprint fmt
+</span></code></pre><p><code class="inline">dprint</code> is already configured to look into the correct files and folders trough the <code class="inline">dprint.json</code> file.</p><h2 id="check-typos" class="section-heading"><a href="#check-typos" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Check typos</span></h2><p>To check typos, run from the root of the project</p><pre><code class="makeup sh" translate="no"><span class="">typos
+</span></code></pre><p>The tool will highlight the typos you made, if there's nothing... good! The configuration of this tool is available in our <code class="inline">.typos.toml</code> file.</p><h2 id="avoid-nitpicking" class="section-heading"><a href="#avoid-nitpicking" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Avoid nitpicking</span></h2><p>We made a useful task to avoid nitpicking</p><pre><code class="makeup sh" translate="no"><span class="">just avoid-nitpick
+</span></code></pre><p>Remember: this checks and corrects words based on the dictionary, it does not check the grammar 😔.</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="edgehog_just_in_time.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Edgehog Just in Time
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.1) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

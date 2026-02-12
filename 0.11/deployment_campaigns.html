@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.1">
+    <meta name="project" content="Clea Edgehog v0.11.0">
+
+
+    <title>Deployment Campaigns — Clea Edgehog v0.11.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
+
+    <script defer src="dist/sidebar_items-31C77D69.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-YU4BZFVS.js"></script>
+
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="http://edgehog.io" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.11.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>Deployment Campaigns</h1>
+
+<a href="deployment_campaigns.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+  </div>
+
+
+<p>Deployment Campaigns are the primary mechanism for managing container operations across multiple devices in Edgehog. A Deployment Campaign tracks the execution of a specific operation on all devices belonging to a <a href="channels.html#channels">Channel</a>, allowing you to <code class="inline">deploy</code>, <code class="inline">upgrade</code>, <code class="inline">start</code>, <code class="inline">stop</code>, or <code class="inline">delete</code> applications across your device fleet in a controlled manner.</p><p>Unlike manual deployment operations which target individual devices, Deployment Campaigns provide automated rollout capabilities with configurable failure thresholds, retry mechanisms, and concurrent operation limits.</p><p>The following sections will illustrate all the pages that can be used to list, create and view Deployment Campaigns.</p><h2 id="deployment-campaign-list" class="section-heading"><a href="#deployment-campaign-list" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Deployment Campaign List</span></h2><p><img src="assets/deployment_campaign_list.png" alt="Deployment Campaign List Screenshot"/></p><p>In the Deployment Campaign list you can see the table with all Deployment Campaigns. Clicking on the name brings to the <a href="#deployment-campaign">Deployment Campaign</a> page.</p><p>Clicking on the &quot;Create Campaign&quot; button in the top right brings to <a href="#create-deployment-campaign">Create Campaign</a> page.</p><h2 id="create-deployment-campaign" class="section-heading"><a href="#create-deployment-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Create Deployment Campaign</span></h2><p><img src="assets/deployment_campaign_create.png" alt="Create Deployment Campaign Screenshot"/></p><p>The Create Deployment Campaign page allows creating a new Deployment Campaign.</p><p>When creating a Deployment Campaign, the following information must be provided:</p><ul><li><strong>Campaign Name</strong>: A descriptive name to identify the campaign.</li><li><strong>Operation Type</strong>: The type of operation to perform (see <a href="#operation-types">Operation Types</a> for details).</li><li><strong>Application</strong>: The application whose release will be operated on.</li><li><strong>Release</strong>: The target release to deploy or operate on.</li><li><strong>Target Release</strong> (<code class="inline">upgrade</code> only): The new release version to upgrade to.</li><li><strong>Channel</strong>: The target Channel for the Deployment Campaign. All devices in this channel will be targeted.</li><li><strong><a href="#deployment-mechanism">Deployment Mechanism</a></strong> properties.</li></ul><p>The Deployment Campaign information can be provided using the form, and pressing the &quot;Create&quot; button saves the Deployment Campaign.</p><p>Once created, the Deployment Campaign will start executing operations towards the devices, and its progress can be checked from the Edgehog Dashboard or through Edgehog GraphQL API.</p><p>Note that the campaign will &quot;snapshot&quot; the Devices belonging to the Channel when it's started, and will target only those. If additional Devices are added to the Channel <em>after</em> the Deployment Campaign is created, they won't be included in this campaign and will require a separate campaign to be started.</p><h3 id="operation-types" class="section-heading"><a href="#operation-types" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Operation Types</span></h3><p>Deployment Campaigns support five different operation types, each serving a specific purpose in managing containerized applications on your device fleet:</p><ul><li><strong>Deploy</strong>: Installs a new application release to devices that don't currently have it deployed.</li><li><strong>Upgrade</strong>: Transitions devices from one release version to another within the same application. The old deployment remains on the device after upgrade.</li><li><strong>Start</strong>: Starts containers for deployments of that application release.</li><li><strong>Stop</strong>: Halts running containers without removing the deployment from the device.</li><li><strong>Delete</strong>: Completely removes a deployment and all its associated containers from devices. This operation is destructive and cannot be undone.</li></ul><h3 id="deployment-mechanism" class="section-heading"><a href="#deployment-mechanism" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Deployment Mechanism</span></h3><p>The Deployment Mechanism controls how the campaign executes operations across your device fleet. Currently, Edgehog supports the <strong>Lazy</strong> deployment mechanism.</p><h4>Lazy Deployment Mechanism</h4><p>The Lazy mechanism executes operations gradually, controlling the number of concurrent operations and handling failures gracefully.</p><p>The properties of this Deployment Mechanism are:</p><ul><li><strong>Max Failure Percentage</strong>: the maximum percentage of failures allowed over the number of total targets. If the failures exceed this threshold, the Deployment Campaign terminates with a failure.</li><li><strong>Max In-Progress Deployments</strong>: the maximum number of concurrent operations. The Deployment Campaign will have at most this number of operations that are started but not yet finished (either successfully or not).</li><li><strong>Create Request Retries</strong>: the number of times an operation must be retried on a specific Device before considering it a failure. Note that the operation is retried only if the request doesn't get acknowledged from the device.</li><li><strong>Request Timeout</strong>: the timeout (in seconds) to wait before considering a request lost (and possibly retry).</li></ul><h2 id="deployment-campaign" class="section-heading"><a href="#deployment-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Deployment Campaign</span></h2><p><img src="assets/deployment_campaign.png" alt="Deployment Campaign Page Screenshot"/></p><p>The Deployment Campaign page shows the information about a specific Deployment Campaign and Devices associated with it.</p><p>Clicking on the Application, Release, Channel, or Device name brings to the corresponding page.</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="applications_management.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Applications Management
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="overview.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Architecture overview
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.1) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

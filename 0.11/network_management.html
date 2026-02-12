@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.1">
+    <meta name="project" content="Clea Edgehog v0.11.0">
+
+
+    <title>Network Management — Clea Edgehog v0.11.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
+
+    <script defer src="dist/sidebar_items-31C77D69.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-YU4BZFVS.js"></script>
+
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="http://edgehog.io" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.11.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>Network Management</h1>
+
+<a href="network_management.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+  </div>
+
+
+<p>In Edgehog, networks correspond directly to Docker networks. They are managed through Edgehog, allowing users to create reusable network specifications that can be referenced by multiple containers during the deployment process.</p><h2 id="network-components" class="section-heading"><a href="#network-components" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Network Components</span></h2><p>Each network in Edgehog consists of the following fields:</p><h3 id="label" class="section-heading"><a href="#label" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Label</span></h3><p>A user-defined identifier for the network. Labels help administrators organize and reference networks in both the Edgehog UI and API.</p><h3 id="driver" class="section-heading"><a href="#driver" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Driver</span></h3><p>Docker networking is built around a pluggable system of <strong>network drivers</strong>, which define how containers communicate with each other, the host, and external networks.</p><p>If no driver is specified when creating a network in Edgehog, the default driver is <strong><code class="inline">bridge</code></strong>, reflecting Docker’s default behavior on Linux.</p><p>Below is an overview of the main built-in Docker network drivers:</p><h4><a href="https://docs.docker.com/network/drivers/bridge/"><code class="inline">bridge</code></a></h4><ul><li>Default driver if none is specified.</li><li>Creates a software bridge on the host; containers attached to the same bridge can communicate.</li><li>External traffic is blocked unless ports are explicitly published.</li><li>Uses NAT, so external systems see the host’s IP.</li><li>Supports port publishing (e.g., <code class="inline">-p 8080:80</code>).</li></ul><h4><a href="https://docs.docker.com/network/drivers/host/"><code class="inline">host</code></a></h4><ul><li>Removes the container’s network namespace, giving it direct access to the host’s network stack.</li><li>The container does not receive its own IP address.</li><li>Port-publishing flags are ignored because the container binds directly to host ports.</li><li>Useful for high-performance workloads or applications that manage many ports.</li><li>Supported on Linux Engine and Docker Desktop 4.34+.</li></ul><h4><a href="https://docs.docker.com/network/drivers/overlay/"><code class="inline">overlay</code></a></h4><ul><li>Creates a multi-host network spanning multiple Docker daemons.</li><li>Used in Swarm or multi-node deployments.</li><li>Builds an overlay (e.g., VXLAN) on top of host networks.</li><li>Supports encrypted traffic using <code class="inline">--opt encrypted</code>.</li><li>Requires Docker Swarm to connect hosts; networks can be created as attachable.</li></ul><h4><a href="https://docs.docker.com/network/drivers/macvlan/"><code class="inline">macvlan</code></a></h4><ul><li>Assigns each container its own MAC address, making it appear as a physical device on the network.</li><li>Requires a parent physical interface and proper subnet configuration.</li><li>Useful for legacy applications that require direct Layer-2 visibility.</li><li>Containers using macvlan cannot directly communicate with the host unless additional configuration is performed.</li></ul><h4><a href="https://docs.docker.com/network/drivers/ipvlan/"><code class="inline">ipvlan</code></a></h4><ul><li>Provides fine-grained control over IPv4/IPv6 addressing and L2/L3 behavior.</li><li>Attaches container interfaces directly to a host interface without a Linux bridge.</li><li>Reduces MAC address consumption (unlike macvlan).</li><li>Supports modes like L2, L3, and L3S, configured using parameters such as <code class="inline">ipvlan_mode</code> and <code class="inline">parent</code>.</li></ul><h4><a href="https://docs.docker.com/network/drivers/none/"><code class="inline">none</code></a></h4><ul><li>Disables all networking for the container except the loopback interface.</li><li>Provides the highest form of network isolation.</li></ul><h3 id="options" class="section-heading"><a href="#options" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Options</span></h3><p>A JSON object defining driver-specific configuration parameters.
+The valid options depend on the selected network driver and can be found in the official Docker documentation.</p><h4>Example Configurations</h4><p><strong>Bridge</strong></p><pre><code class="json">{
+  &quot;com.docker.network.bridge.name&quot;: &quot;br0&quot;,
+  &quot;com.docker.network.bridge.enable_icc&quot;: &quot;true&quot;,
+  &quot;com.docker.network.bridge.enable_ip_masquerade&quot;: &quot;true&quot;,
+  &quot;com.docker.network.driver.mtu&quot;: 1500
+}</code></pre><p><strong>Overlay</strong></p><pre><code class="json">{
+  &quot;encrypted&quot;: true
+}</code></pre><p><strong>Macvlan</strong></p><pre><code class="json">{
+  &quot;parent&quot;: &quot;eth0&quot;,
+  &quot;macvlan_mode&quot;: &quot;bridge&quot;
+}</code></pre><p><strong>Ipvlan</strong></p><pre><code class="json">{
+  &quot;parent&quot;: &quot;eth1&quot;,
+  &quot;ipvlan_mode&quot;: &quot;l2&quot;
+}</code></pre><blockquote><p><strong>Note:</strong> The options must match the capabilities of the selected driver. Refer to Docker documentation for all supported fields.</p></blockquote><h3 id="internal" class="section-heading"><a href="#internal" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Internal</span></h3><p>A boolean option that marks the network as internal.
+Containers on an internal network may communicate between each other, but not with any other network, as no default route is configured and firewall rules are set up to drop all traffic to or from other networks. Communication with the gateway IP address (and thus appropriately configured host services) is possible, and the host may communicate with any container IP directly.</p><p>By default, when you connect a container to an overlay network, Docker also connects a bridge network to it to provide external connectivity. If you want to create an externally isolated overlay network, you can specify the --internal option.</p><h3 id="enable-ipv6" class="section-heading"><a href="#enable-ipv6" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Enable IPv6</span></h3><p>A boolean option that enables IPv6 support for the network.</p><h2 id="creating-a-network-in-edgehog" class="section-heading"><a href="#creating-a-network-in-edgehog" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Creating a Network in Edgehog</span></h2><ol><li><p>Navigate to the <strong>Networks</strong> section of the Edgehog web interface.</p></li><li><p>Click <strong>Create Network</strong>.</p></li><li><p>Fill out the network configuration form:</p><ul><li><strong>Label</strong> – Provide a descriptive name for the network. <strong>(Required)</strong></li><li><strong>Driver</strong> – Select a Docker-supported network driver. <strong>(Optional; defaults to <code class="inline">bridge</code> if not set)</strong></li><li><strong>Options</strong> – Enter a JSON object containing driver-specific configuration options. <strong>(Optional)</strong></li><li><strong>Internal</strong> – Enable to restrict external access. <strong>(Optional)</strong></li><li><strong>Enable IPv6</strong> – Enable to allow IPv6 networking. <strong>(Optional)</strong></li></ul></li><li><p>Click <strong>Create</strong> to save the network.</p></li></ol><p><img src="assets/network_create.png" alt="Creating Network"/></p><h2 id="using-networks" class="section-heading"><a href="#using-networks" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Using Networks</span></h2><p>Networks can be associated with containers during the container creation process in application management.</p><h3 id="associating-networks-with-containers" class="section-heading"><a href="#associating-networks-with-containers" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Associating Networks with Containers</span></h3><p>When creating a container as part of a release:</p><ol><li>Navigate to the container creation step in the release workflow.</li><li>Go to the <strong>Network Configuration</strong> section.</li><li>In the <strong>Networks</strong> multi-select field, choose one or more previously created networks by their <strong>Label</strong>.</li></ol><p>This allows the container to connect to the selected networks and communicate according to the network’s configuration.</p><p><img src="assets/networks_container_creation.png" alt="Selecting Networks During Container Creation"/></p><h2 id="managing-existing-networks" class="section-heading"><a href="#managing-existing-networks" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Managing Existing Networks</span></h2><h3 id="viewing-networks" class="section-heading"><a href="#viewing-networks" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Viewing Networks</span></h3><p>In the <strong>Networks</strong> section of Edgehog, you can view a table listing all networks that have been created. The table provides basic information such as <strong>Label</strong>, <strong>Driver</strong>, and other key details.</p><ul><li>You can <strong>search and filter networks</strong> by label or driver to quickly locate a specific network.</li><li>Clicking on a network’s <strong>Label</strong> navigates to a detailed page showing all configuration details for that network.</li><li>The <strong>Details</strong> page also includes a <strong>Delete</strong> button, which allows you to remove the network.<ul><li><strong>Note:</strong> A network can only be deleted if it is <strong>not currently used by any container</strong>.</li></ul></li></ul><p>This makes it easy to manage, inspect, and verify network configurations across your deployments.</p><p><img src="assets/network.png" alt="Network"/></p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="volume_management.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Volume management
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="image_credentials_management.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Image Credentials Management
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.1) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
