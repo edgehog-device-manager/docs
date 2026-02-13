@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.1">
+    <meta name="project" content="Clea Edgehog v0.11.0">
+
+
+    <title>OTA Updates — Clea Edgehog v0.11.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
+
+    <script defer src="dist/sidebar_items-31C77D69.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-YU4BZFVS.js"></script>
+
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="http://edgehog.io" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.11.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>OTA Updates</h1>
+
+<a href="ota_updates.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+  </div>
+
+
+<p>Edgehog provides an OTA update mechanism that allows remotely updating devices. The OTA update
+mechanism is not tied to a specific platform and can be used on any <a href="devices_and_runtime.html">Edgehog runtime</a> which implements the
+<a href="astarte_interfaces.html#io-edgehog-devicemanager-otarequest-v1-0"><code class="inline">io.edgehog.devicemanager.OTARequest</code></a>,
+<a href="astarte_interfaces.html#io-edgehog-devicemanager-otaevent-v0-1"><code class="inline">io.edgehog.devicemanager.OTAEvent</code></a>
+and
+<a href="astarte_interfaces.html#io-edgehog-devicemanager-baseimage-v0-1"><code class="inline">io.edgehog.devicemanager.BaseImage</code></a>
+interfaces.</p><p>OTA Update concepts are detailed in the <a href="ota_update_concepts.html">dedicated page</a>, this guide
+demonstrates the usage of an OTA update mechanism.</p><h2 id="managed-ota-updates" class="section-heading"><a href="#managed-ota-updates" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Managed OTA Updates</span></h2><p>Edgehog provides a mechanism to roll-out OTA updates to devices automatically, based on their <a href="core_concepts.html#system-model">System Model</a> and their membership to specific <a href="core_concepts-1.html#group">Groups</a>.</p><p>To push updates towards Devices, an Update Campaign must be created. It's important to note that an Update
+Campaign can only send updates for the same Base Image Collection. Special operations, such as
+converting a Device from one System Model to another, must always be done with a <a href="#manual-ota-updates">Manual OTA Update</a>.</p><p>Once created, the Update Campaign will start rolling out updates towards the devices, and its
+progress can be checked from the Edgehog Dashboard or through Edgehog GraphQL API.</p><p>Note that the campaign will &quot;snapshot&quot; the Devices belonging to the Channel when it's
+started, and will <a href="ota_update_concepts.html#update-target">target</a> only those.</p><p>Once started, the Update Campaign waits for device to come online, at which point it initiates the OTA Update.
+<a href="update_campaigns.html#roll-out-mechanism">Roll-out mechanism</a> properties can affect this process.
+For example, <code class="inline">Max Pending Operations</code> setting may postpone some OTA Operations.</p><p>Before actual push to the Device corresponding <a href="ota_update_concepts.html#update-target">Update Target</a>
+is verified for fulfillment of Base Image and Roll-out mechanism criteria. For example:</p><ul><li>Devices having same Base Image version will be silently marked as successful.</li><li>Devices with Base Images that don't meet <a href="ota_update_concepts.html#version-requirement">Version Requirement</a>
+of distributed Base Image will be marked as failed, unless the <code class="inline">Force Downgrade</code> option
+of <a href="update_campaigns.html#roll-out-mechanism">Push Roll-out mechanism</a> is enabled.</li></ul><h2 id="manual-ota-updates" class="section-heading"><a href="#manual-ota-updates" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Manual OTA Updates</span></h2><p>As an escape hatch, it's always possible to manually update a <a href="core_concepts.html#device">Device</a>
+from its page on the Edgehog dashboard (or using the Edgehog GraphQL API).</p><p>Note that Manual OTA Updates do not perform any check on the <a href="core_concepts.html#system-model">System Model</a>,
+so they can effectively be used to change the System Model of a Device. This also means that the user
+must exercise particular attention to avoid bricking a Device, if the Device does not implement the necessary
+safety checks.</p><p>A Manual OTA Update can be started in two ways, depending on the source of the
+Base Image: via a Base Image file from local storage, or via a Base Image already
+in a Collection.</p><h3 id="from-a-file-in-local-storage" class="section-heading"><a href="#from-a-file-in-local-storage" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">From a File in local storage</span></h3><p>The first option is selecting a file containing the Base Image from the user's
+local storage. After the selection, the Base Image will be uploaded and
+temporarily stored by Edgehog, until the <a href="ota_update_concepts.html#ota-operation">OTA Operation</a>
+is completed, regardless of the outcome.</p><p><img src="assets/manual_ota_update_file.png" alt="Manual OTA Update from File Screenshot"/></p><h3 id="from-an-existing-base-image" class="section-heading"><a href="#from-an-existing-base-image" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">From an existing Base Image</span></h3><p>The second option is selecting a Base Image from the ones already belonging to a
+Base Image Collection; in this case, one can simply pass the URL assigned to the
+Base Image, which will then be used for the <a href="ota_update_concepts.html#ota-operation">OTA Operation</a>.</p><p><img src="assets/manual_ota_update_collection.png" alt="Manual OTA Update from Collection Screenshot"/></p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="update_campaigns.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Update Campaigns
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="core_concepts-2.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Core concepts
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.1) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.1">
+    <meta name="project" content="Clea Edgehog v0.11.0">
+
+
+    <title>Applications Management — Clea Edgehog v0.11.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
+
+    <script defer src="dist/sidebar_items-31C77D69.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-YU4BZFVS.js"></script>
+
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="http://edgehog.io" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.11.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>Applications Management</h1>
+
+<a href="applications_management.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+  </div>
+
+
+<h2 id="release-creation-process" class="section-heading"><a href="#release-creation-process" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Release Creation Process</span></h2><p>To create a Release in Edgehog:</p><ol><li>Navigate to the <strong>Applications</strong> section in the Edgehog web interface</li><li>Open the app for which you want to create a release</li><li>Click on <strong>Create Release</strong> action button</li><li>Fill in the release form:<ul><li><strong>Version</strong>: Enter a unique version number that follows the <a href="https://semver.org">Semantic Versioning</a> spec</li><li><strong>Supported System Models</strong>: Choose system model(s) which the release should support. If left blank, the release supports all devices</li></ul></li><li>Add container(s) by clicking <strong>Add Container</strong> button (see <a href="applications_management.html#container-creation">Container creation</a> for more details)</li><li>Click <strong>Create</strong> to create the release</li></ol><p><img src="assets/release_create.png" alt="Creating Release"/></p><h2 id="reuse-release-configuration" class="section-heading"><a href="#reuse-release-configuration" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Reuse Release Configuration</span></h2><p>Edgehog also let's you reuse existing containers and their configurations from the same or some other application.</p><p>To reuse a Release:</p><ol><li>Click on <strong>Reuse Release</strong> button in the Create Release page</li><li>Choose application and release from which you want to copy containers and their configurations</li><li>Click <strong>Confirm</strong> to import release configuration</li></ol><p><img src="assets/release_create_reuse.png" alt="Reusing Release"/></p><h2 id="container-creation" class="section-heading"><a href="#container-creation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Container Creation</span></h2><p>By clicking the <strong>Add Container</strong> button on the <strong>Create Release</strong> page, a form for specifying container configuration is displayed.
+The form is organized into logical sections:</p><ul><li><strong>Image Configuration</strong></li><li><strong>Network Configuration</strong></li><li><strong>Storage Configuration</strong></li><li><strong>Resource Limits</strong></li><li><strong>Security &amp; Capabilities</strong></li><li><strong>Runtime &amp; Environment</strong></li><li><strong>Device Mappings</strong></li></ul><p>Below is an overview of each section.</p><h4><strong>Image Configuration</strong></h4><p><img src="assets/container_create_image_configuration_section.png" alt="Image Configuration Section"/>
+Specify the image that will be used to run the container.</p><ul><li><p><strong>Image Reference</strong> – represents the name of the image to pull.
+It follows the pattern:</p><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="5127244596-1">[</span><span class="n">registry</span><span class="o">-</span><span class="n">host</span><span class="p" data-group-id="5127244596-2">[</span><span class="ss">:port</span><span class="p" data-group-id="5127244596-2">]</span><span class="o">/</span><span class="p" data-group-id="5127244596-1">]</span><span class="p" data-group-id="5127244596-3">[</span><span class="n">image</span><span class="o">-</span><span class="n">repo</span><span class="o">/</span><span class="p" data-group-id="5127244596-3">]</span><span class="n">image</span><span class="o">-</span><span class="n">name</span><span class="p" data-group-id="5127244596-4">[</span><span class="p">:</span><span class="p" data-group-id="5127244596-5">(</span><span class="n">tag</span><span class="o">|</span><span class="n">digest</span><span class="p" data-group-id="5127244596-5">)</span><span class="p" data-group-id="5127244596-4">]</span></code></pre><p>For more details, refer to <a href="core_concepts-2.html#images">Images</a></p></li><li><p><strong>Image Credentials</strong> – Select credentials if the image is stored in a private registry. For more details, refer to <a href="core_concepts-2.html#image_credentials.md">Image Credentials</a></p></li></ul><h4><strong>Network Configuration</strong></h4><p><img src="assets/container_create_network_configuration_section.png" alt="Network Configuration Section"/></p><p>Define how the container connects to networks.</p><ul><li><strong>Hostname</strong>: refers to the name a container (or host) uses to identify itself on the network and in its own environment. If you don’t set anything, a container’s hostname defaults to its container ID.</li><li><strong>Network Mode</strong>: controls how a container is connected to networks and what network namespace it uses. When network_mode is set, networks: is not allowed .</li><li><strong>Networks</strong>: Attach the container to one or more previously created networks. For more detailed information on creating and managing networks, refer to the <a href="network_management.html">Network Management</a> page.</li><li><strong>Extra Hosts</strong>: Adds entries to the container’s /etc/hosts file so name resolution for those hostnames bypasses DNS and uses the IPs you specify. Format is <code class="inline">HOSTNAME:IP</code>. Special value host-gateway resolves to the host’s internal IP.</li><li><strong>Port Bindings</strong>: Port bindings control how ports inside a container are made accessible on the host and beyond. By default, a container’s ports are not accessible from the host; they’re only reachable from the host itself and containers on the same bridge network. To make a port reachable from outside the host (or from other networks), you must publish it.</li></ul><h4><strong>Storage Configuration</strong></h4><p><img src="assets/container_create_storage_configuration_section.png" alt="Storage Configuration Section"/></p><p>Configure volumes and bind mounts.</p><ul><li><strong>Bind Mounts</strong>: Map host directories into the container. Lets both host and container see and modify the same files.</li><li><strong>Volumes</strong>: Docker-managed storage that persists data independently of the container lifecycle. For more detailed information on creating and managing volumes, refer to the <a href="volume_management.html">Volumes management</a> page.</li><li><strong>Volume Driver</strong>: Driver that container uses to mount volumes</li><li><strong>Storage Options</strong>: allows for specifying storage driver options when creating a container. The specific options available depend on the storage driver being used.</li><li><strong>Tmpfs Mounts</strong>: an in‑memory filesystem: data is stored in the host’s RAM (and possibly swap), not on disk, and disappears when the container stops.</li><li><strong>Read-only Mode</strong>: makes the container’s root FS read-only; the container can only write to:<ul><li>tmpfs mounts</li><li>volumes / bind mounts you explicitly attach</li></ul></li></ul><h4><strong>Resource Limits</strong></h4><p><img src="assets/container_create_resource_limits_section.png" alt="Resource Limits Section"/></p><p>Set performance and usage restrictions for the container.</p><ul><li><p><strong>Memory</strong>: Defines the maximum amount of <strong>RAM (in bytes)</strong> available to processes in the container. The minimum allowed value is <strong>6 000 000 bytes</strong> (≈6 MiB).</p></li><li><p><strong>Memory Reservation</strong>: A <em>soft</em> memory limit, also specified in <strong>bytes</strong>. It serves as a hint to Docker and the kernel about how much memory the container should typically use.</p><ul><li>It must always be <strong>less than the hard Memory limit</strong>.</li><li>The container can still use memory up to the hard limit.</li><li>When the host is under memory pressure, Docker attempts to reclaim memory so that the container stays near or below the reservation value.</li></ul></li><li><p><strong>Memory Swap</strong>: Defines the total amount of <strong>RAM + swap</strong>, in <strong>bytes</strong>. This value only has effect if <strong>Memory</strong> is also set.</p><p><strong>Rules:</strong></p><ul><li><p>If <strong>Memory Swap</strong> is <strong>set to a positive integer</strong>:</p><ul><li><strong>Memory</strong> must also be set.</li><li><strong>Memory</strong> = maximum RAM (bytes).</li><li><strong>Memory Swap</strong> = total (RAM + swap), in bytes.</li></ul><p><strong>Example:</strong></p><pre><code class="makeup elixir" translate="no"><span class="nc">Memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">314572800</span><span class="w"> </span><span class="n">bytes</span><span class="w">       </span><span class="p" data-group-id="3698046305-1">(</span><span class="err">≈</span><span class="mi">300</span><span class="w"> </span><span class="nc">MiB</span><span class="p" data-group-id="3698046305-1">)</span><span class="w">
+</span><span class="nc">Memory</span><span class="w"> </span><span class="nc">Swap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1073741824</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="p" data-group-id="3698046305-2">(</span><span class="err">≈</span><span class="mi">1</span><span class="w"> </span><span class="nc">GiB</span><span class="p" data-group-id="3698046305-2">)</span></code></pre><p>→ Total allowed = 1 073 741 824 bytes
+→ Swap size = 1 073 741 824 − 314 572 800
+→ ≈ 758 MiB of swap.</p></li><li><p>If <strong>Memory Swap = 0</strong>
+→ Ignored; treated as <strong>unset</strong>.</p></li><li><p>If <strong>Memory Swap = Memory</strong> and Memory &gt; 0
+→ Container has <strong>no swap access</strong> (RAM only).</p></li><li><p>If <strong>Memory</strong> is set and <strong>Memory Swap is unset</strong>
+→ Total allowed memory = <strong>Memory × 2</strong>, half RAM, half swap.</p><p><strong>Example:</strong></p><pre><code class="makeup elixir" translate="no"><span class="nc">Memory</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">314572800</span><span class="w"> </span><span class="n">bytes</span></code></pre><p>→ Total = 629 145 600 bytes
+→ 314 572 800 RAM + 314 572 800 swap.</p></li><li><p>If <strong>Memory Swap = -1</strong>
+→ <strong>Unlimited swap</strong>, up to the host’s available swap space.</p></li></ul></li></ul><ul><li><p><strong>Memory Swappiness</strong>: controls how aggressively the kernel swaps out anonymous memory pages used by a container. It’s a percentage between 0 and 100.</p><ul><li><code class="inline">0</code> – turn <strong>off</strong> anonymous page swapping for the container.</li><li><code class="inline">100</code> – allow <strong>all</strong> anonymous pages to be swappable (most aggressive swapping).</li><li>If not set – the container <strong>inherits</strong> the host’s swappiness value.</li></ul></li><li><p><strong>CPU Period</strong>: sets the <strong>CFS (Completely Fair Scheduler) period</strong> for a container: the length of each CPU scheduling window, in microseconds. It’s used together with <code class="inline">CPU Quota</code> to control how much CPU time a container can use in each period.</p><ul><li>Default: <code class="inline">CPU Period = 100_000</code> (100 ms).</li><li><code class="inline">CPU Quota</code> is the number of microseconds of CPU time allowed per period.</li><li>Effective CPU share = <code class="inline">CPU Quota / CPU Period</code>.</li></ul></li><li><p><strong>CPU Quota</strong>: sets a <strong>hard upper limit on CPU time</strong> a container can use per CFS period (used with <code class="inline">CPU Period</code>).</p></li><li><p><strong>CPU Real-Time Period</strong>: configures the <strong>real‑time scheduler period</strong> for a container, in microseconds. It works together with <code class="inline">CPU Real-Time Runtime</code> and requires special kernel/daemon setup.</p><ul><li><p>It sets the <strong>length of the real‑time scheduling period</strong> for a container.</p></li><li><p><code class="inline">--cpu-rt-runtime</code> then specifies how many microseconds within that period the container may run at real‑time priority.</p></li><li><p>Both values <strong>cannot exceed</strong> the limits configured on the daemon/parent cgroup, and require the host kernel to support real‑time scheduling with <code class="inline">CONFIG_RT_GROUP_SCHED</code>.</p><h4>Requirements</h4><p>To use <code class="inline">--cpu-rt-period</code>/<code class="inline">--cpu-rt-runtime</code>:</p><ol><li>Kernel must have <code class="inline">CONFIG_RT_GROUP_SCHED</code> enabled.</li><li>Docker daemon must be started with real‑time runtime configured, e.g.:</li></ol><pre><code class="makeup bash" translate="no"><span class="">dockerd --cpu-rt-runtime=950000
+</span></code></pre></li></ul></li><li><p><strong>CPU Real-Time Runtime</strong>: See explanation for <code class="inline">CPU Real-Time Period</code></p></li></ul><h4><strong>Security &amp; Capabilities</strong></h4><p><img src="assets/container_create_security_&amp;_capabilities_section.png" alt="Security &amp;amp; Capabilities Section"/></p><p>Control container privileges and security-related settings.</p><ul><li><p><strong>Privileged Mode</strong> – gives a container almost the same power as the host, bypassing most isolation. Use it only when absolutely necessary.
+Makes these changes for the container:</p><ul><li>Enables <strong>all Linux kernel capabilities</strong> (no capability dropping).</li><li>Disables the <strong>default seccomp</strong> profile.</li><li>Disables the <strong>default AppArmor</strong> profile.</li><li>Disables the <strong>SELinux process label</strong>.</li><li>Grants access to <strong>all host devices</strong>.</li><li>Makes <code class="inline">/sys</code> <strong>read‑write</strong>.</li><li>Makes <strong>cgroups mounts read‑write</strong>.</li></ul><p>In other words, the container can then do almost everything the host can do.
+Recommended practice:</p><p>Avoid --privileged for normal workloads.
+Prefer adding only the specific capabilities you need with <code class="inline">Cap Add</code>.</p></li><li><p><strong>Cap Add</strong>: add specific Linux kernel capabilities to a container, instead of giving it full privileges with <code class="inline">Privileged</code>. For list of available capabilities refer to the <a href="https://docs.docker.com/engine/containers/run/#runtime-privilege-and-linux-capabilities">Docker Documentation</a></p></li><li><p><strong>Cap Drop</strong>: Remove default capabilities.</p></li></ul><h4><strong>Runtime &amp; Environment</strong></h4><p><img src="assets/container_create_runtime_&amp;_environment_section.png" alt="Runtime &amp;amp; Environment Section"/></p><p>Set runtime behavior and environment variables.</p><ul><li><p><strong>Restart Policy</strong> – Define what happens if the container exits.
+Supported policies:</p><ul><li><p><code class="inline">No</code> (default)<br/>Don’t automatically restart the container.</p></li><li><p><code class="inline">On Failure</code><br/>Restart only if container exits with a non‑zero status.</p></li><li><p><code class="inline">Always</code><br/>Always restart if the container stops.<br/>If manually stopped, it’s restarted only when the Docker daemon restarts or you manually start it again.</p></li><li><p><code class="inline">Unless Stopped</code><br/>Like <code class="inline">always</code>, except if the container is stopped (manually or otherwise), it isn’t restarted after a Docker daemon restart.</p></li></ul></li><li><p><strong>Environment Variables</strong> – JSON array of environment variables in <code class="inline">&quot;key&quot;: &quot;value&quot;</code> format</p></li></ul><h4><strong>Device Mappings</strong></h4><p><img src="assets/container_create_device_mappings_section.png" alt="Device Mappings Section"/></p><p>Expose specific host devices to the container.</p><ul><li><strong>Device Mappings</strong> – Map host devices into the container (e.g., <code class="inline">/dev/ttyUSB0</code>).
+Useful for hardware-dependent workloads.</li></ul><blockquote><p><strong>Note:</strong> On the right side of every field there is <img src="assets/help_icon.png" alt="Field Help"/> icon. Hovering over it displays a short tooltip explaining the purpose of that field.</p></blockquote>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="image_credentials_management.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Image Credentials Management
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="deployment_campaigns.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Deployment Campaigns
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.1) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

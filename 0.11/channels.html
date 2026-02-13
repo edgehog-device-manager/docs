@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.1">
+    <meta name="project" content="Clea Edgehog v0.11.0">
+
+
+    <title>Channels — Clea Edgehog v0.11.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
+
+    <script defer src="dist/sidebar_items-31C77D69.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-YU4BZFVS.js"></script>
+
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="http://edgehog.io" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.11.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>Channels</h1>
+
+<a href="channels.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+  </div>
+
+
+<p>A Channel is an aggregation of <a href="core_concepts-1.html#group">Groups</a> that can be targeted in campaigns
+(either update or deployment campaigns).</p><p>To assign a Device to a specific Channel the device must belong to a <a href="core_concepts-1.html#group">Group</a>
+and that Group has to be assigned to the Target Groups of the Channel.</p><p>In Edgehog a Channel has this information associated with it:</p><ul><li>Name: a user friendly name used to identify the Channel (e.g. &quot;Beta&quot;).</li><li>Handle: a machine friendly identifier for the Channel (e.g. &quot;beta&quot;). A valid handle
+must begin with a lowercase letter followed by any number of lower case letters, numbers or dashes (<code class="inline">-</code>).</li><li>Target Groups: a list of <a href="groups.html">groups</a> containing Devices which will
+automatically get assigned to this Channel.</li></ul><p>A group can be associated only with a single Channel. To change the auto-assignment of a
+specific group from a Channel to another, the group must be removed from the previous Channel and then added to the new one.</p><p>The following sections will illustrate all the pages that can be used to list, create, edit and delete
+Channels.</p><h2 id="channel-list" class="section-heading"><a href="#channel-list" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Channel List</span></h2><p><img src="assets/channel_list.png" alt="Channel List Screenshot"/></p><p>In the Channel list you can see the table with all Channels that are available.
+Clicking on the name brings to the <a href="#channel">Channel</a> page.</p><p>Clicking on the &quot;Create Channel&quot; button in the top right brings to
+<a href="#create-channel">Create Channel</a> page.</p><h2 id="channel" class="section-heading"><a href="#channel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Channel</span></h2><p><img src="assets/channel.png" alt="Channel Page Screenshot"/></p><p>The Channel page shows and allows updating the information about a specific Channel.</p><p>Editing any field and then pressing the &quot;Update&quot; button saves the new values for the Channel.
+The &quot;Delete&quot; button allows to delete the Channel.</p><h2 id="create-channel" class="section-heading"><a href="#create-channel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Create Channel</span></h2><p><img src="assets/channel_create.png" alt="Create Channel Screenshot"/></p><p>The Create Channel page allows creating a new Channel.</p><p>The Channel information can be provided using the form, and pressing the &quot;Create&quot; button saves
+the Channel. Target Group(s) must be chosen from a list of available Groups using the dropdown menu.</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="groups.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Groups
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="batch_operations.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Batch Operations*
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.1) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
