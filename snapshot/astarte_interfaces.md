@@ -3603,7 +3603,7 @@ The interface has the following mappings:
 - `/request/httpHeaderKey` with `string` type. Keys for the HTTP headers, must be in the order of the values
 - `/request/httpHeaderValue` with `string` type. Values for the HTTP headers, must be in the order of the keys
 - `/request/compression` with `string` type. Compression to upload multiple files
-- `/request/fileSizeBytes` with `string` type. File size decompressed
+- `/request/fileSizeBytes` with `longinteger` type. File size decompressed
 - `/request/progress` with `boolean` type. Flag to enable the progress reporting of the download.
 - `/request/digest` with `string` type. Digest of the file contents
 - `/request/fileName` with `string` type. Name of the file to download
@@ -3685,7 +3685,7 @@ File size decompressed
 
 Total file size (if multiple files) uncompressed in bytes. It's used to reserve this space on the device.
 
-This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
