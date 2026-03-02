@@ -3608,9 +3608,9 @@ The interface has the following mappings:
 - `/request/digest` with `string` type. Digest of the file contents
 - `/request/fileName` with `string` type. Name of the file to download
 - `/request/ttlSeconds` with `longinteger` type. TTL on how long to keep the file for
-- `/request/fileMode` with `integer` type. Unix mode for the file
-- `/request/userId` with `integer` type. Uid of the user owning the file
-- `/request/groupId` with `integer` type. Gid of the user owning the file
+- `/request/fileMode` with `longinteger` type. Unix mode for the file
+- `/request/userId` with `longinteger` type. Uid of the user owning the file
+- `/request/groupId` with `longinteger` type. Gid of the user owning the file
 - `/request/destination` with `string` type. Destination for the file
 
 
@@ -3750,7 +3750,7 @@ Unix mode for the file
 
 Optional unix mode for the file, set to default if 0. All files are immutable, so setting it to writable has no effect.
 
-This endpoint accepts values of type `integer`: a signed 32 bit integer.
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
@@ -3763,7 +3763,7 @@ Uid of the user owning the file
 
 Optional unix uid of the user owning the file, set to default if -1.
 
-This endpoint accepts values of type `integer`: a signed 32 bit integer.
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
@@ -3776,7 +3776,7 @@ Gid of the user owning the file
 
 Optional unix gid of the group owning the file, set to default if -1.
 
-This endpoint accepts values of type `integer`: a signed 32 bit integer.
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
