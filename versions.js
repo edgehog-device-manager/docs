@@ -1,5 +1,9 @@
 var versionNodes = [
   {
+    version: "snapshot (unreleased)",
+    url: "https://docs.edgehog.io/snapshot"
+  },
+  {
     version: "v0.11.0",
     url: "https://docs.edgehog.io/0.11"
   },
