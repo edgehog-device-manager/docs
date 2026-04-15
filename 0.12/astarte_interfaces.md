@@ -3384,7 +3384,7 @@ The value of the property cannot be unset.
 
 Support unix file mode, user id and group id.
 
-Flag to support setting the file mode, user and group ownership of a transfered file in a unix system.
+Flag to support setting the file mode, user and group ownership of a transferred file in a unix system.
 
 This endpoint accepts values of type `boolean`: either true or false, adhering to JSON boolean type.
 
@@ -3530,69 +3530,6 @@ This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 by
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
-Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 3600 seconds before it is erased from the database.
-
-
-## io.edgehog.devicemanager.fileTransfer.Progress v0.1
-
-Progress of a file transfer.
-
-If the request enabled progress reporting, the device will send the progress of the operation.
-
-### About
-
-This interface is of type `datastream` and is owned by the `device`, meaning that it is the device which initiates the data flow.
-Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
-
-Data gets sent with an `object` aggregation.
-Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
-
-### Mappings
-
-The interface has the following mappings:
-
-- `/request/id` with `string` type. Transfer ID for the file
-- `/request/type` with `string` type. Direction of the file transfer
-- `/request/progress` with `integer` type. Progress of the transfer in %
-
-
-### `/request/id`
-
-Transfer ID for the file
-
-
-
-This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
-
-The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when the transport successfully sends the data regardless of the outcome.
-Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 3600 seconds before it is erased from the database.
-
-### `/request/type`
-
-Direction of the file transfer
-
-Specifies the direction of the transfer. Allowed values: 'server_to_device' or 'device_to_server'.
-
-This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
-
-The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when the transport successfully sends the data regardless of the outcome.
-Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 3600 seconds before it is erased from the database.
-
-### `/request/progress`
-
-Progress of the transfer in %
-
-
-
-This endpoint accepts values of type `integer`: a signed 32 bit integer.
-
-The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
