@@ -3349,6 +3349,58 @@ The endpoint is parametric and `interface_name` can be replaced with any valid s
 The value of the property can be unset.
 
 
+## io.edgehog.devicemanager.fileTransfer.Capabilities v0.1
+
+File transfer capabilities the Device supports
+
+Features and capabilities the Device implementation or plafrom supports and is able to receive from Astarte.
+
+### About
+
+This interface is of type `properties` and is owned by the `device`, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.
+
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/encodings` with `stringarray` type. Supported compressions and archive algorithms.
+- `/unixPermissions` with `boolean` type. Support unix file mode, user id and group id.
+- `/targets` with `stringarray` type. Supported destination and sources for the transfers.
+
+
+### `/encodings`
+
+Supported compressions and archive algorithms.
+
+List of encoding formats supported by the device, possible values are: [gz, lz4, tar, tar.gz, tar.lz4].
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The value of the property cannot be unset.
+
+### `/unixPermissions`
+
+Support unix file mode, user id and group id.
+
+Flag to support setting the file mode, user and group ownership of a transferred file in a unix system.
+
+This endpoint accepts values of type `boolean`: either true or false, adhering to JSON boolean type.
+
+The value of the property cannot be unset.
+
+### `/targets`
+
+Supported destination and sources for the transfers.
+
+List of sources and destinations that the device can handle, possible values are: [storage, streaming, filesystem]
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The value of the property cannot be unset.
+
+
 ## io.edgehog.devicemanager.fileTransfer.DeviceToServer v0.1
 
 File transfer from a Device to a Server
@@ -3369,11 +3421,12 @@ The interface has the following mappings:
 
 - `/request/id` with `string` type. Transfer ID for the file
 - `/request/url` with `string` type. The URL to upload the file to
-- `/request/httpHeaderKey` with `string` type. Keys for the HTTP headers, must be in the order of the values
-- `/request/httpHeaderValue` with `string` type. Values for the HTTP headers, must be in the order of the keys
-- `/request/compression` with `string` type. Compression to upload multiple files
+- `/request/httpHeaderKeys` with `stringarray` type. Keys for the HTTP headers, must be in the order of the values
+- `/request/httpHeaderValues` with `stringarray` type. Values for the HTTP headers, must be in the order of the keys
+- `/request/encoding` with `string` type. Encoding of the file or directory to upload
 - `/request/progress` with `boolean` type. Flag to enable the progress reporting of the download.
-- `/request/source` with `string` type. Source for the file
+- `/request/sourceType` with `string` type. Source from which the file should be read from.
+- `/request/source` with `string` type. Source-specific information on what to upload to the server for the source.
 
 
 ### `/request/id`
@@ -3402,37 +3455,37 @@ Data is considered delivered when it has been received at least once by the reci
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
-### `/request/httpHeaderKey`
+### `/request/httpHeaderKeys`
 
 Keys for the HTTP headers, must be in the order of the values
 
 
 
-This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
-### `/request/httpHeaderValue`
+### `/request/httpHeaderValues`
 
 Values for the HTTP headers, must be in the order of the keys
 
 
 
-This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
-### `/request/compression`
+### `/request/encoding`
 
-Compression to upload multiple files
+Encoding of the file or directory to upload
 
-Optional enum string for the file compression with default value empty, other values are: ['tar.gz']
+Optional enum string for the file encoding with default value empty, other values are: [gz, lz4, tar, tar.gz, tar.lz4]
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 
@@ -3454,11 +3507,24 @@ Data is considered delivered when it has been received at least once by the reci
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
+### `/request/sourceType`
+
+Source from which the file should be read from.
+
+String enum specifying the source type, with allowed values: [storage, streaming, filesystem].
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 3600 seconds before it is erased from the database.
+
 ### `/request/source`
 
-Source for the file
+Source-specific information on what to upload to the server for the source.
 
-Device-specific field, some default values are storage and streaming.
+The value depends on the selected source type: for 'storage' is the ID of an 'io.edgehog.devicemanager.storage.File' property, for 'streaming' it's an empty string, and for 'filesystem' is a path of a file on the device.
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 
@@ -3486,13 +3552,15 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
 
 The interface has the following mappings:
 
-- `/request/id` with `string` type. Transfer ID for the file
-- `/request/progress` with `integer` type. Progress of the transfer in %
+- `/request/id` with `string` type. Transfer ID for the file.
+- `/request/type` with `string` type. Direction of the file transfer
+- `/request/bytes` with `longinteger` type. Progress of the transfer in number of bytes transferred.
+- `/request/totalBytes` with `longinteger` type. Total size of the transfer.
 
 
 ### `/request/id`
 
-Transfer ID for the file
+Transfer ID for the file.
 
 
 
@@ -3503,13 +3571,39 @@ Data is considered delivered when the transport successfully sends the data rega
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
-### `/request/progress`
+### `/request/type`
 
-Progress of the transfer in %
+Direction of the file transfer
+
+Specifies the direction of the transfer. Allowed values: 'server_to_device' or 'device_to_server'.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 3600 seconds before it is erased from the database.
+
+### `/request/bytes`
+
+Progress of the transfer in number of bytes transferred.
 
 
 
-This endpoint accepts values of type `integer`: a signed 32 bit integer.
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 3600 seconds before it is erased from the database.
+
+### `/request/totalBytes`
+
+Total size of the transfer.
+
+Reports the total number of bytes that have to be transferred. If the total size is not known this field contains a value of '-1'.
+
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
@@ -3536,6 +3630,7 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
 The interface has the following mappings:
 
 - `/request/id` with `string` type. Transfer ID for the file
+- `/request/type` with `string` type. Direction of the file transfer
 - `/request/code` with `longinteger` type. Success or error code for the transfer
 - `/request/message` with `string` type. Optional message for the response
 
@@ -3553,11 +3648,24 @@ Data is considered delivered when it has been received at least once by the reci
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
+### `/request/type`
+
+Direction of the file transfer
+
+Specifies the direction of the transfer. Allowed values: 'server_to_device' or 'device_to_server'.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 3600 seconds before it is erased from the database.
+
 ### `/request/code`
 
 Success or error code for the transfer
 
-A 0 code is a success, errors are POSIX errorno
+A 0 code is a success, errors are POSIX errno.
 
 This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
@@ -3580,7 +3688,7 @@ Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
 
-## io.edgehog.devicemanager.fileTransfer.posix.ServerToDevice v0.1
+## io.edgehog.devicemanager.fileTransfer.ServerToDevice v0.1
 
 File transfer from a Server to a Device
 
@@ -3600,18 +3708,18 @@ The interface has the following mappings:
 
 - `/request/id` with `string` type. Transfer ID for the file
 - `/request/url` with `string` type. The URL to get the file from
-- `/request/httpHeaderKey` with `string` type. Keys for the HTTP headers, must be in the order of the values
-- `/request/httpHeaderValue` with `string` type. Values for the HTTP headers, must be in the order of the keys
-- `/request/compression` with `string` type. Compression to upload multiple files
+- `/request/httpHeaderKeys` with `stringarray` type. Keys for the HTTP headers, must be in the order of the values
+- `/request/httpHeaderValues` with `stringarray` type. Values for the HTTP headers, must be in the order of the keys
+- `/request/encoding` with `string` type. Encoding of the file or directory to download
 - `/request/fileSizeBytes` with `longinteger` type. File size decompressed
 - `/request/progress` with `boolean` type. Flag to enable the progress reporting of the download.
 - `/request/digest` with `string` type. Digest of the file contents
-- `/request/fileName` with `string` type. Name of the file to download
 - `/request/ttlSeconds` with `longinteger` type. TTL on how long to keep the file for
 - `/request/fileMode` with `longinteger` type. Unix mode for the file
 - `/request/userId` with `longinteger` type. Uid of the user owning the file
 - `/request/groupId` with `longinteger` type. Gid of the user owning the file
-- `/request/destination` with `string` type. Destination for the file
+- `/request/destinationType` with `string` type. Destination where the file should be written to.
+- `/request/destination` with `string` type. Destination-specific information on where to write the file to.
 
 
 ### `/request/id`
@@ -3640,37 +3748,37 @@ Data is considered delivered when it has been received at least once by the reci
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
-### `/request/httpHeaderKey`
+### `/request/httpHeaderKeys`
 
 Keys for the HTTP headers, must be in the order of the values
 
 
 
-This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
-### `/request/httpHeaderValue`
+### `/request/httpHeaderValues`
 
 Values for the HTTP headers, must be in the order of the keys
 
 
 
-This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
-### `/request/compression`
+### `/request/encoding`
 
-Compression to upload multiple files
+Encoding of the file or directory to download
 
-Optional enum string for the file compression with default value empty, other values are: ['tar.gz']
+Optional enum string for the file encoding with default value empty, other values are: [gz, lz4, tar, tar.gz, tar.lz4]
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 
@@ -3718,24 +3826,11 @@ Data is considered delivered when it has been received at least once by the reci
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
-### `/request/fileName`
-
-Name of the file to download
-
-Optional file name of the file to download, default is empty
-
-This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
-
-The endpoint has a specific configuration for how data is stored, transferred and indexed.
-Data is considered delivered when it has been received at least once by the recipient.
-Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 3600 seconds before it is erased from the database.
-
 ### `/request/ttlSeconds`
 
 TTL on how long to keep the file for
 
-Optional ttl for how long to keep the file fore, if 0 is forever
+Optional ttl for how long to keep the file for, if 0 is forever
 
 This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
@@ -3783,11 +3878,24 @@ Data is considered delivered when it has been received at least once by the reci
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
+### `/request/destinationType`
+
+Destination where the file should be written to.
+
+String enum specifying the destination type, with allowed values: [storage, streaming, filesystem].
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 3600 seconds before it is erased from the database.
+
 ### `/request/destination`
 
-Destination for the file
+Destination-specific information on where to write the file to.
 
-Device-specific field, some default values are storage and streaming.
+The value depends on the selected destination type: for 'storage' and 'streaming' it's an empty string, and for 'filesystem' is a path to a file on the device.
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 

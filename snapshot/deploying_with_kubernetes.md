@@ -303,6 +303,8 @@ spec:
               value: "4000"
             - name: URL_HOST
               value: <BACKEND-HOST>
+            - name: GQL_SUBSCRIPTIONS_ALLOWED_ORIGINS
+              value: <GQL-SUBSCRIPTIONS-ALLOWED-ORIGINS>
             - name: DATABASE_HOSTNAME
               value: <DATABASE-HOSTNAME>
             - name: DATABASE_NAME
@@ -420,7 +422,7 @@ spec:
             - name: admin-public-key
               mountPath: /keys
               readOnly: true
-          image: edgehogdevicemanager/edgehog-backend:0.11.0
+          image: edgehogdevicemanager/edgehog-backend:x-release-please-version
           imagePullPolicy: Always
           name: edgehog-backend
           ports:
@@ -439,6 +441,7 @@ spec:
 Values to be replaced
 
 - `BACKEND-HOST`: the host of the Edgehog backend (see the [Creating DNS entries](#creating-dns-entries) section).
+- `GQL-SUBSCRIPTIONS-ALLOWED-ORIGINS`: a comma-separated list of allowed origins for websocket origin checks (for example `https://edgehog.example.com,https://ops.edgehog.example.com`). If omitted, it falls back to the backend URL.
 - `DATABASE-HOSTNAME`: the hostname of the PostgreSQL database.
 - `MAX-UPLOAD-SIZE-BYTES`: the maximum dimension for uploads, particularly relevant for OTA updates.
   If omitted, it defaults to 4 Gigabytes.
@@ -488,7 +491,9 @@ spec:
         - env:
             - name: BACKEND_URL
               value: <BACKEND-HOST>
-          image: edgehogdevicemanager/edgehog-frontend:0.11.0
+            - name: HIDE_NAVIGATION_ELEMENTS
+              value: <HIDE-NAVIGATION-ELEMENTS>
+          image: edgehogdevicemanager/edgehog-frontend:x-release-please-version
           imagePullPolicy: Always
           name: edgehog-frontend
           ports:
@@ -500,6 +505,7 @@ spec:
 Values to be replaced
 
 - `BACKEND-URL`: the API base URL of the Edgehog backend (see the [Creating DNS entries](#creating-dns-entries) section). This should be, e.g., `https://<BACKEND-HOST>`.
+- `HIDE-NAVIGATION-ELEMENTS`: can be `true|false`. `true` disable navigation elements, such as the navigation bar, the footer and the top bar.
 
 #### Device Forwarder
 

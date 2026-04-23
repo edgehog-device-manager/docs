@@ -8,6 +8,49 @@ components:
             $ref: '#/components/schemas/errors'
       description: General Error
   schemas:
+    '':
+      additionalProperties: false
+      description: 'A "Resource object" representing a '
+      properties:
+        attributes:
+          additionalProperties: false
+          description: 'An attributes object for a '
+          properties:
+            name:
+              description: Field included by default.
+              type: string
+              x-struct:
+              x-validate:
+            private_key:
+              description: Field included by default.
+              type: string
+              x-struct:
+              x-validate:
+          required:
+            - name
+            - private_key
+          type: object
+          x-struct:
+          x-validate:
+        id:
+          type: string
+        relationships:
+          additionalProperties: false
+          description: 'A relationships object for a '
+          properties: {}
+          type: object
+          x-struct:
+          x-validate:
+        type:
+          type: string
+          x-struct:
+          x-validate:
+      required:
+        - type
+        - id
+      type: object
+      x-struct:
+      x-validate:
     error:
       additionalProperties: false
       properties:
@@ -439,7 +482,7 @@ components:
           x-struct:
           x-validate:
         is_distinct_from:
-          type: string
+          type: integer
           x-struct:
           x-validate:
         is_nil:
@@ -447,7 +490,7 @@ components:
           x-struct:
           x-validate:
         is_not_distinct_from:
-          type: string
+          type: integer
           x-struct:
           x-validate:
         less_than:

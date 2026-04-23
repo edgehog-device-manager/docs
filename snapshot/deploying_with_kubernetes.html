@@ -12,10 +12,10 @@
 
     <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
 
-    <script defer src="dist/sidebar_items-31C77D69.js"></script>
+    <script defer src="dist/sidebar_items-869B1DD5.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-YU4BZFVS.js"></script>
-
+<link rel="stylesheet" href="style/cards.css">
   </head>
   <body>
     <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
@@ -32,12 +32,12 @@
   <div class="sidebar-header">
     <div class="sidebar-projectInfo">
 
-        <a href="http://edgehog.io" class="sidebar-projectImage">
+        <a href="intro.html" class="sidebar-projectImage">
           <img src="assets/logo.png" alt="Clea Edgehog" />
         </a>
 
       <div>
-        <a href="http://edgehog.io" class="sidebar-projectName" translate="no">
+        <a href="intro.html" class="sidebar-projectName" translate="no">
 Clea Edgehog
         </a>
         <div class="sidebar-projectVersion" translate="no">
@@ -103,6 +103,11 @@ Clea Edgehog
   <span class="sr-only">Copy Markdown</span>
 </a>
 
+
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/docs/pages/admin/deploying_with_kubernetes.md#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
 
   </div>
 
@@ -198,6 +203,8 @@ spec:
               value: &quot;4000&quot;
             - name: URL_HOST
               value: &lt;BACKEND-HOST&gt;
+            - name: GQL_SUBSCRIPTIONS_ALLOWED_ORIGINS
+              value: &lt;GQL-SUBSCRIPTIONS-ALLOWED-ORIGINS&gt;
             - name: DATABASE_HOSTNAME
               value: &lt;DATABASE-HOSTNAME&gt;
             - name: DATABASE_NAME
@@ -315,7 +322,7 @@ spec:
             - name: admin-public-key
               mountPath: /keys
               readOnly: true
-          image: edgehogdevicemanager/edgehog-backend:0.11.0
+          image: edgehogdevicemanager/edgehog-backend:x-release-please-version
           imagePullPolicy: Always
           name: edgehog-backend
           ports:
@@ -328,7 +335,7 @@ spec:
             secretName: edgehog-admin-api-public-key
             items:
               - key: admin_public.pem
-                path: admin_public.pem</code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-HOST</code>: the host of the Edgehog backend (see the <a href="#creating-dns-entries">Creating DNS entries</a> section).</li><li><code class="inline">DATABASE-HOSTNAME</code>: the hostname of the PostgreSQL database.</li><li><code class="inline">MAX-UPLOAD-SIZE-BYTES</code>: the maximum dimension for uploads, particularly relevant for OTA updates.
+                path: admin_public.pem</code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-HOST</code>: the host of the Edgehog backend (see the <a href="#creating-dns-entries">Creating DNS entries</a> section).</li><li><code class="inline">GQL-SUBSCRIPTIONS-ALLOWED-ORIGINS</code>: a comma-separated list of allowed origins for websocket origin checks (for example <code class="inline">https://edgehog.example.com,https://ops.edgehog.example.com</code>). If omitted, it falls back to the backend URL.</li><li><code class="inline">DATABASE-HOSTNAME</code>: the hostname of the PostgreSQL database.</li><li><code class="inline">MAX-UPLOAD-SIZE-BYTES</code>: the maximum dimension for uploads, particularly relevant for OTA updates.
 If omitted, it defaults to 4 Gigabytes.</li><li><code class="inline">S3-SCHEME</code>: the scheme (<code class="inline">http</code> or <code class="inline">https</code>) for the S3 storage.</li><li><code class="inline">S3-HOST</code>: the host for the S3 storage.</li><li><code class="inline">S3-PORT</code>: the port for the S3 storage. This has to be put in double quotes to force it to be
 interpreted as a string.</li><li><code class="inline">S3-BUCKET</code>: the bucket name for the S3 storage.</li><li><code class="inline">S3-ASSET-HOST</code>: the asset host for the S3 storage, e.g. <code class="inline">storage.googleapis.com/&lt;S3-BUCKET&gt;</code> for
 GCP or <code class="inline">&lt;S3-BUCKET&gt;.s3.amazonaws.com</code> for AWS.</li><li><code class="inline">S3-REGION</code>: the region where the S3 storage resides.</li><li><code class="inline">EDGEHOG-FORWARDER-HOSTNAME</code>: the host for the instance of <a href="https://github.com/edgehog-device-manager/edgehog_device_forwarder">Edgehog Device Forwarder</a>. It should only contain the hostname without the <code class="inline">http://</code> or <code class="inline">https://</code> scheme.</li><li><code class="inline">EDGEHOG-FORWARDER-PORT</code>: the port for the instance of <a href="https://github.com/edgehog-device-manager/edgehog_device_forwarder">Edgehog Device Forwarder</a>. It defaults to <code class="inline">443</code>.</li><li><code class="inline">EDGEHOG-FORWARDER-SECURE-SESSIONS</code>: either <code class="inline">true</code> or <code class="inline">false</code>, indicates whether devices use TLS to connect to the <a href="https://github.com/edgehog-device-manager/edgehog_device_forwarder">Edgehog Device Forwarder</a>. It defaults to <code class="inline">true</code>.</li></ul><p>The optional env variable in the <code class="inline">yaml</code> also have to be uncommented where relevant (see comments
@@ -355,13 +362,15 @@ spec:
         - env:
             - name: BACKEND_URL
               value: &lt;BACKEND-HOST&gt;
-          image: edgehogdevicemanager/edgehog-frontend:0.11.0
+            - name: HIDE_NAVIGATION_ELEMENTS
+              value: &lt;HIDE-NAVIGATION-ELEMENTS&gt;
+          image: edgehogdevicemanager/edgehog-frontend:x-release-please-version
           imagePullPolicy: Always
           name: edgehog-frontend
           ports:
             - containerPort: 80
               name: httpout
-              protocol: TCP</code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-URL</code>: the API base URL of the Edgehog backend (see the <a href="#creating-dns-entries">Creating DNS entries</a> section). This should be, e.g., <code class="inline">https://&lt;BACKEND-HOST&gt;</code>.</li></ul><h4>Device Forwarder</h4><p>To deploy the device forwarder, copy the following <code class="inline">yaml</code> snippet in <code class="inline">device-forwarder-deployment.yaml</code>, fill the
+              protocol: TCP</code></pre><p>Values to be replaced</p><ul><li><code class="inline">BACKEND-URL</code>: the API base URL of the Edgehog backend (see the <a href="#creating-dns-entries">Creating DNS entries</a> section). This should be, e.g., <code class="inline">https://&lt;BACKEND-HOST&gt;</code>.</li><li><code class="inline">HIDE-NAVIGATION-ELEMENTS</code>: can be <code class="inline">true|false</code>. <code class="inline">true</code> disable navigation elements, such as the navigation bar, the footer and the top bar.</li></ul><h4>Device Forwarder</h4><p>To deploy the device forwarder, copy the following <code class="inline">yaml</code> snippet in <code class="inline">device-forwarder-deployment.yaml</code>, fill the
 missing values (detailed below) and execute</p><pre><code class="makeup bash" translate="no"><span class="gp unselectable">$ </span><span class="">kubectl apply -f device-forwarder-deployment.yaml
 </span></code></pre><pre><code class="yaml">apiVersion: apps/v1
 kind: Deployment
@@ -581,17 +590,17 @@ Astarte cluster and Realm.</p><pre><code class="makeup elixir" translate="no"><s
 </span><span class="gp unselectable">iex&gt; </span><span class="n">realm_private_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;&quot;&quot;
 &lt;ASTARTE-REALM-PRIVATE-KEY&gt;
 &quot;&quot;&quot;</span><span class="w">
-</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="0405733256-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="0405733256-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tenants</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="0405733256-2">(</span><span class="w">
-  </span><span class="p" data-group-id="0405733256-3">%{</span><span class="w">
+</span><span class="gp unselectable">iex&gt; </span><span class="p" data-group-id="3356757956-1">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="3356757956-1">}</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nc">Tenants</span><span class="o">.</span><span class="n">provision_tenant</span><span class="p" data-group-id="3356757956-2">(</span><span class="w">
+  </span><span class="p" data-group-id="3356757956-3">%{</span><span class="w">
     </span><span class="ss">name</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_name</span><span class="p">,</span><span class="w">
     </span><span class="ss">slug</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_slug</span><span class="p">,</span><span class="w">
     </span><span class="ss">public_key</span><span class="p">:</span><span class="w"> </span><span class="n">tenant_public_key</span><span class="p">,</span><span class="w">
-    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0405733256-4">%{</span><span class="w">
+    </span><span class="ss">astarte_config</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3356757956-4">%{</span><span class="w">
       </span><span class="ss">base_api_url</span><span class="p">:</span><span class="w"> </span><span class="n">base_api_url</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_name</span><span class="p">:</span><span class="w"> </span><span class="n">realm_name</span><span class="p">,</span><span class="w">
       </span><span class="ss">realm_private_key</span><span class="p">:</span><span class="w"> </span><span class="n">realm_private_key</span><span class="w">
-    </span><span class="p" data-group-id="0405733256-4">}</span><span class="w">
-  </span><span class="p" data-group-id="0405733256-3">}</span><span class="p" data-group-id="0405733256-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">tenant_public.pem</code> created in the <a href="#creating-a-keypair">previous step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
+    </span><span class="p" data-group-id="3356757956-4">}</span><span class="w">
+  </span><span class="p" data-group-id="3356757956-3">}</span><span class="p" data-group-id="3356757956-2">)</span></code></pre><p>Values to be replaced</p><ul><li><code class="inline">TENANT-NAME</code>: the name of the new tenant.</li><li><code class="inline">TENANT-SLUG</code>: the slug of the tenant, must contain only lowercase letters and hyphens.</li><li><code class="inline">TENANT-PUBLIC-KEY</code>: the content of <code class="inline">tenant_public.pem</code> created in the <a href="#creating-a-keypair">previous step</a>. Open a multiline string with <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of
 the file in the <code class="inline">iex</code> shell and then close the multiline string with <code class="inline">&quot;&quot;&quot;</code> on a new line.</li><li><code class="inline">ASTARTE-BASE-API-URL</code>: the base API url of the Astarte instance (e.g.
 <a href="https://api.astarte.example.com">https://api.astarte.example.com</a>).</li><li><code class="inline">ASTARTE-REALM-NAME</code>: the name of the Astarte realm you're using.</li><li><code class="inline">ASTARTE-REALM-PRIVATE-KEY</code>: the content of the Astarte realm's private key. Open a multiline string with
 <code class="inline">&quot;&quot;&quot;</code>, press Enter, paste the content of the file in the <code class="inline">iex</code> shell and then close the multiline
@@ -619,12 +628,12 @@ Architecture overview
   </div>
   <div class="bottom-actions-item">
 
-      <a href="interacting_with_edgehog.html" class="bottom-actions-button" rel="next">
+      <a href="astarte_interfaces.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-Interacting with Edgehog
+Astarte Interfaces
         </span>
       </a>
 

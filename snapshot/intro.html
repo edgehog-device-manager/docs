@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.1">
+    <meta name="project" content="Clea Edgehog v0.12.0">
+
+
+    <title>Edgehog — Clea Edgehog v0.12.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
+
+    <script defer src="dist/sidebar_items-869B1DD5.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-YU4BZFVS.js"></script>
+<link rel="stylesheet" href="style/cards.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="intro.html" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="intro.html" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.12.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>Edgehog</h1>
+
+<a href="intro.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/docs/pages/intro/intro.md#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+  </div>
+
+
+<p><img src="https://github.com/edgehog-device-manager/edgehog/actions/workflows/backend-ci.yaml/badge.svg" alt="Backend CI"/>
+<img src="https://github.com/edgehog-device-manager/edgehog/actions/workflows/frontend-ci.yaml/badge.svg" alt="Frontend CI"/>
+<img src="https://img.shields.io/coverallsCoverage/github/edgehog-device-manager/edgehog" alt="Coverage"/></p><p><strong>License:</strong> Apache 2.0 — <a href="http://www.apache.org/licenses/LICENSE-2.0.html">apache.org/licenses/LICENSE-2.0</a></p><p>An open-source IoT device fleet management platform built on <a href="https://github.com/astarte-platform/astarte">Astarte</a>. Manage hardware, push firmware updates, track device health, and automate deployments — all through a single GraphQL API.</p><h2 id="what-edgehog-does" class="section-heading"><a href="#what-edgehog-does" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">What Edgehog does</span></h2><div class="feature-cards"><div class="feature-card"><div class="card-icon" style="background: #e0f5f0;">📡</div>
+<h3>Device management</h3>
+<p>Register and monitor your entire device fleet. Query real-time status: online/offline state, last-seen IP, cellular connectivity, battery, OS info, and hardware details.</p></div><div class="feature-card"><div class="card-icon" style="background: #fff4e0;">🔄</div>
+<h3>OTA update campaigns</h3>
+<p>Create base image collections and roll out firmware upgrades across device groups using campaigns.</p></div><div class="feature-card"><div class="card-icon" style="background: #e8f0ff;">📦</div>
+<h3>Container deployments</h3>
+<p>Define applications as versioned releases of containers. Deploy, upgrade, start, stop, and delete containerized workloads via deployment campaigns.</p></div><div class="feature-card"><div class="card-icon" style="background: #fce8f0;">📊</div>
+<h3>Fleet grouping</h3>
+<p>Tag devices freely and write selector expressions to form dynamic groups that update automatically.</p></div><div class="feature-card"><div class="card-icon" style="background: #eaf3de;">📍</div>
+<h3>Geolocation</h3>
+<p>Track device position and location data reported from the field. Query per-device position and last-seen coordinates through the API.</p></div><div class="feature-card"><div class="card-icon" style="background: #eeedfe;">🔗</div>
+<h3>Remote Forwarding</h3>
+<p>Request and manage forwarder sessions to tunnel traffic to specific devices for diagnostics and remote access — configurable per tenant.</p></div></div><h2 id="api-reference" class="section-heading"><a href="#api-reference" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">API reference</span></h2><h3 id="admin-rest-apis" class="section-heading"><a href="#admin-rest-apis" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Admin REST APIs</span></h3><p>Edgehog admin tasks (i.e., managing tenants) are available through a REST API. It supports creating, updating and deleting tenants</p><p><strong>Endpoint</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">http</span><span class="ss">://</span><span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">host</span><span class="o">&gt;</span><span class="o">/</span><span class="n">admin</span><span class="o">-</span><span class="n">api</span><span class="o">/</span><span class="n">v1</span><span class="o">/</span></code></pre><p>Replace <code class="inline">&lt;your-host&gt;</code> with your Edgehog instance hostname.</p><p><strong>Full API docs</strong> available here: <a href="admin-rest-api/">admin-rest-api</a></p><h3 id="tenant-graphql-apis" class="section-heading"><a href="#tenant-graphql-apis" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Tenant GraphQL APIs</span></h3><p>All Edgehog operations are exposed through a <strong>GraphQL API</strong>. It supports queries, mutations, and real-time subscriptions.</p><p><strong>Endpoint</strong></p><pre><code class="makeup elixir" translate="no"><span class="n">http</span><span class="ss">://</span><span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">host</span><span class="o">&gt;</span><span class="o">/</span><span class="n">tenants</span><span class="o">/</span><span class="o">&lt;</span><span class="n">your</span><span class="o">-</span><span class="n">tenant</span><span class="o">&gt;</span><span class="o">/</span><span class="n">api</span></code></pre><p>Replace <code class="inline">&lt;your-host&gt;</code> with your Edgehog instance hostname and <code class="inline">&lt;your-tenant&gt;</code> with the slug of your tenant.</p><p><strong>Full API docs</strong> available here: <a href="tenant-graphql-api/">tenant-graphql-api</a></p><h4>Key resources</h4><table><tbody><tr><td style="text-align: left;"><a href="https://docs.edgehog.io/0.12/tenant-graphql-api/#group-Operations-Queries"><strong>Queries</strong></a></td><td style="text-align: left;">Query your device data.</td></tr><tr><td style="text-align: left;"><a href="https://docs.edgehog.io/0.12/tenant-graphql-api/#group-Operations-Mutations"><strong>Mutations</strong></a></td><td style="text-align: left;">Make changes and interact with Edgehog.</td></tr><tr><td style="text-align: left;"><a href="https://docs.edgehog.io/0.12/tenant-graphql-api/#group-Operations-Subscriptions"><strong>Subscriptions</strong></a></td><td style="text-align: left;">Subscribe to events as they happen.</td></tr></tbody></table><h2 id="how-to-read-this-documentation" class="section-heading"><a href="#how-to-read-this-documentation" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">How to read this documentation</span></h2><p><strong>1. Core concepts</strong></p><p>Before exploring features or the API, read the <a href="core_concepts-1.html">Core concepts</a> page. It defines the building blocks (<strong>Hardware Types</strong>, <strong>Devices</strong>, <strong>System Models</strong>, <strong>Groups</strong>, and <strong>Selectors</strong>) that all other sections depend on.</p><p><strong>2. Follow the feature guides</strong></p><p>The sidebar organizes topics from setup (hardware types, system models) to operations (OTA updates, campaigns, container deployments). Work through them sequentially: each guide builds on the vocabulary established by the previous one.</p><p><strong>3. Use the API reference for integration work</strong></p><p>The <a href="https://docs.edgehog.io/0.12/tenant-graphql-api/">GraphQL API reference</a> lists every query, mutation, and subscription with argument types and example payloads. Use it alongside the feature guides when building integrations or automating fleet operations.</p><p><strong>4. Note features marked as planned</strong></p><p>Sections marked with an asterisk (*) (such as Attributes and Attribute filters) describe functionality planned for a future release. The selector syntax for attributes is already in place, but attribute population is not yet active. Treat these sections as forward reference only.</p><p><strong>5. Download or explore offline</strong></p><p>An ePub version of the full documentation is available at the bottom of any page. A <a href="llms.txt">llms.txt</a> is also provided for machine-readable consumption.</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="attribute_value_sources.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Attribute Value Sources
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.1) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

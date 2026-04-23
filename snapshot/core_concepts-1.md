@@ -1,222 +1,228 @@
 <!---
-  Copyright 2021-2023 SECO Mind Srl
+  Copyright 2025 SECO Mind Srl
 
   SPDX-License-Identifier: Apache-2.0
 -->
 
 # Core concepts
 
-This page will illustrate some of the core concepts used in Edgehog.
+This page illustrates the core concepts of Edgehog's container management system.
 
-## Hardware types, Devices and System Models
+## Images
 
-This section will deal with the difference between three main concepts used throughout Edgehog:
-Hardware Types, Devices and System Models.
+Images in Edgehog are not managed directly by the platform. Instead, Edgehog treats images as external references that are passed to the device’s container runtime (such as Docker or Podman). Edgehog does not store, pull or validate images, it simply records the image reference string provided in a container definition.
 
-To better illustrate this, we will use as example the ACME Inc company, which manages a fleet of
-e-bikes and electric scooters. We will illustrate the hierarchy going from the bottom up, showing
-how each concept relates to the other ones.
+### Image Reference Format
 
-### Hardware Type
-
-An Hardware Type represents the electronic hardware components embedded in an device. As an example,
-a possible Hardware Type description could be "ESP32 with a GSM module" or "RaspberryPi 0 with an
-LTE modem".
-
-Each Hardware Type can have one or more Hardware Type Part Numbers associated with it. This makes
-sure that the user is able to map, e.g., a new revision of the PCB to the same Hardware Type, since
-different hardware with the same Hardware Type is assumed to be compatible. Usually (but not
-necessarily) the Hardware Type Part Number is a code that is written on the PCB.
-
-### Device
-
-A device is an entity connected to Astarte. A Device has a uniquely identified by its Device ID, and
-it usually lives inside a product such as an e-bike (if it is not on a shelf or in a repair shop).
-
-### System Model
-
-A System Model constitutes a group of devices implementing the same functionality for some users.
-For example, two e-bikes can be physically identical and still belong to different System Models,
-since they can have different software running on them.
-
-A System Model is associated with a specific Hardware Type, so two devices implementing the same
-functionality but using different Hardware Types will belong to two different System Models. This
-makes it so that the System Model is the fundamental identifier when it comes to software updates.
-
-A System Model has one or more System Model Part Numbers associated with it, allowing to track newer
-versions of a product which do not change its main functionality. Usually (but not necessarily) the
-System Model's Part Number is delivered along with the device, or on the box containing it.
-
-Drawing again from our bike sharing example, e-bikes and electric scooters would have two different
-System Models, even if they use the same Hardware Type (e.g. an ESP32 with a GSM module). It is also
-possible that the e-bikes are further split into different System Models depending on the country
-they are deployed in if, for example, the software has to conform to speed limitations which are
-specific for each country.
-
-## Tags, attributes and groups
-
-This section will deal with various types of properties that can be added to devices to identify
-and group them.
-
-### Tags
-
-Tags are string values that can be freely attached to Devices. There is no predefined semantics so
-users are free to use them as they see fit.
-
-Some examples of tags that can be assigned to the e-bikes or electric scooters in our examples
-could be `out-of-order`, `test_machine` or `Upgraded Brakes`.
-
-### Attributes*
-
-*_This feature is planned for a future release_
-
-Attributes are namespaced key-value pairs that can be attached to Devices. The namespacing happens
-by prepending the namespace to the key using a colon as separator (i.e. `namespace:key`). This
-ensures that the same key in different namespaces can be addressed unambiguously.
-
-The attribute keys are always strings, while values support all the types [supported by Astarte Interfaces](https://docs.astarte-platform.org/latest/030-interface.html#supported-data-types).
-
-The majority of attributes are automatically populated using different mechanisms depending on the
-namespaces, but there's also the possibility of manually defining custom attributes for a specific
-device.
-
-The supported namespaces are:
-
-- `edgehog-synthetic`: automatically populated with values coming from Device data that is derived
-  from Edgehog (e.g. Geolocation, System Model, Hardware Type, etc...)
-- `edgehog-policy`: automatically populated with Edgehog values which are imposed on the cloud side
-  (e.g. Geolocation disabled due to GDPR restrictions).
-- `astarte-values`: automatically populated with values coming from device-owned Astarte interfaces
-  using an [Attribute Value Source](#attribute-value-source) with type `astarte-value`.
-- `astarte-attributes`: automatically populated using the `attributes` map in the Device status
-  returned from Astarte AppEngine API. Since Astarte attributes don't provide a trigger mechanism,
-  these attributes are lazily populated and should be considered eventually consistent.
-- `custom`: user-defined key-value pairs which are manually assigned to a Device.
-
-Note that all values will be converted to a string when using them as attribute values
-
-### Attribute Value Source*
-
-*_This feature is planned for a future release_
-
-An Attribute Value Source populates the attributes of a Device according to some rule.
-
-Currently, the only supported type of Attribute Value Source is `astarte-value`, which updates
-Device attributes using a value from an Astarte interface.
-
-### Selector
-
-A Selector allows selecting a subset of Devices based on their tags and attributes. The Selector
-can be evaluated for a Device and return `true` if the Device matches the Selector and `false`
-otherwise.
-
-Each Selector can be made of one or more filters, combined using `and` and `or` and (possibly)
-parenthesized. When no parenthesis are present, `and` has a higher priority than `or` in
-expressions.
-
-#### Supported filters
-
-##### Tag filter
-
-Created with the syntax `"<value>" in tags`, it returns `true` if `value` is included in the Device
-tags. It's also possible to use a negative filter with `"value" not in tags`, in this case the
-filter will match all Devices which _don't_ have the tag.
-
-Additionally, Edgehog supports pattern matching on tags using the `~=` (matches) and `!~=` (not matches) operators:
-
-- `"<pattern>" ~= tags`: returns `true` if any Device tag matches the specified pattern
-- `"<pattern>" !~= tags`: returns `true` if no Device tag matches the specified pattern
-
-Pattern matching supports two types of patterns:
-
-**Glob patterns** (using quoted strings):
-
-- `*` matches any sequence of characters
-- `?` matches any single character
-- Example: `"sensor-*" ~= tags` matches tags like `sensor-temperature`, `sensor-humidity`, etc.
-- Example: `"dev?" ~= tags` matches tags like `dev1`, `dev2`, `deva`, but not `device`
-
-**Regular expressions** (using `/pattern/` syntax):
-
-- Full regex support with standard regex metacharacters
-- Can be written with or without quotes: `/pattern/` or `"/pattern/"`
-- Example: `/^sensor-\d+$/ ~= tags` matches tags like `sensor-123`, `sensor-007`
-- Example: `/temp(erature)?/ ~= tags` matches both `temp` and `temperature`
-
-Note that regex patterns (unquoted `/pattern/`) can only be used with the `~=` and `!~=` operators,
-while quoted strings work with all tag operators (`in`, `not in`, `~=`, `!~=`).
-
-##### Attribute filter*
-
-*_Note that while Attribute filters are already supported, Attributes are going to be available in a
-future release_
-
-Created with the syntax `attributes["<namespace>:<key>"] <operator> <value>`, it returns `true` if
-the value of the chosen attribute satisfies the expression.
-
-The supported operators are:
-
-- `==` and `!=` for all value types
-- `>`, `>=`, `<`, `<=` for numeric or `datetime` values
-
-`<value>` can be a boolean (`true` or `false`), a string, a number (either integer or float), or one
-of the values supported using special syntax:
-
-- `now()` indicates the current datetime at the time the Selector is evaluated. This can be used to
-  do comparisons with other `datetime` attributes.
-- `datetime("<ISO8601 string>")` is used to pass `datetime` values in expressions. The string
-  contained in double quotes must be a valid UTC ISO8601 timestamp. Example:
-  `datetime("2022-06-27T16:27:40.254795Z")`.
-- `binaryblob("<base64 encoded value>")` is used to pass `binaryblob` values in expressions. The
-  string contained in double quotes must be a valid Base64 encoding of the binary value. Example:
-  `binaryblob("Zm9vYmFy")` to encode the string `"foobar"`.
-
-##### Attribute inclusion filter*
-
-*_This feature is planned for a future release_
-
-- `"<value>" in attributes["<namespace>:<key>"]`: returns `true` if `value` is included in the
-  chosen attribute. Note that the attribute must be an array for the expression to be valid.
-
-#### Examples
-
-To provide some examples, here is a Selector to target all out of order Devices in Milan:
+The image reference represents the name of the image to pull.
+It follows the pattern:
 
 ```
-"out-of-order" in tags and attributes["edgehog-synthetic:city"] == "Milan"
+[registry-host[:port]/][image-repo/]image-name[:(tag|digest)]
 ```
 
-Here is a selector to target all Devices that have their service timestamp in the past so they have
-to be serviced, imagining this information is contained in the `com.foo.ServiceInfo` Astarte
-interface in the `/serviceTimestamp`:
+### Image Reference Examples
+
+#### Basic Examples
 
 ```
-attributes["astarte-values:com.foo.ServiceInfo/serviceTimestamp"] <= now()
+nginx
+redis
+python
 ```
 
-#### Caveats
+#### With Explicit Tags
 
-Note that numeric values are conflated in a single numeric type, i.e. a selector with
-`attributes["custom:foo"] == 42` will match either if `foo` is `integer`, `longinteger` or `double`
-(e.g it will also match `42.0`).
+```
+nginx:1.27
+python:3.12-alpine
+```
 
-Another important thing to notice is that using an Attribute Filter will implicitly match only
-Devices that have that attribute. As an example, if there are 3 devices, one with attribute `foo:bar
-== 42`, the other with attribute `foo:bar == 3` and the third one with no `foo:bar` attribute, the
-Attribute Filter `attributes["foo:bar"] != 42` will match the second Device but _not_ the third one,
-since it doesn't have the target attribute.
+#### With Image Repository
 
-In the future, additional syntax could be added to Selectors to allow filtering based just on the
-presence or absence of an attribute.
+```
+library/ubuntu:24.04
+myorg/backend-service:1.5.0
+```
 
-### Group
+#### With Custom Registry Host
 
-A Group represents a subset of devices filtered by a Selector.
+```
+registry.example.com/myapp/web:2.3.1
+docker.mycompany.local/backend:latest
+```
 
-The Group can be used to perform operations on Devices contained in it.
+#### With Registry Host and Port
 
-Since Tags and Attributes of a Device can change, Groups do not statically define the set of Devices
-they contain but they change dynamically following Device changes.
+```
+registry.example.com:5000/myteam/processor:dev
+10.1.2.3:5000/custom/image:1.0.0
+```
 
-Note that a Device can't be manually assigned to a Group, its tags and attributes must be
-used to make it satisfy the group Selector.
+#### Digest-Based References
+
+```
+ubuntu@sha256:5f15a489d63a0e...
+nginx@sha256:0f472fa682c7a...
+registry.example.com/myapp/api@sha256:8a12bf9c4dfc2...
+```
+
+### Image Deduplication
+
+Edgehog **treats every image reference as unique**, even if multiple references resolve to the **same underlying image digest**.
+
+For example, all of the following represent _different images_ to Edgehog:
+
+- `ubuntu:latest`
+- `ubuntu:24.04`
+- `ubuntu@sha256:5f15a489d63a0e...`
+
+Edgehog does not attempt to resolve tags to digests or detect when different references point to the same image. It always relies exclusively on the user-provided reference.
+
+#### Example: Image Reference Clash
+
+A _clash_ happens when two different references point to the same actual image digest. This is uncommon but can occur, especially with rolling or moving tags like `latest`.
+
+For example, in the official Ubuntu Docker image:
+
+```
+ubuntu:latest  → sha256:5f15a489d63a0e...
+ubuntu:24.04   → sha256:5f15a489d63a0e...
+```
+
+Even though both tags point to the **same digest**, Edgehog treats them as **two distinct images**, because their reference strings differ.
+
+## Image credentials
+
+Image credentials provide authentication for pulling container images from private registries. Edgehog's authentication system maps directly to the [Docker Engine API authentication mechanism](https://docs.docker.com/reference/api/engine/version/v1.51/#section/Authentication).
+
+### How Image Credentials Work
+
+- **Centralized management**: Credentials are [managed directly](./image_credentials_management.md) in Edgehog, allowing administrators to securely store registry authentication details
+- **Contextual transmission**: Credentials are **not stored on the device**. Instead, they are sent to the device only when needed during [container creation](./applications_management.md#container-creation)
+- **Docker-compatible format**: Credentials consist of a username and password (or token), following the standard Docker authentication format
+- **Immutable after creation**: Credentials cannot be modified once created. To change credentials, create a new set and delete the old one
+
+### Credential Components
+
+Each credential contains:
+
+- **Label**: A user-defined identifier for managing credentials in the Edgehog UI (e.g., `Production Registry`, `GitHub Packages`). This label is not sent to the device
+- **Username**: The registry username used for authentication
+- **Password**: The registry password or access token used for authentication
+
+### Usage Example
+
+When creating a container in a release, you can associate image credentials with an image that requires authentication. During deployment, Edgehog forwards the credentials to the device, allowing it to pull the image from the private registry.
+
+For detailed information on managing credentials, see the [Image Credentials Management](./image_credentials_management.md) page.
+
+## Volumes
+
+Volumes represent Docker-managed storage that persists data independently of the container lifecycle.
+They are created and managed directly through the application's [volumes management section](./volume_management.md).
+
+### Volume Structure
+
+Each volume consists of the following fields:
+
+- **Label**: A user-defined name used to identify the volume within the application
+- **Driver**: Specifies which Docker volume driver should be used. The default driver is usually local
+- **Options**: A set of key-value pairs that provide custom configuration for the selected driver
+
+### Volume Purpose and Relationship to Containers
+
+While volumes can exist independently, a volume is not meaningful unless it is attached to at least one [container](core_concepts-2.html#containers).
+
+The purpose of a volume is to provide persistent storage for containerized applications, so it becomes valuable only when linked to a container’s filesystem.
+
+### Volumes vs. Bind Mounts
+
+Docker provides two main ways to persist data: volumes and bind mounts, and it's important to understand the difference.
+
+With a **bind mount**, a file or directory from the host machine is mounted directly into the container.
+With a **volume**, Docker creates a new directory inside its own managed storage area on the host and takes full responsibility for managing its contents.
+
+## Networks
+
+In Edgehog, networks correspond directly to Docker networks. They are [managed through Edgehog](./network_management.md), allowing users to create reusable network specifications that can be referenced by multiple containers during the deployment process.
+
+For each network, Edgehog allows you to configure:
+
+- **Label** – A human-readable identifier for the network.
+- **Driver** – The Docker network driver to use (e.g., `bridge`, `overlay`).
+- **Options** – A set of driver-specific configuration parameters.
+- **Enable IPv6** – Whether the network should support IPv6 addressing.
+- **Internal** – Whether the network should be isolated from external access.
+
+For more detailed information on creating and managing networks, refer to the [Network Management](./network_management.md) page.
+
+## Containers
+
+In Edgehog, the concept of a container is the same as in Docker. In fact, they directly map to a Docker container under the hood. The key difference is that Edgehog manages containers **indirectly**, relying on [application releases](./applications_management.md#container-creation) instead.
+
+In practice, this translates to Edgehog containers being a _wrapper_ used to configure an image: all the volumes, networks, device mappings, binds, and everything else necessary for a given deployment of an image, are defined in a container.
+
+## Releases
+
+Releases are an Edgehog concept which represent a set of containers that provide a useful way of organizing a scope. They follow semantic versioning, so that the user is able to know when a specific update can contain breaking changes. Releases are managed directly (take a look at [Release creation process](./applications_management.md#release-creation-process)).
+
+There are no restrictions on what can happen underneath as they are just a logical framework to organize different versions of the same application. For example, release `1.2.9` of an application can contain a `backend` container and a `postgres` database, release `2.0.0` an upgraded version of the `backend` and an instance of `scylla db`.
+
+### Release Components
+
+Each release contains:
+
+- **Version**: a version number following the [Semantic Versioning](https://semver.org) spec. The version number must be unique.
+- **Supported System Models**: a list of supported system models that specify multiple types of devices that can be compatible: if some required system models are specified by the release, the device needs to match one of those. The idea is that different releases of the same app may have different compatibility requirements.
+- **Containers**: a set of containers (see [Containers](#containers)).
+
+## Applications
+
+Applications are a core Edgehog concept that organize container deployments across devices. Unlike Docker, which has no equivalent concept, applications in Edgehog provide a structured way to manage container lifecycle and updates.
+
+### Key Characteristics
+
+- **Centralized management**: Applications are [managed directly](./applications_management.md) in Edgehog, providing a single point of control for container deployments
+- **Release-based structure**: Each application consists of an ordered list of releases, where each release defines a specific configuration of containers, volumes, and networks
+- **Device-agnostic**: Devices do not have a direct notion of applications. Instead, they receive individual releases to deploy
+- **Upgrade-driven workflow**: Devices can be instructed to perform upgrades, transitioning from one release to another within an application
+
+### How Applications Work
+
+Applications serve as logical groupings that track the evolution of your containerized workloads. When creating an application, you only need to provide a name and description. The actual container definitions are added later through releases.
+
+When you want to deploy containers to a device, you select a specific release from an application. The device then deploys that release configuration without awareness of the broader application context.
+
+For detailed information on creating and managing applications, see the [Applications Management](./applications_management.md) page.
+
+## Deployments
+
+Deployments are a core Edgehog concept that link devices to specific application releases. Unlike Docker, which has no equivalent concept, deployments in Edgehog represent the operational unit for managing containerized workloads on individual devices.
+
+### Key Characteristics
+
+- **Device-Release binding**: A deployment connects a specific device to a particular release from an application
+- **Centralized management**: Deployments are [managed directly](../user/devices.md) through the device interface in Edgehog
+- **Action-oriented**: Deployments are the minimum unit on which users can execute lifecycle operations
+- **Stateful tracking**: Each deployment tracks the current state of the release on the device
+
+### Deployment Actions
+
+- ![Start action](assets/deployments_start.png) **Start**: Launch the containers defined in the deployed release
+- ![Stop action](assets/deployments_stop.png) **Stop**: Halt running containers without removing them
+- ![Upgrade action](assets/deployments_upgrade.png) **Upgrade**: Deploy another specified release from the same application (the old version is still kept)
+- ![Redeploy action](assets/deployments_redeploy.png) **Redeploy**: Re-create and restart the deployment, useful when resources are not ready or in an inconsistent state
+- ![Delete action](assets/deployments_delete.png) **Delete**: Remove the deployment and all associated containers from the device
+
+![Deployment details](assets/deployments_info.png) Additionally, users can open a dedicated deployment details page to view comprehensive information about the deployment, including:
+
+- Current container status and runtime configurations
+- Events history
+- Network and volume bindings
+
+### How Deployments Work
+
+When you deploy a release to a device, Edgehog creates a deployment that binds that device to the specific release configuration. The device receives instructions to pull images, create volumes and networks, and start containers according to the release specification.
+
+All container lifecycle management on a device happens through its deployment. This abstraction allows Edgehog to maintain consistent control over containerized workloads across your device fleet, regardless of the underlying container runtime.
