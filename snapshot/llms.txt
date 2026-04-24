@@ -267,6 +267,7 @@ meaningful representation of permissions associated to the entity performing
 the request based on token claims.
 
   - [EdgehogWeb.Router](EdgehogWeb.Router.md)
+  - [EdgehogWeb.VersionController](EdgehogWeb.VersionController.md)
 
 - Other modules
   - [Edgehog.Actors](Edgehog.Actors.md): The actors domain.
