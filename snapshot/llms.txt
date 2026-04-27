@@ -172,9 +172,23 @@ false -> {:error, :not_dangling}
 
 - File transfer
   - [Edgehog.Files](Edgehog.Files.md): The `Edgehog.Files` domain, which includes resources and logic related to file management.
-  - [Edgehog.Files.File.Changes.DeleteFile](Edgehog.Files.File.Changes.DeleteFile.md): Deletes a file from the storage backend that was uploaded via a presigned URL.
+  - [Edgehog.Files.EphemeralFile](Edgehog.Files.EphemeralFile.md): Module responsible for handling ephemeral files used in file download requests.
 
-  - [Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileDeletion](Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileDeletion.md): Deletes a file from the storage backend that was uploaded via a presigned URL.
+  - [Edgehog.Files.EphemeralFile.Behaviour](Edgehog.Files.EphemeralFile.Behaviour.md): Behaviour for handling ephemeral files used in file download requests.
+
+  - [Edgehog.Files.File.BucketStorage](Edgehog.Files.File.BucketStorage.md): Implementation of `Edgehog.Files.File.Storage` that uses a bucket storage (e.g., S3, MinIO) to store files.
+
+  - [Edgehog.Files.File.Changes.HandleFileDeletion](Edgehog.Files.File.Changes.HandleFileDeletion.md): Ash change to handle file deletion after a file record is deleted.
+
+  - [Edgehog.Files.File.Changes.HandleFileUpload](Edgehog.Files.File.Changes.HandleFileUpload.md): Ash change to handle file upload before a file record is created or updated.
+
+  - [Edgehog.Files.File.Storage](Edgehog.Files.File.Storage.md): Behaviour for file storage implementations.
+
+  - [Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileDeletion](Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileDeletion.md): Ash change responsible for deleting the ephemeral file associated
+with a file download request when the request is deleted.
+
+  - [Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileUpload](Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileUpload.md): Ash change responsible for handling the upload of an ephemeral file associated
+with a file download request when a file is provided in the changeset arguments.
 
   - [Edgehog.Files.FileDownloadRequest.Changes.SendFileDownloadRequest](Edgehog.Files.FileDownloadRequest.Changes.SendFileDownloadRequest.md): Ash change responsible for sending a file download request to the Astarte device
 after the file download request resource has been created.
@@ -195,6 +209,7 @@ for a file upload request before persisting it.
   - [Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest.md): Manual action responsible for sending a file upload request to the Astarte device.
 
   - [Edgehog.Files.FileUploadRequest.Status](Edgehog.Files.FileUploadRequest.Status.md): Status of a file transfer request.
+  - [Edgehog.Files.Uploaders.File](Edgehog.Files.Uploaders.File.md): Waffle uploader for files.
 
 - Base images
   - [Edgehog.BaseImages](Edgehog.BaseImages.md): The BaseImages context.
