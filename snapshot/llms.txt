@@ -68,6 +68,8 @@
   - [Edgehog.Campaigns.Campaign.Changes.ComputeCampaignTargets](Edgehog.Campaigns.Campaign.Changes.ComputeCampaignTargets.md): Computes campaign targets and start campaign executor.
   - [Edgehog.Campaigns.Campaign.Validations.ValidateOperationTypeRequirements](Edgehog.Campaigns.Campaign.Validations.ValidateOperationTypeRequirements.md): Validates that the required arguments are provided based on the operation type.
   - [Edgehog.Campaigns.Campaign.Validations.ValidateStatus](Edgehog.Campaigns.Campaign.Validations.ValidateStatus.md): Validates that a campaign is in the expected status for an operation.
+  - [Edgehog.Campaigns.Campaign.Workers.ScheduleCampaign](Edgehog.Campaigns.Campaign.Workers.ScheduleCampaign.md): This module is used to start Campaigns that have been scheduled at a specific time
+
   - [Edgehog.Campaigns.CampaignMechanism.Core](Edgehog.Campaigns.CampaignMechanism.Core.md): Protocol defining the core functions that a campaign mechanism must implement.
   - [Edgehog.Campaigns.CampaignMechanism.DeploymentDelete](Edgehog.Campaigns.CampaignMechanism.DeploymentDelete.md): Defines the Delete Campaign Mechanism resource.
 This resource represents the configuration for a delete operation within a deployment campaign.
