@@ -210,7 +210,7 @@ The interface has the following mappings:
 - `/%{id}/mobileNetworkCode` with `integer` type. The Mobile Network Code for the device's home network. This is the MNC for GSM, WCDMA, LTE and NR. CDMA uses the System ID (SID). Valid range for MNC: 0–999. Valid range for SID: 0–32767.
 - `/%{id}/localAreaCode` with `integer` type. Two byte location area code in hexadecimal format.
 - `/%{id}/registrationStatus` with `string` type. GSM/LTE registration status. Possible values: [NotRegistered, Registered, SearchingOperator, RegistrationDenied, Unknown, RegisteredRoaming]
-- `/%{id}/rssi` with `double` type. Signal strenght of the device in dBm.
+- `/%{id}/rssi` with `double` type. Signal strength of the device in dBm.
 - `/%{id}/technology` with `string` type. Access Technology. Possible values [GSM, GSMCompact, UTRAN, GSMwEGPRS, UTRANwHSDPA, UTRANwHSUPA, UTRANwHSDPAandHSUPA, EUTRAN]
 
 
@@ -312,7 +312,7 @@ Delivered data is kept for 5184000 seconds before it is erased from the database
 
 ### `/%{id}/rssi`
 
-Signal strenght of the device in dBm.
+Signal strength of the device in dBm.
 
 
 
@@ -2100,7 +2100,7 @@ Delivered data is kept for 600 seconds before it is erased from the database.
 
 Image reference to be pulled
 
-Name of the image to pull. It should be in the form [regitry-host[:port]/][image-repo/]image-name[:(tag|digest)]
+Name of the image to pull. It should be in the form [registry-host[:port]/][image-repo/]image-name[:(tag|digest)]
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 
