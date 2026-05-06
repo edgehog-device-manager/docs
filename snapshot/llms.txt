@@ -291,11 +291,15 @@ the request based on token claims.
   - [Edgehog.Actors.Actor](Edgehog.Actors.Actor.md): Edgheog Actors.
 This module represents an actor performing a call trough the GraphQL APIs.
 It implements the ID Token from the OpenID Connect spec.
+  - [Edgehog.Auth.Changes.WriteTenant](Edgehog.Auth.Changes.WriteTenant.md): Generic tuple writer. 
+
   - [Edgehog.Auth.FGAService](Edgehog.Auth.FGAService.md): The edgehog FGA publisher.
+  - [Edgehog.Auth.Policies.Filter](Edgehog.Auth.Policies.Filter.md): An `Ash.Policy.FilterCheck`, filtering the object of type `obj` available to the user `subj`.
   - [Edgehog.Auth.Providers.Behaviour](Edgehog.Auth.Providers.Behaviour.md): Authz provider behavior.
 
   - [Edgehog.Auth.Providers.None](Edgehog.Auth.Providers.None.md): Inept authz provider. It just allows every query. Kept for retrocompatibility
 
+  - [Edgehog.Auth.Providers.OpenFGA](Edgehog.Auth.Providers.OpenFGA.md): OpenFGA Auth provider.
   - [Edgehog.AzureStorage](Edgehog.AzureStorage.md): Waffle module for Azure storage compatibility.
   - [Edgehog.Capabilities](Edgehog.Capabilities.md): The Capabilities context.
 

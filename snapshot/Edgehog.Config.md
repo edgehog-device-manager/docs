@@ -49,7 +49,7 @@ Returns the FGA provider configuration.
 ```
 
 The preferred fine grained authorization provider.
-Possible values are: none
+Possible values are: none, openfga
 
 Calling `Edgehog.Config.authz_provider()` will ensure the following:
 
@@ -68,10 +68,18 @@ Calling `Edgehog.Config.authz_provider()` will ensure the following:
 ```
 
 The preferred fine grained authorization provider.
-Possible values are: none
+Possible values are: none, openfga
 
 Bang version of `Edgehog.Config.authz_provider/0` (fails on error). Optionally,
 receives the `namespace` for the variable.
+
+# `authz_provider_config!`
+
+```elixir
+@spec authz_provider_config!(provider :: module()) :: Keyword.t()
+```
+
+Returns the config of the required provider
 
 # `database_enable_ssl`
 
@@ -334,6 +342,66 @@ The API key for the ipbase.com geolocation provider.
 Bang version of `Edgehog.Config.ipbase_api_key/0` (fails on error). Optionally,
 receives the `namespace` for the variable.
 
+# `openfga_grpc_endpoint`
+
+```elixir
+@spec openfga_grpc_endpoint(Skogsra.Env.namespace()) ::
+  {:ok, binary()} | {:error, binary()}
+```
+
+OpenFGA gRPC endpoint.
+Defaults to `localhost:8081`
+
+Calling `Edgehog.Config.openfga_grpc_endpoint()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "OPENFGA_GRPC_ENDPOINT"
+- Type: :binary
+- Default: "localhost:8081"
+- Required: false
+- Cached: true
+
+# `openfga_grpc_endpoint!`
+
+```elixir
+@spec openfga_grpc_endpoint!(Skogsra.Env.namespace()) :: binary() | no_return()
+```
+
+OpenFGA gRPC endpoint.
+Defaults to `localhost:8081`
+
+Bang version of `Edgehog.Config.openfga_grpc_endpoint/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `openfga_store_id`
+
+```elixir
+@spec openfga_store_id(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+OpenFGA store id. A store in OpenFGA has a unique id associated.
+
+Calling `Edgehog.Config.openfga_store_id()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "OPENFGA_STORE_ID"
+- Type: :binary
+- Default: nil
+- Required: false
+- Cached: true
+
+# `openfga_store_id!`
+
+```elixir
+@spec openfga_store_id!(Skogsra.Env.namespace()) :: (nil | binary()) | no_return()
+```
+
+OpenFGA store id. A store in OpenFGA has a unique id associated.
+
+Bang version of `Edgehog.Config.openfga_store_id/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
 # `preferred_geocoding_providers`
 
 ```elixir
@@ -499,6 +567,26 @@ the `namespace`.
 Puts the `value` to `Edgehog.Config.ipbase_api_key/0`. Optionally, receives
 the `namespace`.
 
+# `put_openfga_grpc_endpoint`
+
+```elixir
+@spec put_openfga_grpc_endpoint(binary(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.openfga_grpc_endpoint/0`. Optionally, receives
+the `namespace`.
+
+# `put_openfga_store_id`
+
+```elixir
+@spec put_openfga_store_id(nil | binary(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.openfga_store_id/0`. Optionally, receives
+the `namespace`.
+
 # `put_preferred_geocoding_providers`
 
 ```elixir
@@ -612,6 +700,26 @@ the `namespace` for the variable.
 ```
 
 Reloads the value for `Edgehog.Config.ipbase_api_key/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_openfga_grpc_endpoint`
+
+```elixir
+@spec reload_openfga_grpc_endpoint(Skogsra.Env.namespace()) ::
+  {:ok, binary()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.openfga_grpc_endpoint/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_openfga_store_id`
+
+```elixir
+@spec reload_openfga_store_id(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.openfga_store_id/0`. Optionally, receives
 the `namespace` for the variable.
 
 # `reload_preferred_geocoding_providers`

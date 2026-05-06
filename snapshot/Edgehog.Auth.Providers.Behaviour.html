@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
 
-    <script defer src="dist/sidebar_items-56EC3483.js"></script>
+    <script defer src="dist/sidebar_items-BEC4BE4A.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-YU4BZFVS.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -145,7 +145,31 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#t:fga_access_tuple/0" data-no-tooltip="" translate="no">fga_access_tuple()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#t:fga_tuple/0" data-no-tooltip="" translate="no">fga_tuple()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:obj_stream/0" data-no-tooltip="" translate="no">obj_stream()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:objects/0" data-no-tooltip="" translate="no">objects()</a>
 
       </div>
 
@@ -175,6 +199,36 @@ Clea Edgehog
 
         <div class="summary-synopsis"><p>The context initialization function. The context can carry useful information for subsequent actions.
 For example: for OpenFGA's gRPC connections you might want to store here the channel, store_id and model_id.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#c:list_objects/2" data-no-tooltip="" translate="no">list_objects(tuple, context)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A list_objects call lists all objects of the selected type a user has access to.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#c:stream_list_objects/2" data-no-tooltip="" translate="no">stream_list_objects(tuple, context)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>A stream_list_objects call streams all objects of the selected type a user has access to.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#c:write/2" data-no-tooltip="" translate="no">write(tuple, context)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Writes a tuple to the provider.</p></div>
 
     </div>
 
@@ -220,6 +274,35 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
 
   </section>
 </section>
+<section class="detail" id="t:fga_access_tuple/0">
+
+  <div class="detail-header">
+    <a href="#t:fga_access_tuple/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">fga_access_tuple()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L28" class="icon-action" rel="help" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> fga_access_tuple() ::
+  {subj :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), rel :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), type :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
 <section class="detail" id="t:fga_tuple/0">
 
   <div class="detail-header">
@@ -242,6 +325,62 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@type</span> fga_tuple() :: {subj :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), rel :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), obj :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:obj_stream/0">
+
+  <div class="detail-header">
+    <a href="#t:obj_stream/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">obj_stream()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L30" class="icon-action" rel="help" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> obj_stream() :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:objects/0">
+
+  <div class="detail-header">
+    <a href="#t:objects/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">objects()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L29" class="icon-action" rel="help" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> objects() :: %{objects: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
 
       </div>
 
@@ -271,7 +410,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
       <h1 class="signature" translate="no">check(tuple, context)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L51" class="icon-action" rel="help" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L66" class="icon-action" rel="help" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -283,11 +422,11 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@callback</span> check(tuple :: <a href="#t:fga_tuple/0">fga_tuple</a>(), context :: <a href="#t:context/0">context</a>()) ::
-  :ok | :notok | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+  {:ok, true} | {:ok, false} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
 
       </div>
 
-<p>A check call checks a tuple against the provider</p><ul><li>subj :: is some id of the person making the request, ideally a OpenID Connect UUID</li><li>rel  :: is the requested access to the resource (object) in order to perform the action</li><li>obj  :: is the resource the request is requiring access to</li></ul><p>The context is also provided.</p><p>The check can return</p><ul><li>    :: meaning that the subject has the right permission to access the resource</li><li> :: meaning that the subject has not the right permission to access the resource</li><li>     :: meaning that there was some error in the request.</li></ul><p>For successful returns the new <code class="inline">context</code> should be provided.</p>
+<p>A check call checks a tuple against the provider</p><ul><li>subj :: is some id of the person making the request, ideally a OpenID Connect UUID</li><li>rel  :: is the requested access to the resource (object) in order to perform the action</li><li>obj  :: is the resource the request is requiring access to</li></ul><p>The context is also provided.</p><p>The check can return</p><ul><li>     :: meaning that the subject has the right permission to access the resource</li><li>    :: meaning that the subject has not the right permission to access the resource</li><li> :: meaning that there was some error in the request.</li></ul><p>For successful returns the new <code class="inline">context</code> should be provided.</p>
   </section>
 </section>
 <section class="detail" id="c:init_context/1">
@@ -300,7 +439,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
       <h1 class="signature" translate="no">init_context(args)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L33" class="icon-action" rel="help" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L36" class="icon-action" rel="help" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -317,6 +456,95 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
 
 <p>The context initialization function. The context can carry useful information for subsequent actions.
 For example: for OpenFGA's gRPC connections you might want to store here the channel, store_id and model_id.</p>
+  </section>
+</section>
+<section class="detail" id="c:list_objects/2">
+
+  <div class="detail-header">
+    <a href="#c:list_objects/2" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">list_objects(tuple, context)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L88" class="icon-action" rel="help" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@callback</span> list_objects(tuple :: <a href="#t:fga_access_tuple/0">fga_access_tuple</a>(), context :: <a href="#t:context/0">context</a>()) ::
+  {:ok, <a href="#t:objects/0">objects</a>()} | {:ok, :all} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>A list_objects call lists all objects of the selected type a user has access to.</p><ul><li>subj :: is some id of the person making the request, ideally a OpenID Connect UUID</li><li>rel  :: is the requested access to the resource (object) in order to perform the action</li><li>type :: is the type of resources we want to fetch</li></ul><p>The context should also be provided.</p><p>NOTICE: This creates a list with all the objects! This might be very
+inefficient and possibly stalls the request (e.g. 1mln devices), consider
+using <code class="inline">stream_list_objects</code></p><p>The call can return</p><ul><li> :: meaning that the user has access to the %{objects: list()} list of objects of type <code class="inline">type</code></li><li>  :: meaning that there was some error in the request.</li></ul><p>For successful returns the new <code class="inline">context</code> should be provided.</p>
+  </section>
+</section>
+<section class="detail" id="c:stream_list_objects/2">
+
+  <div class="detail-header">
+    <a href="#c:stream_list_objects/2" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">stream_list_objects(tuple, context)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L106" class="icon-action" rel="help" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@callback</span> stream_list_objects(tuple :: <a href="#t:fga_access_tuple/0">fga_access_tuple</a>(), context :: <a href="#t:context/0">context</a>()) ::
+  {:ok, <a href="#t:obj_stream/0">obj_stream</a>()} | {:ok, :all} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>A stream_list_objects call streams all objects of the selected type a user has access to.</p><ul><li>subj :: is some id of the person making the request, ideally a OpenID Connect UUID</li><li>rel  :: is the requested access to the resource (object) in order to perform the action</li><li>type :: is the type of resources we want to fetch</li></ul><p>The context should also be provided.</p><p>The call can return</p><ul><li> :: meaning that the user has access to the %{objects: list()} list of objects of type <code class="inline">type</code></li><li>          :: meaning that there was some error in the request.</li></ul><p>For successful returns the new <code class="inline">context</code> should be provided.</p>
+  </section>
+</section>
+<section class="detail" id="c:write/2">
+
+  <div class="detail-header">
+    <a href="#c:write/2" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">write(tuple, context)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L48" class="icon-action" rel="help" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@callback</span> write(tuple :: <a href="#t:fga_tuple/0">fga_tuple</a>(), context :: <a href="#t:context/0">context</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Writes a tuple to the provider.</p><ul><li>tuple :: the fga tuple, composed of <code class="inline">subject</code>, <code class="inline">relationship</code> and <code class="inline">object</code></li><li>context :: the context from <code class="inline">init_context</code></li></ul><p>A write can return</p><ul><li>   :: if the write was successful</li><li> :: if some error was encountered while writing</li></ul>
   </section>
 </section>
 
