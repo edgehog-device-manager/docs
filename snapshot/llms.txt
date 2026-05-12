@@ -312,6 +312,7 @@ It implements the ID Token from the OpenID Connect spec.
   - [Edgehog.Error.DeviceOffline](Edgehog.Error.DeviceOffline.md): Used when requests to a device fail because the device appears offline.
   - [Edgehog.Geolocation](Edgehog.Geolocation.md): The Geolocation context.
 
+  - [Edgehog.MultitenantResource](Edgehog.MultitenantResource.md): Define the resource as `belong_to` with a `Edgehog.Tenant.Tenant`.
   - [Edgehog.PromEx](Edgehog.PromEx.md): Be sure to add the following to finish setting up PromEx
   - [Edgehog.Repo](Edgehog.Repo.md)
   - [Edgehog.Selector.Filter](Edgehog.Selector.Filter.md)

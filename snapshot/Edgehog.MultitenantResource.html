@@ -8,7 +8,7 @@
     <meta name="project" content="Clea Edgehog v0.12.0">
 
 
-    <title>Edgehog.Auth.Providers.None — Clea Edgehog v0.12.0</title>
+    <title>Edgehog.MultitenantResource — Clea Edgehog v0.12.0</title>
 
     <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
 
@@ -97,19 +97,19 @@ Clea Edgehog
 <div id="top-content">
   <div class="heading-with-actions top-heading">
     <h1>
-      <span translate="no">Edgehog.<wbr>Auth.<wbr>Providers.<wbr>None</span> 
+      <span translate="no">Edgehog.<wbr>MultitenantResource</span> 
       <small class="app-vsn" translate="no">(Clea Edgehog v0.12.0)</small>
 
     </h1>
 
-<a href="Edgehog.Auth.Providers.None.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+<a href="Edgehog.MultitenantResource.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
   <i class="ri-markdown-line" aria-hidden="true"></i>
   <span class="sr-only">Copy Markdown</span>
 </a>
 
 
 
-      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/none.ex#L21" title="View Source" class="icon-action" rel="help">
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/multitenant_resource.ex#L19" title="View Source" class="icon-action" rel="help">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -118,7 +118,13 @@ Clea Edgehog
 
 
     <section id="moduledoc">
-<p>Inept authz provider. It just allows every query. Kept for retrocompatibility</p>
+<p>Define the resource as <code class="inline">belong_to</code> with a <code class="inline">Edgehog.Tenant.Tenant</code>.</p><h1>Opts</h1><h2 id="module-types" class="section-heading"><a href="#module-types" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Types</span></h2><p>:tenant_id_in_primary_key? :: boolean()
+:fga_type      :: atom() | nil
+:fga_id_attribute :: atom() | nil</p><h2 id="module-description" class="section-heading"><a href="#module-description" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Description</span></h2><p>:tenant_id_in_primary_key? :: whether the tenant_id is primary key in the relationship
+:fga_type      :: name of the FGA type for this resource, defined in the model
+:fga_id_attribute :: name of the attribute to be used as FGA id in tuples</p><p><code class="inline">:fga_id_attribute</code> should be defined only if <code class="inline">:fga_type</code> is <code class="inline">nil</code>.
+When defined, <code class="inline">:fga_type</code> should correspond to a type defined in the FGA model,
+and <code class="inline">:fga_id_attribute</code> should be a valid attribute.</p>
     </section>
 
 </div>
