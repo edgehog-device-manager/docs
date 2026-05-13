@@ -266,6 +266,14 @@ components:
           type: string
           x-struct:
           x-validate:
+        string_ends_with:
+          type: string
+          x-struct:
+          x-validate:
+        string_starts_with:
+          type: string
+          x-struct:
+          x-validate:
       type: object
       x-struct:
       x-validate:
@@ -326,6 +334,14 @@ components:
           x-struct:
           x-validate:
         not_eq:
+          type: string
+          x-struct:
+          x-validate:
+        string_ends_with:
+          type: string
+          x-struct:
+          x-validate:
+        string_starts_with:
           type: string
           x-struct:
           x-validate:
@@ -392,6 +408,14 @@ components:
           type: string
           x-struct:
           x-validate:
+        string_ends_with:
+          type: string
+          x-struct:
+          x-validate:
+        string_starts_with:
+          type: string
+          x-struct:
+          x-validate:
       type: object
       x-struct:
       x-validate:
@@ -452,6 +476,14 @@ components:
           x-struct:
           x-validate:
         not_eq:
+          type: string
+          x-struct:
+          x-validate:
+        string_ends_with:
+          type: string
+          x-struct:
+          x-validate:
+        string_starts_with:
           type: string
           x-struct:
           x-validate:

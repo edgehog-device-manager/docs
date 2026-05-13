@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.40.1">
+    <meta name="generator" content="ExDoc v0.40.2">
     <meta name="project" content="Clea Edgehog v0.12.0">
 
 
     <title>Astarte Interfaces — Clea Edgehog v0.12.0</title>
 
-    <link rel="stylesheet" href="dist/html-elixir-YJO4MOOW.css" />
+    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
     <script defer src="dist/sidebar_items-42EFDCFC.js"></script>
     <script defer src="docs_config.js"></script>
-    <script defer src="dist/html-YU4BZFVS.js"></script>
+    <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
   </head>
   <body>
@@ -104,7 +104,7 @@ Clea Edgehog
 </a>
 
 
-      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/docs/pages/integrating/astarte_interfaces.md#L1" title="View Source" class="icon-action" rel="help">
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/docs/pages/integrating/astarte_interfaces.md#L1" title="View Source" class="icon-action" rel="help nofollow">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -438,7 +438,7 @@ Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 600 seconds before it is erased from the database.</p><h3 id="image-reference" class="section-heading"><a href="#image-reference" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text"><code class="inline">/image/reference</code></span></h3><p>Image reference to be pulled</p><p>Name of the image to pull. It should be in the form [registry-host[:port]/][image-repo/]image-name[:(tag|digest)]</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
-Delivered data is kept for 600 seconds before it is erased from the database.</p><h3 id="image-registryauth" class="section-heading"><a href="#image-registryauth" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text"><code class="inline">/image/registryAuth</code></span></h3><p>Image registry authentication header</p><p>Optional base64url-encoded JSON for the auth configuration to the registry. An empty string means the image is public and doesn't require authentication. See <a href="https://docs.docker.com/reference/api/engine/version/v1.43/#section/Authentication">https://docs.docker.com/reference/api/engine/version/v1.43/#section/Authentication</a> for more information.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Delivered data is kept for 600 seconds before it is erased from the database.</p><h3 id="image-registryauth" class="section-heading"><a href="#image-registryauth" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text"><code class="inline">/image/registryAuth</code></span></h3><p>Image registry authentication header</p><p>Optional base64url-encoded JSON for the auth configuration to the registry. An empty string means the image is public and doesn't require authentication. See <a rel="nofollow" href="https://docs.docker.com/reference/api/engine/version/v1.43/#section/Authentication">https://docs.docker.com/reference/api/engine/version/v1.43/#section/Authentication</a> for more information.</p><p>This endpoint accepts values of type <code class="inline">string</code>: an UTF-8 string, at most 65536 bytes long.</p><p>The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 600 seconds before it is erased from the database.</p><h2 id="io-edgehog-devicemanager-apps-createnetworkrequest-v0-1" class="section-heading"><a href="#io-edgehog-devicemanager-apps-createnetworkrequest-v0-1" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">io.edgehog.devicemanager.apps.CreateNetworkRequest v0.1</span></h2><h3 id="about-29" class="section-heading"><a href="#about-29" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">About</span></h3><p>This interface is of type <code class="inline">datastream</code> and is owned by the <code class="inline">server</code>, meaning that it is the server which initiates the data flow.
@@ -805,7 +805,7 @@ Interacting with Edgehog
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.1) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.2) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 
