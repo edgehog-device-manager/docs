@@ -7,6 +7,8 @@ This module uses openfga's gRPC api to create all necessary resources based on t
 
 # `check`
 
+# `delete`
+
 # `list_objects`
 
 # `stream_list_objects`

@@ -56,6 +56,22 @@ The check can return
 
 For successful returns the new `context` should be provided.
 
+# `delete`
+
+```elixir
+@callback delete(tuple :: fga_tuple(), context :: context()) ::
+  {:ok, term()} | {:error, term()}
+```
+
+Delete a tuple from the provider.
+
+- tuple :: the fga tuple, composed of `subject`, `relationship` and `object`
+- context :: the context from `init_context`
+
+A delete can return
+- {:ok, result}   :: if the delete was successful
+- {:error, error} :: if some error was encountered while deleting
+
 # `init_context`
 
 ```elixir

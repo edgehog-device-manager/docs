@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-42EFDCFC.js"></script>
+    <script defer src="dist/sidebar_items-165903C9.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -188,6 +188,16 @@ Clea Edgehog
       </div>
 
         <div class="summary-synopsis"><p>A check call checks a tuple against the provider</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#c:delete/2" data-no-tooltip="" translate="no">delete(tuple, context)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Delete a tuple from the provider.</p></div>
 
     </div>
 
@@ -410,7 +420,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
       <h1 class="signature" translate="no">check(tuple, context)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L66" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L78" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -427,6 +437,35 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
       </div>
 
 <p>A check call checks a tuple against the provider</p><ul><li>subj :: is some id of the person making the request, ideally a OpenID Connect UUID</li><li>rel  :: is the requested access to the resource (object) in order to perform the action</li><li>obj  :: is the resource the request is requiring access to</li></ul><p>The context is also provided.</p><p>The check can return</p><ul><li>     :: meaning that the subject has the right permission to access the resource</li><li>    :: meaning that the subject has not the right permission to access the resource</li><li> :: meaning that there was some error in the request.</li></ul><p>For successful returns the new <code class="inline">context</code> should be provided.</p>
+  </section>
+</section>
+<section class="detail" id="c:delete/2">
+
+  <div class="detail-header">
+    <a href="#c:delete/2" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">delete(tuple, context)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L60" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@callback</span> delete(tuple :: <a href="#t:fga_tuple/0">fga_tuple</a>(), context :: <a href="#t:context/0">context</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Delete a tuple from the provider.</p><ul><li>tuple :: the fga tuple, composed of <code class="inline">subject</code>, <code class="inline">relationship</code> and <code class="inline">object</code></li><li>context :: the context from <code class="inline">init_context</code></li></ul><p>A delete can return</p><ul><li>   :: if the delete was successful</li><li> :: if some error was encountered while deleting</li></ul>
   </section>
 </section>
 <section class="detail" id="c:init_context/1">
@@ -468,7 +507,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
       <h1 class="signature" translate="no">list_objects(tuple, context)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L88" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L100" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -499,7 +538,7 @@ using <code class="inline">stream_list_objects</code></p><p>The call can return<
       <h1 class="signature" translate="no">stream_list_objects(tuple, context)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L106" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/providers/behaviour.ex#L118" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
