@@ -54,7 +54,7 @@ Possible values are: none, openfga
 Calling `Edgehog.Config.authz_provider()` will ensure the following:
 
 - Binding order: [:system, :config]
-- OS environment variable: "AUTHZ_PROVIDER"
+- OS environment variable: "EDGEHOG_AUTHZ_PROVIDER"
 - Type: Edgehog.Config.AuthzProvider
 - Default: Edgehog.Auth.Providers.None
 - Required: false
@@ -342,6 +342,36 @@ The API key for the ipbase.com geolocation provider.
 Bang version of `Edgehog.Config.ipbase_api_key/0` (fails on error). Optionally,
 receives the `namespace` for the variable.
 
+# `openfga_auth_model_id`
+
+```elixir
+@spec openfga_auth_model_id(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+OpenFGA authorization model id. Each model written in OpenFGA has a unique id associated.
+
+Calling `Edgehog.Config.openfga_auth_model_id()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_OPENFGA_AUTH_MODEL_ID"
+- Type: :binary
+- Default: nil
+- Required: false
+- Cached: true
+
+# `openfga_auth_model_id!`
+
+```elixir
+@spec openfga_auth_model_id!(Skogsra.Env.namespace()) ::
+  (nil | binary()) | no_return()
+```
+
+OpenFGA authorization model id. Each model written in OpenFGA has a unique id associated.
+
+Bang version of `Edgehog.Config.openfga_auth_model_id/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
 # `openfga_grpc_endpoint`
 
 ```elixir
@@ -355,7 +385,7 @@ Defaults to `localhost:8081`
 Calling `Edgehog.Config.openfga_grpc_endpoint()` will ensure the following:
 
 - Binding order: [:system, :config]
-- OS environment variable: "OPENFGA_GRPC_ENDPOINT"
+- OS environment variable: "EDGEHOG_OPENFGA_GRPC_ENDPOINT"
 - Type: :binary
 - Default: "localhost:8081"
 - Required: false
@@ -385,7 +415,7 @@ OpenFGA store id. A store in OpenFGA has a unique id associated.
 Calling `Edgehog.Config.openfga_store_id()` will ensure the following:
 
 - Binding order: [:system, :config]
-- OS environment variable: "OPENFGA_STORE_ID"
+- OS environment variable: "EDGEHOG_OPENFGA_STORE_ID"
 - Type: :binary
 - Default: nil
 - Required: false
@@ -567,6 +597,16 @@ the `namespace`.
 Puts the `value` to `Edgehog.Config.ipbase_api_key/0`. Optionally, receives
 the `namespace`.
 
+# `put_openfga_auth_model_id`
+
+```elixir
+@spec put_openfga_auth_model_id(nil | binary(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.openfga_auth_model_id/0`. Optionally, receives
+the `namespace`.
+
 # `put_openfga_grpc_endpoint`
 
 ```elixir
@@ -700,6 +740,16 @@ the `namespace` for the variable.
 ```
 
 Reloads the value for `Edgehog.Config.ipbase_api_key/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_openfga_auth_model_id`
+
+```elixir
+@spec reload_openfga_auth_model_id(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.openfga_auth_model_id/0`. Optionally, receives
 the `namespace` for the variable.
 
 # `reload_openfga_grpc_endpoint`
