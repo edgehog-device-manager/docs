@@ -220,6 +220,9 @@ after the file upload request resource has been created.
   - [Edgehog.Files.FileUploadRequest.Changes.SetUploadUrl](Edgehog.Files.FileUploadRequest.Changes.SetUploadUrl.md): Ash change responsible for generating and setting a presigned upload URL
 for a file upload request before persisting it.
 
+  - [Edgehog.Files.FileUploadRequest.Changes.ValidateSource](Edgehog.Files.FileUploadRequest.Changes.ValidateSource.md): Changes module responsible for validating the `source` field of a `FileUploadRequest`
+based on the `source_type`.
+
   - [Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest.md): Manual action responsible for sending a file upload request to the Astarte device.
 
   - [Edgehog.Files.FileUploadRequest.Status](Edgehog.Files.FileUploadRequest.Status.md): Status of a file transfer request.
