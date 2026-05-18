@@ -3365,22 +3365,14 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
 
 The interface has the following mappings:
 
-- `/encodings` with `stringarray` type. Supported compressions and archive algorithms.
-- `/unixPermissions` with `boolean` type. Support unix file mode, user id and group id.
-- `/targets` with `stringarray` type. Supported destination and sources for the transfers.
+- `/transfer/unixPermissions` with `boolean` type. Support unix file mode, user id and group id.
+- `/transfer/serverToDevice/targets` with `stringarray` type. Supported destination and sources for the transfers.
+- `/transfer/deviceToServer/targets` with `stringarray` type. Supported destination and sources for the transfers.
+- `/deviceToServer/%{target}/encodings` with `stringarray` type. Supported compressions and archive algorithms for the target.
+- `/serverToDevice/%{target}/encodings` with `stringarray` type. Supported compressions and archive algorithms for the target.
 
 
-### `/encodings`
-
-Supported compressions and archive algorithms.
-
-List of encoding formats supported by the device, possible values are: [gz, lz4, tar, tar.gz, tar.lz4].
-
-This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
-
-The value of the property cannot be unset.
-
-### `/unixPermissions`
+### `/transfer/unixPermissions`
 
 Support unix file mode, user id and group id.
 
@@ -3390,13 +3382,47 @@ This endpoint accepts values of type `boolean`: either true or false, adhering t
 
 The value of the property cannot be unset.
 
-### `/targets`
+### `/transfer/serverToDevice/targets`
 
 Supported destination and sources for the transfers.
 
 List of sources and destinations that the device can handle, possible values are: [storage, streaming, filesystem]
 
 This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The value of the property cannot be unset.
+
+### `/transfer/deviceToServer/targets`
+
+Supported destination and sources for the transfers.
+
+List of sources and destinations that the device can handle, possible values are: [storage, streaming, filesystem]
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The value of the property cannot be unset.
+
+### `/deviceToServer/%{target}/encodings`
+
+Supported compressions and archive algorithms for the target.
+
+List of encoding formats supported by the device for this target, possible values are: [gz, lz4, tar, tar.gz, tar.lz4].
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint is parametric and `target` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property cannot be unset.
+
+### `/serverToDevice/%{target}/encodings`
+
+Supported compressions and archive algorithms for the target.
+
+List of encoding formats supported by the device for this target, possible values are: [gz, lz4, tar, tar.gz, tar.lz4].
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint is parametric and `target` can be replaced with any valid string to send data on specialized paths.
 
 The value of the property cannot be unset.
 
@@ -3905,6 +3931,66 @@ Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 3600 seconds before it is erased from the database.
 
 
+## io.edgehog.devicemanager.storage.DeleteFile v0.1
+
+Delete a file stored on a device
+
+Requests the deletion of a file stored on the device. The file must be one published through the `io.edgehog.devicemanager.storage.File` interface.
+
+### About
+
+This interface is of type `datastream` and is owned by the `server`, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `object` aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/request/id` with `string` type. Id of the delete request
+- `/request/fileId` with `string` type. ID of the file to delete
+- `/request/force` with `boolean` type. Force the deletion of the file.
+
+
+### `/request/id`
+
+Id of the delete request
+
+Id of a request on which we will be used to send the `io.edgehog.devicemanager.storage.Response`.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+
+### `/request/fileId`
+
+ID of the file to delete
+
+Id of a file on the device published through the `io.edgehog.devicemanager.storage.File` interface.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+
+### `/request/force`
+
+Force the deletion of the file.
+
+Force the deletion of the file even if it's currently in use, this could cause errors. Default to false.
+
+This endpoint accepts values of type `boolean`: either true or false, adhering to JSON boolean type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+
+
 ## io.edgehog.devicemanager.storage.File v0.1
 
 Property for the files stored on a device
@@ -3948,4 +4034,81 @@ This endpoint accepts values of type `longinteger`: a signed 64 bit integer (ple
 The endpoint is parametric and `requestId` can be replaced with any valid string to send data on specialized paths.
 
 The value of the property cannot be unset.
+
+
+## io.edgehog.devicemanager.storage.Response v0.1
+
+Response for a storage operation
+
+Used by the device to report the storage operation status upon completion.
+
+### About
+
+This interface is of type `datastream` and is owned by the `device`, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `object` aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/request/id` with `string` type. Operation ID associated with the response
+- `/request/type` with `string` type. Type of storage response
+- `/request/code` with `longinteger` type. Success or error code for the transfer
+- `/request/messages` with `stringarray` type. Optional messages for the response
+
+
+### `/request/id`
+
+Operation ID associated with the response
+
+
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 3600 seconds before it is erased from the database.
+
+### `/request/type`
+
+Type of storage response
+
+Specifies the direction of the transfer. Allowed values: 'delete'.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 3600 seconds before it is erased from the database.
+
+### `/request/code`
+
+Success or error code for the transfer
+
+A 0 code is a success, errors are POSIX errno.
+
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 3600 seconds before it is erased from the database.
+
+### `/request/messages`
+
+Optional messages for the response
+
+
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 3600 seconds before it is erased from the database.
 

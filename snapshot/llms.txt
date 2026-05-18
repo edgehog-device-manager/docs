@@ -51,6 +51,12 @@
 ## Modules
 
 - Astarte interaction
+  - [Edgehog.Astarte.Device.FileDeleteRequest](Edgehog.Astarte.Device.FileDeleteRequest.md): Module responsible for handling file deletion requests on Astarte devices.
+
+  - [Edgehog.Astarte.Device.FileDeleteRequest.Behaviour](Edgehog.Astarte.Device.FileDeleteRequest.Behaviour.md): Behaviour for requesting file deletion on Astarte devices.
+
+  - [Edgehog.Astarte.Device.FileDeleteRequest.RequestData](Edgehog.Astarte.Device.FileDeleteRequest.RequestData.md): Struct representing the data needed to request a file deletion on an Astarte device.
+
   - [Edgehog.Astarte.Device.FileDownloadRequest](Edgehog.Astarte.Device.FileDownloadRequest.md): Module responsible for handling file download requests on Astarte devices.
 
   - [Edgehog.Astarte.Device.FileDownloadRequest.Behaviour](Edgehog.Astarte.Device.FileDownloadRequest.Behaviour.md): Behaviour for requesting file downloads on Astarte devices.
@@ -186,6 +192,12 @@ false -> {:error, :not_dangling}
 
   - [Edgehog.Files.File.Storage](Edgehog.Files.File.Storage.md): Behaviour for file storage implementations.
 
+  - [Edgehog.Files.FileDeleteRequest.Changes.SendFileDeleteRequest](Edgehog.Files.FileDeleteRequest.Changes.SendFileDeleteRequest.md): Ash change responsible for sending a file delete request to the Astarte device
+after the file delete request resource has been created.
+
+  - [Edgehog.Files.FileDeleteRequest.ManualActions.SendFileDeleteRequest](Edgehog.Files.FileDeleteRequest.ManualActions.SendFileDeleteRequest.md): Manual action responsible for sending a file download request to the Astarte device.
+
+  - [Edgehog.Files.FileDeleteRequest.Status](Edgehog.Files.FileDeleteRequest.Status.md): Status of a file delete request.
   - [Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileDeletion](Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileDeletion.md): Ash change responsible for deleting the ephemeral file associated
 with a file download request when the request is deleted.
 
@@ -243,6 +255,8 @@ for a file upload request before persisting it.
   - [Edgehog.Triggers.IncomingData.Handlers.AvailableVolumes](Edgehog.Triggers.IncomingData.Handlers.AvailableVolumes.md): Available Images handler
 
   - [Edgehog.Triggers.IncomingData.Handlers.DeploymentEvent](Edgehog.Triggers.IncomingData.Handlers.DeploymentEvent.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.FileDeleteResponse](Edgehog.Triggers.IncomingData.Handlers.FileDeleteResponse.md): File delete response handler
 
   - [Edgehog.Triggers.IncomingData.Handlers.FileStorage](Edgehog.Triggers.IncomingData.Handlers.FileStorage.md): Available Images handler
 
