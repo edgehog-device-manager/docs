@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-61D8EE01.js"></script>
+    <script defer src="dist/sidebar_items-3F5D7520.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -118,11 +118,13 @@ Clea Edgehog
 
 
     <section id="moduledoc">
-<p>Define the resource as <code class="inline">belong_to</code> with a <code class="inline">Edgehog.Tenant.Tenant</code>.</p><h1>Opts</h1><h2 id="module-types" class="section-heading"><a href="#module-types" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Types</span></h2><p>:tenant_id_in_primary_key? :: boolean()
-:fga_type      :: atom() | nil
-:fga_id_attribute :: atom() | nil</p><h2 id="module-description" class="section-heading"><a href="#module-description" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Description</span></h2><p>:tenant_id_in_primary_key? :: whether the tenant_id is primary key in the relationship
-:fga_type      :: name of the FGA type for this resource, defined in the model
-:fga_id_attribute :: name of the attribute to be used as FGA id in tuples</p><p><code class="inline">:fga_id_attribute</code> should be defined only if <code class="inline">:fga_type</code> is <code class="inline">nil</code>.
+<p>Define the resource as <code class="inline">belong_to</code> with a <code class="inline">Edgehog.Tenant.Tenant</code>.</p><h1>Opts</h1><h2 id="module-types" class="section-heading"><a href="#module-types" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Types</span></h2><p>:tenant_id_in_primary_key?    :: boolean()
+:disable_logging              :: boolean()
+:fga_type                     :: atom() | nil
+:fga_id_attribute             :: atom() | nil</p><h2 id="module-description" class="section-heading"><a href="#module-description" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Description</span></h2><p>:tenant_id_in_primary_key?    :: whether the tenant_id is primary key in the relationship
+:disable_logging              :: whether to disable debug logging on each action
+:fga_type                     :: name of the FGA type for this resource, defined in the model
+:fga_id_attribute             :: name of the attribute to be used as FGA id in tuples</p><p><code class="inline">:fga_id_attribute</code> should be defined only if <code class="inline">:fga_type</code> is <code class="inline">nil</code>.
 When defined, <code class="inline">:fga_type</code> should correspond to a type defined in the FGA model,
 and <code class="inline">:fga_id_attribute</code> should be a valid attribute.</p>
     </section>

@@ -323,6 +323,7 @@ It implements the ID Token from the OpenID Connect spec.
   - [Edgehog.AzureStorage](Edgehog.AzureStorage.md): Waffle module for Azure storage compatibility.
   - [Edgehog.Capabilities](Edgehog.Capabilities.md): The Capabilities context.
 
+  - [Edgehog.Changes.Log](Edgehog.Changes.Log.md): An Ash.Resource.Change that emits a log entry at a specified hook lifecycle.
   - [Edgehog.Config](Edgehog.Config.md): This module handles the configuration of Edgehog
 
   - [Edgehog.Error](Edgehog.Error.md): Error utilities to match device errors when communicating with astarte.
