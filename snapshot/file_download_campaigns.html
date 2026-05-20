@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.2">
+    <meta name="project" content="Clea Edgehog v0.12.0">
+
+
+    <title>File Download Campaigns — Clea Edgehog v0.12.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+
+    <script defer src="dist/sidebar_items-2CD4EE41.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-Y2MUTVIN.js"></script>
+<link rel="stylesheet" href="style/cards.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="intro.html" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="intro.html" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.12.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>File Download Campaigns</h1>
+
+<a href="file_download_campaigns.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/docs/pages/file_management/file_download_campaigns.md#L1" title="View Source" class="icon-action" rel="help nofollow">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+  </div>
+
+
+<p>File Download Campaigns are the primary mechanism to distribute Files to multiple devices in Edgehog. A
+File Download Campaign tracks the execution of a specific download operation for all Devices belonging to a
+<a href="channels.html">Channel</a>, allowing you to deliver Files across your fleet in a controlled manner.</p><p>The following sections illustrate the pages that can be used to list, create and view File Download Campaigns.</p><h2 id="file-download-campaign-list" class="section-heading"><a href="#file-download-campaign-list" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">File Download Campaign List</span></h2><p><img src="assets/file_download_campaign_list.png" alt="File Download Campaign List Screenshot"/></p><p>The Campaign list shows all File Download Campaigns. Clicking a Campaign name opens the <a href="#file-download-campaign">File Download Campaign</a>
+page.</p><p>Clicking &quot;Create Campaign&quot; opens the <a href="#create-file-download-campaign">Create Campaign</a> form.</p><h2 id="create-file-download-campaign" class="section-heading"><a href="#create-file-download-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Create File Download Campaign</span></h2><p><img src="assets/file_download_campaign_create.png" alt="Create File Download Campaign Screenshot"/></p><p>The Create Campaign page allows creating a new File Download Campaign. When creating a campaign, provide the
+following information:</p><ul><li><strong>Campaign Name</strong>: a descriptive name.</li><li><strong>Repository / File</strong>: select the source Repository and File to deliver.</li><li><strong>Channel</strong>: the target Channel whose Devices will be included in the campaign.</li><li><strong>Destination Type</strong>: chooses whether the file is stored on-device, streamed, or written to a filesystem path.</li><li><strong>Destination Path</strong>: required only when the destination type is <code class="inline">Filesystem</code>.</li><li><strong>Scheduled Time</strong> (optional): when the campaign should start; if omitted it starts immediately.</li><li><strong>Advanced Options</strong>: encoding, file mode, UID/GID, retries, and request timeout.</li><li><strong><a href="#roll-out-mechanism">Roll-out Mechanism</a></strong> properties.</li></ul><p>Press &quot;Create&quot; to save the Campaign. When started, Edgehog snapshots the Channel membership and targets only those
+Devices for the campaign run.</p><h3 id="advanced-options" class="section-heading"><a href="#advanced-options" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Advanced Options</span></h3><ul><li><strong>File Mode</strong>: Unix permissions (e.g., 0644) for Unix-like targets.</li><li><strong>User ID / Group ID</strong>: numeric ownership values to apply on the File on the Device.</li></ul><h3 id="destination-types" class="section-heading"><a href="#destination-types" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Destination Types</span></h3><p>File Download Campaigns use the same destination types as manual File Download Requests:</p><ul><li><strong>Storage</strong>: persist the file on the Device's storage and record the resulting on-device path.</li><li><strong>Streaming</strong>: process the file without storing it on the Device.</li><li><strong>Filesystem</strong>: write the file to the configured destination path on the Device filesystem.</li></ul><p>The destination path field is only shown and required for the <code class="inline">Filesystem</code> destination type.</p><h2 id="roll-out-mechanism" class="section-heading"><a href="#roll-out-mechanism" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Roll-out Mechanism</span></h2><p>File Download Campaigns use a Roll-out Mechanism to control how downloads are scheduled across Devices. Edgehog
+currently supports the <strong>Lazy</strong> mechanism.</p><h3 id="lazy-roll-out-mechanism" class="section-heading"><a href="#lazy-roll-out-mechanism" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Lazy Roll-out Mechanism</span></h3><p>The Lazy mechanism performs gradual rollouts and offers the following controls:</p><ul><li><strong>Max Failure Percentage</strong>: the maximum percentage of failed targets tolerated; exceeding it aborts the Campaign.</li><li><strong>Max In-Progress Downloads</strong>: maximum concurrent download requests that can be in-progress.</li><li><strong>Create Request Retries</strong>: retries attempted for request creation/acknowledgment per Device.</li><li><strong>Request Timeout</strong>: per-request timeout in seconds.</li></ul><p>These properties allow you to limit blast radius and control load on networks and devices.</p><h2 id="file-download-campaign" class="section-heading"><a href="#file-download-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">File Download Campaign</span></h2><p><img src="assets/file_download_campaign.png" alt="File Download Campaign Page Screenshot"/></p><p>The Campaign page shows campaign details, progress, target Devices and per-target status. Click a Device to open
+its Device page.</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="files.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Files
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="containers_core_concepts.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Core concepts
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

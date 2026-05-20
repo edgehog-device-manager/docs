@@ -1,12 +1,12 @@
 <!---
-  Copyright 2021 - 2025 SECO Mind Srl
+  Copyright 2021 - 2026 SECO Mind Srl
 
   SPDX-License-Identifier: Apache-2.0
 -->
 
 # Devices
 
-As mentioned in the [core concepts](core_concepts.html), a Device is an entity connected to Astarte.
+As mentioned in the [core concepts](user_core_concepts.html), a Device is an entity connected to Astarte.
 
 In the device list you can see all the Devices that are available.
 
@@ -47,7 +47,7 @@ Number with the ones of the System Model.
 
 ## Tags and Attributes
 
-A Device can have some [Tags and Attributes](core_concepts.html#tags-attributes-and-groups)
+A Device can have some [Tags and Attributes](user_core_concepts.html#tags-attributes-and-groups)
 associated with it.
 
 Tags are purely user-defined and can be added and removed from the Device page.
@@ -146,6 +146,19 @@ Depending on the data exposed by the Device, the coordinates can be estimated fr
 Based on the available data, Edgehog's geolocation modules try to find to best estimate by relying
 on the most up-to-date info and using the ones that provide the most accuracy.
 
+### File Management
+
+This section allows you to manage files on a Device. Users can upload, download, and delete files directly from a Device with the use of a [Repository](overview_file_management.html#repository) or without one.
+
+![Device File Management Screenshot](assets/device_file_management.png)
+
+For more information about file management, including repository-based operations, see the
+[File Management](overview_file_management.html) documentation. Specific are available for:
+
+- [Downloading files to devices](overview_file_management.html#file-download-requests)
+- [Uploading files from devices](overview_file_management.html#file-upload-requests)
+- [Deleting files from devices](overview_file_management.html#file-delete-requests)
+
 ### Applications
 
 This section allows you to manage containerized workloads deployed to that specific Device. Users can manually deploy Application Releases on a Device and handle the lifecycle operation of that Deployment.
@@ -153,4 +166,4 @@ This section allows you to manage containerized workloads deployed to that speci
 ![Device Applications Screenshot](assets/device_applications.png)
 
 For more information about the core concepts behind applications and deployments, see the
-[Container Core Concepts](core_concepts-2.html) page.
+[Container Core Concepts](containers_core_concepts.html) page.

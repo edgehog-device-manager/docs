@@ -50,9 +50,9 @@ A check call checks a tuple against the provider
 The context is also provided.
 
 The check can return
-- {:ok, true}     :: meaning that the subject has the right permission to access the resource
-- {:ok, false}    :: meaning that the subject has not the right permission to access the resource
-- {:error, error} :: meaning that there was some error in the request.
+- `{:ok, true}`     :: meaning that the subject has the right permission to access the resource
+- `{:ok, false}`    :: meaning that the subject has not the right permission to access the resource
+- `{:error, error}` :: meaning that there was some error in the request.
 
 For successful returns the new `context` should be provided.
 
@@ -69,8 +69,8 @@ Delete a tuple from the provider.
 - context :: the context from `init_context`
 
 A delete can return
-- {:ok, result}   :: if the delete was successful
-- {:error, error} :: if some error was encountered while deleting
+- `{:ok, result}`   :: if the delete was successful
+- `{:error, error}` :: if some error was encountered while deleting
 
 # `init_context`
 
@@ -101,8 +101,8 @@ inefficient and possibly stalls the request (e.g. 1mln devices), consider
 using `stream_list_objects`
 
 The call can return
-- {:ok, objects()} :: meaning that the user has access to the %{objects: list()} list of objects of type `type`
-- {:error, error}  :: meaning that there was some error in the request.
+- `{:ok, objects()}` :: meaning that the user has access to the %{objects: list()} list of objects of type `type`
+- `{:error, error}`  :: meaning that there was some error in the request.
 
 For successful returns the new `context` should be provided.
 
@@ -122,8 +122,8 @@ A stream_list_objects call streams all objects of the selected type a user has a
 The context should also be provided.
 
 The call can return
-- {:ok, stream(objects())} :: meaning that the user has access to the %{objects: list()} list of objects of type `type`
-- {:error, error}          :: meaning that there was some error in the request.
+- `{:ok, stream(objects())}` :: meaning that the user has access to the %{objects: list()} list of objects of type `type`
+- `{:error, error}`          :: meaning that there was some error in the request.
 
 For successful returns the new `context` should be provided.
 
@@ -140,6 +140,6 @@ Writes a tuple to the provider.
 - context :: the context from `init_context`
 
 A write can return
-- {:ok, result}   :: if the write was successful
-- {:error, error} :: if some error was encountered while writing
+- `{:ok, result}`   :: if the write was successful
+- `{:error, error}` :: if some error was encountered while writing
 

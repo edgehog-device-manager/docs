@@ -54,6 +54,12 @@ An open-source IoT device fleet management platform built on [Astarte](https://g
 </div>
 </div>
 
+<div class="feature-card">
+<div class="card-icon" style="background: #eeedfe;">📁</div>
+<h3>File Management</h3>
+<p>Upload, download, and delete files on devices through repositories or manual operations.</p>
+</div>
+
 ## API reference
 
 ### Admin REST APIs
@@ -94,7 +100,7 @@ Replace `<your-host>` with your Edgehog instance hostname and `<your-tenant>` wi
 
 **1. Core concepts**
 
-Before exploring features or the API, read the [Core concepts](core_concepts-1.html) page. It defines the building blocks (**Hardware Types**, **Devices**, **System Models**, **Groups**, and **Selectors**) that all other sections depend on.
+Before exploring features or the API, read the [Core concepts](user_core_concepts.html) page. It defines the building blocks (**Hardware Types**, **Devices**, **System Models**, **Groups**, and **Selectors**) that all other sections depend on.
 
 **2. Follow the feature guides**
 

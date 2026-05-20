@@ -6,30 +6,36 @@
   - [Edgehog](intro.md)
 
 - User Guide
-  - [Attribute Value Sources](attribute_value_sources.md)
-  - [Batch Operations*](batch_operations.md)
-  - [Channels](channels.md)
-  - [Core concepts](core_concepts-2.md)
-  - [Devices](devices.md)
-  - [Devices &amp; runtime](devices_and_runtime.md)
-  - [Groups](groups.md)
+  - [Core concepts](user_core_concepts.md)
   - [Hardware Types](hardware_types.md)
   - [System Models](system_models.md)
+  - [Devices](devices.md)
+  - [Devices &amp; runtime](devices_and_runtime.md)
+  - [Attribute Value Sources](attribute_value_sources.md)
+  - [Groups](groups.md)
+  - [Channels](channels.md)
+  - [Batch Operations*](batch_operations.md)
 
 - OTA Updates
-  - [Base Image Collections](base_image_collections.md)
-  - [Base Images](base_images.md)
   - [OTA Update concepts](ota_update_concepts.md)
-  - [OTA Updates](ota_updates.md)
+  - [Base Images](base_images.md)
+  - [Base Image Collections](base_image_collections.md)
   - [Update Campaigns](update_campaigns.md)
+  - [OTA Updates](ota_updates.md)
+
+- File Management
+  - [File Management](overview_file_management.md)
+  - [Repositories](repositories.md)
+  - [Files](files.md)
+  - [File Download Campaigns](file_download_campaigns.md)
 
 - Containers management
-  - [Applications Management](applications_management.md)
-  - [Core concepts](core_concepts-1.md)
-  - [Deployment Campaigns](deployment_campaigns.md)
-  - [Image Credentials Management](image_credentials_management.md)
-  - [Network Management](network_management.md)
+  - [Core concepts](containers_core_concepts.md)
   - [Volume management](volume_management.md)
+  - [Network Management](network_management.md)
+  - [Image Credentials Management](image_credentials_management.md)
+  - [Applications Management](applications_management.md)
+  - [Deployment Campaigns](deployment_campaigns.md)
 
 - Architecture
   - [Architecture overview](overview.md)
@@ -38,8 +44,8 @@
   - [Deploying with Kubernetes](deploying_with_kubernetes.md)
 
 - Integrating with Edgehog
-  - [Astarte Interfaces](astarte_interfaces.md)
   - [Interacting with Edgehog](interacting_with_edgehog.md)
+  - [Astarte Interfaces](astarte_interfaces.md)
 
 - Tutorials
   - [Edgehog in 5 minutes](edgehog_in_5_minutes.md)
@@ -169,6 +175,7 @@ false -> {:error, :not_dangling}
 
 - Devices
   - [Edgehog.Devices](Edgehog.Devices.md): The Devices context.
+  - [Edgehog.Devices.Device](Edgehog.Devices.Device.md): Device resource schema and operations.
   - [Edgehog.Devices.Device.Changes.SetupReconciler](Edgehog.Devices.Device.Changes.SetupReconciler.md): Sets up the reconciler on connection events.
 
   - [Edgehog.Devices.Device.Changes.TearDownReconciler](Edgehog.Devices.Device.Changes.TearDownReconciler.md): Tears down the reconciler when a device disconnects.
@@ -235,6 +242,7 @@ based on the `source_type`.
   - [Edgehog.BaseImages](Edgehog.BaseImages.md): The BaseImages context.
 
 - Multitenancy
+  - [Edgehog.Tenants.Tenant](Edgehog.Tenants.Tenant.md): Tenant resource schema and operations.
   - [Edgehog.Tenants.Tenant.Changes.StartContainersReconciler](Edgehog.Tenants.Tenant.Changes.StartContainersReconciler.md): Starts the container reconciler for the current tenant.
 
 - Astarte trigger handling
@@ -328,6 +336,14 @@ It implements the ID Token from the OpenID Connect spec.
 
   - [Edgehog.Changes.Log](Edgehog.Changes.Log.md): An Ash.Resource.Change that emits a log entry at a specified hook lifecycle.
   - [Edgehog.Config](Edgehog.Config.md): This module handles the configuration of Edgehog
+
+  - [Edgehog.Config.AuthzProvider](Edgehog.Config.AuthzProvider.md): Authorization provider type for configuration.
+
+  - [Edgehog.Config.GeocodingProviders](Edgehog.Config.GeocodingProviders.md): Geocoding providers type for configuration.
+
+  - [Edgehog.Config.GeolocationProviders](Edgehog.Config.GeolocationProviders.md): Geolocation providers type for configuration.
+
+  - [Edgehog.Config.JWTPublicKeyPEMType](Edgehog.Config.JWTPublicKeyPEMType.md): JWT public key PEM type for configuration.
 
   - [Edgehog.Error](Edgehog.Error.md): Error utilities to match device errors when communicating with astarte.
 

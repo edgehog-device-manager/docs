@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.2">
+    <meta name="project" content="Clea Edgehog v0.12.0">
+
+
+    <title>File Management — Clea Edgehog v0.12.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+
+    <script defer src="dist/sidebar_items-2CD4EE41.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-Y2MUTVIN.js"></script>
+<link rel="stylesheet" href="style/cards.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="intro.html" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="intro.html" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.12.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>File Management</h1>
+
+<a href="overview_file_management.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/docs/pages/file_management/overview_file_management.md#L1" title="View Source" class="icon-action" rel="help nofollow">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+  </div>
+
+
+<p>Edgehog provides a comprehensive file management mechanism that allows remotely managing files on devices.
+The file management system is flexible and not tied to a specific platform, supporting any <a href="devices_and_runtime.html">Edgehog runtime</a>
+which implements the appropriate file transfer interfaces.</p><h2 id="file-management-workflow" class="section-heading"><a href="#file-management-workflow" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">File Management Workflow</span></h2><p>Edgehog organizes files into <a href="repositories.html">Repositories</a>, central locations that can store Files and serve as
+sources for file distribution.</p><p>A typical workflow consists of the following steps:</p><ol><li>Create a <a href="repositories.html">Repository</a>.</li><li>Upload one or more <a href="files.html">Files</a> to the repository.</li><li>Distribute Files to devices using <a href="#file-download-requests">File Download Requests</a> or
+by creating a <a href="file_download_campaigns.html">File Download Campaign</a>.</li></ol><p>This approach enables centralized file distribution and version management across fleets of devices.</p><h3 id="direct-file-operations" class="section-heading"><a href="#direct-file-operations" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Direct File Operations</span></h3><p>In addition to repository-based downloads, Edgehog supports creating ad-hoc download requests from an individual
+Device page. This is useful to transfer files directly to a specific device without creating a Repository first.</p><h3 id="uploading-files-from-devices" class="section-heading"><a href="#uploading-files-from-devices" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Uploading Files From Devices</span></h3><p>Devices can upload files back to Edgehog's object storage using <a href="#file-upload-requests">File Upload Requests</a>.</p><p>Uploaded files are stored in S3-compatible storage and are accessible from the Device page.</p><h3 id="deleting-files" class="section-heading"><a href="#deleting-files" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Deleting Files</span></h3><p>Files stored on devices can be removed using <a href="#file-delete-requests">File Delete Requests</a>.</p><hr class="thin"/><h2 id="core-concepts" class="section-heading"><a href="#core-concepts" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Core Concepts</span></h2><p>This section describes the core concepts used by Edgehog's file management system.</p><p>Edgehog uses file-management names from the Device's perspective: a File Download Request asks a Device to download a
+file, while File Upload Requests and File Delete Requests ask the Device to upload or delete files that are already
+on the Device.</p><h3 id="repository" class="section-heading"><a href="#repository" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Repository</span></h3><p>A Repository is a centralized storage location for files that can be uploaded to <a href="user_core_concepts.html#device">Devices</a>.
+Repositories provide a structured way to organize and manage files that are intended for distribution to devices.</p><p>Files stored in a Repository can be used as sources for File Download Requests, enabling consistent file distribution
+across devices.</p><h3 id="file" class="section-heading"><a href="#file" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">File</span></h3><p>A File represents a document or binary blob stored within a Repository. Each File has:</p><ul><li><strong>Name</strong>: a user-friendly name for the File.</li><li><strong>Size</strong>: the uncompressed size in bytes that will be stored on the Device.</li></ul><p>Files are the basic entities for <code class="inline">upload</code>, <code class="inline">download</code> and <code class="inline">delete</code> operations. They can be delivered to devices using
+File Download Requests, and devices can upload files back to Edgehog using File Upload Requests (visible from the Device page).</p><hr class="thin"/><h2 id="file-download-requests" class="section-heading"><a href="#file-download-requests" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">File Download Requests</span></h2><p>A File Download Request instructs a Device to fetch a File and deliver it to one of three destination types:</p><ul><li><strong>Storage</strong>: persist the file on the Device's storage.</li><li><strong>Streaming</strong>: process the file without storing it on the Device.</li><li><strong>Filesystem</strong>: write the file to a path on the Device filesystem.</li></ul><p>Requests can target a single Device (manual request) or be created in bulk as part of a campaign.</p><h3 id="encoding-support" class="section-heading"><a href="#encoding-support" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Encoding Support</span></h3><p>File Download Requests support different encoding options to optimize transfer bandwidth and device processing:</p><ul><li><strong>None</strong>: no encoding; the file is transferred as-is.</li><li><strong>gzip</strong>: the file is compressed with gzip for transfer.</li><li><strong>lz4</strong>: the file is compressed with lz4 for transfer.</li></ul><p>Which encodings are available depends on the device's declared capabilities and the runtime support on the device.</p><hr class="thin"/><h2 id="file-upload-requests" class="section-heading"><a href="#file-upload-requests" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">File Upload Requests</span></h2><p>A File Upload Request instructs a Device to send a file back to Edgehog's object storage (S3-compatible).</p><p>The value depends on the selected source type:</p><ul><li>for <code class="inline">STORAGE</code> you can select from one of the Files available in the List,</li><li>for <code class="inline">FILESYSTEM</code> it is a path of a file on the device.</li></ul><h2 id="file-delete-requests" class="section-heading"><a href="#file-delete-requests" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">File Delete Requests</span></h2><p>A File Delete Request instructs a Device to remove a file from local storage.
+Devices may refuse to delete files that are in use, when <code class="inline">force</code> is <code class="inline">false</code>. Forcing deletion can cause application errors or instability, use only when necessary.</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="ota_updates.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+OTA Updates
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="repositories.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Repositories
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

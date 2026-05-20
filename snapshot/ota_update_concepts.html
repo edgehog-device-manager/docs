@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-66D5F650.js"></script>
+    <script defer src="dist/sidebar_items-2CD4EE41.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -115,7 +115,7 @@ Clea Edgehog
 <p>This page will illustrate some of the OTA Update concepts used in Edgehog.</p><h2 id="base-image" class="section-heading"><a href="#base-image" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Base Image</span></h2><p>A Base Image is an image created to be run on a Device. The exact content of the Base Image can vary
 depending on the use case, but it usually contains the operating system image or the device
 firmware. Each Base Image belongs to a <a href="#base-image-collection">Base Image Collection</a>.</p><p>Base Images follow semantic versioning, so that the user is able to know when a specific update can
-contain breaking changes. Each Base Image must have a unique version number.</p><h2 id="base-image-collection" class="section-heading"><a href="#base-image-collection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Base Image Collection</span></h2><p>A Base Image Collection is a set of Base Images associated with a specific <a href="core_concepts.html#system-model">System Model</a> and, implicitly via the System Model, with a specific <a href="core_concepts.html#hardware-type">Hardware Type</a>. The mapping relation between Base Image Collection and System Models is 1:1,
+contain breaking changes. Each Base Image must have a unique version number.</p><h2 id="base-image-collection" class="section-heading"><a href="#base-image-collection" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Base Image Collection</span></h2><p>A Base Image Collection is a set of Base Images associated with a specific <a href="user_core_concepts.html#system-model">System Model</a> and, implicitly via the System Model, with a specific <a href="user_core_concepts.html#hardware-type">Hardware Type</a>. The mapping relation between Base Image Collection and System Models is 1:1,
 so a Base Image Collection is associated with a single System Model and viceversa.</p><p>A Base Image Collection contains all the Base Images that ran, are running or could be run on a
 System Model. Drawing from the bike sharing example, there would be a different Base Image
 Collection for, e.g., e-bikes from each specific country to handle the different speed limitations.</p><p>The primary purpose of a Base Image Collection is to limit what can be installed to a System Model,
@@ -124,9 +124,9 @@ various criteria and adheres to syntax detailed in
 <a href="https://hexdocs.pm/elixir/Version.html#module-requirements">Elixir's Version.Requirement</a>.
 For example, when the Version Requirement <code class="inline">&gt;= 2.0.0 and &lt; 3.0.0</code> is used to define the
 <code class="inline">Supported starting versions</code> of Base Image <code class="inline">foo</code>, it identifies a subset of Base Images
-within the same Base Image Collection that can be updated to the Base Image <code class="inline">foo</code>.</p><h2 id="channel" class="section-heading"><a href="#channel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Channel</span></h2><p>A Channel is an aggregation of <a href="core_concepts-1.html#group">Groups</a> that can be targeted in campaigns
+within the same Base Image Collection that can be updated to the Base Image <code class="inline">foo</code>.</p><h2 id="channel" class="section-heading"><a href="#channel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Channel</span></h2><p>A Channel is an aggregation of <a href="user_core_concepts.html#group">Groups</a> that can be targeted in campaigns
 (either update or deployment campaigns).</p><p>To assign a Device to a specific Channel (other than the default one) the device must
-belong to a <a href="core_concepts-1.html#group">Group</a> and that Group has to be assigned to the Target Groups of the Channel.</p><p>Channels enable structured rollouts across device groups. For example, the same Base Image can be associated
+belong to a <a href="user_core_concepts.html#group">Group</a> and that Group has to be assigned to the Target Groups of the Channel.</p><p>Channels enable structured rollouts across device groups. For example, the same Base Image can be associated
 with multiple Channels. This guarantees that once testers in the <code class="inline">beta</code> Channel validate the Base Image,
 the exact same Base Image will be used to update devices in the <code class="inline">default</code> Channel. The same applies
 to deployment campaigns targeting container releases.</p><h2 id="update-campaign" class="section-heading"><a href="#update-campaign" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Update Campaign</span></h2><p>An Update Campaign is the operation that tracks the distribution of a specific Base Image to all
@@ -148,24 +148,24 @@ Maintenance Window.</p>
 <div class="bottom-actions" id="bottom-actions">
   <div class="bottom-actions-item">
 
-      <a href="base_images.html" class="bottom-actions-button" rel="prev">
+      <a href="batch_operations.html" class="bottom-actions-button" rel="prev">
         <span class="subheader">
           ← Previous Page
         </span>
         <span class="title">
-Base Images
+Batch Operations*
         </span>
       </a>
 
   </div>
   <div class="bottom-actions-item">
 
-      <a href="ota_updates.html" class="bottom-actions-button" rel="next">
+      <a href="base_images.html" class="bottom-actions-button" rel="next">
         <span class="subheader">
           Next Page →
         </span>
         <span class="title">
-OTA Updates
+Base Images
         </span>
       </a>
 

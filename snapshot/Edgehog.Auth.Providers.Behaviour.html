@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-66D5F650.js"></script>
+    <script defer src="dist/sidebar_items-2CD4EE41.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -436,7 +436,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
 
       </div>
 
-<p>A check call checks a tuple against the provider</p><ul><li>subj :: is some id of the person making the request, ideally a OpenID Connect UUID</li><li>rel  :: is the requested access to the resource (object) in order to perform the action</li><li>obj  :: is the resource the request is requiring access to</li></ul><p>The context is also provided.</p><p>The check can return</p><ul><li>     :: meaning that the subject has the right permission to access the resource</li><li>    :: meaning that the subject has not the right permission to access the resource</li><li> :: meaning that there was some error in the request.</li></ul><p>For successful returns the new <code class="inline">context</code> should be provided.</p>
+<p>A check call checks a tuple against the provider</p><ul><li>subj :: is some id of the person making the request, ideally a OpenID Connect UUID</li><li>rel  :: is the requested access to the resource (object) in order to perform the action</li><li>obj  :: is the resource the request is requiring access to</li></ul><p>The context is also provided.</p><p>The check can return</p><ul><li><code class="inline">{:ok, true}</code>     :: meaning that the subject has the right permission to access the resource</li><li><code class="inline">{:ok, false}</code>    :: meaning that the subject has not the right permission to access the resource</li><li><code class="inline">{:error, error}</code> :: meaning that there was some error in the request.</li></ul><p>For successful returns the new <code class="inline">context</code> should be provided.</p>
   </section>
 </section>
 <section class="detail" id="c:delete/2">
@@ -465,7 +465,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
 
       </div>
 
-<p>Delete a tuple from the provider.</p><ul><li>tuple :: the fga tuple, composed of <code class="inline">subject</code>, <code class="inline">relationship</code> and <code class="inline">object</code></li><li>context :: the context from <code class="inline">init_context</code></li></ul><p>A delete can return</p><ul><li>   :: if the delete was successful</li><li> :: if some error was encountered while deleting</li></ul>
+<p>Delete a tuple from the provider.</p><ul><li>tuple :: the fga tuple, composed of <code class="inline">subject</code>, <code class="inline">relationship</code> and <code class="inline">object</code></li><li>context :: the context from <code class="inline">init_context</code></li></ul><p>A delete can return</p><ul><li><code class="inline">{:ok, result}</code>   :: if the delete was successful</li><li><code class="inline">{:error, error}</code> :: if some error was encountered while deleting</li></ul>
   </section>
 </section>
 <section class="detail" id="c:init_context/1">
@@ -525,7 +525,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
 
 <p>A list_objects call lists all objects of the selected type a user has access to.</p><ul><li>subj :: is some id of the person making the request, ideally a OpenID Connect UUID</li><li>rel  :: is the requested access to the resource (object) in order to perform the action</li><li>type :: is the type of resources we want to fetch</li></ul><p>The context should also be provided.</p><p>NOTICE: This creates a list with all the objects! This might be very
 inefficient and possibly stalls the request (e.g. 1mln devices), consider
-using <code class="inline">stream_list_objects</code></p><p>The call can return</p><ul><li> :: meaning that the user has access to the %{objects: list()} list of objects of type <code class="inline">type</code></li><li>  :: meaning that there was some error in the request.</li></ul><p>For successful returns the new <code class="inline">context</code> should be provided.</p>
+using <code class="inline">stream_list_objects</code></p><p>The call can return</p><ul><li><code class="inline">{:ok, objects()}</code> :: meaning that the user has access to the %{objects: list()} list of objects of type <code class="inline">type</code></li><li><code class="inline">{:error, error}</code>  :: meaning that there was some error in the request.</li></ul><p>For successful returns the new <code class="inline">context</code> should be provided.</p>
   </section>
 </section>
 <section class="detail" id="c:stream_list_objects/2">
@@ -554,7 +554,7 @@ using <code class="inline">stream_list_objects</code></p><p>The call can return<
 
       </div>
 
-<p>A stream_list_objects call streams all objects of the selected type a user has access to.</p><ul><li>subj :: is some id of the person making the request, ideally a OpenID Connect UUID</li><li>rel  :: is the requested access to the resource (object) in order to perform the action</li><li>type :: is the type of resources we want to fetch</li></ul><p>The context should also be provided.</p><p>The call can return</p><ul><li> :: meaning that the user has access to the %{objects: list()} list of objects of type <code class="inline">type</code></li><li>          :: meaning that there was some error in the request.</li></ul><p>For successful returns the new <code class="inline">context</code> should be provided.</p>
+<p>A stream_list_objects call streams all objects of the selected type a user has access to.</p><ul><li>subj :: is some id of the person making the request, ideally a OpenID Connect UUID</li><li>rel  :: is the requested access to the resource (object) in order to perform the action</li><li>type :: is the type of resources we want to fetch</li></ul><p>The context should also be provided.</p><p>The call can return</p><ul><li><code class="inline">{:ok, stream(objects())}</code> :: meaning that the user has access to the %{objects: list()} list of objects of type <code class="inline">type</code></li><li><code class="inline">{:error, error}</code>          :: meaning that there was some error in the request.</li></ul><p>For successful returns the new <code class="inline">context</code> should be provided.</p>
   </section>
 </section>
 <section class="detail" id="c:write/2">
@@ -583,7 +583,7 @@ using <code class="inline">stream_list_objects</code></p><p>The call can return<
 
       </div>
 
-<p>Writes a tuple to the provider.</p><ul><li>tuple :: the fga tuple, composed of <code class="inline">subject</code>, <code class="inline">relationship</code> and <code class="inline">object</code></li><li>context :: the context from <code class="inline">init_context</code></li></ul><p>A write can return</p><ul><li>   :: if the write was successful</li><li> :: if some error was encountered while writing</li></ul>
+<p>Writes a tuple to the provider.</p><ul><li>tuple :: the fga tuple, composed of <code class="inline">subject</code>, <code class="inline">relationship</code> and <code class="inline">object</code></li><li>context :: the context from <code class="inline">init_context</code></li></ul><p>A write can return</p><ul><li><code class="inline">{:ok, result}</code>   :: if the write was successful</li><li><code class="inline">{:error, error}</code> :: if some error was encountered while writing</li></ul>
   </section>
 </section>
 
