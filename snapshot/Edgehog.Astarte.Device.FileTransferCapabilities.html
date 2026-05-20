@@ -8,7 +8,7 @@
     <meta name="project" content="Clea Edgehog v0.12.0">
 
 
-    <title>Edgehog.Containers.Deployment.EventType — Clea Edgehog v0.12.0</title>
+    <title>Edgehog.Astarte.Device.FileTransferCapabilities — Clea Edgehog v0.12.0</title>
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
@@ -97,19 +97,19 @@ Clea Edgehog
 <div id="top-content">
   <div class="heading-with-actions top-heading">
     <h1>
-      <span translate="no">Edgehog.<wbr />Containers.<wbr />Deployment.<wbr />EventType</span> 
+      <span translate="no">Edgehog.<wbr />Astarte.<wbr />Device.<wbr />FileTransferCapabilities</span> 
       <small class="app-vsn" translate="no">(Clea Edgehog v0.12.0)</small>
 
     </h1>
 
-<a href="Edgehog.Containers.Deployment.EventType.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+<a href="Edgehog.Astarte.Device.FileTransferCapabilities.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
   <i class="ri-markdown-line" aria-hidden="true"></i>
   <span class="sr-only">Copy Markdown</span>
 </a>
 
 
 
-      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/containers/deployment/event_type.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/astarte/device/file_transfer_capabilities.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -118,7 +118,17 @@ Clea Edgehog
 
 
     <section id="moduledoc">
-<p>Expresses the type of event a device can communicate to the backend trough the <code class="inline">DeploymentEvent</code> interface.</p>
+<p>This module defines the <code class="inline">FileTransferCapabilities</code> struct and implements the
+<code class="inline">Edgehog.Astarte.Device.FileTransferCapabilities.Behaviour</code> to fetch and parse
+file transfer capabilities from an Astarte device.</p><p>Capabilities are split into global configuration and direction-specific capabilities
+(<code class="inline">server_to_device</code> and <code class="inline">device_to_server</code>).</p><p>The incoming Astarte properties data payload contains:</p><ul><li>A <code class="inline">transfer</code> map containing global settings like <code class="inline">unixPermissions</code> and lists of supported
+<code class="inline">targets</code> for each direction.</li><li>Root-level maps for each direction (e.g., <code class="inline">serverToDevice</code>, <code class="inline">deviceToServer</code>) containing
+the specific configurations—such as supported compressed <code class="inline">encodings</code>—for each target type.</li></ul><h3 id="module-parsing-rules" class="section-heading"><a href="#module-parsing-rules" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Parsing Rules</span></h3><p>For each known target (<code class="inline">:storage</code>, <code class="inline">:streaming</code>, <code class="inline">:filesystem</code>), the parser applies the
+following logic based on the device configuration:</p><ol><li>Supported with Encodings: If a target string is present within the direction's <code class="inline">targets</code>
+array, and a corresponding root encoding list exists, it returns the list of encodings
+(e.g., <code class="inline">[&quot;tar.gz&quot;]</code>).</li><li>Supported without Encodings: If a target string is present within the direction's <code class="inline">targets</code>
+array but no encoding property is set on the device, it returns an empty list (<code class="inline">[]</code>).</li><li>Unsupported: If a target string is entirely absent from the direction's <code class="inline">targets</code> array,
+it returns <code class="inline">nil</code>.</li></ol>
     </section>
 
 </div>
@@ -137,7 +147,31 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#t:capabilities/0" data-no-tooltip="" translate="no">capabilities()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#t:t/0" data-no-tooltip="" translate="no">t()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:target/0" data-no-tooltip="" translate="no">target()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:target_capability/0" data-no-tooltip="" translate="no">target_capability()</a>
 
       </div>
 
@@ -151,23 +185,7 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#graphql_type/1" data-no-tooltip="" translate="no">graphql_type(_)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#handle_change?/0" data-no-tooltip="" translate="no">handle_change?()</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#prepare_change?/0" data-no-tooltip="" translate="no">prepare_change?()</a>
+        <a href="#parse_data/1" data-no-tooltip="" translate="no">parse_data(data)</a>
 
       </div>
 
@@ -187,17 +205,17 @@ Clea Edgehog
     </h2>
 
     <div class="types-list">
-<section class="detail" id="t:t/0">
+<section class="detail" id="t:capabilities/0">
 
   <div class="detail-header">
-    <a href="#t:t/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+    <a href="#t:capabilities/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">t()</h1>
+      <h1 class="signature" translate="no">capabilities()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/containers/deployment/event_type.ex#L26" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/astarte/device/file_transfer_capabilities.ex#L63" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -208,8 +226,95 @@ Clea Edgehog
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@type</span> t() ::
-  :error | :deleting | :updating | :stopped | :started | :stopping | :starting</pre>
+          <pre translate="no"><span class="attribute">@type</span> capabilities() :: %{optional(<a href="#t:target/0">target</a>()) =&gt; <a href="#t:target_capability/0">target_capability</a>()}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:t/0">
+
+  <div class="detail-header">
+    <a href="#t:t/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">t()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/astarte/device/file_transfer_capabilities.ex#L54" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> t() :: %Edgehog.Astarte.Device.FileTransferCapabilities{
+  device_to_server: <a href="#t:capabilities/0">capabilities</a>(),
+  server_to_device: <a href="#t:capabilities/0">capabilities</a>(),
+  unix_permissions: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>() | nil
+}</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:target/0">
+
+  <div class="detail-header">
+    <a href="#t:target/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">target()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/astarte/device/file_transfer_capabilities.ex#L60" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> target() :: :storage | :streaming | :filesystem</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:target_capability/0">
+
+  <div class="detail-header">
+    <a href="#t:target_capability/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">target_capability()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/astarte/device/file_transfer_capabilities.ex#L61" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> target_capability() :: nil | [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()]</pre>
 
       </div>
 
@@ -229,61 +334,17 @@ Clea Edgehog
     </h2>
 
     <div class="functions-list">
-<section class="detail" id="graphql_type/1">
+<section class="detail" id="parse_data/1">
 
   <div class="detail-header">
-    <a href="#graphql_type/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+    <a href="#parse_data/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">graphql_type(_)</h1>
+      <h1 class="signature" translate="no">parse_data(data)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/containers/deployment/event_type.ex#L37" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="handle_change?/0">
-
-  <div class="detail-header">
-    <a href="#handle_change?/0" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">handle_change?()</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/containers/deployment/event_type.ex#L21" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="prepare_change?/0">
-
-  <div class="detail-header">
-    <a href="#prepare_change?/0" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">prepare_change?()</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/containers/deployment/event_type.ex#L21" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/astarte/device/file_transfer_capabilities.ex#L85" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 

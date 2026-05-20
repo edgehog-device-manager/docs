@@ -63,6 +63,9 @@
 
   - [Edgehog.Astarte.Device.FileDownloadRequest.RequestData](Edgehog.Astarte.Device.FileDownloadRequest.RequestData.md): Struct representing the data needed to request a file download on an Astarte device.
 
+  - [Edgehog.Astarte.Device.FileTransferCapabilities](Edgehog.Astarte.Device.FileTransferCapabilities.md): This module defines the `FileTransferCapabilities` struct and implements the
+`Edgehog.Astarte.Device.FileTransferCapabilities.Behaviour` to fetch and parse
+file transfer capabilities from an Astarte device.
   - [Edgehog.Astarte.Device.FileUploadRequest](Edgehog.Astarte.Device.FileUploadRequest.md): Module responsible for handling file upload requests on Astarte devices.
 
   - [Edgehog.Astarte.Device.FileUploadRequest.Behaviour](Edgehog.Astarte.Device.FileUploadRequest.Behaviour.md): Behaviour for requesting file uploads on Astarte devices.
