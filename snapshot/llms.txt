@@ -154,11 +154,16 @@ A deployment is ready when:
   - [Edgehog.Containers.Deployment.Changes.Relate](Edgehog.Containers.Deployment.Changes.Relate.md): Relates a deployment to underlying container deployments, by creating them when
 needed.
 
+  - [Edgehog.Containers.Deployment.Changes.SendCommand](Edgehog.Containers.Deployment.Changes.SendCommand.md): A change to send a command to a deployment _after_ the action has been done.
   - [Edgehog.Containers.Deployment.Changes.SendRequest](Edgehog.Containers.Deployment.Changes.SendRequest.md): Automatically update the deployment and send the requests to the device once
 the database transaction is clsed and all the resources are available.
 
+  - [Edgehog.Containers.Deployment.Changes.SendUpgrade](Edgehog.Containers.Deployment.Changes.SendUpgrade.md): A change to upgrade the deployment of an application to a newer version.
   - [Edgehog.Containers.Deployment.EventType](Edgehog.Containers.Deployment.EventType.md): Expresses the type of event a device can communicate to the backend trough the `DeploymentEvent` interface.
 
+  - [Edgehog.Containers.Deployment.Types.DeploymentContext](Edgehog.Containers.Deployment.Types.DeploymentContext.md): Deployment context. An auxiliary type to track requests and pending operations on a deployment.
+
+  - [Edgehog.Containers.Deployment.Validations.Event](Edgehog.Containers.Deployment.Validations.Event.md): Checks if the received event matches some fields.
   - [Edgehog.Containers.Deployment.Validations.NoConflictingCampaign](Edgehog.Containers.Deployment.Validations.NoConflictingCampaign.md): Validates that a deployment is not part of an in-progress campaign with a different operation type.
 
   - [Edgehog.Containers.Reconciler](Edgehog.Containers.Reconciler.md): Reconciler for container-related data between the device and the backend.
@@ -334,7 +339,7 @@ It implements the ID Token from the OpenID Connect spec.
   - [Edgehog.AzureStorage](Edgehog.AzureStorage.md): Waffle module for Azure storage compatibility.
   - [Edgehog.Capabilities](Edgehog.Capabilities.md): The Capabilities context.
 
-  - [Edgehog.Changes.Log](Edgehog.Changes.Log.md): An Ash.Resource.Change that emits a log entry at a specified hook lifecycle.
+  - [Edgehog.Changes.Log](Edgehog.Changes.Log.md): An Ash.Resource.Change that emits a log.
   - [Edgehog.Config](Edgehog.Config.md): This module handles the configuration of Edgehog
 
   - [Edgehog.Config.AuthzProvider](Edgehog.Config.AuthzProvider.md): Authorization provider type for configuration.
