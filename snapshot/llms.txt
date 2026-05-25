@@ -330,6 +330,8 @@ It implements the ID Token from the OpenID Connect spec.
   - [Edgehog.Auth.Changes.WriteTenant](Edgehog.Auth.Changes.WriteTenant.md): Generic tuple writer. 
 
   - [Edgehog.Auth.FGAService](Edgehog.Auth.FGAService.md): The edgehog FGA publisher.
+  - [Edgehog.Auth.Policies.Check](Edgehog.Auth.Policies.Check.md): An `Ash.Policy.SimpleCheck`, checking the user `subj` has access to the object of type `obj`.
+You can optionally pass the `obj_id` attribute name.
   - [Edgehog.Auth.Policies.Filter](Edgehog.Auth.Policies.Filter.md): An `Ash.Policy.FilterCheck`, filtering the object of type `obj` available to the user `subj`.
   - [Edgehog.Auth.Providers.Behaviour](Edgehog.Auth.Providers.Behaviour.md): Authz provider behavior.
 

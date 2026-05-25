@@ -8,7 +8,7 @@
     <meta name="project" content="Clea Edgehog v0.12.0">
 
 
-    <title>Edgehog.Auth.Policies.Filter — Clea Edgehog v0.12.0</title>
+    <title>Edgehog.Auth.Policies.Check — Clea Edgehog v0.12.0</title>
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
@@ -97,19 +97,19 @@ Clea Edgehog
 <div id="top-content">
   <div class="heading-with-actions top-heading">
     <h1>
-      <span translate="no">Edgehog.<wbr />Auth.<wbr />Policies.<wbr />Filter</span> 
+      <span translate="no">Edgehog.<wbr />Auth.<wbr />Policies.<wbr />Check</span> 
       <small class="app-vsn" translate="no">(Clea Edgehog v0.12.0)</small>
 
     </h1>
 
-<a href="Edgehog.Auth.Policies.Filter.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+<a href="Edgehog.Auth.Policies.Check.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
   <i class="ri-markdown-line" aria-hidden="true"></i>
   <span class="sr-only">Copy Markdown</span>
 </a>
 
 
 
-      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/check.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -118,7 +118,8 @@ Clea Edgehog
 
 
     <section id="moduledoc">
-<p>An <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.FilterCheck.html"><code class="inline">Ash.Policy.FilterCheck</code></a>, filtering the object of type <code class="inline">obj</code> available to the user <code class="inline">subj</code>.</p><p>To use it in a policy:</p><pre><code class="makeup elixir" translate="no"><span class="n">authorize_if</span><span class="w"> </span><span class="p" data-group-id="3328093220-1">{</span><span class="nc">Edgehog.Auth.Policies.Filter</span><span class="p">,</span><span class="w"> </span><span class="ss">rel</span><span class="p">:</span><span class="w"> </span><span class="ss">:can_view</span><span class="p">,</span><span class="w"> </span><span class="ss">obj</span><span class="p">:</span><span class="w"> </span><span class="ss">:device</span><span class="p" data-group-id="3328093220-1">}</span></code></pre>
+<p>An <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.SimpleCheck.html"><code class="inline">Ash.Policy.SimpleCheck</code></a>, checking the user <code class="inline">subj</code> has access to the object of type <code class="inline">obj</code>.
+You can optionally pass the <code class="inline">obj_id</code> attribute name.</p><p>To use it in a policy:</p><pre><code class="makeup elixir" translate="no"><span class="n">authorize_if</span><span class="w"> </span><span class="p" data-group-id="7220960808-1">{</span><span class="nc">Edgehog.Auth.Policies.Check</span><span class="p">,</span><span class="w"> </span><span class="ss">rel</span><span class="p">:</span><span class="w"> </span><span class="ss">:can_view</span><span class="p">,</span><span class="w"> </span><span class="ss">obj</span><span class="p">:</span><span class="w"> </span><span class="ss">:realm</span><span class="p">,</span><span class="w"> </span><span class="ss">obj_id</span><span class="p">:</span><span class="w"> </span><span class="ss">:name</span><span class="p" data-group-id="7220960808-1">}</span></code></pre>
     </section>
 
 </div>
@@ -137,49 +138,11 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#auto_filter/3" data-no-tooltip="" translate="no">auto_filter(actor, authorizer, opts)</a>
-
-      </div>
-
-        <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.Check.html#c:auto_filter/3"><code class="inline">Ash.Policy.Check.auto_filter/3</code></a>.</p></div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#auto_filter_not/3" data-no-tooltip="" translate="no">auto_filter_not(actor, authorizer, opts)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#check/4" data-no-tooltip="" translate="no">check(actor, data, authorizer, opts)</a>
-
-      </div>
-
-        <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.Check.html#c:check/4"><code class="inline">Ash.Policy.Check.check/4</code></a>.</p></div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
         <a href="#eager_evaluate?/0" data-no-tooltip="" translate="no">eager_evaluate?()</a>
 
       </div>
 
         <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.Check.html#c:eager_evaluate?/0"><code class="inline">Ash.Policy.Check.eager_evaluate?/0</code></a>.</p></div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#expand_description/3" data-no-tooltip="" translate="no">expand_description(actor, authorizer, opts)</a>
-
-      </div>
-
-        <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.Check.html#c:expand_description/3"><code class="inline">Ash.Policy.Check.expand_description/3</code></a>.</p></div>
 
     </div>
 
@@ -205,16 +168,6 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#reject/3" data-no-tooltip="" translate="no">reject(actor, authorizer, opts)</a>
-
-      </div>
-
-        <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.FilterCheck.html#c:reject/3"><code class="inline">Ash.Policy.FilterCheck.reject/3</code></a>.</p></div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
         <a href="#requires_original_data?/2" data-no-tooltip="" translate="no">requires_original_data?(_, _)</a>
 
       </div>
@@ -225,19 +178,11 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#strict_check/3" data-no-tooltip="" translate="no">strict_check(actor, authorizer, opts)</a>
+        <a href="#strict_check/3" data-no-tooltip="" translate="no">strict_check(actor, context, opts)</a>
 
       </div>
 
         <div class="summary-synopsis"><p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.Check.html#c:strict_check/3"><code class="inline">Ash.Policy.Check.strict_check/3</code></a>.</p></div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#strict_check_context/1" data-no-tooltip="" translate="no">strict_check_context(opts)</a>
-
-      </div>
 
     </div>
 
@@ -265,72 +210,6 @@ Clea Edgehog
     </h2>
 
     <div class="functions-list">
-<section class="detail" id="auto_filter/3">
-
-  <div class="detail-header">
-    <a href="#auto_filter/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">auto_filter(actor, authorizer, opts)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-<p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.Check.html#c:auto_filter/3"><code class="inline">Ash.Policy.Check.auto_filter/3</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="auto_filter_not/3">
-
-  <div class="detail-header">
-    <a href="#auto_filter_not/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">auto_filter_not(actor, authorizer, opts)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="check/4">
-
-  <div class="detail-header">
-    <a href="#check/4" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">check(actor, data, authorizer, opts)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-<p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.Check.html#c:check/4"><code class="inline">Ash.Policy.Check.check/4</code></a>.</p>
-  </section>
-</section>
 <section class="detail" id="eager_evaluate?/0">
 
   <div class="detail-header">
@@ -341,7 +220,7 @@ Clea Edgehog
       <h1 class="signature" translate="no">eager_evaluate?()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/check.ex#L32" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -351,28 +230,6 @@ Clea Edgehog
   <section class="docstring">
 
 <p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.Check.html#c:eager_evaluate?/0"><code class="inline">Ash.Policy.Check.eager_evaluate?/0</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="expand_description/3">
-
-  <div class="detail-header">
-    <a href="#expand_description/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">expand_description(actor, authorizer, opts)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-<p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.Check.html#c:expand_description/3"><code class="inline">Ash.Policy.Check.expand_description/3</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="init/1">
@@ -385,7 +242,7 @@ Clea Edgehog
       <h1 class="signature" translate="no">init(opts)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/check.ex#L32" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -407,7 +264,7 @@ Clea Edgehog
       <h1 class="signature" translate="no">prefer_expanded_description?()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/check.ex#L32" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -417,28 +274,6 @@ Clea Edgehog
   <section class="docstring">
 
 <p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.Check.html#c:prefer_expanded_description?/0"><code class="inline">Ash.Policy.Check.prefer_expanded_description?/0</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="reject/3">
-
-  <div class="detail-header">
-    <a href="#reject/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">reject(actor, authorizer, opts)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-<p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.FilterCheck.html#c:reject/3"><code class="inline">Ash.Policy.FilterCheck.reject/3</code></a>.</p>
   </section>
 </section>
 <section class="detail" id="requires_original_data?/2">
@@ -451,7 +286,7 @@ Clea Edgehog
       <h1 class="signature" translate="no">requires_original_data?(_, _)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/check.ex#L32" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -470,10 +305,10 @@ Clea Edgehog
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">strict_check(actor, authorizer, opts)</h1>
+      <h1 class="signature" translate="no">strict_check(actor, context, opts)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/check.ex#L32" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -483,28 +318,6 @@ Clea Edgehog
   <section class="docstring">
 
 <p>Callback implementation for <a href="https://hexdocs.pm/ash/3.24.7/Ash.Policy.Check.html#c:strict_check/3"><code class="inline">Ash.Policy.Check.strict_check/3</code></a>.</p>
-  </section>
-</section>
-<section class="detail" id="strict_check_context/1">
-
-  <div class="detail-header">
-    <a href="#strict_check_context/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">strict_check_context(opts)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-
   </section>
 </section>
 <section class="detail" id="type/0">
@@ -517,7 +330,7 @@ Clea Edgehog
       <h1 class="signature" translate="no">type()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/filter.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/policies/check.ex#L32" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
