@@ -4668,12 +4668,9 @@ Raises any errors instead of returning them
 
 Calls the update_status action on Edgehog.Files.FileUploadRequest.
 
-# Arguments
-
-* status - The status of the file upload (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
-
 # Inputs
 
+* status - The status of the file upload (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
 * response_message - Optional message for the response sent by the device.
 * progress_percentage - The progress of the file upload as a percentage (0-100).
@@ -4832,12 +4829,9 @@ Calls the update_status action on Edgehog.Files.FileUploadRequest.
 
 Raises any errors instead of returning them
 
-# Arguments
-
-* status - The status of the file upload (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
-
 # Inputs
 
+* status - The status of the file upload (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
 * response_message - Optional message for the response sent by the device.
 * progress_percentage - The progress of the file upload as a percentage (0-100).
