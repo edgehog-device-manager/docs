@@ -3445,7 +3445,7 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
 
 The interface has the following mappings:
 
-- `/request/id` with `string` type. Transfer ID for the file
+- `/request/id` with `string` type. Transfer ID (UUID v4) for the file
 - `/request/url` with `string` type. The URL to upload the file to
 - `/request/httpHeaderKeys` with `stringarray` type. Keys for the HTTP headers, must be in the order of the values
 - `/request/httpHeaderValues` with `stringarray` type. Values for the HTTP headers, must be in the order of the keys
@@ -3457,7 +3457,7 @@ The interface has the following mappings:
 
 ### `/request/id`
 
-Transfer ID for the file
+Transfer ID (UUID v4) for the file
 
 
 
@@ -3578,7 +3578,7 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
 
 The interface has the following mappings:
 
-- `/request/id` with `string` type. Transfer ID for the file.
+- `/request/id` with `string` type. Transfer ID (UUID v4) for the file
 - `/request/type` with `string` type. Direction of the file transfer
 - `/request/bytes` with `longinteger` type. Progress of the transfer in number of bytes transferred.
 - `/request/totalBytes` with `longinteger` type. Total size of the transfer.
@@ -3586,7 +3586,7 @@ The interface has the following mappings:
 
 ### `/request/id`
 
-Transfer ID for the file.
+Transfer ID (UUID v4) for the file
 
 
 
@@ -3655,7 +3655,7 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
 
 The interface has the following mappings:
 
-- `/request/id` with `string` type. Transfer ID for the file
+- `/request/id` with `string` type. Transfer ID (UUID v4) for the file
 - `/request/type` with `string` type. Direction of the file transfer
 - `/request/code` with `longinteger` type. Success or error code for the transfer
 - `/request/message` with `string` type. Optional message for the response
@@ -3663,7 +3663,7 @@ The interface has the following mappings:
 
 ### `/request/id`
 
-Transfer ID for the file
+Transfer ID (UUID v4) for the file
 
 Can be either for download or upload transfers.
 
@@ -3732,7 +3732,7 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
 
 The interface has the following mappings:
 
-- `/request/id` with `string` type. Transfer ID for the file
+- `/request/id` with `string` type. Transfer ID (UUID v4) for the file
 - `/request/url` with `string` type. The URL to get the file from
 - `/request/httpHeaderKeys` with `stringarray` type. Keys for the HTTP headers, must be in the order of the values
 - `/request/httpHeaderValues` with `stringarray` type. Values for the HTTP headers, must be in the order of the keys
@@ -3750,7 +3750,7 @@ The interface has the following mappings:
 
 ### `/request/id`
 
-Transfer ID for the file
+Transfer ID (UUID v4) for the file
 
 If the file is to be stored, this MUST be unique to the file (e.g. hash of the content). For a file that needs to be streamed, it can be unique for the single request (e.g. uuid).
 

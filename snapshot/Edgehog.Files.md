@@ -3722,8 +3722,8 @@ Calls the set_response action on Edgehog.Files.FileDownloadRequest.
 
 * status - The status of the file download (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* response_message - Optional message for the response sent by the device.
 * progress_percentage - The progress of the file download as a percentage (0-100).
+* response_message - Optional message for the response sent by the device.
 
 ## Options
 
@@ -3883,8 +3883,8 @@ Raises any errors instead of returning them
 
 * status - The status of the file download (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* response_message - Optional message for the response sent by the device.
 * progress_percentage - The progress of the file download as a percentage (0-100).
+* response_message - Optional message for the response sent by the device.
 
 ## Options
 
@@ -4672,8 +4672,8 @@ Calls the update_status action on Edgehog.Files.FileUploadRequest.
 
 * status - The status of the file upload (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* response_message - Optional message for the response sent by the device.
 * progress_percentage - The progress of the file upload as a percentage (0-100).
+* response_message - Optional message for the response sent by the device.
 
 ## Options
 
@@ -4833,8 +4833,8 @@ Raises any errors instead of returning them
 
 * status - The status of the file upload (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* response_message - Optional message for the response sent by the device.
 * progress_percentage - The progress of the file upload as a percentage (0-100).
+* response_message - Optional message for the response sent by the device.
 
 ## Options
 
