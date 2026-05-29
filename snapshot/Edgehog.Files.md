@@ -128,6 +128,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_fetch_file_delete_request?`
 
 Runs authorization checks for `Edgehog.Files.FileDeleteRequest.read`, returning a boolean.
@@ -169,6 +171,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_fetch_file_download_request`
 
@@ -212,6 +216,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_fetch_file_download_request?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.read`, returning a boolean.
@@ -253,6 +259,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_fetch_file_upload_request`
 
@@ -296,6 +304,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_fetch_file_upload_request?`
 
 Runs authorization checks for `Edgehog.Files.FileUploadRequest.read`, returning a boolean.
@@ -337,6 +347,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_send_file_delete_request`
 
@@ -380,6 +392,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_send_file_delete_request?`
 
 Runs authorization checks for `Edgehog.Files.FileDeleteRequest.send_file_delete_request`, returning a boolean.
@@ -421,6 +435,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_send_file_download_request`
 
@@ -464,6 +480,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_send_file_download_request?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.send_file_download_request`, returning a boolean.
@@ -505,6 +523,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_send_file_upload_request`
 
@@ -548,6 +568,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_send_file_upload_request?`
 
 Runs authorization checks for `Edgehog.Files.FileUploadRequest.send_file_upload_request`, returning a boolean.
@@ -589,6 +611,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_set_file_delete_response`
 
@@ -632,6 +656,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_set_file_delete_response?`
 
 Runs authorization checks for `Edgehog.Files.FileDeleteRequest.set_response`, returning a boolean.
@@ -673,6 +699,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_set_file_deletion_status`
 
@@ -716,6 +744,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_set_file_deletion_status?`
 
 Runs authorization checks for `Edgehog.Files.FileDeleteRequest.set_status`, returning a boolean.
@@ -757,6 +787,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_set_file_download_deleted_attribute`
 
@@ -800,6 +832,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_set_file_download_deleted_attribute?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.set_deleted`, returning a boolean.
@@ -841,6 +875,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_set_file_download_progress`
 
@@ -884,6 +920,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_set_file_download_progress?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.set_progress`, returning a boolean.
@@ -925,6 +963,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_set_file_download_response`
 
@@ -968,6 +1008,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_set_file_download_response?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.set_response`, returning a boolean.
@@ -1009,6 +1051,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_set_file_download_status`
 
@@ -1052,6 +1096,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_set_file_download_status?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.set_status`, returning a boolean.
@@ -1093,6 +1139,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_set_file_upload_progress`
 
@@ -1136,6 +1184,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_set_file_upload_progress?`
 
 Runs authorization checks for `Edgehog.Files.FileUploadRequest.set_file_upload_progress`, returning a boolean.
@@ -1177,6 +1227,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_set_file_upload_request_status`
 
@@ -1220,6 +1272,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_set_file_upload_request_status?`
 
 Runs authorization checks for `Edgehog.Files.FileUploadRequest.update_status`, returning a boolean.
@@ -1261,6 +1315,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_set_file_upload_response`
 
@@ -1304,6 +1360,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_set_file_upload_response?`
 
 Runs authorization checks for `Edgehog.Files.FileUploadRequest.set_file_upload_response`, returning a boolean.
@@ -1345,6 +1403,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_set_path_on_device`
 
@@ -1388,6 +1448,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_set_path_on_device?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.set_path_on_device`, returning a boolean.
@@ -1429,6 +1491,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `can_set_size_bytes`
 
@@ -1472,6 +1536,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_set_size_bytes?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.set_size_bytes`, returning a boolean.
@@ -1513,6 +1579,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `changeset_to_set_file_delete_response`
 
@@ -3722,8 +3790,8 @@ Calls the set_response action on Edgehog.Files.FileDownloadRequest.
 
 * status - The status of the file download (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* progress_percentage - The progress of the file download as a percentage (0-100).
 * response_message - Optional message for the response sent by the device.
+* progress_percentage - The progress of the file download as a percentage (0-100).
 
 ## Options
 
@@ -3883,8 +3951,8 @@ Raises any errors instead of returning them
 
 * status - The status of the file download (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* progress_percentage - The progress of the file download as a percentage (0-100).
 * response_message - Optional message for the response sent by the device.
+* progress_percentage - The progress of the file download as a percentage (0-100).
 
 ## Options
 
@@ -4672,8 +4740,8 @@ Calls the update_status action on Edgehog.Files.FileUploadRequest.
 
 * status - The status of the file upload (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* progress_percentage - The progress of the file upload as a percentage (0-100).
 * response_message - Optional message for the response sent by the device.
+* progress_percentage - The progress of the file upload as a percentage (0-100).
 
 ## Options
 
@@ -4833,8 +4901,8 @@ Raises any errors instead of returning them
 
 * status - The status of the file upload (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* progress_percentage - The progress of the file upload as a percentage (0-100).
 * response_message - Optional message for the response sent by the device.
+* progress_percentage - The progress of the file upload as a percentage (0-100).
 
 ## Options
 

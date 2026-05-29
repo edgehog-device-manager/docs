@@ -128,6 +128,8 @@ See `Ash.can/3` for more information
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
 # `can_delete_base_image?`
 
 Runs authorization checks for `Edgehog.BaseImages.BaseImage.destroy`, returning a boolean.
@@ -169,6 +171,8 @@ See `Ash.can?/3` for more information
 * `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
 
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
 # `changeset_to_delete_base_image`
 
