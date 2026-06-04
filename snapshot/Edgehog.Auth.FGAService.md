@@ -11,6 +11,8 @@ This module uses openfga's gRPC api to create all necessary resources based on t
 
 # `list_objects`
 
+# `list_users`
+
 # `stream_list_objects`
 
 # `write`

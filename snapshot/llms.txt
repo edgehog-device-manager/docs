@@ -324,7 +324,11 @@ the request based on token claims.
   - [Edgehog.Actors.Actor](Edgehog.Actors.Actor.md): Edgheog Actors.
 This module represents an actor performing a call trough the GraphQL APIs.
 It implements the ID Token from the OpenID Connect spec.
+  - [Edgehog.Auth.Changes.EraseAlias](Edgehog.Auth.Changes.EraseAlias.md): A change to erase the alias for an object in the FGA provider.
+  - [Edgehog.Auth.Changes.EraseOwner](Edgehog.Auth.Changes.EraseOwner.md): A change to remove the owner of a destroyed object in the FGA provider.
   - [Edgehog.Auth.Changes.EraseRelation](Edgehog.Auth.Changes.EraseRelation.md): A change to delete a relation in the FGA provider.
+  - [Edgehog.Auth.Changes.WriteAlias](Edgehog.Auth.Changes.WriteAlias.md): A change to create an alias for an object in the FGA provider.
+  - [Edgehog.Auth.Changes.WriteOwner](Edgehog.Auth.Changes.WriteOwner.md): A change to assign an owner to a newly created object in the FGA provider.
   - [Edgehog.Auth.Changes.WriteRelation](Edgehog.Auth.Changes.WriteRelation.md): A change to write a relation in the FGA provider.
   - [Edgehog.Auth.FGAService](Edgehog.Auth.FGAService.md): The edgehog FGA publisher.
   - [Edgehog.Auth.Policies.Check](Edgehog.Auth.Policies.Check.md): An `Ash.Policy.SimpleCheck`, checking the user `subj` has access to the object of type `obj`.

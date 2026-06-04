@@ -31,7 +31,13 @@ Authz provider behavior.
 # `objects`
 
 ```elixir
-@type objects() :: %{objects: term()}
+@type objects() :: %{objects: [term()]}
+```
+
+# `users`
+
+```elixir
+@type users() :: %{users: [term()]}
 ```
 
 # `check`
@@ -102,6 +108,29 @@ using `stream_list_objects`
 
 The call can return
 - `{:ok, objects()}` :: meaning that the user has access to the %{objects: list()} list of objects of type `type`
+- `{:error, error}`  :: meaning that there was some error in the request.
+
+For successful returns the new `context` should be provided.
+
+# `list_users`
+
+```elixir
+@callback list_users(tuple :: fga_access_tuple(), context :: context()) ::
+  {:ok, users()} | {:ok, :all} | {:error, term()}
+```
+
+A list_users call lists all users of the selected type for the given object.
+
+- subj :: is some id of the object for which the users are needed
+- rel  :: is the requested access to the resource (object) the users should have
+- type :: is the type of user resources we want to fetch
+
+The context should also be provided.
+
+NOTICE: Unlike it's opposite counterpart (`list_objects`), this does not provide a streamed version of the same function
+
+The call can return
+- `{:ok, users()}` :: meaning that the object has access to the %{objects: list()} list of objects of type `type`
 - `{:error, error}`  :: meaning that there was some error in the request.
 
 For successful returns the new `context` should be provided.
