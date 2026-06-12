@@ -232,11 +232,11 @@ after the file download request resource has been created.
   - [Edgehog.Files.FileUploadRequest.Changes.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.Changes.SendFileUploadRequest.md): Ash change responsible for sending a file upload request to the Astarte device
 after the file upload request resource has been created.
 
+  - [Edgehog.Files.FileUploadRequest.Changes.SetSource](Edgehog.Files.FileUploadRequest.Changes.SetSource.md): Changes module responsible for deriving and setting the `source` attribute
+of a `FileUploadRequest` based on its `source_type`.
+
   - [Edgehog.Files.FileUploadRequest.Changes.SetUploadUrl](Edgehog.Files.FileUploadRequest.Changes.SetUploadUrl.md): Ash change responsible for generating and setting a presigned upload URL
 for a file upload request before persisting it.
-
-  - [Edgehog.Files.FileUploadRequest.Changes.ValidateSource](Edgehog.Files.FileUploadRequest.Changes.ValidateSource.md): Changes module responsible for validating the `source` field of a `FileUploadRequest`
-based on the `source_type`.
 
   - [Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest.md): Manual action responsible for sending a file upload request to the Astarte device.
 
@@ -277,7 +277,7 @@ based on the `source_type`.
 
   - [Edgehog.Triggers.IncomingData.Handlers.FileDeleteResponse](Edgehog.Triggers.IncomingData.Handlers.FileDeleteResponse.md): File delete response handler
 
-  - [Edgehog.Triggers.IncomingData.Handlers.FileStorage](Edgehog.Triggers.IncomingData.Handlers.FileStorage.md): Available Images handler
+  - [Edgehog.Triggers.IncomingData.Handlers.FileStorage](Edgehog.Triggers.IncomingData.Handlers.FileStorage.md): Handles incoming Astarte trigger events related to device file storage.
 
   - [Edgehog.Triggers.IncomingData.Handlers.FileTransfer.Progress](Edgehog.Triggers.IncomingData.Handlers.FileTransfer.Progress.md): Available Images handler
 

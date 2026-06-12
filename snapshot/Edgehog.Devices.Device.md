@@ -33,6 +33,7 @@ A Device also exposes info about its connection status and some sets of data rea
   capabilities: term(),
   cellular_connection: term(),
   container_deployments: term(),
+  device_files: term(),
   device_groups: term(),
   device_id: term(),
   device_mapping_deployments: term(),
