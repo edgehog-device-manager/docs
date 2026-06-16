@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns.CampaignMechanism.DeploymentStop`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/campaigns/campaign_mechanism/deployment_stop/deployment_stop.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/campaigns/campaign_mechanism/deployment_stop/deployment_stop.ex#L21)
 
 Defines the Stop Campaign Mechanism resource.
 This resource represents the configuration for a stop operation within a deployment campaign.

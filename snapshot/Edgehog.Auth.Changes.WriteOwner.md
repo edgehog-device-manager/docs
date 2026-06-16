@@ -1,5 +1,5 @@
 # `Edgehog.Auth.Changes.WriteOwner`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/auth/changes/write_owner.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/auth/changes/write_owner.ex#L21)
 
 A change to assign an owner to a newly created object in the FGA provider.
 

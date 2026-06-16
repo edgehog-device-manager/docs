@@ -1,5 +1,5 @@
 # `Edgehog.Groups`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/groups/groups.ex#L19)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/groups/groups.ex#L19)
 
 The Groups context.
 

@@ -1,5 +1,5 @@
 # `Edgehog.MultitenantResource`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/multitenant_resource.ex#L19)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/multitenant_resource.ex#L19)
 
 Define the resource as `belong_to` with a `Edgehog.Tenant.Tenant`.
 

@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns.CampaignTarget`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/campaigns/campaign_target/campaign_target.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/campaigns/campaign_target/campaign_target.ex#L21)
 
 Represents a CampaignTarget.
 

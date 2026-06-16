@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns.CampaignMechanism.Core`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L21)
 
 Protocol defining the core functions that a campaign mechanism must implement.
 

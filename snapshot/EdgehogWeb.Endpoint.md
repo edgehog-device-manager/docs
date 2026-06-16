@@ -1,5 +1,5 @@
 # `EdgehogWeb.Endpoint`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog_web/endpoint.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog_web/endpoint.ex#L21)
 
 # `broadcast`
 

@@ -4,6 +4,10 @@ var versionNodes = [
         url: "https://docs.edgehog.io/snapshot",
     },
     {
+        version: "v0.13",
+        url: "https://docs.edgehog.io/0.13",
+    },
+    {
         version: "v0.12",
         url: "https://docs.edgehog.io/0.12",
     },

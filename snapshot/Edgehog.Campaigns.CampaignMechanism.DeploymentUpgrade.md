@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns.CampaignMechanism.DeploymentUpgrade`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/campaigns/campaign_mechanism/deployment_upgrade/deployment_upgrade.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/campaigns/campaign_mechanism/deployment_upgrade/deployment_upgrade.ex#L21)
 
 Defines the Upgrade Campaign Mechanism resource.
 This resource represents the configuration for an upgrade operation within a deployment campaign.

@@ -1,5 +1,5 @@
 # `Edgehog.Error`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/error.ex#L19)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/error.ex#L19)
 
 Error utilities to match device errors when communicating with astarte.
 

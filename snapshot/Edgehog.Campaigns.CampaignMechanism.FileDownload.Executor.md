@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns.CampaignMechanism.FileDownload.Executor`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.12.0/backend/lib/edgehog/campaigns/campaign_mechanism/file_download/executor.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/campaigns/campaign_mechanism/file_download/executor.ex#L21)
 
 Executor for lazy file download campaigns using the generic LazyBatch behavior.
 
