@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-0960A6AA.js"></script>
+    <script defer src="dist/sidebar_items-7FE828B9.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -679,6 +679,17 @@ the <code class="inline">namespace</code>.</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#put_tenant_reconciler_timeout/2" data-no-tooltip="" translate="no">put_tenant_reconciler_timeout(value, namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Puts the <code class="inline">value</code> to <a href="#tenant_reconciler_timeout/0"><code class="inline">Edgehog.Config.tenant_reconciler_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#reload_admin_jwk/1" data-no-tooltip="" translate="no">reload_admin_jwk(namespace \\ nil)</a>
 
       </div>
@@ -833,12 +844,43 @@ the <code class="inline">namespace</code> for the variable.</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#reload_tenant_reconciler_timeout/1" data-no-tooltip="" translate="no">reload_tenant_reconciler_timeout(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Reloads the value for <a href="#tenant_reconciler_timeout/0"><code class="inline">Edgehog.Config.tenant_reconciler_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#template/2" data-no-tooltip="" translate="no">template(filename, options \\ [])</a>
 
       </div>
 
         <div class="summary-synopsis"><p>Creates a template for OS environment variables given a <code class="inline">filename</code>.
 Additionally, it can receive a list of options</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#tenant_reconciler_timeout/1" data-no-tooltip="" translate="no">tenant_reconciler_timeout(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Edgehog tenant reconciliation timeout (seconds).</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#tenant_reconciler_timeout!/1" data-no-tooltip="" translate="no">tenant_reconciler_timeout!(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Edgehog tenant reconciliation timeout (seconds).</p></div>
 
     </div>
 
@@ -962,7 +1004,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">authz_config!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L253" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L263" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1055,7 +1097,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">authz_provider_config!(provider)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L232" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L242" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1145,7 +1187,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_enable_ssl?()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L137" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L147" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1235,7 +1277,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_ssl_config()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L188" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L198" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1263,7 +1305,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_ssl_config_opts()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L178" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L188" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1353,7 +1395,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_ssl_verify?()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L143" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L153" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1443,7 +1485,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_use_os_certs?()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L149" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L159" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1471,7 +1513,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">geocoding_providers!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L211" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L221" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1499,7 +1541,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">geolocation_providers!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L198" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L208" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2510,6 +2552,38 @@ the <code class="inline">namespace</code>.</p>
 the <code class="inline">namespace</code>.</p>
   </section>
 </section>
+<section class="detail" id="put_tenant_reconciler_timeout/2">
+
+    <span id="put_tenant_reconciler_timeout/1"></span>
+
+  <div class="detail-header">
+    <a href="#put_tenant_reconciler_timeout/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">put_tenant_reconciler_timeout(value, namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> put_tenant_reconciler_timeout(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(), <a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  :ok | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Puts the <code class="inline">value</code> to <a href="#tenant_reconciler_timeout/0"><code class="inline">Edgehog.Config.tenant_reconciler_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p>
+  </section>
+</section>
 <section class="detail" id="reload_admin_jwk/1">
 
     <span id="reload_admin_jwk/0"></span>
@@ -2958,6 +3032,38 @@ the <code class="inline">namespace</code> for the variable.</p>
 the <code class="inline">namespace</code> for the variable.</p>
   </section>
 </section>
+<section class="detail" id="reload_tenant_reconciler_timeout/1">
+
+    <span id="reload_tenant_reconciler_timeout/0"></span>
+
+  <div class="detail-header">
+    <a href="#reload_tenant_reconciler_timeout/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">reload_tenant_reconciler_timeout(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> reload_tenant_reconciler_timeout(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Reloads the value for <a href="#tenant_reconciler_timeout/0"><code class="inline">Edgehog.Config.tenant_reconciler_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p>
+  </section>
+</section>
 <section class="detail" id="template/2">
 
     <span id="template/1"></span>
@@ -2991,6 +3097,69 @@ the <code class="inline">namespace</code> for the variable.</p>
 <p>Creates a template for OS environment variables given a <code class="inline">filename</code>.
 Additionally, it can receive a list of options:</p><ul><li><code class="inline">type</code>: What kind of file it will generate (<code class="inline">:elixir</code>, <code class="inline">:unix</code>,
 <code class="inline">:windows</code>).</li><li><code class="inline">namespace</code>: Namespace for the variables.</li></ul>
+  </section>
+</section>
+<section class="detail" id="tenant_reconciler_timeout/1">
+
+    <span id="tenant_reconciler_timeout/0"></span>
+
+  <div class="detail-header">
+    <a href="#tenant_reconciler_timeout/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">tenant_reconciler_timeout(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> tenant_reconciler_timeout(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Edgehog tenant reconciliation timeout (seconds).</p><p>This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.</p><p>Calling <code class="inline">Edgehog.Config.tenant_reconciler_timeout()</code> will ensure the following:</p><ul><li>Binding order: [:system, :config]</li><li>OS environment variable: &quot;EDGEHOG_TENANT_RECONCILER_TIMEOUT&quot;</li><li>Type: :non_neg_integer</li><li>Default: 600000</li><li>Required: false</li><li>Cached: true</li></ul>
+  </section>
+</section>
+<section class="detail" id="tenant_reconciler_timeout!/1">
+
+    <span id="tenant_reconciler_timeout!/0"></span>
+
+  <div class="detail-header">
+    <a href="#tenant_reconciler_timeout!/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">tenant_reconciler_timeout!(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> tenant_reconciler_timeout!(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+
+      </div>
+
+<p>Edgehog tenant reconciliation timeout (seconds).</p><p>This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.</p><p>Bang version of <a href="#tenant_reconciler_timeout/0"><code class="inline">Edgehog.Config.tenant_reconciler_timeout/0</code></a> (fails on error). Optionally,
+receives the <code class="inline">namespace</code> for the variable.</p>
   </section>
 </section>
 <section class="detail" id="validate/1">
@@ -3066,7 +3235,7 @@ Returns <code class="inline">:ok</code> if they are, raises if they're not.</p><
       <h1 class="signature" translate="no">validate_admin_authentication!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L223" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L233" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 

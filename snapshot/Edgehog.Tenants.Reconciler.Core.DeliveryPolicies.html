@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.2">
+    <meta name="project" content="Clea Edgehog v0.13.0-rc.0">
+
+
+    <title>Edgehog.Tenants.Reconciler.Core.DeliveryPolicies — Clea Edgehog v0.13.0-rc.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+
+    <script defer src="dist/sidebar_items-7FE828B9.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-Y2MUTVIN.js"></script>
+<link rel="stylesheet" href="style/cards.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="intro.html" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="intro.html" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.13.0-rc.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-module" id="main" data-type="modules">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>
+      <span translate="no">Edgehog.<wbr />Tenants.<wbr />Reconciler.<wbr />Core.<wbr />DeliveryPolicies</span> 
+      <small class="app-vsn" translate="no">(Clea Edgehog v0.13.0-rc.0)</small>
+
+    </h1>
+
+<a href="Edgehog.Tenants.Reconciler.Core.DeliveryPolicies.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+  </div>
+
+
+    <section id="moduledoc">
+<p>Edgehog tenant reconciler responsible for delivery policies.</p><p>This module has a main entrypoint: <a href="#reconcile/1"><code class="inline">reconcile/1</code></a></p><p><a href="#reconcile/1"><code class="inline">reconcile/1</code></a> expects a <a href="Edgehog.Tenants.Reconciler.Core.html"><code class="inline">Edgehog.Tenants.Reconciler.Core</code></a> context with</p><ul><li>a realm management client</li><li>the astarte version</li></ul><p>and installs delivery policies accordingly.</p><p>It adds a key to the context stating whether delivery polices are compatible or not:</p><pre><code class="makeup elixir" translate="no"><span class="ss">delivery_policies_compatible</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">false</span></code></pre><p>If errors happen while installing the delivery policies, corresponding entries are added to the context.</p><pre><code class="makeup elixir" translate="no"><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1154180806-1">[</span><span class="ss">delivery_policies</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1154180806-2">[</span><span class="n">error1</span><span class="p">,</span><span class="w"> </span><span class="n">error2</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="1154180806-2">]</span><span class="p" data-group-id="1154180806-1">]</span></code></pre>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h2 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h2>
+<div class="summary-functions summary">
+  <h3>
+    <a href="#functions">Functions</a>
+  </h3>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#list_delivery_policies/0" data-no-tooltip="" translate="no">list_delivery_policies()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Lists all delivery policies under <code class="inline">priv/astarte_resources/delivery_policies</code></p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#reconcile/1" data-no-tooltip="" translate="no">reconcile(context)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Given a context, installs the necessary trigger delivery policies.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#reconcile_delivery_policy/2" data-no-tooltip="" translate="no">reconcile_delivery_policy(context, policy)</a>
+
+      </div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h2 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h2>
+
+    <div class="functions-list">
+<section class="detail" id="list_delivery_policies/0">
+
+  <div class="detail-header">
+    <a href="#list_delivery_policies/0" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">list_delivery_policies()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L95" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Lists all delivery policies under <code class="inline">priv/astarte_resources/delivery_policies</code></p><p>All returned delivery policies are <a href="https://hexdocs.pm/eex/EEx.html"><code class="inline">EEx</code></a> evaluated and <a href="https://hexdocs.pm/jason/1.4.5/Jason.html"><code class="inline">Jason</code></a> decoded,
+effectively returning a map of all properties of the delivery policy.</p>
+  </section>
+</section>
+<section class="detail" id="reconcile/1">
+
+  <div class="detail-header">
+    <a href="#reconcile/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">reconcile(context)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L79" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Given a context, installs the necessary trigger delivery policies.</p><ul><li>first it checks against the recorded astarte version.</li><li>if the minimum required for trigger delivery policies installation is met, then proceeds to install the necessary policies.</li><li>if the minimum required version is not met, then no delivery policies are installed.</li></ul><p>A new key is added to the context: <code class="inline">delivery_policies_compatible</code>, stating
+whether astarte is compatible with trigger delivery policies.</p><p>Notice: this function might have the side effect of uninstalling all triggers that previously referenced a delivery policy.</p><p>Since updating a delivery policy is actually not possible, what we have to do is</p><ul><li>uninstall all the triggers that referenced the old policy</li><li>uninstall the policy</li><li>install the new policy</li></ul><p>This leaves the triggers uninstalled, as at this stage we don't have a notion
+of what triggers were present in astarte.</p>
+  </section>
+</section>
+<section class="detail" id="reconcile_delivery_policy/2">
+
+  <div class="detail-header">
+    <a href="#reconcile_delivery_policy/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">reconcile_delivery_policy(context, policy)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
