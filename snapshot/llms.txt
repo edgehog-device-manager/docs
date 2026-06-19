@@ -150,10 +150,6 @@ A deployment is ready when:
 
   - [Edgehog.Containers.Deployment.Changes.AppendEvent](Edgehog.Containers.Deployment.Changes.AppendEvent.md): Appends an event with the given argument details.
 
-  - [Edgehog.Containers.Deployment.Changes.LogStarted](Edgehog.Containers.Deployment.Changes.LogStarted.md): Logs a started container status.
-
-  - [Edgehog.Containers.Deployment.Changes.LogStopped](Edgehog.Containers.Deployment.Changes.LogStopped.md): Logs a stopped container status.
-
   - [Edgehog.Containers.Deployment.Changes.Reconcile](Edgehog.Containers.Deployment.Changes.Reconcile.md): Starts a reconciliation with the device.
   - [Edgehog.Containers.Deployment.Changes.Relate](Edgehog.Containers.Deployment.Changes.Relate.md): Relates a deployment to underlying container deployments, by creating them when
 needed.
@@ -251,8 +247,18 @@ for a file upload request before persisting it.
   - [Edgehog.BaseImages](Edgehog.BaseImages.md): The BaseImages context.
 
 - Multitenancy
+  - [Edgehog.Tenants.Reconciler](Edgehog.Tenants.Reconciler.md): The tenant reconciler.
+  - [Edgehog.Tenants.Reconciler.Context](Edgehog.Tenants.Reconciler.Context.md): Helper function for tenant reconciliation.
+  - [Edgehog.Tenants.Reconciler.Core](Edgehog.Tenants.Reconciler.Core.md): Tenants reconciler module.
+  - [Edgehog.Tenants.Reconciler.Core.DeliveryPolicies](Edgehog.Tenants.Reconciler.Core.DeliveryPolicies.md): Edgehog tenant reconciler responsible for delivery policies.
+  - [Edgehog.Tenants.Reconciler.Core.Interfaces](Edgehog.Tenants.Reconciler.Core.Interfaces.md): The interfaces part of the reconciler core.
+
+  - [Edgehog.Tenants.Reconciler.Core.Triggers](Edgehog.Tenants.Reconciler.Core.Triggers.md): The reconciler core part for triggers.
+  - [Edgehog.Tenants.Reconciler.Starter](Edgehog.Tenants.Reconciler.Starter.md): Tenant reconciler starter.
   - [Edgehog.Tenants.Tenant](Edgehog.Tenants.Tenant.md): Tenant resource schema and operations.
   - [Edgehog.Tenants.Tenant.Changes.StartContainersReconciler](Edgehog.Tenants.Tenant.Changes.StartContainersReconciler.md): Starts the container reconciler for the current tenant.
+
+  - [Edgehog.Tenants.Tenant.Changes.StartReconciliation](Edgehog.Tenants.Tenant.Changes.StartReconciliation.md): Reconciliation starter.
 
 - Astarte trigger handling
   - [Edgehog.Triggers.Handlers.DeviceConnected](Edgehog.Triggers.Handlers.DeviceConnected.md): Device connected handler
