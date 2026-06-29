@@ -1,5 +1,5 @@
 # `Edgehog.Astarte.Device.FileTransferCapabilities`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/astarte/device/file_transfer_capabilities.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/astarte/device/file_transfer_capabilities.ex#L21)
 
 This module defines the `FileTransferCapabilities` struct and implements the
 `Edgehog.Astarte.Device.FileTransferCapabilities.Behaviour` to fetch and parse

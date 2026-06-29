@@ -1,5 +1,5 @@
 # `EdgehogWeb.AdminAPI.Auth.Token.Plug`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog_web/admin_api/auth/token.ex#L23)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog_web/admin_api/auth/token.ex#L23)
 
 # `authenticated?`
 

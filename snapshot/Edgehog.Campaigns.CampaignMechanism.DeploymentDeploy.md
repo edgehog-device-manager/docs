@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns.CampaignMechanism.DeploymentDeploy`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/campaigns/campaign_mechanism/deployment_deploy/deployment_deploy.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/deployment_deploy/deployment_deploy.ex#L21)
 
 Defines the Deploy Campaign Mechanism resource.
 This resource represents the configuration for a deploy operation within a deployment campaign.
