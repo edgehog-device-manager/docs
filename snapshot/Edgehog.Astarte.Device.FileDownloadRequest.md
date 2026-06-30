@@ -1,5 +1,5 @@
 # `Edgehog.Astarte.Device.FileDownloadRequest`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/astarte/device/file_download_request/request_download.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/astarte/device/file_download_request/request_download.ex#L21)
 
 Module responsible for handling file download requests on Astarte devices.
 

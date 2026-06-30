@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.40.2">
-    <meta name="project" content="Clea Edgehog v0.13.0-rc.0">
+    <meta name="project" content="Clea Edgehog v0.13.0-rc.1">
 
 
-    <title>Edgehog.Tenants.Reconciler.Core.DeliveryPolicies — Clea Edgehog v0.13.0-rc.0</title>
+    <title>Edgehog.Tenants.Reconciler.Core.DeliveryPolicies — Clea Edgehog v0.13.0-rc.1</title>
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-FCAC2FA2.js"></script>
+    <script defer src="dist/sidebar_items-730CAF25.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -41,7 +41,7 @@
 Clea Edgehog
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.13.0-rc.0
+          v0.13.0-rc.1
         </div>
       </div>
     </div>
@@ -98,7 +98,7 @@ Clea Edgehog
   <div class="heading-with-actions top-heading">
     <h1>
       <span translate="no">Edgehog.<wbr />Tenants.<wbr />Reconciler.<wbr />Core.<wbr />DeliveryPolicies</span> 
-      <small class="app-vsn" translate="no">(Clea Edgehog v0.13.0-rc.0)</small>
+      <small class="app-vsn" translate="no">(Clea Edgehog v0.13.0-rc.1)</small>
 
     </h1>
 
@@ -109,7 +109,7 @@ Clea Edgehog
 
 
 
-      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -118,7 +118,7 @@ Clea Edgehog
 
 
     <section id="moduledoc">
-<p>Edgehog tenant reconciler responsible for delivery policies.</p><p>This module has a main entrypoint: <a href="#reconcile/1"><code class="inline">reconcile/1</code></a></p><p><a href="#reconcile/1"><code class="inline">reconcile/1</code></a> expects a <a href="Edgehog.Tenants.Reconciler.Core.html"><code class="inline">Edgehog.Tenants.Reconciler.Core</code></a> context with</p><ul><li>a realm management client</li><li>the astarte version</li></ul><p>and installs delivery policies accordingly.</p><p>It adds a key to the context stating whether delivery polices are compatible or not:</p><pre><code class="makeup elixir" translate="no"><span class="ss">delivery_policies_compatible</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">false</span></code></pre><p>If errors happen while installing the delivery policies, corresponding entries are added to the context.</p><pre><code class="makeup elixir" translate="no"><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7000797915-1">[</span><span class="ss">delivery_policies</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="7000797915-2">[</span><span class="n">error1</span><span class="p">,</span><span class="w"> </span><span class="n">error2</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="7000797915-2">]</span><span class="p" data-group-id="7000797915-1">]</span></code></pre>
+<p>Edgehog tenant reconciler responsible for delivery policies.</p><p>This module has a main entrypoint: <a href="#reconcile/1"><code class="inline">reconcile/1</code></a></p><p><a href="#reconcile/1"><code class="inline">reconcile/1</code></a> expects a <a href="Edgehog.Tenants.Reconciler.Core.html"><code class="inline">Edgehog.Tenants.Reconciler.Core</code></a> context with</p><ul><li>a realm management client</li><li>the astarte version</li></ul><p>and installs delivery policies accordingly.</p><p>It adds a key to the context stating whether delivery polices are compatible or not:</p><pre><code class="makeup elixir" translate="no"><span class="ss">delivery_policies_compatible</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="no">false</span></code></pre><p>If errors happen while installing the delivery policies, corresponding entries are added to the context.</p><pre><code class="makeup elixir" translate="no"><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9564618566-1">[</span><span class="ss">delivery_policies</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9564618566-2">[</span><span class="n">error1</span><span class="p">,</span><span class="w"> </span><span class="n">error2</span><span class="p">,</span><span class="w"> </span><span class="n">...</span><span class="p" data-group-id="9564618566-2">]</span><span class="p" data-group-id="9564618566-1">]</span></code></pre>
     </section>
 
 </div>
@@ -187,7 +187,7 @@ Clea Edgehog
       <h1 class="signature" translate="no">list_delivery_policies()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L95" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L95" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -210,7 +210,7 @@ effectively returning a map of all properties of the delivery policy.</p>
       <h1 class="signature" translate="no">reconcile(context)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L79" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L79" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -234,7 +234,7 @@ of what triggers were present in astarte.</p>
       <h1 class="signature" translate="no">reconcile_delivery_policy(context, policy)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/tenants/reconciler/core/delivery_policies.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 

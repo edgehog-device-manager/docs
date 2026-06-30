@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.40.2">
-    <meta name="project" content="Clea Edgehog v0.13.0-rc.0">
+    <meta name="project" content="Clea Edgehog v0.13.0-rc.1">
 
 
-    <title>Edgehog.Tenants.Reconciler.Context — Clea Edgehog v0.13.0-rc.0</title>
+    <title>Edgehog.Tenants.Reconciler.Context — Clea Edgehog v0.13.0-rc.1</title>
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-FCAC2FA2.js"></script>
+    <script defer src="dist/sidebar_items-730CAF25.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -41,7 +41,7 @@
 Clea Edgehog
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.13.0-rc.0
+          v0.13.0-rc.1
         </div>
       </div>
     </div>
@@ -98,7 +98,7 @@ Clea Edgehog
   <div class="heading-with-actions top-heading">
     <h1>
       <span translate="no">Edgehog.<wbr />Tenants.<wbr />Reconciler.<wbr />Context</span> 
-      <small class="app-vsn" translate="no">(Clea Edgehog v0.13.0-rc.0)</small>
+      <small class="app-vsn" translate="no">(Clea Edgehog v0.13.0-rc.1)</small>
 
     </h1>
 
@@ -109,7 +109,7 @@ Clea Edgehog
 
 
 
-      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/context.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/tenants/reconciler/context.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -212,7 +212,7 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
       <h1 class="signature" translate="no">add_context(context, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/context.ex#L114" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/tenants/reconciler/context.ex#L114" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -221,7 +221,7 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
 
   <section class="docstring">
 
-<p>Adds a key to the context.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="n">add_context</span><span class="p" data-group-id="0177242539-1">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">delivery_policies_compatible</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="0177242539-1">)</span></code></pre>
+<p>Adds a key to the context.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="n">add_context</span><span class="p" data-group-id="6114353184-1">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">delivery_policies_compatible</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="6114353184-1">)</span></code></pre>
   </section>
 </section>
 <section class="detail" id="add_error/3">
@@ -234,7 +234,7 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
       <h1 class="signature" translate="no">add_error(context, section, error)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/context.ex#L150" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/tenants/reconciler/context.ex#L150" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -243,16 +243,16 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
 
   <section class="docstring">
 
-<p>Adds an error to the context, in the corresponding section</p><p>Sections are handled as keys in a keyword list (the errors in the context):</p><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="1897265595-1">%{</span><span class="w">
-  </span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1897265595-2">[</span><span class="w">
-    </span><span class="ss">delivery_policies</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1897265595-3">[</span><span class="w">
+<p>Adds an error to the context, in the corresponding section</p><p>Sections are handled as keys in a keyword list (the errors in the context):</p><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="1532229275-1">%{</span><span class="w">
+  </span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1532229275-2">[</span><span class="w">
+    </span><span class="ss">delivery_policies</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1532229275-3">[</span><span class="w">
       </span><span class="n">error1</span><span class="p">,</span><span class="w">
       </span><span class="n">error2</span><span class="p">,</span><span class="w">
       </span><span class="n">error3</span><span class="p">,</span><span class="w">
       </span><span class="n">...</span><span class="w">
-    </span><span class="p" data-group-id="1897265595-3">]</span><span class="w">
-  </span><span class="p" data-group-id="1897265595-2">]</span><span class="w">
-</span><span class="p" data-group-id="1897265595-1">}</span></code></pre>
+    </span><span class="p" data-group-id="1532229275-3">]</span><span class="w">
+  </span><span class="p" data-group-id="1532229275-2">]</span><span class="w">
+</span><span class="p" data-group-id="1532229275-1">}</span></code></pre>
   </section>
 </section>
 <section class="detail" id="build/1">
@@ -265,7 +265,7 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
       <h1 class="signature" translate="no">build(tenant)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/context.ex#L64" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/tenants/reconciler/context.ex#L64" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -274,12 +274,12 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
 
   <section class="docstring">
 
-<p>Builds a context, given a tenant.</p><p>This will only provide the initial context. A context is a map. Keys can be added as you go, but some keys are provided here:</p><ul><li>tenant                  :: the given tenant, for which we're building the context</li><li>realm_management_client :: the realm management client to interact with astarte</li><li>astarte_version         :: the astarte version</li><li>errors                  :: a Keyword list of errors, scoped per reconciler section (delivery policies, triggers, interfaces). The list is empty by default</li></ul><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="0050636997-1">%{</span><span class="w">
+<p>Builds a context, given a tenant.</p><p>This will only provide the initial context. A context is a map. Keys can be added as you go, but some keys are provided here:</p><ul><li>tenant                  :: the given tenant, for which we're building the context</li><li>realm_management_client :: the realm management client to interact with astarte</li><li>astarte_version         :: the astarte version</li><li>errors                  :: a Keyword list of errors, scoped per reconciler section (delivery policies, triggers, interfaces). The list is empty by default</li></ul><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="8217326834-1">%{</span><span class="w">
   </span><span class="ss">tenant</span><span class="p">:</span><span class="w"> </span><span class="n">tenant</span><span class="p">,</span><span class="w">
   </span><span class="ss">rm_client</span><span class="p">:</span><span class="w"> </span><span class="n">realm_management_client</span><span class="p">,</span><span class="w">
   </span><span class="ss">astarte_version</span><span class="p">:</span><span class="w"> </span><span class="n">astarte_version</span><span class="p">,</span><span class="w">
-  </span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0050636997-2">[</span><span class="p" data-group-id="0050636997-2">]</span><span class="w">
-</span><span class="p" data-group-id="0050636997-1">}</span></code></pre><p>You might want to match on the following possible return values</p><ul><li><code class="inline">{:ok, context}</code>                       :: The context was successfully iniyialized.</li><li><code class="inline">{:error, :missing_rm_client}</code>         :: The realm management client was not correctly initialized. Possibly as misconfiguration of the astarte realm.</li><li><code class="inline">{:error, :invalid_tenant}</code>            :: The provided tenant was not valid.</li><li><code class="inline">{:error, %Astarte.Client.APIError{}}</code> :: There was a communication error with astarte.</li></ul>
+  </span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="8217326834-2">[</span><span class="p" data-group-id="8217326834-2">]</span><span class="w">
+</span><span class="p" data-group-id="8217326834-1">}</span></code></pre><p>You might want to match on the following possible return values</p><ul><li><code class="inline">{:ok, context}</code>                       :: The context was successfully iniyialized.</li><li><code class="inline">{:error, :missing_rm_client}</code>         :: The realm management client was not correctly initialized. Possibly as misconfiguration of the astarte realm.</li><li><code class="inline">{:error, :invalid_tenant}</code>            :: The provided tenant was not valid.</li><li><code class="inline">{:error, %Astarte.Client.APIError{}}</code> :: There was a communication error with astarte.</li></ul>
   </section>
 </section>
 <section class="detail" id="errors?/2">
@@ -294,7 +294,7 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
       <h1 class="signature" translate="no">errors?(context, section \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/context.ex#L188" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/tenants/reconciler/context.ex#L188" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -303,20 +303,20 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
 
   <section class="docstring">
 
-<p>Checks whether there are errors or a specific section has errors.</p><h2 id="errors?/2-examples" class="section-heading"><a href="#errors?/2-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Examples:</span></h2><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="4055335199-1">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4055335199-2">[</span><span class="p" data-group-id="4055335199-2">]</span><span class="p" data-group-id="4055335199-1">}</span><span class="w">
-</span><span class="p" data-group-id="4055335199-3">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4055335199-4">[</span><span class="p" data-group-id="4055335199-4">]</span><span class="p" data-group-id="4055335199-3">}</span><span class="w">
+<p>Checks whether there are errors or a specific section has errors.</p><h2 id="errors?/2-examples" class="section-heading"><a href="#errors?/2-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Examples:</span></h2><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="1278517270-1">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1278517270-2">[</span><span class="p" data-group-id="1278517270-2">]</span><span class="p" data-group-id="1278517270-1">}</span><span class="w">
+</span><span class="p" data-group-id="1278517270-3">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1278517270-4">[</span><span class="p" data-group-id="1278517270-4">]</span><span class="p" data-group-id="1278517270-3">}</span><span class="w">
 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="4055335199-5">(</span><span class="n">context</span><span class="p" data-group-id="4055335199-5">)</span><span class="w">
-</span><span class="no">false</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="9587927368-1">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9587927368-2">[</span><span class="ss">sec_1</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9587927368-3">[</span><span class="ss">:some_error</span><span class="p" data-group-id="9587927368-3">]</span><span class="p" data-group-id="9587927368-2">]</span><span class="p" data-group-id="9587927368-1">}</span><span class="w">
-</span><span class="p" data-group-id="9587927368-4">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9587927368-5">[</span><span class="ss">sec_1</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9587927368-6">[</span><span class="ss">:some_error</span><span class="p" data-group-id="9587927368-6">]</span><span class="p" data-group-id="9587927368-5">]</span><span class="p" data-group-id="9587927368-4">}</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="1278517270-5">(</span><span class="n">context</span><span class="p" data-group-id="1278517270-5">)</span><span class="w">
+</span><span class="no">false</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="1961686979-1">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1961686979-2">[</span><span class="ss">sec_1</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1961686979-3">[</span><span class="ss">:some_error</span><span class="p" data-group-id="1961686979-3">]</span><span class="p" data-group-id="1961686979-2">]</span><span class="p" data-group-id="1961686979-1">}</span><span class="w">
+</span><span class="p" data-group-id="1961686979-4">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1961686979-5">[</span><span class="ss">sec_1</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1961686979-6">[</span><span class="ss">:some_error</span><span class="p" data-group-id="1961686979-6">]</span><span class="p" data-group-id="1961686979-5">]</span><span class="p" data-group-id="1961686979-4">}</span><span class="w">
 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="9587927368-7">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:sec_1</span><span class="p" data-group-id="9587927368-7">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="1961686979-7">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:sec_1</span><span class="p" data-group-id="1961686979-7">)</span><span class="w">
 </span><span class="no">true</span><span class="w">
 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="9587927368-8">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:sec_2</span><span class="p" data-group-id="9587927368-8">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="1961686979-8">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:sec_2</span><span class="p" data-group-id="1961686979-8">)</span><span class="w">
 </span><span class="no">false</span><span class="w">
 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="9587927368-9">(</span><span class="n">context</span><span class="p" data-group-id="9587927368-9">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="1961686979-9">(</span><span class="n">context</span><span class="p" data-group-id="1961686979-9">)</span><span class="w">
 </span><span class="no">true</span></code></pre>
   </section>
 </section>
@@ -332,7 +332,7 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
       <h1 class="signature" translate="no">get_context(context, key, default \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/tenants/reconciler/context.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/tenants/reconciler/context.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -341,7 +341,7 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
 
   <section class="docstring">
 
-<p>Retrieves a key from the context, defaulting to a default value if not present:</p><p>Example: </p><pre><code class="makeup elixir" translate="no"><span class="n">get_context</span><span class="p" data-group-id="3215289613-1">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:delivery_policies_compatible</span><span class="p">,</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="3215289613-1">)</span></code></pre>
+<p>Retrieves a key from the context, defaulting to a default value if not present:</p><p>Example: </p><pre><code class="makeup elixir" translate="no"><span class="n">get_context</span><span class="p" data-group-id="7214256757-1">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:delivery_policies_compatible</span><span class="p">,</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="7214256757-1">)</span></code></pre>
   </section>
 </section>
 

@@ -1,5 +1,5 @@
 # `Edgehog.Config.JWTPublicKeyPEMType`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config/jwt_public_key_pem_type.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/config/jwt_public_key_pem_type.ex#L21)
 
 JWT public key PEM type for configuration.
 

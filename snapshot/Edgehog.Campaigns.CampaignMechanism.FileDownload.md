@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns.CampaignMechanism.FileDownload`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/campaigns/campaign_mechanism/file_download/file_download.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/file_download/file_download.ex#L21)
 
 Defines the File Download Campaign Mechanism resource.
 This resource represents the configuration for a file download operation within a file download campaign.

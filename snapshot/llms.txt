@@ -1,4 +1,4 @@
-# Clea Edgehog v0.13.0-rc.0 - Table of Contents
+# Clea Edgehog v0.13.0-rc.1 - Table of Contents
 
 ## Pages
 
@@ -149,6 +149,10 @@ A deployment is ready when:
  - All underlying container deployments are ready
 
   - [Edgehog.Containers.Deployment.Changes.AppendEvent](Edgehog.Containers.Deployment.Changes.AppendEvent.md): Appends an event with the given argument details.
+
+  - [Edgehog.Containers.Deployment.Changes.LogStarted](Edgehog.Containers.Deployment.Changes.LogStarted.md): Logs a started container status.
+
+  - [Edgehog.Containers.Deployment.Changes.LogStopped](Edgehog.Containers.Deployment.Changes.LogStopped.md): Logs a stopped container status.
 
   - [Edgehog.Containers.Deployment.Changes.Reconcile](Edgehog.Containers.Deployment.Changes.Reconcile.md): Starts a reconciliation with the device.
   - [Edgehog.Containers.Deployment.Changes.Relate](Edgehog.Containers.Deployment.Changes.Relate.md): Relates a deployment to underlying container deployments, by creating them when

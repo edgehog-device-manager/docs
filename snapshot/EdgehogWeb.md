@@ -1,5 +1,5 @@
 # `EdgehogWeb`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog_web.ex#L19)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog_web.ex#L19)
 
 The entrypoint for defining your web interface, such
 as controllers, views, channels and so on.
