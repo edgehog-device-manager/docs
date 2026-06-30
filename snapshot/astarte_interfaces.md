@@ -4007,11 +4007,11 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
 
 The interface has the following mappings:
 
-- `/%{requestId}/pathOnDevice` with `string` type. Path on the device for the transferred file
-- `/%{requestId}/sizeBytes` with `longinteger` type. Size in bytes of the file
+- `/%{fileId}/pathOnDevice` with `string` type. Path on the device for the transferred file
+- `/%{fileId}/sizeBytes` with `longinteger` type. Size in bytes of the file
 
 
-### `/%{requestId}/pathOnDevice`
+### `/%{fileId}/pathOnDevice`
 
 Path on the device for the transferred file
 
@@ -4019,11 +4019,11 @@ Path on the device for the transferred file
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 
-The endpoint is parametric and `requestId` can be replaced with any valid string to send data on specialized paths.
+The endpoint is parametric and `fileId` can be replaced with any valid string to send data on specialized paths.
 
-The value of the property cannot be unset.
+The value of the property can be unset.
 
-### `/%{requestId}/sizeBytes`
+### `/%{fileId}/sizeBytes`
 
 Size in bytes of the file
 
@@ -4031,9 +4031,9 @@ Size in bytes of the file
 
 This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
-The endpoint is parametric and `requestId` can be replaced with any valid string to send data on specialized paths.
+The endpoint is parametric and `fileId` can be replaced with any valid string to send data on specialized paths.
 
-The value of the property cannot be unset.
+The value of the property can be unset.
 
 
 ## io.edgehog.devicemanager.storage.Response v0.1
