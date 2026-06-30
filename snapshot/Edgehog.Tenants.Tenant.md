@@ -3,12 +3,6 @@
 
 Tenant resource schema and operations.
 
-# `record`
-
-```elixir
-@type record() :: Ash.Resource.record()
-```
-
 # `t`
 
 ```elixir

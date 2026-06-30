@@ -7,7 +7,7 @@ Used when Astarte replies with an APIError
 
 ```elixir
 @spec exception(opts :: Keyword.t()) :: %Edgehog.Error.AstarteAPIError{
-  __exception__: true,
+  __exception__: term(),
   bread_crumbs: term(),
   class: term(),
   device_id: term(),
