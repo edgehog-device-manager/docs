@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns.CampaignMechanism.DeploymentStart.Executor`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/deployment_start/executor.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/campaigns/campaign_mechanism/deployment_start/executor.ex#L21)
 
 Executor for lazy deployment campaigns using the generic LazyBatch behavior.
 

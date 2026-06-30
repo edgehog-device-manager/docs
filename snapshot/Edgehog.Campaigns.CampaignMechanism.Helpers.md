@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns.CampaignMechanism.Helpers`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/helpers.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/campaigns/campaign_mechanism/helpers.ex#L21)
 
 Shared helper functions for campaign mechanism implementations.
 

@@ -1,5 +1,5 @@
 # `Edgehog.Auth.Changes.WriteAlias`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/auth/changes/write_alias.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/auth/changes/write_alias.ex#L21)
 
 A change to create an alias for an object in the FGA provider.
 

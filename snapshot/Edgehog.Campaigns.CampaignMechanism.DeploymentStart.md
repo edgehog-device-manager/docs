@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns.CampaignMechanism.DeploymentStart`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/deployment_start/deployment_start.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/campaigns/campaign_mechanism/deployment_start/deployment_start.ex#L21)
 
 Defines the Start Campaign Mechanism resource.
 This resource represents the configuration for a start operation within a deployment campaign.

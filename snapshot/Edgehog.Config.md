@@ -1,5 +1,5 @@
 # `Edgehog.Config`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/config.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/config.ex#L21)
 
 This module handles the configuration of Edgehog
 
@@ -652,6 +652,16 @@ the `namespace`.
 Puts the `value` to `Edgehog.Config.preferred_geolocation_providers/0`. Optionally, receives
 the `namespace`.
 
+# `put_tenant_reconciler_timeout`
+
+```elixir
+@spec put_tenant_reconciler_timeout(non_neg_integer(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.tenant_reconciler_timeout/0`. Optionally, receives
+the `namespace`.
+
 # `reload_admin_jwk`
 
 ```elixir
@@ -792,6 +802,16 @@ the `namespace` for the variable.
 Reloads the value for `Edgehog.Config.preferred_geolocation_providers/0`. Optionally, receives
 the `namespace` for the variable.
 
+# `reload_tenant_reconciler_timeout`
+
+```elixir
+@spec reload_tenant_reconciler_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.tenant_reconciler_timeout/0`. Optionally, receives
+the `namespace` for the variable.
+
 # `template`
 
 ```elixir
@@ -807,6 +827,40 @@ Additionally, it can receive a list of options:
 - `type`: What kind of file it will generate (`:elixir`, `:unix`,
   `:windows`).
 - `namespace`: Namespace for the variables.
+
+# `tenant_reconciler_timeout`
+
+```elixir
+@spec tenant_reconciler_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Edgehog tenant reconciliation timeout (seconds).
+
+This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.
+
+Calling `Edgehog.Config.tenant_reconciler_timeout()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_TENANT_RECONCILER_TIMEOUT"
+- Type: :non_neg_integer
+- Default: 600000
+- Required: false
+- Cached: true
+
+# `tenant_reconciler_timeout!`
+
+```elixir
+@spec tenant_reconciler_timeout!(Skogsra.Env.namespace()) ::
+  non_neg_integer() | no_return()
+```
+
+Edgehog tenant reconciliation timeout (seconds).
+
+This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.
+
+Bang version of `Edgehog.Config.tenant_reconciler_timeout/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
 
 # `validate`
 

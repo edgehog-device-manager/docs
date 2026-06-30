@@ -1,5 +1,5 @@
 # `Edgehog.Containers.Reconciler.Core`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/containers/reconciler/core.ex#L19)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/containers/reconciler/core.ex#L19)
 
 Core component for the reconciler, provides `reconcile` function.
 

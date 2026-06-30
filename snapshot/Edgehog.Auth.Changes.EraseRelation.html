@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.40.2">
-    <meta name="project" content="Clea Edgehog v0.13.0-rc.1">
+    <meta name="project" content="Clea Edgehog v0.13.0-rc.0">
 
 
-    <title>Edgehog.Auth.Changes.EraseRelation — Clea Edgehog v0.13.0-rc.1</title>
+    <title>Edgehog.Auth.Changes.EraseRelation — Clea Edgehog v0.13.0-rc.0</title>
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-6A617A38.js"></script>
+    <script defer src="dist/sidebar_items-7FE828B9.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -41,7 +41,7 @@
 Clea Edgehog
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.13.0-rc.1
+          v0.13.0-rc.0
         </div>
       </div>
     </div>
@@ -98,7 +98,7 @@ Clea Edgehog
   <div class="heading-with-actions top-heading">
     <h1>
       <span translate="no">Edgehog.<wbr />Auth.<wbr />Changes.<wbr />EraseRelation</span> 
-      <small class="app-vsn" translate="no">(Clea Edgehog v0.13.0-rc.1)</small>
+      <small class="app-vsn" translate="no">(Clea Edgehog v0.13.0-rc.0)</small>
 
     </h1>
 
@@ -109,7 +109,7 @@ Clea Edgehog
 
 
 
-      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/auth/changes/erase_relation.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.0/backend/lib/edgehog/auth/changes/erase_relation.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -118,7 +118,7 @@ Clea Edgehog
 
 
     <section id="moduledoc">
-<p>A change to delete a relation in the FGA provider.</p><p>This change expects some opts keys to build the tuple</p><p>{ destination_type:destination_id_field(value), relationship, source_type:source_id(value) }</p><ul><li><p><code class="inline">destination_type</code>  :: (optional) is the fga type of the model</p></li><li><p><code class="inline">destination_id</code>    :: is the realtaionship's destination field to query to get the id of the tuple</p></li><li><p><code class="inline">relationship</code>      :: is the ash relationship to query to get the destination fields</p></li><li><p><code class="inline">relationship_type</code> :: (optional) is the actual fga type of the relationship (defaults to the name of the ash relationship)</p></li><li><p><code class="inline">source_type</code>       :: is the fga type of the source resource</p></li><li><p><code class="inline">source_id</code>         :: is the field to query to get the correct id to set in the FGA provider.</p></li></ul><p>For more information and a practical example, see the documentation of <a href="Edgehog.Auth.Changes.WriteRelation.html"><code class="inline">Edgehog.Auth.Changes.WriteRelation</code></a></p><h2 id="module-example" class="section-heading"><a href="#module-example" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Example</span></h2><pre><code class="makeup elixir" translate="no"><span class="w">  </span><span class="n">change</span><span class="w"> </span><span class="p" data-group-id="7910422755-1">{</span><span class="nc">Edgehog.Auth.Changes.EraseRelation</span><span class="w"> </span><span class="ss">destination_id</span><span class="p">:</span><span class="w"> </span><span class="ss">:name</span><span class="p">,</span><span class="w"> </span><span class="ss">relationship</span><span class="p">:</span><span class="w"> </span><span class="ss">:realm</span><span class="p">,</span><span class="w"> </span><span class="ss">source_type</span><span class="p">:</span><span class="w"> </span><span class="ss">:device</span><span class="p">,</span><span class="w"> </span><span class="ss">source_id</span><span class="p">:</span><span class="w"> </span><span class="ss">:device_id</span><span class="p" data-group-id="7910422755-1">}</span></code></pre><p>Will remove the tuple</p><pre><code class="fga">  {realm:test, realm, device:Simpl3D3vice1d}</code></pre>
+<p>A change to delete a relation in the FGA provider.</p><p>This change expects some opts keys to build the tuple</p><p>{ destination_type:destination_id_field(value), relationship, source_type:source_id(value) }</p><ul><li><p><code class="inline">destination_type</code>  :: (optional) is the fga type of the model</p></li><li><p><code class="inline">destination_id</code>    :: is the realtaionship's destination field to query to get the id of the tuple</p></li><li><p><code class="inline">relationship</code>      :: is the ash relationship to query to get the destination fields</p></li><li><p><code class="inline">relationship_type</code> :: (optional) is the actual fga type of the relationship (defaults to the name of the ash relationship)</p></li><li><p><code class="inline">source_type</code>       :: is the fga type of the source resource</p></li><li><p><code class="inline">source_id</code>         :: is the field to query to get the correct id to set in the FGA provider.</p></li></ul><p>For more information and a practical example, see the documentation of <a href="Edgehog.Auth.Changes.WriteRelation.html"><code class="inline">Edgehog.Auth.Changes.WriteRelation</code></a></p><h2 id="module-example" class="section-heading"><a href="#module-example" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Example</span></h2><pre><code class="makeup elixir" translate="no"><span class="w">  </span><span class="n">change</span><span class="w"> </span><span class="p" data-group-id="9271557455-1">{</span><span class="nc">Edgehog.Auth.Changes.EraseRelation</span><span class="w"> </span><span class="ss">destination_id</span><span class="p">:</span><span class="w"> </span><span class="ss">:name</span><span class="p">,</span><span class="w"> </span><span class="ss">relationship</span><span class="p">:</span><span class="w"> </span><span class="ss">:realm</span><span class="p">,</span><span class="w"> </span><span class="ss">source_type</span><span class="p">:</span><span class="w"> </span><span class="ss">:device</span><span class="p">,</span><span class="w"> </span><span class="ss">source_id</span><span class="p">:</span><span class="w"> </span><span class="ss">:device_id</span><span class="p" data-group-id="9271557455-1">}</span></code></pre><p>Will remove the tuple</p><pre><code class="fga">  {realm:test, realm, device:Simpl3D3vice1d}</code></pre>
     </section>
 
 </div>
