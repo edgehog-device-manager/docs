@@ -373,6 +373,8 @@ You can optionally pass the `obj_id` attribute name.
   - [Edgehog.Error.DeviceOffline](Edgehog.Error.DeviceOffline.md): Used when requests to a device fail because the device appears offline.
   - [Edgehog.Geolocation](Edgehog.Geolocation.md): The Geolocation context.
 
+  - [Edgehog.Geolocation.GeolocationProvider](Edgehog.Geolocation.GeolocationProvider.md): Geolocation provider default and callbacks.
+
   - [Edgehog.MultitenantResource](Edgehog.MultitenantResource.md): Define the resource as `belong_to` with a `Edgehog.Tenant.Tenant`.
   - [Edgehog.PromEx](Edgehog.PromEx.md): Be sure to add the following to finish setting up PromEx
   - [Edgehog.Repo](Edgehog.Repo.md)
