@@ -1408,6 +1408,36 @@ The endpoint is parametric and `device_mapping_id` can be replaced with any vali
 The value of the property can be unset.
 
 
+## io.edgehog.devicemanager.apps.AvailableDeviceRequests v0.1
+
+
+
+### About
+
+This interface is of type `properties` and is owned by the `device`, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.
+
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/%{device_id}/present` with `boolean` type. The device request is present on the host
+
+
+### `/%{device_id}/present`
+
+The device request is present on the host
+
+
+
+This endpoint accepts values of type `boolean`: either true or false, adhering to JSON boolean type.
+
+The endpoint is parametric and `device_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+
 ## io.edgehog.devicemanager.apps.AvailableImages v0.1
 
 Properties available for a specific Docker image on the device
@@ -1498,7 +1528,7 @@ The endpoint is parametric and `volume_id` can be replaced with any valid string
 The value of the property can be unset.
 
 
-## io.edgehog.devicemanager.apps.CreateContainerRequest v0.1
+## io.edgehog.devicemanager.apps.CreateContainerRequest v0.2
 
 
 
@@ -1520,6 +1550,7 @@ The interface has the following mappings:
 - `/container/networkIds` with `stringarray` type. Container network ids
 - `/container/volumeIds` with `stringarray` type. Container volume ids
 - `/container/deviceMappingIds` with `stringarray` type. Container device mappings ids
+- `/container/deviceRequestIds` with `stringarray` type. Container device request ids
 - `/container/hostname` with `string` type. Container hostname
 - `/container/restartPolicy` with `string` type. Container restart policy
 - `/container/env` with `stringarray` type. Container environment
@@ -1614,6 +1645,19 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
 Container device mappings ids
 
 The ids of the device mappings to mount on the container.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/container/deviceRequestIds`
+
+Container device request ids
+
+The ids of the devices to request for the container.
 
 This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
 
@@ -2039,6 +2083,137 @@ Permissions on the device.
 Permissions on the device, for example 'mrw'
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+
+## io.edgehog.devicemanager.apps.CreateDeviceRequest v0.1
+
+
+
+### About
+
+This interface is of type `datastream` and is owned by the `server`, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `object` aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/deviceRequest/id` with `string` type. Create Device Request id
+- `/deviceRequest/deploymentId` with `string` type. Reference to a Deployment using the device mapping
+- `/deviceRequest/driver` with `string` type. The name of the device driver to use for this request.
+- `/deviceRequest/count` with `longinteger` type. Count for the device to request for the container
+- `/deviceRequest/deviceIds` with `stringarray` type. Ids of the device to request for the container
+- `/deviceRequest/capabilities` with `stringarray` type. A list of capabilities; an OR list of AND lists of capabilities.
+- `/deviceRequest/optionKeys` with `stringarray` type. 
+- `/deviceRequest/optionValues` with `stringarray` type. 
+
+
+### `/deviceRequest/id`
+
+Create Device Request id
+
+Unique id for the container.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/deviceRequest/deploymentId`
+
+Reference to a Deployment using the device mapping
+
+The deployment in which the device mapping is used, so the device can send deployment events to Astarte for the create request
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/deviceRequest/driver`
+
+The name of the device driver to use for this request.
+
+Note that if this is specified the capabilities are ignored when selecting a device driver. Default value is an empty string
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/deviceRequest/count`
+
+Count for the device to request for the container
+
+Default value is -1
+
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/deviceRequest/deviceIds`
+
+Ids of the device to request for the container
+
+
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/deviceRequest/capabilities`
+
+A list of capabilities; an OR list of AND lists of capabilities.
+
+Note that if a driver is specified the capabilities have no effect on selecting a driver as the driver name is used directly. Note that if no driver is specified the capabilities are used to select a driver with the required capabilities. JSON encoded array, so an array of arrays
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/deviceRequest/optionKeys`
+
+
+
+Driver-specific options, specified as a key/value pairs. These options are passed directly to the driver
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/deviceRequest/optionValues`
+
+
+
+Driver-specific options, specified as a key/value pairs. These options are passed directly to the driver
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
