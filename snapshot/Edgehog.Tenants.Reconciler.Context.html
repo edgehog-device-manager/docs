@@ -221,7 +221,7 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
 
   <section class="docstring">
 
-<p>Adds a key to the context.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="n">add_context</span><span class="p" data-group-id="7332441764-1">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">delivery_policies_compatible</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="7332441764-1">)</span></code></pre>
+<p>Adds a key to the context.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="n">add_context</span><span class="p" data-group-id="1616807210-1">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">delivery_policies_compatible</span><span class="p">:</span><span class="w"> </span><span class="no">false</span><span class="p" data-group-id="1616807210-1">)</span></code></pre>
   </section>
 </section>
 <section class="detail" id="add_error/3">
@@ -243,16 +243,16 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
 
   <section class="docstring">
 
-<p>Adds an error to the context, in the corresponding section</p><p>Sections are handled as keys in a keyword list (the errors in the context):</p><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="1956919483-1">%{</span><span class="w">
-  </span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1956919483-2">[</span><span class="w">
-    </span><span class="ss">delivery_policies</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="1956919483-3">[</span><span class="w">
+<p>Adds an error to the context, in the corresponding section</p><p>Sections are handled as keys in a keyword list (the errors in the context):</p><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="2086170566-1">%{</span><span class="w">
+  </span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2086170566-2">[</span><span class="w">
+    </span><span class="ss">delivery_policies</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="2086170566-3">[</span><span class="w">
       </span><span class="n">error1</span><span class="p">,</span><span class="w">
       </span><span class="n">error2</span><span class="p">,</span><span class="w">
       </span><span class="n">error3</span><span class="p">,</span><span class="w">
       </span><span class="n">...</span><span class="w">
-    </span><span class="p" data-group-id="1956919483-3">]</span><span class="w">
-  </span><span class="p" data-group-id="1956919483-2">]</span><span class="w">
-</span><span class="p" data-group-id="1956919483-1">}</span></code></pre>
+    </span><span class="p" data-group-id="2086170566-3">]</span><span class="w">
+  </span><span class="p" data-group-id="2086170566-2">]</span><span class="w">
+</span><span class="p" data-group-id="2086170566-1">}</span></code></pre>
   </section>
 </section>
 <section class="detail" id="build/1">
@@ -274,12 +274,12 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
 
   <section class="docstring">
 
-<p>Builds a context, given a tenant.</p><p>This will only provide the initial context. A context is a map. Keys can be added as you go, but some keys are provided here:</p><ul><li>tenant                  :: the given tenant, for which we're building the context</li><li>realm_management_client :: the realm management client to interact with astarte</li><li>astarte_version         :: the astarte version</li><li>errors                  :: a Keyword list of errors, scoped per reconciler section (delivery policies, triggers, interfaces). The list is empty by default</li></ul><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="3612069792-1">%{</span><span class="w">
+<p>Builds a context, given a tenant.</p><p>This will only provide the initial context. A context is a map. Keys can be added as you go, but some keys are provided here:</p><ul><li>tenant                  :: the given tenant, for which we're building the context</li><li>realm_management_client :: the realm management client to interact with astarte</li><li>astarte_version         :: the astarte version</li><li>errors                  :: a Keyword list of errors, scoped per reconciler section (delivery policies, triggers, interfaces). The list is empty by default</li></ul><pre><code class="makeup elixir" translate="no"><span class="p" data-group-id="9068026682-1">%{</span><span class="w">
   </span><span class="ss">tenant</span><span class="p">:</span><span class="w"> </span><span class="n">tenant</span><span class="p">,</span><span class="w">
   </span><span class="ss">rm_client</span><span class="p">:</span><span class="w"> </span><span class="n">realm_management_client</span><span class="p">,</span><span class="w">
   </span><span class="ss">astarte_version</span><span class="p">:</span><span class="w"> </span><span class="n">astarte_version</span><span class="p">,</span><span class="w">
-  </span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="3612069792-2">[</span><span class="p" data-group-id="3612069792-2">]</span><span class="w">
-</span><span class="p" data-group-id="3612069792-1">}</span></code></pre><p>You might want to match on the following possible return values</p><ul><li><code class="inline">{:ok, context}</code>                       :: The context was successfully iniyialized.</li><li><code class="inline">{:error, :missing_rm_client}</code>         :: The realm management client was not correctly initialized. Possibly as misconfiguration of the astarte realm.</li><li><code class="inline">{:error, :invalid_tenant}</code>            :: The provided tenant was not valid.</li><li><code class="inline">{:error, %Astarte.Client.APIError{}}</code> :: There was a communication error with astarte.</li></ul>
+  </span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="9068026682-2">[</span><span class="p" data-group-id="9068026682-2">]</span><span class="w">
+</span><span class="p" data-group-id="9068026682-1">}</span></code></pre><p>You might want to match on the following possible return values</p><ul><li><code class="inline">{:ok, context}</code>                       :: The context was successfully iniyialized.</li><li><code class="inline">{:error, :missing_rm_client}</code>         :: The realm management client was not correctly initialized. Possibly as misconfiguration of the astarte realm.</li><li><code class="inline">{:error, :invalid_tenant}</code>            :: The provided tenant was not valid.</li><li><code class="inline">{:error, %Astarte.Client.APIError{}}</code> :: There was a communication error with astarte.</li></ul>
   </section>
 </section>
 <section class="detail" id="errors?/2">
@@ -303,20 +303,20 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
 
   <section class="docstring">
 
-<p>Checks whether there are errors or a specific section has errors.</p><h2 id="errors?/2-examples" class="section-heading"><a href="#errors?/2-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Examples:</span></h2><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0594108836-1">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0594108836-2">[</span><span class="p" data-group-id="0594108836-2">]</span><span class="p" data-group-id="0594108836-1">}</span><span class="w">
-</span><span class="p" data-group-id="0594108836-3">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0594108836-4">[</span><span class="p" data-group-id="0594108836-4">]</span><span class="p" data-group-id="0594108836-3">}</span><span class="w">
+<p>Checks whether there are errors or a specific section has errors.</p><h2 id="errors?/2-examples" class="section-heading"><a href="#errors?/2-examples" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Examples:</span></h2><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0062987803-1">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0062987803-2">[</span><span class="p" data-group-id="0062987803-2">]</span><span class="p" data-group-id="0062987803-1">}</span><span class="w">
+</span><span class="p" data-group-id="0062987803-3">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="0062987803-4">[</span><span class="p" data-group-id="0062987803-4">]</span><span class="p" data-group-id="0062987803-3">}</span><span class="w">
 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="0594108836-5">(</span><span class="n">context</span><span class="p" data-group-id="0594108836-5">)</span><span class="w">
-</span><span class="no">false</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="4900495778-1">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4900495778-2">[</span><span class="ss">sec_1</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4900495778-3">[</span><span class="ss">:some_error</span><span class="p" data-group-id="4900495778-3">]</span><span class="p" data-group-id="4900495778-2">]</span><span class="p" data-group-id="4900495778-1">}</span><span class="w">
-</span><span class="p" data-group-id="4900495778-4">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4900495778-5">[</span><span class="ss">sec_1</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="4900495778-6">[</span><span class="ss">:some_error</span><span class="p" data-group-id="4900495778-6">]</span><span class="p" data-group-id="4900495778-5">]</span><span class="p" data-group-id="4900495778-4">}</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="0062987803-5">(</span><span class="n">context</span><span class="p" data-group-id="0062987803-5">)</span><span class="w">
+</span><span class="no">false</span></code></pre><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">context</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="5058988101-1">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5058988101-2">[</span><span class="ss">sec_1</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5058988101-3">[</span><span class="ss">:some_error</span><span class="p" data-group-id="5058988101-3">]</span><span class="p" data-group-id="5058988101-2">]</span><span class="p" data-group-id="5058988101-1">}</span><span class="w">
+</span><span class="p" data-group-id="5058988101-4">%{</span><span class="ss">errors</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5058988101-5">[</span><span class="ss">sec_1</span><span class="p">:</span><span class="w"> </span><span class="p" data-group-id="5058988101-6">[</span><span class="ss">:some_error</span><span class="p" data-group-id="5058988101-6">]</span><span class="p" data-group-id="5058988101-5">]</span><span class="p" data-group-id="5058988101-4">}</span><span class="w">
 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="4900495778-7">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:sec_1</span><span class="p" data-group-id="4900495778-7">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="5058988101-7">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:sec_1</span><span class="p" data-group-id="5058988101-7">)</span><span class="w">
 </span><span class="no">true</span><span class="w">
 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="4900495778-8">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:sec_2</span><span class="p" data-group-id="4900495778-8">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="5058988101-8">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:sec_2</span><span class="p" data-group-id="5058988101-8">)</span><span class="w">
 </span><span class="no">false</span><span class="w">
 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="4900495778-9">(</span><span class="n">context</span><span class="p" data-group-id="4900495778-9">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Context</span><span class="o">.</span><span class="n">errors?</span><span class="p" data-group-id="5058988101-9">(</span><span class="n">context</span><span class="p" data-group-id="5058988101-9">)</span><span class="w">
 </span><span class="no">true</span></code></pre>
   </section>
 </section>
@@ -341,7 +341,7 @@ changing keys, adding errors, checking the presence of errors, etc.</p><p>The co
 
   <section class="docstring">
 
-<p>Retrieves a key from the context, defaulting to a default value if not present:</p><p>Example: </p><pre><code class="makeup elixir" translate="no"><span class="n">get_context</span><span class="p" data-group-id="0861741346-1">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:delivery_policies_compatible</span><span class="p">,</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="0861741346-1">)</span></code></pre>
+<p>Retrieves a key from the context, defaulting to a default value if not present:</p><p>Example: </p><pre><code class="makeup elixir" translate="no"><span class="n">get_context</span><span class="p" data-group-id="9376364054-1">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="ss">:delivery_policies_compatible</span><span class="p">,</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="9376364054-1">)</span></code></pre>
   </section>
 </section>
 
