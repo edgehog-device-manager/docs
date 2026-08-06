@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.40.2">
-    <meta name="project" content="Clea Edgehog v0.13.0-rc.1">
+    <meta name="project" content="Clea Edgehog v0.13.1">
 
 
-    <title>Edgehog Just in Time — Clea Edgehog v0.13.0-rc.1</title>
+    <title>Edgehog Just in Time — Clea Edgehog v0.13.1</title>
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-AD3296B8.js"></script>
+    <script defer src="dist/sidebar_items-4487F66D.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -41,7 +41,7 @@
 Clea Edgehog
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.13.0-rc.1
+          v0.13.1
         </div>
       </div>
     </div>
@@ -104,7 +104,7 @@ Clea Edgehog
 </a>
 
 
-      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/docs/pages/devguide/edgehog_just_in_time.md#L1" title="View Source" class="icon-action" rel="help nofollow">
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/docs/pages/devguide/edgehog_just_in_time.md#L1" title="View Source" class="icon-action" rel="help nofollow">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -121,7 +121,7 @@ Clea Edgehog
 </span></code></pre><p>This will:</p><ol><li>🔍 Check Rust prerequisites</li><li>📦 Clone the Edgehog Device Runtime repository</li><li>📝 Register a new device with Astarte</li><li>⚙️ Generate the device configuration</li><li>🚀 Start the device runtime</li></ol><p>Your device will start sending telemetry data to Edgehog. Watch it appear in the Edgehog dashboard!</p><blockquote><p><strong>Note:</strong> If you encounter issues with the device runtime, check the <a rel="nofollow" href="https://github.com/edgehog-device-manager/edgehog-device-runtime/blob/main/doc/os_requirements.md">OS requirements documentation</a> for system-specific setup details.</p></blockquote><h3 id="reconnecting-the-same-device" class="section-heading"><a href="#reconnecting-the-same-device" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Reconnecting the Same Device</span></h3><p>Already have a device configured but want to restart it with a clean state? Use:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just reconnect-device
 </span></code></pre><p>This command:</p><ul><li>✅ Uses your existing device configuration (no re-registration needed)</li><li>🧹 Cleans device state (<code class="inline">.store/</code> and <code class="inline">.updates/</code> directories)</li><li>🚀 Starts the device runtime with existing build artifacts</li><li>⚡ Fast startup - no compilation or registration overhead!</li></ul><p>If no device is configured yet, it will automatically run <code class="inline">just connect-device</code> to set everything up.</p><h3 id="connecting-a-new-device" class="section-heading"><a href="#connecting-a-new-device" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Connecting a New Device</span></h3><p>Want to test with multiple devices? Register and connect a new device with:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just new-device
 </span></code></pre><p>This command:</p><ul><li>📝 Registers a new device with Astarte (new device ID and credentials)</li><li>🧹 Cleans previous device state</li><li>⚙️ Generates fresh device configuration</li><li>🚀 Starts the device runtime</li><li>⚡ Reuses compiled runtime - faster than full <code class="inline">connect-device</code>!</li></ul><p>This is perfect for testing scenarios with multiple devices without waiting for a full recompilation.</p><blockquote><p><strong>Running Multiple Devices</strong>: You can run multiple devices simultaneously by using separate terminals! Once a device is running, it has its own runtime context in memory. Simply open a new terminal, run <code class="inline">just new-device</code> to register a different device (which overwrites the config file), and both devices will run in parallel. Each device maintains its own state since they have unique device IDs.</p></blockquote><blockquote><p><strong>Important</strong>: Remember that all simulated devices are running on the same physical hardware (your PC/laptop). Features that require exclusive access to the same hardware resources may conflict or fail when running multiple devices simultaneously.</p></blockquote><h2 id="development-workflows" class="section-heading"><a href="#development-workflows" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Development Workflows</span></h2><h3 id="running-backend-in-development-mode" class="section-heading"><a href="#running-backend-in-development-mode" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Running Backend in Development Mode</span></h3><p>Want to work on the Edgehog backend? Start it in development mode:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just dev-backend
-</span></code></pre><p>This will:</p><ul><li>✅ Ensure Astarte is running</li><li>🐘 Start supporting services (PostgreSQL, MinIO, Registry)</li><li>🔥 Run the backend with <a href="https://hexdocs.pm/phoenix/1.8.9/Mix.Tasks.Phx.Server.html"><code class="inline">mix phx.server</code></a> for hot reloading</li><li>🌐 Make the API available at <code class="inline">http://localhost:4000</code></li></ul><h3 id="running-frontend-in-development-mode" class="section-heading"><a href="#running-frontend-in-development-mode" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Running Frontend in Development Mode</span></h3><p>To work on the frontend:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just dev-frontend
+</span></code></pre><p>This will:</p><ul><li>✅ Ensure Astarte is running</li><li>🐘 Start supporting services (PostgreSQL, MinIO, Registry)</li><li>🔥 Run the backend with <a href="https://hexdocs.pm/phoenix/1.8.7/Mix.Tasks.Phx.Server.html"><code class="inline">mix phx.server</code></a> for hot reloading</li><li>🌐 Make the API available at <code class="inline">http://localhost:4000</code></li></ul><h3 id="running-frontend-in-development-mode" class="section-heading"><a href="#running-frontend-in-development-mode" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Running Frontend in Development Mode</span></h3><p>To work on the frontend:</p><pre><code class="makeup sh" translate="no"><span class="gp unselectable">$ </span><span class="">just dev-frontend
 </span></code></pre><p>This starts the Vite dev server with hot module replacement at <code class="inline">http://localhost:5173</code>.</p><h3 id="running-both-in-parallel" class="section-heading"><a href="#running-both-in-parallel" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Running Both in Parallel</span></h3><p>Open two terminal windows and run:</p><pre><code class="makeup sh" translate="no"><span class=""># Terminal 1
 </span><span class="gp unselectable">$ </span><span class="">just dev-backend
 </span><span class="">

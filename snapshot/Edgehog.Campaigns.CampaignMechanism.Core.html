@@ -5,14 +5,14 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.40.2">
-    <meta name="project" content="Clea Edgehog v0.13.0-rc.1">
+    <meta name="project" content="Clea Edgehog v0.13.1">
 
 
-    <title>Edgehog.Campaigns.CampaignMechanism.Core — Clea Edgehog v0.13.0-rc.1</title>
+    <title>Edgehog.Campaigns.CampaignMechanism.Core — Clea Edgehog v0.13.1</title>
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-AD3296B8.js"></script>
+    <script defer src="dist/sidebar_items-4487F66D.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -41,7 +41,7 @@
 Clea Edgehog
         </a>
         <div class="sidebar-projectVersion" translate="no">
-          v0.13.0-rc.1
+          v0.13.1
         </div>
       </div>
     </div>
@@ -98,7 +98,7 @@ Clea Edgehog
   <div class="heading-with-actions top-heading">
     <h1>
       <span translate="no">Edgehog.<wbr />Campaigns.<wbr />CampaignMechanism.<wbr />Core</span> <small>protocol</small>
-      <small class="app-vsn" translate="no">(Clea Edgehog v0.13.0-rc.1)</small>
+      <small class="app-vsn" translate="no">(Clea Edgehog v0.13.1)</small>
 
     </h1>
 
@@ -109,7 +109,7 @@ Clea Edgehog
 
 
 
-      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
         <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         <span class="sr-only">View Source</span>
       </a>
@@ -298,15 +298,7 @@ including operation tracking, target management, and notification handling.</p>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#mark_campaign_as_failed!/2" data-no-tooltip="" translate="no">mark_campaign_as_failed!(mechanism, campaign)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#mark_campaign_as_failed!/3" data-no-tooltip="" translate="no">mark_campaign_as_failed!(mechanism, campaign, time)</a>
+        <a href="#mark_campaign_as_failed!/3" data-no-tooltip="" translate="no">mark_campaign_as_failed!(mechanism, campaign, now \\ DateTime.utc_now())</a>
 
       </div>
 
@@ -322,7 +314,7 @@ including operation tracking, target management, and notification handling.</p>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#mark_campaign_as_successful!/2" data-no-tooltip="" translate="no">mark_campaign_as_successful!(mechanism, campaign)</a>
+        <a href="#mark_campaign_as_successful!/3" data-no-tooltip="" translate="no">mark_campaign_as_successful!(mechanism, campaign, now \\ DateTime.utc_now())</a>
 
       </div>
 
@@ -330,23 +322,7 @@ including operation tracking, target management, and notification handling.</p>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#mark_campaign_as_successful!/3" data-no-tooltip="" translate="no">mark_campaign_as_successful!(mechanism, campaign, time)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#mark_campaign_in_progress!/2" data-no-tooltip="" translate="no">mark_campaign_in_progress!(mechanism, campaign)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#mark_campaign_in_progress!/3" data-no-tooltip="" translate="no">mark_campaign_in_progress!(mechanism, campaign, time)</a>
+        <a href="#mark_campaign_in_progress!/3" data-no-tooltip="" translate="no">mark_campaign_in_progress!(mechanism, campaign, now \\ DateTime.utc_now())</a>
 
       </div>
 
@@ -362,7 +338,7 @@ including operation tracking, target management, and notification handling.</p>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#mark_target_as_failed!/2" data-no-tooltip="" translate="no">mark_target_as_failed!(mechanism, target)</a>
+        <a href="#mark_target_as_failed!/3" data-no-tooltip="" translate="no">mark_target_as_failed!(mechanism, target, now \\ DateTime.utc_now())</a>
 
       </div>
 
@@ -370,7 +346,7 @@ including operation tracking, target management, and notification handling.</p>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#mark_target_as_failed!/3" data-no-tooltip="" translate="no">mark_target_as_failed!(mechanism, target, time)</a>
+        <a href="#mark_target_as_successful!/3" data-no-tooltip="" translate="no">mark_target_as_successful!(mechanism, target, now \\ DateTime.utc_now())</a>
 
       </div>
 
@@ -378,31 +354,7 @@ including operation tracking, target management, and notification handling.</p>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#mark_target_as_successful!/2" data-no-tooltip="" translate="no">mark_target_as_successful!(mechanism, target)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#mark_target_as_successful!/3" data-no-tooltip="" translate="no">mark_target_as_successful!(mechanism, target, time)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#pending_request_timeout_ms/2" data-no-tooltip="" translate="no">pending_request_timeout_ms(mechanism, target)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#pending_request_timeout_ms/3" data-no-tooltip="" translate="no">pending_request_timeout_ms(mechanism, target, time)</a>
+        <a href="#pending_request_timeout_ms/3" data-no-tooltip="" translate="no">pending_request_timeout_ms(mechanism, target, now \\ DateTime.utc_now())</a>
 
       </div>
 
@@ -442,15 +394,7 @@ including operation tracking, target management, and notification handling.</p>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#update_target_latest_attempt/2" data-no-tooltip="" translate="no">update_target_latest_attempt(mechanism, target)</a>
-
-      </div>
-
-    </div>
-
-    <div class="summary-row">
-      <div class="summary-signature">
-        <a href="#update_target_latest_attempt/3" data-no-tooltip="" translate="no">update_target_latest_attempt(mechanism, target, time)</a>
+        <a href="#update_target_latest_attempt/3" data-no-tooltip="" translate="no">update_target_latest_attempt(mechanism, target, now \\ DateTime.utc_now())</a>
 
       </div>
 
@@ -480,7 +424,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">t()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L21" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L21" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -521,7 +465,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">available_slots(mechanism, in_progress_count)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L43" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L40" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -543,7 +487,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">can_retry?(mechanism, target)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L56" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L49" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -565,7 +509,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">do_operation(mechanism, target)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L66" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L59" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -587,7 +531,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">error_message(mechanism, reason, device_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L59" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L52" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -609,7 +553,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">fetch_next_valid_target(mechanism, campaign_id, tenant_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L65" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L58" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -631,7 +575,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">format_operation_failure_log(mechanism, operation)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L58" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L51" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -653,7 +597,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">get_campaign!(mechanism, tenant_id, campaign_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L31" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -675,7 +619,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">get_campaign_status(mechanism, campaign)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L39" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L36" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -697,7 +641,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">get_failed_target_count(mechanism, tenant_id, campaign_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L41" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L38" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -719,7 +663,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">get_in_progress_target_count(mechanism, tenant_id, campaign_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L42" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L39" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -741,7 +685,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">get_mechanism(mechanism, campaign)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L68" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L61" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -763,7 +707,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">get_operation_id(mechanism, target)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L61" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L54" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -785,7 +729,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">get_target!(mechanism, tenant_id, target_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L45" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L42" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -807,7 +751,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">get_target_count(mechanism, tenant_id, campaign_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L40" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L37" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -829,7 +773,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">get_target_for_operation!(mechanism, tenant_id, campaign_id, device_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L46" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L43" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -851,7 +795,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">has_idle_targets?(mechanism, tenant_id, campaign_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L44" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L41" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -873,7 +817,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">increase_retry_count!(mechanism, target)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L57" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L50" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -895,29 +839,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">list_in_progress_targets(mechanism, tenant_id, campaign_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L47" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="mark_campaign_as_failed!/2">
-
-  <div class="detail-header">
-    <a href="#mark_campaign_as_failed!/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">mark_campaign_as_failed!(mechanism, campaign)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L34" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L44" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -931,15 +853,17 @@ including operation tracking, target management, and notification handling.</p>
 </section>
 <section class="detail" id="mark_campaign_as_failed!/3">
 
+    <span id="mark_campaign_as_failed!/2"></span>
+
   <div class="detail-header">
     <a href="#mark_campaign_as_failed!/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">mark_campaign_as_failed!(mechanism, campaign, time)</h1>
+      <h1 class="signature" translate="no">mark_campaign_as_failed!(mechanism, campaign, now \\ DateTime.utc_now())</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L35" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L33" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -961,29 +885,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">mark_campaign_as_paused!(mechanism, campaign)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L38" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="mark_campaign_as_successful!/2">
-
-  <div class="detail-header">
-    <a href="#mark_campaign_as_successful!/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">mark_campaign_as_successful!(mechanism, campaign)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L36" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L35" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -997,37 +899,17 @@ including operation tracking, target management, and notification handling.</p>
 </section>
 <section class="detail" id="mark_campaign_as_successful!/3">
 
+    <span id="mark_campaign_as_successful!/2"></span>
+
   <div class="detail-header">
     <a href="#mark_campaign_as_successful!/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">mark_campaign_as_successful!(mechanism, campaign, time)</h1>
+      <h1 class="signature" translate="no">mark_campaign_as_successful!(mechanism, campaign, now \\ DateTime.utc_now())</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L37" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="mark_campaign_in_progress!/2">
-
-  <div class="detail-header">
-    <a href="#mark_campaign_in_progress!/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">mark_campaign_in_progress!(mechanism, campaign)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L32" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L34" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1041,15 +923,17 @@ including operation tracking, target management, and notification handling.</p>
 </section>
 <section class="detail" id="mark_campaign_in_progress!/3">
 
+    <span id="mark_campaign_in_progress!/2"></span>
+
   <div class="detail-header">
     <a href="#mark_campaign_in_progress!/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">mark_campaign_in_progress!(mechanism, campaign, time)</h1>
+      <h1 class="signature" translate="no">mark_campaign_in_progress!(mechanism, campaign, now \\ DateTime.utc_now())</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L33" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L32" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1071,29 +955,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">mark_operation_as_timed_out!(mechanism, operation_id, tenant_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L62" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="mark_target_as_failed!/2">
-
-  <div class="detail-header">
-    <a href="#mark_target_as_failed!/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">mark_target_as_failed!(mechanism, target)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L48" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L55" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1107,37 +969,17 @@ including operation tracking, target management, and notification handling.</p>
 </section>
 <section class="detail" id="mark_target_as_failed!/3">
 
+    <span id="mark_target_as_failed!/2"></span>
+
   <div class="detail-header">
     <a href="#mark_target_as_failed!/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">mark_target_as_failed!(mechanism, target, time)</h1>
+      <h1 class="signature" translate="no">mark_target_as_failed!(mechanism, target, now \\ DateTime.utc_now())</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L49" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="mark_target_as_successful!/2">
-
-  <div class="detail-header">
-    <a href="#mark_target_as_successful!/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">mark_target_as_successful!(mechanism, target)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L50" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L45" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1151,37 +993,17 @@ including operation tracking, target management, and notification handling.</p>
 </section>
 <section class="detail" id="mark_target_as_successful!/3">
 
+    <span id="mark_target_as_successful!/2"></span>
+
   <div class="detail-header">
     <a href="#mark_target_as_successful!/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">mark_target_as_successful!(mechanism, target, time)</h1>
+      <h1 class="signature" translate="no">mark_target_as_successful!(mechanism, target, now \\ DateTime.utc_now())</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L51" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="pending_request_timeout_ms/2">
-
-  <div class="detail-header">
-    <a href="#pending_request_timeout_ms/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">pending_request_timeout_ms(mechanism, target)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L54" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L46" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1195,15 +1017,17 @@ including operation tracking, target management, and notification handling.</p>
 </section>
 <section class="detail" id="pending_request_timeout_ms/3">
 
+    <span id="pending_request_timeout_ms/2"></span>
+
   <div class="detail-header">
     <a href="#pending_request_timeout_ms/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">pending_request_timeout_ms(mechanism, target, time)</h1>
+      <h1 class="signature" translate="no">pending_request_timeout_ms(mechanism, target, now \\ DateTime.utc_now())</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L55" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L48" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1225,7 +1049,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">retry_operation(mechanism, target)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L67" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L60" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1247,7 +1071,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">subscribe_to_operation_updates!(mechanism, operation_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L63" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L56" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1269,7 +1093,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">temporary_error?(mechanism, reason)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L60" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L53" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1291,29 +1115,7 @@ including operation tracking, target management, and notification handling.</p>
       <h1 class="signature" translate="no">unsubscribe_to_operation_updates!(mechanism, operation_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L64" class="icon-action" rel="help nofollow" aria-label="View Source">
-          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
-        </a>
-
-    </div>
-  </div>
-
-  <section class="docstring">
-
-
-  </section>
-</section>
-<section class="detail" id="update_target_latest_attempt/2">
-
-  <div class="detail-header">
-    <a href="#update_target_latest_attempt/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
-      <i class="ri-link-m" aria-hidden="true"></i>
-    </a>
-    <div class="heading-with-actions">
-      <h1 class="signature" translate="no">update_target_latest_attempt(mechanism, target)</h1>
-
-
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L52" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L57" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1327,15 +1129,17 @@ including operation tracking, target management, and notification handling.</p>
 </section>
 <section class="detail" id="update_target_latest_attempt/3">
 
+    <span id="update_target_latest_attempt/2"></span>
+
   <div class="detail-header">
     <a href="#update_target_latest_attempt/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">update_target_latest_attempt(mechanism, target, time)</h1>
+      <h1 class="signature" translate="no">update_target_latest_attempt(mechanism, target, now \\ DateTime.utc_now())</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L53" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L47" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 

@@ -1,5 +1,5 @@
 # `Edgehog.Error.AstarteAPIError`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/error/astarte_api_error.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/error/astarte_api_error.ex#L21)
 
 Used when Astarte replies with an APIError
 
@@ -7,7 +7,7 @@ Used when Astarte replies with an APIError
 
 ```elixir
 @spec exception(opts :: Keyword.t()) :: %Edgehog.Error.AstarteAPIError{
-  __exception__: term(),
+  __exception__: true,
   bread_crumbs: term(),
   class: term(),
   device_id: term(),

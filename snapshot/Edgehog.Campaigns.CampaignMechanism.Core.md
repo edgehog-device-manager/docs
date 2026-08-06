@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns.CampaignMechanism.Core`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaign_mechanism/core.ex#L21)
 
 Protocol defining the core functions that a campaign mechanism must implement.
 
@@ -52,15 +52,9 @@ All the types that implement this protocol.
 
 # `mark_campaign_as_failed!`
 
-# `mark_campaign_as_failed!`
-
 # `mark_campaign_as_paused!`
 
 # `mark_campaign_as_successful!`
-
-# `mark_campaign_as_successful!`
-
-# `mark_campaign_in_progress!`
 
 # `mark_campaign_in_progress!`
 
@@ -68,13 +62,7 @@ All the types that implement this protocol.
 
 # `mark_target_as_failed!`
 
-# `mark_target_as_failed!`
-
 # `mark_target_as_successful!`
-
-# `mark_target_as_successful!`
-
-# `pending_request_timeout_ms`
 
 # `pending_request_timeout_ms`
 
@@ -85,8 +73,6 @@ All the types that implement this protocol.
 # `temporary_error?`
 
 # `unsubscribe_to_operation_updates!`
-
-# `update_target_latest_attempt`
 
 # `update_target_latest_attempt`
 
