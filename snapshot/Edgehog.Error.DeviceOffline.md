@@ -1,5 +1,5 @@
 # `Edgehog.Error.DeviceOffline`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/error/device_offline.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.0-rc.1/backend/lib/edgehog/error/device_offline.ex#L21)
 
 Used when requests to a device fail because the device appears offline.
 
@@ -7,7 +7,7 @@ Used when requests to a device fail because the device appears offline.
 
 ```elixir
 @spec exception(opts :: Keyword.t()) :: %Edgehog.Error.DeviceOffline{
-  __exception__: true,
+  __exception__: term(),
   bread_crumbs: term(),
   class: term(),
   device_id: term(),

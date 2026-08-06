@@ -1,4 +1,4 @@
-# Clea Edgehog v0.13.1 - Table of Contents
+# Clea Edgehog v0.13.0-rc.1 - Table of Contents
 
 ## Pages
 
@@ -251,8 +251,18 @@ for a file upload request before persisting it.
   - [Edgehog.BaseImages](Edgehog.BaseImages.md): The BaseImages context.
 
 - Multitenancy
+  - [Edgehog.Tenants.Reconciler](Edgehog.Tenants.Reconciler.md): The tenant reconciler.
+  - [Edgehog.Tenants.Reconciler.Context](Edgehog.Tenants.Reconciler.Context.md): Helper function for tenant reconciliation.
+  - [Edgehog.Tenants.Reconciler.Core](Edgehog.Tenants.Reconciler.Core.md): Tenants reconciler module.
+  - [Edgehog.Tenants.Reconciler.Core.DeliveryPolicies](Edgehog.Tenants.Reconciler.Core.DeliveryPolicies.md): Edgehog tenant reconciler responsible for delivery policies.
+  - [Edgehog.Tenants.Reconciler.Core.Interfaces](Edgehog.Tenants.Reconciler.Core.Interfaces.md): The interfaces part of the reconciler core.
+
+  - [Edgehog.Tenants.Reconciler.Core.Triggers](Edgehog.Tenants.Reconciler.Core.Triggers.md): The reconciler core part for triggers.
+  - [Edgehog.Tenants.Reconciler.Starter](Edgehog.Tenants.Reconciler.Starter.md): Tenant reconciler starter.
   - [Edgehog.Tenants.Tenant](Edgehog.Tenants.Tenant.md): Tenant resource schema and operations.
   - [Edgehog.Tenants.Tenant.Changes.StartContainersReconciler](Edgehog.Tenants.Tenant.Changes.StartContainersReconciler.md): Starts the container reconciler for the current tenant.
+
+  - [Edgehog.Tenants.Tenant.Changes.StartReconciliation](Edgehog.Tenants.Tenant.Changes.StartReconciliation.md): Reconciliation starter.
 
 - Astarte trigger handling
   - [Edgehog.Triggers.Handlers.DeviceConnected](Edgehog.Triggers.Handlers.DeviceConnected.md): Device connected handler
@@ -362,6 +372,8 @@ You can optionally pass the `obj_id` attribute name.
   - [Edgehog.Error.AstarteAPIError](Edgehog.Error.AstarteAPIError.md): Used when Astarte replies with an APIError
   - [Edgehog.Error.DeviceOffline](Edgehog.Error.DeviceOffline.md): Used when requests to a device fail because the device appears offline.
   - [Edgehog.Geolocation](Edgehog.Geolocation.md): The Geolocation context.
+
+  - [Edgehog.Geolocation.GeolocationProvider](Edgehog.Geolocation.GeolocationProvider.md): Geolocation provider default and callbacks.
 
   - [Edgehog.MultitenantResource](Edgehog.MultitenantResource.md): Define the resource as `belong_to` with a `Edgehog.Tenant.Tenant`.
   - [Edgehog.PromEx](Edgehog.PromEx.md): Be sure to add the following to finish setting up PromEx
