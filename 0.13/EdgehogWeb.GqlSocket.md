@@ -1,0 +1,9 @@
+# `EdgehogWeb.GqlSocket`
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog_web/gql_socket.ex#L19)
+
+# `actor_from_claims`
+
+# `connect`
+
+# `id`
+
