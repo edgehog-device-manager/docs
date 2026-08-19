@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-AD3296B8.js"></script>
+    <script defer src="dist/sidebar_items-322D9E2B.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -329,6 +329,26 @@ Possible values are: none, openfga</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#deployment_provisioning_timeout/1" data-no-tooltip="" translate="no">deployment_provisioning_timeout(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Edgehog deployment provisioning timeout (milliseconds).</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#deployment_provisioning_timeout!/1" data-no-tooltip="" translate="no">deployment_provisioning_timeout!(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Edgehog deployment provisioning timeout (milliseconds).</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#geocoding_providers!/0" data-no-tooltip="" translate="no">geocoding_providers!()</a>
 
       </div>
@@ -404,6 +424,66 @@ Possible values are: none, openfga</p></div>
       </div>
 
         <div class="summary-synopsis"><p>The API key for the ipbase.com geolocation provider.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#max_retries/1" data-no-tooltip="" translate="no">max_retries(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Edgehog max retries.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#max_retries!/1" data-no-tooltip="" translate="no">max_retries!(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Edgehog max retries.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#message_max_timeout/1" data-no-tooltip="" translate="no">message_max_timeout(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Edgehog message max timeout (milliseconds).</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#message_max_timeout!/1" data-no-tooltip="" translate="no">message_max_timeout!(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Edgehog message max timeout (milliseconds).</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#message_min_timeout/1" data-no-tooltip="" translate="no">message_min_timeout(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Edgehog message min timeout (milliseconds).</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#message_min_timeout!/1" data-no-tooltip="" translate="no">message_min_timeout!(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Edgehog message min timeout (milliseconds).</p></div>
 
     </div>
 
@@ -591,6 +671,17 @@ the <code class="inline">namespace</code>.</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#put_deployment_provisioning_timeout/2" data-no-tooltip="" translate="no">put_deployment_provisioning_timeout(value, namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Puts the <code class="inline">value</code> to <a href="#deployment_provisioning_timeout/0"><code class="inline">Edgehog.Config.deployment_provisioning_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#put_google_geocoding_api_key/2" data-no-tooltip="" translate="no">put_google_geocoding_api_key(value, namespace \\ nil)</a>
 
       </div>
@@ -618,6 +709,39 @@ the <code class="inline">namespace</code>.</p></div>
       </div>
 
         <div class="summary-synopsis"><p>Puts the <code class="inline">value</code> to <a href="#ipbase_api_key/0"><code class="inline">Edgehog.Config.ipbase_api_key/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#put_max_retries/2" data-no-tooltip="" translate="no">put_max_retries(value, namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Puts the <code class="inline">value</code> to <a href="#max_retries/0"><code class="inline">Edgehog.Config.max_retries/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#put_message_max_timeout/2" data-no-tooltip="" translate="no">put_message_max_timeout(value, namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Puts the <code class="inline">value</code> to <a href="#message_max_timeout/0"><code class="inline">Edgehog.Config.message_max_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#put_message_min_timeout/2" data-no-tooltip="" translate="no">put_message_min_timeout(value, namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Puts the <code class="inline">value</code> to <a href="#message_min_timeout/0"><code class="inline">Edgehog.Config.message_min_timeout/0</code></a>. Optionally, receives
 the <code class="inline">namespace</code>.</p></div>
 
     </div>
@@ -756,6 +880,17 @@ the <code class="inline">namespace</code> for the variable.</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#reload_deployment_provisioning_timeout/1" data-no-tooltip="" translate="no">reload_deployment_provisioning_timeout(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Reloads the value for <a href="#deployment_provisioning_timeout/0"><code class="inline">Edgehog.Config.deployment_provisioning_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#reload_google_geocoding_api_key/1" data-no-tooltip="" translate="no">reload_google_geocoding_api_key(namespace \\ nil)</a>
 
       </div>
@@ -783,6 +918,39 @@ the <code class="inline">namespace</code> for the variable.</p></div>
       </div>
 
         <div class="summary-synopsis"><p>Reloads the value for <a href="#ipbase_api_key/0"><code class="inline">Edgehog.Config.ipbase_api_key/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#reload_max_retries/1" data-no-tooltip="" translate="no">reload_max_retries(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Reloads the value for <a href="#max_retries/0"><code class="inline">Edgehog.Config.max_retries/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#reload_message_max_timeout/1" data-no-tooltip="" translate="no">reload_message_max_timeout(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Reloads the value for <a href="#message_max_timeout/0"><code class="inline">Edgehog.Config.message_max_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#reload_message_min_timeout/1" data-no-tooltip="" translate="no">reload_message_min_timeout(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Reloads the value for <a href="#message_min_timeout/0"><code class="inline">Edgehog.Config.message_min_timeout/0</code></a>. Optionally, receives
 the <code class="inline">namespace</code> for the variable.</p></div>
 
     </div>
@@ -870,7 +1038,7 @@ Additionally, it can receive a list of options</p></div>
 
       </div>
 
-        <div class="summary-synopsis"><p>Edgehog tenant reconciliation timeout (seconds).</p></div>
+        <div class="summary-synopsis"><p>Edgehog tenant reconciliation timeout (milliseconds).</p></div>
 
     </div>
 
@@ -880,7 +1048,7 @@ Additionally, it can receive a list of options</p></div>
 
       </div>
 
-        <div class="summary-synopsis"><p>Edgehog tenant reconciliation timeout (seconds).</p></div>
+        <div class="summary-synopsis"><p>Edgehog tenant reconciliation timeout (milliseconds).</p></div>
 
     </div>
 
@@ -1004,7 +1172,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">authz_config!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L263" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L309" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1097,7 +1265,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">authz_provider_config!(provider)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L242" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L288" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1187,7 +1355,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_enable_ssl?()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L147" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L193" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1277,7 +1445,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_ssl_config()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L198" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L244" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1305,7 +1473,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_ssl_config_opts()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L188" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L234" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1395,7 +1563,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_ssl_verify?()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L153" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L199" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1485,7 +1653,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_use_os_certs?()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L159" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L205" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1503,6 +1671,75 @@ receives the <code class="inline">namespace</code> for the variable.</p>
 <p>Returns true if edgehog should use the operative system certificates.</p>
   </section>
 </section>
+<section class="detail" id="deployment_provisioning_timeout/1">
+
+    <span id="deployment_provisioning_timeout/0"></span>
+
+  <div class="detail-header">
+    <a href="#deployment_provisioning_timeout/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">deployment_provisioning_timeout(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L184" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> deployment_provisioning_timeout(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Edgehog deployment provisioning timeout (milliseconds).</p><p>This environment variable sets the deadline a single provisioner has to
+complete its provisioning. When it is hit the provisioner gives up and
+broadcasts a failure, which the deployment orchestrator reacts to by marking
+the deployment as timed out and broadcasting a failure. Defaults to 10 minutes.</p><p>Calling <code class="inline">Edgehog.Config.deployment_provisioning_timeout()</code> will ensure the following:</p><ul><li>Binding order: [:system, :config]</li><li>OS environment variable: &quot;EDGEHOG_DEPLOYMENT_PROVISIONING_TIMEOUT&quot;</li><li>Type: :non_neg_integer</li><li>Default: 600000</li><li>Required: false</li><li>Cached: true</li></ul>
+  </section>
+</section>
+<section class="detail" id="deployment_provisioning_timeout!/1">
+
+    <span id="deployment_provisioning_timeout!/0"></span>
+
+  <div class="detail-header">
+    <a href="#deployment_provisioning_timeout!/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">deployment_provisioning_timeout!(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L184" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> deployment_provisioning_timeout!(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+
+      </div>
+
+<p>Edgehog deployment provisioning timeout (milliseconds).</p><p>This environment variable sets the deadline a single provisioner has to
+complete its provisioning. When it is hit the provisioner gives up and
+broadcasts a failure, which the deployment orchestrator reacts to by marking
+the deployment as timed out and broadcasting a failure. Defaults to 10 minutes.</p><p>Bang version of <a href="#deployment_provisioning_timeout/0"><code class="inline">Edgehog.Config.deployment_provisioning_timeout/0</code></a> (fails on error). Optionally,
+receives the <code class="inline">namespace</code> for the variable.</p>
+  </section>
+</section>
 <section class="detail" id="geocoding_providers!/0">
 
   <div class="detail-header">
@@ -1513,7 +1750,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">geocoding_providers!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L221" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L267" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1541,7 +1778,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">geolocation_providers!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L208" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L254" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1744,6 +1981,198 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       </div>
 
 <p>The API key for the ipbase.com geolocation provider.</p><p>Bang version of <a href="#ipbase_api_key/0"><code class="inline">Edgehog.Config.ipbase_api_key/0</code></a> (fails on error). Optionally,
+receives the <code class="inline">namespace</code> for the variable.</p>
+  </section>
+</section>
+<section class="detail" id="max_retries/1">
+
+    <span id="max_retries/0"></span>
+
+  <div class="detail-header">
+    <a href="#max_retries/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">max_retries(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L171" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> max_retries(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Edgehog max retries.</p><p>This environment variable sets the maximum retires provisioners will use as a fallback if no more specific max retires variables are set.
+Defaults to 100.</p><p>Calling <code class="inline">Edgehog.Config.max_retries()</code> will ensure the following:</p><ul><li>Binding order: [:system, :config]</li><li>OS environment variable: &quot;EDGEHOG_PROVISIONING_MAX_RETRIES&quot;</li><li>Type: :non_neg_integer</li><li>Default: 100</li><li>Required: false</li><li>Cached: true</li></ul>
+  </section>
+</section>
+<section class="detail" id="max_retries!/1">
+
+    <span id="max_retries!/0"></span>
+
+  <div class="detail-header">
+    <a href="#max_retries!/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">max_retries!(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L171" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> max_retries!(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+
+      </div>
+
+<p>Edgehog max retries.</p><p>This environment variable sets the maximum retires provisioners will use as a fallback if no more specific max retires variables are set.
+Defaults to 100.</p><p>Bang version of <a href="#max_retries/0"><code class="inline">Edgehog.Config.max_retries/0</code></a> (fails on error). Optionally,
+receives the <code class="inline">namespace</code> for the variable.</p>
+  </section>
+</section>
+<section class="detail" id="message_max_timeout/1">
+
+    <span id="message_max_timeout/0"></span>
+
+  <div class="detail-header">
+    <a href="#message_max_timeout/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">message_max_timeout(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L160" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> message_max_timeout(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Edgehog message max timeout (milliseconds).</p><p>This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 2 days.</p><p>Calling <code class="inline">Edgehog.Config.message_max_timeout()</code> will ensure the following:</p><ul><li>Binding order: [:system, :config]</li><li>OS environment variable: &quot;EDGEHOG_MESSAGE_MAX_TIMEOUT&quot;</li><li>Type: :non_neg_integer</li><li>Default: 172800000</li><li>Required: false</li><li>Cached: true</li></ul>
+  </section>
+</section>
+<section class="detail" id="message_max_timeout!/1">
+
+    <span id="message_max_timeout!/0"></span>
+
+  <div class="detail-header">
+    <a href="#message_max_timeout!/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">message_max_timeout!(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L160" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> message_max_timeout!(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+
+      </div>
+
+<p>Edgehog message max timeout (milliseconds).</p><p>This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 2 days.</p><p>Bang version of <a href="#message_max_timeout/0"><code class="inline">Edgehog.Config.message_max_timeout/0</code></a> (fails on error). Optionally,
+receives the <code class="inline">namespace</code> for the variable.</p>
+  </section>
+</section>
+<section class="detail" id="message_min_timeout/1">
+
+    <span id="message_min_timeout/0"></span>
+
+  <div class="detail-header">
+    <a href="#message_min_timeout/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">message_min_timeout(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L149" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> message_min_timeout(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Edgehog message min timeout (milliseconds).</p><p>This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 5 minutes.</p><p>Calling <code class="inline">Edgehog.Config.message_min_timeout()</code> will ensure the following:</p><ul><li>Binding order: [:system, :config]</li><li>OS environment variable: &quot;EDGEHOG_MESSAGE_MIN_TIMEOUT&quot;</li><li>Type: :non_neg_integer</li><li>Default: 300000</li><li>Required: false</li><li>Cached: true</li></ul>
+  </section>
+</section>
+<section class="detail" id="message_min_timeout!/1">
+
+    <span id="message_min_timeout!/0"></span>
+
+  <div class="detail-header">
+    <a href="#message_min_timeout!/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">message_min_timeout!(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L149" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> message_min_timeout!(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+
+      </div>
+
+<p>Edgehog message min timeout (milliseconds).</p><p>This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 5 minutes.</p><p>Bang version of <a href="#message_min_timeout/0"><code class="inline">Edgehog.Config.message_min_timeout/0</code></a> (fails on error). Optionally,
 receives the <code class="inline">namespace</code> for the variable.</p>
   </section>
 </section>
@@ -2291,6 +2720,38 @@ the <code class="inline">namespace</code>.</p>
 the <code class="inline">namespace</code>.</p>
   </section>
 </section>
+<section class="detail" id="put_deployment_provisioning_timeout/2">
+
+    <span id="put_deployment_provisioning_timeout/1"></span>
+
+  <div class="detail-header">
+    <a href="#put_deployment_provisioning_timeout/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">put_deployment_provisioning_timeout(value, namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L184" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> put_deployment_provisioning_timeout(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(), <a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  :ok | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Puts the <code class="inline">value</code> to <a href="#deployment_provisioning_timeout/0"><code class="inline">Edgehog.Config.deployment_provisioning_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p>
+  </section>
+</section>
 <section class="detail" id="put_google_geocoding_api_key/2">
 
     <span id="put_google_geocoding_api_key/1"></span>
@@ -2384,6 +2845,102 @@ the <code class="inline">namespace</code>.</p>
       </div>
 
 <p>Puts the <code class="inline">value</code> to <a href="#ipbase_api_key/0"><code class="inline">Edgehog.Config.ipbase_api_key/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p>
+  </section>
+</section>
+<section class="detail" id="put_max_retries/2">
+
+    <span id="put_max_retries/1"></span>
+
+  <div class="detail-header">
+    <a href="#put_max_retries/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">put_max_retries(value, namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L171" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> put_max_retries(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(), <a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  :ok | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Puts the <code class="inline">value</code> to <a href="#max_retries/0"><code class="inline">Edgehog.Config.max_retries/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p>
+  </section>
+</section>
+<section class="detail" id="put_message_max_timeout/2">
+
+    <span id="put_message_max_timeout/1"></span>
+
+  <div class="detail-header">
+    <a href="#put_message_max_timeout/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">put_message_max_timeout(value, namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L160" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> put_message_max_timeout(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(), <a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  :ok | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Puts the <code class="inline">value</code> to <a href="#message_max_timeout/0"><code class="inline">Edgehog.Config.message_max_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p>
+  </section>
+</section>
+<section class="detail" id="put_message_min_timeout/2">
+
+    <span id="put_message_min_timeout/1"></span>
+
+  <div class="detail-header">
+    <a href="#put_message_min_timeout/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">put_message_min_timeout(value, namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L149" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> put_message_min_timeout(<a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(), <a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  :ok | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Puts the <code class="inline">value</code> to <a href="#message_min_timeout/0"><code class="inline">Edgehog.Config.message_min_timeout/0</code></a>. Optionally, receives
 the <code class="inline">namespace</code>.</p>
   </section>
 </section>
@@ -2776,6 +3333,38 @@ the <code class="inline">namespace</code> for the variable.</p>
 the <code class="inline">namespace</code> for the variable.</p>
   </section>
 </section>
+<section class="detail" id="reload_deployment_provisioning_timeout/1">
+
+    <span id="reload_deployment_provisioning_timeout/0"></span>
+
+  <div class="detail-header">
+    <a href="#reload_deployment_provisioning_timeout/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">reload_deployment_provisioning_timeout(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L184" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> reload_deployment_provisioning_timeout(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Reloads the value for <a href="#deployment_provisioning_timeout/0"><code class="inline">Edgehog.Config.deployment_provisioning_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p>
+  </section>
+</section>
 <section class="detail" id="reload_google_geocoding_api_key/1">
 
     <span id="reload_google_geocoding_api_key/0"></span>
@@ -2869,6 +3458,102 @@ the <code class="inline">namespace</code> for the variable.</p>
       </div>
 
 <p>Reloads the value for <a href="#ipbase_api_key/0"><code class="inline">Edgehog.Config.ipbase_api_key/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p>
+  </section>
+</section>
+<section class="detail" id="reload_max_retries/1">
+
+    <span id="reload_max_retries/0"></span>
+
+  <div class="detail-header">
+    <a href="#reload_max_retries/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">reload_max_retries(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L171" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> reload_max_retries(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Reloads the value for <a href="#max_retries/0"><code class="inline">Edgehog.Config.max_retries/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p>
+  </section>
+</section>
+<section class="detail" id="reload_message_max_timeout/1">
+
+    <span id="reload_message_max_timeout/0"></span>
+
+  <div class="detail-header">
+    <a href="#reload_message_max_timeout/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">reload_message_max_timeout(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L160" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> reload_message_max_timeout(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Reloads the value for <a href="#message_max_timeout/0"><code class="inline">Edgehog.Config.message_max_timeout/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p>
+  </section>
+</section>
+<section class="detail" id="reload_message_min_timeout/1">
+
+    <span id="reload_message_min_timeout/0"></span>
+
+  <div class="detail-header">
+    <a href="#reload_message_min_timeout/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">reload_message_min_timeout(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L149" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> reload_message_min_timeout(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Reloads the value for <a href="#message_min_timeout/0"><code class="inline">Edgehog.Config.message_min_timeout/0</code></a>. Optionally, receives
 the <code class="inline">namespace</code> for the variable.</p>
   </section>
 </section>
@@ -3127,7 +3812,7 @@ Additionally, it can receive a list of options:</p><ul><li><code class="inline">
 
       </div>
 
-<p>Edgehog tenant reconciliation timeout (seconds).</p><p>This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.</p><p>Calling <code class="inline">Edgehog.Config.tenant_reconciler_timeout()</code> will ensure the following:</p><ul><li>Binding order: [:system, :config]</li><li>OS environment variable: &quot;EDGEHOG_TENANT_RECONCILER_TIMEOUT&quot;</li><li>Type: :non_neg_integer</li><li>Default: 600000</li><li>Required: false</li><li>Cached: true</li></ul>
+<p>Edgehog tenant reconciliation timeout (milliseconds).</p><p>This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.</p><p>Calling <code class="inline">Edgehog.Config.tenant_reconciler_timeout()</code> will ensure the following:</p><ul><li>Binding order: [:system, :config]</li><li>OS environment variable: &quot;EDGEHOG_TENANT_RECONCILER_TIMEOUT&quot;</li><li>Type: :non_neg_integer</li><li>Default: 600000</li><li>Required: false</li><li>Cached: true</li></ul>
   </section>
 </section>
 <section class="detail" id="tenant_reconciler_timeout!/1">
@@ -3158,7 +3843,7 @@ Additionally, it can receive a list of options:</p><ul><li><code class="inline">
 
       </div>
 
-<p>Edgehog tenant reconciliation timeout (seconds).</p><p>This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.</p><p>Bang version of <a href="#tenant_reconciler_timeout/0"><code class="inline">Edgehog.Config.tenant_reconciler_timeout/0</code></a> (fails on error). Optionally,
+<p>Edgehog tenant reconciliation timeout (milliseconds).</p><p>This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.</p><p>Bang version of <a href="#tenant_reconciler_timeout/0"><code class="inline">Edgehog.Config.tenant_reconciler_timeout/0</code></a> (fails on error). Optionally,
 receives the <code class="inline">namespace</code> for the variable.</p>
   </section>
 </section>
@@ -3235,7 +3920,7 @@ Returns <code class="inline">:ok</code> if they are, raises if they're not.</p><
       <h1 class="signature" translate="no">validate_admin_authentication!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L233" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L279" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 

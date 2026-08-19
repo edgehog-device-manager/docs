@@ -12,6 +12,7 @@ Generic lazy batch executor for campaigns using a macro-based approach.
   data :: %Edgehog.Campaigns.Executors.Lazy.LazyBatch{
     available_slots: term(),
     campaign_id: term(),
+    context: term(),
     failed_count: term(),
     in_progress_count: term(),
     mechanism: term(),

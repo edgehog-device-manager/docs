@@ -1,7 +1,8 @@
 # `Edgehog.Containers.Reconciler.Core`
 [🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/reconciler/core.ex#L19)
 
-Core component for the reconciler, provides `reconcile` function.
+Core component for the reconciler, provides `reconcile/1` and
+`reconcile_timeout/1` functions.
 
 # `online_devices`
 
@@ -23,6 +24,8 @@ Returns online the number of online devices and a stream that contains them.
 # `reconcile_images`
 
 # `reconcile_networks`
+
+# `reconcile_timeout`
 
 # `reconcile_volumes`
 

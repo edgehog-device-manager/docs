@@ -237,6 +237,46 @@ receives the `namespace` for the variable.
 
 Returns true if edgehog should use the operative system certificates.
 
+# `deployment_provisioning_timeout`
+
+```elixir
+@spec deployment_provisioning_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Edgehog deployment provisioning timeout (milliseconds).
+
+This environment variable sets the deadline a single provisioner has to
+complete its provisioning. When it is hit the provisioner gives up and
+broadcasts a failure, which the deployment orchestrator reacts to by marking
+the deployment as timed out and broadcasting a failure. Defaults to 10 minutes.
+
+Calling `Edgehog.Config.deployment_provisioning_timeout()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_DEPLOYMENT_PROVISIONING_TIMEOUT"
+- Type: :non_neg_integer
+- Default: 600000
+- Required: false
+- Cached: true
+
+# `deployment_provisioning_timeout!`
+
+```elixir
+@spec deployment_provisioning_timeout!(Skogsra.Env.namespace()) ::
+  non_neg_integer() | no_return()
+```
+
+Edgehog deployment provisioning timeout (milliseconds).
+
+This environment variable sets the deadline a single provisioner has to
+complete its provisioning. When it is hit the provisioner gives up and
+broadcasts a failure, which the deployment orchestrator reacts to by marking
+the deployment as timed out and broadcasting a failure. Defaults to 10 minutes.
+
+Bang version of `Edgehog.Config.deployment_provisioning_timeout/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
 # `geocoding_providers!`
 
 ```elixir
@@ -340,6 +380,111 @@ Calling `Edgehog.Config.ipbase_api_key()` will ensure the following:
 The API key for the ipbase.com geolocation provider.
 
 Bang version of `Edgehog.Config.ipbase_api_key/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `max_retries`
+
+```elixir
+@spec max_retries(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Edgehog max retries.
+
+This environment variable sets the maximum retires provisioners will use as a fallback if no more specific max retires variables are set.
+Defaults to 100.
+
+Calling `Edgehog.Config.max_retries()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_PROVISIONING_MAX_RETRIES"
+- Type: :non_neg_integer
+- Default: 100
+- Required: false
+- Cached: true
+
+# `max_retries!`
+
+```elixir
+@spec max_retries!(Skogsra.Env.namespace()) :: non_neg_integer() | no_return()
+```
+
+Edgehog max retries.
+
+This environment variable sets the maximum retires provisioners will use as a fallback if no more specific max retires variables are set.
+Defaults to 100.
+
+Bang version of `Edgehog.Config.max_retries/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `message_max_timeout`
+
+```elixir
+@spec message_max_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Edgehog message max timeout (milliseconds).
+
+This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 2 days.
+
+Calling `Edgehog.Config.message_max_timeout()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_MESSAGE_MAX_TIMEOUT"
+- Type: :non_neg_integer
+- Default: 172800000
+- Required: false
+- Cached: true
+
+# `message_max_timeout!`
+
+```elixir
+@spec message_max_timeout!(Skogsra.Env.namespace()) :: non_neg_integer() | no_return()
+```
+
+Edgehog message max timeout (milliseconds).
+
+This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 2 days.
+
+Bang version of `Edgehog.Config.message_max_timeout/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `message_min_timeout`
+
+```elixir
+@spec message_min_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Edgehog message min timeout (milliseconds).
+
+This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 5 minutes.
+
+Calling `Edgehog.Config.message_min_timeout()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_MESSAGE_MIN_TIMEOUT"
+- Type: :non_neg_integer
+- Default: 300000
+- Required: false
+- Cached: true
+
+# `message_min_timeout!`
+
+```elixir
+@spec message_min_timeout!(Skogsra.Env.namespace()) :: non_neg_integer() | no_return()
+```
+
+Edgehog message min timeout (milliseconds).
+
+This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 5 minutes.
+
+Bang version of `Edgehog.Config.message_min_timeout/0` (fails on error). Optionally,
 receives the `namespace` for the variable.
 
 # `openfga_auth_model_id`
@@ -567,6 +712,16 @@ the `namespace`.
 Puts the `value` to `Edgehog.Config.database_use_os_certs/0`. Optionally, receives
 the `namespace`.
 
+# `put_deployment_provisioning_timeout`
+
+```elixir
+@spec put_deployment_provisioning_timeout(non_neg_integer(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.deployment_provisioning_timeout/0`. Optionally, receives
+the `namespace`.
+
 # `put_google_geocoding_api_key`
 
 ```elixir
@@ -595,6 +750,36 @@ the `namespace`.
 ```
 
 Puts the `value` to `Edgehog.Config.ipbase_api_key/0`. Optionally, receives
+the `namespace`.
+
+# `put_max_retries`
+
+```elixir
+@spec put_max_retries(non_neg_integer(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.max_retries/0`. Optionally, receives
+the `namespace`.
+
+# `put_message_max_timeout`
+
+```elixir
+@spec put_message_max_timeout(non_neg_integer(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.message_max_timeout/0`. Optionally, receives
+the `namespace`.
+
+# `put_message_min_timeout`
+
+```elixir
+@spec put_message_min_timeout(non_neg_integer(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.message_min_timeout/0`. Optionally, receives
 the `namespace`.
 
 # `put_openfga_auth_model_id`
@@ -722,6 +907,16 @@ the `namespace` for the variable.
 Reloads the value for `Edgehog.Config.database_use_os_certs/0`. Optionally, receives
 the `namespace` for the variable.
 
+# `reload_deployment_provisioning_timeout`
+
+```elixir
+@spec reload_deployment_provisioning_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.deployment_provisioning_timeout/0`. Optionally, receives
+the `namespace` for the variable.
+
 # `reload_google_geocoding_api_key`
 
 ```elixir
@@ -750,6 +945,36 @@ the `namespace` for the variable.
 ```
 
 Reloads the value for `Edgehog.Config.ipbase_api_key/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_max_retries`
+
+```elixir
+@spec reload_max_retries(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.max_retries/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_message_max_timeout`
+
+```elixir
+@spec reload_message_max_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.message_max_timeout/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_message_min_timeout`
+
+```elixir
+@spec reload_message_min_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.message_min_timeout/0`. Optionally, receives
 the `namespace` for the variable.
 
 # `reload_openfga_auth_model_id`
@@ -835,7 +1060,7 @@ Additionally, it can receive a list of options:
   {:ok, non_neg_integer()} | {:error, binary()}
 ```
 
-Edgehog tenant reconciliation timeout (seconds).
+Edgehog tenant reconciliation timeout (milliseconds).
 
 This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.
 
@@ -855,7 +1080,7 @@ Calling `Edgehog.Config.tenant_reconciler_timeout()` will ensure the following:
   non_neg_integer() | no_return()
 ```
 
-Edgehog tenant reconciliation timeout (seconds).
+Edgehog tenant reconciliation timeout (milliseconds).
 
 This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.
 

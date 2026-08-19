@@ -131,16 +131,16 @@ This change fetches the deployment from the arguments and links it to the target
 
   - [Edgehog.Containers.Changes.MaybeDestroyChildren](Edgehog.Containers.Changes.MaybeDestroyChildren.md): Trigger children cleanup (if dangling) after transaction.
 
-  - [Edgehog.Containers.Changes.MaybeNotifyUpwards](Edgehog.Containers.Changes.MaybeNotifyUpwards.md): If the deployment of a containre-related resource is ready, notifies the
-appropriate container deployments about it.
-
   - [Edgehog.Containers.Container.Deployment.Calculations.Ready](Edgehog.Containers.Container.Deployment.Calculations.Ready.md): Computes the readiness of a deployment.
 A deployment is ready when:
  - Its state is either `:started` or `:stopped`
  - All underlying container deployments are ready
 
-  - [Edgehog.Containers.Container.Deployment.Changes.MaybeNotifyUpwards](Edgehog.Containers.Container.Deployment.Changes.MaybeNotifyUpwards.md): If the container deployment is ready, notify the associated deployments.
+  - [Edgehog.Containers.Container.Deployment.Orchestrator](Edgehog.Containers.Container.Deployment.Orchestrator.md): Orchestrator for all the provisioner processes of a container.
+  - [Edgehog.Containers.Container.Deployment.Orchestrator.Core](Edgehog.Containers.Container.Deployment.Orchestrator.Core.md): Container orchestrator pure functions.
 
+  - [Edgehog.Containers.Container.Deployment.Provisioner](Edgehog.Containers.Container.Deployment.Provisioner.md): A container deployment provisioner.
+  - [Edgehog.Containers.Container.Deployment.Provisioner.Core](Edgehog.Containers.Container.Deployment.Provisioner.Core.md): The module describing the Core functions required by the container deployment provisioner.
   - [Edgehog.Containers.Container.Types.EnvVar](Edgehog.Containers.Container.Types.EnvVar.md): The type used to specify environment variables in a key-value pair format
 
   - [Edgehog.Containers.Deployment.Calculations.Ready](Edgehog.Containers.Deployment.Calculations.Ready.md): Computes the readiness of a deployment.
@@ -159,32 +159,59 @@ A deployment is ready when:
 needed.
 
   - [Edgehog.Containers.Deployment.Changes.SendCommand](Edgehog.Containers.Deployment.Changes.SendCommand.md): A change to send a command to a deployment _after_ the action has been done.
-  - [Edgehog.Containers.Deployment.Changes.SendRequest](Edgehog.Containers.Deployment.Changes.SendRequest.md): Automatically update the deployment and send the requests to the device once
-the database transaction is clsed and all the resources are available.
-
   - [Edgehog.Containers.Deployment.Changes.SendUpgrade](Edgehog.Containers.Deployment.Changes.SendUpgrade.md): A change to upgrade the deployment of an application to a newer version.
   - [Edgehog.Containers.Deployment.EventType](Edgehog.Containers.Deployment.EventType.md): Expresses the type of event a device can communicate to the backend trough the `DeploymentEvent` interface.
 
+  - [Edgehog.Containers.Deployment.ManualActions.StartSupervisor](Edgehog.Containers.Deployment.ManualActions.StartSupervisor.md): Manual action to start a deployment supervisor without the need for a database transaction.
+
+  - [Edgehog.Containers.Deployment.Orchestrator](Edgehog.Containers.Deployment.Orchestrator.md): Orchestrator for all provisioner processes of a deployment.
+  - [Edgehog.Containers.Deployment.Orchestrator.Core](Edgehog.Containers.Deployment.Orchestrator.Core.md): Deployment orchestrator pure functions.
+
+  - [Edgehog.Containers.Deployment.Provisioner](Edgehog.Containers.Deployment.Provisioner.md): A deployment provisioner.
+  - [Edgehog.Containers.Deployment.Provisioner.Core](Edgehog.Containers.Deployment.Provisioner.Core.md): The module describing the Core functions required by the deployment provisioner.
+  - [Edgehog.Containers.Deployment.Starter](Edgehog.Containers.Deployment.Starter.md): Deployments starter.
+  - [Edgehog.Containers.Deployment.Starter.Core](Edgehog.Containers.Deployment.Starter.Core.md): Deployment starter core functions.
   - [Edgehog.Containers.Deployment.Types.DeploymentContext](Edgehog.Containers.Deployment.Types.DeploymentContext.md): Deployment context. An auxiliary type to track requests and pending operations on a deployment.
 
   - [Edgehog.Containers.Deployment.Validations.Event](Edgehog.Containers.Deployment.Validations.Event.md): Checks if the received event matches some fields.
   - [Edgehog.Containers.Deployment.Validations.NoConflictingCampaign](Edgehog.Containers.Deployment.Validations.NoConflictingCampaign.md): Validates that a deployment is not part of an in-progress campaign with a different operation type.
 
+  - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.md): The provisioner for deploying device mappings on a device.
+  - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device mapping deployment provisioner.
+  - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.md): The provisioner for deploying device requests on a device.
+  - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device request deployment provisioner.
+  - [Edgehog.Containers.Image.Deployment.Provisioner](Edgehog.Containers.Image.Deployment.Provisioner.md): The provisioner for deploying images on a device.
+  - [Edgehog.Containers.Image.Deployment.Provisioner.Core](Edgehog.Containers.Image.Deployment.Provisioner.Core.md): The module describing the Core functions required by the image deployment provisioner.
+  - [Edgehog.Containers.Network.Deployment.Provisioner](Edgehog.Containers.Network.Deployment.Provisioner.md): The provisioner for deploying networks on a device.
+  - [Edgehog.Containers.Network.Deployment.Provisioner.Core](Edgehog.Containers.Network.Deployment.Provisioner.Core.md): The module describing the Core functions required by the network deployment provisioner.
+  - [Edgehog.Containers.Provisioner](Edgehog.Containers.Provisioner.md): This module provides the default implementation for `Edgehog.Containers.Provisioner.Behaviour`.
+It is sufficient to add a using statement like so
+  - [Edgehog.Containers.Provisioner.Behaviour](Edgehog.Containers.Provisioner.Behaviour.md): Behaviour describing the API of a Provisioner for a resource.
+  - [Edgehog.Containers.Provisioner.Core](Edgehog.Containers.Provisioner.Core.md): Convenience module for `Edgehog.Containers.Provisioner.Core.Behaviour`.
+  - [Edgehog.Containers.Provisioner.Core.Behaviour](Edgehog.Containers.Provisioner.Core.Behaviour.md): Behaviour describing the API of the Core functions for a Provisioner.
   - [Edgehog.Containers.Reconciler](Edgehog.Containers.Reconciler.md): Reconciler for container-related data between the device and the backend.
   - [Edgehog.Containers.Reconciler.Behaviour](Edgehog.Containers.Reconciler.Behaviour.md): Behavior for the reconciler. It should implement
 - a `start_link` to start the reconciler.
 - a `register_device` to start a device timer in the reconciler.
 - a `stop_device` to stop a device timer in the reconciler.
 
-  - [Edgehog.Containers.Reconciler.Core](Edgehog.Containers.Reconciler.Core.md): Core component for the reconciler, provides `reconcile` function.
+  - [Edgehog.Containers.Reconciler.Core](Edgehog.Containers.Reconciler.Core.md): Core component for the reconciler, provides `reconcile/1` and
+`reconcile_timeout/1` functions.
 
+  - [Edgehog.Containers.Supervisor](Edgehog.Containers.Supervisor.md): Container registries.
   - [Edgehog.Containers.Validations.Dangling](Edgehog.Containers.Validations.Dangling.md): Validates the action by running the `dangling?` calculation.
 true -> :ok
 false -> {:error, :not_dangling}
 
+  - [Edgehog.Containers.Volume.Deployment.Provisioner](Edgehog.Containers.Volume.Deployment.Provisioner.md): The provisioner for deploying volumes on a device.
+  - [Edgehog.Containers.Volume.Deployment.Provisioner.Core](Edgehog.Containers.Volume.Deployment.Provisioner.Core.md): The module describing the Core functions required by the volume deployment provisioner.
+
 - Devices
   - [Edgehog.Devices](Edgehog.Devices.md): The Devices context.
   - [Edgehog.Devices.Device](Edgehog.Devices.Device.md): Device resource schema and operations.
+  - [Edgehog.Devices.Device.Changes.DeployPending](Edgehog.Devices.Device.Changes.DeployPending.md): After the transaction, deploy all deployments still marked as `:pending` for
+the given device.
+
   - [Edgehog.Devices.Device.Changes.SetupReconciler](Edgehog.Devices.Device.Changes.SetupReconciler.md): Sets up the reconciler on connection events.
 
   - [Edgehog.Devices.Device.Changes.TearDownReconciler](Edgehog.Devices.Device.Changes.TearDownReconciler.md): Tears down the reconciler when a device disconnects.
@@ -280,6 +307,8 @@ for a file upload request before persisting it.
   - [Edgehog.Triggers.IncomingData.Handlers.AvailableDeployments](Edgehog.Triggers.IncomingData.Handlers.AvailableDeployments.md): Available Images handler
 
   - [Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceMappings](Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceMappings.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceRequests](Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceRequests.md): Available Images handler
 
   - [Edgehog.Triggers.IncomingData.Handlers.AvailableImages](Edgehog.Triggers.IncomingData.Handlers.AvailableImages.md): Available Images handler
 

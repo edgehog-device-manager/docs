@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.2">
+    <meta name="project" content="Clea Edgehog v0.13.1">
+
+
+    <title>Edgehog.Containers.Provisioner.Behaviour — Clea Edgehog v0.13.1</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+
+    <script defer src="dist/sidebar_items-322D9E2B.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-Y2MUTVIN.js"></script>
+<link rel="stylesheet" href="style/cards.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="intro.html" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="intro.html" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.13.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-behaviour" id="main" data-type="modules">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>
+      <span translate="no">Edgehog.<wbr />Containers.<wbr />Provisioner.<wbr />Behaviour</span> <small>behaviour</small>
+      <small class="app-vsn" translate="no">(Clea Edgehog v0.13.1)</small>
+
+    </h1>
+
+<a href="Edgehog.Containers.Provisioner.Behaviour.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/provisioner/behaviour.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+  </div>
+
+
+    <section id="moduledoc">
+<p>Behaviour describing the API of a Provisioner for a resource.</p><p>A Provisioner is a <a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a> that takes a resource to provision on a
+device, and orchestrates the whole provisioning flow with the device:
+sending requests, managing timeouts, retries and errors, reacting to the
+events emitted by the device, and broadcasting readiness (or failure).</p><p>This module shouldn't be used directly. Rather, it's best to
+use <a href="Edgehog.Containers.Provisioner.html"><code class="inline">Edgehog.Containers.Provisioner</code></a>, i.e.:</p><pre><code class="ex">defmodule ResourceProvisioner do
+  use Edgehog.Containers.Provisioner, resource: ResourceModule
+end</code></pre><p>which will add the default implementation of a <code class="inline">Provisioner</code>.
+All of the functions of this behaviour are overridable.
+Note that a <code class="inline">Provisioner</code> is a <a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a>, so you can also override any of
+its callbacks, if you need.</p>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h2 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h2>
+<div class="summary-types summary">
+  <h3>
+    <a href="#types">Types</a>
+  </h3>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:provision_opts/0" data-no-tooltip="" translate="no">provision_opts()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:resource/0" data-no-tooltip="" translate="no">resource()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>An <code class="inline">Ash.Resource.record()</code> representing the resource to provision on a device.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:start_opts/0" data-no-tooltip="" translate="no">start_opts()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#t:state/0" data-no-tooltip="" translate="no">state()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>The state map of the provisioner.</p></div>
+
+    </div>
+
+</div>
+<div class="summary-callbacks summary">
+  <h3>
+    <a href="#callbacks">Callbacks</a>
+  </h3>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#c:provision/3" data-no-tooltip="" translate="no">provision(resource, arg2, provision_opts)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Starts the right process through the correct (usually dynamic) supervisor.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#c:start/1" data-no-tooltip="" translate="no">start(start_opts)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Starts a provisioner for a resource, without linking it to the
+current process.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#c:start_link/1" data-no-tooltip="" translate="no">start_link(start_opts)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Starts a provisioner for a resource, linking the current process to
+the provisioner one.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#c:timeout/1" data-no-tooltip="" translate="no">timeout(state)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns the timeout for retries.</p></div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="types" class="details-list">
+    <h2 class="section-heading">
+      <a class="hover-link" href="#types">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Types</span>
+    </h2>
+
+    <div class="types-list">
+<section class="detail" id="t:provision_opts/0">
+
+  <div class="detail-header">
+    <a href="#t:provision_opts/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">provision_opts()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/provisioner/behaviour.ex#L122" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> provision_opts() :: <a href="#t:start_opts/0">start_opts</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">keyword</a>()</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:resource/0">
+
+  <div class="detail-header">
+    <a href="#t:resource/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">resource()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/provisioner/behaviour.ex#L120" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> resource() :: <a href="https://hexdocs.pm/ash/3.27.7/Ash.Resource.html#t:record/0">Ash.Resource.record</a>()</pre>
+
+      </div>
+
+<p>An <code class="inline">Ash.Resource.record()</code> representing the resource to provision on a device.</p>
+  </section>
+</section>
+<section class="detail" id="t:start_opts/0">
+
+  <div class="detail-header">
+    <a href="#t:start_opts/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">start_opts()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/provisioner/behaviour.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> start_opts() :: [
+  resource: <a href="#t:resource/0">resource</a>(),
+  tenant: <a href="Edgehog.Tenants.Tenant.html#t:t/0">Edgehog.Tenants.Tenant.t</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pos_integer</a>(),
+  mode: :auto | :manual
+]</pre>
+
+      </div>
+
+
+  </section>
+</section>
+<section class="detail" id="t:state/0">
+
+  <div class="detail-header">
+    <a href="#t:state/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">state()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/provisioner/behaviour.ex#L139" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> state() :: %{
+  resource: <a href="#t:resource/0">resource</a>(),
+  tenant: <a href="Edgehog.Tenants.Tenant.html#t:t/0">Edgehog.Tenants.Tenant.t</a>(),
+  state: :init | :sent,
+  retries: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()
+}</pre>
+
+      </div>
+
+<p>The state map of the provisioner.</p><p>In the default implementation, it includes other key on top of the required ones:
+%{
+  device_online?: boolean(),
+  mode: :auto | :manual
+}</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+  <section id="callbacks" class="details-list">
+    <h2 class="section-heading">
+      <a class="hover-link" href="#callbacks">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Callbacks</span>
+    </h2>
+
+    <div class="callbacks-list">
+<section class="detail" id="c:provision/3">
+
+  <div class="detail-header">
+    <a href="#c:provision/3" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">provision(resource, arg2, provision_opts)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/provisioner/behaviour.ex#L57" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@callback</span> provision(
+  <a href="#t:resource/0">resource</a>(),
+  <a href="Edgehog.Tenants.Tenant.html#t:t/0">Edgehog.Tenants.Tenant.t</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pos_integer</a>(),
+  <a href="#t:provision_opts/0">provision_opts</a>()
+) :: <a href="https://hexdocs.pm/elixir/GenServer.html#t:on_start/0">GenServer.on_start</a>()</pre>
+
+      </div>
+
+<p>Starts the right process through the correct (usually dynamic) supervisor.</p><p>This callback is optional: the default implementation starts the provisioner
+under the supervisor specified by the <code class="inline">@sup</code> module attribute of the module
+using <a href="Edgehog.Containers.Provisioner.html"><code class="inline">Edgehog.Containers.Provisioner</code></a>, so the user of the macro decides
+where the process is spawned. When creating the link, the server checks a
+registry to know whether the corresponding process is already up and running.
+Check <code class="inline">Core.name/1</code> docs for more info.</p>
+  </section>
+</section>
+<section class="detail" id="c:start/1">
+
+  <div class="detail-header">
+    <a href="#c:start/1" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">start(start_opts)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/provisioner/behaviour.ex#L92" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@callback</span> start(<a href="#t:start_opts/0">start_opts</a>()) :: <a href="https://hexdocs.pm/elixir/GenServer.html#t:on_start/0">GenServer.on_start</a>()</pre>
+
+      </div>
+
+<p>Starts a provisioner for a resource, without linking it to the
+current process.</p><p>See <code class="inline">start_link/1</code> docs for more information.</p>
+  </section>
+</section>
+<section class="detail" id="c:start_link/1">
+
+  <div class="detail-header">
+    <a href="#c:start_link/1" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">start_link(start_opts)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/provisioner/behaviour.ex#L84" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@callback</span> start_link(<a href="#t:start_opts/0">start_opts</a>()) :: <a href="https://hexdocs.pm/elixir/GenServer.html#t:on_start/0">GenServer.on_start</a>()</pre>
+
+      </div>
+
+<p>Starts a provisioner for a resource, linking the current process to
+the provisioner one.</p><p>The default implementation for a provisioner of a resource follows the
+following flow:</p><ul><li><p>checks that the resource is not ready already (i.e., the device never received it).</p></li><li><p>tries to send the deployment information to astarte (calling <code class="inline">Core.send_to_device/2</code>).</p></li><li><p>if an unrecoverable error occurs, broadcasts a failure on the <code class="inline">Core.topic/1</code> topic.</p></li><li><p>if successful, waits for events on the resource itself.</p></li><li><p>if a trigger reaches edgehog, it changes a property in the resource, emitting an event for the provisioner.</p></li><li><p>the provisioner understands that the resource is ready, so it exits successfully.</p></li><li><p>if no messages are incoming after a timer defined through the <code class="inline">timeout/1</code> function:</p><ul><li>checks for readiness of the resource, maybe we just missed the message</li><li>queries astarte, maybe the trigger was missing</li><li>retries to send the message to the device.</li><li>loops with a new timeout set by the <code class="inline">timeout/1</code> function.</li></ul></li></ul>
+  </section>
+</section>
+<section class="detail" id="c:timeout/1">
+
+  <div class="detail-header">
+    <a href="#c:timeout/1" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">timeout(state)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/provisioner/behaviour.ex#L115" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@callback</span> timeout(<a href="#t:state/0">state</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">timeout</a>()</pre>
+
+      </div>
+
+<p>Returns the timeout for retries.</p><p>In the default implementation, it is an exponential backoff timeout:
+it reads information from the provisioner state (current send state, and
+number of retries that happened), and it computes the timeout with the
+following formula</p><pre><code class="makeup elixir" translate="no"><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pad</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p" data-group-id="2329732778-1">(</span><span class="mi">2</span><span class="o">^</span><span class="n">retries</span><span class="p" data-group-id="2329732778-1">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rand</span><span class="p" data-group-id="2329732778-2">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p" data-group-id="2329732778-2">)</span><span class="w">
+</span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p" data-group-id="2329732778-3">(</span><span class="n">timeout</span><span class="p">,</span><span class="w"> </span><span class="n">max_timeout</span><span class="p" data-group-id="2329732778-3">)</span></code></pre><ul><li>pad       :: the pad component is there to ensure a minimum timeout is
+guaranteed. The pad is only applied when the resource
+has been sent, and therefore we're waiting for astarte triggers</li><li>2^retries :: this is the exponential component, increases at each retry to
+ensure we don't DDoS astarte/the device.</li><li>rand      :: a random (between 0 and 1s) ensures no synchronization errors
+appear.</li></ul>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.2) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
