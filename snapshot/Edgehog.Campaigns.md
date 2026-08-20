@@ -130,6 +130,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_campaign?`
 
 Runs authorization checks for `Edgehog.Campaigns.Campaign.read`, returning a boolean.
@@ -173,6 +175,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_next_valid_target`
 
@@ -218,6 +222,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_next_valid_target?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.next_valid_target`, returning a boolean.
@@ -261,6 +267,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_next_valid_target_with_application_deployed`
 
@@ -306,6 +314,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_next_valid_target_with_application_deployed?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.next_valid_target_with_application_deployed`, returning a boolean.
@@ -349,6 +359,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_target`
 
@@ -394,6 +406,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_target?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.read`, returning a boolean.
@@ -437,6 +451,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_target_by_deployment`
 
@@ -482,6 +498,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_target_by_deployment?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.read`, returning a boolean.
@@ -525,6 +543,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_target_by_device_and_campaign`
 
@@ -570,6 +590,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_target_by_device_and_campaign?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.read`, returning a boolean.
@@ -613,6 +635,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_increase_target_retry_count`
 
@@ -658,6 +682,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_increase_target_retry_count?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.increase_retry_count`, returning a boolean.
@@ -701,6 +727,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_link_deployment`
 
@@ -746,6 +774,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_link_deployment?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.link_deployment`, returning a boolean.
@@ -789,6 +819,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_list_in_progress_targets`
 
@@ -834,6 +866,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_list_in_progress_targets?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.read_in_progress_targets`, returning a boolean.
@@ -877,6 +911,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_list_targets_with_pending_file_download_request`
 
@@ -922,6 +958,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_list_targets_with_pending_file_download_request?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.read_targets_with_pending_file_download_request`, returning a boolean.
@@ -965,6 +1003,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_list_targets_with_pending_ota_operation`
 
@@ -1010,6 +1050,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_list_targets_with_pending_ota_operation?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.read_targets_with_pending_ota_operation`, returning a boolean.
@@ -1053,6 +1095,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_mark_campaign_failed`
 
@@ -1098,6 +1142,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_mark_campaign_failed?`
 
 Runs authorization checks for `Edgehog.Campaigns.Campaign.mark_as_failed`, returning a boolean.
@@ -1141,6 +1187,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_mark_campaign_in_progress`
 
@@ -1186,6 +1234,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_mark_campaign_in_progress?`
 
 Runs authorization checks for `Edgehog.Campaigns.Campaign.mark_as_in_progress`, returning a boolean.
@@ -1229,6 +1279,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_mark_campaign_paused`
 
@@ -1274,6 +1326,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_mark_campaign_paused?`
 
 Runs authorization checks for `Edgehog.Campaigns.Campaign.mark_as_paused`, returning a boolean.
@@ -1317,6 +1371,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_mark_campaign_scheduled`
 
@@ -1362,6 +1418,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_mark_campaign_scheduled?`
 
 Runs authorization checks for `Edgehog.Campaigns.Campaign.mark_as_scheduled`, returning a boolean.
@@ -1405,6 +1463,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_mark_campaign_successful`
 
@@ -1450,6 +1510,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_mark_campaign_successful?`
 
 Runs authorization checks for `Edgehog.Campaigns.Campaign.mark_as_successful`, returning a boolean.
@@ -1493,6 +1555,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_mark_target_as_failed`
 
@@ -1538,6 +1602,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_mark_target_as_failed?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.mark_as_failed`, returning a boolean.
@@ -1581,6 +1647,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_mark_target_as_in_progress`
 
@@ -1626,6 +1694,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_mark_target_as_in_progress?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.mark_as_in_progress`, returning a boolean.
@@ -1669,6 +1739,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_mark_target_as_successful`
 
@@ -1714,6 +1786,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_mark_target_as_successful?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.mark_as_successful`, returning a boolean.
@@ -1757,6 +1831,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_pause_campaign`
 
@@ -1802,6 +1878,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_pause_campaign?`
 
 Runs authorization checks for `Edgehog.Campaigns.Campaign.pause`, returning a boolean.
@@ -1845,6 +1923,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_resume_campaign`
 
@@ -1890,6 +1970,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_resume_campaign?`
 
 Runs authorization checks for `Edgehog.Campaigns.Campaign.resume`, returning a boolean.
@@ -1933,6 +2015,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_set_target_deployment`
 
@@ -1978,6 +2062,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_set_target_deployment?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.set_deployment`, returning a boolean.
@@ -2021,6 +2107,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_start_file_download`
 
@@ -2066,6 +2154,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_start_file_download?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.start_file_download`, returning a boolean.
@@ -2109,6 +2199,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_start_fw_upgrade`
 
@@ -2154,6 +2246,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_start_fw_upgrade?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.start_fw_upgrade`, returning a boolean.
@@ -2197,6 +2291,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_update_target_latest_attempt`
 
@@ -2242,6 +2338,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_update_target_latest_attempt?`
 
 Runs authorization checks for `Edgehog.Campaigns.CampaignTarget.update_latest_attempt`, returning a boolean.
@@ -2285,6 +2383,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `changeset_to_increase_target_retry_count`
 

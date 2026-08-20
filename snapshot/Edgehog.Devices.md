@@ -130,6 +130,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_delete_system_model?`
 
 Runs authorization checks for `Edgehog.Devices.SystemModel.destroy`, returning a boolean.
@@ -173,6 +175,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_device`
 
@@ -218,6 +222,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_device?`
 
 Runs authorization checks for `Edgehog.Devices.Device.read`, returning a boolean.
@@ -261,6 +267,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_device_by_identity`
 
@@ -306,6 +314,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_device_by_identity?`
 
 Runs authorization checks for `Edgehog.Devices.Device.read`, returning a boolean.
@@ -349,6 +359,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_send_create_container_request`
 
@@ -394,6 +406,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_send_create_container_request?`
 
 Runs authorization checks for `Edgehog.Devices.Device.send_create_container_request`, returning a boolean.
@@ -437,6 +451,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_send_create_deployment_request`
 
@@ -482,6 +498,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_send_create_deployment_request?`
 
 Runs authorization checks for `Edgehog.Devices.Device.send_create_deployment_request`, returning a boolean.
@@ -525,6 +543,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_send_create_device_mapping_request`
 
@@ -570,6 +590,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_send_create_device_mapping_request?`
 
 Runs authorization checks for `Edgehog.Devices.Device.send_create_device_mapping_request`, returning a boolean.
@@ -613,6 +635,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_send_create_device_request_request`
 
@@ -658,6 +682,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_send_create_device_request_request?`
 
 Runs authorization checks for `Edgehog.Devices.Device.send_create_device_request_request`, returning a boolean.
@@ -701,6 +727,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_send_create_image_request`
 
@@ -746,6 +774,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_send_create_image_request?`
 
 Runs authorization checks for `Edgehog.Devices.Device.send_create_image`, returning a boolean.
@@ -789,6 +819,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_send_create_network_request`
 
@@ -834,6 +866,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_send_create_network_request?`
 
 Runs authorization checks for `Edgehog.Devices.Device.send_create_network_request`, returning a boolean.
@@ -877,6 +911,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_send_create_volume_request`
 
@@ -922,6 +958,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_send_create_volume_request?`
 
 Runs authorization checks for `Edgehog.Devices.Device.send_create_volume_request`, returning a boolean.
@@ -965,6 +1003,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_send_release_command`
 
@@ -1010,6 +1050,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_send_release_command?`
 
 Runs authorization checks for `Edgehog.Devices.Device.send_release_command`, returning a boolean.
@@ -1053,6 +1095,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_update_application`
 
@@ -1098,6 +1142,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_update_application?`
 
 Runs authorization checks for `Edgehog.Devices.Device.update_application`, returning a boolean.
@@ -1141,6 +1187,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `changeset_to_delete_system_model`
 

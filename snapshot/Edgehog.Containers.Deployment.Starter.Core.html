@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.40.2">
+    <meta name="generator" content="ExDoc v0.40.3">
     <meta name="project" content="Clea Edgehog v0.13.1">
 
 
@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-322D9E2B.js"></script>
+    <script defer src="dist/sidebar_items-2E5A91C1.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -203,15 +203,15 @@ deployment the error was generated.</p></div>
   <section class="docstring">
 
 <p>Loads pending deployments into the state.</p><p>given a device and a tenant scope returns the list of deployments <code class="inline">:pending</code>
-for that device and tenant.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0956400898-1">%</span><span class="nc" data-group-id="0956400898-1">Device</span><span class="p" data-group-id="0956400898-1">{</span><span class="ss">device_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;some-device-id&quot;</span><span class="p" data-group-id="0956400898-1">}</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tenant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0956400898-2">%</span><span class="nc" data-group-id="0956400898-2">Tenant</span><span class="p" data-group-id="0956400898-2">{</span><span class="p" data-group-id="0956400898-2">}</span><span class="w">
+for that device and tenant.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0426493800-1">%</span><span class="nc" data-group-id="0426493800-1">Device</span><span class="p" data-group-id="0426493800-1">{</span><span class="ss">device_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;some-device-id&quot;</span><span class="p" data-group-id="0426493800-1">}</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tenant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0426493800-2">%</span><span class="nc" data-group-id="0426493800-2">Tenant</span><span class="p" data-group-id="0426493800-2">{</span><span class="p" data-group-id="0426493800-2">}</span><span class="w">
 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Core</span><span class="o">.</span><span class="n">load</span><span class="p" data-group-id="0956400898-3">(</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="0956400898-3">)</span><span class="w">
-</span><span class="p" data-group-id="0956400898-4">[</span><span class="w">
-  </span><span class="p" data-group-id="0956400898-5">%</span><span class="nc" data-group-id="0956400898-5">Deployment</span><span class="p" data-group-id="0956400898-5">{</span><span class="p" data-group-id="0956400898-5">}</span><span class="p">,</span><span class="w">
-  </span><span class="p" data-group-id="0956400898-6">%</span><span class="nc" data-group-id="0956400898-6">Deployment</span><span class="p" data-group-id="0956400898-6">{</span><span class="p" data-group-id="0956400898-6">}</span><span class="p">,</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Core</span><span class="o">.</span><span class="n">load</span><span class="p" data-group-id="0426493800-3">(</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="0426493800-3">)</span><span class="w">
+</span><span class="p" data-group-id="0426493800-4">[</span><span class="w">
+  </span><span class="p" data-group-id="0426493800-5">%</span><span class="nc" data-group-id="0426493800-5">Deployment</span><span class="p" data-group-id="0426493800-5">{</span><span class="p" data-group-id="0426493800-5">}</span><span class="p">,</span><span class="w">
+  </span><span class="p" data-group-id="0426493800-6">%</span><span class="nc" data-group-id="0426493800-6">Deployment</span><span class="p" data-group-id="0426493800-6">{</span><span class="p" data-group-id="0426493800-6">}</span><span class="p">,</span><span class="w">
   </span><span class="n">...</span><span class="w">
-</span><span class="p" data-group-id="0956400898-4">]</span></code></pre>
+</span><span class="p" data-group-id="0426493800-4">]</span></code></pre>
   </section>
 </section>
 <section class="detail" id="log_errors/2">
@@ -288,7 +288,7 @@ deployment the error was generated.</p>
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.2) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 

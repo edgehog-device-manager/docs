@@ -130,6 +130,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_create_device_file?`
 
 Runs authorization checks for `Edgehog.Files.DeviceFile.create`, returning a boolean.
@@ -173,6 +175,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_device_file`
 
@@ -218,6 +222,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_device_file?`
 
 Runs authorization checks for `Edgehog.Files.DeviceFile.read`, returning a boolean.
@@ -261,6 +267,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_device_file_by_file_id`
 
@@ -306,6 +314,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_device_file_by_file_id?`
 
 Runs authorization checks for `Edgehog.Files.DeviceFile.read`, returning a boolean.
@@ -349,6 +359,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_file_delete_request`
 
@@ -394,6 +406,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_file_delete_request?`
 
 Runs authorization checks for `Edgehog.Files.FileDeleteRequest.read`, returning a boolean.
@@ -437,6 +451,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_file_download_request`
 
@@ -482,6 +498,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_file_download_request?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.read`, returning a boolean.
@@ -525,6 +543,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_fetch_file_upload_request`
 
@@ -570,6 +590,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_file_upload_request?`
 
 Runs authorization checks for `Edgehog.Files.FileUploadRequest.read`, returning a boolean.
@@ -613,6 +635,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_mark_device_file_as_deleted`
 
@@ -658,6 +682,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_mark_device_file_as_deleted?`
 
 Runs authorization checks for `Edgehog.Files.DeviceFile.set_deleted`, returning a boolean.
@@ -701,6 +727,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_send_file_delete_request`
 
@@ -746,6 +774,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_send_file_delete_request?`
 
 Runs authorization checks for `Edgehog.Files.FileDeleteRequest.send_file_delete_request`, returning a boolean.
@@ -789,6 +819,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_send_file_download_request`
 
@@ -834,6 +866,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_send_file_download_request?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.send_file_download_request`, returning a boolean.
@@ -877,6 +911,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_send_file_upload_request`
 
@@ -922,6 +958,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_send_file_upload_request?`
 
 Runs authorization checks for `Edgehog.Files.FileUploadRequest.send_file_upload_request`, returning a boolean.
@@ -965,6 +1003,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_set_device_file_path_on_device`
 
@@ -1010,6 +1050,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_set_device_file_path_on_device?`
 
 Runs authorization checks for `Edgehog.Files.DeviceFile.set_path_on_device`, returning a boolean.
@@ -1053,6 +1095,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_set_device_file_size_bytes`
 
@@ -1098,6 +1142,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_set_device_file_size_bytes?`
 
 Runs authorization checks for `Edgehog.Files.DeviceFile.set_size_bytes`, returning a boolean.
@@ -1141,6 +1187,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_set_file_delete_response`
 
@@ -1186,6 +1234,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_set_file_delete_response?`
 
 Runs authorization checks for `Edgehog.Files.FileDeleteRequest.set_response`, returning a boolean.
@@ -1229,6 +1279,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_set_file_deletion_status`
 
@@ -1274,6 +1326,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_set_file_deletion_status?`
 
 Runs authorization checks for `Edgehog.Files.FileDeleteRequest.set_status`, returning a boolean.
@@ -1317,6 +1371,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_set_file_download_progress`
 
@@ -1362,6 +1418,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_set_file_download_progress?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.set_progress`, returning a boolean.
@@ -1405,6 +1463,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_set_file_download_response`
 
@@ -1450,6 +1510,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_set_file_download_response?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.set_response`, returning a boolean.
@@ -1493,6 +1555,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_set_file_download_status`
 
@@ -1538,6 +1602,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_set_file_download_status?`
 
 Runs authorization checks for `Edgehog.Files.FileDownloadRequest.set_status`, returning a boolean.
@@ -1581,6 +1647,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_set_file_upload_progress`
 
@@ -1626,6 +1694,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_set_file_upload_progress?`
 
 Runs authorization checks for `Edgehog.Files.FileUploadRequest.set_file_upload_progress`, returning a boolean.
@@ -1669,6 +1739,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_set_file_upload_request_status`
 
@@ -1714,6 +1786,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_set_file_upload_request_status?`
 
 Runs authorization checks for `Edgehog.Files.FileUploadRequest.update_status`, returning a boolean.
@@ -1757,6 +1831,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `can_set_file_upload_response`
 
@@ -1802,6 +1878,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_set_file_upload_response?`
 
 Runs authorization checks for `Edgehog.Files.FileUploadRequest.set_file_upload_response`, returning a boolean.
@@ -1845,6 +1923,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `changeset_to_create_device_file`
 

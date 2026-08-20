@@ -48,9 +48,8 @@
 Forces all connections in the repo pool to disconnect within the given interval.
 
 Once this function is called, the pool will disconnect all of its connections
-as they are checked in or as they are pinged. Checked in connections will be
-randomly disconnected within the given time interval. Pinged connections are
-immediately disconnected - as they are idle (according to `:idle_interval`).
+as they are checked in or as they are pinged. Checked in and idle connections
+will be randomly disconnected within the given time interval.
 
 If the connection has a backoff configured (which is the case by default),
 disconnecting means an attempt at a new connection will be done immediately
@@ -59,6 +58,9 @@ has been disabled, the connection process will terminate. In such cases,
 disconnecting all connections may cause the pool supervisor to restart
 depending on the max_restarts/max_seconds configuration of the pool,
 so you will want to set those carefully.
+
+If you need connections to be restarted periodically, set the `:max_lifetime`
+option in your repository configuration instead.
 
 # `drop?`
 
@@ -179,6 +181,8 @@ For version compatibility, please check your database's documentation:
 # `installed_extensions`
 
 # `load`
+
+# `migrate_extensions?`
 
 # `migrations_path`
 
@@ -311,7 +315,7 @@ and raises on invalid queries
 # `to_sql`
 
 ```elixir
-@spec to_sql(:all | :update_all | :delete_all, Ecto.Queryable.t()) ::
+@spec to_sql(:all | :update_all | :delete_all, Ecto.Queryable.t(), Keyword.t()) ::
   {String.t(), Ecto.Adapters.SQL.query_params()}
 ```
 

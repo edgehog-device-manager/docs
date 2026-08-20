@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.40.2">
+    <meta name="generator" content="ExDoc v0.40.3">
     <meta name="project" content="Clea Edgehog v0.13.1">
 
 
@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-322D9E2B.js"></script>
+    <script defer src="dist/sidebar_items-2E5A91C1.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -291,7 +291,7 @@ the provisioner one.</p></div>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@type</span> resource() :: <a href="https://hexdocs.pm/ash/3.27.7/Ash.Resource.html#t:record/0">Ash.Resource.record</a>()</pre>
+          <pre translate="no"><span class="attribute">@type</span> resource() :: <a href="https://hexdocs.pm/ash/3.31.3/Ash.Resource.html#t:record/0">Ash.Resource.record</a>()</pre>
 
       </div>
 
@@ -504,8 +504,8 @@ following flow:</p><ul><li><p>checks that the resource is not ready already (i.e
 <p>Returns the timeout for retries.</p><p>In the default implementation, it is an exponential backoff timeout:
 it reads information from the provisioner state (current send state, and
 number of retries that happened), and it computes the timeout with the
-following formula</p><pre><code class="makeup elixir" translate="no"><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pad</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p" data-group-id="5787278342-1">(</span><span class="mi">2</span><span class="o">^</span><span class="n">retries</span><span class="p" data-group-id="5787278342-1">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rand</span><span class="p" data-group-id="5787278342-2">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p" data-group-id="5787278342-2">)</span><span class="w">
-</span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p" data-group-id="5787278342-3">(</span><span class="n">timeout</span><span class="p">,</span><span class="w"> </span><span class="n">max_timeout</span><span class="p" data-group-id="5787278342-3">)</span></code></pre><ul><li>pad       :: the pad component is there to ensure a minimum timeout is
+following formula</p><pre><code class="makeup elixir" translate="no"><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pad</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p" data-group-id="1382551472-1">(</span><span class="mi">2</span><span class="o">^</span><span class="n">retries</span><span class="p" data-group-id="1382551472-1">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rand</span><span class="p" data-group-id="1382551472-2">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p" data-group-id="1382551472-2">)</span><span class="w">
+</span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p" data-group-id="1382551472-3">(</span><span class="n">timeout</span><span class="p">,</span><span class="w"> </span><span class="n">max_timeout</span><span class="p" data-group-id="1382551472-3">)</span></code></pre><ul><li>pad       :: the pad component is there to ensure a minimum timeout is
 guaranteed. The pad is only applied when the resource
 has been sent, and therefore we're waiting for astarte triggers</li><li>2^retries :: this is the exponential component, increases at each retry to
 ensure we don't DDoS astarte/the device.</li><li>rand      :: a random (between 0 and 1s) ensures no synchronization errors
@@ -539,7 +539,7 @@ appear.</li></ul>
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.2) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 

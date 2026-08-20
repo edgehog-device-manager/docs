@@ -80,7 +80,12 @@ file transfer capabilities from an Astarte device.
 
 - Campaigns
   - [Edgehog.Campaigns](Edgehog.Campaigns.md): The Campaigns context.
+  - [Edgehog.Campaigns.Campaign.Campaign.Config](Edgehog.Campaigns.Campaign.Campaign.Config.md)
+  - [Edgehog.Campaigns.Campaign.Campaigns.Config](Edgehog.Campaigns.Campaign.Campaigns.Config.md)
   - [Edgehog.Campaigns.Campaign.Changes.ComputeCampaignTargets](Edgehog.Campaigns.Campaign.Changes.ComputeCampaignTargets.md): Computes campaign targets and start campaign executor.
+  - [Edgehog.Campaigns.Campaign.DeploymentCampaigns.Config](Edgehog.Campaigns.Campaign.DeploymentCampaigns.Config.md)
+  - [Edgehog.Campaigns.Campaign.FileDownloadCampaigns.Config](Edgehog.Campaigns.Campaign.FileDownloadCampaigns.Config.md)
+  - [Edgehog.Campaigns.Campaign.UpdateCampaigns.Config](Edgehog.Campaigns.Campaign.UpdateCampaigns.Config.md)
   - [Edgehog.Campaigns.Campaign.Validations.ValidateOperationTypeRequirements](Edgehog.Campaigns.Campaign.Validations.ValidateOperationTypeRequirements.md): Validates that the required arguments are provided based on the operation type.
   - [Edgehog.Campaigns.Campaign.Validations.ValidateStatus](Edgehog.Campaigns.Campaign.Validations.ValidateStatus.md): Validates that a campaign is in the expected status for an operation.
   - [Edgehog.Campaigns.Campaign.Workers.ScheduleCampaign](Edgehog.Campaigns.Campaign.Workers.ScheduleCampaign.md): This module is used to start Campaigns that have been scheduled at a specific time
@@ -110,6 +115,7 @@ This resource represents the configuration for a firmware upgrade operation with
   - [Edgehog.Campaigns.CampaignMechanism.FirmwareUpgrade.Executor](Edgehog.Campaigns.CampaignMechanism.FirmwareUpgrade.Executor.md): Executor for lazy deployment campaigns using the generic LazyBatch behavior.
   - [Edgehog.Campaigns.CampaignMechanism.Helpers](Edgehog.Campaigns.CampaignMechanism.Helpers.md): Shared helper functions for campaign mechanism implementations.
   - [Edgehog.Campaigns.CampaignTarget](Edgehog.Campaigns.CampaignTarget.md): Represents a CampaignTarget.
+  - [Edgehog.Campaigns.CampaignTarget.CampaignTargetsByCampaign.Config](Edgehog.Campaigns.CampaignTarget.CampaignTargetsByCampaign.Config.md)
   - [Edgehog.Campaigns.CampaignTarget.Changes.CreateManagedFileDownloadRequest](Edgehog.Campaigns.CampaignTarget.Changes.CreateManagedFileDownloadRequest.md): An Ash change that creates a managed file download request for the target device.
 This change fetches the file and mechanism configuration from the arguments and creates
 a file download request associated with the target device.
@@ -122,15 +128,18 @@ associated with the target device.
 This change fetches the deployment from the arguments and links it to the target device.
 
   - [Edgehog.Campaigns.Channel.Calculations.DeployableDevices](Edgehog.Campaigns.Channel.Calculations.DeployableDevices.md): Containers calculation to compute valid devices in a channel to receive a deploy.
+  - [Edgehog.Campaigns.Channel.Channels.Config](Edgehog.Campaigns.Channel.Channels.Config.md)
   - [Edgehog.Campaigns.Executors.Lazy.LazyBatch](Edgehog.Campaigns.Executors.Lazy.LazyBatch.md): Generic lazy batch executor for campaigns using a macro-based approach.
 
 - Containers
+  - [Edgehog.Containers.Application.Application.Config](Edgehog.Containers.Application.Application.Config.md)
   - [Edgehog.Containers.Calculations.Dangling](Edgehog.Containers.Calculations.Dangling.md): Is the current resource dangling? Meaning, is it related to other entities?
 
   - [Edgehog.Containers.Calculations.OptionsEncoding](Edgehog.Containers.Calculations.OptionsEncoding.md): Encodes options map to an array of "key=value" strings.
 
   - [Edgehog.Containers.Changes.MaybeDestroyChildren](Edgehog.Containers.Changes.MaybeDestroyChildren.md): Trigger children cleanup (if dangling) after transaction.
 
+  - [Edgehog.Containers.Container.Container.Config](Edgehog.Containers.Container.Container.Config.md)
   - [Edgehog.Containers.Container.Deployment.Calculations.Ready](Edgehog.Containers.Container.Deployment.Calculations.Ready.md): Computes the readiness of a deployment.
 A deployment is ready when:
  - Its state is either `:started` or `:stopped`
@@ -160,6 +169,10 @@ needed.
 
   - [Edgehog.Containers.Deployment.Changes.SendCommand](Edgehog.Containers.Deployment.Changes.SendCommand.md): A change to send a command to a deployment _after_ the action has been done.
   - [Edgehog.Containers.Deployment.Changes.SendUpgrade](Edgehog.Containers.Deployment.Changes.SendUpgrade.md): A change to upgrade the deployment of an application to a newer version.
+  - [Edgehog.Containers.Deployment.Deployment.Config](Edgehog.Containers.Deployment.Deployment.Config.md)
+  - [Edgehog.Containers.Deployment.DeploymentById.Config](Edgehog.Containers.Deployment.DeploymentById.Config.md)
+  - [Edgehog.Containers.Deployment.DeploymentsByDevice.Config](Edgehog.Containers.Deployment.DeploymentsByDevice.Config.md)
+  - [Edgehog.Containers.Deployment.Event.DeploymentEvent.Config](Edgehog.Containers.Deployment.Event.DeploymentEvent.Config.md)
   - [Edgehog.Containers.Deployment.EventType](Edgehog.Containers.Deployment.EventType.md): Expresses the type of event a device can communicate to the backend trough the `DeploymentEvent` interface.
 
   - [Edgehog.Containers.Deployment.ManualActions.StartSupervisor](Edgehog.Containers.Deployment.ManualActions.StartSupervisor.md): Manual action to start a deployment supervisor without the need for a database transaction.
@@ -182,8 +195,11 @@ needed.
   - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device request deployment provisioner.
   - [Edgehog.Containers.Image.Deployment.Provisioner](Edgehog.Containers.Image.Deployment.Provisioner.md): The provisioner for deploying images on a device.
   - [Edgehog.Containers.Image.Deployment.Provisioner.Core](Edgehog.Containers.Image.Deployment.Provisioner.Core.md): The module describing the Core functions required by the image deployment provisioner.
+  - [Edgehog.Containers.Image.Image.Config](Edgehog.Containers.Image.Image.Config.md)
+  - [Edgehog.Containers.ImageCredentials.ImageCredentials.Config](Edgehog.Containers.ImageCredentials.ImageCredentials.Config.md)
   - [Edgehog.Containers.Network.Deployment.Provisioner](Edgehog.Containers.Network.Deployment.Provisioner.md): The provisioner for deploying networks on a device.
   - [Edgehog.Containers.Network.Deployment.Provisioner.Core](Edgehog.Containers.Network.Deployment.Provisioner.Core.md): The module describing the Core functions required by the network deployment provisioner.
+  - [Edgehog.Containers.Network.Network.Config](Edgehog.Containers.Network.Network.Config.md)
   - [Edgehog.Containers.Provisioner](Edgehog.Containers.Provisioner.md): This module provides the default implementation for `Edgehog.Containers.Provisioner.Behaviour`.
 It is sufficient to add a using statement like so
   - [Edgehog.Containers.Provisioner.Behaviour](Edgehog.Containers.Provisioner.Behaviour.md): Behaviour describing the API of a Provisioner for a resource.
@@ -198,6 +214,7 @@ It is sufficient to add a using statement like so
   - [Edgehog.Containers.Reconciler.Core](Edgehog.Containers.Reconciler.Core.md): Core component for the reconciler, provides `reconcile/1` and
 `reconcile_timeout/1` functions.
 
+  - [Edgehog.Containers.Release.Release.Config](Edgehog.Containers.Release.Release.Config.md)
   - [Edgehog.Containers.Supervisor](Edgehog.Containers.Supervisor.md): Container registries.
   - [Edgehog.Containers.Validations.Dangling](Edgehog.Containers.Validations.Dangling.md): Validates the action by running the `dangling?` calculation.
 true -> :ok
@@ -205,6 +222,7 @@ false -> {:error, :not_dangling}
 
   - [Edgehog.Containers.Volume.Deployment.Provisioner](Edgehog.Containers.Volume.Deployment.Provisioner.md): The provisioner for deploying volumes on a device.
   - [Edgehog.Containers.Volume.Deployment.Provisioner.Core](Edgehog.Containers.Volume.Deployment.Provisioner.Core.md): The module describing the Core functions required by the volume deployment provisioner.
+  - [Edgehog.Containers.Volume.Volume.Config](Edgehog.Containers.Volume.Volume.Config.md)
 
 - Devices
   - [Edgehog.Devices](Edgehog.Devices.md): The Devices context.
@@ -216,16 +234,23 @@ the given device.
 
   - [Edgehog.Devices.Device.Changes.TearDownReconciler](Edgehog.Devices.Device.Changes.TearDownReconciler.md): Tears down the reconciler when a device disconnects.
 
+  - [Edgehog.Devices.Device.DeviceChanged.Config](Edgehog.Devices.Device.DeviceChanged.Config.md)
+  - [Edgehog.Devices.HardwareType.HardwareType.Config](Edgehog.Devices.HardwareType.HardwareType.Config.md)
+  - [Edgehog.Devices.HardwareTypePartNumber.HardwareTypePartNumber.Config](Edgehog.Devices.HardwareTypePartNumber.HardwareTypePartNumber.Config.md)
   - [Edgehog.Devices.Reconciler.Core](Edgehog.Devices.Reconciler.Core.md): Device reconciler core utilities.
+  - [Edgehog.Devices.SystemModelPartNumber.SystemModelPartNumber.Config](Edgehog.Devices.SystemModelPartNumber.SystemModelPartNumber.Config.md)
 
 - Device groups
   - [Edgehog.Groups](Edgehog.Groups.md): The Groups context.
+  - [Edgehog.Groups.DeviceGroup.DeviceGroup.Config](Edgehog.Groups.DeviceGroup.DeviceGroup.Config.md)
 
 - Device labels
   - [Edgehog.Labeling](Edgehog.Labeling.md): The Labeling context, containing all functionalities regarding tags and attributes assignment
 
 - File transfer
   - [Edgehog.Files](Edgehog.Files.md): The `Edgehog.Files` domain, which includes resources and logic related to file management.
+  - [Edgehog.Files.DeviceFile.DeviceFiles.Config](Edgehog.Files.DeviceFile.DeviceFiles.Config.md)
+  - [Edgehog.Files.DeviceFile.DeviceFilesByDevice.Config](Edgehog.Files.DeviceFile.DeviceFilesByDevice.Config.md)
   - [Edgehog.Files.EphemeralFile](Edgehog.Files.EphemeralFile.md): Module responsible for handling ephemeral files used in file download requests.
 
   - [Edgehog.Files.EphemeralFile.Behaviour](Edgehog.Files.EphemeralFile.Behaviour.md): Behaviour for handling ephemeral files used in file download requests.
@@ -241,6 +266,8 @@ the given device.
   - [Edgehog.Files.FileDeleteRequest.Changes.SendFileDeleteRequest](Edgehog.Files.FileDeleteRequest.Changes.SendFileDeleteRequest.md): Ash change responsible for sending a file delete request to the Astarte device
 after the file delete request resource has been created.
 
+  - [Edgehog.Files.FileDeleteRequest.FileDeleteRequests.Config](Edgehog.Files.FileDeleteRequest.FileDeleteRequests.Config.md)
+  - [Edgehog.Files.FileDeleteRequest.FileDeleteRequestsByDevice.Config](Edgehog.Files.FileDeleteRequest.FileDeleteRequestsByDevice.Config.md)
   - [Edgehog.Files.FileDeleteRequest.ManualActions.SendFileDeleteRequest](Edgehog.Files.FileDeleteRequest.ManualActions.SendFileDeleteRequest.md): Manual action responsible for sending a file download request to the Astarte device.
 
   - [Edgehog.Files.FileDeleteRequest.Status](Edgehog.Files.FileDeleteRequest.Status.md): Status of a file delete request.
@@ -255,6 +282,8 @@ after the file download request resource has been created.
 
   - [Edgehog.Files.FileDownloadRequest.FileDestination](Edgehog.Files.FileDownloadRequest.FileDestination.md): Enum representing the destination of a file download request on an Astarte device.
 
+  - [Edgehog.Files.FileDownloadRequest.FileDownloadRequests.Config](Edgehog.Files.FileDownloadRequest.FileDownloadRequests.Config.md)
+  - [Edgehog.Files.FileDownloadRequest.FileDownloadRequestsByDevice.Config](Edgehog.Files.FileDownloadRequest.FileDownloadRequestsByDevice.Config.md)
   - [Edgehog.Files.FileDownloadRequest.ManualActions.CreatePresignedUrl](Edgehog.Files.FileDownloadRequest.ManualActions.CreatePresignedUrl.md): The Storage context.
 
   - [Edgehog.Files.FileDownloadRequest.ManualActions.SendFileDownloadRequest](Edgehog.Files.FileDownloadRequest.ManualActions.SendFileDownloadRequest.md): Manual action responsible for sending a file download request to the Astarte device.
@@ -269,13 +298,20 @@ of a `FileUploadRequest` based on its `source_type`.
   - [Edgehog.Files.FileUploadRequest.Changes.SetUploadUrl](Edgehog.Files.FileUploadRequest.Changes.SetUploadUrl.md): Ash change responsible for generating and setting a presigned upload URL
 for a file upload request before persisting it.
 
+  - [Edgehog.Files.FileUploadRequest.FileUploadRequests.Config](Edgehog.Files.FileUploadRequest.FileUploadRequests.Config.md)
+  - [Edgehog.Files.FileUploadRequest.FileUploadRequestsByDevice.Config](Edgehog.Files.FileUploadRequest.FileUploadRequestsByDevice.Config.md)
   - [Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest.md): Manual action responsible for sending a file upload request to the Astarte device.
 
   - [Edgehog.Files.FileUploadRequest.Status](Edgehog.Files.FileUploadRequest.Status.md): Status of a file transfer request.
   - [Edgehog.Files.Uploaders.File](Edgehog.Files.Uploaders.File.md): Waffle uploader for files.
 
+- OS management
+  - [Edgehog.OSManagement.OTAOperation.OtaOperation.Config](Edgehog.OSManagement.OTAOperation.OtaOperation.Config.md)
+
 - Base images
   - [Edgehog.BaseImages](Edgehog.BaseImages.md): The BaseImages context.
+  - [Edgehog.BaseImages.BaseImage.BaseImage.Config](Edgehog.BaseImages.BaseImage.BaseImage.Config.md)
+  - [Edgehog.BaseImages.BaseImageCollection.BaseImageCollection.Config](Edgehog.BaseImages.BaseImageCollection.BaseImageCollection.Config.md)
 
 - Multitenancy
   - [Edgehog.Tenants.Reconciler](Edgehog.Tenants.Reconciler.md): The tenant reconciler.

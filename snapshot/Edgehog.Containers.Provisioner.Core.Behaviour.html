@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.40.2">
+    <meta name="generator" content="ExDoc v0.40.3">
     <meta name="project" content="Clea Edgehog v0.13.1">
 
 
@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-322D9E2B.js"></script>
+    <script defer src="dist/sidebar_items-2E5A91C1.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -321,8 +321,8 @@ for the given resource.</p></div>
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@type</span> ash_action_return() ::
-  {:ok, <a href="https://hexdocs.pm/ash/3.27.7/Ash.Resource.html#t:record/0">Ash.Resource.record</a>()}
-  | {:ok, <a href="https://hexdocs.pm/ash/3.27.7/Ash.Resource.html#t:record/0">Ash.Resource.record</a>(), [<a href="https://hexdocs.pm/ash/3.27.7/Ash.Notifier.Notification.html#t:t/0">Ash.Notifier.Notification.t</a>()]}
+  {:ok, <a href="https://hexdocs.pm/ash/3.31.3/Ash.Resource.html#t:record/0">Ash.Resource.record</a>()}
+  | {:ok, <a href="https://hexdocs.pm/ash/3.31.3/Ash.Resource.html#t:record/0">Ash.Resource.record</a>(), [<a href="https://hexdocs.pm/ash/3.31.3/Ash.Notifier.Notification.html#t:t/0">Ash.Notifier.Notification.t</a>()]}
   | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
 
       </div>
@@ -600,10 +600,10 @@ acknowledged its presence (or absence) and no further provisioning is needed.</p
 finds a state, and sets the resource to that state or does not find a valid
 state, therefore the device does not have such resource deployed, and the
 function returns :not_found.</p><p>Alternatively, if something went wrong while updating the resource, an
-<code class="inline">{:error, _}</code> is returned.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="nc">Core</span><span class="o">.</span><span class="n">reconcile</span><span class="p" data-group-id="9575344100-1">(</span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="ss">tenant</span><span class="p">:</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="9575344100-1">)</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="9575344100-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">new_resource</span><span class="p" data-group-id="9575344100-2">}</span><span class="w">
+<code class="inline">{:error, _}</code> is returned.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="nc">Core</span><span class="o">.</span><span class="n">reconcile</span><span class="p" data-group-id="1376536508-1">(</span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="ss">tenant</span><span class="p">:</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="1376536508-1">)</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="p" data-group-id="1376536508-2">{</span><span class="ss">:ok</span><span class="p">,</span><span class="w"> </span><span class="n">new_resource</span><span class="p" data-group-id="1376536508-2">}</span><span class="w">
 
-</span><span class="nc">Core</span><span class="o">.</span><span class="n">reconcile</span><span class="p" data-group-id="9575344100-3">(</span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="ss">tenant</span><span class="p">:</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="9575344100-3">)</span><span class="w">
+</span><span class="nc">Core</span><span class="o">.</span><span class="n">reconcile</span><span class="p" data-group-id="1376536508-3">(</span><span class="n">resource</span><span class="p">,</span><span class="w"> </span><span class="ss">tenant</span><span class="p">:</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="1376536508-3">)</span><span class="w">
 </span><span class="o">&gt;</span><span class="w"> </span><span class="ss">:not_found</span></code></pre>
   </section>
 </section>
@@ -751,7 +751,7 @@ for the given resource.</p>
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.2) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 

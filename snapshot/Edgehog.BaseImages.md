@@ -130,6 +130,8 @@ See `Ash.can/3` for more information
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
 
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_delete_base_image?`
 
 Runs authorization checks for `Edgehog.BaseImages.BaseImage.destroy`, returning a boolean.
@@ -173,6 +175,8 @@ See `Ash.can?/3` for more information
 * `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
 
 * `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
 # `changeset_to_delete_base_image`
 
