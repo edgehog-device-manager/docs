@@ -203,15 +203,15 @@ deployment the error was generated.</p></div>
   <section class="docstring">
 
 <p>Loads pending deployments into the state.</p><p>given a device and a tenant scope returns the list of deployments <code class="inline">:pending</code>
-for that device and tenant.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="6596341450-1">%</span><span class="nc" data-group-id="6596341450-1">Device</span><span class="p" data-group-id="6596341450-1">{</span><span class="ss">device_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;some-device-id&quot;</span><span class="p" data-group-id="6596341450-1">}</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tenant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="6596341450-2">%</span><span class="nc" data-group-id="6596341450-2">Tenant</span><span class="p" data-group-id="6596341450-2">{</span><span class="p" data-group-id="6596341450-2">}</span><span class="w">
+for that device and tenant.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0956400898-1">%</span><span class="nc" data-group-id="0956400898-1">Device</span><span class="p" data-group-id="0956400898-1">{</span><span class="ss">device_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;some-device-id&quot;</span><span class="p" data-group-id="0956400898-1">}</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tenant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0956400898-2">%</span><span class="nc" data-group-id="0956400898-2">Tenant</span><span class="p" data-group-id="0956400898-2">{</span><span class="p" data-group-id="0956400898-2">}</span><span class="w">
 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Core</span><span class="o">.</span><span class="n">load</span><span class="p" data-group-id="6596341450-3">(</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="6596341450-3">)</span><span class="w">
-</span><span class="p" data-group-id="6596341450-4">[</span><span class="w">
-  </span><span class="p" data-group-id="6596341450-5">%</span><span class="nc" data-group-id="6596341450-5">Deployment</span><span class="p" data-group-id="6596341450-5">{</span><span class="p" data-group-id="6596341450-5">}</span><span class="p">,</span><span class="w">
-  </span><span class="p" data-group-id="6596341450-6">%</span><span class="nc" data-group-id="6596341450-6">Deployment</span><span class="p" data-group-id="6596341450-6">{</span><span class="p" data-group-id="6596341450-6">}</span><span class="p">,</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Core</span><span class="o">.</span><span class="n">load</span><span class="p" data-group-id="0956400898-3">(</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="0956400898-3">)</span><span class="w">
+</span><span class="p" data-group-id="0956400898-4">[</span><span class="w">
+  </span><span class="p" data-group-id="0956400898-5">%</span><span class="nc" data-group-id="0956400898-5">Deployment</span><span class="p" data-group-id="0956400898-5">{</span><span class="p" data-group-id="0956400898-5">}</span><span class="p">,</span><span class="w">
+  </span><span class="p" data-group-id="0956400898-6">%</span><span class="nc" data-group-id="0956400898-6">Deployment</span><span class="p" data-group-id="0956400898-6">{</span><span class="p" data-group-id="0956400898-6">}</span><span class="p">,</span><span class="w">
   </span><span class="n">...</span><span class="w">
-</span><span class="p" data-group-id="6596341450-4">]</span></code></pre>
+</span><span class="p" data-group-id="0956400898-4">]</span></code></pre>
   </section>
 </section>
 <section class="detail" id="log_errors/2">
