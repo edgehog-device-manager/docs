@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-2E5A91C1.js"></script>
+    <script defer src="dist/sidebar_items-6CA6DF4B.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -194,6 +194,28 @@ Possible values are: none, openfga</p></div>
       </div>
 
         <div class="summary-synopsis"><p>Returns the config of the required provider</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#containers_telemetry_include_identifiers/1" data-no-tooltip="" translate="no">containers_telemetry_include_identifiers(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Whether containers telemetry events should include high-cardinality
+identifier labels (deployment_id, resource_id, device_id).</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#containers_telemetry_include_identifiers!/1" data-no-tooltip="" translate="no">containers_telemetry_include_identifiers!(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Whether containers telemetry events should include high-cardinality
+identifier labels (deployment_id, resource_id, device_id).</p></div>
 
     </div>
 
@@ -627,6 +649,17 @@ the <code class="inline">namespace</code>.</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#put_containers_telemetry_include_identifiers/2" data-no-tooltip="" translate="no">put_containers_telemetry_include_identifiers(value, namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Puts the <code class="inline">value</code> to <a href="#containers_telemetry_include_identifiers/0"><code class="inline">Edgehog.Config.containers_telemetry_include_identifiers/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#put_database_enable_ssl/2" data-no-tooltip="" translate="no">put_database_enable_ssl(value, namespace \\ nil)</a>
 
       </div>
@@ -830,6 +863,17 @@ the <code class="inline">namespace</code> for the variable.</p></div>
       </div>
 
         <div class="summary-synopsis"><p>Reloads the value for <a href="#authz_provider/0"><code class="inline">Edgehog.Config.authz_provider/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#reload_containers_telemetry_include_identifiers/1" data-no-tooltip="" translate="no">reload_containers_telemetry_include_identifiers(namespace \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Reloads the value for <a href="#containers_telemetry_include_identifiers/0"><code class="inline">Edgehog.Config.containers_telemetry_include_identifiers/0</code></a>. Optionally, receives
 the <code class="inline">namespace</code> for the variable.</p></div>
 
     </div>
@@ -1172,7 +1216,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">authz_config!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L309" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L325" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1202,7 +1246,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">authz_provider(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L105" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L121" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1234,7 +1278,7 @@ Possible values are: none, openfga</p><p>Calling <code class="inline">Edgehog.Co
       <h1 class="signature" translate="no">authz_provider!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L105" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L121" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1265,7 +1309,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">authz_provider_config!(provider)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L288" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L304" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1281,6 +1325,77 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       </div>
 
 <p>Returns the config of the required provider</p>
+  </section>
+</section>
+<section class="detail" id="containers_telemetry_include_identifiers/1">
+
+    <span id="containers_telemetry_include_identifiers/0"></span>
+
+  <div class="detail-header">
+    <a href="#containers_telemetry_include_identifiers/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">containers_telemetry_include_identifiers(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L73" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> containers_telemetry_include_identifiers(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Whether containers telemetry events should include high-cardinality
+identifier labels (deployment_id, resource_id, device_id).</p><p>These labels allow filtering the metrics per specific deployment, resource or
+device (e.g. in Grafana), at the cost of a higher number of Prometheus time
+series. Disable them if you are not filtering on them and want to keep the
+cardinality low.</p><p>Calling <code class="inline">Edgehog.Config.containers_telemetry_include_identifiers()</code> will ensure the following:</p><ul><li>Binding order: [:system, :config]</li><li>OS environment variable: &quot;CONTAINERS_TELEMETRY_INCLUDE_IDENTIFIERS&quot;</li><li>Type: :boolean</li><li>Default: true</li><li>Required: false</li><li>Cached: true</li></ul>
+  </section>
+</section>
+<section class="detail" id="containers_telemetry_include_identifiers!/1">
+
+    <span id="containers_telemetry_include_identifiers!/0"></span>
+
+  <div class="detail-header">
+    <a href="#containers_telemetry_include_identifiers!/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">containers_telemetry_include_identifiers!(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L73" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> containers_telemetry_include_identifiers!(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+
+      </div>
+
+<p>Whether containers telemetry events should include high-cardinality
+identifier labels (deployment_id, resource_id, device_id).</p><p>These labels allow filtering the metrics per specific deployment, resource or
+device (e.g. in Grafana), at the cost of a higher number of Prometheus time
+series. Disable them if you are not filtering on them and want to keep the
+cardinality low.</p><p>Bang version of <a href="#containers_telemetry_include_identifiers/0"><code class="inline">Edgehog.Config.containers_telemetry_include_identifiers/0</code></a> (fails on error). Optionally,
+receives the <code class="inline">namespace</code> for the variable.</p>
   </section>
 </section>
 <section class="detail" id="database_enable_ssl/1">
@@ -1355,7 +1470,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_enable_ssl?()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L193" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L209" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1445,7 +1560,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_ssl_config()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L244" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L260" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1473,7 +1588,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_ssl_config_opts()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L234" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L250" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1563,7 +1678,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_ssl_verify?()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L199" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L215" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1653,7 +1768,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">database_use_os_certs?()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L205" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L221" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1683,7 +1798,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">deployment_provisioning_timeout(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L184" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L200" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1717,7 +1832,7 @@ the deployment as timed out and broadcasting a failure. Defaults to 10 minutes.<
       <h1 class="signature" translate="no">deployment_provisioning_timeout!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L184" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L200" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1750,7 +1865,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">geocoding_providers!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L267" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L283" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1778,7 +1893,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">geolocation_providers!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L254" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L270" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1808,7 +1923,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">google_geocoding_api_key(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L75" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L91" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1839,7 +1954,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">google_geocoding_api_key!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L75" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L91" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1871,7 +1986,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">google_geolocation_api_key(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L70" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L86" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1902,7 +2017,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">google_geolocation_api_key!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L70" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L86" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1934,7 +2049,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">ipbase_api_key(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L65" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L81" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1965,7 +2080,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">ipbase_api_key!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L65" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L81" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1996,7 +2111,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">max_retries(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L171" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L187" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2028,7 +2143,7 @@ Defaults to 100.</p><p>Calling <code class="inline">Edgehog.Config.max_retries()
       <h1 class="signature" translate="no">max_retries!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L171" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L187" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2060,7 +2175,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">message_max_timeout(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L160" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L176" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2092,7 +2207,7 @@ Defaults to 2 days.</p><p>Calling <code class="inline">Edgehog.Config.message_ma
       <h1 class="signature" translate="no">message_max_timeout!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L160" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L176" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2124,7 +2239,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">message_min_timeout(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L149" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L165" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2156,7 +2271,7 @@ Defaults to 5 minutes.</p><p>Calling <code class="inline">Edgehog.Config.message
       <h1 class="signature" translate="no">message_min_timeout!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L149" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L165" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2188,7 +2303,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">openfga_auth_model_id(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L129" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L145" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2219,7 +2334,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">openfga_auth_model_id!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L129" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L145" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2251,7 +2366,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">openfga_grpc_endpoint(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L114" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L130" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2283,7 +2398,7 @@ Defaults to <code class="inline">localhost:8081</code></p><p>Calling <code class
       <h1 class="signature" translate="no">openfga_grpc_endpoint!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L114" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L130" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2315,7 +2430,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">openfga_store_id(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L122" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2346,7 +2461,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">openfga_store_id!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L122" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2377,7 +2492,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">preferred_geocoding_providers(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L96" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2409,7 +2524,7 @@ Possible values are: google</p><p>Calling <code class="inline">Edgehog.Config.pr
       <h1 class="signature" translate="no">preferred_geocoding_providers!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L96" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2442,7 +2557,7 @@ receives the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">preferred_geolocation_providers(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L83" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L99" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2474,7 +2589,7 @@ Possible values are: device, google, ipbase.</p><p>Calling <code class="inline">
       <h1 class="signature" translate="no">preferred_geolocation_providers!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L83" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L99" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2572,7 +2687,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_authz_provider(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L105" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L121" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2589,6 +2704,38 @@ the <code class="inline">namespace</code>.</p>
       </div>
 
 <p>Puts the <code class="inline">value</code> to <a href="#authz_provider/0"><code class="inline">Edgehog.Config.authz_provider/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code>.</p>
+  </section>
+</section>
+<section class="detail" id="put_containers_telemetry_include_identifiers/2">
+
+    <span id="put_containers_telemetry_include_identifiers/1"></span>
+
+  <div class="detail-header">
+    <a href="#put_containers_telemetry_include_identifiers/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">put_containers_telemetry_include_identifiers(value, namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L73" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> put_containers_telemetry_include_identifiers(<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>(), <a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  :ok | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Puts the <code class="inline">value</code> to <a href="#containers_telemetry_include_identifiers/0"><code class="inline">Edgehog.Config.containers_telemetry_include_identifiers/0</code></a>. Optionally, receives
 the <code class="inline">namespace</code>.</p>
   </section>
 </section>
@@ -2732,7 +2879,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_deployment_provisioning_timeout(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L184" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L200" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2764,7 +2911,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_google_geocoding_api_key(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L75" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L91" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2796,7 +2943,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_google_geolocation_api_key(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L70" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L86" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2828,7 +2975,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_ipbase_api_key(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L65" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L81" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2860,7 +3007,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_max_retries(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L171" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L187" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2892,7 +3039,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_message_max_timeout(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L160" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L176" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2924,7 +3071,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_message_min_timeout(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L149" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L165" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2956,7 +3103,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_openfga_auth_model_id(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L129" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L145" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2988,7 +3135,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_openfga_grpc_endpoint(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L114" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L130" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3020,7 +3167,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_openfga_store_id(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L122" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3052,7 +3199,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_preferred_geocoding_providers(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L96" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3087,7 +3234,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_preferred_geolocation_providers(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L83" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L99" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3121,7 +3268,7 @@ the <code class="inline">namespace</code>.</p>
       <h1 class="signature" translate="no">put_tenant_reconciler_timeout(value, namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L154" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3185,7 +3332,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_authz_provider(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L105" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L121" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3202,6 +3349,38 @@ the <code class="inline">namespace</code> for the variable.</p>
       </div>
 
 <p>Reloads the value for <a href="#authz_provider/0"><code class="inline">Edgehog.Config.authz_provider/0</code></a>. Optionally, receives
+the <code class="inline">namespace</code> for the variable.</p>
+  </section>
+</section>
+<section class="detail" id="reload_containers_telemetry_include_identifiers/1">
+
+    <span id="reload_containers_telemetry_include_identifiers/0"></span>
+
+  <div class="detail-header">
+    <a href="#reload_containers_telemetry_include_identifiers/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">reload_containers_telemetry_include_identifiers(namespace \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L73" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> reload_containers_telemetry_include_identifiers(<a href="https://hexdocs.pm/skogsra/2.5.3/Skogsra.Env.html#t:namespace/0">Skogsra.Env.namespace</a>()) ::
+  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">binary</a>()}</pre>
+
+      </div>
+
+<p>Reloads the value for <a href="#containers_telemetry_include_identifiers/0"><code class="inline">Edgehog.Config.containers_telemetry_include_identifiers/0</code></a>. Optionally, receives
 the <code class="inline">namespace</code> for the variable.</p>
   </section>
 </section>
@@ -3345,7 +3524,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_deployment_provisioning_timeout(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L184" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L200" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3377,7 +3556,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_google_geocoding_api_key(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L75" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L91" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3409,7 +3588,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_google_geolocation_api_key(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L70" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L86" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3441,7 +3620,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_ipbase_api_key(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L65" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L81" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3473,7 +3652,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_max_retries(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L171" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L187" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3505,7 +3684,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_message_max_timeout(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L160" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L176" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3537,7 +3716,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_message_min_timeout(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L149" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L165" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3569,7 +3748,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_openfga_auth_model_id(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L129" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L145" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3601,7 +3780,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_openfga_grpc_endpoint(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L114" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L130" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3633,7 +3812,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_openfga_store_id(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L122" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3665,7 +3844,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_preferred_geocoding_providers(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L96" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3697,7 +3876,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_preferred_geolocation_providers(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L83" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L99" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3729,7 +3908,7 @@ the <code class="inline">namespace</code> for the variable.</p>
       <h1 class="signature" translate="no">reload_tenant_reconciler_timeout(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L154" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3796,7 +3975,7 @@ Additionally, it can receive a list of options:</p><ul><li><code class="inline">
       <h1 class="signature" translate="no">tenant_reconciler_timeout(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L154" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3827,7 +4006,7 @@ Additionally, it can receive a list of options:</p><ul><li><code class="inline">
       <h1 class="signature" translate="no">tenant_reconciler_timeout!(namespace \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L138" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L154" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3920,7 +4099,7 @@ Returns <code class="inline">:ok</code> if they are, raises if they're not.</p><
       <h1 class="signature" translate="no">validate_admin_authentication!()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L279" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/config.ex#L295" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 

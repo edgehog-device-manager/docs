@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.3">
+    <meta name="project" content="Clea Edgehog v0.13.1">
+
+
+    <title>Edgehog.Containers.Telemetry — Clea Edgehog v0.13.1</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+
+    <script defer src="dist/sidebar_items-6CA6DF4B.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-Y2MUTVIN.js"></script>
+<link rel="stylesheet" href="style/cards.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="intro.html" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="intro.html" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.13.1
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-module" id="main" data-type="modules">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>
+      <span translate="no">Edgehog.<wbr />Containers.<wbr />Telemetry</span> 
+      <small class="app-vsn" translate="no">(Clea Edgehog v0.13.1)</small>
+
+    </h1>
+
+<a href="Edgehog.Containers.Telemetry.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L21" title="View Source" class="icon-action" rel="help nofollow">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+  </div>
+
+
+    <section id="moduledoc">
+<p>Emits the telemetry events of the containers feature.</p><p>Events can be emitted on the following topics:</p><ul><li><code class="inline">[:edgehog, :containers, :provisioning, :start]</code> when a provisioner
+starts provisioning a resource. Metadata contains <code class="inline">resource_type</code>,
+<code class="inline">resource_id</code>, <code class="inline">deployment_id</code> and <code class="inline">device_id</code>.</li><li><code class="inline">[:edgehog, :containers, :provisioning, :stop]</code> when a provisioner
+terminates, either successfully or with a failure. Metadata contains
+<code class="inline">resource_type</code>, <code class="inline">resource_id</code>, <code class="inline">deployment_id</code>, <code class="inline">device_id</code>, <code class="inline">result</code>
+(either <code class="inline">:ok</code> or <code class="inline">:error</code>) and <code class="inline">reason</code> (either the provisioning outcome,
+e.g. <code class="inline">:ready</code> or <code class="inline">:already_ready</code>, or the failure reason). Measurements
+contain <code class="inline">duration</code> (native time) and <code class="inline">retries</code>.</li><li><code class="inline">[:edgehog, :containers, :deployment, :start]</code> when a deployment
+orchestrator starts conducting a deployment. Metadata contains
+<code class="inline">deployment_id</code> and <code class="inline">device_id</code>.</li><li><code class="inline">[:edgehog, :containers, :deployment, :stop]</code> when a deployment
+orchestrator terminates, either successfully or with a failure. Metadata
+contains <code class="inline">deployment_id</code>, <code class="inline">device_id</code> and <code class="inline">result</code>. Measurements contain
+<code class="inline">duration</code> (native time).</li><li><code class="inline">[:edgehog, :containers, :container_deployment, :start]</code> when a container
+deployment orchestrator starts conducting a container deployment. Metadata
+contains <code class="inline">container_deployment_id</code>, <code class="inline">deployment_id</code> and <code class="inline">device_id</code>.</li><li><code class="inline">[:edgehog, :containers, :container_deployment, :stop]</code> when a container
+deployment orchestrator terminates, either successfully or with a failure.
+Metadata contains <code class="inline">container_deployment_id</code>, <code class="inline">deployment_id</code>, <code class="inline">device_id</code>
+and <code class="inline">result</code>. Measurements contain <code class="inline">duration</code> (native time).</li></ul>
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h2 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h2>
+<div class="summary-functions summary">
+  <h3>
+    <a href="#functions">Functions</a>
+  </h3>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#container_deployment_completed/3" data-no-tooltip="" translate="no">container_deployment_completed(container_deployment, deployment, started_at)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Emits a successful container deployment orchestration stop event.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#container_deployment_failed/3" data-no-tooltip="" translate="no">container_deployment_failed(container_deployment, deployment, started_at)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Emits a failed container deployment orchestration stop event.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#container_deployment_start_event/0" data-no-tooltip="" translate="no">container_deployment_start_event()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#container_deployment_started/2" data-no-tooltip="" translate="no">container_deployment_started(container_deployment, deployment)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Emits a container deployment orchestration start event and returns the
+monotonic time the orchestration started, to be used when emitting the
+corresponding stop event.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#container_deployment_stop_event/0" data-no-tooltip="" translate="no">container_deployment_stop_event()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#deployment_completed/2" data-no-tooltip="" translate="no">deployment_completed(deployment, started_at)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Emits a successful deployment orchestration stop event.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#deployment_failed/2" data-no-tooltip="" translate="no">deployment_failed(deployment, started_at)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Emits a failed deployment orchestration stop event.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#deployment_start_event/0" data-no-tooltip="" translate="no">deployment_start_event()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#deployment_started/1" data-no-tooltip="" translate="no">deployment_started(deployment)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Emits a deployment orchestration start event and returns the monotonic time
+the orchestration started, to be used when emitting the corresponding stop
+event.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#deployment_stop_event/0" data-no-tooltip="" translate="no">deployment_stop_event()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#include_identifiers?/0" data-no-tooltip="" translate="no">include_identifiers?()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#provisioning_completed/5" data-no-tooltip="" translate="no">provisioning_completed(resource, context, started_at, retries, reason)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Emits a successful provisioning stop event.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#provisioning_failed/5" data-no-tooltip="" translate="no">provisioning_failed(resource, context, started_at, retries, reason)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Emits a failed provisioning stop event.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#provisioning_start_event/0" data-no-tooltip="" translate="no">provisioning_start_event()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#provisioning_started/2" data-no-tooltip="" translate="no">provisioning_started(resource, context)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Emits a provisioning start event and returns the monotonic time the
+provisioning started, to be used when emitting the corresponding stop event.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#provisioning_stop_event/0" data-no-tooltip="" translate="no">provisioning_stop_event()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#resource_type/1" data-no-tooltip="" translate="no">resource_type(struct)</a>
+
+      </div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h2 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h2>
+
+    <div class="functions-list">
+<section class="detail" id="container_deployment_completed/3">
+
+  <div class="detail-header">
+    <a href="#container_deployment_completed/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">container_deployment_completed(container_deployment, deployment, started_at)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L210" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Emits a successful container deployment orchestration stop event.</p>
+  </section>
+</section>
+<section class="detail" id="container_deployment_failed/3">
+
+  <div class="detail-header">
+    <a href="#container_deployment_failed/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">container_deployment_failed(container_deployment, deployment, started_at)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L224" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Emits a failed container deployment orchestration stop event.</p>
+  </section>
+</section>
+<section class="detail" id="container_deployment_start_event/0">
+
+  <div class="detail-header">
+    <a href="#container_deployment_start_event/0" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">container_deployment_start_event()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L70" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="container_deployment_started/2">
+
+  <div class="detail-header">
+    <a href="#container_deployment_started/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">container_deployment_started(container_deployment, deployment)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L194" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Emits a container deployment orchestration start event and returns the
+monotonic time the orchestration started, to be used when emitting the
+corresponding stop event.</p><p>Returns the start time, computed with <a href="https://hexdocs.pm/elixir/System.html#monotonic_time/0"><code class="inline">System.monotonic_time/0</code></a></p>
+  </section>
+</section>
+<section class="detail" id="container_deployment_stop_event/0">
+
+  <div class="detail-header">
+    <a href="#container_deployment_stop_event/0" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">container_deployment_stop_event()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L72" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="deployment_completed/2">
+
+  <div class="detail-header">
+    <a href="#deployment_completed/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">deployment_completed(deployment, started_at)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L162" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Emits a successful deployment orchestration stop event.</p>
+  </section>
+</section>
+<section class="detail" id="deployment_failed/2">
+
+  <div class="detail-header">
+    <a href="#deployment_failed/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">deployment_failed(deployment, started_at)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L176" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Emits a failed deployment orchestration stop event.</p>
+  </section>
+</section>
+<section class="detail" id="deployment_start_event/0">
+
+  <div class="detail-header">
+    <a href="#deployment_start_event/0" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">deployment_start_event()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L66" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="deployment_started/1">
+
+  <div class="detail-header">
+    <a href="#deployment_started/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">deployment_started(deployment)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L146" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Emits a deployment orchestration start event and returns the monotonic time
+the orchestration started, to be used when emitting the corresponding stop
+event.</p><p>Returns the start time, computed with <a href="https://hexdocs.pm/elixir/System.html#monotonic_time/0"><code class="inline">System.monotonic_time/0</code></a></p>
+  </section>
+</section>
+<section class="detail" id="deployment_stop_event/0">
+
+  <div class="detail-header">
+    <a href="#deployment_stop_event/0" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">deployment_stop_event()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L68" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="include_identifiers?/0">
+
+  <div class="detail-header">
+    <a href="#include_identifiers?/0" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">include_identifiers?()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L242" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="provisioning_completed/5">
+
+  <div class="detail-header">
+    <a href="#provisioning_completed/5" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">provisioning_completed(resource, context, started_at, retries, reason)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L96" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Emits a successful provisioning stop event.</p>
+  </section>
+</section>
+<section class="detail" id="provisioning_failed/5">
+
+  <div class="detail-header">
+    <a href="#provisioning_failed/5" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">provisioning_failed(resource, context, started_at, retries, reason)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L119" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Emits a failed provisioning stop event.</p>
+  </section>
+</section>
+<section class="detail" id="provisioning_start_event/0">
+
+  <div class="detail-header">
+    <a href="#provisioning_start_event/0" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">provisioning_start_event()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L62" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="provisioning_started/2">
+
+  <div class="detail-header">
+    <a href="#provisioning_started/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">provisioning_started(resource, context)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L80" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Emits a provisioning start event and returns the monotonic time the
+provisioning started, to be used when emitting the corresponding stop event.</p><p>Returns the start time, computed with <a href="https://hexdocs.pm/elixir/System.html#monotonic_time/0"><code class="inline">System.monotonic_time/0</code></a></p>
+  </section>
+</section>
+<section class="detail" id="provisioning_stop_event/0">
+
+  <div class="detail-header">
+    <a href="#provisioning_stop_event/0" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">provisioning_stop_event()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L64" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="resource_type/1">
+
+  <div class="detail-header">
+    <a href="#resource_type/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">resource_type(struct)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L235" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

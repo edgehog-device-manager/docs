@@ -200,6 +200,7 @@ needed.
   - [Edgehog.Containers.Network.Deployment.Provisioner](Edgehog.Containers.Network.Deployment.Provisioner.md): The provisioner for deploying networks on a device.
   - [Edgehog.Containers.Network.Deployment.Provisioner.Core](Edgehog.Containers.Network.Deployment.Provisioner.Core.md): The module describing the Core functions required by the network deployment provisioner.
   - [Edgehog.Containers.Network.Network.Config](Edgehog.Containers.Network.Network.Config.md)
+  - [Edgehog.Containers.PromExPlugin](Edgehog.Containers.PromExPlugin.md): PromEx plugin for the Edgehog containers feature.
   - [Edgehog.Containers.Provisioner](Edgehog.Containers.Provisioner.md): This module provides the default implementation for `Edgehog.Containers.Provisioner.Behaviour`.
 It is sufficient to add a using statement like so
   - [Edgehog.Containers.Provisioner.Behaviour](Edgehog.Containers.Provisioner.Behaviour.md): Behaviour describing the API of a Provisioner for a resource.
@@ -216,6 +217,7 @@ It is sufficient to add a using statement like so
 
   - [Edgehog.Containers.Release.Release.Config](Edgehog.Containers.Release.Release.Config.md)
   - [Edgehog.Containers.Supervisor](Edgehog.Containers.Supervisor.md): Container registries.
+  - [Edgehog.Containers.Telemetry](Edgehog.Containers.Telemetry.md): Emits the telemetry events of the containers feature.
   - [Edgehog.Containers.Validations.Dangling](Edgehog.Containers.Validations.Dangling.md): Validates the action by running the `dangling?` calculation.
 true -> :ok
 false -> {:error, :not_dangling}

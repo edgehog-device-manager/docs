@@ -81,6 +81,48 @@ receives the `namespace` for the variable.
 
 Returns the config of the required provider
 
+# `containers_telemetry_include_identifiers`
+
+```elixir
+@spec containers_telemetry_include_identifiers(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Whether containers telemetry events should include high-cardinality
+identifier labels (deployment_id, resource_id, device_id).
+
+These labels allow filtering the metrics per specific deployment, resource or
+device (e.g. in Grafana), at the cost of a higher number of Prometheus time
+series. Disable them if you are not filtering on them and want to keep the
+cardinality low.
+
+Calling `Edgehog.Config.containers_telemetry_include_identifiers()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "CONTAINERS_TELEMETRY_INCLUDE_IDENTIFIERS"
+- Type: :boolean
+- Default: true
+- Required: false
+- Cached: true
+
+# `containers_telemetry_include_identifiers!`
+
+```elixir
+@spec containers_telemetry_include_identifiers!(Skogsra.Env.namespace()) ::
+  boolean() | no_return()
+```
+
+Whether containers telemetry events should include high-cardinality
+identifier labels (deployment_id, resource_id, device_id).
+
+These labels allow filtering the metrics per specific deployment, resource or
+device (e.g. in Grafana), at the cost of a higher number of Prometheus time
+series. Disable them if you are not filtering on them and want to keep the
+cardinality low.
+
+Bang version of `Edgehog.Config.containers_telemetry_include_identifiers/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
 # `database_enable_ssl`
 
 ```elixir
@@ -672,6 +714,16 @@ the `namespace`.
 Puts the `value` to `Edgehog.Config.authz_provider/0`. Optionally, receives
 the `namespace`.
 
+# `put_containers_telemetry_include_identifiers`
+
+```elixir
+@spec put_containers_telemetry_include_identifiers(boolean(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.containers_telemetry_include_identifiers/0`. Optionally, receives
+the `namespace`.
+
 # `put_database_enable_ssl`
 
 ```elixir
@@ -865,6 +917,16 @@ the `namespace` for the variable.
 ```
 
 Reloads the value for `Edgehog.Config.authz_provider/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_containers_telemetry_include_identifiers`
+
+```elixir
+@spec reload_containers_telemetry_include_identifiers(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.containers_telemetry_include_identifiers/0`. Optionally, receives
 the `namespace` for the variable.
 
 # `reload_database_enable_ssl`
