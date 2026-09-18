@@ -74,6 +74,64 @@ See `Edgehog.Containers.Provisioner.Behaviour.resource()`.
 ]
 ```
 
+# `log_api_error`
+
+```elixir
+@callback log_api_error(resource(), error()) :: :ok
+```
+
+Logs when a send to device operation fails.
+
+# `log_device_status`
+
+```elixir
+@callback log_device_status(String.t(), boolean()) :: :ok
+```
+
+Logs the current device online/offline status.
+
+# `log_provisioning_completed`
+
+```elixir
+@callback log_provisioning_completed(resource(), non_neg_integer()) :: :ok
+```
+
+Logs when provisioning completes successfully for a resource.
+
+# `log_provisioning_failed`
+
+```elixir
+@callback log_provisioning_failed(resource(), term()) :: :ok
+```
+
+Logs when provisioning fails for a resource.
+
+# `log_provisioning_started`
+
+```elixir
+@callback log_provisioning_started(resource(), resource()) :: :ok
+```
+
+Logs when provisioning starts for a resource.
+
+Receives the actual resource that was sent and the device it was sent to.
+
+# `log_subscribing_to_device_status`
+
+```elixir
+@callback log_subscribing_to_device_status(String.t()) :: :ok
+```
+
+Logs when subscribing to device status events.
+
+# `log_subscribing_to_events`
+
+```elixir
+@callback log_subscribing_to_events(String.t()) :: :ok
+```
+
+Logs when subscribing to resource events on the given topic.
+
 # `name`
 
 ```elixir

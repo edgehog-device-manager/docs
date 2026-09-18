@@ -29,9 +29,17 @@ Example:
 
 # `log_errors`
 
+# `log_start_completed`
+
 Logs all the errors given as first argument. The errors must follow the
 `{:error, error, deployment}` convention, so that it's understandable for which
 deployment the error was generated.
+
+# `log_start_errors`
+
+# `log_start_terminated`
+
+# `log_start_unexpected_error`
 
 # `start`
 

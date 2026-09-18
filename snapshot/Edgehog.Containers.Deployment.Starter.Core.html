@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-E81C1C8D.js"></script>
+    <script defer src="dist/sidebar_items-278D7D6E.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -153,9 +153,41 @@ primarily are functions that interact with other parts of the application
 
       </div>
 
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#log_start_completed/1" data-no-tooltip="" translate="no">log_start_completed(device_id)</a>
+
+      </div>
+
         <div class="summary-synopsis"><p>Logs all the errors given as first argument. The errors must follow the
 <code class="inline">{:error, error, deployment}</code> convention, so that it's understandable for which
 deployment the error was generated.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#log_start_errors/1" data-no-tooltip="" translate="no">log_start_errors(device)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#log_start_terminated/2" data-no-tooltip="" translate="no">log_start_terminated(device_id, reason)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#log_start_unexpected_error/2" data-no-tooltip="" translate="no">log_start_unexpected_error(device_id, error)</a>
+
+      </div>
 
     </div>
 
@@ -203,15 +235,15 @@ deployment the error was generated.</p></div>
   <section class="docstring">
 
 <p>Loads pending deployments into the state.</p><p>given a device and a tenant scope returns the list of deployments <code class="inline">:pending</code>
-for that device and tenant.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="2505159891-1">%</span><span class="nc" data-group-id="2505159891-1">Device</span><span class="p" data-group-id="2505159891-1">{</span><span class="ss">device_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;some-device-id&quot;</span><span class="p" data-group-id="2505159891-1">}</span><span class="w">
-</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tenant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="2505159891-2">%</span><span class="nc" data-group-id="2505159891-2">Tenant</span><span class="p" data-group-id="2505159891-2">{</span><span class="p" data-group-id="2505159891-2">}</span><span class="w">
+for that device and tenant.</p><p>Example:</p><pre><code class="makeup elixir" translate="no"><span class="o">&gt;</span><span class="w"> </span><span class="n">device</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0018150758-1">%</span><span class="nc" data-group-id="0018150758-1">Device</span><span class="p" data-group-id="0018150758-1">{</span><span class="ss">device_id</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;some-device-id&quot;</span><span class="p" data-group-id="0018150758-1">}</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="n">tenant</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p" data-group-id="0018150758-2">%</span><span class="nc" data-group-id="0018150758-2">Tenant</span><span class="p" data-group-id="0018150758-2">{</span><span class="p" data-group-id="0018150758-2">}</span><span class="w">
 
-</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Core</span><span class="o">.</span><span class="n">load</span><span class="p" data-group-id="2505159891-3">(</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="2505159891-3">)</span><span class="w">
-</span><span class="p" data-group-id="2505159891-4">[</span><span class="w">
-  </span><span class="p" data-group-id="2505159891-5">%</span><span class="nc" data-group-id="2505159891-5">Deployment</span><span class="p" data-group-id="2505159891-5">{</span><span class="p" data-group-id="2505159891-5">}</span><span class="p">,</span><span class="w">
-  </span><span class="p" data-group-id="2505159891-6">%</span><span class="nc" data-group-id="2505159891-6">Deployment</span><span class="p" data-group-id="2505159891-6">{</span><span class="p" data-group-id="2505159891-6">}</span><span class="p">,</span><span class="w">
+</span><span class="o">&gt;</span><span class="w"> </span><span class="nc">Core</span><span class="o">.</span><span class="n">load</span><span class="p" data-group-id="0018150758-3">(</span><span class="n">device</span><span class="p">,</span><span class="w"> </span><span class="n">tenant</span><span class="p" data-group-id="0018150758-3">)</span><span class="w">
+</span><span class="p" data-group-id="0018150758-4">[</span><span class="w">
+  </span><span class="p" data-group-id="0018150758-5">%</span><span class="nc" data-group-id="0018150758-5">Deployment</span><span class="p" data-group-id="0018150758-5">{</span><span class="p" data-group-id="0018150758-5">}</span><span class="p">,</span><span class="w">
+  </span><span class="p" data-group-id="0018150758-6">%</span><span class="nc" data-group-id="0018150758-6">Deployment</span><span class="p" data-group-id="0018150758-6">{</span><span class="p" data-group-id="0018150758-6">}</span><span class="p">,</span><span class="w">
   </span><span class="n">...</span><span class="w">
-</span><span class="p" data-group-id="2505159891-4">]</span></code></pre>
+</span><span class="p" data-group-id="0018150758-4">]</span></code></pre>
   </section>
 </section>
 <section class="detail" id="log_errors/2">
@@ -224,7 +256,29 @@ for that device and tenant.</p><p>Example:</p><pre><code class="makeup elixir" t
       <h1 class="signature" translate="no">log_errors(errors, device)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter/core.ex#L85" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter/core.ex#L100" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="log_start_completed/1">
+
+  <div class="detail-header">
+    <a href="#log_start_completed/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">log_start_completed(device_id)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter/core.ex#L88" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -236,6 +290,72 @@ for that device and tenant.</p><p>Example:</p><pre><code class="makeup elixir" t
 <p>Logs all the errors given as first argument. The errors must follow the
 <code class="inline">{:error, error, deployment}</code> convention, so that it's understandable for which
 deployment the error was generated.</p>
+  </section>
+</section>
+<section class="detail" id="log_start_errors/1">
+
+  <div class="detail-header">
+    <a href="#log_start_errors/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">log_start_errors(device)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter/core.ex#L94" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="log_start_terminated/2">
+
+  <div class="detail-header">
+    <a href="#log_start_terminated/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">log_start_terminated(device_id, reason)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter/core.ex#L110" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="log_start_unexpected_error/2">
+
+  <div class="detail-header">
+    <a href="#log_start_unexpected_error/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">log_start_unexpected_error(device_id, error)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter/core.ex#L104" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
   </section>
 </section>
 <section class="detail" id="start/2">

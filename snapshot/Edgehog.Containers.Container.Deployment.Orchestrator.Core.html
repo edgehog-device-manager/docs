@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-E81C1C8D.js"></script>
+    <script defer src="dist/sidebar_items-278D7D6E.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -187,6 +187,46 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#log_load_resources_failed/2" data-no-tooltip="" translate="no">log_load_resources_failed(container_deployment_id, reason)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#log_provisioner_failed/1" data-no-tooltip="" translate="no">log_provisioner_failed(container_deployment_id)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#log_provisioner_start_failed/3" data-no-tooltip="" translate="no">log_provisioner_start_failed(resource_type, resource_id, reason)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#log_provisioning_failed/1" data-no-tooltip="" translate="no">log_provisioning_failed(container_deployment_id)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#log_resources_loading/1" data-no-tooltip="" translate="no">log_resources_loading(container_deployment_id)</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#network_ready/2" data-no-tooltip="" translate="no">network_ready(id, state)</a>
 
       </div>
@@ -349,6 +389,116 @@ if id matches depl2</p><p>(id, %{device_requests_to_provision: [depl1, depl2, de
   <section class="docstring">
 
 <p>Loads the necessary resources and puts them in the state.</p><p>Returns the state with all the resources loaded in their respective keys.</p>
+  </section>
+</section>
+<section class="detail" id="log_load_resources_failed/2">
+
+  <div class="detail-header">
+    <a href="#log_load_resources_failed/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">log_load_resources_failed(container_deployment_id, reason)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L457" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="log_provisioner_failed/1">
+
+  <div class="detail-header">
+    <a href="#log_provisioner_failed/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">log_provisioner_failed(container_deployment_id)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L465" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="log_provisioner_start_failed/3">
+
+  <div class="detail-header">
+    <a href="#log_provisioner_start_failed/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">log_provisioner_start_failed(resource_type, resource_id, reason)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L475" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="log_provisioning_failed/1">
+
+  <div class="detail-header">
+    <a href="#log_provisioning_failed/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">log_provisioning_failed(container_deployment_id)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L471" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
+  </section>
+</section>
+<section class="detail" id="log_resources_loading/1">
+
+  <div class="detail-header">
+    <a href="#log_resources_loading/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">log_resources_loading(container_deployment_id)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L453" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+
   </section>
 </section>
 <section class="detail" id="network_ready/2">

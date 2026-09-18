@@ -47,6 +47,16 @@ Loads the necessary resources and puts them in the state.
 
 Returns the state with all the resources loaded in their respective keys.
 
+# `log_load_resources_failed`
+
+# `log_provisioner_failed`
+
+# `log_provisioner_start_failed`
+
+# `log_provisioning_failed`
+
+# `log_resources_loading`
+
 # `network_ready`
 
 Removes a network from the list of networks that need to be provisioned.

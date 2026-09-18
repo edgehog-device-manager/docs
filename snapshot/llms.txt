@@ -152,16 +152,13 @@ A deployment is ready when:
   - [Edgehog.Containers.Container.Deployment.Provisioner.Core](Edgehog.Containers.Container.Deployment.Provisioner.Core.md): The module describing the Core functions required by the container deployment provisioner.
   - [Edgehog.Containers.Container.Types.EnvVar](Edgehog.Containers.Container.Types.EnvVar.md): The type used to specify environment variables in a key-value pair format
 
+  - [Edgehog.Containers.Container.Validations.NoRefs](Edgehog.Containers.Container.Validations.NoRefs.md): Container validation for deletion.
   - [Edgehog.Containers.Deployment.Calculations.Ready](Edgehog.Containers.Deployment.Calculations.Ready.md): Computes the readiness of a deployment.
 A deployment is ready when:
  - Its state is either `:started` or `:stopped`
  - All underlying container deployments are ready
 
   - [Edgehog.Containers.Deployment.Changes.AppendEvent](Edgehog.Containers.Deployment.Changes.AppendEvent.md): Appends an event with the given argument details.
-
-  - [Edgehog.Containers.Deployment.Changes.LogStarted](Edgehog.Containers.Deployment.Changes.LogStarted.md): Logs a started container status.
-
-  - [Edgehog.Containers.Deployment.Changes.LogStopped](Edgehog.Containers.Deployment.Changes.LogStopped.md): Logs a stopped container status.
 
   - [Edgehog.Containers.Deployment.Changes.Reconcile](Edgehog.Containers.Deployment.Changes.Reconcile.md): Starts a reconciliation with the device.
   - [Edgehog.Containers.Deployment.Changes.Relate](Edgehog.Containers.Deployment.Changes.Relate.md): Relates a deployment to underlying container deployments, by creating them when
