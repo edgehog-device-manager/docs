@@ -2142,8 +2142,8 @@ Calls the create action on Edgehog.Files.DeviceFile.
 
 # Inputs
 
-* file_id - The identifier of the file stored on the device.
 * device_id
+* file_id - The identifier of the file stored on the device.
 * file_download_request_id
 * path_on_device - The path where the device stored the file.
 * size_bytes - The size of the file stored on the device, in bytes.
@@ -2275,8 +2275,8 @@ Raises any errors instead of returning them
 
 # Inputs
 
-* file_id - The identifier of the file stored on the device.
 * device_id
+* file_id - The identifier of the file stored on the device.
 * file_download_request_id
 * path_on_device - The path where the device stored the file.
 * size_bytes - The size of the file stored on the device, in bytes.
