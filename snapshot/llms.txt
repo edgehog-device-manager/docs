@@ -114,6 +114,8 @@ This resource represents the configuration for a file download operation within 
 This resource represents the configuration for a firmware upgrade operation within a firmware upgrade campaign.
   - [Edgehog.Campaigns.CampaignMechanism.FirmwareUpgrade.Executor](Edgehog.Campaigns.CampaignMechanism.FirmwareUpgrade.Executor.md): Executor for lazy deployment campaigns using the generic LazyBatch behavior.
   - [Edgehog.Campaigns.CampaignMechanism.Helpers](Edgehog.Campaigns.CampaignMechanism.Helpers.md): Shared helper functions for campaign mechanism implementations.
+  - [Edgehog.Campaigns.CampaignMechanism.Helpers.FileBindsResolver](Edgehog.Campaigns.CampaignMechanism.Helpers.FileBindsResolver.md): Resolves file references in deployment configs to download-request IDs for a device.
+
   - [Edgehog.Campaigns.CampaignTarget](Edgehog.Campaigns.CampaignTarget.md): Represents a CampaignTarget.
   - [Edgehog.Campaigns.CampaignTarget.CampaignTargetsByCampaign.Config](Edgehog.Campaigns.CampaignTarget.CampaignTargetsByCampaign.Config.md)
   - [Edgehog.Campaigns.CampaignTarget.Changes.CreateManagedFileDownloadRequest](Edgehog.Campaigns.CampaignTarget.Changes.CreateManagedFileDownloadRequest.md): An Ash change that creates a managed file download request for the target device.
@@ -150,6 +152,14 @@ A deployment is ready when:
 
   - [Edgehog.Containers.Container.Deployment.Provisioner](Edgehog.Containers.Container.Deployment.Provisioner.md): A container deployment provisioner.
   - [Edgehog.Containers.Container.Deployment.Provisioner.Core](Edgehog.Containers.Container.Deployment.Provisioner.Core.md): The module describing the Core functions required by the container deployment provisioner.
+  - [Edgehog.Containers.Container.Deployment.Validations.EnvOrEnvFile](Edgehog.Containers.Container.Deployment.Validations.EnvOrEnvFile.md): Ensures that a container deployment does not have both additional env vars and env files.
+At most one of `env` and `env_files` may be set; setting both is ambiguous.
+`none` (both empty) is allowed to inherit the image defaults.
+
+  - [Edgehog.Containers.Container.Deployment.Validations.RequiredMountsHaveBinds](Edgehog.Containers.Container.Deployment.Validations.RequiredMountsHaveBinds.md): When creating a container deployment, ensures that required file mounts have a referencing file bind.
+
+  - [Edgehog.Containers.Container.Env](Edgehog.Containers.Container.Env.md): Helpers to resolve and encode the environment variables of a container.
+
   - [Edgehog.Containers.Container.Types.EnvVar](Edgehog.Containers.Container.Types.EnvVar.md): The type used to specify environment variables in a key-value pair format
 
   - [Edgehog.Containers.Container.Validations.NoRefs](Edgehog.Containers.Container.Validations.NoRefs.md): Container validation for deletion.
@@ -190,6 +200,18 @@ needed.
   - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device mapping deployment provisioner.
   - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.md): The provisioner for deploying device requests on a device.
   - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device request deployment provisioner.
+  - [Edgehog.Containers.EnvFile.Calculations.GetUploadUrl](Edgehog.Containers.EnvFile.Calculations.GetUploadUrl.md): Returns a presigned PUT URL the client can use to upload the file
+for a target-less env file.
+  - [Edgehog.Containers.EnvFile.Changes.HandleEnvFileDeletion](Edgehog.Containers.EnvFile.Changes.HandleEnvFileDeletion.md): Deletes the bucket object uploaded for a target-less env file.
+  - [Edgehog.Containers.EnvFile.Provisioner](Edgehog.Containers.EnvFile.Provisioner.md): The provisioner for env files.
+  - [Edgehog.Containers.EnvFile.Provisioner.Core](Edgehog.Containers.EnvFile.Provisioner.Core.md): The module describing the Core functions required by the env file provisioner.
+  - [Edgehog.Containers.EnvFile.Storage](Edgehog.Containers.EnvFile.Storage.md): Storage helpers for target-less env files.
+  - [Edgehog.Containers.FileBind.Calculations.GetUploadUrl](Edgehog.Containers.FileBind.Calculations.GetUploadUrl.md): Returns a presigned PUT URL the client can use to upload the file
+for a target-less file bind.
+  - [Edgehog.Containers.FileBind.Changes.HandleFileBindDeletion](Edgehog.Containers.FileBind.Changes.HandleFileBindDeletion.md): Deletes the bucket object uploaded for a target-less file bind.
+  - [Edgehog.Containers.FileBind.Provisioner](Edgehog.Containers.FileBind.Provisioner.md): The provisioner for file binds.
+  - [Edgehog.Containers.FileBind.Provisioner.Core](Edgehog.Containers.FileBind.Provisioner.Core.md): The module describing the Core functions required by the file bind provisioner.
+  - [Edgehog.Containers.FileBind.Storage](Edgehog.Containers.FileBind.Storage.md): Storage helpers for target-less file binds.
   - [Edgehog.Containers.Image.Deployment.Provisioner](Edgehog.Containers.Image.Deployment.Provisioner.md): The provisioner for deploying images on a device.
   - [Edgehog.Containers.Image.Deployment.Provisioner.Core](Edgehog.Containers.Image.Deployment.Provisioner.Core.md): The module describing the Core functions required by the image deployment provisioner.
   - [Edgehog.Containers.Image.Image.Config](Edgehog.Containers.Image.Image.Config.md)
@@ -215,6 +237,25 @@ It is sufficient to add a using statement like so
   - [Edgehog.Containers.Release.Release.Config](Edgehog.Containers.Release.Release.Config.md)
   - [Edgehog.Containers.Supervisor](Edgehog.Containers.Supervisor.md): Container registries.
   - [Edgehog.Containers.Telemetry](Edgehog.Containers.Telemetry.md): Emits the telemetry events of the containers feature.
+  - [Edgehog.Containers.Types.DeploymentConfig](Edgehog.Containers.Types.DeploymentConfig.md): A deployment configuration map.
+
+  - [Edgehog.Containers.Types.DeviceMapping](Edgehog.Containers.Types.DeviceMapping.md): Input type representing a device mapping.
+
+  - [Edgehog.Containers.Types.DeviceRequest](Edgehog.Containers.Types.DeviceRequest.md): Input type representing a device request.
+
+  - [Edgehog.Containers.Types.EnvFile](Edgehog.Containers.Types.EnvFile.md): Input type to represent an env file.
+
+  - [Edgehog.Containers.Types.EnvStrategy](Edgehog.Containers.Types.EnvStrategy.md): The environment strategy to apply to a deployment configuration.
+  - [Edgehog.Containers.Types.FileBind](Edgehog.Containers.Types.FileBind.md): Input type to represent a file bind.
+
+  - [Edgehog.Containers.Types.FileMount](Edgehog.Containers.Types.FileMount.md): Input type to represent a file mount.
+  - [Edgehog.Containers.Types.Image](Edgehog.Containers.Types.Image.md): Input type representing an image.
+
+  - [Edgehog.Containers.Types.Network](Edgehog.Containers.Types.Network.md): Input type representing an network.
+
+  - [Edgehog.Containers.Types.Volume](Edgehog.Containers.Types.Volume.md): Input type representing an volume.
+
+  - [Edgehog.Containers.Validations.ContainsFile](Edgehog.Containers.Validations.ContainsFile.md): Edgehog validation on FileBind input types.
   - [Edgehog.Containers.Validations.Dangling](Edgehog.Containers.Validations.Dangling.md): Validates the action by running the `dangling?` calculation.
 true -> :ok
 false -> {:error, :not_dangling}
@@ -287,6 +328,9 @@ after the file download request resource has been created.
 
   - [Edgehog.Files.FileDownloadRequest.ManualActions.SendFileDownloadRequest](Edgehog.Files.FileDownloadRequest.ManualActions.SendFileDownloadRequest.md): Manual action responsible for sending a file download request to the Astarte device.
 
+  - [Edgehog.Files.FileDownloadRequest.Provisioner](Edgehog.Files.FileDownloadRequest.Provisioner.md): The provisioner for file download requests backing container file binds.
+  - [Edgehog.Files.FileDownloadRequest.Provisioner.Core](Edgehog.Files.FileDownloadRequest.Provisioner.Core.md): The module describing the Core functions required by the file download
+request provisioner.
   - [Edgehog.Files.FileDownloadRequest.Status](Edgehog.Files.FileDownloadRequest.Status.md): Status of a file transfer request.
   - [Edgehog.Files.FileUploadRequest.Changes.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.Changes.SendFileUploadRequest.md): Ash change responsible for sending a file upload request to the Astarte device
 after the file upload request resource has been created.
@@ -302,6 +346,7 @@ for a file upload request before persisting it.
   - [Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest.md): Manual action responsible for sending a file upload request to the Astarte device.
 
   - [Edgehog.Files.FileUploadRequest.Status](Edgehog.Files.FileUploadRequest.Status.md): Status of a file transfer request.
+  - [Edgehog.Files.Supervisor](Edgehog.Files.Supervisor.md): Files registries and dynaimc supervisors.
   - [Edgehog.Files.Uploaders.File](Edgehog.Files.Uploaders.File.md): Waffle uploader for files.
 
 - OS management
@@ -344,6 +389,10 @@ for a file upload request before persisting it.
   - [Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceMappings](Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceMappings.md): Available Images handler
 
   - [Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceRequests](Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceRequests.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableEnvFiles](Edgehog.Triggers.IncomingData.Handlers.AvailableEnvFiles.md): Available EnvFiles handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableFileBinds](Edgehog.Triggers.IncomingData.Handlers.AvailableFileBinds.md): Available FileBinds handler
 
   - [Edgehog.Triggers.IncomingData.Handlers.AvailableImages](Edgehog.Triggers.IncomingData.Handlers.AvailableImages.md): Available Images handler
 
@@ -444,6 +493,10 @@ You can optionally pass the `obj_id` attribute name.
   - [Edgehog.Repo](Edgehog.Repo.md)
   - [Edgehog.Selector.Filter](Edgehog.Selector.Filter.md)
   - [Edgehog.Storage](Edgehog.Storage.md): Storage-agnostic presigned URL generation and file management.
+  - [Edgehog.Storage.Azure](Edgehog.Storage.Azure.md): Azure Blob Storage backend for presigned URL generation and file management.
+
+  - [Edgehog.Storage.GCS](Edgehog.Storage.GCS.md): Google Cloud Storage backend for presigned URL generation and file management.
+  - [Edgehog.Storage.S3](Edgehog.Storage.S3.md): AWS S3 backend for presigned URL generation and file management.
 
 ## Mix Tasks
 

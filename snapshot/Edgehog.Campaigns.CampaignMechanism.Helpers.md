@@ -42,3 +42,5 @@ Links a target to its deployment based on device and release.
 ## Returns
   - `{:ok, updated_target}` with the deployment linked.
 
+# `resolve_file_binds`
+

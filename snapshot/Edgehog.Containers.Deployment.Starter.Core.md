@@ -11,15 +11,14 @@ primarily are functions that interact with other parts of the application
 
 Loads pending deployments into the state.
 
-given a device and a tenant scope returns the list of deployments `:pending`
-for that device and tenant.
+given a device returns the list of deployments `:pending`
+for that device.
 
 Example:
 ```elixir
 > device = %Device{device_id: "some-device-id"}
-> tenant = %Tenant{}
 
-> Core.load(device, tenant)
+> Core.load(device)
 [
   %Deployment{},
   %Deployment{},

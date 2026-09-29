@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-2CE82D1D.js"></script>
+    <script defer src="dist/sidebar_items-5B043524.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -167,6 +167,26 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#env_file_ready/2" data-no-tooltip="" translate="no">env_file_ready(id, state)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Removes an env file from the list of env files that need to be provisioned.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#file_bind_ready/2" data-no-tooltip="" translate="no">file_bind_ready(id, state)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Removes a file bind from the list of file binds that need to be provisioned.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#image_ready/1" data-no-tooltip="" translate="no">image_ready(state)</a>
 
       </div>
@@ -285,7 +305,7 @@ Clea Edgehog
       <h1 class="signature" translate="no">container_ready(state)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L126" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L148" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -308,7 +328,7 @@ Clea Edgehog
       <h1 class="signature" translate="no">device_mapping_ready(id, state)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L182" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L204" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -332,7 +352,7 @@ if id matches depl2</p><p>(id, %{device_mappings_to_provision: [depl1, depl2, de
       <h1 class="signature" translate="no">device_request_ready(id, state)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L201" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L223" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -346,6 +366,54 @@ deployments in the key <code class="inline">:device_requests_to_provision</code>
 if id matches depl2</p><p>(id, %{device_requests_to_provision: [depl1, depl2, depl3, ...]}) -&gt; %{device_requests_to_provision: [depl1, depl3, ...]}</p>
   </section>
 </section>
+<section class="detail" id="env_file_ready/2">
+
+  <div class="detail-header">
+    <a href="#env_file_ready/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">env_file_ready(id, state)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L261" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Removes an env file from the list of env files that need to be provisioned.</p><p>The list of env files to be provisioned is expected to be a list of env
+files in the key <code class="inline">:env_files_to_provision</code> into the state.</p><p>Example:
+if id matches env2</p><p>(id, %{env_files_to_provision: [env1, env2, env3, ...]}) -&gt; %{env_files_to_provision: [env1, env3, ...]}</p>
+  </section>
+</section>
+<section class="detail" id="file_bind_ready/2">
+
+  <div class="detail-header">
+    <a href="#file_bind_ready/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">file_bind_ready(id, state)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L242" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Removes a file bind from the list of file binds that need to be provisioned.</p><p>The list of file binds to be provisioned is expected to be a list of file
+binds in the key <code class="inline">:file_binds_to_provision</code> into the state.</p><p>Example:
+if id matches bind2</p><p>(id, %{file_binds_to_provision: [bind1, bind2, bind3, ...]}) -&gt; %{file_binds_to_provision: [bind1, bind3, ...]}</p>
+  </section>
+</section>
 <section class="detail" id="image_ready/1">
 
   <div class="detail-header">
@@ -356,7 +424,7 @@ if id matches depl2</p><p>(id, %{device_requests_to_provision: [depl1, depl2, de
       <h1 class="signature" translate="no">image_ready(state)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L113" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L135" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -379,7 +447,7 @@ if id matches depl2</p><p>(id, %{device_requests_to_provision: [depl1, depl2, de
       <h1 class="signature" translate="no">load_resources(state)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L40" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L44" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -401,7 +469,7 @@ if id matches depl2</p><p>(id, %{device_requests_to_provision: [depl1, depl2, de
       <h1 class="signature" translate="no">log_load_resources_failed(container_deployment_id, reason)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L457" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L597" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -423,7 +491,7 @@ if id matches depl2</p><p>(id, %{device_requests_to_provision: [depl1, depl2, de
       <h1 class="signature" translate="no">log_provisioner_failed(container_deployment_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L465" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L605" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -445,7 +513,7 @@ if id matches depl2</p><p>(id, %{device_requests_to_provision: [depl1, depl2, de
       <h1 class="signature" translate="no">log_provisioner_start_failed(resource_type, resource_id, reason)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L475" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L615" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -467,7 +535,7 @@ if id matches depl2</p><p>(id, %{device_requests_to_provision: [depl1, depl2, de
       <h1 class="signature" translate="no">log_provisioning_failed(container_deployment_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L471" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L611" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -489,7 +557,7 @@ if id matches depl2</p><p>(id, %{device_requests_to_provision: [depl1, depl2, de
       <h1 class="signature" translate="no">log_resources_loading(container_deployment_id)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L453" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L593" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -511,7 +579,7 @@ if id matches depl2</p><p>(id, %{device_requests_to_provision: [depl1, depl2, de
       <h1 class="signature" translate="no">network_ready(id, state)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L163" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L185" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -535,7 +603,7 @@ if id matches depl2</p><p>(id, %{networks_to_provision: [depl1, depl2, depl3, ..
       <h1 class="signature" translate="no">provision(state)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L209" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L269" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -557,7 +625,7 @@ if id matches depl2</p><p>(id, %{networks_to_provision: [depl1, depl2, depl3, ..
       <h1 class="signature" translate="no">ready?(state)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L75" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L85" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -579,7 +647,7 @@ if id matches depl2</p><p>(id, %{networks_to_provision: [depl1, depl2, depl3, ..
       <h1 class="signature" translate="no">volume_ready(id, state)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L144" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L166" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 

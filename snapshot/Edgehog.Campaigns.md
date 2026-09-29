@@ -3819,6 +3819,10 @@ The target is marked as :in_progress.
 
 * release
 
+# Inputs
+
+* configs
+
 ## Options
 
 * `:params` (`t:map/0`) - Parameters to supply, ignored if the input is a changeset, only used when an identifier is given.
@@ -3979,6 +3983,10 @@ Raises any errors instead of returning them
 # Arguments
 
 * release
+
+# Inputs
+
+* configs
 
 ## Options
 

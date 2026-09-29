@@ -178,6 +178,190 @@ See `Ash.can?/3` for more information
 
 * `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
 
+# `can_create_env_file_file_download_request`
+
+Runs authorization checks for `Edgehog.Files.FileDownloadRequest.from_env_file`
+
+See `Ash.can/3` for more information
+
+## Options
+
+* `:maybe_is` (`t:term/0`) - If the actor *may* be able to perform the action, what value should be returned. The default value is `:maybe`.
+
+* `:filter_with` - If set to `:error`, the query will raise an error on a match. If set to `:filter` the query will filter out unauthorized access. Valid values are :filter, :error The default value is `:filter`.
+
+* `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
+
+* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+
+* `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
+
+* `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol. Provides a default tenant and deep merges context (explicit opts take precedence). The actor is always taken from the second argument to `can/3`. See `Ash.Scope` for more.
+
+* `:context` (`t:map/0`) - Context to set on the query/changeset/action_input being authorized
+
+* `:run_queries?` (`t:boolean/0`) - Whether or not to run queries. If set to `true`, `:maybe` will not be returned. The default value is `true`.
+
+* `:data` - The record or records specifically attempting to be acted upon.
+
+* `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
+
+* `:base_query` (`t:term/0`) - A base query on which to apply an generated filters
+
+* `:no_check?` (`t:boolean/0`) - Whether or not authorization must pass at the strict/filter step, or if post-checks are allowed to be run The default value is `false`.
+
+* `:on_must_pass_strict_check` (`t:term/0`) - Override the value returned when `no_check?` is `true` but a check must be run.
+
+* `:atomic_changeset` (`t:term/0`) - A base query on which to apply an generated filters
+
+* `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
+
+* `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
+# `can_create_env_file_file_download_request?`
+
+Runs authorization checks for `Edgehog.Files.FileDownloadRequest.from_env_file`, returning a boolean.
+
+See `Ash.can?/3` for more information
+
+## Options
+
+* `:maybe_is` (`t:term/0`) - If the actor *may* be able to perform the action, what value should be returned. The default value is `:maybe`.
+
+* `:filter_with` - If set to `:error`, the query will raise an error on a match. If set to `:filter` the query will filter out unauthorized access. Valid values are :filter, :error The default value is `:filter`.
+
+* `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
+
+* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+
+* `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
+
+* `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol. Provides a default tenant and deep merges context (explicit opts take precedence). The actor is always taken from the second argument to `can/3`. See `Ash.Scope` for more.
+
+* `:context` (`t:map/0`) - Context to set on the query/changeset/action_input being authorized
+
+* `:run_queries?` (`t:boolean/0`) - Whether or not to run queries. If set to `true`, `:maybe` will not be returned. The default value is `true`.
+
+* `:data` - The record or records specifically attempting to be acted upon.
+
+* `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
+
+* `:base_query` (`t:term/0`) - A base query on which to apply an generated filters
+
+* `:no_check?` (`t:boolean/0`) - Whether or not authorization must pass at the strict/filter step, or if post-checks are allowed to be run The default value is `false`.
+
+* `:on_must_pass_strict_check` (`t:term/0`) - Override the value returned when `no_check?` is `true` but a check must be run.
+
+* `:atomic_changeset` (`t:term/0`) - A base query on which to apply an generated filters
+
+* `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
+
+* `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
+# `can_create_file_bind_file_download_request`
+
+Runs authorization checks for `Edgehog.Files.FileDownloadRequest.from_file_bind`
+
+See `Ash.can/3` for more information
+
+## Options
+
+* `:maybe_is` (`t:term/0`) - If the actor *may* be able to perform the action, what value should be returned. The default value is `:maybe`.
+
+* `:filter_with` - If set to `:error`, the query will raise an error on a match. If set to `:filter` the query will filter out unauthorized access. Valid values are :filter, :error The default value is `:filter`.
+
+* `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
+
+* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+
+* `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
+
+* `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol. Provides a default tenant and deep merges context (explicit opts take precedence). The actor is always taken from the second argument to `can/3`. See `Ash.Scope` for more.
+
+* `:context` (`t:map/0`) - Context to set on the query/changeset/action_input being authorized
+
+* `:run_queries?` (`t:boolean/0`) - Whether or not to run queries. If set to `true`, `:maybe` will not be returned. The default value is `true`.
+
+* `:data` - The record or records specifically attempting to be acted upon.
+
+* `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
+
+* `:base_query` (`t:term/0`) - A base query on which to apply an generated filters
+
+* `:no_check?` (`t:boolean/0`) - Whether or not authorization must pass at the strict/filter step, or if post-checks are allowed to be run The default value is `false`.
+
+* `:on_must_pass_strict_check` (`t:term/0`) - Override the value returned when `no_check?` is `true` but a check must be run.
+
+* `:atomic_changeset` (`t:term/0`) - A base query on which to apply an generated filters
+
+* `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
+
+* `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
+# `can_create_file_bind_file_download_request?`
+
+Runs authorization checks for `Edgehog.Files.FileDownloadRequest.from_file_bind`, returning a boolean.
+
+See `Ash.can?/3` for more information
+
+## Options
+
+* `:maybe_is` (`t:term/0`) - If the actor *may* be able to perform the action, what value should be returned. The default value is `:maybe`.
+
+* `:filter_with` - If set to `:error`, the query will raise an error on a match. If set to `:filter` the query will filter out unauthorized access. Valid values are :filter, :error The default value is `:filter`.
+
+* `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
+
+* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+
+* `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
+
+* `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol. Provides a default tenant and deep merges context (explicit opts take precedence). The actor is always taken from the second argument to `can/3`. See `Ash.Scope` for more.
+
+* `:context` (`t:map/0`) - Context to set on the query/changeset/action_input being authorized
+
+* `:run_queries?` (`t:boolean/0`) - Whether or not to run queries. If set to `true`, `:maybe` will not be returned. The default value is `true`.
+
+* `:data` - The record or records specifically attempting to be acted upon.
+
+* `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
+
+* `:base_query` (`t:term/0`) - A base query on which to apply an generated filters
+
+* `:no_check?` (`t:boolean/0`) - Whether or not authorization must pass at the strict/filter step, or if post-checks are allowed to be run The default value is `false`.
+
+* `:on_must_pass_strict_check` (`t:term/0`) - Override the value returned when `no_check?` is `true` but a check must be run.
+
+* `:atomic_changeset` (`t:term/0`) - A base query on which to apply an generated filters
+
+* `:return_forbidden_error?` (`t:boolean/0`) - Whether or not to return a forbidden error in cases of not being authorized. The default value is `false`.
+
+* `:log?` (`t:boolean/0`) - Whether or not to log the authorization result. The default value is `false`.
+
+* `:log_policy_breakdown?` (`t:boolean/0`) - If set to `false`, suppresses policy breakdown logs, overriding the global `show_policy_breakdowns?` configuration.
+
+* `:short_circuit?` (`t:boolean/0`) - For `can_do_all/3` and `can_do_all?/3`, whether to stop checking after the first failing check. Defaults to `false` for `can_do_all/3` and `true` for `can_do_all?/3`. The default value is `false`.
+
 # `can_fetch_device_file`
 
 Runs authorization checks for `Edgehog.Files.DeviceFile.read`
@@ -1944,6 +2128,42 @@ Returns the changeset corresponding to the action.
 
 * `:changeset` (`t:term/0`) - A changeset to seed the action with.
 
+# `changeset_to_create_env_file_file_download_request`
+
+Returns the changeset corresponding to the action.
+
+## Options
+
+* `:tracer` (one or a list of module that adopts `Ash.Tracer`) - A tracer that implements the `Ash.Tracer` behaviour. See that module for more.
+
+* `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
+
+* `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
+
+* `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
+
+* `:changeset` (`t:term/0`) - A changeset to seed the action with.
+
+# `changeset_to_create_file_bind_file_download_request`
+
+Returns the changeset corresponding to the action.
+
+## Options
+
+* `:tracer` (one or a list of module that adopts `Ash.Tracer`) - A tracer that implements the `Ash.Tracer` behaviour. See that module for more.
+
+* `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
+
+* `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
+
+* `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
+
+* `:changeset` (`t:term/0`) - A changeset to seed the action with.
+
 # `changeset_to_mark_device_file_as_deleted`
 
 Returns the changeset corresponding to the action.
@@ -2280,6 +2500,578 @@ Raises any errors instead of returning them
 * file_download_request_id
 * path_on_device - The path where the device stored the file.
 * size_bytes - The size of the file stored on the device, in bytes.
+
+## Options
+
+* `:upsert?` (`t:boolean/0`) - If a conflict is found based on the primary key, the record is updated in the database (requires upsert support) The default value is `false`.
+
+* `:return_skipped_upsert?` (`t:boolean/0`) - If `true`, and a record was *not* upserted because its filter prevented the upsert, the original record (which was *not* upserted) will be returned. The default value is `false`.
+
+* `:upsert_identity` (`t:atom/0`) - The identity to use when detecting conflicts for `upsert?`, e.g. `upsert_identity: :full_name`. By default, the primary key is used. Has no effect if `upsert?: true` is not provided
+
+* `:upsert_fields` - The fields to upsert. If not set, the action's upsert_fields is used, and if that is not set, then any fields not being set to defaults are written.
+
+* `:upsert_condition` (`t:term/0`) - An expression to check if the record should be updated when there's a conflict.
+
+* `:touch_update_defaults?` (`t:boolean/0`) - Whether or not to apply update defaults (like `updated_at` timestamps) on upsert. Only relevant when `upsert?: true` is set. Set to `false` to skip touching update_default fields when an upsert results in an update. The default value is `true`.
+
+* `:timeout` (`t:timeout/0`) - A positive integer, or `:infinity`. If none is provided, the timeout configured on the domain is used.
+
+* `:tracer` (one or a list of module that adopts `Ash.Tracer`) - A tracer that implements the `Ash.Tracer` behaviour. See that module for more.
+
+* `:action` (`t:term/0`) - The action to use, either an Action struct or the name of the action
+
+* `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
+
+* `:context` (`t:map/0`) - Context to set on the query, changeset, or input
+
+* `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
+
+* `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
+
+* `:return_notifications?` (`t:boolean/0`) - Use this if you're running ash actions in your own transaction and you want to manually handle sending notifications.  
+  If a transaction is ongoing, and this is false, notifications will be discarded, otherwise
+  the return value is `{:ok, result, notifications}` (or `{:ok, notifications}`)  
+  To send notifications later, use `Ash.Notifier.notify(notifications)`. It sends any notifications
+  that can be sent, and returns the rest. The default value is `false`.
+
+* `:rollback_on_error?` (`t:boolean/0`) - Whether or not to rollback the transaction on error, if the resource is in a transaction.  
+  If the action has `transaction? false` this option has no effect. If an error is returned from the
+  data layer and the resource is in a transaction, the transaction is always rolled back, regardless. The default value is `true`.
+
+* `:notification_metadata` (`t:term/0`) - Metadata to be merged into the metadata field for all notifications sent from this operation. The default value is `%{}`.
+
+* `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
+
+* `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:changeset` (`t:term/0`) - A changeset to seed the action with.
+
+* `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_create`, if a list or stream of inputs is provided.
+
+  * `:select` (list of `t:atom/0`) - A select statement to apply to records. Ignored if `return_records?` is not true.
+
+  * `:after_action` (function of arity 2) - An after_action hook to be added to each processed changeset
+
+  * `:transform_changeset` (function of arity 1) - A function that takes and returns a changeset, applied to each changeset after it is built but before validation. Used internally by managed relationships to set foreign keys and context.
+
+  * `:read_action` (`t:atom/0`) - The action to use when building the read query.
+
+  * `:assume_casted?` (`t:boolean/0`) - Whether or not to cast attributes and arguments as input. This is an optimization for cases where the input is already casted and/or not in need of casting The default value is `false`.
+
+  * `:select` (list of `t:atom/0`) - A select statement to apply to records. Ignored if `return_records?` is not true.
+
+  * `:authorize_query_with` - If set to `:error`, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. Uses `authorize_with` if not set.
+
+  * `:authorize_changeset_with` - If set to `:error`, instead of filtering unauthorized changes, unauthorized changes will raise an appropriate forbidden error. Uses `authorize_with` if not set.
+
+  * `:authorize_with` - If set to `:error`, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. The default value is `:filter`.
+
+  * `:private_arguments` (`t:map/0`) - Private argument values to set on each changeset before validations and changes are run. The default value is `%{}`.
+
+  * `:sorted?` (`t:boolean/0`) - Whether or not to sort results by their input position, in cases where `return_records?: true` was provided. The default value is `false`.
+
+  * `:return_records?` (`t:boolean/0`) - Whether or not to return all of the records that were inserted. Defaults to false to account for large inserts. The default value is `false`.
+
+  * `:return_errors?` (`t:boolean/0`) - Whether to return all errors that occur during the operation. Defaults to the value of `:bulk_actions_default_to_errors?` in your config, or `false` if not set. Returning all errors may be expensive for large inserts. The default value is `false`.
+
+  * `:batch_size` (`t:pos_integer/0`) - The number of records to include in each batch. Defaults to the `default_limit`
+    or `max_page_size` of the action, or 100.
+
+  * `:return_stream?` (`t:boolean/0`) - If set to `true`, instead of an `Ash.BulkResult`, a mixed stream is returned.
+
+    Potential elements:
+
+    `{:notification, notification}` - if `return_notifications?` is set to `true`
+    `{:ok, record}` - if `return_records?` is set to `true`
+    `{:error, error}` - an error that occurred. May be changeset or an individual error.
+
+    The default value is `false`.
+
+  * `:return_nothing?` (`t:boolean/0`) - Mutes warnings about returning nothing.
+
+    Only relevant if `return_stream?` is set to `true` and all other
+    `return_*?` options are set to `false`.
+
+    The default value is `false`.
+
+  * `:stop_on_error?` (`t:boolean/0`) - If true, the first encountered error will stop the action and be returned. Otherwise, errors
+    will be skipped. The default value is `false`.
+
+  * `:notify?` (`t:boolean/0`) - Whether or not to generate any notifications. If this is set to `true` then the data layer must return
+    the results from each batch. This may be intensive for large bulk actions.
+
+    Notifications will be automatically sent unless `return_notifications?` is set to `true`.
+
+    The default value is `false`.
+
+  * `:transaction` - Whether or not to wrap the entire execution in a transaction, each batch, or not at all.
+
+    Keep in mind:
+
+    `before_transaction` and `after_transaction` hooks attached to changesets will have to be run
+    *inside* the transaction if you choose `transaction: :all`.
+
+    The default value is `:batch`.
+
+  * `:max_concurrency` (`t:non_neg_integer/0`) - If set to a value greater than 0, up to that many tasks will be started to run batches asynchronously The default value is `0`.
+
+* `:private_arguments` (`t:map/0`) - Private argument values to set before validations and changes. The default value is `%{}`.
+
+# `create_env_file_file_download_request`
+
+Creates a file download request for the file uploaded on a
+target-less container env file. The bucket object is owned by the
+env file (prefix `env_files/`) and is kept after the request
+completes so redeploys can reuse it.
+
+# Inputs
+
+* encoding - Optional enum string for the file encoding with default value empty, other values are: [gz, lz4, tar, tar.gz, tar.lz4]
+* file_name - The name of the file being downloaded.
+* destination - Destination-specific information on where to write the file to, when the destination_type is :filesystem
+* user_id - Optional unix uid of the user owning the file, set to default if -1.
+* url - The URL from which the file can be downloaded.
+* digest - The digest of the file being downloaded, used for integrity verification.
+* device_id - The ID identifying the Device the File Download Request will be sent to
+* destination_type - Device-specific field, supported values are storage, streaming and filesystem.
+* ttl_seconds - Optional ttl for how long to keep the file for, if 0 is forever, default value is 0.
+* file_mode - Optional unix mode for the file, set to default if 0. All files are immutable, so setting it to writable has no effect.
+* group_id - Optional unix gid of the group owning the file, set to default if -1.
+* progress_tracked - Flag to enable the progress reporting of the download.
+* uncompressed_file_size_bytes - The size of the file being downloaded, in bytes, before compression.
+
+## Options
+
+* `:upsert?` (`t:boolean/0`) - If a conflict is found based on the primary key, the record is updated in the database (requires upsert support) The default value is `false`.
+
+* `:return_skipped_upsert?` (`t:boolean/0`) - If `true`, and a record was *not* upserted because its filter prevented the upsert, the original record (which was *not* upserted) will be returned. The default value is `false`.
+
+* `:upsert_identity` (`t:atom/0`) - The identity to use when detecting conflicts for `upsert?`, e.g. `upsert_identity: :full_name`. By default, the primary key is used. Has no effect if `upsert?: true` is not provided
+
+* `:upsert_fields` - The fields to upsert. If not set, the action's upsert_fields is used, and if that is not set, then any fields not being set to defaults are written.
+
+* `:upsert_condition` (`t:term/0`) - An expression to check if the record should be updated when there's a conflict.
+
+* `:touch_update_defaults?` (`t:boolean/0`) - Whether or not to apply update defaults (like `updated_at` timestamps) on upsert. Only relevant when `upsert?: true` is set. Set to `false` to skip touching update_default fields when an upsert results in an update. The default value is `true`.
+
+* `:timeout` (`t:timeout/0`) - A positive integer, or `:infinity`. If none is provided, the timeout configured on the domain is used.
+
+* `:tracer` (one or a list of module that adopts `Ash.Tracer`) - A tracer that implements the `Ash.Tracer` behaviour. See that module for more.
+
+* `:action` (`t:term/0`) - The action to use, either an Action struct or the name of the action
+
+* `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
+
+* `:context` (`t:map/0`) - Context to set on the query, changeset, or input
+
+* `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
+
+* `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
+
+* `:return_notifications?` (`t:boolean/0`) - Use this if you're running ash actions in your own transaction and you want to manually handle sending notifications.  
+  If a transaction is ongoing, and this is false, notifications will be discarded, otherwise
+  the return value is `{:ok, result, notifications}` (or `{:ok, notifications}`)  
+  To send notifications later, use `Ash.Notifier.notify(notifications)`. It sends any notifications
+  that can be sent, and returns the rest. The default value is `false`.
+
+* `:rollback_on_error?` (`t:boolean/0`) - Whether or not to rollback the transaction on error, if the resource is in a transaction.  
+  If the action has `transaction? false` this option has no effect. If an error is returned from the
+  data layer and the resource is in a transaction, the transaction is always rolled back, regardless. The default value is `true`.
+
+* `:notification_metadata` (`t:term/0`) - Metadata to be merged into the metadata field for all notifications sent from this operation. The default value is `%{}`.
+
+* `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
+
+* `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:changeset` (`t:term/0`) - A changeset to seed the action with.
+
+* `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_create`, if a list or stream of inputs is provided.
+
+  * `:select` (list of `t:atom/0`) - A select statement to apply to records. Ignored if `return_records?` is not true.
+
+  * `:after_action` (function of arity 2) - An after_action hook to be added to each processed changeset
+
+  * `:transform_changeset` (function of arity 1) - A function that takes and returns a changeset, applied to each changeset after it is built but before validation. Used internally by managed relationships to set foreign keys and context.
+
+  * `:read_action` (`t:atom/0`) - The action to use when building the read query.
+
+  * `:assume_casted?` (`t:boolean/0`) - Whether or not to cast attributes and arguments as input. This is an optimization for cases where the input is already casted and/or not in need of casting The default value is `false`.
+
+  * `:select` (list of `t:atom/0`) - A select statement to apply to records. Ignored if `return_records?` is not true.
+
+  * `:authorize_query_with` - If set to `:error`, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. Uses `authorize_with` if not set.
+
+  * `:authorize_changeset_with` - If set to `:error`, instead of filtering unauthorized changes, unauthorized changes will raise an appropriate forbidden error. Uses `authorize_with` if not set.
+
+  * `:authorize_with` - If set to `:error`, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. The default value is `:filter`.
+
+  * `:private_arguments` (`t:map/0`) - Private argument values to set on each changeset before validations and changes are run. The default value is `%{}`.
+
+  * `:sorted?` (`t:boolean/0`) - Whether or not to sort results by their input position, in cases where `return_records?: true` was provided. The default value is `false`.
+
+  * `:return_records?` (`t:boolean/0`) - Whether or not to return all of the records that were inserted. Defaults to false to account for large inserts. The default value is `false`.
+
+  * `:return_errors?` (`t:boolean/0`) - Whether to return all errors that occur during the operation. Defaults to the value of `:bulk_actions_default_to_errors?` in your config, or `false` if not set. Returning all errors may be expensive for large inserts. The default value is `false`.
+
+  * `:batch_size` (`t:pos_integer/0`) - The number of records to include in each batch. Defaults to the `default_limit`
+    or `max_page_size` of the action, or 100.
+
+  * `:return_stream?` (`t:boolean/0`) - If set to `true`, instead of an `Ash.BulkResult`, a mixed stream is returned.
+
+    Potential elements:
+
+    `{:notification, notification}` - if `return_notifications?` is set to `true`
+    `{:ok, record}` - if `return_records?` is set to `true`
+    `{:error, error}` - an error that occurred. May be changeset or an individual error.
+
+    The default value is `false`.
+
+  * `:return_nothing?` (`t:boolean/0`) - Mutes warnings about returning nothing.
+
+    Only relevant if `return_stream?` is set to `true` and all other
+    `return_*?` options are set to `false`.
+
+    The default value is `false`.
+
+  * `:stop_on_error?` (`t:boolean/0`) - If true, the first encountered error will stop the action and be returned. Otherwise, errors
+    will be skipped. The default value is `false`.
+
+  * `:notify?` (`t:boolean/0`) - Whether or not to generate any notifications. If this is set to `true` then the data layer must return
+    the results from each batch. This may be intensive for large bulk actions.
+
+    Notifications will be automatically sent unless `return_notifications?` is set to `true`.
+
+    The default value is `false`.
+
+  * `:transaction` - Whether or not to wrap the entire execution in a transaction, each batch, or not at all.
+
+    Keep in mind:
+
+    `before_transaction` and `after_transaction` hooks attached to changesets will have to be run
+    *inside* the transaction if you choose `transaction: :all`.
+
+    The default value is `:batch`.
+
+  * `:max_concurrency` (`t:non_neg_integer/0`) - If set to a value greater than 0, up to that many tasks will be started to run batches asynchronously The default value is `0`.
+
+* `:private_arguments` (`t:map/0`) - Private argument values to set before validations and changes. The default value is `%{}`.
+
+# `create_env_file_file_download_request!`
+
+Creates a file download request for the file uploaded on a
+target-less container env file. The bucket object is owned by the
+env file (prefix `env_files/`) and is kept after the request
+completes so redeploys can reuse it.
+
+Raises any errors instead of returning them
+
+# Inputs
+
+* encoding - Optional enum string for the file encoding with default value empty, other values are: [gz, lz4, tar, tar.gz, tar.lz4]
+* file_name - The name of the file being downloaded.
+* destination - Destination-specific information on where to write the file to, when the destination_type is :filesystem
+* user_id - Optional unix uid of the user owning the file, set to default if -1.
+* url - The URL from which the file can be downloaded.
+* digest - The digest of the file being downloaded, used for integrity verification.
+* device_id - The ID identifying the Device the File Download Request will be sent to
+* destination_type - Device-specific field, supported values are storage, streaming and filesystem.
+* ttl_seconds - Optional ttl for how long to keep the file for, if 0 is forever, default value is 0.
+* file_mode - Optional unix mode for the file, set to default if 0. All files are immutable, so setting it to writable has no effect.
+* group_id - Optional unix gid of the group owning the file, set to default if -1.
+* progress_tracked - Flag to enable the progress reporting of the download.
+* uncompressed_file_size_bytes - The size of the file being downloaded, in bytes, before compression.
+
+## Options
+
+* `:upsert?` (`t:boolean/0`) - If a conflict is found based on the primary key, the record is updated in the database (requires upsert support) The default value is `false`.
+
+* `:return_skipped_upsert?` (`t:boolean/0`) - If `true`, and a record was *not* upserted because its filter prevented the upsert, the original record (which was *not* upserted) will be returned. The default value is `false`.
+
+* `:upsert_identity` (`t:atom/0`) - The identity to use when detecting conflicts for `upsert?`, e.g. `upsert_identity: :full_name`. By default, the primary key is used. Has no effect if `upsert?: true` is not provided
+
+* `:upsert_fields` - The fields to upsert. If not set, the action's upsert_fields is used, and if that is not set, then any fields not being set to defaults are written.
+
+* `:upsert_condition` (`t:term/0`) - An expression to check if the record should be updated when there's a conflict.
+
+* `:touch_update_defaults?` (`t:boolean/0`) - Whether or not to apply update defaults (like `updated_at` timestamps) on upsert. Only relevant when `upsert?: true` is set. Set to `false` to skip touching update_default fields when an upsert results in an update. The default value is `true`.
+
+* `:timeout` (`t:timeout/0`) - A positive integer, or `:infinity`. If none is provided, the timeout configured on the domain is used.
+
+* `:tracer` (one or a list of module that adopts `Ash.Tracer`) - A tracer that implements the `Ash.Tracer` behaviour. See that module for more.
+
+* `:action` (`t:term/0`) - The action to use, either an Action struct or the name of the action
+
+* `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
+
+* `:context` (`t:map/0`) - Context to set on the query, changeset, or input
+
+* `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
+
+* `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
+
+* `:return_notifications?` (`t:boolean/0`) - Use this if you're running ash actions in your own transaction and you want to manually handle sending notifications.  
+  If a transaction is ongoing, and this is false, notifications will be discarded, otherwise
+  the return value is `{:ok, result, notifications}` (or `{:ok, notifications}`)  
+  To send notifications later, use `Ash.Notifier.notify(notifications)`. It sends any notifications
+  that can be sent, and returns the rest. The default value is `false`.
+
+* `:rollback_on_error?` (`t:boolean/0`) - Whether or not to rollback the transaction on error, if the resource is in a transaction.  
+  If the action has `transaction? false` this option has no effect. If an error is returned from the
+  data layer and the resource is in a transaction, the transaction is always rolled back, regardless. The default value is `true`.
+
+* `:notification_metadata` (`t:term/0`) - Metadata to be merged into the metadata field for all notifications sent from this operation. The default value is `%{}`.
+
+* `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
+
+* `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:changeset` (`t:term/0`) - A changeset to seed the action with.
+
+* `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_create`, if a list or stream of inputs is provided.
+
+  * `:select` (list of `t:atom/0`) - A select statement to apply to records. Ignored if `return_records?` is not true.
+
+  * `:after_action` (function of arity 2) - An after_action hook to be added to each processed changeset
+
+  * `:transform_changeset` (function of arity 1) - A function that takes and returns a changeset, applied to each changeset after it is built but before validation. Used internally by managed relationships to set foreign keys and context.
+
+  * `:read_action` (`t:atom/0`) - The action to use when building the read query.
+
+  * `:assume_casted?` (`t:boolean/0`) - Whether or not to cast attributes and arguments as input. This is an optimization for cases where the input is already casted and/or not in need of casting The default value is `false`.
+
+  * `:select` (list of `t:atom/0`) - A select statement to apply to records. Ignored if `return_records?` is not true.
+
+  * `:authorize_query_with` - If set to `:error`, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. Uses `authorize_with` if not set.
+
+  * `:authorize_changeset_with` - If set to `:error`, instead of filtering unauthorized changes, unauthorized changes will raise an appropriate forbidden error. Uses `authorize_with` if not set.
+
+  * `:authorize_with` - If set to `:error`, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. The default value is `:filter`.
+
+  * `:private_arguments` (`t:map/0`) - Private argument values to set on each changeset before validations and changes are run. The default value is `%{}`.
+
+  * `:sorted?` (`t:boolean/0`) - Whether or not to sort results by their input position, in cases where `return_records?: true` was provided. The default value is `false`.
+
+  * `:return_records?` (`t:boolean/0`) - Whether or not to return all of the records that were inserted. Defaults to false to account for large inserts. The default value is `false`.
+
+  * `:return_errors?` (`t:boolean/0`) - Whether to return all errors that occur during the operation. Defaults to the value of `:bulk_actions_default_to_errors?` in your config, or `false` if not set. Returning all errors may be expensive for large inserts. The default value is `false`.
+
+  * `:batch_size` (`t:pos_integer/0`) - The number of records to include in each batch. Defaults to the `default_limit`
+    or `max_page_size` of the action, or 100.
+
+  * `:return_stream?` (`t:boolean/0`) - If set to `true`, instead of an `Ash.BulkResult`, a mixed stream is returned.
+
+    Potential elements:
+
+    `{:notification, notification}` - if `return_notifications?` is set to `true`
+    `{:ok, record}` - if `return_records?` is set to `true`
+    `{:error, error}` - an error that occurred. May be changeset or an individual error.
+
+    The default value is `false`.
+
+  * `:return_nothing?` (`t:boolean/0`) - Mutes warnings about returning nothing.
+
+    Only relevant if `return_stream?` is set to `true` and all other
+    `return_*?` options are set to `false`.
+
+    The default value is `false`.
+
+  * `:stop_on_error?` (`t:boolean/0`) - If true, the first encountered error will stop the action and be returned. Otherwise, errors
+    will be skipped. The default value is `false`.
+
+  * `:notify?` (`t:boolean/0`) - Whether or not to generate any notifications. If this is set to `true` then the data layer must return
+    the results from each batch. This may be intensive for large bulk actions.
+
+    Notifications will be automatically sent unless `return_notifications?` is set to `true`.
+
+    The default value is `false`.
+
+  * `:transaction` - Whether or not to wrap the entire execution in a transaction, each batch, or not at all.
+
+    Keep in mind:
+
+    `before_transaction` and `after_transaction` hooks attached to changesets will have to be run
+    *inside* the transaction if you choose `transaction: :all`.
+
+    The default value is `:batch`.
+
+  * `:max_concurrency` (`t:non_neg_integer/0`) - If set to a value greater than 0, up to that many tasks will be started to run batches asynchronously The default value is `0`.
+
+* `:private_arguments` (`t:map/0`) - Private argument values to set before validations and changes. The default value is `%{}`.
+
+# `create_file_bind_file_download_request`
+
+Creates a file download request for the file uploaded on a
+target-less container file bind. The bucket object is owned by the
+file bind (prefix `file_binds/`) and is kept after the request
+completes so redeploys can reuse it.
+
+# Inputs
+
+* encoding - Optional enum string for the file encoding with default value empty, other values are: [gz, lz4, tar, tar.gz, tar.lz4]
+* file_name - The name of the file being downloaded.
+* destination - Destination-specific information on where to write the file to, when the destination_type is :filesystem
+* user_id - Optional unix uid of the user owning the file, set to default if -1.
+* url - The URL from which the file can be downloaded.
+* digest - The digest of the file being downloaded, used for integrity verification.
+* device_id - The ID identifying the Device the File Download Request will be sent to
+* destination_type - Device-specific field, supported values are storage, streaming and filesystem.
+* ttl_seconds - Optional ttl for how long to keep the file for, if 0 is forever, default value is 0.
+* file_mode - Optional unix mode for the file, set to default if 0. All files are immutable, so setting it to writable has no effect.
+* group_id - Optional unix gid of the group owning the file, set to default if -1.
+* progress_tracked - Flag to enable the progress reporting of the download.
+* uncompressed_file_size_bytes - The size of the file being downloaded, in bytes, before compression.
+
+## Options
+
+* `:upsert?` (`t:boolean/0`) - If a conflict is found based on the primary key, the record is updated in the database (requires upsert support) The default value is `false`.
+
+* `:return_skipped_upsert?` (`t:boolean/0`) - If `true`, and a record was *not* upserted because its filter prevented the upsert, the original record (which was *not* upserted) will be returned. The default value is `false`.
+
+* `:upsert_identity` (`t:atom/0`) - The identity to use when detecting conflicts for `upsert?`, e.g. `upsert_identity: :full_name`. By default, the primary key is used. Has no effect if `upsert?: true` is not provided
+
+* `:upsert_fields` - The fields to upsert. If not set, the action's upsert_fields is used, and if that is not set, then any fields not being set to defaults are written.
+
+* `:upsert_condition` (`t:term/0`) - An expression to check if the record should be updated when there's a conflict.
+
+* `:touch_update_defaults?` (`t:boolean/0`) - Whether or not to apply update defaults (like `updated_at` timestamps) on upsert. Only relevant when `upsert?: true` is set. Set to `false` to skip touching update_default fields when an upsert results in an update. The default value is `true`.
+
+* `:timeout` (`t:timeout/0`) - A positive integer, or `:infinity`. If none is provided, the timeout configured on the domain is used.
+
+* `:tracer` (one or a list of module that adopts `Ash.Tracer`) - A tracer that implements the `Ash.Tracer` behaviour. See that module for more.
+
+* `:action` (`t:term/0`) - The action to use, either an Action struct or the name of the action
+
+* `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
+
+* `:context` (`t:map/0`) - Context to set on the query, changeset, or input
+
+* `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
+
+* `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
+
+* `:return_notifications?` (`t:boolean/0`) - Use this if you're running ash actions in your own transaction and you want to manually handle sending notifications.  
+  If a transaction is ongoing, and this is false, notifications will be discarded, otherwise
+  the return value is `{:ok, result, notifications}` (or `{:ok, notifications}`)  
+  To send notifications later, use `Ash.Notifier.notify(notifications)`. It sends any notifications
+  that can be sent, and returns the rest. The default value is `false`.
+
+* `:rollback_on_error?` (`t:boolean/0`) - Whether or not to rollback the transaction on error, if the resource is in a transaction.  
+  If the action has `transaction? false` this option has no effect. If an error is returned from the
+  data layer and the resource is in a transaction, the transaction is always rolled back, regardless. The default value is `true`.
+
+* `:notification_metadata` (`t:term/0`) - Metadata to be merged into the metadata field for all notifications sent from this operation. The default value is `%{}`.
+
+* `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
+
+* `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:changeset` (`t:term/0`) - A changeset to seed the action with.
+
+* `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_create`, if a list or stream of inputs is provided.
+
+  * `:select` (list of `t:atom/0`) - A select statement to apply to records. Ignored if `return_records?` is not true.
+
+  * `:after_action` (function of arity 2) - An after_action hook to be added to each processed changeset
+
+  * `:transform_changeset` (function of arity 1) - A function that takes and returns a changeset, applied to each changeset after it is built but before validation. Used internally by managed relationships to set foreign keys and context.
+
+  * `:read_action` (`t:atom/0`) - The action to use when building the read query.
+
+  * `:assume_casted?` (`t:boolean/0`) - Whether or not to cast attributes and arguments as input. This is an optimization for cases where the input is already casted and/or not in need of casting The default value is `false`.
+
+  * `:select` (list of `t:atom/0`) - A select statement to apply to records. Ignored if `return_records?` is not true.
+
+  * `:authorize_query_with` - If set to `:error`, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. Uses `authorize_with` if not set.
+
+  * `:authorize_changeset_with` - If set to `:error`, instead of filtering unauthorized changes, unauthorized changes will raise an appropriate forbidden error. Uses `authorize_with` if not set.
+
+  * `:authorize_with` - If set to `:error`, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. The default value is `:filter`.
+
+  * `:private_arguments` (`t:map/0`) - Private argument values to set on each changeset before validations and changes are run. The default value is `%{}`.
+
+  * `:sorted?` (`t:boolean/0`) - Whether or not to sort results by their input position, in cases where `return_records?: true` was provided. The default value is `false`.
+
+  * `:return_records?` (`t:boolean/0`) - Whether or not to return all of the records that were inserted. Defaults to false to account for large inserts. The default value is `false`.
+
+  * `:return_errors?` (`t:boolean/0`) - Whether to return all errors that occur during the operation. Defaults to the value of `:bulk_actions_default_to_errors?` in your config, or `false` if not set. Returning all errors may be expensive for large inserts. The default value is `false`.
+
+  * `:batch_size` (`t:pos_integer/0`) - The number of records to include in each batch. Defaults to the `default_limit`
+    or `max_page_size` of the action, or 100.
+
+  * `:return_stream?` (`t:boolean/0`) - If set to `true`, instead of an `Ash.BulkResult`, a mixed stream is returned.
+
+    Potential elements:
+
+    `{:notification, notification}` - if `return_notifications?` is set to `true`
+    `{:ok, record}` - if `return_records?` is set to `true`
+    `{:error, error}` - an error that occurred. May be changeset or an individual error.
+
+    The default value is `false`.
+
+  * `:return_nothing?` (`t:boolean/0`) - Mutes warnings about returning nothing.
+
+    Only relevant if `return_stream?` is set to `true` and all other
+    `return_*?` options are set to `false`.
+
+    The default value is `false`.
+
+  * `:stop_on_error?` (`t:boolean/0`) - If true, the first encountered error will stop the action and be returned. Otherwise, errors
+    will be skipped. The default value is `false`.
+
+  * `:notify?` (`t:boolean/0`) - Whether or not to generate any notifications. If this is set to `true` then the data layer must return
+    the results from each batch. This may be intensive for large bulk actions.
+
+    Notifications will be automatically sent unless `return_notifications?` is set to `true`.
+
+    The default value is `false`.
+
+  * `:transaction` - Whether or not to wrap the entire execution in a transaction, each batch, or not at all.
+
+    Keep in mind:
+
+    `before_transaction` and `after_transaction` hooks attached to changesets will have to be run
+    *inside* the transaction if you choose `transaction: :all`.
+
+    The default value is `:batch`.
+
+  * `:max_concurrency` (`t:non_neg_integer/0`) - If set to a value greater than 0, up to that many tasks will be started to run batches asynchronously The default value is `0`.
+
+* `:private_arguments` (`t:map/0`) - Private argument values to set before validations and changes. The default value is `%{}`.
+
+# `create_file_bind_file_download_request!`
+
+Creates a file download request for the file uploaded on a
+target-less container file bind. The bucket object is owned by the
+file bind (prefix `file_binds/`) and is kept after the request
+completes so redeploys can reuse it.
+
+Raises any errors instead of returning them
+
+# Inputs
+
+* encoding - Optional enum string for the file encoding with default value empty, other values are: [gz, lz4, tar, tar.gz, tar.lz4]
+* file_name - The name of the file being downloaded.
+* destination - Destination-specific information on where to write the file to, when the destination_type is :filesystem
+* user_id - Optional unix uid of the user owning the file, set to default if -1.
+* url - The URL from which the file can be downloaded.
+* digest - The digest of the file being downloaded, used for integrity verification.
+* device_id - The ID identifying the Device the File Download Request will be sent to
+* destination_type - Device-specific field, supported values are storage, streaming and filesystem.
+* ttl_seconds - Optional ttl for how long to keep the file for, if 0 is forever, default value is 0.
+* file_mode - Optional unix mode for the file, set to default if 0. All files are immutable, so setting it to writable has no effect.
+* group_id - Optional unix gid of the group owning the file, set to default if -1.
+* progress_tracked - Flag to enable the progress reporting of the download.
+* uncompressed_file_size_bytes - The size of the file being downloaded, in bytes, before compression.
 
 ## Options
 

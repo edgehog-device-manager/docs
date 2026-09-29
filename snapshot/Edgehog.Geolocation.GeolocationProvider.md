@@ -19,6 +19,8 @@ Geolocation provider default and callbacks.
   available_deployments: term(),
   available_device_mappings: term(),
   available_device_requests: term(),
+  available_env_files: term(),
+  available_file_binds: term(),
   available_images: term(),
   available_networks: term(),
   available_volumes: term(),

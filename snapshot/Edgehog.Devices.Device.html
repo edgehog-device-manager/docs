@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-2CE82D1D.js"></script>
+    <script defer src="dist/sidebar_items-5B043524.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -235,6 +235,8 @@ A Device also exposes info about its connection status and some sets of data rea
   available_deployments: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
   available_device_mappings: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
   available_device_requests: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
+  available_env_files: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
+  available_file_binds: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
   available_images: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
   available_networks: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
   available_volumes: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
@@ -359,8 +361,8 @@ A Device also exposes info about its connection status and some sets of data rea
 be created by Ash as a result of a successful action. You should not be creating records manually in code,
 e.g <code class="inline">%MyResource{value: 1, value: 2}</code>. Generally that is fine, but often with embedded resources it is nice
 to be able to validate the keys that are being provided, e.g</p><pre><code class="makeup elixir" translate="no"><span class="nc">Resource</span><span class="w">
-</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Ash.Changeset</span><span class="o">.</span><span class="n">for_create</span><span class="p" data-group-id="0976423954-1">(</span><span class="ss">:create</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0976423954-2">%{</span><span class="ss">embedded</span><span class="p">:</span><span class="w"> </span><span class="nc">EmbeddedResource</span><span class="o">.</span><span class="n">input</span><span class="p" data-group-id="0976423954-3">(</span><span class="ss">foo</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="ss">bar</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="0976423954-3">)</span><span class="p" data-group-id="0976423954-2">}</span><span class="p" data-group-id="0976423954-1">)</span><span class="w">
-</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Ash</span><span class="o">.</span><span class="n">create</span><span class="p" data-group-id="0976423954-4">(</span><span class="p" data-group-id="0976423954-4">)</span></code></pre>
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Ash.Changeset</span><span class="o">.</span><span class="n">for_create</span><span class="p" data-group-id="3585802470-1">(</span><span class="ss">:create</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="3585802470-2">%{</span><span class="ss">embedded</span><span class="p">:</span><span class="w"> </span><span class="nc">EmbeddedResource</span><span class="o">.</span><span class="n">input</span><span class="p" data-group-id="3585802470-3">(</span><span class="ss">foo</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="ss">bar</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="3585802470-3">)</span><span class="p" data-group-id="3585802470-2">}</span><span class="p" data-group-id="3585802470-1">)</span><span class="w">
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Ash</span><span class="o">.</span><span class="n">create</span><span class="p" data-group-id="3585802470-4">(</span><span class="p" data-group-id="3585802470-4">)</span></code></pre>
   </section>
 </section>
 <section class="detail" id="input/2">

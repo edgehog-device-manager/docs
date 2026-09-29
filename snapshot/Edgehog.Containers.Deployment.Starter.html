@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-2CE82D1D.js"></script>
+    <script defer src="dist/sidebar_items-5B043524.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -148,7 +148,7 @@ pending deployments of such device and start them trough the <a href="https://he
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#cook/3" data-no-tooltip="" translate="no">cook(device, tenant, opts \\ [])</a>
+        <a href="#cook/2" data-no-tooltip="" translate="no">cook(device, opts \\ [])</a>
 
       </div>
 
@@ -158,7 +158,7 @@ pending deployments of such device and start them trough the <a href="https://he
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#name/2" data-no-tooltip="" translate="no">name(device, tenant)</a>
+        <a href="#name/1" data-no-tooltip="" translate="no">name(device)</a>
 
       </div>
 
@@ -211,19 +211,19 @@ using the <code class="inline">:via</code> tuple.</p></div>
 <p>Returns a specification to start this module under a supervisor.</p><p>See <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>.</p>
   </section>
 </section>
-<section class="detail" id="cook/3">
+<section class="detail" id="cook/2">
 
-    <span id="cook/2"></span>
+    <span id="cook/1"></span>
 
   <div class="detail-header">
-    <a href="#cook/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+    <a href="#cook/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">cook(device, tenant, opts \\ [])</h1>
+      <h1 class="signature" translate="no">cook(device, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter.ex#L56" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter.ex#L55" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -234,20 +234,20 @@ using the <code class="inline">:via</code> tuple.</p></div>
 
 <p>Registers a new starter under the appropriate supervisor.</p><p>Given a device creates the appropriate child spec and sends it to the
 Edgehog.Containers.Deployment.Starter.Supervisor supervisor.</p><p>The process will registry to the appropriate registry according to the
-<code class="inline">name/1</code> function. See <a href="#start_link/1"><code class="inline">start_link/1</code></a> docs for more.</p>
+<a href="#name/1"><code class="inline">name/1</code></a> function. See <a href="#start_link/1"><code class="inline">start_link/1</code></a> docs for more.</p>
   </section>
 </section>
-<section class="detail" id="name/2">
+<section class="detail" id="name/1">
 
   <div class="detail-header">
-    <a href="#name/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+    <a href="#name/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">name(device, tenant)</h1>
+      <h1 class="signature" translate="no">name(device)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter.ex#L87" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter.ex#L80" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -269,7 +269,7 @@ Edgehog.Containers.Deployment.Starter.Supervisor supervisor.</p><p>The process w
       <h1 class="signature" translate="no">start_link(args)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter.ex#L80" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/deployment/starter.ex#L74" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 

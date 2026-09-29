@@ -34,6 +34,30 @@ if id matches depl2
 
 (id, %{device_requests_to_provision: [depl1, depl2, depl3, ...]}) -> %{device_requests_to_provision: [depl1, depl3, ...]}
 
+# `env_file_ready`
+
+Removes an env file from the list of env files that need to be provisioned.
+
+The list of env files to be provisioned is expected to be a list of env
+files in the key `:env_files_to_provision` into the state.
+
+Example:
+if id matches env2
+
+(id, %{env_files_to_provision: [env1, env2, env3, ...]}) -> %{env_files_to_provision: [env1, env3, ...]}
+
+# `file_bind_ready`
+
+Removes a file bind from the list of file binds that need to be provisioned.
+
+The list of file binds to be provisioned is expected to be a list of file
+binds in the key `:file_binds_to_provision` into the state.
+
+Example:
+if id matches bind2
+
+(id, %{file_binds_to_provision: [bind1, bind2, bind3, ...]}) -> %{file_binds_to_provision: [bind1, bind3, ...]}
+
 # `image_ready`
 
 Sets image provisioning to :completed

@@ -16,6 +16,7 @@ An object representing the properties of a Deploy deployment campaign mechanism.
   __order__: term(),
   aggregates: term(),
   calculations: term(),
+  configs: term(),
   max_failure_percentage: term(),
   max_in_progress_operations: term(),
   release: term(),
