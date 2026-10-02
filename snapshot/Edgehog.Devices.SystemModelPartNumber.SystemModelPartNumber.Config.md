@@ -1,5 +1,5 @@
 # `Edgehog.Devices.SystemModelPartNumber.SystemModelPartNumber.Config`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/deps/ash_graphql/lib/subscription/config.ex#L95)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/deps/ash_graphql/lib/subscription/config.ex#L95)
 
 # `config`
 

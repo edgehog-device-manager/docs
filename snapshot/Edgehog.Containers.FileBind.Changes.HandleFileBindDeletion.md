@@ -1,5 +1,5 @@
 # `Edgehog.Containers.FileBind.Changes.HandleFileBindDeletion`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/file_bind/changes/handle_file_bind_deletion.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/file_bind/changes/handle_file_bind_deletion.ex#L21)
 
 Deletes the bucket object uploaded for a target-less file bind.
 

@@ -1,5 +1,5 @@
 # `Edgehog.Containers.Container.Deployment.Orchestrator.Core`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L21)
 
 Container orchestrator pure functions.
 

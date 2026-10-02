@@ -1,5 +1,5 @@
 # `Edgehog.Storage.GCS`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/storage/gcs.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/storage/gcs.ex#L21)
 
 Google Cloud Storage backend for presigned URL generation and file management.
 

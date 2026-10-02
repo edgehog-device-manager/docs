@@ -1,5 +1,5 @@
 # `Edgehog.Containers.Image.Deployment.Provisioner.Core`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/image/deployment/provisioner/core.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/image/deployment/provisioner/core.ex#L21)
 
 The module describing the Core functions required by the image deployment provisioner.
 

@@ -1,5 +1,5 @@
 # `Edgehog.Files`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/files/files.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/files/files.ex#L21)
 
 The `Edgehog.Files` domain, which includes resources and logic related to file management.
 

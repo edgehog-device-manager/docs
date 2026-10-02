@@ -1,5 +1,5 @@
 # `Edgehog.Files.Supervisor`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/files/supervisor.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/files/supervisor.ex#L21)
 
 Files registries and dynaimc supervisors.
 

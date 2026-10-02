@@ -1,5 +1,5 @@
 # `Edgehog.Files.Uploaders.File`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/files/uploaders/file.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/files/uploaders/file.ex#L21)
 
 Waffle uploader for files.
 

@@ -1,5 +1,5 @@
 # `Edgehog.Containers.FileBind.Calculations.GetUploadUrl`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/file_bind/calculations/get_upload_url.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/file_bind/calculations/get_upload_url.ex#L21)
 
 Returns a presigned PUT URL the client can use to upload the file
 for a target-less file bind.

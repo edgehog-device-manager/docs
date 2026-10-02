@@ -1,5 +1,5 @@
 # `Edgehog.Containers.Container.Env`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/container/env.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/container/env.ex#L21)
 
 Helpers to resolve and encode the environment variables of a container.
 

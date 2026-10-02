@@ -1,5 +1,5 @@
 # `Edgehog.Labeling`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/labeling/labeling.ex#L19)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/labeling/labeling.ex#L19)
 
 The Labeling context, containing all functionalities regarding tags and attributes assignment
 

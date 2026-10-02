@@ -1,5 +1,5 @@
 # `Edgehog.Auth.Providers.OpenFGA`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/auth/providers/openfga.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/auth/providers/openfga.ex#L21)
 
 OpenFGA Auth provider.
 

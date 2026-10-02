@@ -1,5 +1,5 @@
 # `Edgehog.Error.AstarteAPIError`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/error/astarte_api_error.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/error/astarte_api_error.ex#L21)
 
 Used when Astarte replies with an APIError
 

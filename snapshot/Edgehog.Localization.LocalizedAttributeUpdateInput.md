@@ -1,5 +1,5 @@
 # `Edgehog.Localization.LocalizedAttributeUpdateInput`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/localization/localized_attribute_update_input.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/localization/localized_attribute_update_input.ex#L21)
 
 A localized attribute that allows an empty value.
 

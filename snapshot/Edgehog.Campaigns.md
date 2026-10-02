@@ -1,5 +1,5 @@
 # `Edgehog.Campaigns`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/campaigns/campaigns.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/campaigns/campaigns.ex#L21)
 
 The Campaigns context.
 

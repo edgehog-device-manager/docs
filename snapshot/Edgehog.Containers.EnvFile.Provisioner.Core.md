@@ -1,5 +1,5 @@
 # `Edgehog.Containers.EnvFile.Provisioner.Core`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/env_file/provisioner/core.ex#L20)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/env_file/provisioner/core.ex#L20)
 
 The module describing the Core functions required by the env file provisioner.
 

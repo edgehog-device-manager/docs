@@ -1,5 +1,5 @@
 # `Edgehog.Containers.Telemetry`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/telemetry.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/telemetry.ex#L21)
 
 Emits the telemetry events of the containers feature.
 

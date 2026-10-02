@@ -1,5 +1,5 @@
 # `Edgehog.Astarte.Device.StorageUsage.StorageUnit`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/astarte/device/storage_usage/storage_unit.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/astarte/device/storage_usage/storage_unit.ex#L21)
 
 Device storage units. They represent a storage available on a device and
 provide insightful data on it:

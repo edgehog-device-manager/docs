@@ -1,5 +1,5 @@
 # `Edgehog.Containers.FileBind.Storage`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/file_bind/storage.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/file_bind/storage.ex#L21)
 
 Storage helpers for target-less file binds.
 

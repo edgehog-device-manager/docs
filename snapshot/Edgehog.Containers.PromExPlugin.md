@@ -1,5 +1,5 @@
 # `Edgehog.Containers.PromExPlugin`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/containers/prom_ex_plugin.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/prom_ex_plugin.ex#L21)
 
 PromEx plugin for the Edgehog containers feature.
 

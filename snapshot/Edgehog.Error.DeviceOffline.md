@@ -1,5 +1,5 @@
 # `Edgehog.Error.DeviceOffline`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.13.1/backend/lib/edgehog/error/device_offline.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/error/device_offline.ex#L21)
 
 Used when requests to a device fail because the device appears offline.
 
