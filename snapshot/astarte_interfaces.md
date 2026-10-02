@@ -1053,7 +1053,7 @@ This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 by
 The value of the property cannot be unset.
 
 
-## io.edgehog.devicemanager.StorageUsage v0.1
+## io.edgehog.devicemanager.StorageUsage v1.0
 
 
 
@@ -1069,19 +1069,23 @@ Astarte expects the owner to send all of the interface's mappings at the same ti
 
 The interface has the following mappings:
 
-- `/%{label}/totalBytes` with `longinteger` type. Total storage size in bytes
-- `/%{label}/freeBytes` with `longinteger` type. Available storage bytes
+- `/%{storageId}/mounts` with `stringarray` type. Optional path mounted on the device
+- `/%{storageId}/name` with `string` type. Optional name of the storage
+- `/%{storageId}/fstype` with `string` type. Optional filesystem of the storage
+- `/%{storageId}/kind` with `string` type. Optional kind of storage
+- `/%{storageId}/totalBytes` with `longinteger` type. Total storage size in bytes
+- `/%{storageId}/freeBytes` with `longinteger` type. Available storage bytes
 
 
-### `/%{label}/totalBytes`
+### `/%{storageId}/mounts`
 
-Total storage size in bytes
+Optional path mounted on the device
 
 
 
-This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
 
-The endpoint is parametric and `label` can be replaced with any valid string to send data on specialized paths.
+The endpoint is parametric and `storageId` can be replaced with any valid string to send data on specialized paths.
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
@@ -1089,7 +1093,71 @@ Data is considered delivered when the transport successfully sends the data rega
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.
 
-### `/%{label}/freeBytes`
+### `/%{storageId}/name`
+
+Optional name of the storage
+
+
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `storageId` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.
+
+### `/%{storageId}/fstype`
+
+Optional filesystem of the storage
+
+
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `storageId` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.
+
+### `/%{storageId}/kind`
+
+Optional kind of storage
+
+
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `storageId` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.
+
+### `/%{storageId}/totalBytes`
+
+Total storage size in bytes
+
+
+
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
+
+The endpoint is parametric and `storageId` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 5184000 seconds before it is erased from the database.
+
+### `/%{storageId}/freeBytes`
 
 Available storage bytes
 
@@ -1097,7 +1165,7 @@ Available storage bytes
 
 This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
-The endpoint is parametric and `label` can be replaced with any valid string to send data on specialized paths.
+The endpoint is parametric and `storageId` can be replaced with any valid string to send data on specialized paths.
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
