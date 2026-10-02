@@ -78,6 +78,9 @@ file transfer capabilities from an Astarte device.
 
   - [Edgehog.Astarte.Device.FileUploadRequest.RequestData](Edgehog.Astarte.Device.FileUploadRequest.RequestData.md): Struct representing the data needed to request a file upload on an Astarte device.
 
+  - [Edgehog.Astarte.Device.StorageUsage.StorageUnit](Edgehog.Astarte.Device.StorageUsage.StorageUnit.md): Device storage units. They represent a storage available on a device and
+provide insightful data on it
+
 - Campaigns
   - [Edgehog.Campaigns](Edgehog.Campaigns.md): The Campaigns context.
   - [Edgehog.Campaigns.Campaign.Campaign.Config](Edgehog.Campaigns.Campaign.Campaign.Config.md)
