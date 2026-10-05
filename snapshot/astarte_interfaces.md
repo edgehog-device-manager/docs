@@ -5160,7 +5160,7 @@ Delivered data is kept for 3600 seconds before it is erased from the database.
 
 TTL on how long to keep the file for
 
-Optional ttl for how long to keep the file for, if 0 is forever
+Optional ttl for how long to keep the file for, if 0 the file will be kept indefinitely, this field is ignored for destinationType 'streaming' and 'filesystem'.
 
 This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
@@ -5225,7 +5225,7 @@ Delivered data is kept for 3600 seconds before it is erased from the database.
 
 Destination-specific information on where to write the file to.
 
-The value depends on the selected destination type: for 'storage' and 'streaming' it's an empty string, and for 'filesystem' is a path to a file on the device.
+The value depends on the selected destination type: for 'streaming' it's an empty string, for 'filesystem' is a path to a file on the device, for 'storage' is the file name of the resource that gets downloaded.
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 

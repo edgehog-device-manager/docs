@@ -335,6 +335,7 @@ after the file download request resource has been created.
   - [Edgehog.Files.FileDownloadRequest.Provisioner.Core](Edgehog.Files.FileDownloadRequest.Provisioner.Core.md): The module describing the Core functions required by the file download
 request provisioner.
   - [Edgehog.Files.FileDownloadRequest.Status](Edgehog.Files.FileDownloadRequest.Status.md): Status of a file transfer request.
+  - [Edgehog.Files.FileDownloadRequest.Validations.ValidateDestination](Edgehog.Files.FileDownloadRequest.Validations.ValidateDestination.md): Validates the destination + destination type argument combo.
   - [Edgehog.Files.FileUploadRequest.Changes.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.Changes.SendFileUploadRequest.md): Ash change responsible for sending a file upload request to the Astarte device
 after the file upload request resource has been created.
 
