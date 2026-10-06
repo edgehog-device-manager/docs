@@ -118,7 +118,12 @@ Clea Edgehog
 
 
     <section id="moduledoc">
-<p>Input type representing an image.</p>
+<p>Input type representing an image.</p><p>When <code class="inline">image_credentials_id</code> is not provided, it defaults to <code class="inline">nil</code>
+(rather than being omitted). The <code class="inline">Container</code> <code class="inline">:create_and_relate</code> action
+looks images up through the <code class="inline">:reference_credentials</code> identity, and Ash
+only attempts that lookup when every identity key is present in the
+input. Absent keys silently create a duplicate image instead of
+relating the existing one.</p>
     </section>
 
 </div>
