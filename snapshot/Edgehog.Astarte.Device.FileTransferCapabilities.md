@@ -12,7 +12,7 @@ The incoming Astarte properties data payload contains:
 * A `transfer` map containing global settings like `unixPermissions` and lists of supported
   `targets` for each direction.
 * Root-level maps for each direction (e.g., `serverToDevice`, `deviceToServer`) containing
-  the specific configurations, such as supported compressed `encodings`, for each target type.
+  the specific configurations—such as supported compressed `encodings`—for each target type.
 
 ### Parsing Rules
 

@@ -253,6 +253,7 @@ It is sufficient to add a using statement like so
 
   - [Edgehog.Containers.Types.FileMount](Edgehog.Containers.Types.FileMount.md): Input type to represent a file mount.
   - [Edgehog.Containers.Types.Image](Edgehog.Containers.Types.Image.md): Input type representing an image.
+
   - [Edgehog.Containers.Types.Network](Edgehog.Containers.Types.Network.md): Input type representing an network.
 
   - [Edgehog.Containers.Types.Volume](Edgehog.Containers.Types.Volume.md): Input type representing an volume.
@@ -334,6 +335,7 @@ after the file download request resource has been created.
   - [Edgehog.Files.FileDownloadRequest.Provisioner.Core](Edgehog.Files.FileDownloadRequest.Provisioner.Core.md): The module describing the Core functions required by the file download
 request provisioner.
   - [Edgehog.Files.FileDownloadRequest.Status](Edgehog.Files.FileDownloadRequest.Status.md): Status of a file transfer request.
+  - [Edgehog.Files.FileDownloadRequest.Validations.ValidateDestination](Edgehog.Files.FileDownloadRequest.Validations.ValidateDestination.md): Validates the destination + destination type argument combo.
   - [Edgehog.Files.FileUploadRequest.Changes.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.Changes.SendFileUploadRequest.md): Ash change responsible for sending a file upload request to the Astarte device
 after the file upload request resource has been created.
 
