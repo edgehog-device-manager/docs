@@ -199,6 +199,7 @@ needed.
   - [Edgehog.Containers.Deployment.Validations.Event](Edgehog.Containers.Deployment.Validations.Event.md): Checks if the received event matches some fields.
   - [Edgehog.Containers.Deployment.Validations.NoConflictingCampaign](Edgehog.Containers.Deployment.Validations.NoConflictingCampaign.md): Validates that a deployment is not part of an in-progress campaign with a different operation type.
 
+  - [Edgehog.Containers.DeploymentReadyAction.Changes.CreateDeployment](Edgehog.Containers.DeploymentReadyAction.Changes.CreateDeployment.md): Ash change for deployment ready action that creates the target deployment.
   - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.md): The provisioner for deploying device mappings on a device.
   - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device mapping deployment provisioner.
   - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.md): The provisioner for deploying device requests on a device.
