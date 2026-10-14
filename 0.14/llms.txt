@@ -1,0 +1,509 @@
+# Clea Edgehog v0.14.0 - Table of Contents
+
+## Pages
+
+- Introduction
+  - [Edgehog](intro.md)
+
+- User Guide
+  - [Core concepts](user_core_concepts.md)
+  - [Hardware Types](hardware_types.md)
+  - [System Models](system_models.md)
+  - [Devices](devices.md)
+  - [Devices &amp; runtime](devices_and_runtime.md)
+  - [Attribute Value Sources](attribute_value_sources.md)
+  - [Groups](groups.md)
+  - [Channels](channels.md)
+  - [Batch Operations*](batch_operations.md)
+
+- OTA Updates
+  - [OTA Update concepts](ota_update_concepts.md)
+  - [Base Images](base_images.md)
+  - [Base Image Collections](base_image_collections.md)
+  - [Update Campaigns](update_campaigns.md)
+  - [OTA Updates](ota_updates.md)
+
+- File Management
+  - [File Management](overview_file_management.md)
+  - [Repositories](repositories.md)
+  - [Files](files.md)
+  - [File Download Campaigns](file_download_campaigns.md)
+
+- Containers management
+  - [Core concepts](containers_core_concepts.md)
+  - [Volume management](volume_management.md)
+  - [Network Management](network_management.md)
+  - [Image Credentials Management](image_credentials_management.md)
+  - [Applications Management](applications_management.md)
+  - [Deployment Campaigns](deployment_campaigns.md)
+
+- Architecture
+  - [Architecture overview](overview.md)
+
+- Admin Guide
+  - [Deploying with Kubernetes](deploying_with_kubernetes.md)
+
+- Integrating with Edgehog
+  - [Interacting with Edgehog](interacting_with_edgehog.md)
+  - [Astarte Interfaces](astarte_interfaces.md)
+
+- Tutorials
+  - [Edgehog in 5 minutes](edgehog_in_5_minutes.md)
+
+- Developer guide
+  - [Edgehog Just in Time](edgehog_just_in_time.md)
+  - [Typos and formatting](typos_and_formatting.md)
+
+## Modules
+
+- Astarte interaction
+  - [Edgehog.Astarte.Device.FileDeleteRequest](Edgehog.Astarte.Device.FileDeleteRequest.md): Module responsible for handling file deletion requests on Astarte devices.
+
+  - [Edgehog.Astarte.Device.FileDeleteRequest.Behaviour](Edgehog.Astarte.Device.FileDeleteRequest.Behaviour.md): Behaviour for requesting file deletion on Astarte devices.
+
+  - [Edgehog.Astarte.Device.FileDeleteRequest.RequestData](Edgehog.Astarte.Device.FileDeleteRequest.RequestData.md): Struct representing the data needed to request a file deletion on an Astarte device.
+
+  - [Edgehog.Astarte.Device.FileDownloadRequest](Edgehog.Astarte.Device.FileDownloadRequest.md): Module responsible for handling file download requests on Astarte devices.
+
+  - [Edgehog.Astarte.Device.FileDownloadRequest.Behaviour](Edgehog.Astarte.Device.FileDownloadRequest.Behaviour.md): Behaviour for requesting file downloads on Astarte devices.
+
+  - [Edgehog.Astarte.Device.FileDownloadRequest.RequestData](Edgehog.Astarte.Device.FileDownloadRequest.RequestData.md): Struct representing the data needed to request a file download on an Astarte device.
+
+  - [Edgehog.Astarte.Device.FileTransferCapabilities](Edgehog.Astarte.Device.FileTransferCapabilities.md): This module defines the `FileTransferCapabilities` struct and implements the
+`Edgehog.Astarte.Device.FileTransferCapabilities.Behaviour` to fetch and parse
+file transfer capabilities from an Astarte device.
+  - [Edgehog.Astarte.Device.FileUploadRequest](Edgehog.Astarte.Device.FileUploadRequest.md): Module responsible for handling file upload requests on Astarte devices.
+
+  - [Edgehog.Astarte.Device.FileUploadRequest.Behaviour](Edgehog.Astarte.Device.FileUploadRequest.Behaviour.md): Behaviour for requesting file uploads on Astarte devices.
+
+  - [Edgehog.Astarte.Device.FileUploadRequest.RequestData](Edgehog.Astarte.Device.FileUploadRequest.RequestData.md): Struct representing the data needed to request a file upload on an Astarte device.
+
+  - [Edgehog.Astarte.Device.StorageUsage.StorageUnit](Edgehog.Astarte.Device.StorageUsage.StorageUnit.md): Device storage units. They represent a storage available on a device and
+provide insightful data on it
+
+- Campaigns
+  - [Edgehog.Campaigns](Edgehog.Campaigns.md): The Campaigns context.
+  - [Edgehog.Campaigns.Campaign.Campaign.Config](Edgehog.Campaigns.Campaign.Campaign.Config.md)
+  - [Edgehog.Campaigns.Campaign.Campaigns.Config](Edgehog.Campaigns.Campaign.Campaigns.Config.md)
+  - [Edgehog.Campaigns.Campaign.Changes.ComputeCampaignTargets](Edgehog.Campaigns.Campaign.Changes.ComputeCampaignTargets.md): Computes campaign targets and start campaign executor.
+  - [Edgehog.Campaigns.Campaign.DeploymentCampaigns.Config](Edgehog.Campaigns.Campaign.DeploymentCampaigns.Config.md)
+  - [Edgehog.Campaigns.Campaign.FileDownloadCampaigns.Config](Edgehog.Campaigns.Campaign.FileDownloadCampaigns.Config.md)
+  - [Edgehog.Campaigns.Campaign.UpdateCampaigns.Config](Edgehog.Campaigns.Campaign.UpdateCampaigns.Config.md)
+  - [Edgehog.Campaigns.Campaign.Validations.ValidateOperationTypeRequirements](Edgehog.Campaigns.Campaign.Validations.ValidateOperationTypeRequirements.md): Validates that the required arguments are provided based on the operation type.
+  - [Edgehog.Campaigns.Campaign.Validations.ValidateStatus](Edgehog.Campaigns.Campaign.Validations.ValidateStatus.md): Validates that a campaign is in the expected status for an operation.
+  - [Edgehog.Campaigns.Campaign.Workers.ScheduleCampaign](Edgehog.Campaigns.Campaign.Workers.ScheduleCampaign.md): This module is used to start Campaigns that have been scheduled at a specific time
+
+  - [Edgehog.Campaigns.CampaignMechanism.Core](Edgehog.Campaigns.CampaignMechanism.Core.md): Protocol defining the core functions that a campaign mechanism must implement.
+  - [Edgehog.Campaigns.CampaignMechanism.DeploymentDelete](Edgehog.Campaigns.CampaignMechanism.DeploymentDelete.md): Defines the Delete Campaign Mechanism resource.
+This resource represents the configuration for a delete operation within a deployment campaign.
+  - [Edgehog.Campaigns.CampaignMechanism.DeploymentDelete.Executor](Edgehog.Campaigns.CampaignMechanism.DeploymentDelete.Executor.md): Executor for lazy deployment campaigns using the generic LazyBatch behavior.
+  - [Edgehog.Campaigns.CampaignMechanism.DeploymentDeploy](Edgehog.Campaigns.CampaignMechanism.DeploymentDeploy.md): Defines the Deploy Campaign Mechanism resource.
+This resource represents the configuration for a deploy operation within a deployment campaign.
+  - [Edgehog.Campaigns.CampaignMechanism.DeploymentDeploy.Executor](Edgehog.Campaigns.CampaignMechanism.DeploymentDeploy.Executor.md): Executor for lazy deployment campaigns using the generic LazyBatch behavior.
+  - [Edgehog.Campaigns.CampaignMechanism.DeploymentStart](Edgehog.Campaigns.CampaignMechanism.DeploymentStart.md): Defines the Start Campaign Mechanism resource.
+This resource represents the configuration for a start operation within a deployment campaign.
+  - [Edgehog.Campaigns.CampaignMechanism.DeploymentStart.Executor](Edgehog.Campaigns.CampaignMechanism.DeploymentStart.Executor.md): Executor for lazy deployment campaigns using the generic LazyBatch behavior.
+  - [Edgehog.Campaigns.CampaignMechanism.DeploymentStop](Edgehog.Campaigns.CampaignMechanism.DeploymentStop.md): Defines the Stop Campaign Mechanism resource.
+This resource represents the configuration for a stop operation within a deployment campaign.
+  - [Edgehog.Campaigns.CampaignMechanism.DeploymentStop.Executor](Edgehog.Campaigns.CampaignMechanism.DeploymentStop.Executor.md): Executor for lazy deployment campaigns using the generic LazyBatch behavior.
+  - [Edgehog.Campaigns.CampaignMechanism.DeploymentUpgrade](Edgehog.Campaigns.CampaignMechanism.DeploymentUpgrade.md): Defines the Upgrade Campaign Mechanism resource.
+This resource represents the configuration for an upgrade operation within a deployment campaign.
+  - [Edgehog.Campaigns.CampaignMechanism.DeploymentUpgrade.Executor](Edgehog.Campaigns.CampaignMechanism.DeploymentUpgrade.Executor.md): Executor for lazy deployment campaigns using the generic LazyBatch behavior.
+  - [Edgehog.Campaigns.CampaignMechanism.FileDownload](Edgehog.Campaigns.CampaignMechanism.FileDownload.md): Defines the File Download Campaign Mechanism resource.
+This resource represents the configuration for a file download operation within a file download campaign.
+  - [Edgehog.Campaigns.CampaignMechanism.FileDownload.Executor](Edgehog.Campaigns.CampaignMechanism.FileDownload.Executor.md): Executor for lazy file download campaigns using the generic LazyBatch behavior.
+
+  - [Edgehog.Campaigns.CampaignMechanism.FirmwareUpgrade](Edgehog.Campaigns.CampaignMechanism.FirmwareUpgrade.md): Defines the Firmware Upgrade Campaign Mechanism resource.
+This resource represents the configuration for a firmware upgrade operation within a firmware upgrade campaign.
+  - [Edgehog.Campaigns.CampaignMechanism.FirmwareUpgrade.Executor](Edgehog.Campaigns.CampaignMechanism.FirmwareUpgrade.Executor.md): Executor for lazy deployment campaigns using the generic LazyBatch behavior.
+  - [Edgehog.Campaigns.CampaignMechanism.Helpers](Edgehog.Campaigns.CampaignMechanism.Helpers.md): Shared helper functions for campaign mechanism implementations.
+  - [Edgehog.Campaigns.CampaignMechanism.Helpers.FileBindsResolver](Edgehog.Campaigns.CampaignMechanism.Helpers.FileBindsResolver.md): Resolves file references in deployment configs to download-request IDs for a device.
+
+  - [Edgehog.Campaigns.CampaignTarget](Edgehog.Campaigns.CampaignTarget.md): Represents a CampaignTarget.
+  - [Edgehog.Campaigns.CampaignTarget.CampaignTargetsByCampaign.Config](Edgehog.Campaigns.CampaignTarget.CampaignTargetsByCampaign.Config.md)
+  - [Edgehog.Campaigns.CampaignTarget.Changes.CreateManagedFileDownloadRequest](Edgehog.Campaigns.CampaignTarget.Changes.CreateManagedFileDownloadRequest.md): An Ash change that creates a managed file download request for the target device.
+This change fetches the file and mechanism configuration from the arguments and creates
+a file download request associated with the target device.
+
+  - [Edgehog.Campaigns.CampaignTarget.Changes.CreateManagedOTAOperation](Edgehog.Campaigns.CampaignTarget.Changes.CreateManagedOTAOperation.md): An Ash change that creates a managed OTA operation for the target device.
+This change fetches the base image from the arguments and creates an OTA operation
+associated with the target device.
+
+  - [Edgehog.Campaigns.CampaignTarget.Changes.LinkDeployment](Edgehog.Campaigns.CampaignTarget.Changes.LinkDeployment.md): An Ash change that links an existing deployment to the campaign target.
+This change fetches the deployment from the arguments and links it to the target device.
+
+  - [Edgehog.Campaigns.Channel.Calculations.DeployableDevices](Edgehog.Campaigns.Channel.Calculations.DeployableDevices.md): Containers calculation to compute valid devices in a channel to receive a deploy.
+  - [Edgehog.Campaigns.Channel.Channels.Config](Edgehog.Campaigns.Channel.Channels.Config.md)
+  - [Edgehog.Campaigns.Executors.Lazy.LazyBatch](Edgehog.Campaigns.Executors.Lazy.LazyBatch.md): Generic lazy batch executor for campaigns using a macro-based approach.
+
+- Containers
+  - [Edgehog.Containers.Application.Application.Config](Edgehog.Containers.Application.Application.Config.md)
+  - [Edgehog.Containers.Calculations.Dangling](Edgehog.Containers.Calculations.Dangling.md): Is the current resource dangling? Meaning, is it related to other entities?
+
+  - [Edgehog.Containers.Calculations.OptionsEncoding](Edgehog.Containers.Calculations.OptionsEncoding.md): Encodes options map to an array of "key=value" strings.
+
+  - [Edgehog.Containers.Changes.MaybeDestroyChildren](Edgehog.Containers.Changes.MaybeDestroyChildren.md): Trigger children cleanup (if dangling) after transaction.
+
+  - [Edgehog.Containers.Container.Container.Config](Edgehog.Containers.Container.Container.Config.md)
+  - [Edgehog.Containers.Container.Deployment.Calculations.Ready](Edgehog.Containers.Container.Deployment.Calculations.Ready.md): Computes the readiness of a deployment.
+A deployment is ready when:
+ - Its state is either `:started` or `:stopped`
+ - All underlying container deployments are ready
+
+  - [Edgehog.Containers.Container.Deployment.Orchestrator](Edgehog.Containers.Container.Deployment.Orchestrator.md): Orchestrator for all the provisioner processes of a container.
+  - [Edgehog.Containers.Container.Deployment.Orchestrator.Core](Edgehog.Containers.Container.Deployment.Orchestrator.Core.md): Container orchestrator pure functions.
+
+  - [Edgehog.Containers.Container.Deployment.Provisioner](Edgehog.Containers.Container.Deployment.Provisioner.md): A container deployment provisioner.
+  - [Edgehog.Containers.Container.Deployment.Provisioner.Core](Edgehog.Containers.Container.Deployment.Provisioner.Core.md): The module describing the Core functions required by the container deployment provisioner.
+  - [Edgehog.Containers.Container.Deployment.Validations.EnvOrEnvFile](Edgehog.Containers.Container.Deployment.Validations.EnvOrEnvFile.md): Ensures that a container deployment does not have both additional env vars and env files.
+At most one of `env` and `env_files` may be set; setting both is ambiguous.
+`none` (both empty) is allowed to inherit the image defaults.
+
+  - [Edgehog.Containers.Container.Deployment.Validations.RequiredMountsHaveBinds](Edgehog.Containers.Container.Deployment.Validations.RequiredMountsHaveBinds.md): When creating a container deployment, ensures that required file mounts have a referencing file bind.
+
+  - [Edgehog.Containers.Container.Env](Edgehog.Containers.Container.Env.md): Helpers to resolve and encode the environment variables of a container.
+
+  - [Edgehog.Containers.Container.Types.EnvVar](Edgehog.Containers.Container.Types.EnvVar.md): The type used to specify environment variables in a key-value pair format
+
+  - [Edgehog.Containers.Container.Validations.NoRefs](Edgehog.Containers.Container.Validations.NoRefs.md): Container validation for deletion.
+  - [Edgehog.Containers.Deployment.Calculations.Ready](Edgehog.Containers.Deployment.Calculations.Ready.md): Computes the readiness of a deployment.
+A deployment is ready when:
+ - Its state is either `:started` or `:stopped`
+ - All underlying container deployments are ready
+
+  - [Edgehog.Containers.Deployment.Changes.AppendEvent](Edgehog.Containers.Deployment.Changes.AppendEvent.md): Appends an event with the given argument details.
+
+  - [Edgehog.Containers.Deployment.Changes.Reconcile](Edgehog.Containers.Deployment.Changes.Reconcile.md): Starts a reconciliation with the device.
+  - [Edgehog.Containers.Deployment.Changes.Relate](Edgehog.Containers.Deployment.Changes.Relate.md): Relates a deployment to underlying container deployments, by creating them when
+needed.
+
+  - [Edgehog.Containers.Deployment.Changes.SendCommand](Edgehog.Containers.Deployment.Changes.SendCommand.md): A change to send a command to a deployment _after_ the action has been done.
+  - [Edgehog.Containers.Deployment.Changes.SendUpgrade](Edgehog.Containers.Deployment.Changes.SendUpgrade.md): A change to upgrade the deployment of an application to a newer version.
+  - [Edgehog.Containers.Deployment.Deployment.Config](Edgehog.Containers.Deployment.Deployment.Config.md)
+  - [Edgehog.Containers.Deployment.DeploymentById.Config](Edgehog.Containers.Deployment.DeploymentById.Config.md)
+  - [Edgehog.Containers.Deployment.DeploymentsByDevice.Config](Edgehog.Containers.Deployment.DeploymentsByDevice.Config.md)
+  - [Edgehog.Containers.Deployment.Event.DeploymentEvent.Config](Edgehog.Containers.Deployment.Event.DeploymentEvent.Config.md)
+  - [Edgehog.Containers.Deployment.EventType](Edgehog.Containers.Deployment.EventType.md): Expresses the type of event a device can communicate to the backend trough the `DeploymentEvent` interface.
+
+  - [Edgehog.Containers.Deployment.ManualActions.StartSupervisor](Edgehog.Containers.Deployment.ManualActions.StartSupervisor.md): Manual action to start a deployment supervisor without the need for a database transaction.
+
+  - [Edgehog.Containers.Deployment.Orchestrator](Edgehog.Containers.Deployment.Orchestrator.md): Orchestrator for all provisioner processes of a deployment.
+  - [Edgehog.Containers.Deployment.Orchestrator.Core](Edgehog.Containers.Deployment.Orchestrator.Core.md): Deployment orchestrator pure functions.
+
+  - [Edgehog.Containers.Deployment.Provisioner](Edgehog.Containers.Deployment.Provisioner.md): A deployment provisioner.
+  - [Edgehog.Containers.Deployment.Provisioner.Core](Edgehog.Containers.Deployment.Provisioner.Core.md): The module describing the Core functions required by the deployment provisioner.
+  - [Edgehog.Containers.Deployment.Starter](Edgehog.Containers.Deployment.Starter.md): Deployments starter.
+  - [Edgehog.Containers.Deployment.Starter.Core](Edgehog.Containers.Deployment.Starter.Core.md): Deployment starter core functions.
+  - [Edgehog.Containers.Deployment.Types.DeploymentContext](Edgehog.Containers.Deployment.Types.DeploymentContext.md): Deployment context. An auxiliary type to track requests and pending operations on a deployment.
+
+  - [Edgehog.Containers.Deployment.Validations.Event](Edgehog.Containers.Deployment.Validations.Event.md): Checks if the received event matches some fields.
+  - [Edgehog.Containers.Deployment.Validations.NoConflictingCampaign](Edgehog.Containers.Deployment.Validations.NoConflictingCampaign.md): Validates that a deployment is not part of an in-progress campaign with a different operation type.
+
+  - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.md): The provisioner for deploying device mappings on a device.
+  - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device mapping deployment provisioner.
+  - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.md): The provisioner for deploying device requests on a device.
+  - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device request deployment provisioner.
+  - [Edgehog.Containers.EnvFile.Calculations.GetUploadUrl](Edgehog.Containers.EnvFile.Calculations.GetUploadUrl.md): Returns a presigned PUT URL the client can use to upload the file
+for a target-less env file.
+  - [Edgehog.Containers.EnvFile.Changes.HandleEnvFileDeletion](Edgehog.Containers.EnvFile.Changes.HandleEnvFileDeletion.md): Deletes the bucket object uploaded for a target-less env file.
+  - [Edgehog.Containers.EnvFile.Provisioner](Edgehog.Containers.EnvFile.Provisioner.md): The provisioner for env files.
+  - [Edgehog.Containers.EnvFile.Provisioner.Core](Edgehog.Containers.EnvFile.Provisioner.Core.md): The module describing the Core functions required by the env file provisioner.
+  - [Edgehog.Containers.EnvFile.Storage](Edgehog.Containers.EnvFile.Storage.md): Storage helpers for target-less env files.
+  - [Edgehog.Containers.FileBind.Calculations.GetUploadUrl](Edgehog.Containers.FileBind.Calculations.GetUploadUrl.md): Returns a presigned PUT URL the client can use to upload the file
+for a target-less file bind.
+  - [Edgehog.Containers.FileBind.Changes.HandleFileBindDeletion](Edgehog.Containers.FileBind.Changes.HandleFileBindDeletion.md): Deletes the bucket object uploaded for a target-less file bind.
+  - [Edgehog.Containers.FileBind.Provisioner](Edgehog.Containers.FileBind.Provisioner.md): The provisioner for file binds.
+  - [Edgehog.Containers.FileBind.Provisioner.Core](Edgehog.Containers.FileBind.Provisioner.Core.md): The module describing the Core functions required by the file bind provisioner.
+  - [Edgehog.Containers.FileBind.Storage](Edgehog.Containers.FileBind.Storage.md): Storage helpers for target-less file binds.
+  - [Edgehog.Containers.Image.Deployment.Provisioner](Edgehog.Containers.Image.Deployment.Provisioner.md): The provisioner for deploying images on a device.
+  - [Edgehog.Containers.Image.Deployment.Provisioner.Core](Edgehog.Containers.Image.Deployment.Provisioner.Core.md): The module describing the Core functions required by the image deployment provisioner.
+  - [Edgehog.Containers.Image.Image.Config](Edgehog.Containers.Image.Image.Config.md)
+  - [Edgehog.Containers.ImageCredentials.ImageCredentials.Config](Edgehog.Containers.ImageCredentials.ImageCredentials.Config.md)
+  - [Edgehog.Containers.Network.Deployment.Provisioner](Edgehog.Containers.Network.Deployment.Provisioner.md): The provisioner for deploying networks on a device.
+  - [Edgehog.Containers.Network.Deployment.Provisioner.Core](Edgehog.Containers.Network.Deployment.Provisioner.Core.md): The module describing the Core functions required by the network deployment provisioner.
+  - [Edgehog.Containers.Network.Network.Config](Edgehog.Containers.Network.Network.Config.md)
+  - [Edgehog.Containers.PromExPlugin](Edgehog.Containers.PromExPlugin.md): PromEx plugin for the Edgehog containers feature.
+  - [Edgehog.Containers.Provisioner](Edgehog.Containers.Provisioner.md): This module provides the default implementation for `Edgehog.Containers.Provisioner.Behaviour`.
+It is sufficient to add a using statement like so
+  - [Edgehog.Containers.Provisioner.Behaviour](Edgehog.Containers.Provisioner.Behaviour.md): Behaviour describing the API of a Provisioner for a resource.
+  - [Edgehog.Containers.Provisioner.Core](Edgehog.Containers.Provisioner.Core.md): Convenience module for `Edgehog.Containers.Provisioner.Core.Behaviour`.
+  - [Edgehog.Containers.Provisioner.Core.Behaviour](Edgehog.Containers.Provisioner.Core.Behaviour.md): Behaviour describing the API of the Core functions for a Provisioner.
+  - [Edgehog.Containers.Reconciler](Edgehog.Containers.Reconciler.md): Reconciler for container-related data between the device and the backend.
+  - [Edgehog.Containers.Reconciler.Behaviour](Edgehog.Containers.Reconciler.Behaviour.md): Behavior for the reconciler. It should implement
+- a `start_link` to start the reconciler.
+- a `register_device` to start a device timer in the reconciler.
+- a `stop_device` to stop a device timer in the reconciler.
+
+  - [Edgehog.Containers.Reconciler.Core](Edgehog.Containers.Reconciler.Core.md): Core component for the reconciler, provides `reconcile/1` and
+`reconcile_timeout/1` functions.
+
+  - [Edgehog.Containers.Release.Release.Config](Edgehog.Containers.Release.Release.Config.md)
+  - [Edgehog.Containers.Supervisor](Edgehog.Containers.Supervisor.md): Container registries.
+  - [Edgehog.Containers.Telemetry](Edgehog.Containers.Telemetry.md): Emits the telemetry events of the containers feature.
+  - [Edgehog.Containers.Types.DeploymentConfig](Edgehog.Containers.Types.DeploymentConfig.md): A deployment configuration map.
+
+  - [Edgehog.Containers.Types.DeviceMapping](Edgehog.Containers.Types.DeviceMapping.md): Input type representing a device mapping.
+
+  - [Edgehog.Containers.Types.DeviceRequest](Edgehog.Containers.Types.DeviceRequest.md): Input type representing a device request.
+
+  - [Edgehog.Containers.Types.EnvFile](Edgehog.Containers.Types.EnvFile.md): Input type to represent an env file.
+
+  - [Edgehog.Containers.Types.EnvStrategy](Edgehog.Containers.Types.EnvStrategy.md): The environment strategy to apply to a deployment configuration.
+  - [Edgehog.Containers.Types.FileBind](Edgehog.Containers.Types.FileBind.md): Input type to represent a file bind.
+
+  - [Edgehog.Containers.Types.FileMount](Edgehog.Containers.Types.FileMount.md): Input type to represent a file mount.
+  - [Edgehog.Containers.Types.Image](Edgehog.Containers.Types.Image.md): Input type representing an image.
+
+  - [Edgehog.Containers.Types.Network](Edgehog.Containers.Types.Network.md): Input type representing an network.
+
+  - [Edgehog.Containers.Types.Volume](Edgehog.Containers.Types.Volume.md): Input type representing an volume.
+
+  - [Edgehog.Containers.Validations.ContainsFile](Edgehog.Containers.Validations.ContainsFile.md): Edgehog validation on FileBind input types.
+  - [Edgehog.Containers.Validations.Dangling](Edgehog.Containers.Validations.Dangling.md): Validates the action by running the `dangling?` calculation.
+true -> :ok
+false -> {:error, :not_dangling}
+
+  - [Edgehog.Containers.Volume.Deployment.Provisioner](Edgehog.Containers.Volume.Deployment.Provisioner.md): The provisioner for deploying volumes on a device.
+  - [Edgehog.Containers.Volume.Deployment.Provisioner.Core](Edgehog.Containers.Volume.Deployment.Provisioner.Core.md): The module describing the Core functions required by the volume deployment provisioner.
+  - [Edgehog.Containers.Volume.Volume.Config](Edgehog.Containers.Volume.Volume.Config.md)
+
+- Devices
+  - [Edgehog.Devices](Edgehog.Devices.md): The Devices context.
+  - [Edgehog.Devices.Device](Edgehog.Devices.Device.md): Device resource schema and operations.
+  - [Edgehog.Devices.Device.Changes.DeployPending](Edgehog.Devices.Device.Changes.DeployPending.md): After the transaction, deploy all deployments still marked as `:pending` for
+the given device.
+
+  - [Edgehog.Devices.Device.Changes.SetupReconciler](Edgehog.Devices.Device.Changes.SetupReconciler.md): Sets up the reconciler on connection events.
+
+  - [Edgehog.Devices.Device.Changes.TearDownReconciler](Edgehog.Devices.Device.Changes.TearDownReconciler.md): Tears down the reconciler when a device disconnects.
+
+  - [Edgehog.Devices.Device.DeviceChanged.Config](Edgehog.Devices.Device.DeviceChanged.Config.md)
+  - [Edgehog.Devices.HardwareType.HardwareType.Config](Edgehog.Devices.HardwareType.HardwareType.Config.md)
+  - [Edgehog.Devices.HardwareTypePartNumber.HardwareTypePartNumber.Config](Edgehog.Devices.HardwareTypePartNumber.HardwareTypePartNumber.Config.md)
+  - [Edgehog.Devices.Reconciler.Core](Edgehog.Devices.Reconciler.Core.md): Device reconciler core utilities.
+  - [Edgehog.Devices.SystemModelPartNumber.SystemModelPartNumber.Config](Edgehog.Devices.SystemModelPartNumber.SystemModelPartNumber.Config.md)
+
+- Device groups
+  - [Edgehog.Groups](Edgehog.Groups.md): The Groups context.
+  - [Edgehog.Groups.DeviceGroup.DeviceGroup.Config](Edgehog.Groups.DeviceGroup.DeviceGroup.Config.md)
+
+- Device labels
+  - [Edgehog.Labeling](Edgehog.Labeling.md): The Labeling context, containing all functionalities regarding tags and attributes assignment
+
+- File transfer
+  - [Edgehog.Files](Edgehog.Files.md): The `Edgehog.Files` domain, which includes resources and logic related to file management.
+  - [Edgehog.Files.DeviceFile.DeviceFiles.Config](Edgehog.Files.DeviceFile.DeviceFiles.Config.md)
+  - [Edgehog.Files.DeviceFile.DeviceFilesByDevice.Config](Edgehog.Files.DeviceFile.DeviceFilesByDevice.Config.md)
+  - [Edgehog.Files.EphemeralFile](Edgehog.Files.EphemeralFile.md): Module responsible for handling ephemeral files used in file download requests.
+
+  - [Edgehog.Files.EphemeralFile.Behaviour](Edgehog.Files.EphemeralFile.Behaviour.md): Behaviour for handling ephemeral files used in file download requests.
+
+  - [Edgehog.Files.File.BucketStorage](Edgehog.Files.File.BucketStorage.md): Implementation of `Edgehog.Files.File.Storage` that uses a bucket storage (e.g., S3, MinIO) to store files.
+
+  - [Edgehog.Files.File.Changes.HandleFileDeletion](Edgehog.Files.File.Changes.HandleFileDeletion.md): Ash change to handle file deletion after a file record is deleted.
+
+  - [Edgehog.Files.File.Changes.HandleFileUpload](Edgehog.Files.File.Changes.HandleFileUpload.md): Ash change to handle file upload before a file record is created or updated.
+
+  - [Edgehog.Files.File.Storage](Edgehog.Files.File.Storage.md): Behaviour for file storage implementations.
+
+  - [Edgehog.Files.FileDeleteRequest.Changes.SendFileDeleteRequest](Edgehog.Files.FileDeleteRequest.Changes.SendFileDeleteRequest.md): Ash change responsible for sending a file delete request to the Astarte device
+after the file delete request resource has been created.
+
+  - [Edgehog.Files.FileDeleteRequest.FileDeleteRequests.Config](Edgehog.Files.FileDeleteRequest.FileDeleteRequests.Config.md)
+  - [Edgehog.Files.FileDeleteRequest.FileDeleteRequestsByDevice.Config](Edgehog.Files.FileDeleteRequest.FileDeleteRequestsByDevice.Config.md)
+  - [Edgehog.Files.FileDeleteRequest.ManualActions.SendFileDeleteRequest](Edgehog.Files.FileDeleteRequest.ManualActions.SendFileDeleteRequest.md): Manual action responsible for sending a file download request to the Astarte device.
+
+  - [Edgehog.Files.FileDeleteRequest.Status](Edgehog.Files.FileDeleteRequest.Status.md): Status of a file delete request.
+  - [Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileDeletion](Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileDeletion.md): Ash change responsible for deleting the ephemeral file associated
+with a file download request when the request is deleted.
+
+  - [Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileUpload](Edgehog.Files.FileDownloadRequest.Changes.HandleEphemeralFileUpload.md): Ash change responsible for handling the upload of an ephemeral file associated
+with a file download request when a file is provided in the changeset arguments.
+
+  - [Edgehog.Files.FileDownloadRequest.Changes.SendFileDownloadRequest](Edgehog.Files.FileDownloadRequest.Changes.SendFileDownloadRequest.md): Ash change responsible for sending a file download request to the Astarte device
+after the file download request resource has been created.
+
+  - [Edgehog.Files.FileDownloadRequest.FileDestination](Edgehog.Files.FileDownloadRequest.FileDestination.md): Enum representing the destination of a file download request on an Astarte device.
+
+  - [Edgehog.Files.FileDownloadRequest.FileDownloadRequests.Config](Edgehog.Files.FileDownloadRequest.FileDownloadRequests.Config.md)
+  - [Edgehog.Files.FileDownloadRequest.FileDownloadRequestsByDevice.Config](Edgehog.Files.FileDownloadRequest.FileDownloadRequestsByDevice.Config.md)
+  - [Edgehog.Files.FileDownloadRequest.ManualActions.CreatePresignedUrl](Edgehog.Files.FileDownloadRequest.ManualActions.CreatePresignedUrl.md): The Storage context.
+
+  - [Edgehog.Files.FileDownloadRequest.ManualActions.SendFileDownloadRequest](Edgehog.Files.FileDownloadRequest.ManualActions.SendFileDownloadRequest.md): Manual action responsible for sending a file download request to the Astarte device.
+
+  - [Edgehog.Files.FileDownloadRequest.Provisioner](Edgehog.Files.FileDownloadRequest.Provisioner.md): The provisioner for file download requests backing container file binds.
+  - [Edgehog.Files.FileDownloadRequest.Provisioner.Core](Edgehog.Files.FileDownloadRequest.Provisioner.Core.md): The module describing the Core functions required by the file download
+request provisioner.
+  - [Edgehog.Files.FileDownloadRequest.Status](Edgehog.Files.FileDownloadRequest.Status.md): Status of a file transfer request.
+  - [Edgehog.Files.FileDownloadRequest.Validations.ValidateDestination](Edgehog.Files.FileDownloadRequest.Validations.ValidateDestination.md): Validates the destination + destination type argument combo.
+  - [Edgehog.Files.FileUploadRequest.Changes.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.Changes.SendFileUploadRequest.md): Ash change responsible for sending a file upload request to the Astarte device
+after the file upload request resource has been created.
+
+  - [Edgehog.Files.FileUploadRequest.Changes.SetSource](Edgehog.Files.FileUploadRequest.Changes.SetSource.md): Changes module responsible for deriving and setting the `source` attribute
+of a `FileUploadRequest` based on its `source_type`.
+
+  - [Edgehog.Files.FileUploadRequest.Changes.SetUploadUrl](Edgehog.Files.FileUploadRequest.Changes.SetUploadUrl.md): Ash change responsible for generating and setting a presigned upload URL
+for a file upload request before persisting it.
+
+  - [Edgehog.Files.FileUploadRequest.FileUploadRequests.Config](Edgehog.Files.FileUploadRequest.FileUploadRequests.Config.md)
+  - [Edgehog.Files.FileUploadRequest.FileUploadRequestsByDevice.Config](Edgehog.Files.FileUploadRequest.FileUploadRequestsByDevice.Config.md)
+  - [Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest.md): Manual action responsible for sending a file upload request to the Astarte device.
+
+  - [Edgehog.Files.FileUploadRequest.Status](Edgehog.Files.FileUploadRequest.Status.md): Status of a file transfer request.
+  - [Edgehog.Files.Supervisor](Edgehog.Files.Supervisor.md): Files registries and dynaimc supervisors.
+  - [Edgehog.Files.Uploaders.File](Edgehog.Files.Uploaders.File.md): Waffle uploader for files.
+
+- OS management
+  - [Edgehog.OSManagement.OTAOperation.OtaOperation.Config](Edgehog.OSManagement.OTAOperation.OtaOperation.Config.md)
+
+- Base images
+  - [Edgehog.BaseImages](Edgehog.BaseImages.md): The BaseImages context.
+  - [Edgehog.BaseImages.BaseImage.BaseImage.Config](Edgehog.BaseImages.BaseImage.BaseImage.Config.md)
+  - [Edgehog.BaseImages.BaseImageCollection.BaseImageCollection.Config](Edgehog.BaseImages.BaseImageCollection.BaseImageCollection.Config.md)
+
+- Multitenancy
+  - [Edgehog.Tenants.Reconciler](Edgehog.Tenants.Reconciler.md): The tenant reconciler.
+  - [Edgehog.Tenants.Reconciler.Context](Edgehog.Tenants.Reconciler.Context.md): Helper function for tenant reconciliation.
+  - [Edgehog.Tenants.Reconciler.Core](Edgehog.Tenants.Reconciler.Core.md): Tenants reconciler module.
+  - [Edgehog.Tenants.Reconciler.Core.DeliveryPolicies](Edgehog.Tenants.Reconciler.Core.DeliveryPolicies.md): Edgehog tenant reconciler responsible for delivery policies.
+  - [Edgehog.Tenants.Reconciler.Core.Interfaces](Edgehog.Tenants.Reconciler.Core.Interfaces.md): The interfaces part of the reconciler core.
+
+  - [Edgehog.Tenants.Reconciler.Core.Triggers](Edgehog.Tenants.Reconciler.Core.Triggers.md): The reconciler core part for triggers.
+  - [Edgehog.Tenants.Reconciler.Starter](Edgehog.Tenants.Reconciler.Starter.md): Tenant reconciler starter.
+  - [Edgehog.Tenants.Tenant](Edgehog.Tenants.Tenant.md): Tenant resource schema and operations.
+  - [Edgehog.Tenants.Tenant.Changes.StartContainersReconciler](Edgehog.Tenants.Tenant.Changes.StartContainersReconciler.md): Starts the container reconciler for the current tenant.
+
+  - [Edgehog.Tenants.Tenant.Changes.StartReconciliation](Edgehog.Tenants.Tenant.Changes.StartReconciliation.md): Reconciliation starter.
+
+- Astarte trigger handling
+  - [Edgehog.Triggers.Handlers.DeviceConnected](Edgehog.Triggers.Handlers.DeviceConnected.md): Device connected handler
+
+  - [Edgehog.Triggers.Handlers.DeviceDeletionFinished](Edgehog.Triggers.Handlers.DeviceDeletionFinished.md): Device deletion finished handler.
+
+  - [Edgehog.Triggers.Handlers.DeviceDisconnected](Edgehog.Triggers.Handlers.DeviceDisconnected.md): Device disconnected handler
+
+  - [Edgehog.Triggers.Handlers.DeviceRegistered](Edgehog.Triggers.Handlers.DeviceRegistered.md): Device registered event
+
+  - [Edgehog.Triggers.Handlers.Fallback](Edgehog.Triggers.Handlers.Fallback.md): Fallback handler.
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableContainers](Edgehog.Triggers.IncomingData.Handlers.AvailableContainers.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableDeployments](Edgehog.Triggers.IncomingData.Handlers.AvailableDeployments.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceMappings](Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceMappings.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceRequests](Edgehog.Triggers.IncomingData.Handlers.AvailableDeviceRequests.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableEnvFiles](Edgehog.Triggers.IncomingData.Handlers.AvailableEnvFiles.md): Available EnvFiles handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableFileBinds](Edgehog.Triggers.IncomingData.Handlers.AvailableFileBinds.md): Available FileBinds handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableImages](Edgehog.Triggers.IncomingData.Handlers.AvailableImages.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableNetworks](Edgehog.Triggers.IncomingData.Handlers.AvailableNetworks.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.AvailableVolumes](Edgehog.Triggers.IncomingData.Handlers.AvailableVolumes.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.DeploymentEvent](Edgehog.Triggers.IncomingData.Handlers.DeploymentEvent.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.FileDeleteResponse](Edgehog.Triggers.IncomingData.Handlers.FileDeleteResponse.md): File delete response handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.FileStorage](Edgehog.Triggers.IncomingData.Handlers.FileStorage.md): Handles incoming Astarte trigger events related to device file storage.
+
+  - [Edgehog.Triggers.IncomingData.Handlers.FileTransfer.Progress](Edgehog.Triggers.IncomingData.Handlers.FileTransfer.Progress.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.FileTransfer.Response](Edgehog.Triggers.IncomingData.Handlers.FileTransfer.Response.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.OTAEvent](Edgehog.Triggers.IncomingData.Handlers.OTAEvent.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.OTAResponse](Edgehog.Triggers.IncomingData.Handlers.OTAResponse.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.SystemInfo](Edgehog.Triggers.IncomingData.Handlers.SystemInfo.md): Available Images handler
+
+- Localization
+  - [Edgehog.Localization.Changes.UpsertLocalizedAttribute](Edgehog.Localization.Changes.UpsertLocalizedAttribute.md): Creates a localized attribute.
+
+  - [Edgehog.Localization.LocalizedAttribute](Edgehog.Localization.LocalizedAttribute.md): A localized attribute.
+
+  - [Edgehog.Localization.LocalizedAttributeUpdateInput](Edgehog.Localization.LocalizedAttributeUpdateInput.md): A localized attribute that allows an empty value.
+
+- Edgehog APIs and web configuration
+  - [EdgehogWeb](EdgehogWeb.md): The entrypoint for defining your web interface, such
+as controllers, views, channels and so on.
+  - [EdgehogWeb.AdminAPI.Auth.Token.Plug](EdgehogWeb.AdminAPI.Auth.Token.Plug.md)
+  - [EdgehogWeb.AstarteTriggerController](EdgehogWeb.AstarteTriggerController.md)
+  - [EdgehogWeb.Auth.Token.Plug](EdgehogWeb.Auth.Token.Plug.md)
+  - [EdgehogWeb.Auth.VerifyHeader](EdgehogWeb.Auth.VerifyHeader.md): This is a wrapper around `Guardian.Plug.VerifyHeader` that allows to recover
+the JWT public key dynamically using the tenant contained in the connection
+
+  - [EdgehogWeb.Endpoint](EdgehogWeb.Endpoint.md)
+  - [EdgehogWeb.ErrorHelpers](EdgehogWeb.ErrorHelpers.md): Conveniences for translating and building error messages.
+
+  - [EdgehogWeb.ErrorView](EdgehogWeb.ErrorView.md)
+  - [EdgehogWeb.FallbackController](EdgehogWeb.FallbackController.md)
+  - [EdgehogWeb.Gettext](EdgehogWeb.Gettext.md): A module providing Internationalization with a gettext-based API.
+  - [EdgehogWeb.GqlSocket](EdgehogWeb.GqlSocket.md)
+  - [EdgehogWeb.PopulateActor](EdgehogWeb.PopulateActor.md): This Plug populates the `actor` property of a graphql request, creaiting a
+meaningful representation of permissions associated to the entity performing
+the request based on token claims.
+
+  - [EdgehogWeb.Router](EdgehogWeb.Router.md)
+  - [EdgehogWeb.VersionController](EdgehogWeb.VersionController.md)
+
+- Other modules
+  - [Edgehog.Actors](Edgehog.Actors.md): The actors domain.
+  - [Edgehog.Actors.Actor](Edgehog.Actors.Actor.md): Edgheog Actors.
+This module represents an actor performing a call trough the GraphQL APIs.
+It implements the ID Token from the OpenID Connect spec.
+  - [Edgehog.Auth.Changes.EraseAlias](Edgehog.Auth.Changes.EraseAlias.md): A change to erase the alias for an object in the FGA provider.
+  - [Edgehog.Auth.Changes.EraseOwner](Edgehog.Auth.Changes.EraseOwner.md): A change to remove the owner of a destroyed object in the FGA provider.
+  - [Edgehog.Auth.Changes.EraseRelation](Edgehog.Auth.Changes.EraseRelation.md): A change to delete a relation in the FGA provider.
+  - [Edgehog.Auth.Changes.WriteAlias](Edgehog.Auth.Changes.WriteAlias.md): A change to create an alias for an object in the FGA provider.
+  - [Edgehog.Auth.Changes.WriteOwner](Edgehog.Auth.Changes.WriteOwner.md): A change to assign an owner to a newly created object in the FGA provider.
+  - [Edgehog.Auth.Changes.WriteRelation](Edgehog.Auth.Changes.WriteRelation.md): A change to write a relation in the FGA provider.
+  - [Edgehog.Auth.FGAService](Edgehog.Auth.FGAService.md): The edgehog FGA publisher.
+  - [Edgehog.Auth.Policies.Check](Edgehog.Auth.Policies.Check.md): An `Ash.Policy.SimpleCheck`, checking the user `subj` has access to the object of type `obj`.
+You can optionally pass the `obj_id` attribute name.
+  - [Edgehog.Auth.Policies.Filter](Edgehog.Auth.Policies.Filter.md): An `Ash.Policy.FilterCheck`, filtering the object of type `obj` available to the user `subj`.
+  - [Edgehog.Auth.Providers.Behaviour](Edgehog.Auth.Providers.Behaviour.md): Authz provider behavior.
+
+  - [Edgehog.Auth.Providers.None](Edgehog.Auth.Providers.None.md): Inept authz provider. It just allows every query. Kept for retrocompatibility
+
+  - [Edgehog.Auth.Providers.OpenFGA](Edgehog.Auth.Providers.OpenFGA.md): OpenFGA Auth provider.
+  - [Edgehog.AzureStorage](Edgehog.AzureStorage.md): Waffle module for Azure storage compatibility.
+  - [Edgehog.Capabilities](Edgehog.Capabilities.md): The Capabilities context.
+
+  - [Edgehog.Changes.Log](Edgehog.Changes.Log.md): An Ash.Resource.Change that emits a log.
+  - [Edgehog.Config](Edgehog.Config.md): This module handles the configuration of Edgehog
+
+  - [Edgehog.Config.AuthzProvider](Edgehog.Config.AuthzProvider.md): Authorization provider type for configuration.
+
+  - [Edgehog.Config.GeocodingProviders](Edgehog.Config.GeocodingProviders.md): Geocoding providers type for configuration.
+
+  - [Edgehog.Config.GeolocationProviders](Edgehog.Config.GeolocationProviders.md): Geolocation providers type for configuration.
+
+  - [Edgehog.Config.JWTPublicKeyPEMType](Edgehog.Config.JWTPublicKeyPEMType.md): JWT public key PEM type for configuration.
+
+  - [Edgehog.Error](Edgehog.Error.md): Error utilities to match device errors when communicating with astarte.
+
+  - [Edgehog.Error.AstarteAPIError](Edgehog.Error.AstarteAPIError.md): Used when Astarte replies with an APIError
+  - [Edgehog.Error.DeviceOffline](Edgehog.Error.DeviceOffline.md): Used when requests to a device fail because the device appears offline.
+  - [Edgehog.Geolocation](Edgehog.Geolocation.md): The Geolocation context.
+
+  - [Edgehog.Geolocation.GeolocationProvider](Edgehog.Geolocation.GeolocationProvider.md): Geolocation provider default and callbacks.
+
+  - [Edgehog.MultitenantResource](Edgehog.MultitenantResource.md): Define the resource as `belong_to` with a `Edgehog.Tenant.Tenant`.
+  - [Edgehog.PromEx](Edgehog.PromEx.md): Be sure to add the following to finish setting up PromEx
+  - [Edgehog.Repo](Edgehog.Repo.md)
+  - [Edgehog.Selector.Filter](Edgehog.Selector.Filter.md)
+  - [Edgehog.Storage](Edgehog.Storage.md): Storage-agnostic presigned URL generation and file management.
+  - [Edgehog.Storage.Azure](Edgehog.Storage.Azure.md): Azure Blob Storage backend for presigned URL generation and file management.
+
+  - [Edgehog.Storage.GCS](Edgehog.Storage.GCS.md): Google Cloud Storage backend for presigned URL generation and file management.
+  - [Edgehog.Storage.S3](Edgehog.Storage.S3.md): AWS S3 backend for presigned URL generation and file management.
+
+## Mix Tasks
+
+- Other modules
+  - [mix edgehog.docs](Mix.Tasks.Edgehog.Docs.md): A Mix task for generating the full Edgehog documentation suite.
+

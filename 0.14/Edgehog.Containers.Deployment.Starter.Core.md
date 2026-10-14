@@ -1,0 +1,49 @@
+# `Edgehog.Containers.Deployment.Starter.Core`
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/deployment/starter/core.ex#L21)
+
+Deployment starter core functions.
+
+This is a collection of pure functions that handle the business logic. They
+primarily are functions that interact with other parts of the application
+(e.g., read the database, send signals, subscribe to events, etc.).
+
+# `load`
+
+Loads pending deployments into the state.
+
+given a device returns the list of deployments `:pending`
+for that device.
+
+Example:
+```elixir
+> device = %Device{device_id: "some-device-id"}
+
+> Core.load(device)
+[
+  %Deployment{},
+  %Deployment{},
+  ...
+]
+```
+
+# `log_errors`
+
+# `log_start_completed`
+
+Logs all the errors given as first argument. The errors must follow the
+`{:error, error, deployment}` convention, so that it's understandable for which
+deployment the error was generated.
+
+# `log_start_errors`
+
+# `log_start_terminated`
+
+# `log_start_unexpected_error`
+
+# `start`
+
+Starts all given deployment. For each deployment the orchestrator will be called.
+
+returns the list of errors generated while starting each deployment in the shape
+`{:error, error, deployment}`.
+

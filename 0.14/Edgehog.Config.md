@@ -1,0 +1,1182 @@
+# `Edgehog.Config`
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/config.ex#L21)
+
+This module handles the configuration of Edgehog
+
+# `admin_jwk`
+
+```elixir
+@spec admin_jwk(Skogsra.Env.namespace()) ::
+  {:ok, nil | Edgehog.Config.JWTPublicKeyPEMType.t()} | {:error, binary()}
+```
+
+The Admin API JWT public key.
+
+Calling `Edgehog.Config.admin_jwk()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "ADMIN_JWT_PUBLIC_KEY_PATH"
+- Type: Edgehog.Config.JWTPublicKeyPEMType
+- Default: nil
+- Required: false
+- Cached: true
+
+# `admin_jwk!`
+
+```elixir
+@spec admin_jwk!(Skogsra.Env.namespace()) ::
+  (nil | Edgehog.Config.JWTPublicKeyPEMType.t()) | no_return()
+```
+
+The Admin API JWT public key.
+
+Bang version of `Edgehog.Config.admin_jwk/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `authz_config!`
+
+```elixir
+@spec authz_config!() :: Keyword.t()
+```
+
+Returns the FGA provider configuration.
+
+# `authz_provider`
+
+```elixir
+@spec authz_provider(Skogsra.Env.namespace()) ::
+  {:ok, Edgehog.Config.AuthzProvider.t()} | {:error, binary()}
+```
+
+The preferred fine grained authorization provider.
+Possible values are: none, openfga
+
+Calling `Edgehog.Config.authz_provider()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_AUTHZ_PROVIDER"
+- Type: Edgehog.Config.AuthzProvider
+- Default: Edgehog.Auth.Providers.None
+- Required: false
+- Cached: true
+
+# `authz_provider!`
+
+```elixir
+@spec authz_provider!(Skogsra.Env.namespace()) ::
+  Edgehog.Config.AuthzProvider.t() | no_return()
+```
+
+The preferred fine grained authorization provider.
+Possible values are: none, openfga
+
+Bang version of `Edgehog.Config.authz_provider/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `authz_provider_config!`
+
+```elixir
+@spec authz_provider_config!(provider :: module()) :: Keyword.t()
+```
+
+Returns the config of the required provider
+
+# `containers_telemetry_include_identifiers`
+
+```elixir
+@spec containers_telemetry_include_identifiers(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Whether containers telemetry events should include high-cardinality
+identifier labels (deployment_id, resource_id, device_id).
+
+These labels allow filtering the metrics per specific deployment, resource or
+device (e.g. in Grafana), at the cost of a higher number of Prometheus time
+series. Disable them if you are not filtering on them and want to keep the
+cardinality low.
+
+Calling `Edgehog.Config.containers_telemetry_include_identifiers()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "CONTAINERS_TELEMETRY_INCLUDE_IDENTIFIERS"
+- Type: :boolean
+- Default: true
+- Required: false
+- Cached: true
+
+# `containers_telemetry_include_identifiers!`
+
+```elixir
+@spec containers_telemetry_include_identifiers!(Skogsra.Env.namespace()) ::
+  boolean() | no_return()
+```
+
+Whether containers telemetry events should include high-cardinality
+identifier labels (deployment_id, resource_id, device_id).
+
+These labels allow filtering the metrics per specific deployment, resource or
+device (e.g. in Grafana), at the cost of a higher number of Prometheus time
+series. Disable them if you are not filtering on them and want to keep the
+cardinality low.
+
+Bang version of `Edgehog.Config.containers_telemetry_include_identifiers/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `database_enable_ssl`
+
+```elixir
+@spec database_enable_ssl(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Whether edgehog should use a tls connection with the database or not.
+
+Calling `Edgehog.Config.database_enable_ssl()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "DATABASE_ENABLE_SSL"
+- Type: :boolean
+- Default: false
+- Required: false
+- Cached: true
+
+# `database_enable_ssl!`
+
+```elixir
+@spec database_enable_ssl!(Skogsra.Env.namespace()) :: boolean() | no_return()
+```
+
+Whether edgehog should use a tls connection with the database or not.
+
+Bang version of `Edgehog.Config.database_enable_ssl/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `database_enable_ssl?`
+
+```elixir
+@spec database_enable_ssl?() :: boolean()
+```
+
+Returns true if edgehog should use an ssl connection with the database.
+
+# `database_ssl_cacertfile`
+
+```elixir
+@spec database_ssl_cacertfile(Skogsra.Env.namespace()) ::
+  {:ok, binary()} | {:error, binary()}
+```
+
+The certificate file to use to verify the ssl connection with the database.
+
+Calling `Edgehog.Config.database_ssl_cacertfile()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "DATABASE_SSL_CACERTFILE"
+- Type: :binary
+- Default: ""
+- Required: false
+- Cached: true
+
+# `database_ssl_cacertfile!`
+
+```elixir
+@spec database_ssl_cacertfile!(Skogsra.Env.namespace()) :: binary() | no_return()
+```
+
+The certificate file to use to verify the ssl connection with the database.
+
+Bang version of `Edgehog.Config.database_ssl_cacertfile/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `database_ssl_config`
+
+```elixir
+@spec database_ssl_config() :: false | [term()]
+```
+
+Returns the database configuration for the database connection.
+
+# `database_ssl_config_opts`
+
+```elixir
+@spec database_ssl_config_opts() :: [term()]
+```
+
+Returns the Ecto configuration for the ssl connection to the database.
+
+# `database_ssl_verify`
+
+```elixir
+@spec database_ssl_verify(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Whether to verify the ssl connection with the database or not.
+
+Calling `Edgehog.Config.database_ssl_verify()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "DATABASE_SSL_VERIFY"
+- Type: :boolean
+- Default: false
+- Required: false
+- Cached: true
+
+# `database_ssl_verify!`
+
+```elixir
+@spec database_ssl_verify!(Skogsra.Env.namespace()) :: boolean() | no_return()
+```
+
+Whether to verify the ssl connection with the database or not.
+
+Bang version of `Edgehog.Config.database_ssl_verify/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `database_ssl_verify?`
+
+```elixir
+@spec database_ssl_verify?() :: boolean()
+```
+
+Returns whether to verify the ssl connection with he database or not.
+
+# `database_use_os_certs`
+
+```elixir
+@spec database_use_os_certs(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Whether to use the os certificates to communicate with the database over ssl.
+
+Calling `Edgehog.Config.database_use_os_certs()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "DATABASE_USE_OS_CERTS"
+- Type: :boolean
+- Default: false
+- Required: false
+- Cached: true
+
+# `database_use_os_certs!`
+
+```elixir
+@spec database_use_os_certs!(Skogsra.Env.namespace()) :: boolean() | no_return()
+```
+
+Whether to use the os certificates to communicate with the database over ssl.
+
+Bang version of `Edgehog.Config.database_use_os_certs/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `database_use_os_certs?`
+
+```elixir
+@spec database_use_os_certs?() :: boolean()
+```
+
+Returns true if edgehog should use the operative system certificates.
+
+# `deployment_provisioning_timeout`
+
+```elixir
+@spec deployment_provisioning_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Edgehog deployment provisioning timeout (milliseconds).
+
+This environment variable sets the deadline a single provisioner has to
+complete its provisioning. When it is hit the provisioner gives up and
+broadcasts a failure, which the deployment orchestrator reacts to by marking
+the deployment as timed out and broadcasting a failure. Defaults to 10 minutes.
+
+Calling `Edgehog.Config.deployment_provisioning_timeout()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_DEPLOYMENT_PROVISIONING_TIMEOUT"
+- Type: :non_neg_integer
+- Default: 600000
+- Required: false
+- Cached: true
+
+# `deployment_provisioning_timeout!`
+
+```elixir
+@spec deployment_provisioning_timeout!(Skogsra.Env.namespace()) ::
+  non_neg_integer() | no_return()
+```
+
+Edgehog deployment provisioning timeout (milliseconds).
+
+This environment variable sets the deadline a single provisioner has to
+complete its provisioning. When it is hit the provisioner gives up and
+broadcasts a failure, which the deployment orchestrator reacts to by marking
+the deployment as timed out and broadcasting a failure. Defaults to 10 minutes.
+
+Bang version of `Edgehog.Config.deployment_provisioning_timeout/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `geocoding_providers!`
+
+```elixir
+@spec geocoding_providers!() :: [atom()]
+```
+
+Returns the list of geocoding modules to use.
+
+# `geolocation_providers!`
+
+```elixir
+@spec geolocation_providers!() :: [atom()]
+```
+
+Returns the list of geolocation modules to use.
+
+# `google_geocoding_api_key`
+
+```elixir
+@spec google_geocoding_api_key(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+The API key for the Google geocoding provider.
+
+Calling `Edgehog.Config.google_geocoding_api_key()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "GOOGLE_GEOCODING_API_KEY"
+- Type: :binary
+- Default: nil
+- Required: false
+- Cached: true
+
+# `google_geocoding_api_key!`
+
+```elixir
+@spec google_geocoding_api_key!(Skogsra.Env.namespace()) ::
+  (nil | binary()) | no_return()
+```
+
+The API key for the Google geocoding provider.
+
+Bang version of `Edgehog.Config.google_geocoding_api_key/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `google_geolocation_api_key`
+
+```elixir
+@spec google_geolocation_api_key(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+The API key for the Google geolocation provider.
+
+Calling `Edgehog.Config.google_geolocation_api_key()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "GOOGLE_GEOLOCATION_API_KEY"
+- Type: :binary
+- Default: nil
+- Required: false
+- Cached: true
+
+# `google_geolocation_api_key!`
+
+```elixir
+@spec google_geolocation_api_key!(Skogsra.Env.namespace()) ::
+  (nil | binary()) | no_return()
+```
+
+The API key for the Google geolocation provider.
+
+Bang version of `Edgehog.Config.google_geolocation_api_key/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `ipbase_api_key`
+
+```elixir
+@spec ipbase_api_key(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+The API key for the ipbase.com geolocation provider.
+
+Calling `Edgehog.Config.ipbase_api_key()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "IPBASE_API_KEY"
+- Type: :binary
+- Default: nil
+- Required: false
+- Cached: true
+
+# `ipbase_api_key!`
+
+```elixir
+@spec ipbase_api_key!(Skogsra.Env.namespace()) :: (nil | binary()) | no_return()
+```
+
+The API key for the ipbase.com geolocation provider.
+
+Bang version of `Edgehog.Config.ipbase_api_key/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `max_retries`
+
+```elixir
+@spec max_retries(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Edgehog max retries.
+
+This environment variable sets the maximum retires provisioners will use as a fallback if no more specific max retires variables are set.
+Defaults to 100.
+
+Calling `Edgehog.Config.max_retries()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_PROVISIONING_MAX_RETRIES"
+- Type: :non_neg_integer
+- Default: 100
+- Required: false
+- Cached: true
+
+# `max_retries!`
+
+```elixir
+@spec max_retries!(Skogsra.Env.namespace()) :: non_neg_integer() | no_return()
+```
+
+Edgehog max retries.
+
+This environment variable sets the maximum retires provisioners will use as a fallback if no more specific max retires variables are set.
+Defaults to 100.
+
+Bang version of `Edgehog.Config.max_retries/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `message_max_timeout`
+
+```elixir
+@spec message_max_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Edgehog message max timeout (milliseconds).
+
+This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 2 days.
+
+Calling `Edgehog.Config.message_max_timeout()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_MESSAGE_MAX_TIMEOUT"
+- Type: :non_neg_integer
+- Default: 172800000
+- Required: false
+- Cached: true
+
+# `message_max_timeout!`
+
+```elixir
+@spec message_max_timeout!(Skogsra.Env.namespace()) :: non_neg_integer() | no_return()
+```
+
+Edgehog message max timeout (milliseconds).
+
+This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 2 days.
+
+Bang version of `Edgehog.Config.message_max_timeout/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `message_min_timeout`
+
+```elixir
+@spec message_min_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Edgehog message min timeout (milliseconds).
+
+This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 5 minutes.
+
+Calling `Edgehog.Config.message_min_timeout()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_MESSAGE_MIN_TIMEOUT"
+- Type: :non_neg_integer
+- Default: 300000
+- Required: false
+- Cached: true
+
+# `message_min_timeout!`
+
+```elixir
+@spec message_min_timeout!(Skogsra.Env.namespace()) :: non_neg_integer() | no_return()
+```
+
+Edgehog message min timeout (milliseconds).
+
+This environment variable sets the standard timeout to handle communication between a device and edgehog.
+Defaults to 5 minutes.
+
+Bang version of `Edgehog.Config.message_min_timeout/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `openfga_auth_model_id`
+
+```elixir
+@spec openfga_auth_model_id(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+OpenFGA authorization model id. Each model written in OpenFGA has a unique id associated.
+
+Calling `Edgehog.Config.openfga_auth_model_id()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_OPENFGA_AUTH_MODEL_ID"
+- Type: :binary
+- Default: nil
+- Required: false
+- Cached: true
+
+# `openfga_auth_model_id!`
+
+```elixir
+@spec openfga_auth_model_id!(Skogsra.Env.namespace()) ::
+  (nil | binary()) | no_return()
+```
+
+OpenFGA authorization model id. Each model written in OpenFGA has a unique id associated.
+
+Bang version of `Edgehog.Config.openfga_auth_model_id/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `openfga_grpc_endpoint`
+
+```elixir
+@spec openfga_grpc_endpoint(Skogsra.Env.namespace()) ::
+  {:ok, binary()} | {:error, binary()}
+```
+
+OpenFGA gRPC endpoint.
+Defaults to `localhost:8081`
+
+Calling `Edgehog.Config.openfga_grpc_endpoint()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_OPENFGA_GRPC_ENDPOINT"
+- Type: :binary
+- Default: "localhost:8081"
+- Required: false
+- Cached: true
+
+# `openfga_grpc_endpoint!`
+
+```elixir
+@spec openfga_grpc_endpoint!(Skogsra.Env.namespace()) :: binary() | no_return()
+```
+
+OpenFGA gRPC endpoint.
+Defaults to `localhost:8081`
+
+Bang version of `Edgehog.Config.openfga_grpc_endpoint/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `openfga_store_id`
+
+```elixir
+@spec openfga_store_id(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+OpenFGA store id. A store in OpenFGA has a unique id associated.
+
+Calling `Edgehog.Config.openfga_store_id()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_OPENFGA_STORE_ID"
+- Type: :binary
+- Default: nil
+- Required: false
+- Cached: true
+
+# `openfga_store_id!`
+
+```elixir
+@spec openfga_store_id!(Skogsra.Env.namespace()) :: (nil | binary()) | no_return()
+```
+
+OpenFGA store id. A store in OpenFGA has a unique id associated.
+
+Bang version of `Edgehog.Config.openfga_store_id/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `preferred_geocoding_providers`
+
+```elixir
+@spec preferred_geocoding_providers(Skogsra.Env.namespace()) ::
+  {:ok, Edgehog.Config.GeocodingProviders.t()} | {:error, binary()}
+```
+
+A comma separated list of preferred geocoding providers.
+Possible values are: google
+
+Calling `Edgehog.Config.preferred_geocoding_providers()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "PREFERRED_GEOCODING_PROVIDERS"
+- Type: Edgehog.Config.GeocodingProviders
+- Default: [Edgehog.Geolocation.Providers.GoogleGeocoding]
+- Required: false
+- Cached: true
+
+# `preferred_geocoding_providers!`
+
+```elixir
+@spec preferred_geocoding_providers!(Skogsra.Env.namespace()) ::
+  Edgehog.Config.GeocodingProviders.t() | no_return()
+```
+
+A comma separated list of preferred geocoding providers.
+Possible values are: google
+
+Bang version of `Edgehog.Config.preferred_geocoding_providers/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `preferred_geolocation_providers`
+
+```elixir
+@spec preferred_geolocation_providers(Skogsra.Env.namespace()) ::
+  {:ok, Edgehog.Config.GeolocationProviders.t()} | {:error, binary()}
+```
+
+A comma separated list of preferred geolocation providers.
+Possible values are: device, google, ipbase.
+
+Calling `Edgehog.Config.preferred_geolocation_providers()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "PREFERRED_GEOLOCATION_PROVIDERS"
+- Type: Edgehog.Config.GeolocationProviders
+- Default: [Edgehog.Geolocation.Providers.DeviceGeolocation, Edgehog.Geolocation.Providers.GoogleGeolocation, Edgehog.Geolocation.Providers.IPBase]
+- Required: false
+- Cached: true
+
+# `preferred_geolocation_providers!`
+
+```elixir
+@spec preferred_geolocation_providers!(Skogsra.Env.namespace()) ::
+  Edgehog.Config.GeolocationProviders.t() | no_return()
+```
+
+A comma separated list of preferred geolocation providers.
+Possible values are: device, google, ipbase.
+
+Bang version of `Edgehog.Config.preferred_geolocation_providers/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `preload`
+
+```elixir
+@spec preload(Skogsra.Env.namespace()) :: :ok
+```
+
+Preloads all variables in a `namespace` if supplied.
+
+# `put_admin_jwk`
+
+```elixir
+@spec put_admin_jwk(
+  nil | Edgehog.Config.JWTPublicKeyPEMType.t(),
+  Skogsra.Env.namespace()
+) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.admin_jwk/0`. Optionally, receives
+the `namespace`.
+
+# `put_authz_provider`
+
+```elixir
+@spec put_authz_provider(Edgehog.Config.AuthzProvider.t(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.authz_provider/0`. Optionally, receives
+the `namespace`.
+
+# `put_containers_telemetry_include_identifiers`
+
+```elixir
+@spec put_containers_telemetry_include_identifiers(boolean(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.containers_telemetry_include_identifiers/0`. Optionally, receives
+the `namespace`.
+
+# `put_database_enable_ssl`
+
+```elixir
+@spec put_database_enable_ssl(boolean(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.database_enable_ssl/0`. Optionally, receives
+the `namespace`.
+
+# `put_database_ssl_cacertfile`
+
+```elixir
+@spec put_database_ssl_cacertfile(binary(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.database_ssl_cacertfile/0`. Optionally, receives
+the `namespace`.
+
+# `put_database_ssl_verify`
+
+```elixir
+@spec put_database_ssl_verify(boolean(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.database_ssl_verify/0`. Optionally, receives
+the `namespace`.
+
+# `put_database_use_os_certs`
+
+```elixir
+@spec put_database_use_os_certs(boolean(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.database_use_os_certs/0`. Optionally, receives
+the `namespace`.
+
+# `put_deployment_provisioning_timeout`
+
+```elixir
+@spec put_deployment_provisioning_timeout(non_neg_integer(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.deployment_provisioning_timeout/0`. Optionally, receives
+the `namespace`.
+
+# `put_google_geocoding_api_key`
+
+```elixir
+@spec put_google_geocoding_api_key(nil | binary(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.google_geocoding_api_key/0`. Optionally, receives
+the `namespace`.
+
+# `put_google_geolocation_api_key`
+
+```elixir
+@spec put_google_geolocation_api_key(nil | binary(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.google_geolocation_api_key/0`. Optionally, receives
+the `namespace`.
+
+# `put_ipbase_api_key`
+
+```elixir
+@spec put_ipbase_api_key(nil | binary(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.ipbase_api_key/0`. Optionally, receives
+the `namespace`.
+
+# `put_max_retries`
+
+```elixir
+@spec put_max_retries(non_neg_integer(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.max_retries/0`. Optionally, receives
+the `namespace`.
+
+# `put_message_max_timeout`
+
+```elixir
+@spec put_message_max_timeout(non_neg_integer(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.message_max_timeout/0`. Optionally, receives
+the `namespace`.
+
+# `put_message_min_timeout`
+
+```elixir
+@spec put_message_min_timeout(non_neg_integer(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.message_min_timeout/0`. Optionally, receives
+the `namespace`.
+
+# `put_openfga_auth_model_id`
+
+```elixir
+@spec put_openfga_auth_model_id(nil | binary(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.openfga_auth_model_id/0`. Optionally, receives
+the `namespace`.
+
+# `put_openfga_grpc_endpoint`
+
+```elixir
+@spec put_openfga_grpc_endpoint(binary(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.openfga_grpc_endpoint/0`. Optionally, receives
+the `namespace`.
+
+# `put_openfga_store_id`
+
+```elixir
+@spec put_openfga_store_id(nil | binary(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.openfga_store_id/0`. Optionally, receives
+the `namespace`.
+
+# `put_preferred_geocoding_providers`
+
+```elixir
+@spec put_preferred_geocoding_providers(
+  Edgehog.Config.GeocodingProviders.t(),
+  Skogsra.Env.namespace()
+) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.preferred_geocoding_providers/0`. Optionally, receives
+the `namespace`.
+
+# `put_preferred_geolocation_providers`
+
+```elixir
+@spec put_preferred_geolocation_providers(
+  Edgehog.Config.GeolocationProviders.t(),
+  Skogsra.Env.namespace()
+) :: :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.preferred_geolocation_providers/0`. Optionally, receives
+the `namespace`.
+
+# `put_tenant_reconciler_timeout`
+
+```elixir
+@spec put_tenant_reconciler_timeout(non_neg_integer(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.tenant_reconciler_timeout/0`. Optionally, receives
+the `namespace`.
+
+# `reload_admin_jwk`
+
+```elixir
+@spec reload_admin_jwk(Skogsra.Env.namespace()) ::
+  {:ok, nil | Edgehog.Config.JWTPublicKeyPEMType.t()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.admin_jwk/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_authz_provider`
+
+```elixir
+@spec reload_authz_provider(Skogsra.Env.namespace()) ::
+  {:ok, Edgehog.Config.AuthzProvider.t()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.authz_provider/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_containers_telemetry_include_identifiers`
+
+```elixir
+@spec reload_containers_telemetry_include_identifiers(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.containers_telemetry_include_identifiers/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_database_enable_ssl`
+
+```elixir
+@spec reload_database_enable_ssl(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.database_enable_ssl/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_database_ssl_cacertfile`
+
+```elixir
+@spec reload_database_ssl_cacertfile(Skogsra.Env.namespace()) ::
+  {:ok, binary()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.database_ssl_cacertfile/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_database_ssl_verify`
+
+```elixir
+@spec reload_database_ssl_verify(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.database_ssl_verify/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_database_use_os_certs`
+
+```elixir
+@spec reload_database_use_os_certs(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.database_use_os_certs/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_deployment_provisioning_timeout`
+
+```elixir
+@spec reload_deployment_provisioning_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.deployment_provisioning_timeout/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_google_geocoding_api_key`
+
+```elixir
+@spec reload_google_geocoding_api_key(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.google_geocoding_api_key/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_google_geolocation_api_key`
+
+```elixir
+@spec reload_google_geolocation_api_key(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.google_geolocation_api_key/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_ipbase_api_key`
+
+```elixir
+@spec reload_ipbase_api_key(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.ipbase_api_key/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_max_retries`
+
+```elixir
+@spec reload_max_retries(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.max_retries/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_message_max_timeout`
+
+```elixir
+@spec reload_message_max_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.message_max_timeout/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_message_min_timeout`
+
+```elixir
+@spec reload_message_min_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.message_min_timeout/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_openfga_auth_model_id`
+
+```elixir
+@spec reload_openfga_auth_model_id(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.openfga_auth_model_id/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_openfga_grpc_endpoint`
+
+```elixir
+@spec reload_openfga_grpc_endpoint(Skogsra.Env.namespace()) ::
+  {:ok, binary()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.openfga_grpc_endpoint/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_openfga_store_id`
+
+```elixir
+@spec reload_openfga_store_id(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.openfga_store_id/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_preferred_geocoding_providers`
+
+```elixir
+@spec reload_preferred_geocoding_providers(Skogsra.Env.namespace()) ::
+  {:ok, Edgehog.Config.GeocodingProviders.t()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.preferred_geocoding_providers/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_preferred_geolocation_providers`
+
+```elixir
+@spec reload_preferred_geolocation_providers(Skogsra.Env.namespace()) ::
+  {:ok, Edgehog.Config.GeolocationProviders.t()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.preferred_geolocation_providers/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_tenant_reconciler_timeout`
+
+```elixir
+@spec reload_tenant_reconciler_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.tenant_reconciler_timeout/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `template`
+
+```elixir
+@spec template(
+  Path.t(),
+  keyword()
+) :: :ok | {:error, File.posix()}
+```
+
+Creates a template for OS environment variables given a `filename`.
+Additionally, it can receive a list of options:
+
+- `type`: What kind of file it will generate (`:elixir`, `:unix`,
+  `:windows`).
+- `namespace`: Namespace for the variables.
+
+# `tenant_reconciler_timeout`
+
+```elixir
+@spec tenant_reconciler_timeout(Skogsra.Env.namespace()) ::
+  {:ok, non_neg_integer()} | {:error, binary()}
+```
+
+Edgehog tenant reconciliation timeout (milliseconds).
+
+This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.
+
+Calling `Edgehog.Config.tenant_reconciler_timeout()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_TENANT_RECONCILER_TIMEOUT"
+- Type: :non_neg_integer
+- Default: 600000
+- Required: false
+- Cached: true
+
+# `tenant_reconciler_timeout!`
+
+```elixir
+@spec tenant_reconciler_timeout!(Skogsra.Env.namespace()) ::
+  non_neg_integer() | no_return()
+```
+
+Edgehog tenant reconciliation timeout (milliseconds).
+
+This environment variable sets the default reconciliation timeout for all tenants. Set it to 0 to set manual reconciliation only.
+
+Bang version of `Edgehog.Config.tenant_reconciler_timeout/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `validate`
+
+```elixir
+@spec validate(Skogsra.Env.namespace()) :: :ok | {:error, [binary()]}
+```
+
+Validates that all required variables are present.
+Returns `:ok` if they are, `{:error, errors}` if they are not. `errors`
+will be a list of all errors encountered while getting required variables.
+
+It is possible to provide a `namespace` as argument (defaults to `nil`).
+
+# `validate!`
+
+```elixir
+@spec validate!(Skogsra.Env.namespace()) :: :ok | no_return()
+```
+
+Validates that all required variables are present.
+Returns `:ok` if they are, raises if they're not.
+
+It is possible to provide a `namespace` as argument (defaults to `nil`).
+
+# `validate_admin_authentication!`
+
+```elixir
+@spec validate_admin_authentication!() :: :ok | no_return()
+```
+
+Validates admin authentication config, raises if invalid.
+

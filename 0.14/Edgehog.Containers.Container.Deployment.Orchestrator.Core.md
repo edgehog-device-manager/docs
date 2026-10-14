@@ -1,0 +1,111 @@
+# `Edgehog.Containers.Container.Deployment.Orchestrator.Core`
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/container/deployment/orchestrator/core.ex#L21)
+
+Container orchestrator pure functions.
+
+# `container_ready`
+
+Sets container provisioning to :completed
+
+Example:
+(%{container_provisioning: :started}) -> %{container_provisioning: :completed}
+
+# `device_mapping_ready`
+
+Removes a device mapping from the list of device mappings that need to be provisioned.
+
+The list of device mappings to be provisioned is expected to be a list of device mapping
+deployments in the key `:device_mappings_to_provision` into the state.
+
+Example:
+if id matches depl2
+
+(id, %{device_mappings_to_provision: [depl1, depl2, depl3, ...]}) -> %{device_mappings_to_provision: [depl1, depl3, ...]}
+
+# `device_request_ready`
+
+Removes a device request from the list of device requests that need to be provisioned.
+
+The list of device requests to be provisioned is expected to be a list of device request
+deployments in the key `:device_requests_to_provision` into the state.
+
+Example:
+if id matches depl2
+
+(id, %{device_requests_to_provision: [depl1, depl2, depl3, ...]}) -> %{device_requests_to_provision: [depl1, depl3, ...]}
+
+# `env_file_ready`
+
+Removes an env file from the list of env files that need to be provisioned.
+
+The list of env files to be provisioned is expected to be a list of env
+files in the key `:env_files_to_provision` into the state.
+
+Example:
+if id matches env2
+
+(id, %{env_files_to_provision: [env1, env2, env3, ...]}) -> %{env_files_to_provision: [env1, env3, ...]}
+
+# `file_bind_ready`
+
+Removes a file bind from the list of file binds that need to be provisioned.
+
+The list of file binds to be provisioned is expected to be a list of file
+binds in the key `:file_binds_to_provision` into the state.
+
+Example:
+if id matches bind2
+
+(id, %{file_binds_to_provision: [bind1, bind2, bind3, ...]}) -> %{file_binds_to_provision: [bind1, bind3, ...]}
+
+# `image_ready`
+
+Sets image provisioning to :completed
+
+Example:
+(%{image_provisioning: :started}) -> %{image_provisioning: :completed}
+
+# `load_resources`
+
+Loads the necessary resources and puts them in the state.
+
+Returns the state with all the resources loaded in their respective keys.
+
+# `log_load_resources_failed`
+
+# `log_provisioner_failed`
+
+# `log_provisioner_start_failed`
+
+# `log_provisioning_failed`
+
+# `log_resources_loading`
+
+# `network_ready`
+
+Removes a network from the list of networks that need to be provisioned.
+
+The list of networks to be provisioned is expected to be a list of network
+deployments in the key `:networks_to_provision` into the state.
+
+Example:
+if id matches depl2
+
+(id, %{networks_to_provision: [depl1, depl2, depl3, ...]}) -> %{networks_to_provision: [depl1, depl3, ...]}
+
+# `provision`
+
+# `ready?`
+
+# `volume_ready`
+
+Removes a volume from the list of volumes that need to be provisioned.
+
+The list of volumes to be provisioned is expected to be a list of volume
+deployments in the key `:volumes_to_provision` into the state.
+
+Example:
+if id matches depl2
+
+(id, %{volumes_to_provision: [depl1, depl2, depl3, ...]}) -> %{volumes_to_provision: [depl1, depl3, ...]}
+
