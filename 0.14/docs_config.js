@@ -1,1 +1,1 @@
-versions.js
+../versions.js
