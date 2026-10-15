@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
 
-    <script defer src="dist/sidebar_items-6FA5F323.js"></script>
+    <script defer src="dist/sidebar_items-9B3F1CEF.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-Y2MUTVIN.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -120,22 +120,22 @@ Clea Edgehog
     <section id="moduledoc">
 <p>Emits the telemetry events of the containers feature.</p><p>Events can be emitted on the following topics:</p><ul><li><code class="inline">[:edgehog, :containers, :provisioning, :start]</code> when a provisioner
 starts provisioning a resource. Metadata contains <code class="inline">resource_type</code>,
-<code class="inline">resource_id</code>, <code class="inline">deployment_id</code> and <code class="inline">device_id</code>.</li><li><code class="inline">[:edgehog, :containers, :provisioning, :stop]</code> when a provisioner
+<code class="inline">resource_id</code>, <code class="inline">deployment_id</code>, <code class="inline">device_id</code> and <code class="inline">tenant_slug</code>.</li><li><code class="inline">[:edgehog, :containers, :provisioning, :stop]</code> when a provisioner
 terminates, either successfully or with a failure. Metadata contains
-<code class="inline">resource_type</code>, <code class="inline">resource_id</code>, <code class="inline">deployment_id</code>, <code class="inline">device_id</code>, <code class="inline">result</code>
-(either <code class="inline">:ok</code> or <code class="inline">:error</code>) and <code class="inline">reason</code> (either the provisioning outcome,
+<code class="inline">resource_type</code>, <code class="inline">resource_id</code>, <code class="inline">deployment_id</code>, <code class="inline">device_id</code>, <code class="inline">tenant_slug</code>,
+<code class="inline">result</code> (either <code class="inline">:ok</code> or <code class="inline">:error</code>) and <code class="inline">reason</code> (either the provisioning outcome,
 e.g. <code class="inline">:ready</code> or <code class="inline">:already_ready</code>, or the failure reason). Measurements
 contain <code class="inline">duration</code> (native time) and <code class="inline">retries</code>.</li><li><code class="inline">[:edgehog, :containers, :deployment, :start]</code> when a deployment
 orchestrator starts conducting a deployment. Metadata contains
-<code class="inline">deployment_id</code> and <code class="inline">device_id</code>.</li><li><code class="inline">[:edgehog, :containers, :deployment, :stop]</code> when a deployment
+<code class="inline">deployment_id</code>, <code class="inline">device_id</code> and <code class="inline">tenant_slug</code>.</li><li><code class="inline">[:edgehog, :containers, :deployment, :stop]</code> when a deployment
 orchestrator terminates, either successfully or with a failure. Metadata
-contains <code class="inline">deployment_id</code>, <code class="inline">device_id</code> and <code class="inline">result</code>. Measurements contain
+contains <code class="inline">deployment_id</code>, <code class="inline">device_id</code>, <code class="inline">tenant_slug</code> and <code class="inline">result</code>. Measurements contain
 <code class="inline">duration</code> (native time).</li><li><code class="inline">[:edgehog, :containers, :container_deployment, :start]</code> when a container
 deployment orchestrator starts conducting a container deployment. Metadata
-contains <code class="inline">container_deployment_id</code>, <code class="inline">deployment_id</code> and <code class="inline">device_id</code>.</li><li><code class="inline">[:edgehog, :containers, :container_deployment, :stop]</code> when a container
+contains <code class="inline">container_deployment_id</code>, <code class="inline">deployment_id</code>, <code class="inline">device_id</code> and <code class="inline">tenant_slug</code>.</li><li><code class="inline">[:edgehog, :containers, :container_deployment, :stop]</code> when a container
 deployment orchestrator terminates, either successfully or with a failure.
-Metadata contains <code class="inline">container_deployment_id</code>, <code class="inline">deployment_id</code>, <code class="inline">device_id</code>
-and <code class="inline">result</code>. Measurements contain <code class="inline">duration</code> (native time).</li></ul>
+Metadata contains <code class="inline">container_deployment_id</code>, <code class="inline">deployment_id</code>, <code class="inline">device_id</code>,
+<code class="inline">tenant_slug</code> and <code class="inline">result</code>. Measurements contain <code class="inline">duration</code> (native time).</li></ul>
     </section>
 
 </div>
@@ -154,7 +154,7 @@ and <code class="inline">result</code>. Measurements contain <code class="inline
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#container_deployment_completed/3" data-no-tooltip="" translate="no">container_deployment_completed(container_deployment, deployment, started_at)</a>
+        <a href="#container_deployment_completed/4" data-no-tooltip="" translate="no">container_deployment_completed(container_deployment, deployment, context, started_at)</a>
 
       </div>
 
@@ -164,7 +164,7 @@ and <code class="inline">result</code>. Measurements contain <code class="inline
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#container_deployment_failed/3" data-no-tooltip="" translate="no">container_deployment_failed(container_deployment, deployment, started_at)</a>
+        <a href="#container_deployment_failed/4" data-no-tooltip="" translate="no">container_deployment_failed(container_deployment, deployment, context, started_at)</a>
 
       </div>
 
@@ -182,7 +182,7 @@ and <code class="inline">result</code>. Measurements contain <code class="inline
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#container_deployment_started/2" data-no-tooltip="" translate="no">container_deployment_started(container_deployment, deployment)</a>
+        <a href="#container_deployment_started/3" data-no-tooltip="" translate="no">container_deployment_started(container_deployment, deployment, context)</a>
 
       </div>
 
@@ -202,7 +202,7 @@ corresponding stop event.</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#deployment_completed/2" data-no-tooltip="" translate="no">deployment_completed(deployment, started_at)</a>
+        <a href="#deployment_completed/3" data-no-tooltip="" translate="no">deployment_completed(deployment, context, started_at)</a>
 
       </div>
 
@@ -212,7 +212,7 @@ corresponding stop event.</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#deployment_failed/2" data-no-tooltip="" translate="no">deployment_failed(deployment, started_at)</a>
+        <a href="#deployment_failed/3" data-no-tooltip="" translate="no">deployment_failed(deployment, context, started_at)</a>
 
       </div>
 
@@ -230,7 +230,7 @@ corresponding stop event.</p></div>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#deployment_started/1" data-no-tooltip="" translate="no">deployment_started(deployment)</a>
+        <a href="#deployment_started/2" data-no-tooltip="" translate="no">deployment_started(deployment, context)</a>
 
       </div>
 
@@ -325,14 +325,14 @@ provisioning started, to be used when emitting the corresponding stop event.</p>
     </h2>
 
     <div class="functions-list">
-<section class="detail" id="container_deployment_completed/3">
+<section class="detail" id="container_deployment_completed/4">
 
   <div class="detail-header">
-    <a href="#container_deployment_completed/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+    <a href="#container_deployment_completed/4" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">container_deployment_completed(container_deployment, deployment, started_at)</h1>
+      <h1 class="signature" translate="no">container_deployment_completed(container_deployment, deployment, context, started_at)</h1>
 
 
         <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/telemetry.ex#L210" class="icon-action" rel="help nofollow" aria-label="View Source">
@@ -347,14 +347,14 @@ provisioning started, to be used when emitting the corresponding stop event.</p>
 <p>Emits a successful container deployment orchestration stop event.</p>
   </section>
 </section>
-<section class="detail" id="container_deployment_failed/3">
+<section class="detail" id="container_deployment_failed/4">
 
   <div class="detail-header">
-    <a href="#container_deployment_failed/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+    <a href="#container_deployment_failed/4" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">container_deployment_failed(container_deployment, deployment, started_at)</h1>
+      <h1 class="signature" translate="no">container_deployment_failed(container_deployment, deployment, context, started_at)</h1>
 
 
         <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/telemetry.ex#L224" class="icon-action" rel="help nofollow" aria-label="View Source">
@@ -391,14 +391,14 @@ provisioning started, to be used when emitting the corresponding stop event.</p>
 
   </section>
 </section>
-<section class="detail" id="container_deployment_started/2">
+<section class="detail" id="container_deployment_started/3">
 
   <div class="detail-header">
-    <a href="#container_deployment_started/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+    <a href="#container_deployment_started/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">container_deployment_started(container_deployment, deployment)</h1>
+      <h1 class="signature" translate="no">container_deployment_started(container_deployment, deployment, context)</h1>
 
 
         <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/telemetry.ex#L194" class="icon-action" rel="help nofollow" aria-label="View Source">
@@ -437,14 +437,14 @@ corresponding stop event.</p><p>Returns the start time, computed with <a href="h
 
   </section>
 </section>
-<section class="detail" id="deployment_completed/2">
+<section class="detail" id="deployment_completed/3">
 
   <div class="detail-header">
-    <a href="#deployment_completed/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+    <a href="#deployment_completed/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">deployment_completed(deployment, started_at)</h1>
+      <h1 class="signature" translate="no">deployment_completed(deployment, context, started_at)</h1>
 
 
         <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/telemetry.ex#L162" class="icon-action" rel="help nofollow" aria-label="View Source">
@@ -459,14 +459,14 @@ corresponding stop event.</p><p>Returns the start time, computed with <a href="h
 <p>Emits a successful deployment orchestration stop event.</p>
   </section>
 </section>
-<section class="detail" id="deployment_failed/2">
+<section class="detail" id="deployment_failed/3">
 
   <div class="detail-header">
-    <a href="#deployment_failed/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+    <a href="#deployment_failed/3" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">deployment_failed(deployment, started_at)</h1>
+      <h1 class="signature" translate="no">deployment_failed(deployment, context, started_at)</h1>
 
 
         <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/telemetry.ex#L176" class="icon-action" rel="help nofollow" aria-label="View Source">
@@ -503,14 +503,14 @@ corresponding stop event.</p><p>Returns the start time, computed with <a href="h
 
   </section>
 </section>
-<section class="detail" id="deployment_started/1">
+<section class="detail" id="deployment_started/2">
 
   <div class="detail-header">
-    <a href="#deployment_started/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+    <a href="#deployment_started/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">deployment_started(deployment)</h1>
+      <h1 class="signature" translate="no">deployment_started(deployment, context)</h1>
 
 
         <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/containers/telemetry.ex#L146" class="icon-action" rel="help nofollow" aria-label="View Source">

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.3">
+    <meta name="project" content="Clea Edgehog v0.14.0">
+
+
+    <title>Observability — Clea Edgehog v0.14.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+
+    <script defer src="dist/sidebar_items-9B3F1CEF.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-Y2MUTVIN.js"></script>
+<link rel="stylesheet" href="style/cards.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="intro.html" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="intro.html" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.14.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>Observability</h1>
+
+<a href="observability.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/docs/pages/admin/observability.md#L1" title="View Source" class="icon-action" rel="help nofollow">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+  </div>
+
+
+<p>Edgehog exposes operational telemetry through the Erlang
+<a href="https://hexdocs.pm/telemetry"><code class="inline">:telemetry</code></a> library and ships
+<a href="https://hexdocs.pm/prom_ex">PromEx</a> plugins that turn those events into
+Prometheus metrics with Grafana dashboards.</p><p>This section documents what is exposed and how to consume it:</p><ul><li><a href="observability_containers.html">Container events</a>: provisioning and deployment
+orchestration of containerized applications.</li><li><a href="observability_files.html">File events</a>: file download and upload request
+lifecycles.</li><li><a href="observability_stack.html">Platform stack</a>: non-Edgehog-specific metrics
+(Phoenix, Ecto, BEAM, Absinthe, application).</li></ul><h2 id="consuming-events" class="section-heading"><a href="#consuming-events" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Consuming events</span></h2><p>Each telemetry module exposes <code class="inline">*_event()</code> accessors returning the event name, so
+handlers never hardcode it:</p><pre><code class="makeup elixir" translate="no"><span class="nc">:telemetry</span><span class="o">.</span><span class="n">attach</span><span class="p" data-group-id="8040521527-1">(</span><span class="w">
+  </span><span class="s">&quot;my-container-provisioning-logger&quot;</span><span class="p">,</span><span class="w">
+  </span><span class="nc">Edgehog.Containers.Telemetry</span><span class="o">.</span><span class="n">provisioning_stop_event</span><span class="p" data-group-id="8040521527-2">(</span><span class="p" data-group-id="8040521527-2">)</span><span class="p">,</span><span class="w">
+  </span><span class="o">&amp;</span><span class="nc">MyApp</span><span class="o">.</span><span class="n">handle_provisioning_stop</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="w">
+  </span><span class="no">nil</span><span class="w">
+</span><span class="p" data-group-id="8040521527-1">)</span></code></pre><p>All lifecycle events follow the <code class="inline">start</code>/<code class="inline">stop</code> convention: the <code class="inline">start</code> handler
+receives <code class="inline">%{count: 1}</code> (files also include <code class="inline">system_time</code>) and metadata with a
+<code class="inline">started_at</code> monotonic timestamp; the corresponding <code class="inline">stop</code> event carries
+<code class="inline">%{count: 1, duration: duration}</code> plus <code class="inline">result</code> (<code class="inline">:ok</code> or <code class="inline">:error</code>), <code class="inline">reason</code>,
+and <code class="inline">duration</code>/<code class="inline">duration_unit</code> (<code class="inline">:native</code>) in metadata. Durations are in native
+time units; PromEx converts them to seconds.</p><h2 id="identifier-labels-and-cardinality" class="section-heading"><a href="#identifier-labels-and-cardinality" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Identifier labels and cardinality</span></h2><p>Provisioning and file-transfer stop events can carry high-cardinality
+identifiers (<code class="inline">device_id</code>, <code class="inline">deployment_id</code>, <code class="inline">resource_id</code>, <code class="inline">request_id</code>,
+<code class="inline">file_id</code>) so metrics can be filtered per device, deployment, or request in
+Grafana. This increases the number of Prometheus time series.</p><p>Two configuration options control this, both defaulting to <code class="inline">true</code> (see
+<a href="Edgehog.Config.html"><code class="inline">Edgehog.Config</code></a>, <code class="inline">lib/edgehog/config.ex</code>):</p><table><thead><tr><th style="text-align: left;">Environment variable</th><th style="text-align: left;">Option</th><th style="text-align: left;">Effect when <code class="inline">false</code></th></tr></thead><tbody><tr><td style="text-align: left;"><code class="inline">CONTAINERS_TELEMETRY_INCLUDE_IDENTIFIERS</code></td><td style="text-align: left;"><code class="inline">containers_telemetry_include_identifiers</code></td><td style="text-align: left;">Container metrics lose <code class="inline">deployment_id</code>, <code class="inline">resource_id</code>, <code class="inline">device_id</code>, <code class="inline">container_deployment_id</code> labels</td></tr><tr><td style="text-align: left;"><code class="inline">FILES_TELEMETRY_INCLUDE_IDENTIFIERS</code></td><td style="text-align: left;"><code class="inline">files_telemetry_include_identifiers</code></td><td style="text-align: left;">File metrics lose <code class="inline">request_id</code>, <code class="inline">device_id</code>, <code class="inline">file_id</code> labels</td></tr></tbody></table><p>Low-cardinality labels (<code class="inline">tenant_slug</code>, <code class="inline">resource_type</code>, <code class="inline">result</code>, <code class="inline">reason</code>,
+<code class="inline">destination_type</code>/<code class="inline">source_type</code>) are always present. If you do not filter
+dashboards per device or deployment, set the corresponding option to <code class="inline">false</code> to
+keep cardinality low.</p><h2 id="grafana-dashboards" class="section-heading"><a href="#grafana-dashboards" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Grafana dashboards</span></h2><p>PromEx uploads its built-in dashboards for the application, BEAM, Phoenix, Ecto,
+and Absinthe metrics (see <code class="inline">dashboards/0</code> in <code class="inline">lib/edgehog/prom_ex.ex</code>). There are
+currently no custom dashboards for the container and file-transfer metric
+groups; query the metric names listed in the
+<a href="observability_containers.html#prometheus-metrics">container</a> and
+<a href="observability_files.html#prometheus-metrics">file</a> pages directly in Grafana.</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="deploying_with_kubernetes.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Deploying with Kubernetes
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="observability_containers.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Container telemetry
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

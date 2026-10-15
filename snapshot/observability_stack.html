@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.3">
+    <meta name="project" content="Clea Edgehog v0.14.0">
+
+
+    <title>Platform telemetry — Clea Edgehog v0.14.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+
+    <script defer src="dist/sidebar_items-9B3F1CEF.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-Y2MUTVIN.js"></script>
+<link rel="stylesheet" href="style/cards.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="intro.html" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="intro.html" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.14.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>Platform telemetry</h1>
+
+<a href="observability_stack.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/docs/pages/admin/observability_stack.md#L1" title="View Source" class="icon-action" rel="help nofollow">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+  </div>
+
+
+<p>Besides the Edgehog-specific <a href="observability_containers.html">container</a> and
+<a href="observability_files.html">file</a> events, Edgehog collects standard platform
+telemetry through PromEx built-in plugins and the Phoenix telemetry setup.
+Nothing here is Edgehog-specific: these are the same metrics any Phoenix/Ecto
+application gets from PromEx and <a href="https://hexdocs.pm/telemetry_metrics/1.2.0/Telemetry.Metrics.html"><code class="inline">Telemetry.Metrics</code></a>. They are documented here
+so operators know what already exists before adding custom instrumentation.</p><h2 id="promex-built-in-plugins" class="section-heading"><a href="#promex-built-in-plugins" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">PromEx built-in plugins</span></h2><p>Enabled in <code class="inline">plugins/0</code> (<code class="inline">lib/edgehog/prom_ex.ex</code>):</p><table><thead><tr><th style="text-align: left;">Plugin</th><th style="text-align: left;">What it collects</th></tr></thead><tbody><tr><td style="text-align: left;"><a href="https://hexdocs.pm/prom_ex/1.12.0/PromEx.Plugins.Application.html"><code class="inline">PromEx.Plugins.Application</code></a></td><td style="text-align: left;">OTP application status (started applications, versions)</td></tr><tr><td style="text-align: left;"><a href="https://hexdocs.pm/prom_ex/1.12.0/PromEx.Plugins.Beam.html"><code class="inline">PromEx.Plugins.Beam</code></a></td><td style="text-align: left;">BEAM VM metrics: memory, allocators, schedulers, run queues, process counts</td></tr><tr><td style="text-align: left;"><a href="https://hexdocs.pm/prom_ex/1.12.0/PromEx.Plugins.Phoenix.html"><code class="inline">PromEx.Plugins.Phoenix</code></a> (with <a href="EdgehogWeb.Router.html"><code class="inline">EdgehogWeb.Router</code></a> and <a href="EdgehogWeb.Endpoint.html"><code class="inline">EdgehogWeb.Endpoint</code></a>)</td><td style="text-align: left;">HTTP request lifecycle: request counts, durations, statuses per route</td></tr><tr><td style="text-align: left;"><a href="https://hexdocs.pm/prom_ex/1.12.0/PromEx.Plugins.Ecto.html"><code class="inline">PromEx.Plugins.Ecto</code></a></td><td style="text-align: left;">Database interaction: query counts, queue/decode/query/idle times per repo. Since all persistence (including Ash resources) goes through Ecto repos, Ash-driven database load is visible here; there is no separate Ash plugin</td></tr><tr><td style="text-align: left;"><a href="https://hexdocs.pm/prom_ex/1.12.0/PromEx.Plugins.Absinthe.html"><code class="inline">PromEx.Plugins.Absinthe</code></a></td><td style="text-align: left;">GraphQL (Absinthe) operation counts, durations, errors</td></tr></tbody></table><blockquote><p>[!NOTE]
+Some metrics are <strong>not</strong> exposed: <a href="https://hexdocs.pm/oban/2.23.1/Oban.html"><code class="inline">Oban</code></a>, <code class="inline">PhoenixLiveView</code>. If those
+dependencies are adopted later, uncomment the corresponding plugin and
+dashboard lines.</p></blockquote><p>Corresponding Grafana dashboards are uploaded by <code class="inline">dashboards/0</code>
+(<code class="inline">lib/edgehog/prom_ex.ex</code>): <code class="inline">application.json</code>, <code class="inline">beam.json</code>, <code class="inline">phoenix.json</code>,
+<code class="inline">ecto.json</code>, <code class="inline">absinthe.json</code>.</p><h2 id="phoenix-console-metrics" class="section-heading"><a href="#phoenix-console-metrics" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Phoenix console metrics</span></h2><p>The web telemetry supervisor (<code class="inline">lib/edgehog_web/telemetry.ex</code>) defines
+<a href="https://hexdocs.pm/telemetry_metrics/1.2.0/Telemetry.Metrics.html"><code class="inline">Telemetry.Metrics</code></a> summaries intended for a console reporter during development
+(currently commented out in the supervision tree):</p><ul><li><code class="inline">phoenix.endpoint.stop.duration</code> and <code class="inline">phoenix.router_dispatch.stop.duration</code>
+(tagged by route), in milliseconds.</li><li><code class="inline">edgehog.repo.query.*</code>: <code class="inline">total_time</code>, <code class="inline">decode_time</code>, <code class="inline">query_time</code>,
+<code class="inline">queue_time</code>, <code class="inline">idle_time</code>, in milliseconds.</li><li><code class="inline">vm.memory.total</code> (bytes to kilobytes) and <code class="inline">vm.total_run_queue_lengths.*</code>
+(total, cpu, io).</li></ul><p>A <code class="inline">:telemetry_poller</code> child (10s period) is supervised for periodic VM
+measurements, with <code class="inline">periodic_measurements/0</code> left empty as a hook for future
+custom poller functions.</p><p>For production Prometheus scraping, rely on the PromEx plugins above rather than
+these console metrics.</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="observability_files.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+File telemetry
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="interacting_with_edgehog.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Interacting with Edgehog
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>

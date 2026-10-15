@@ -3,7 +3,7 @@
 
 The provisioner for deploying networks on a device.
 
-For more information, check the `Edgehog.Containers.Provisioner` docs.
+For more information, check the `Edgehog.Provisioner` docs.
 
 # `child_spec`
 

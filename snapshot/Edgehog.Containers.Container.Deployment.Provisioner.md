@@ -32,7 +32,7 @@ Timeouts (something goes wrong)
 - A :timeout hits the server, it retries to send the container information to the
   device
 
-For more information, check the `Edgehog.Containers.Provisioner` docs.
+For more information, check the `Edgehog.Provisioner` docs.
 
 # `child_spec`
 

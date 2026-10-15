@@ -9,7 +9,7 @@ an uploaded file when the env file has no explicit target, and then sending a
 through the `AvailableEnvFiles` interface, like any other container
 resource.
 
-For more information, check the `Edgehog.Containers.Provisioner.Core.Behaviour` docs.
+For more information, check the `Edgehog.Provisioner.Core.Behaviour` docs.
 
 # `maybe_update`
 

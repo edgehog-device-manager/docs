@@ -319,6 +319,48 @@ the deployment as timed out and broadcasting a failure. Defaults to 10 minutes.
 Bang version of `Edgehog.Config.deployment_provisioning_timeout/0` (fails on error). Optionally,
 receives the `namespace` for the variable.
 
+# `files_telemetry_include_identifiers`
+
+```elixir
+@spec files_telemetry_include_identifiers(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Whether file transfer telemetry events should include high-cardinality
+identifier labels (request_id, file_id, device_id).
+
+These labels allow filtering the metrics per specific request, file or
+device (e.g. in Grafana), at the cost of a higher number of Prometheus time
+series. Disable them if you are not filtering on them and want to keep the
+cardinality low.
+
+Calling `Edgehog.Config.files_telemetry_include_identifiers()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "FILES_TELEMETRY_INCLUDE_IDENTIFIERS"
+- Type: :boolean
+- Default: true
+- Required: false
+- Cached: true
+
+# `files_telemetry_include_identifiers!`
+
+```elixir
+@spec files_telemetry_include_identifiers!(Skogsra.Env.namespace()) ::
+  boolean() | no_return()
+```
+
+Whether file transfer telemetry events should include high-cardinality
+identifier labels (request_id, file_id, device_id).
+
+These labels allow filtering the metrics per specific request, file or
+device (e.g. in Grafana), at the cost of a higher number of Prometheus time
+series. Disable them if you are not filtering on them and want to keep the
+cardinality low.
+
+Bang version of `Edgehog.Config.files_telemetry_include_identifiers/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
 # `geocoding_providers!`
 
 ```elixir
@@ -774,6 +816,16 @@ the `namespace`.
 Puts the `value` to `Edgehog.Config.deployment_provisioning_timeout/0`. Optionally, receives
 the `namespace`.
 
+# `put_files_telemetry_include_identifiers`
+
+```elixir
+@spec put_files_telemetry_include_identifiers(boolean(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.files_telemetry_include_identifiers/0`. Optionally, receives
+the `namespace`.
+
 # `put_google_geocoding_api_key`
 
 ```elixir
@@ -977,6 +1029,16 @@ the `namespace` for the variable.
 ```
 
 Reloads the value for `Edgehog.Config.deployment_provisioning_timeout/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_files_telemetry_include_identifiers`
+
+```elixir
+@spec reload_files_telemetry_include_identifiers(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.files_telemetry_include_identifiers/0`. Optionally, receives
 the `namespace` for the variable.
 
 # `reload_google_geocoding_api_key`

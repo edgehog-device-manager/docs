@@ -7,7 +7,7 @@ It waits until the device reports the download as completed, so the
 container deployment orchestrator can treat files like any other
 provisioned resource.
 
-For more information, check the `Edgehog.Containers.Provisioner` docs.
+For more information, check the `Edgehog.Provisioner` docs.
 
 # `child_spec`
 

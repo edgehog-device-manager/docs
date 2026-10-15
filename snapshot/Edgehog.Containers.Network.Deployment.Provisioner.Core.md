@@ -3,5 +3,5 @@
 
 The module describing the Core functions required by the network deployment provisioner.
 
-For more information, check the `Edgehog.Containers.Provisioner.Core.Behaviour` docs.
+For more information, check the `Edgehog.Provisioner.Core.Behaviour` docs.
 

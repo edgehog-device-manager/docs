@@ -7,27 +7,27 @@ Events can be emitted on the following topics:
 
 - `[:edgehog, :containers, :provisioning, :start]` when a provisioner
   starts provisioning a resource. Metadata contains `resource_type`,
-  `resource_id`, `deployment_id` and `device_id`.
+  `resource_id`, `deployment_id`, `device_id` and `tenant_slug`.
 - `[:edgehog, :containers, :provisioning, :stop]` when a provisioner
   terminates, either successfully or with a failure. Metadata contains
-  `resource_type`, `resource_id`, `deployment_id`, `device_id`, `result`
-  (either `:ok` or `:error`) and `reason` (either the provisioning outcome,
+  `resource_type`, `resource_id`, `deployment_id`, `device_id`, `tenant_slug`,
+  `result` (either `:ok` or `:error`) and `reason` (either the provisioning outcome,
   e.g. `:ready` or `:already_ready`, or the failure reason). Measurements
   contain `duration` (native time) and `retries`.
 - `[:edgehog, :containers, :deployment, :start]` when a deployment
   orchestrator starts conducting a deployment. Metadata contains
-  `deployment_id` and `device_id`.
+  `deployment_id`, `device_id` and `tenant_slug`.
 - `[:edgehog, :containers, :deployment, :stop]` when a deployment
   orchestrator terminates, either successfully or with a failure. Metadata
-  contains `deployment_id`, `device_id` and `result`. Measurements contain
+  contains `deployment_id`, `device_id`, `tenant_slug` and `result`. Measurements contain
   `duration` (native time).
 - `[:edgehog, :containers, :container_deployment, :start]` when a container
   deployment orchestrator starts conducting a container deployment. Metadata
-  contains `container_deployment_id`, `deployment_id` and `device_id`.
+  contains `container_deployment_id`, `deployment_id`, `device_id` and `tenant_slug`.
 - `[:edgehog, :containers, :container_deployment, :stop]` when a container
   deployment orchestrator terminates, either successfully or with a failure.
-  Metadata contains `container_deployment_id`, `deployment_id`, `device_id`
-  and `result`. Measurements contain `duration` (native time).
+  Metadata contains `container_deployment_id`, `deployment_id`, `device_id`,
+  `tenant_slug` and `result`. Measurements contain `duration` (native time).
 
 # `container_deployment_completed`
 

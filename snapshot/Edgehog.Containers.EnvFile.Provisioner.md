@@ -7,7 +7,7 @@ Provisioning an env file means ensuring the backing file is available on
 the device (creating a file download request for uploaded files when
 needed) and then sending a `CreateEnvFileRequest` to the device.
 
-For more information, check the `Edgehog.Containers.Provisioner` docs.
+For more information, check the `Edgehog.Provisioner` docs.
 
 # `child_spec`
 

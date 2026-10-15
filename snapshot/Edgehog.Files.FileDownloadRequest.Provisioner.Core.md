@@ -9,5 +9,5 @@ backing target-less file binds like any other provisioned resource: the
 provisioner broadcasts readiness once the device reports the download as
 completed, and a failure if the provisioning deadline is hit.
 
-For more information, check the `Edgehog.Containers.Provisioner.Core.Behaviour` docs.
+For more information, check the `Edgehog.Provisioner.Core.Behaviour` docs.
 

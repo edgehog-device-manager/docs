@@ -42,6 +42,10 @@
 
 - Admin Guide
   - [Deploying with Kubernetes](deploying_with_kubernetes.md)
+  - [Observability](observability.md)
+  - [Container telemetry](observability_containers.md)
+  - [File telemetry](observability_files.md)
+  - [Platform telemetry](observability_stack.md)
 
 - Integrating with Edgehog
   - [Interacting with Edgehog](interacting_with_edgehog.md)
@@ -154,6 +158,7 @@ A deployment is ready when:
   - [Edgehog.Containers.Container.Deployment.Orchestrator.Core](Edgehog.Containers.Container.Deployment.Orchestrator.Core.md): Container orchestrator pure functions.
 
   - [Edgehog.Containers.Container.Deployment.Provisioner](Edgehog.Containers.Container.Deployment.Provisioner.md): A container deployment provisioner.
+  - [Edgehog.Containers.Container.Deployment.Provisioner.Audit](Edgehog.Containers.Container.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the container deployment provisioner.
   - [Edgehog.Containers.Container.Deployment.Provisioner.Core](Edgehog.Containers.Container.Deployment.Provisioner.Core.md): The module describing the Core functions required by the container deployment provisioner.
   - [Edgehog.Containers.Container.Deployment.Validations.EnvOrEnvFile](Edgehog.Containers.Container.Deployment.Validations.EnvOrEnvFile.md): Ensures that a container deployment does not have both additional env vars and env files.
 At most one of `env` and `env_files` may be set; setting both is ambiguous.
@@ -191,6 +196,7 @@ needed.
   - [Edgehog.Containers.Deployment.Orchestrator.Core](Edgehog.Containers.Deployment.Orchestrator.Core.md): Deployment orchestrator pure functions.
 
   - [Edgehog.Containers.Deployment.Provisioner](Edgehog.Containers.Deployment.Provisioner.md): A deployment provisioner.
+  - [Edgehog.Containers.Deployment.Provisioner.Audit](Edgehog.Containers.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the deployment provisioner.
   - [Edgehog.Containers.Deployment.Provisioner.Core](Edgehog.Containers.Deployment.Provisioner.Core.md): The module describing the Core functions required by the deployment provisioner.
   - [Edgehog.Containers.Deployment.Starter](Edgehog.Containers.Deployment.Starter.md): Deployments starter.
   - [Edgehog.Containers.Deployment.Starter.Core](Edgehog.Containers.Deployment.Starter.Core.md): Deployment starter core functions.
@@ -201,34 +207,35 @@ needed.
 
   - [Edgehog.Containers.DeploymentReadyAction.Changes.CreateDeployment](Edgehog.Containers.DeploymentReadyAction.Changes.CreateDeployment.md): Ash change for deployment ready action that creates the target deployment.
   - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.md): The provisioner for deploying device mappings on a device.
+  - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Audit](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the device mapping deployment provisioner.
   - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device mapping deployment provisioner.
   - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.md): The provisioner for deploying device requests on a device.
+  - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Audit](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the device request deployment provisioner.
   - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device request deployment provisioner.
   - [Edgehog.Containers.EnvFile.Calculations.GetUploadUrl](Edgehog.Containers.EnvFile.Calculations.GetUploadUrl.md): Returns a presigned PUT URL the client can use to upload the file
 for a target-less env file.
   - [Edgehog.Containers.EnvFile.Changes.HandleEnvFileDeletion](Edgehog.Containers.EnvFile.Changes.HandleEnvFileDeletion.md): Deletes the bucket object uploaded for a target-less env file.
   - [Edgehog.Containers.EnvFile.Provisioner](Edgehog.Containers.EnvFile.Provisioner.md): The provisioner for env files.
+  - [Edgehog.Containers.EnvFile.Provisioner.Audit](Edgehog.Containers.EnvFile.Provisioner.Audit.md): The module describing the Audit functions for the env file provisioner.
   - [Edgehog.Containers.EnvFile.Provisioner.Core](Edgehog.Containers.EnvFile.Provisioner.Core.md): The module describing the Core functions required by the env file provisioner.
   - [Edgehog.Containers.EnvFile.Storage](Edgehog.Containers.EnvFile.Storage.md): Storage helpers for target-less env files.
   - [Edgehog.Containers.FileBind.Calculations.GetUploadUrl](Edgehog.Containers.FileBind.Calculations.GetUploadUrl.md): Returns a presigned PUT URL the client can use to upload the file
 for a target-less file bind.
   - [Edgehog.Containers.FileBind.Changes.HandleFileBindDeletion](Edgehog.Containers.FileBind.Changes.HandleFileBindDeletion.md): Deletes the bucket object uploaded for a target-less file bind.
   - [Edgehog.Containers.FileBind.Provisioner](Edgehog.Containers.FileBind.Provisioner.md): The provisioner for file binds.
+  - [Edgehog.Containers.FileBind.Provisioner.Audit](Edgehog.Containers.FileBind.Provisioner.Audit.md): The module describing the Audit functions for the file bind provisioner.
   - [Edgehog.Containers.FileBind.Provisioner.Core](Edgehog.Containers.FileBind.Provisioner.Core.md): The module describing the Core functions required by the file bind provisioner.
   - [Edgehog.Containers.FileBind.Storage](Edgehog.Containers.FileBind.Storage.md): Storage helpers for target-less file binds.
   - [Edgehog.Containers.Image.Deployment.Provisioner](Edgehog.Containers.Image.Deployment.Provisioner.md): The provisioner for deploying images on a device.
+  - [Edgehog.Containers.Image.Deployment.Provisioner.Audit](Edgehog.Containers.Image.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the image deployment provisioner.
   - [Edgehog.Containers.Image.Deployment.Provisioner.Core](Edgehog.Containers.Image.Deployment.Provisioner.Core.md): The module describing the Core functions required by the image deployment provisioner.
   - [Edgehog.Containers.Image.Image.Config](Edgehog.Containers.Image.Image.Config.md)
   - [Edgehog.Containers.ImageCredentials.ImageCredentials.Config](Edgehog.Containers.ImageCredentials.ImageCredentials.Config.md)
   - [Edgehog.Containers.Network.Deployment.Provisioner](Edgehog.Containers.Network.Deployment.Provisioner.md): The provisioner for deploying networks on a device.
+  - [Edgehog.Containers.Network.Deployment.Provisioner.Audit](Edgehog.Containers.Network.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the network deployment provisioner.
   - [Edgehog.Containers.Network.Deployment.Provisioner.Core](Edgehog.Containers.Network.Deployment.Provisioner.Core.md): The module describing the Core functions required by the network deployment provisioner.
   - [Edgehog.Containers.Network.Network.Config](Edgehog.Containers.Network.Network.Config.md)
   - [Edgehog.Containers.PromExPlugin](Edgehog.Containers.PromExPlugin.md): PromEx plugin for the Edgehog containers feature.
-  - [Edgehog.Containers.Provisioner](Edgehog.Containers.Provisioner.md): This module provides the default implementation for `Edgehog.Containers.Provisioner.Behaviour`.
-It is sufficient to add a using statement like so
-  - [Edgehog.Containers.Provisioner.Behaviour](Edgehog.Containers.Provisioner.Behaviour.md): Behaviour describing the API of a Provisioner for a resource.
-  - [Edgehog.Containers.Provisioner.Core](Edgehog.Containers.Provisioner.Core.md): Convenience module for `Edgehog.Containers.Provisioner.Core.Behaviour`.
-  - [Edgehog.Containers.Provisioner.Core.Behaviour](Edgehog.Containers.Provisioner.Core.Behaviour.md): Behaviour describing the API of the Core functions for a Provisioner.
   - [Edgehog.Containers.Reconciler](Edgehog.Containers.Reconciler.md): Reconciler for container-related data between the device and the backend.
   - [Edgehog.Containers.Reconciler.Behaviour](Edgehog.Containers.Reconciler.Behaviour.md): Behavior for the reconciler. It should implement
 - a `start_link` to start the reconciler.
@@ -264,6 +271,7 @@ true -> :ok
 false -> {:error, :not_dangling}
 
   - [Edgehog.Containers.Volume.Deployment.Provisioner](Edgehog.Containers.Volume.Deployment.Provisioner.md): The provisioner for deploying volumes on a device.
+  - [Edgehog.Containers.Volume.Deployment.Provisioner.Audit](Edgehog.Containers.Volume.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the volume deployment provisioner.
   - [Edgehog.Containers.Volume.Deployment.Provisioner.Core](Edgehog.Containers.Volume.Deployment.Provisioner.Core.md): The module describing the Core functions required by the volume deployment provisioner.
   - [Edgehog.Containers.Volume.Volume.Config](Edgehog.Containers.Volume.Volume.Config.md)
 
@@ -332,6 +340,7 @@ after the file download request resource has been created.
   - [Edgehog.Files.FileDownloadRequest.ManualActions.SendFileDownloadRequest](Edgehog.Files.FileDownloadRequest.ManualActions.SendFileDownloadRequest.md): Manual action responsible for sending a file download request to the Astarte device.
 
   - [Edgehog.Files.FileDownloadRequest.Provisioner](Edgehog.Files.FileDownloadRequest.Provisioner.md): The provisioner for file download requests backing container file binds.
+  - [Edgehog.Files.FileDownloadRequest.Provisioner.Audit](Edgehog.Files.FileDownloadRequest.Provisioner.Audit.md): The module describing the Audit functions for the file download request provisioner.
   - [Edgehog.Files.FileDownloadRequest.Provisioner.Core](Edgehog.Files.FileDownloadRequest.Provisioner.Core.md): The module describing the Core functions required by the file download
 request provisioner.
   - [Edgehog.Files.FileDownloadRequest.Status](Edgehog.Files.FileDownloadRequest.Status.md): Status of a file transfer request.
@@ -349,7 +358,9 @@ for a file upload request before persisting it.
   - [Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest](Edgehog.Files.FileUploadRequest.ManualActions.SendFileUploadRequest.md): Manual action responsible for sending a file upload request to the Astarte device.
 
   - [Edgehog.Files.FileUploadRequest.Status](Edgehog.Files.FileUploadRequest.Status.md): Status of a file transfer request.
+  - [Edgehog.Files.PromExPlugin](Edgehog.Files.PromExPlugin.md): PromEx plugin for the Edgehog files feature.
   - [Edgehog.Files.Supervisor](Edgehog.Files.Supervisor.md): Files registries and dynaimc supervisors.
+  - [Edgehog.Files.Telemetry](Edgehog.Files.Telemetry.md): Edgehog file transfer telemetry.
   - [Edgehog.Files.Uploaders.File](Edgehog.Files.Uploaders.File.md): Waffle uploader for files.
 
 - OS management
@@ -493,6 +504,14 @@ You can optionally pass the `obj_id` attribute name.
 
   - [Edgehog.MultitenantResource](Edgehog.MultitenantResource.md): Define the resource as `belong_to` with a `Edgehog.Tenant.Tenant`.
   - [Edgehog.PromEx](Edgehog.PromEx.md): Be sure to add the following to finish setting up PromEx
+  - [Edgehog.Provisioner](Edgehog.Provisioner.md): This module provides the default implementation for `Edgehog.Provisioner.Behaviour`.
+It is sufficient to add a using statement like so
+  - [Edgehog.Provisioner.Audit](Edgehog.Provisioner.Audit.md): Convenience module for `Edgehog.Provisioner.Audit.Behaviour`.
+  - [Edgehog.Provisioner.Audit.Behaviour](Edgehog.Provisioner.Audit.Behaviour.md): Behavior describing the Audit functions for the Provisioner.
+  - [Edgehog.Provisioner.Audit.Default](Edgehog.Provisioner.Audit.Default.md): Default no-op implementation of `Edgehog.Provisioner.Audit.Behaviour`.
+  - [Edgehog.Provisioner.Behaviour](Edgehog.Provisioner.Behaviour.md): Behaviour describing the API of a Provisioner for a resource.
+  - [Edgehog.Provisioner.Core](Edgehog.Provisioner.Core.md): Convenience module for `Edgehog.Provisioner.Core.Behaviour`.
+  - [Edgehog.Provisioner.Core.Behaviour](Edgehog.Provisioner.Core.Behaviour.md): Behaviour describing the API of the Core functions for a Provisioner.
   - [Edgehog.Repo](Edgehog.Repo.md)
   - [Edgehog.Selector.Filter](Edgehog.Selector.Filter.md)
   - [Edgehog.Storage](Edgehog.Storage.md): Storage-agnostic presigned URL generation and file management.

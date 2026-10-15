@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.40.3">
+    <meta name="project" content="Clea Edgehog v0.14.0">
+
+
+    <title>File telemetry — Clea Edgehog v0.14.0</title>
+
+    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+
+    <script defer src="dist/sidebar_items-9B3F1CEF.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-Y2MUTVIN.js"></script>
+<link rel="stylesheet" href="style/cards.css">
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="intro.html" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Clea Edgehog" />
+        </a>
+
+      <div>
+        <a href="intro.html" class="sidebar-projectName" translate="no">
+Clea Edgehog
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.14.0
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="Pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-extra" id="main" data-type="extras">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Clea Edgehog</span>
+            <div class="search-input-wrapper">
+              <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+              <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+                <i class="ri-close-line ri-lg" title="Cancel search"></i>
+              </button>
+            </div>
+          </label>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <div class="engine-selector" data-multiple="false">
+          <button type="button" class="engine-button" aria-label="Select search engine" aria-haspopup="true" aria-expanded="false">
+            <i class="ri-search-2-line" aria-hidden="true"></i>
+            <span class="engine-name">Default</span>
+            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+          </button>
+          <div class="engine-dropdown" hidden role="menu">
+
+              <button type="button"
+                      class="engine-option"
+                      data-engine-url="search.html?q="
+                      role="menuitemradio"
+                      aria-checked="true">
+                <span class="name">Default</span>
+                <span class="help">In-browser search</span>
+              </button>
+
+          </div>
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>File telemetry</h1>
+
+<a href="observability_files.md" title="Copy Markdown (hold Ctrl/Cmd and click it to open as Markdown)" class="copy-markdown icon-action" rel="help">
+  <i class="ri-markdown-line" aria-hidden="true"></i>
+  <span class="sr-only">Copy Markdown</span>
+</a>
+
+
+      <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/docs/pages/admin/observability_files.md#L1" title="View Source" class="icon-action" rel="help nofollow">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+  </div>
+
+
+<p>The files feature emits <a href="https://hexdocs.pm/telemetry"><code class="inline">:telemetry</code></a> events for
+the lifecycle of file download requests. Event definitions live in
+<a href="Edgehog.Files.Telemetry.html"><code class="inline">Edgehog.Files.Telemetry</code></a> (<code class="inline">lib/edgehog/files/telemetry.ex</code>); the Prometheus
+mapping lives in <a href="Edgehog.Files.PromExPlugin.html"><code class="inline">Edgehog.Files.PromExPlugin</code></a>
+(<code class="inline">lib/edgehog/files/prom_ex_plugin.ex</code>).</p><p>See the <a href="observability.html">observability overview</a> for how to attach handlers
+and for the identifier cardinality options.</p><h2 id="events" class="section-heading"><a href="#events" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Events</span></h2><p>Both lifecycles follow the <code class="inline">start</code>/<code class="inline">stop</code> convention. <code class="inline">start</code> measurements are
+<code class="inline">%{count: 1, system_time: System.system_time()}</code>; <code class="inline">stop</code> measurements are
+<code class="inline">%{count: 1, duration: duration, retries: retries}</code> with duration in native time
+units. <code class="inline">stop</code> metadata adds <code class="inline">result</code> (<code class="inline">:ok</code> or <code class="inline">:error</code>), <code class="inline">reason</code>, <code class="inline">duration</code>,
+and <code class="inline">duration_unit</code> (<code class="inline">:native</code>).</p><h3 id="file-download-requests" class="section-heading"><a href="#file-download-requests" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">File download requests</span></h3><table><thead><tr><th style="text-align: left;">Event</th><th style="text-align: left;">Emitted when</th><th style="text-align: left;">Measurements</th><th style="text-align: left;">Metadata</th></tr></thead><tbody><tr><td style="text-align: left;"><code class="inline">[:edgehog, :files, :file_download_request, :start]</code></td><td style="text-align: left;">The file download request provisioner (<code class="inline">lib/edgehog/files/file_download_request/provisioner/core.ex</code>) starts provisioning a download</td><td style="text-align: left;"><code class="inline">count</code>, <code class="inline">system_time</code></td><td style="text-align: left;"><code class="inline">transfer_type</code> (<code class="inline">:download</code>), <code class="inline">destination_type</code>, <code class="inline">progress_tracked</code>, <code class="inline">needs_encoding</code>, <code class="inline">started_at</code>, <code class="inline">tenant</code>, plus, unless <code class="inline">files_telemetry_include_identifiers</code> is <code class="inline">false</code>, <code class="inline">request_id</code>, <code class="inline">device_id</code>, <code class="inline">file_id</code></td></tr><tr><td style="text-align: left;"><code class="inline">[:edgehog, :files, :file_download_request, :stop]</code></td><td style="text-align: left;">The download request terminates, successfully or not</td><td style="text-align: left;"><code class="inline">count</code>, <code class="inline">duration</code>, <code class="inline">retries</code></td><td style="text-align: left;">Start metadata plus <code class="inline">result</code>, <code class="inline">reason</code> (the provisioning outcome, e.g. <code class="inline">:ready</code> or <code class="inline">:already_ready</code>, or the failure reason), <code class="inline">duration</code>, <code class="inline">duration_unit</code></td></tr></tbody></table><h3 id="file-upload-requests" class="section-heading"><a href="#file-upload-requests" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">File upload requests*</span></h3><p>The <code class="inline">file_upload_request_started/1</code>, <code class="inline">file_upload_request_completed/5</code>, and
+<code class="inline">file_upload_request_failed/5</code> functions and the corresponding PromEx metrics
+exist, with the same shape as the download events (<code class="inline">transfer_type: :upload</code>,
+<code class="inline">source_type</code> instead of <code class="inline">destination_type</code>, identifiers <code class="inline">request_id</code> and
+<code class="inline">device_id</code>) The tables below document the events as defined so consumers and
+future emitters stay consistent:</p><table><thead><tr><th style="text-align: left;">Event</th><th style="text-align: left;">Measurements</th><th style="text-align: left;">Metadata</th></tr></thead><tbody><tr><td style="text-align: left;"><code class="inline">[:edgehog, :files, :file_upload_request, :start]</code></td><td style="text-align: left;"><code class="inline">count</code>, <code class="inline">system_time</code></td><td style="text-align: left;"><code class="inline">transfer_type</code> (<code class="inline">:upload</code>), <code class="inline">source_type</code>, <code class="inline">progress_tracked</code>, <code class="inline">needs_encoding</code>, <code class="inline">started_at</code>, <code class="inline">tenant</code>, plus, unless identifiers are disabled, <code class="inline">request_id</code>, <code class="inline">device_id</code></td></tr><tr><td style="text-align: left;"><code class="inline">[:edgehog, :files, :file_upload_request, :stop]</code></td><td style="text-align: left;"><code class="inline">count</code>, <code class="inline">duration</code>, <code class="inline">retries</code></td><td style="text-align: left;">Start metadata plus <code class="inline">result</code>, <code class="inline">reason</code>, <code class="inline">duration</code>, <code class="inline">duration_unit</code></td></tr></tbody></table><h2 id="prometheus-metrics" class="section-heading"><a href="#prometheus-metrics" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Prometheus metrics</span></h2><p><a href="Edgehog.Files.PromExPlugin.html"><code class="inline">Edgehog.Files.PromExPlugin</code></a> exposes two event-metric groups. Identifier labels
+(<code class="inline">request_id</code>, <code class="inline">device_id</code>, <code class="inline">file_id</code>) are only present when
+<code class="inline">files_telemetry_include_identifiers</code> is <code class="inline">true</code> (the default).</p><h3 id="download-files_file_download_request_event_metrics" class="section-heading"><a href="#download-files_file_download_request_event_metrics" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Download (<code class="inline">:files_file_download_request_event_metrics</code>)</span></h3><table><thead><tr><th style="text-align: left;">Metric</th><th style="text-align: left;">Type</th><th style="text-align: left;">Source event / measurement</th></tr></thead><tbody><tr><td style="text-align: left;"><code class="inline">edgehog_files_file_download_request_started_total</code></td><td style="text-align: left;">counter</td><td style="text-align: left;">download <code class="inline">start</code>, <code class="inline">count</code>. Labels: <code class="inline">destination_type</code>, <code class="inline">request_id</code>, <code class="inline">device_id</code>, <code class="inline">file_id</code>, <code class="inline">tenant_slug</code></td></tr><tr><td style="text-align: left;"><code class="inline">edgehog_files_file_download_request_completed_total</code></td><td style="text-align: left;">counter</td><td style="text-align: left;">download <code class="inline">stop</code>, <code class="inline">count</code>. Labels: as above plus <code class="inline">result</code>, <code class="inline">reason</code></td></tr><tr><td style="text-align: left;"><code class="inline">edgehog_files_file_download_request_duration_seconds</code></td><td style="text-align: left;">distribution</td><td style="text-align: left;">download <code class="inline">stop</code>, <code class="inline">duration</code> (converted to seconds). Labels: <code class="inline">destination_type</code>, <code class="inline">device_id</code>, <code class="inline">result</code>, <code class="inline">reason</code>, <code class="inline">tenant_slug</code>. Buckets: 100ms–60s</td></tr><tr><td style="text-align: left;"><code class="inline">edgehog_files_file_download_request_retries</code></td><td style="text-align: left;">last value</td><td style="text-align: left;">download <code class="inline">stop</code>, <code class="inline">retries</code>. Labels: <code class="inline">destination_type</code>, <code class="inline">device_id</code>, <code class="inline">result</code>, <code class="inline">tenant_slug</code></td></tr></tbody></table><h3 id="upload-files_file_upload_request_event_metrics" class="section-heading"><a href="#upload-files_file_upload_request_event_metrics" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Upload (<code class="inline">:files_file_upload_request_event_metrics</code>)</span></h3><table><thead><tr><th style="text-align: left;">Metric</th><th style="text-align: left;">Type</th><th style="text-align: left;">Source event / measurement</th></tr></thead><tbody><tr><td style="text-align: left;"><code class="inline">edgehog_files_file_upload_request_started_total</code></td><td style="text-align: left;">counter</td><td style="text-align: left;">upload <code class="inline">start</code>, <code class="inline">count</code>. Labels: <code class="inline">source_type</code>, <code class="inline">request_id</code>, <code class="inline">device_id</code>, <code class="inline">tenant_slug</code></td></tr><tr><td style="text-align: left;"><code class="inline">edgehog_files_file_upload_request_completed_total</code></td><td style="text-align: left;">counter</td><td style="text-align: left;">upload <code class="inline">stop</code>, <code class="inline">count</code>. Labels: as above plus <code class="inline">result</code>, <code class="inline">reason</code></td></tr><tr><td style="text-align: left;"><code class="inline">edgehog_files_file_upload_request_duration_seconds</code></td><td style="text-align: left;">distribution</td><td style="text-align: left;">upload <code class="inline">stop</code>, <code class="inline">duration</code> (converted to seconds). Labels: <code class="inline">source_type</code>, <code class="inline">device_id</code>, <code class="inline">result</code>, <code class="inline">reason</code>, <code class="inline">tenant_slug</code>. Buckets: 100ms–60s</td></tr><tr><td style="text-align: left;"><code class="inline">edgehog_files_file_upload_request_retries</code></td><td style="text-align: left;">last value</td><td style="text-align: left;">upload <code class="inline">stop</code>, <code class="inline">retries</code>. Labels: <code class="inline">source_type</code>, <code class="inline">device_id</code>, <code class="inline">result</code>, <code class="inline">tenant_slug</code></td></tr></tbody></table><p>Note the asymmetry with containers: retries are a <code class="inline">last_value</code> gauge here versus
+a distribution for container provisioning.</p>
+
+</div>
+
+<div class="bottom-actions" id="bottom-actions">
+  <div class="bottom-actions-item">
+
+      <a href="observability_containers.html" class="bottom-actions-button" rel="prev">
+        <span class="subheader">
+          ← Previous Page
+        </span>
+        <span class="title">
+Container telemetry
+        </span>
+      </a>
+
+  </div>
+  <div class="bottom-actions-item">
+
+      <a href="observability_stack.html" class="bottom-actions-button" rel="next">
+        <span class="subheader">
+          Next Page →
+        </span>
+        <span class="title">
+Platform telemetry
+        </span>
+      </a>
+
+  </div>
+</div>
+    <footer class="footer">
+
+        <p>
+
+          <span class="line">
+            <button class="a-main footer-button display-quick-switch" title="Go to package docs">
+              Go to package docs
+            </button>
+
+              <a href="llms.txt" target="_blank">
+                View llms.txt
+              </a>
+
+
+              <a href="Clea Edgehog.epub">
+                Download ePub version
+              </a>
+
+          </span>
+        </p>
+
+        <p class="built-using">
+          Built using
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
+
+            <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+        </p>
+
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
