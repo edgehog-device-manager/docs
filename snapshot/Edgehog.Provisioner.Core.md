@@ -1,5 +1,5 @@
 # `Edgehog.Provisioner.Core`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/provisioner/core.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/core.ex#L21)
 
 Convenience module for `Edgehog.Provisioner.Core.Behaviour`.
 

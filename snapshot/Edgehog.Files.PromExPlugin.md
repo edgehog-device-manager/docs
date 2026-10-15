@@ -1,5 +1,5 @@
 # `Edgehog.Files.PromExPlugin`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/files/prom_ex_plugin.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/files/prom_ex_plugin.ex#L21)
 
 PromEx plugin for the Edgehog files feature.
 

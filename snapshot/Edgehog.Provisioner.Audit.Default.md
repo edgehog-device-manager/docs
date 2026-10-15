@@ -1,5 +1,5 @@
 # `Edgehog.Provisioner.Audit.Default`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.0/backend/lib/edgehog/provisioner/audit/default.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/default.ex#L21)
 
 Default no-op implementation of `Edgehog.Provisioner.Audit.Behaviour`.
 
