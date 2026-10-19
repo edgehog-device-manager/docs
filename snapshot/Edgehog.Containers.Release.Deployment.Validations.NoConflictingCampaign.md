@@ -1,0 +1,5 @@
+# `Edgehog.Containers.Release.Deployment.Validations.NoConflictingCampaign`
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/containers/release/deployment/validations/no_conflicting_campaign.ex#L21)
+
+Validates that a deployment is not part of an in-progress campaign with a different operation type.
+
