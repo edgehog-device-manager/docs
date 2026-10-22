@@ -1,5 +1,5 @@
 # `Edgehog.Forwarder.Guardian.Plug`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/forwarder/guardian.ex#L25)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.2/backend/lib/edgehog/forwarder/guardian.ex#L25)
 
 # `authenticated?`
 

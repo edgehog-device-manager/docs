@@ -1,5 +1,5 @@
 # `Edgehog.Files.FileDownloadRequest.FileDestination`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/files/file_download_request/file_destination.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.2/backend/lib/edgehog/files/file_download_request/file_destination.ex#L21)
 
 Enum representing the destination of a file download request on an Astarte device.
 

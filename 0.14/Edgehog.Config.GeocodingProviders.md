@@ -1,5 +1,5 @@
 # `Edgehog.Config.GeocodingProviders`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/config/geocoding_providers.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.2/backend/lib/edgehog/config/geocoding_providers.ex#L21)
 
 Geocoding providers type for configuration.
 

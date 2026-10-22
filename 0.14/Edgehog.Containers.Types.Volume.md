@@ -1,5 +1,5 @@
 # `Edgehog.Containers.Types.Volume`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/containers/types/volume.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.2/backend/lib/edgehog/containers/types/volume.ex#L21)
 
 Input type representing an volume.
 

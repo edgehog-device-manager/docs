@@ -1,5 +1,5 @@
 # `Edgehog.Containers.Deployment.Starter`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/containers/deployment/starter.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.2/backend/lib/edgehog/containers/deployment/starter.ex#L21)
 
 Deployments starter.
 

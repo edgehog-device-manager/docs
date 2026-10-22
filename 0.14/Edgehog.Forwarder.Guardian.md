@@ -1,5 +1,5 @@
 # `Edgehog.Forwarder.Guardian`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/forwarder/guardian.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.2/backend/lib/edgehog/forwarder/guardian.ex#L21)
 
 Auth layer to handle connections to the device forwarder.
 

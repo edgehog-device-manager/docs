@@ -1,5 +1,5 @@
 # `Edgehog.Containers.Types.FileMount`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/containers/types/file_mount.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.2/backend/lib/edgehog/containers/types/file_mount.ex#L21)
 
 Input type to represent a file mount.
 

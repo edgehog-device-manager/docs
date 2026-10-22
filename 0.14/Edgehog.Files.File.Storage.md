@@ -1,5 +1,5 @@
 # `Edgehog.Files.File.Storage`
-[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/files/file/storage.ex#L21)
+[🔗](https://github.com/edgehog-device-manager/edgehog/blob/v0.14.2/backend/lib/edgehog/files/file/storage.ex#L21)
 
 Behaviour for file storage implementations.
 
