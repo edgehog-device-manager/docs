@@ -319,6 +319,40 @@ the deployment as timed out and broadcasting a failure. Defaults to 10 minutes.
 Bang version of `Edgehog.Config.deployment_provisioning_timeout/0` (fails on error). Optionally,
 receives the `namespace` for the variable.
 
+# `forwarder_secret_key_base`
+
+```elixir
+@spec forwarder_secret_key_base(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+Edgehog forwarder secret key base. This must be the same secret key base set
+to the edgehog device forwarder, allowing this backend to sign tokens for the
+forwarder.
+
+Calling `Edgehog.Config.forwarder_secret_key_base()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_FORWARDER_SECRET_KEY_BASE"
+- Type: :binary
+- Default: nil
+- Required: false
+- Cached: true
+
+# `forwarder_secret_key_base!`
+
+```elixir
+@spec forwarder_secret_key_base!(Skogsra.Env.namespace()) ::
+  (nil | binary()) | no_return()
+```
+
+Edgehog forwarder secret key base. This must be the same secret key base set
+to the edgehog device forwarder, allowing this backend to sign tokens for the
+forwarder.
+
+Bang version of `Edgehog.Config.forwarder_secret_key_base/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
 # `geocoding_providers!`
 
 ```elixir
@@ -774,6 +808,16 @@ the `namespace`.
 Puts the `value` to `Edgehog.Config.deployment_provisioning_timeout/0`. Optionally, receives
 the `namespace`.
 
+# `put_forwarder_secret_key_base`
+
+```elixir
+@spec put_forwarder_secret_key_base(nil | binary(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.forwarder_secret_key_base/0`. Optionally, receives
+the `namespace`.
+
 # `put_google_geocoding_api_key`
 
 ```elixir
@@ -977,6 +1021,16 @@ the `namespace` for the variable.
 ```
 
 Reloads the value for `Edgehog.Config.deployment_provisioning_timeout/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_forwarder_secret_key_base`
+
+```elixir
+@spec reload_forwarder_secret_key_base(Skogsra.Env.namespace()) ::
+  {:ok, nil | binary()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.forwarder_secret_key_base/0`. Optionally, receives
 the `namespace` for the variable.
 
 # `reload_google_geocoding_api_key`
