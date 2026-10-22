@@ -291,6 +291,11 @@ the given device.
   - [Edgehog.Devices.Reconciler.Core](Edgehog.Devices.Reconciler.Core.md): Device reconciler core utilities.
   - [Edgehog.Devices.SystemModelPartNumber.SystemModelPartNumber.Config](Edgehog.Devices.SystemModelPartNumber.SystemModelPartNumber.Config.md)
 
+- Device forwarder
+  - [Edgehog.Forwarder.Guardian](Edgehog.Forwarder.Guardian.md): Auth layer to handle connections to the device forwarder.
+
+  - [Edgehog.Forwarder.Guardian.Plug](Edgehog.Forwarder.Guardian.Plug.md)
+
 - Device groups
   - [Edgehog.Groups](Edgehog.Groups.md): The Groups context.
   - [Edgehog.Groups.DeviceGroup.DeviceGroup.Config](Edgehog.Groups.DeviceGroup.DeviceGroup.Config.md)
