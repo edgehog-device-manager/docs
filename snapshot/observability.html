@@ -119,12 +119,12 @@ Prometheus metrics with Grafana dashboards.</p><p>This section documents what is
 orchestration of containerized applications.</li><li><a href="observability_files.html">File events</a>: file download and upload request
 lifecycles.</li><li><a href="observability_stack.html">Platform stack</a>: non-Edgehog-specific metrics
 (Phoenix, Ecto, BEAM, Absinthe, application).</li></ul><h2 id="consuming-events" class="section-heading"><a href="#consuming-events" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Consuming events</span></h2><p>Each telemetry module exposes <code class="inline">*_event()</code> accessors returning the event name, so
-handlers never hardcode it:</p><pre><code class="makeup elixir" translate="no"><span class="nc">:telemetry</span><span class="o">.</span><span class="n">attach</span><span class="p" data-group-id="8384878950-1">(</span><span class="w">
+handlers never hardcode it:</p><pre><code class="makeup elixir" translate="no"><span class="nc">:telemetry</span><span class="o">.</span><span class="n">attach</span><span class="p" data-group-id="9802110530-1">(</span><span class="w">
   </span><span class="s">&quot;my-container-provisioning-logger&quot;</span><span class="p">,</span><span class="w">
-  </span><span class="nc">Edgehog.Containers.Telemetry</span><span class="o">.</span><span class="n">provisioning_stop_event</span><span class="p" data-group-id="8384878950-2">(</span><span class="p" data-group-id="8384878950-2">)</span><span class="p">,</span><span class="w">
+  </span><span class="nc">Edgehog.Containers.Telemetry</span><span class="o">.</span><span class="n">provisioning_stop_event</span><span class="p" data-group-id="9802110530-2">(</span><span class="p" data-group-id="9802110530-2">)</span><span class="p">,</span><span class="w">
   </span><span class="o">&amp;</span><span class="nc">MyApp</span><span class="o">.</span><span class="n">handle_provisioning_stop</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span><span class="w">
   </span><span class="no">nil</span><span class="w">
-</span><span class="p" data-group-id="8384878950-1">)</span></code></pre><p>All lifecycle events follow the <code class="inline">start</code>/<code class="inline">stop</code> convention: the <code class="inline">start</code> handler
+</span><span class="p" data-group-id="9802110530-1">)</span></code></pre><p>All lifecycle events follow the <code class="inline">start</code>/<code class="inline">stop</code> convention: the <code class="inline">start</code> handler
 receives <code class="inline">%{count: 1}</code> (files also include <code class="inline">system_time</code>) and metadata with a
 <code class="inline">started_at</code> monotonic timestamp; the corresponding <code class="inline">stop</code> event carries
 <code class="inline">%{count: 1, duration: duration}</code> plus <code class="inline">result</code> (<code class="inline">:ok</code> or <code class="inline">:error</code>), <code class="inline">reason</code>,
