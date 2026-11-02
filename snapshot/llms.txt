@@ -154,6 +154,31 @@ A deployment is ready when:
  - Its state is either `:started` or `:stopped`
  - All underlying container deployments are ready
 
+  - [Edgehog.Containers.Container.Deployment.Changes.DeployDeviceMappings](Edgehog.Containers.Container.Deployment.Changes.DeployDeviceMappings.md): Deploys `DeviceMapping.Deployment` records for each device mapping of the
+container and relates `:device_mapping_deployments`.
+
+  - [Edgehog.Containers.Container.Deployment.Changes.DeployDeviceRequests](Edgehog.Containers.Container.Deployment.Changes.DeployDeviceRequests.md): Deploys `DeviceRequest.Deployment` records for each device request of the
+container and relates `:device_request_deployments`.
+
+  - [Edgehog.Containers.Container.Deployment.Changes.DeployImage](Edgehog.Containers.Container.Deployment.Changes.DeployImage.md): Deploys or reuses an `Image.Deployment` for the container's image on the
+target device and relates `:image_deployment`.
+
+  - [Edgehog.Containers.Container.Deployment.Changes.DeployNetworks](Edgehog.Containers.Container.Deployment.Changes.DeployNetworks.md): Deploys or reuses `Network.Deployment` records for each network attached to
+the container and relates `:network_deployments`.
+
+  - [Edgehog.Containers.Container.Deployment.Changes.DeployVolumes](Edgehog.Containers.Container.Deployment.Changes.DeployVolumes.md): Deploys or reuses `Volume.Deployment` records for each volume attached to the
+container and relates `:volume_deployments`.
+
+  - [Edgehog.Containers.Container.Deployment.Changes.RelateEnvFiles](Edgehog.Containers.Container.Deployment.Changes.RelateEnvFiles.md): Attaches the target `:device_id` to each entry in the `:env_files` argument
+and relates them to the container deployment via `manage_relationship/4`.
+
+  - [Edgehog.Containers.Container.Deployment.Changes.RelateFileBinds](Edgehog.Containers.Container.Deployment.Changes.RelateFileBinds.md): Resolves explicit and default `:file_binds` for a container deployment,
+inheriting default file ownership and mode attributes from each mount.
+
+  - [Edgehog.Containers.Container.Deployment.Changes.ResolveEnv](Edgehog.Containers.Container.Deployment.Changes.ResolveEnv.md): Resolves the effective `:env` and `:env_strategy` attributes for a container
+deployment by combining the template container's environment variables with
+any deployment-time `:env` and `:env_strategy` overrides.
+
   - [Edgehog.Containers.Container.Deployment.Orchestrator](Edgehog.Containers.Container.Deployment.Orchestrator.md): Orchestrator for all the provisioner processes of a container.
   - [Edgehog.Containers.Container.Deployment.Orchestrator.Core](Edgehog.Containers.Container.Deployment.Orchestrator.Core.md): Container orchestrator pure functions.
 
@@ -174,6 +199,9 @@ At most one of `env` and `env_files` may be set; setting both is ambiguous.
   - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.md): The provisioner for deploying device mappings on a device.
   - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Audit](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the device mapping deployment provisioner.
   - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device mapping deployment provisioner.
+  - [Edgehog.Containers.DeviceRequest.Changes.EncodeCapabilities](Edgehog.Containers.DeviceRequest.Changes.EncodeCapabilities.md): Encodes the `:capabilities` argument (a list of capability lists) into JSON
+strings stored in the `:db_capabilities` attribute.
+
   - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.md): The provisioner for deploying device requests on a device.
   - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Audit](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the device request deployment provisioner.
   - [Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core](Edgehog.Containers.DeviceRequest.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device request deployment provisioner.
@@ -218,8 +246,8 @@ A deployment is ready when:
   - [Edgehog.Containers.Release.Deployment.Changes.AppendEvent](Edgehog.Containers.Release.Deployment.Changes.AppendEvent.md): Appends an event with the given argument details.
 
   - [Edgehog.Containers.Release.Deployment.Changes.Reconcile](Edgehog.Containers.Release.Deployment.Changes.Reconcile.md): Starts a reconciliation with the device.
-  - [Edgehog.Containers.Release.Deployment.Changes.Relate](Edgehog.Containers.Release.Deployment.Changes.Relate.md): Relates a deployment to underlying container deployments, by creating them when
-needed.
+  - [Edgehog.Containers.Release.Deployment.Changes.Relate](Edgehog.Containers.Release.Deployment.Changes.Relate.md): Relates a deployment to underlying container deployments, by creating a deep
+copy of the release and its underlying container resources when deployed.
 
   - [Edgehog.Containers.Release.Deployment.Changes.SendCommand](Edgehog.Containers.Release.Deployment.Changes.SendCommand.md): A change to send a command to a deployment _after_ the action has been done.
   - [Edgehog.Containers.Release.Deployment.Changes.SendUpgrade](Edgehog.Containers.Release.Deployment.Changes.SendUpgrade.md): A change to upgrade the deployment of an application to a newer version.
@@ -269,6 +297,9 @@ needed.
   - [Edgehog.Containers.Validations.Dangling](Edgehog.Containers.Validations.Dangling.md): Validates the action by running the `dangling?` calculation.
 true -> :ok
 false -> {:error, :not_dangling}
+
+  - [Edgehog.Containers.Validations.UniquePlainResource](Edgehog.Containers.Validations.UniquePlainResource.md): Validates that the given attribute keys are unique among plain (un-deployed)
+resources using the specified `read_action`.
 
   - [Edgehog.Containers.Volume.Deployment.Provisioner](Edgehog.Containers.Volume.Deployment.Provisioner.md): The provisioner for deploying volumes on a device.
   - [Edgehog.Containers.Volume.Deployment.Provisioner.Audit](Edgehog.Containers.Volume.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the volume deployment provisioner.
