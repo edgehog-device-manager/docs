@@ -3350,7 +3350,7 @@ Data is considered delivered when it has been received at least once by the reci
 Data is discarded if the transport is temporarily uncapable of delivering it.
 
 
-## io.edgehog.devicemanager.apps.CreateImageRequest v0.1
+## io.edgehog.devicemanager.apps.CreateImageRequest v0.2
 
 Request to pull and create a container image.
 
@@ -3372,6 +3372,7 @@ The interface has the following mappings:
 - `/image/deploymentId` with `string` type. Reference to a Deployment using the image
 - `/image/reference` with `string` type. Image reference to be pulled
 - `/image/registryAuth` with `string` type. Image registry authentication header
+- `/image/pullPolicy` with `string` type. Image pull policy
 
 
 ### `/image/id`
@@ -3418,6 +3419,19 @@ Delivered data is kept for 600 seconds before it is erased from the database.
 Image registry authentication header
 
 Optional base64url-encoded JSON for the auth configuration to the registry. An empty string means the image is public and doesn't require authentication. See https://docs.docker.com/reference/api/engine/version/v1.43/#section/Authentication for more information.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 600 seconds before it is erased from the database.
+
+### `/image/pullPolicy`
+
+Image pull policy
+
+Optional string enum for the pull policy of the image, with a default value of `IfNotPresent`. The allowed values are: [IfNotPresent, Always].
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 
