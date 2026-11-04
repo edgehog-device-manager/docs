@@ -504,6 +504,14 @@ the request based on token claims.
   - [Edgehog.Actors.Actor](Edgehog.Actors.Actor.md): Edgheog Actors.
 This module represents an actor performing a call trough the GraphQL APIs.
 It implements the ID Token from the OpenID Connect spec.
+  - [Edgehog.Audit.AuditService](Edgehog.Audit.AuditService.md): Service module exposing the API to audit events across the application.
+
+  - [Edgehog.Audit.Event](Edgehog.Audit.Event.md): Represents an action or change made by a user, to be stored for auditing purposes.
+  - [Edgehog.Audit.Types.ActionEventInfo](Edgehog.Audit.Types.ActionEventInfo.md): Type containing all the data regarding an Ash action that triggered the creation
+of an audit event.
+  - [Edgehog.Audit.Types.LogLevel](Edgehog.Audit.Types.LogLevel.md): Represents the all the possible levels a log can have.
+For more info, see `Logger` docs.
+
   - [Edgehog.Auth.Changes.EraseAlias](Edgehog.Auth.Changes.EraseAlias.md): A change to erase the alias for an object in the FGA provider.
   - [Edgehog.Auth.Changes.EraseOwner](Edgehog.Auth.Changes.EraseOwner.md): A change to remove the owner of a destroyed object in the FGA provider.
   - [Edgehog.Auth.Changes.EraseRelation](Edgehog.Auth.Changes.EraseRelation.md): A change to delete a relation in the FGA provider.

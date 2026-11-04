@@ -33,6 +33,80 @@ The Admin API JWT public key.
 Bang version of `Edgehog.Config.admin_jwk/0` (fails on error). Optionally,
 receives the `namespace` for the variable.
 
+# `audit_log_events`
+
+```elixir
+@spec audit_log_events(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Whether audit events should be logged via Elixir's Logger.
+
+Calling `Edgehog.Config.audit_log_events()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_AUDIT_LOG_EVENTS"
+- Type: :boolean
+- Default: true
+- Required: false
+- Cached: true
+
+# `audit_log_events!`
+
+```elixir
+@spec audit_log_events!(Skogsra.Env.namespace()) :: boolean() | no_return()
+```
+
+Whether audit events should be logged via Elixir's Logger.
+
+Bang version of `Edgehog.Config.audit_log_events/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `audit_log_events?`
+
+```elixir
+@spec audit_log_events?() :: boolean()
+```
+
+Returns true if audit events should be logged via Logger.
+
+# `audit_store_events`
+
+```elixir
+@spec audit_store_events(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Whether audit events should be stored in the database.
+
+Calling `Edgehog.Config.audit_store_events()` will ensure the following:
+
+- Binding order: [:system, :config]
+- OS environment variable: "EDGEHOG_AUDIT_STORE_EVENTS"
+- Type: :boolean
+- Default: true
+- Required: false
+- Cached: true
+
+# `audit_store_events!`
+
+```elixir
+@spec audit_store_events!(Skogsra.Env.namespace()) :: boolean() | no_return()
+```
+
+Whether audit events should be stored in the database.
+
+Bang version of `Edgehog.Config.audit_store_events/0` (fails on error). Optionally,
+receives the `namespace` for the variable.
+
+# `audit_store_events?`
+
+```elixir
+@spec audit_store_events?() :: boolean()
+```
+
+Returns true if audit events should be persisted in the database.
+
 # `authz_config!`
 
 ```elixir
@@ -780,6 +854,26 @@ Preloads all variables in a `namespace` if supplied.
 Puts the `value` to `Edgehog.Config.admin_jwk/0`. Optionally, receives
 the `namespace`.
 
+# `put_audit_log_events`
+
+```elixir
+@spec put_audit_log_events(boolean(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.audit_log_events/0`. Optionally, receives
+the `namespace`.
+
+# `put_audit_store_events`
+
+```elixir
+@spec put_audit_store_events(boolean(), Skogsra.Env.namespace()) ::
+  :ok | {:error, binary()}
+```
+
+Puts the `value` to `Edgehog.Config.audit_store_events/0`. Optionally, receives
+the `namespace`.
+
 # `put_authz_provider`
 
 ```elixir
@@ -1003,6 +1097,26 @@ the `namespace`.
 ```
 
 Reloads the value for `Edgehog.Config.admin_jwk/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_audit_log_events`
+
+```elixir
+@spec reload_audit_log_events(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.audit_log_events/0`. Optionally, receives
+the `namespace` for the variable.
+
+# `reload_audit_store_events`
+
+```elixir
+@spec reload_audit_store_events(Skogsra.Env.namespace()) ::
+  {:ok, boolean()} | {:error, binary()}
+```
+
+Reloads the value for `Edgehog.Config.audit_store_events/0`. Optionally, receives
 the `namespace` for the variable.
 
 # `reload_authz_provider`
