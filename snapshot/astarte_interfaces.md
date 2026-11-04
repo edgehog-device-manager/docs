@@ -1386,7 +1386,7 @@ Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 5184000 seconds before it is erased from the database.
 
 
-## io.edgehog.devicemanager.apps.AvailableContainers v0.1
+## io.edgehog.devicemanager.apps.AvailableContainers v0.2
 
 
 
@@ -1401,15 +1401,93 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
 The interface has the following mappings:
 
 - `/%{container_id}/status` with `string` type. Container status
+- `/%{container_id}/imageId` with `string` type. Container image
+- `/%{container_id}/oomKilled` with `boolean` type. The container was OOM killed.
+- `/%{container_id}/exitCode` with `longinteger` type. Last exit code of the container
+- `/%{container_id}/health/status` with `string` type. Status of the healthcheck
+- `/%{container_id}/health/failed` with `longinteger` type. Number of consecutive fails
+- `/%{container_id}/restartCount` with `longinteger` type. Number of restart of the container
 
 
 ### `/%{container_id}/status`
 
 Container status
 
-Possible values [Received, Created, Running, Stopped]
+Possible values [Received, Missing, Creating, Created, Starting, Running, Stopping, Stopped, Deleting, Error]
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `container_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{container_id}/imageId`
+
+Container image
+
+The ID (digest) of the image that this container was created from.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `container_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{container_id}/oomKilled`
+
+The container was OOM killed.
+
+Whether a process within this container has been killed because it ran out of memory since the container was last started.
+
+This endpoint accepts values of type `boolean`: either true or false, adhering to JSON boolean type.
+
+The endpoint is parametric and `container_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{container_id}/exitCode`
+
+Last exit code of the container
+
+
+
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
+
+The endpoint is parametric and `container_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{container_id}/health/status`
+
+Status of the healthcheck
+
+Possible values [None, Starting, Healthy, Unhealthy]
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `container_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{container_id}/health/failed`
+
+Number of consecutive fails
+
+
+
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
+
+The endpoint is parametric and `container_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{container_id}/restartCount`
+
+Number of restart of the container
+
+Number of restart of the container since it was created or since the daemon restarted
+
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
 The endpoint is parametric and `container_id` can be replaced with any valid string to send data on specialized paths.
 
@@ -1570,7 +1648,7 @@ The endpoint is parametric and `bind_id` can be replaced with any valid string t
 The value of the property can be unset.
 
 
-## io.edgehog.devicemanager.apps.AvailableImages v0.1
+## io.edgehog.devicemanager.apps.AvailableImages v0.2
 
 Properties available for a specific Docker image on the device
 
@@ -1585,15 +1663,80 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
 The interface has the following mappings:
 
 - `/%{image_id}/pulled` with `boolean` type. Pulled image
+- `/%{image_id}/status` with `string` type. Image status
+- `/%{image_id}/imageId` with `string` type. Pulled image
+- `/%{image_id}/repoTags` with `stringarray` type. List of image names/tags in the local image cache that reference this image.
+- `/%{image_id}/repoDigests` with `stringarray` type. Image repository digest
+- `/%{image_id}/size` with `longinteger` type. Pulled image
 
 
 ### `/%{image_id}/pulled`
 
 Pulled image
 
-
+States whether the image with ID `image_id` has been pulled on the device.
 
 This endpoint accepts values of type `boolean`: either true or false, adhering to JSON boolean type.
+
+The endpoint is parametric and `image_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{image_id}/status`
+
+Image status
+
+Status of the image with ID `image_id` on the device. Possible values: [Received, Missing, Pulling, Pulled, Deleting, Error]
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `image_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{image_id}/imageId`
+
+Pulled image
+
+ID is the content-addressable ID of an image.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `image_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{image_id}/repoTags`
+
+List of image names/tags in the local image cache that reference this image.
+
+Multiple image tags can refer to the same image, and this list may be empty if no tags reference the image, in which case the image is 'untagged', in which case it can still be referenced by its ID.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint is parametric and `image_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{image_id}/repoDigests`
+
+Image repository digest
+
+List of content-addressable digests of locally available image manifests that the image is referenced from. Multiple manifests can refer to the same image.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint is parametric and `image_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{image_id}/size`
+
+Pulled image
+
+Total size of the image including all layers it is composed of.
+
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
 
 The endpoint is parametric and `image_id` can be replaced with any valid string to send data on specialized paths.
 
@@ -1658,6 +1801,78 @@ This endpoint accepts values of type `boolean`: either true or false, adhering t
 The endpoint is parametric and `volume_id` can be replaced with any valid string to send data on specialized paths.
 
 The value of the property can be unset.
+
+
+## io.edgehog.devicemanager.apps.ContainerEvent v0.1
+
+Container events sampled data.
+
+Allows to stream container events data, including status, message and additional info.
+
+### About
+
+This interface is of type `datastream` and is owned by the `device`, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `object` aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/%{container_id}/status` with `string` type. Container status
+- `/%{container_id}/message` with `string` type. Optional message for the event
+- `/%{container_id}/addInfo` with `stringarray` type. Additional info
+
+
+### `/%{container_id}/status`
+
+Container status
+
+Possible values: [Create, Start, Restart, Stop, Die, Kill, Destroy, Prune, OOM, Attach, Commit, Copy, Detach, ExecCreate, ExecDetach, ExecStart, ExecDie, Export, HealthStatus, Pause, Rename, Resize, Top, Unpause, Update, Error]
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `container_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{container_id}/message`
+
+Optional message for the event
+
+
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `container_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{container_id}/addInfo`
+
+Additional info
+
+Additional info about the event.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint is parametric and `container_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
 
 
 ## io.edgehog.devicemanager.apps.CreateContainerRequest v1.1
@@ -3766,6 +3981,366 @@ Id of the deployment to update to
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+
+## io.edgehog.devicemanager.apps.EnvFileEvent v0.1
+
+Environment file events sampled data.
+
+Allows to stream environment file events data, including status, message and additional info.
+
+### About
+
+This interface is of type `datastream` and is owned by the `device`, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `object` aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/%{env_file_id}/status` with `string` type. Env file status
+- `/%{env_file_id}/message` with `string` type. Optional message for the event
+- `/%{env_file_id}/addInfo` with `stringarray` type. Additional info
+
+
+### `/%{env_file_id}/status`
+
+Env file status
+
+Possible values: [Error]
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `env_file_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{env_file_id}/message`
+
+Optional message for the event
+
+
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `env_file_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{env_file_id}/addInfo`
+
+Additional info
+
+Additional info about the event.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint is parametric and `env_file_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+
+## io.edgehog.devicemanager.apps.FileBindEvent v0.1
+
+File bind events sampled data.
+
+Allows to stream file bind events data, including status, message and additional info.
+
+### About
+
+This interface is of type `datastream` and is owned by the `device`, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `object` aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/%{bind_id}/status` with `string` type. File bind status
+- `/%{bind_id}/message` with `string` type. Optional message for the event
+- `/%{bind_id}/addInfo` with `stringarray` type. Additional info
+
+
+### `/%{bind_id}/status`
+
+File bind status
+
+Possible values: [Error]
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `bind_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{bind_id}/message`
+
+Optional message for the event
+
+
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `bind_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{bind_id}/addInfo`
+
+Additional info
+
+Additional info about the event.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint is parametric and `bind_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+
+## io.edgehog.devicemanager.apps.ImageEvent v0.1
+
+Container image events sampled data.
+
+Allows to stream container image events data, including status, message and additional info.
+
+### About
+
+This interface is of type `datastream` and is owned by the `device`, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `object` aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/%{image_id}/status` with `string` type. Image status
+- `/%{image_id}/message` with `string` type. Optional message for the event
+- `/%{image_id}/addInfo` with `stringarray` type. Additional info
+
+
+### `/%{image_id}/status`
+
+Image status
+
+Possible values: [Create, Delete, Import, Load, Pull, Push, Save, Tag, Untag, Prune, Error]
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `image_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{image_id}/message`
+
+Optional message for the event
+
+
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `image_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{image_id}/addInfo`
+
+Additional info
+
+Additional info about the event.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint is parametric and `image_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+
+## io.edgehog.devicemanager.apps.NetworkEvent v0.1
+
+Container network events sampled data.
+
+Allows to stream container network events data, including status, message and additional info.
+
+### About
+
+This interface is of type `datastream` and is owned by the `device`, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `object` aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/%{network_id}/status` with `string` type. Network status
+- `/%{network_id}/message` with `string` type. Optional message for the event
+- `/%{network_id}/addInfo` with `stringarray` type. Additional info
+
+
+### `/%{network_id}/status`
+
+Network status
+
+Possible values: [Create, Connect, Disconnect, Destroy, Update, Remove, Prune, Error]
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `network_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{network_id}/message`
+
+Optional message for the event
+
+
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `network_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{network_id}/addInfo`
+
+Additional info
+
+Additional info about the event.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint is parametric and `network_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+
+## io.edgehog.devicemanager.apps.VolumeEvent v0.1
+
+Container volume events sampled data.
+
+Allows to stream container volume events data, including status, message and additional info.
+
+### About
+
+This interface is of type `datastream` and is owned by the `device`, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `object` aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/%{volume_id}/status` with `string` type. Volume status
+- `/%{volume_id}/message` with `string` type. Optional message for the event
+- `/%{volume_id}/addInfo` with `stringarray` type. Additional info
+
+
+### `/%{volume_id}/status`
+
+Volume status
+
+Possible values: [Create, Mount, Unmount, Destroy, Prune, Error]
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `volume_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{volume_id}/message`
+
+Optional message for the event
+
+
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `volume_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/%{volume_id}/addInfo`
+
+Additional info
+
+Additional info about the event.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint is parametric and `volume_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Astarte expects a valid timestamp to be attached each time data is produced.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.

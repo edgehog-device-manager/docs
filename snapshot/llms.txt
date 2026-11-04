@@ -219,6 +219,8 @@ for a target-less file bind.
   - [Edgehog.Containers.FileBind.Provisioner.Audit](Edgehog.Containers.FileBind.Provisioner.Audit.md): The module describing the Audit functions for the file bind provisioner.
   - [Edgehog.Containers.FileBind.Provisioner.Core](Edgehog.Containers.FileBind.Provisioner.Core.md): The module describing the Core functions required by the file bind provisioner.
   - [Edgehog.Containers.FileBind.Storage](Edgehog.Containers.FileBind.Storage.md): Storage helpers for target-less file binds.
+  - [Edgehog.Containers.Image.Calculations.Reference](Edgehog.Containers.Image.Calculations.Reference.md): Calculates the full OCI/Docker reference string from an image's discrete segments.
+
   - [Edgehog.Containers.Image.Deployment.Provisioner](Edgehog.Containers.Image.Deployment.Provisioner.md): The provisioner for deploying images on a device.
   - [Edgehog.Containers.Image.Deployment.Provisioner.Audit](Edgehog.Containers.Image.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the image deployment provisioner.
   - [Edgehog.Containers.Image.Deployment.Provisioner.Core](Edgehog.Containers.Image.Deployment.Provisioner.Core.md): The module describing the Core functions required by the image deployment provisioner.
