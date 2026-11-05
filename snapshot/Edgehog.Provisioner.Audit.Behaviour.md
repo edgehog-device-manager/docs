@@ -78,10 +78,7 @@ Audits a failed provisioning.
 # `provisioning_started`
 
 ```elixir
-@callback provisioning_started(
-  resource(),
-  keyword()
-) :: term()
+@callback provisioning_started(resource(), keyword()) :: term()
 ```
 
 Audits the start of a provisioning.

@@ -100,7 +100,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -113,6 +117,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -146,7 +152,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -159,6 +169,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -192,7 +204,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -205,6 +221,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -238,7 +256,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -251,6 +273,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -284,7 +308,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -297,6 +325,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -330,7 +360,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -343,6 +377,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -376,7 +412,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -389,6 +429,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -422,7 +464,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -435,6 +481,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -468,7 +516,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -481,6 +533,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -514,7 +568,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -527,6 +585,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -560,7 +620,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -573,6 +637,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -606,7 +672,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -619,6 +689,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -652,7 +724,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -665,6 +741,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -698,7 +776,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -711,6 +793,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -744,7 +828,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -757,6 +845,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -790,7 +880,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -803,6 +897,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -836,7 +932,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -849,6 +949,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -882,7 +984,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -895,6 +1001,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -928,7 +1036,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -941,6 +1053,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -974,7 +1088,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -987,6 +1105,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -1020,7 +1140,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -1033,6 +1157,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -1066,7 +1192,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -1079,6 +1209,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -1112,7 +1244,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -1125,6 +1261,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -1158,7 +1296,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -1171,6 +1313,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -1204,7 +1348,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -1217,6 +1365,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -1250,7 +1400,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -1263,6 +1417,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -1296,7 +1452,11 @@ See `Ash.can/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -1309,6 +1469,8 @@ See `Ash.can/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -1342,7 +1504,11 @@ See `Ash.can?/3` for more information
 
 * `:validate?` (`t:boolean/0`) - Whether or not to treat an invalid action as a non-allowed action. The default value is `false`.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether or not loaded data like aggregates, calculations and relationships should be checked in memory if possible, instead of querying. No effect if `pre_flight?` is `false`. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:pre_flight?` (`t:boolean/0`) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is `true`.
 
@@ -1355,6 +1521,8 @@ See `Ash.can?/3` for more information
 * `:data` - The record or records specifically attempting to be acted upon.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - The tenant to use for authorization
+
+* `:as_of` - A point in time to authorize "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:alter_source?` (`t:boolean/0`) - If set to `true`, the source being authorized is returned so it can be run. The default value is `false`.
 
@@ -1386,6 +1554,8 @@ Returns the changeset corresponding to the action.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -1401,6 +1571,8 @@ Returns the changeset corresponding to the action.
 * `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
@@ -1418,6 +1590,8 @@ Returns the changeset corresponding to the action.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -1433,6 +1607,8 @@ Returns the changeset corresponding to the action.
 * `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
@@ -1450,6 +1626,8 @@ Returns the changeset corresponding to the action.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -1465,6 +1643,8 @@ Returns the changeset corresponding to the action.
 * `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
@@ -1482,6 +1662,8 @@ Returns the changeset corresponding to the action.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -1497,6 +1679,8 @@ Returns the changeset corresponding to the action.
 * `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
@@ -1514,6 +1698,8 @@ Returns the changeset corresponding to the action.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -1529,6 +1715,8 @@ Returns the changeset corresponding to the action.
 * `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
@@ -1546,6 +1734,8 @@ Returns the changeset corresponding to the action.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -1561,6 +1751,8 @@ Returns the changeset corresponding to the action.
 * `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
+
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
@@ -1604,6 +1796,8 @@ Deletes a system model.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -1623,6 +1817,9 @@ Deletes a system model.
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_destroy`, if a query, list, or stream of inputs is provided.
 
@@ -1646,22 +1843,12 @@ Deletes a system model.
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -1752,6 +1939,8 @@ Raises any errors instead of returning them
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -1771,6 +1960,9 @@ Raises any errors instead of returning them
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_destroy`, if a query, list, or stream of inputs is provided.
 
@@ -1794,22 +1986,12 @@ Raises any errors instead of returning them
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -1900,6 +2082,8 @@ Calls the read action on Edgehog.Devices.Device.
 
 ## Options
 
+* `:as_of` - A point in time to read "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:page` - Pagination options, see `Ash.read/2` for more.
 
 * `:load` (`t:term/0`) - A load statement to add onto the query
@@ -1916,7 +2100,11 @@ Calls the read action on Edgehog.Devices.Device.
 
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
     a list of fields to fetch on a relationship, which allows for more
@@ -1963,6 +2151,8 @@ Raises any errors instead of returning them
 
 ## Options
 
+* `:as_of` - A point in time to read "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:page` - Pagination options, see `Ash.read/2` for more.
 
 * `:load` (`t:term/0`) - A load statement to add onto the query
@@ -1979,7 +2169,11 @@ Raises any errors instead of returning them
 
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
     a list of fields to fetch on a relationship, which allows for more
@@ -2024,6 +2218,8 @@ Calls the read action on Edgehog.Devices.Device.
 
 ## Options
 
+* `:as_of` - A point in time to read "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:page` - Pagination options, see `Ash.read/2` for more.
 
 * `:load` (`t:term/0`) - A load statement to add onto the query
@@ -2040,7 +2236,11 @@ Calls the read action on Edgehog.Devices.Device.
 
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
     a list of fields to fetch on a relationship, which allows for more
@@ -2087,6 +2287,8 @@ Raises any errors instead of returning them
 
 ## Options
 
+* `:as_of` - A point in time to read "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:page` - Pagination options, see `Ash.read/2` for more.
 
 * `:load` (`t:term/0`) - A load statement to add onto the query
@@ -2103,7 +2305,11 @@ Raises any errors instead of returning them
 
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
-* `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
+* `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+  already on the struct instead of refetching from the data layer. Default
+  `false` (prefer persisted data; avoids stale structs acting as an implicit
+  cache).  
+      Ash.load!(user, :full_name, reuse_values?: true) The default value is `false`.
 
 * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
     a list of fields to fetch on a relationship, which allows for more
@@ -2204,6 +2410,8 @@ Returns the query corresponding to the action.
 
 ## Options
 
+* `:as_of` - A point in time to read "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:tracer` (one or a list of module that adopts `Ash.Tracer`) - A tracer that implements the `Ash.Tracer` behaviour. See that module for more.
 
 * `:authorize?` - If an actor option is provided (even if it is `nil`), authorization happens automatically. If not, this flag can be used to authorize with no user.
@@ -2221,6 +2429,8 @@ Returns the query corresponding to the action.
 Returns the query corresponding to the action.
 
 ## Options
+
+* `:as_of` - A point in time to read "as of" (time travel). See `Ash.Query.as_of/2`.
 
 * `:tracer` (one or a list of module that adopts `Ash.Tracer`) - A tracer that implements the `Ash.Tracer` behaviour. See that module for more.
 
@@ -2293,6 +2503,8 @@ Sends a create container request to the device.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -2312,6 +2524,9 @@ Sends a create container request to the device.
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -2339,22 +2554,12 @@ Sends a create container request to the device.
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -2452,6 +2657,8 @@ Raises any errors instead of returning them
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -2471,6 +2678,9 @@ Raises any errors instead of returning them
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -2498,22 +2708,12 @@ Raises any errors instead of returning them
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -2608,6 +2808,8 @@ Send a create deployment request to the device.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -2627,6 +2829,9 @@ Send a create deployment request to the device.
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -2654,22 +2859,12 @@ Send a create deployment request to the device.
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -2766,6 +2961,8 @@ Raises any errors instead of returning them
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -2785,6 +2982,9 @@ Raises any errors instead of returning them
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -2812,22 +3012,12 @@ Raises any errors instead of returning them
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -2923,6 +3113,8 @@ Send a create device-file mapping request to the device.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -2942,6 +3134,9 @@ Send a create device-file mapping request to the device.
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -2969,22 +3164,12 @@ Send a create device-file mapping request to the device.
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -3082,6 +3267,8 @@ Raises any errors instead of returning them
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -3101,6 +3288,9 @@ Raises any errors instead of returning them
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -3128,22 +3318,12 @@ Raises any errors instead of returning them
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -3239,6 +3419,8 @@ Send a create device request to the device.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -3258,6 +3440,9 @@ Send a create device request to the device.
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -3285,22 +3470,12 @@ Send a create device request to the device.
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -3398,6 +3573,8 @@ Raises any errors instead of returning them
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -3417,6 +3594,9 @@ Raises any errors instead of returning them
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -3444,22 +3624,12 @@ Raises any errors instead of returning them
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -3555,6 +3725,8 @@ Send a create env file request to the device.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -3574,6 +3746,9 @@ Send a create env file request to the device.
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -3601,22 +3776,12 @@ Send a create env file request to the device.
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -3714,6 +3879,8 @@ Raises any errors instead of returning them
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -3733,6 +3900,9 @@ Raises any errors instead of returning them
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -3760,22 +3930,12 @@ Raises any errors instead of returning them
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -3871,6 +4031,8 @@ Send a create file bind request to the device.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -3890,6 +4052,9 @@ Send a create file bind request to the device.
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -3917,22 +4082,12 @@ Send a create file bind request to the device.
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -4030,6 +4185,8 @@ Raises any errors instead of returning them
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -4049,6 +4206,9 @@ Raises any errors instead of returning them
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -4076,22 +4236,12 @@ Raises any errors instead of returning them
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -4187,6 +4337,8 @@ Sends a create image request to the device.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -4206,6 +4358,9 @@ Sends a create image request to the device.
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -4233,22 +4388,12 @@ Sends a create image request to the device.
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -4346,6 +4491,8 @@ Raises any errors instead of returning them
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -4365,6 +4512,9 @@ Raises any errors instead of returning them
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -4392,22 +4542,12 @@ Raises any errors instead of returning them
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -4503,6 +4643,8 @@ Sends a create network request to the device.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -4522,6 +4664,9 @@ Sends a create network request to the device.
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -4549,22 +4694,12 @@ Sends a create network request to the device.
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -4662,6 +4797,8 @@ Raises any errors instead of returning them
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -4681,6 +4818,9 @@ Raises any errors instead of returning them
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -4708,22 +4848,12 @@ Raises any errors instead of returning them
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -4819,6 +4949,8 @@ Send a create volume request to the device.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -4838,6 +4970,9 @@ Send a create volume request to the device.
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -4865,22 +5000,12 @@ Send a create volume request to the device.
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -4978,6 +5103,8 @@ Raises any errors instead of returning them
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -4997,6 +5124,9 @@ Raises any errors instead of returning them
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -5024,22 +5154,12 @@ Raises any errors instead of returning them
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -5135,6 +5255,8 @@ Sends a command for the given application release.
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -5154,6 +5276,9 @@ Sends a command for the given application release.
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -5181,22 +5306,12 @@ Sends a command for the given application release.
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -5294,6 +5409,8 @@ Raises any errors instead of returning them
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -5313,6 +5430,9 @@ Raises any errors instead of returning them
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -5340,22 +5460,12 @@ Raises any errors instead of returning them
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -5473,6 +5583,8 @@ This argument is needed because there might be multiple versions of a single app
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -5492,6 +5604,9 @@ This argument is needed because there might be multiple versions of a single app
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -5519,22 +5634,12 @@ This argument is needed because there might be multiple versions of a single app
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 
@@ -5634,6 +5739,8 @@ This argument is needed because there might be multiple versions of a single app
 
 * `:tenant` (value that implements the `Ash.ToTenant` protocol) - A tenant to set on the query or changeset
 
+* `:as_of` - A point in time to run the action "as of" (time travel). See `Ash.Query.as_of/2`.
+
 * `:actor` (`t:term/0`) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access
 
 * `:scope` (`t:term/0`) - A value that implements the `Ash.Scope.ToOpts` protocol, for passing around actor/tenant/context in a single value. See `Ash.Scope.ToOpts` for more.
@@ -5653,6 +5760,9 @@ This argument is needed because there might be multiple versions of a single app
 * `:skip_unknown_inputs` - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use `:*` to indicate all unknown keys.
 
 * `:load` (`t:term/0`) - A load statement to add onto the changeset
+
+* `:strict?` (`t:boolean/0`) - If set to true, only the fields listed for a relationship in `load` are loaded on it,
+  as with the `strict?` option to `Ash.load/3`. The default value is `false`.
 
 * `:bulk_options` (`t:keyword/0`) - Options passed to `Ash.bulk_update`, if a query, list, or stream of inputs is provided.
 
@@ -5680,22 +5790,12 @@ This argument is needed because there might be multiple versions of a single app
 
   * `:lock` (`t:term/0`) - A lock statement to add onto the query
 
-  * `:return_query?` (`t:boolean/0`) - If `true`, the query that was ultimately used is returned as a third tuple element.
+  * `:reuse_values?` (`t:boolean/0`) - If `true`, allow **calculations** to use attributes and other dependencies
+    already on the struct instead of refetching from the data layer. Default
+    `false` (prefer persisted data; avoids stale structs acting as an implicit
+    cache).
 
-    The query goes through many potential changes during a request, potentially adding
-    authorization filters, or replacing relationships for other data layers with their
-    corresponding ids. This option can be used to get the true query that was sent to
-    the data layer.
-
-    The default value is `false`.
-
-  * `:reuse_values?` (`t:boolean/0`) - Whether calculations are allowed to reuse values that have already been loaded, or must refetch them from the data layer. The default value is `false`.
-
-  * `:strict?` (`t:boolean/0`) - If set to true, only specified attributes will be loaded when passing
-      a list of fields to fetch on a relationship, which allows for more
-      optimized data-fetching.
-
-      See `Ash.Query.load/2`.
+        Ash.load!(user, :full_name, reuse_values?: true)
 
     The default value is `false`.
 

@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.40.3">
+    <meta name="generator" content="ExDoc v0.40.4">
     <meta name="project" content="Clea Edgehog v0.14.1">
 
 
     <title>Edgehog.Audit.Event — Clea Edgehog v0.14.1</title>
 
-    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+    <link rel="stylesheet" href="dist/html-elixir-RXHHCTJW.css" />
 
-    <script defer src="dist/sidebar_items-2D26CB17.js"></script>
+    <script defer src="dist/sidebar_items-54D09DF0.js"></script>
     <script defer src="docs_config.js"></script>
-    <script defer src="dist/html-Y2MUTVIN.js"></script>
+    <script defer src="dist/html-MI33G4N7.js"></script>
 <link rel="stylesheet" href="style/cards.css">
   </head>
   <body>
@@ -221,20 +221,20 @@ Clea Edgehog
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@type</span> t() :: %Edgehog.Audit.Event{
-  __lateral_join_source__: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  __meta__: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  __metadata__: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  __order__: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  aggregates: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  ash_action_info: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  calculations: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  id: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  inserted_at: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  log_level: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  message: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  metadata: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  tenant: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  tenant_id: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()
+  __lateral_join_source__: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  __meta__: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  __metadata__: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  __order__: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  aggregates: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  ash_action_info: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  calculations: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  id: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  inserted_at: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  log_level: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  message: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  metadata: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  tenant: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  tenant_id: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()
 }</pre>
 
       </div>
@@ -298,7 +298,7 @@ Clea Edgehog
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@spec</span> input(values :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>() | <a href="https://hexdocs.pm/elixir/Keyword.html#t:t/0">Keyword.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+          <pre translate="no"><span class="attribute">@spec</span> input(values :: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">map</a>() | <a href="https://elixir.hexdocs.pm/Keyword.html#t:t/0">Keyword.t</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">map</a>() | <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">no_return</a>()</pre>
 
       </div>
 
@@ -306,8 +306,8 @@ Clea Edgehog
 be created by Ash as a result of a successful action. You should not be creating records manually in code,
 e.g <code class="inline">%MyResource{value: 1, value: 2}</code>. Generally that is fine, but often with embedded resources it is nice
 to be able to validate the keys that are being provided, e.g</p><pre><code class="makeup elixir" translate="no"><span class="nc">Resource</span><span class="w">
-</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Ash.Changeset</span><span class="o">.</span><span class="n">for_create</span><span class="p" data-group-id="4524795442-1">(</span><span class="ss">:create</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4524795442-2">%{</span><span class="ss">embedded</span><span class="p">:</span><span class="w"> </span><span class="nc">EmbeddedResource</span><span class="o">.</span><span class="n">input</span><span class="p" data-group-id="4524795442-3">(</span><span class="ss">foo</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="ss">bar</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="4524795442-3">)</span><span class="p" data-group-id="4524795442-2">}</span><span class="p" data-group-id="4524795442-1">)</span><span class="w">
-</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Ash</span><span class="o">.</span><span class="n">create</span><span class="p" data-group-id="4524795442-4">(</span><span class="p" data-group-id="4524795442-4">)</span></code></pre>
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Ash.Changeset</span><span class="o">.</span><span class="n">for_create</span><span class="p" data-group-id="group-1">(</span><span class="ss">:create</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="group-2">%{</span><span class="ss">embedded</span><span class="p">:</span><span class="w"> </span><span class="nc">EmbeddedResource</span><span class="o">.</span><span class="n">input</span><span class="p" data-group-id="group-3">(</span><span class="ss">foo</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="ss">bar</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p" data-group-id="group-3">)</span><span class="p" data-group-id="group-2">}</span><span class="p" data-group-id="group-1">)</span><span class="w">
+</span><span class="o">|&gt;</span><span class="w"> </span><span class="nc">Ash</span><span class="o">.</span><span class="n">create</span><span class="p" data-group-id="group-4">(</span><span class="p" data-group-id="group-4">)</span></code></pre>
   </section>
 </section>
 <section class="detail" id="input/2">
@@ -331,7 +331,7 @@ to be able to validate the keys that are being provided, e.g</p><pre><code class
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@spec</span> input(values :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>() | <a href="https://hexdocs.pm/elixir/Keyword.html#t:t/0">Keyword.t</a>(), action :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">atom</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">no_return</a>()</pre>
+          <pre translate="no"><span class="attribute">@spec</span> input(values :: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">map</a>() | <a href="https://elixir.hexdocs.pm/Keyword.html#t:t/0">Keyword.t</a>(), action :: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">atom</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">map</a>() | <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">no_return</a>()</pre>
 
       </div>
 
@@ -387,7 +387,7 @@ to be able to validate the keys that are being provided, e.g</p><pre><code class
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.4) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 

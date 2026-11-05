@@ -16,7 +16,8 @@ Behaviour for handling ephemeral files used in file download requests.
   tenant_id :: String.t(),
   file_download_request_id :: String.t(),
   url :: String.t()
-) :: :ok | {:error, reason :: any()}
+) ::
+  :ok | {:error, reason :: any()}
 ```
 
 # `upload`

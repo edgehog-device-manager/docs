@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.40.3">
+    <meta name="generator" content="ExDoc v0.40.4">
     <meta name="project" content="Clea Edgehog v0.14.1">
 
 
     <title>Edgehog.Provisioner.Audit.Behaviour — Clea Edgehog v0.14.1</title>
 
-    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+    <link rel="stylesheet" href="dist/html-elixir-RXHHCTJW.css" />
 
-    <script defer src="dist/sidebar_items-2D26CB17.js"></script>
+    <script defer src="dist/sidebar_items-54D09DF0.js"></script>
     <script defer src="docs_config.js"></script>
-    <script defer src="dist/html-Y2MUTVIN.js"></script>
+    <script defer src="dist/html-MI33G4N7.js"></script>
 <link rel="stylesheet" href="style/cards.css">
   </head>
   <body>
@@ -268,7 +268,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@type</span> error() :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+          <pre translate="no"><span class="attribute">@type</span> error() :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -337,7 +337,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@callback</span> api_error(<a href="#t:resource/0">resource</a>(), <a href="#t:error/0">error</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+          <pre translate="no"><span class="attribute">@callback</span> api_error(<a href="#t:resource/0">resource</a>(), <a href="#t:error/0">error</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -365,7 +365,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@callback</span> device_status(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">boolean</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+          <pre translate="no"><span class="attribute">@callback</span> device_status(<a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>(), <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">boolean</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -395,11 +395,11 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
 
           <pre translate="no"><span class="attribute">@callback</span> provisioning_completed(
   <a href="#t:resource/0">resource</a>(),
-  <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">keyword</a>(),
-  start_metadata :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  retries :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(),
-  result :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()
-) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+  <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">keyword</a>(),
+  start_metadata :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  retries :: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">non_neg_integer</a>(),
+  result :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()
+) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -429,11 +429,11 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
 
           <pre translate="no"><span class="attribute">@callback</span> provisioning_failed(
   <a href="#t:resource/0">resource</a>(),
-  <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">keyword</a>(),
-  start_metadata :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>(),
-  retries :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>(),
-  reason :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()
-) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+  <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">keyword</a>(),
+  start_metadata :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>(),
+  retries :: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">non_neg_integer</a>(),
+  reason :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()
+) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -461,10 +461,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@callback</span> provisioning_started(
-  <a href="#t:resource/0">resource</a>(),
-  <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">keyword</a>()
-) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+          <pre translate="no"><span class="attribute">@callback</span> provisioning_started(<a href="#t:resource/0">resource</a>(), <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">keyword</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -493,7 +490,7 @@ provisioning completed or failed events.</p>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@callback</span> sent_to_device(<a href="#t:resource/0">resource</a>(), <a href="#t:resource/0">resource</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+          <pre translate="no"><span class="attribute">@callback</span> sent_to_device(<a href="#t:resource/0">resource</a>(), <a href="#t:resource/0">resource</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -521,7 +518,7 @@ provisioning completed or failed events.</p>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@callback</span> subscribing_to_events(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+          <pre translate="no"><span class="attribute">@callback</span> subscribing_to_events(<a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -555,7 +552,7 @@ provisioning completed or failed events.</p>
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.4) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 

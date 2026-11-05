@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.40.3">
+    <meta name="generator" content="ExDoc v0.40.4">
     <meta name="project" content="Clea Edgehog v0.14.1">
 
 
     <title>Edgehog.Auth.Providers.Behaviour — Clea Edgehog v0.14.1</title>
 
-    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+    <link rel="stylesheet" href="dist/html-elixir-RXHHCTJW.css" />
 
-    <script defer src="dist/sidebar_items-2D26CB17.js"></script>
+    <script defer src="dist/sidebar_items-54D09DF0.js"></script>
     <script defer src="docs_config.js"></script>
-    <script defer src="dist/html-Y2MUTVIN.js"></script>
+    <script defer src="dist/html-MI33G4N7.js"></script>
 <link rel="stylesheet" href="style/cards.css">
   </head>
   <body>
@@ -295,7 +295,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@type</span> context() :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+          <pre translate="no"><span class="attribute">@type</span> context() :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -324,7 +324,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@type</span> fga_access_tuple() ::
-  {subj :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), rel :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), type :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
+  {subj :: <a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>(), rel :: <a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>(), type :: <a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>()}</pre>
 
       </div>
 
@@ -352,7 +352,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@type</span> fga_tuple() :: {subj :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), rel :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), obj :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}</pre>
+          <pre translate="no"><span class="attribute">@type</span> fga_tuple() :: {subj :: <a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>(), rel :: <a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>(), obj :: <a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>()}</pre>
 
       </div>
 
@@ -380,7 +380,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@type</span> obj_stream() :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()</pre>
+          <pre translate="no"><span class="attribute">@type</span> obj_stream() :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -408,7 +408,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@type</span> objects() :: %{objects: [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()]}</pre>
+          <pre translate="no"><span class="attribute">@type</span> objects() :: %{objects: [<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()]}</pre>
 
       </div>
 
@@ -436,7 +436,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@type</span> users() :: %{users: [<a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()]}</pre>
+          <pre translate="no"><span class="attribute">@type</span> users() :: %{users: [<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()]}</pre>
 
       </div>
 
@@ -478,7 +478,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@callback</span> check(tuple :: <a href="#t:fga_tuple/0">fga_tuple</a>(), context :: <a href="#t:context/0">context</a>()) ::
-  {:ok, true} | {:ok, false} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+  {:ok, true} | {:ok, false} | {:error, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()}</pre>
 
       </div>
 
@@ -507,7 +507,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@callback</span> delete(tuple :: <a href="#t:fga_tuple/0">fga_tuple</a>(), context :: <a href="#t:context/0">context</a>()) ::
-  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+  {:ok, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()} | {:error, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()}</pre>
 
       </div>
 
@@ -535,7 +535,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@callback</span> init_context(args :: <a href="https://hexdocs.pm/elixir/Keyword.html#t:t/0">Keyword.t</a>()) :: {:ok, <a href="#t:context/0">context</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+          <pre translate="no"><span class="attribute">@callback</span> init_context(args :: <a href="https://elixir.hexdocs.pm/Keyword.html#t:t/0">Keyword.t</a>()) :: {:ok, <a href="#t:context/0">context</a>()} | {:error, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()}</pre>
 
       </div>
 
@@ -565,7 +565,7 @@ For example: for OpenFGA's gRPC connections you might want to store here the cha
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@callback</span> list_objects(tuple :: <a href="#t:fga_access_tuple/0">fga_access_tuple</a>(), context :: <a href="#t:context/0">context</a>()) ::
-  {:ok, <a href="#t:objects/0">objects</a>()} | {:ok, :all} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+  {:ok, <a href="#t:objects/0">objects</a>()} | {:ok, :all} | {:error, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()}</pre>
 
       </div>
 
@@ -596,7 +596,7 @@ using <code class="inline">stream_list_objects</code></p><p>The call can return<
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@callback</span> list_users(tuple :: <a href="#t:fga_access_tuple/0">fga_access_tuple</a>(), context :: <a href="#t:context/0">context</a>()) ::
-  {:ok, <a href="#t:users/0">users</a>()} | {:ok, :all} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+  {:ok, <a href="#t:users/0">users</a>()} | {:ok, :all} | {:error, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()}</pre>
 
       </div>
 
@@ -625,7 +625,7 @@ using <code class="inline">stream_list_objects</code></p><p>The call can return<
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@callback</span> stream_list_objects(tuple :: <a href="#t:fga_access_tuple/0">fga_access_tuple</a>(), context :: <a href="#t:context/0">context</a>()) ::
-  {:ok, <a href="#t:obj_stream/0">obj_stream</a>()} | {:ok, :all} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+  {:ok, <a href="#t:obj_stream/0">obj_stream</a>()} | {:ok, :all} | {:error, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()}</pre>
 
       </div>
 
@@ -654,7 +654,7 @@ using <code class="inline">stream_list_objects</code></p><p>The call can return<
       <div class="specs">
 
           <pre translate="no"><span class="attribute">@callback</span> write(tuple :: <a href="#t:fga_tuple/0">fga_tuple</a>(), context :: <a href="#t:context/0">context</a>()) ::
-  {:ok, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()} | {:error, <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">term</a>()}</pre>
+  {:ok, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()} | {:error, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()}</pre>
 
       </div>
 
@@ -688,7 +688,7 @@ using <code class="inline">stream_list_objects</code></p><p>The call can return<
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.4) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 

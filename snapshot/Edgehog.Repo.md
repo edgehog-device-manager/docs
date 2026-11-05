@@ -166,6 +166,8 @@ For version compatibility, please check your database's documentation:
 
 # `in_transaction?`
 
+# `include_upsert_action?`
+
 # `init`
 
 # `insert`
@@ -349,4 +351,8 @@ return a different result:
 # `update_all`
 
 # `use_builtin_uuidv7_function?`
+
+# `use_timestamptz?`
+
+Whether to use 'timestamptz' for data storage, defaults to false
 

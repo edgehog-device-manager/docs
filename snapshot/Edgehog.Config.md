@@ -1332,10 +1332,7 @@ the `namespace` for the variable.
 # `template`
 
 ```elixir
-@spec template(
-  Path.t(),
-  keyword()
-) :: :ok | {:error, File.posix()}
+@spec template(Path.t(), keyword()) :: :ok | {:error, File.posix()}
 ```
 
 Creates a template for OS environment variables given a `filename`.

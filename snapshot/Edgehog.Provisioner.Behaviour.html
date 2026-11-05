@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.40.3">
+    <meta name="generator" content="ExDoc v0.40.4">
     <meta name="project" content="Clea Edgehog v0.14.1">
 
 
     <title>Edgehog.Provisioner.Behaviour — Clea Edgehog v0.14.1</title>
 
-    <link rel="stylesheet" href="dist/html-elixir-NHQLCD6Y.css" />
+    <link rel="stylesheet" href="dist/html-elixir-RXHHCTJW.css" />
 
-    <script defer src="dist/sidebar_items-2D26CB17.js"></script>
+    <script defer src="dist/sidebar_items-54D09DF0.js"></script>
     <script defer src="docs_config.js"></script>
-    <script defer src="dist/html-Y2MUTVIN.js"></script>
+    <script defer src="dist/html-MI33G4N7.js"></script>
 <link rel="stylesheet" href="style/cards.css">
   </head>
   <body>
@@ -118,7 +118,7 @@ Clea Edgehog
 
 
     <section id="moduledoc">
-<p>Behaviour describing the API of a Provisioner for a resource.</p><p>A Provisioner is a <a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a> that takes a resource to provision on a
+<p>Behaviour describing the API of a Provisioner for a resource.</p><p>A Provisioner is a <a href="https://elixir.hexdocs.pm/GenServer.html"><code class="inline">GenServer</code></a> that takes a resource to provision on a
 device, and orchestrates the whole provisioning flow with the device:
 sending requests, managing timeouts, retries and errors, reacting to the
 events emitted by the device, and broadcasting readiness (or failure).</p><p>This module shouldn't be used directly. Rather, it's best to
@@ -126,7 +126,7 @@ use <a href="Edgehog.Provisioner.html"><code class="inline">Edgehog.Provisioner<
   use Edgehog.Provisioner, resource: ResourceModule
 end</code></pre><p>which will add the default implementation of a <code class="inline">Provisioner</code>.
 All of the functions of this behaviour are overridable.
-Note that a <code class="inline">Provisioner</code> is a <a href="https://hexdocs.pm/elixir/GenServer.html"><code class="inline">GenServer</code></a>, so you can also override any of
+Note that a <code class="inline">Provisioner</code> is a <a href="https://elixir.hexdocs.pm/GenServer.html"><code class="inline">GenServer</code></a>, so you can also override any of
 its callbacks, if you need.</p>
     </section>
 
@@ -263,7 +263,7 @@ the provisioner one.</p></div>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@type</span> provision_opts() :: <a href="#t:start_opts/0">start_opts</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">keyword</a>()</pre>
+          <pre translate="no"><span class="attribute">@type</span> provision_opts() :: <a href="#t:start_opts/0">start_opts</a>() | <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">keyword</a>()</pre>
 
       </div>
 
@@ -291,7 +291,7 @@ the provisioner one.</p></div>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@type</span> resource() :: <a href="https://hexdocs.pm/ash/3.31.3/Ash.Resource.html#t:record/0">Ash.Resource.record</a>()</pre>
+          <pre translate="no"><span class="attribute">@type</span> resource() :: <a href="https://ash.hexdocs.pm/3.37.2/Ash.Resource.html#t:record/0">Ash.Resource.record</a>()</pre>
 
       </div>
 
@@ -321,7 +321,7 @@ the provisioner one.</p></div>
 
           <pre translate="no"><span class="attribute">@type</span> start_opts() :: [
   resource: <a href="#t:resource/0">resource</a>(),
-  tenant: <a href="Edgehog.Tenants.Tenant.html#t:t/0">Edgehog.Tenants.Tenant.t</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pos_integer</a>(),
+  tenant: <a href="Edgehog.Tenants.Tenant.html#t:t/0">Edgehog.Tenants.Tenant.t</a>() | <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">pos_integer</a>(),
   mode: :auto | :manual
 ]</pre>
 
@@ -355,7 +355,7 @@ the provisioner one.</p></div>
   resource: <a href="#t:resource/0">resource</a>(),
   tenant: <a href="Edgehog.Tenants.Tenant.html#t:t/0">Edgehog.Tenants.Tenant.t</a>(),
   state: :init | :sent,
-  retries: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">non_neg_integer</a>()
+  retries: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">non_neg_integer</a>()
 }</pre>
 
       </div>
@@ -403,9 +403,10 @@ the provisioner one.</p></div>
 
           <pre translate="no"><span class="attribute">@callback</span> provision(
   <a href="#t:resource/0">resource</a>(),
-  <a href="Edgehog.Tenants.Tenant.html#t:t/0">Edgehog.Tenants.Tenant.t</a>() | <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">pos_integer</a>(),
+  <a href="Edgehog.Tenants.Tenant.html#t:t/0">Edgehog.Tenants.Tenant.t</a>() | <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">pos_integer</a>(),
   <a href="#t:provision_opts/0">provision_opts</a>()
-) :: <a href="https://hexdocs.pm/elixir/GenServer.html#t:on_start/0">GenServer.on_start</a>()</pre>
+) ::
+  <a href="https://elixir.hexdocs.pm/GenServer.html#t:on_start/0">GenServer.on_start</a>()</pre>
 
       </div>
 
@@ -438,7 +439,7 @@ Check <code class="inline">Core.name/1</code> docs for more info.</p>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@callback</span> start(<a href="#t:start_opts/0">start_opts</a>()) :: <a href="https://hexdocs.pm/elixir/GenServer.html#t:on_start/0">GenServer.on_start</a>()</pre>
+          <pre translate="no"><span class="attribute">@callback</span> start(<a href="#t:start_opts/0">start_opts</a>()) :: <a href="https://elixir.hexdocs.pm/GenServer.html#t:on_start/0">GenServer.on_start</a>()</pre>
 
       </div>
 
@@ -467,7 +468,7 @@ current process.</p><p>See <code class="inline">start_link/1</code> docs for mor
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@callback</span> start_link(<a href="#t:start_opts/0">start_opts</a>()) :: <a href="https://hexdocs.pm/elixir/GenServer.html#t:on_start/0">GenServer.on_start</a>()</pre>
+          <pre translate="no"><span class="attribute">@callback</span> start_link(<a href="#t:start_opts/0">start_opts</a>()) :: <a href="https://elixir.hexdocs.pm/GenServer.html#t:on_start/0">GenServer.on_start</a>()</pre>
 
       </div>
 
@@ -497,15 +498,15 @@ following flow:</p><ul><li><p>checks that the resource is not ready already (i.e
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@callback</span> timeout(<a href="#t:state/0">state</a>()) :: <a href="https://hexdocs.pm/elixir/typespecs.html#built-in-types">timeout</a>()</pre>
+          <pre translate="no"><span class="attribute">@callback</span> timeout(<a href="#t:state/0">state</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">timeout</a>()</pre>
 
       </div>
 
 <p>Returns the timeout for retries.</p><p>In the default implementation, it is an exponential backoff timeout:
 it reads information from the provisioner state (current send state, and
 number of retries that happened), and it computes the timeout with the
-following formula</p><pre><code class="makeup elixir" translate="no"><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pad</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p" data-group-id="7539617644-1">(</span><span class="mi">2</span><span class="o">^</span><span class="n">retries</span><span class="p" data-group-id="7539617644-1">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rand</span><span class="p" data-group-id="7539617644-2">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p" data-group-id="7539617644-2">)</span><span class="w">
-</span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p" data-group-id="7539617644-3">(</span><span class="n">timeout</span><span class="p">,</span><span class="w"> </span><span class="n">max_timeout</span><span class="p" data-group-id="7539617644-3">)</span></code></pre><ul><li>pad       :: the pad component is there to ensure a minimum timeout is
+following formula</p><pre><code class="makeup elixir" translate="no"><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pad</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p" data-group-id="group-1">(</span><span class="mi">2</span><span class="o">^</span><span class="n">retries</span><span class="p" data-group-id="group-1">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rand</span><span class="p" data-group-id="group-2">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1000</span><span class="p" data-group-id="group-2">)</span><span class="w">
+</span><span class="n">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">min</span><span class="p" data-group-id="group-3">(</span><span class="n">timeout</span><span class="p">,</span><span class="w"> </span><span class="n">max_timeout</span><span class="p" data-group-id="group-3">)</span></code></pre><ul><li>pad       :: the pad component is there to ensure a minimum timeout is
 guaranteed. The pad is only applied when the resource
 has been sent, and therefore we're waiting for astarte triggers</li><li>2^retries :: this is the exponential component, increases at each retry to
 ensure we don't DDoS astarte/the device.</li><li>rand      :: a random (between 0 and 1s) ensures no synchronization errors
@@ -539,7 +540,7 @@ appear.</li></ul>
 
         <p class="built-using">
           Built using
-          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.3) for the
+          <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.40.4) for the
 
             <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
 

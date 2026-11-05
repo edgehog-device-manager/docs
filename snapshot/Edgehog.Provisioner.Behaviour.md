@@ -72,7 +72,8 @@ In the default implementation, it includes other key on top of the required ones
   resource(),
   Edgehog.Tenants.Tenant.t() | pos_integer(),
   provision_opts()
-) :: GenServer.on_start()
+) ::
+  GenServer.on_start()
 ```
 
 Starts the right process through the correct (usually dynamic) supervisor.
