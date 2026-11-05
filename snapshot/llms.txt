@@ -144,6 +144,9 @@ This change fetches the deployment from the arguments and links it to the target
   - [Edgehog.Containers.Application.Application.Config](Edgehog.Containers.Application.Application.Config.md)
   - [Edgehog.Containers.Calculations.Dangling](Edgehog.Containers.Calculations.Dangling.md): Is the current resource dangling? Meaning, is it related to other entities?
 
+  - [Edgehog.Containers.Calculations.Hash](Edgehog.Containers.Calculations.Hash.md): Computes a deterministic SHA-256 hex hash for a container resource from its
+relevant fields and related resource hashes.
+
   - [Edgehog.Containers.Calculations.OptionsEncoding](Edgehog.Containers.Calculations.OptionsEncoding.md): Encodes options map to an array of "key=value" strings.
 
   - [Edgehog.Containers.Changes.MaybeDestroyChildren](Edgehog.Containers.Changes.MaybeDestroyChildren.md): Trigger children cleanup (if dangling) after transaction.
