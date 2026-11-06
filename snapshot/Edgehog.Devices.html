@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-RXHHCTJW.css" />
 
-    <script defer src="dist/sidebar_items-177480EB.js"></script>
+    <script defer src="dist/sidebar_items-A5CDC0D4.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-MI33G4N7.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -537,6 +537,26 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#can_send_volume_command_request/6" data-no-tooltip="" translate="no">can_send_volume_command_request(actor, record, volume, command, params_or_opts \\ %{}, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Runs authorization checks for <code class="inline">Edgehog.Devices.Device.send_volume_command</code></p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#can_send_volume_command_request?/6" data-no-tooltip="" translate="no">can_send_volume_command_request?(actor, record, volume, command, params_or_opts \\ %{}, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Runs authorization checks for <code class="inline">Edgehog.Devices.Device.send_volume_command</code>, returning a boolean.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#can_update_application/6" data-no-tooltip="" translate="no">can_update_application(actor, record, from, to, params_or_opts \\ %{}, opts \\ [])</a>
 
       </div>
@@ -658,6 +678,16 @@ Clea Edgehog
     <div class="summary-row">
       <div class="summary-signature">
         <a href="#changeset_to_send_release_command/5" data-no-tooltip="" translate="no">changeset_to_send_release_command(record, release, command, params_or_opts \\ %{}, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Returns the changeset corresponding to the action.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#changeset_to_send_volume_command_request/5" data-no-tooltip="" translate="no">changeset_to_send_volume_command_request(record, volume, command, params_or_opts \\ %{}, opts \\ [])</a>
 
       </div>
 
@@ -1265,6 +1295,26 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#send_volume_command_request/5" data-no-tooltip="" translate="no">send_volume_command_request(record, volume, command, params \\ nil, opts \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Sends a command for the given device volume.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#send_volume_command_request!/5" data-no-tooltip="" translate="no">send_volume_command_request!(record, volume, command, params \\ nil, opts \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Sends a command for the given device volume.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#stream!/2" data-no-tooltip="" translate="no">stream!(query, opts \\ [])</a>
 
           <span class="deprecated" title="Use `Ash.stream!/2` instead">deprecated</span>
@@ -1784,7 +1834,7 @@ Clea Edgehog
       <h1 class="signature" translate="no">can_delete_system_model(actor, record, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L143" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L147" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -1813,7 +1863,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_delete_system_model?(actor, record, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L143" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L147" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2016,7 +2066,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_create_deployment_request(actor, record, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L132" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2045,7 +2095,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_create_deployment_request?(actor, record, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L132" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2074,7 +2124,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_create_device_mapping_request(actor, record, device_mapping, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L116" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2103,7 +2153,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_create_device_mapping_request?(actor, record, device_mapping, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L116" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2132,7 +2182,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_create_device_request_request(actor, record, device_request, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L116" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L120" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2161,7 +2211,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_create_device_request_request?(actor, record, device_request, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L116" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L120" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2190,7 +2240,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_create_env_file_request(actor, record, env_file, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2219,7 +2269,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_create_env_file_request?(actor, record, env_file, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2248,7 +2298,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_create_file_bind_request(actor, record, file_bind, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L120" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2277,7 +2327,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_create_file_bind_request?(actor, record, file_bind, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L120" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2480,7 +2530,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_release_command(actor, record, release, command, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L132" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L136" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2509,7 +2559,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_send_release_command?(actor, record, release, command, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L132" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L136" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2519,6 +2569,64 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
   <section class="docstring">
 
 <p>Runs authorization checks for <code class="inline">Edgehog.Devices.Device.send_release_command</code>, returning a boolean.</p><p>See <a href="https://ash.hexdocs.pm/3.37.2/Ash.html#can?/3"><code class="inline">Ash.can?/3</code></a> for more information</p><h2 id="can_send_release_command?/6-options" class="section-heading"><a href="#can_send_release_command?/6-options" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Options</span></h2><ul><li><p><code class="inline">:maybe_is</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - If the actor <em>may</em> be able to perform the action, what value should be returned. The default value is <code class="inline">:maybe</code>.</p></li><li><p><code class="inline">:filter_with</code> - If set to <code class="inline">:error</code>, the query will raise an error on a match. If set to <code class="inline">:filter</code> the query will filter out unauthorized access. Valid values are :filter, :error The default value is <code class="inline">:filter</code>.</p></li><li><p><code class="inline">:validate?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to treat an invalid action as a non-allowed action. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:reuse_values?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If <code class="inline">true</code>, allow <strong>calculations</strong> to use attributes and other dependencies
+already on the struct instead of refetching from the data layer. Default
+<code class="inline">false</code> (prefer persisted data; avoids stale structs acting as an implicit
+cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">Ash</span><span class="o">.</span><span class="n">load!</span><span class="p" data-group-id="group-1">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="ss">:full_name</span><span class="p">,</span><span class="w"> </span><span class="ss">reuse_values?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="group-1">)</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="err">`</span><span class="no">false</span><span class="err">`</span><span class="o">.</span></code></pre></li><li><p><code class="inline">:pre_flight?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:scope</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> protocol. Provides a default tenant and deep merges context (explicit opts take precedence). The actor is always taken from the second argument to <a href="#can/3"><code class="inline">can/3</code></a>. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.html"><code class="inline">Ash.Scope</code></a> for more.</p></li><li><p><code class="inline">:context</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Context to set on the query/changeset/action_input being authorized</p></li><li><p><code class="inline">:run_queries?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to run queries. If set to <code class="inline">true</code>, <code class="inline">:maybe</code> will not be returned. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:data</code> - The record or records specifically attempting to be acted upon.</p></li><li><p><code class="inline">:tenant</code> (value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.ToTenant.html"><code class="inline">Ash.ToTenant</code></a> protocol) - The tenant to use for authorization</p></li><li><p><code class="inline">:as_of</code> - A point in time to authorize &quot;as of&quot; (time travel). See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Query.html#as_of/2"><code class="inline">Ash.Query.as_of/2</code></a>.</p></li><li><p><code class="inline">:alter_source?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If set to <code class="inline">true</code>, the source being authorized is returned so it can be run. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:base_query</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A base query on which to apply an generated filters</p></li><li><p><code class="inline">:no_check?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not authorization must pass at the strict/filter step, or if post-checks are allowed to be run The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:on_must_pass_strict_check</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - Override the value returned when <code class="inline">no_check?</code> is <code class="inline">true</code> but a check must be run.</p></li><li><p><code class="inline">:atomic_changeset</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A base query on which to apply an generated filters</p></li><li><p><code class="inline">:return_forbidden_error?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to return a forbidden error in cases of not being authorized. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:log?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to log the authorization result. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:log_policy_breakdown?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If set to <code class="inline">false</code>, suppresses policy breakdown logs, overriding the global <code class="inline">show_policy_breakdowns?</code> configuration.</p></li><li><p><code class="inline">:short_circuit?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - For <code class="inline">can_do_all/3</code> and <code class="inline">can_do_all?/3</code>, whether to stop checking after the first failing check. Defaults to <code class="inline">false</code> for <code class="inline">can_do_all/3</code> and <code class="inline">true</code> for <code class="inline">can_do_all?/3</code>. The default value is <code class="inline">false</code>.</p></li></ul>
+  </section>
+</section>
+<section class="detail" id="can_send_volume_command_request/6">
+
+    <span id="can_send_volume_command_request/4"></span>
+
+    <span id="can_send_volume_command_request/5"></span>
+
+  <div class="detail-header">
+    <a href="#can_send_volume_command_request/6" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">can_send_volume_command_request(actor, record, volume, command, params_or_opts \\ %{}, opts \\ [])</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Runs authorization checks for <code class="inline">Edgehog.Devices.Device.send_volume_command</code></p><p>See <a href="https://ash.hexdocs.pm/3.37.2/Ash.html#can/3"><code class="inline">Ash.can/3</code></a> for more information</p><h2 id="can_send_volume_command_request/6-options" class="section-heading"><a href="#can_send_volume_command_request/6-options" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Options</span></h2><ul><li><p><code class="inline">:maybe_is</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - If the actor <em>may</em> be able to perform the action, what value should be returned. The default value is <code class="inline">:maybe</code>.</p></li><li><p><code class="inline">:filter_with</code> - If set to <code class="inline">:error</code>, the query will raise an error on a match. If set to <code class="inline">:filter</code> the query will filter out unauthorized access. Valid values are :filter, :error The default value is <code class="inline">:filter</code>.</p></li><li><p><code class="inline">:validate?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to treat an invalid action as a non-allowed action. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:reuse_values?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If <code class="inline">true</code>, allow <strong>calculations</strong> to use attributes and other dependencies
+already on the struct instead of refetching from the data layer. Default
+<code class="inline">false</code> (prefer persisted data; avoids stale structs acting as an implicit
+cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">Ash</span><span class="o">.</span><span class="n">load!</span><span class="p" data-group-id="group-1">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="ss">:full_name</span><span class="p">,</span><span class="w"> </span><span class="ss">reuse_values?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="group-1">)</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="err">`</span><span class="no">false</span><span class="err">`</span><span class="o">.</span></code></pre></li><li><p><code class="inline">:pre_flight?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:scope</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> protocol. Provides a default tenant and deep merges context (explicit opts take precedence). The actor is always taken from the second argument to <a href="#can/3"><code class="inline">can/3</code></a>. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.html"><code class="inline">Ash.Scope</code></a> for more.</p></li><li><p><code class="inline">:context</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Context to set on the query/changeset/action_input being authorized</p></li><li><p><code class="inline">:run_queries?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to run queries. If set to <code class="inline">true</code>, <code class="inline">:maybe</code> will not be returned. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:data</code> - The record or records specifically attempting to be acted upon.</p></li><li><p><code class="inline">:tenant</code> (value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.ToTenant.html"><code class="inline">Ash.ToTenant</code></a> protocol) - The tenant to use for authorization</p></li><li><p><code class="inline">:as_of</code> - A point in time to authorize &quot;as of&quot; (time travel). See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Query.html#as_of/2"><code class="inline">Ash.Query.as_of/2</code></a>.</p></li><li><p><code class="inline">:alter_source?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If set to <code class="inline">true</code>, the source being authorized is returned so it can be run. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:base_query</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A base query on which to apply an generated filters</p></li><li><p><code class="inline">:no_check?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not authorization must pass at the strict/filter step, or if post-checks are allowed to be run The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:on_must_pass_strict_check</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - Override the value returned when <code class="inline">no_check?</code> is <code class="inline">true</code> but a check must be run.</p></li><li><p><code class="inline">:atomic_changeset</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A base query on which to apply an generated filters</p></li><li><p><code class="inline">:return_forbidden_error?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to return a forbidden error in cases of not being authorized. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:log?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to log the authorization result. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:log_policy_breakdown?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If set to <code class="inline">false</code>, suppresses policy breakdown logs, overriding the global <code class="inline">show_policy_breakdowns?</code> configuration.</p></li><li><p><code class="inline">:short_circuit?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - For <code class="inline">can_do_all/3</code> and <code class="inline">can_do_all?/3</code>, whether to stop checking after the first failing check. Defaults to <code class="inline">false</code> for <code class="inline">can_do_all/3</code> and <code class="inline">true</code> for <code class="inline">can_do_all?/3</code>. The default value is <code class="inline">false</code>.</p></li></ul>
+  </section>
+</section>
+<section class="detail" id="can_send_volume_command_request?/6">
+
+    <span id="can_send_volume_command_request?/4"></span>
+
+    <span id="can_send_volume_command_request?/5"></span>
+
+  <div class="detail-header">
+    <a href="#can_send_volume_command_request?/6" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">can_send_volume_command_request?(actor, record, volume, command, params_or_opts \\ %{}, opts \\ [])</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Runs authorization checks for <code class="inline">Edgehog.Devices.Device.send_volume_command</code>, returning a boolean.</p><p>See <a href="https://ash.hexdocs.pm/3.37.2/Ash.html#can?/3"><code class="inline">Ash.can?/3</code></a> for more information</p><h2 id="can_send_volume_command_request?/6-options" class="section-heading"><a href="#can_send_volume_command_request?/6-options" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Options</span></h2><ul><li><p><code class="inline">:maybe_is</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - If the actor <em>may</em> be able to perform the action, what value should be returned. The default value is <code class="inline">:maybe</code>.</p></li><li><p><code class="inline">:filter_with</code> - If set to <code class="inline">:error</code>, the query will raise an error on a match. If set to <code class="inline">:filter</code> the query will filter out unauthorized access. Valid values are :filter, :error The default value is <code class="inline">:filter</code>.</p></li><li><p><code class="inline">:validate?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to treat an invalid action as a non-allowed action. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:reuse_values?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If <code class="inline">true</code>, allow <strong>calculations</strong> to use attributes and other dependencies
 already on the struct instead of refetching from the data layer. Default
 <code class="inline">false</code> (prefer persisted data; avoids stale structs acting as an implicit
 cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">Ash</span><span class="o">.</span><span class="n">load!</span><span class="p" data-group-id="group-1">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="ss">:full_name</span><span class="p">,</span><span class="w"> </span><span class="ss">reuse_values?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="group-1">)</span><span class="w"> </span><span class="nc">The</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">is</span><span class="w"> </span><span class="err">`</span><span class="no">false</span><span class="err">`</span><span class="o">.</span></code></pre></li><li><p><code class="inline">:pre_flight?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not this is a pre_flight check (which may perform optimized in-memory checks) or the final proper check. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:scope</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> protocol. Provides a default tenant and deep merges context (explicit opts take precedence). The actor is always taken from the second argument to <a href="#can/3"><code class="inline">can/3</code></a>. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.html"><code class="inline">Ash.Scope</code></a> for more.</p></li><li><p><code class="inline">:context</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Context to set on the query/changeset/action_input being authorized</p></li><li><p><code class="inline">:run_queries?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to run queries. If set to <code class="inline">true</code>, <code class="inline">:maybe</code> will not be returned. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:data</code> - The record or records specifically attempting to be acted upon.</p></li><li><p><code class="inline">:tenant</code> (value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.ToTenant.html"><code class="inline">Ash.ToTenant</code></a> protocol) - The tenant to use for authorization</p></li><li><p><code class="inline">:as_of</code> - A point in time to authorize &quot;as of&quot; (time travel). See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Query.html#as_of/2"><code class="inline">Ash.Query.as_of/2</code></a>.</p></li><li><p><code class="inline">:alter_source?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If set to <code class="inline">true</code>, the source being authorized is returned so it can be run. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:base_query</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A base query on which to apply an generated filters</p></li><li><p><code class="inline">:no_check?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not authorization must pass at the strict/filter step, or if post-checks are allowed to be run The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:on_must_pass_strict_check</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - Override the value returned when <code class="inline">no_check?</code> is <code class="inline">true</code> but a check must be run.</p></li><li><p><code class="inline">:atomic_changeset</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A base query on which to apply an generated filters</p></li><li><p><code class="inline">:return_forbidden_error?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to return a forbidden error in cases of not being authorized. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:log?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to log the authorization result. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:log_policy_breakdown?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If set to <code class="inline">false</code>, suppresses policy breakdown logs, overriding the global <code class="inline">show_policy_breakdowns?</code> configuration.</p></li><li><p><code class="inline">:short_circuit?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - For <code class="inline">can_do_all/3</code> and <code class="inline">can_do_all?/3</code>, whether to stop checking after the first failing check. Defaults to <code class="inline">false</code> for <code class="inline">can_do_all/3</code> and <code class="inline">true</code> for <code class="inline">can_do_all?/3</code>. The default value is <code class="inline">false</code>.</p></li></ul>
@@ -2538,7 +2646,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_update_application(actor, record, from, to, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L136" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L140" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2567,7 +2675,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">can_update_application?(actor, record, from, to, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L136" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L140" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2596,7 +2704,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">changeset_to_delete_system_model(record, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L143" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L147" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2648,7 +2756,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">changeset_to_send_create_deployment_request(record, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L132" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2674,7 +2782,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">changeset_to_send_create_device_mapping_request(record, device_mapping, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L116" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2700,7 +2808,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">changeset_to_send_create_device_request_request(record, device_request, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L116" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L120" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2726,7 +2834,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">changeset_to_send_create_env_file_request(record, env_file, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2752,7 +2860,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">changeset_to_send_create_file_bind_request(record, file_bind, deployment, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L120" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2856,7 +2964,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">changeset_to_send_release_command(record, release, command, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L132" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L136" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -2866,6 +2974,32 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
   <section class="docstring">
 
 <p>Returns the changeset corresponding to the action.</p><h2 id="changeset_to_send_release_command/5-options" class="section-heading"><a href="#changeset_to_send_release_command/5-options" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Options</span></h2><ul><li><p><code class="inline">:tracer</code> (one or a list of module that adopts <a href="https://ash.hexdocs.pm/3.37.2/Ash.Tracer.html"><code class="inline">Ash.Tracer</code></a>) - A tracer that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Tracer.html"><code class="inline">Ash.Tracer</code></a> behaviour. See that module for more.</p></li><li><p><code class="inline">:authorize?</code> - If an actor option is provided (even if it is <code class="inline">nil</code>), authorization happens automatically. If not, this flag can be used to authorize with no user.</p></li><li><p><code class="inline">:tenant</code> (value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.ToTenant.html"><code class="inline">Ash.ToTenant</code></a> protocol) - A tenant to set on the query or changeset</p></li><li><p><code class="inline">:as_of</code> - A point in time to run the action &quot;as of&quot; (time travel). See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Query.html#as_of/2"><code class="inline">Ash.Query.as_of/2</code></a>.</p></li><li><p><code class="inline">:actor</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access</p></li><li><p><code class="inline">:scope</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> protocol, for passing around actor/tenant/context in a single value. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> for more.</p></li></ul>
+  </section>
+</section>
+<section class="detail" id="changeset_to_send_volume_command_request/5">
+
+    <span id="changeset_to_send_volume_command_request/3"></span>
+
+    <span id="changeset_to_send_volume_command_request/4"></span>
+
+  <div class="detail-header">
+    <a href="#changeset_to_send_volume_command_request/5" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">changeset_to_send_volume_command_request(record, volume, command, params_or_opts \\ %{}, opts \\ [])</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Returns the changeset corresponding to the action.</p><h2 id="changeset_to_send_volume_command_request/5-options" class="section-heading"><a href="#changeset_to_send_volume_command_request/5-options" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Options</span></h2><ul><li><p><code class="inline">:tracer</code> (one or a list of module that adopts <a href="https://ash.hexdocs.pm/3.37.2/Ash.Tracer.html"><code class="inline">Ash.Tracer</code></a>) - A tracer that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Tracer.html"><code class="inline">Ash.Tracer</code></a> behaviour. See that module for more.</p></li><li><p><code class="inline">:authorize?</code> - If an actor option is provided (even if it is <code class="inline">nil</code>), authorization happens automatically. If not, this flag can be used to authorize with no user.</p></li><li><p><code class="inline">:tenant</code> (value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.ToTenant.html"><code class="inline">Ash.ToTenant</code></a> protocol) - A tenant to set on the query or changeset</p></li><li><p><code class="inline">:as_of</code> - A point in time to run the action &quot;as of&quot; (time travel). See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Query.html#as_of/2"><code class="inline">Ash.Query.as_of/2</code></a>.</p></li><li><p><code class="inline">:actor</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access</p></li><li><p><code class="inline">:scope</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> protocol, for passing around actor/tenant/context in a single value. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> for more.</p></li></ul>
   </section>
 </section>
 <section class="detail" id="changeset_to_update_application/5">
@@ -2882,7 +3016,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">changeset_to_update_application(record, from, to, params_or_opts \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L136" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L140" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3042,7 +3176,7 @@ cache).  </p><pre><code class="makeup elixir" translate="no"><span class="nc">As
       <h1 class="signature" translate="no">delete_system_model(record, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L143" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L147" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -3082,7 +3216,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">delete_system_model!(record, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L143" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L147" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4114,7 +4248,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_create_deployment_request(record, deployment, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L132" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4154,7 +4288,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_create_deployment_request!(record, deployment, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L132" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4194,7 +4328,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_create_device_mapping_request(record, device_mapping, deployment, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L116" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4234,7 +4368,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_create_device_mapping_request!(record, device_mapping, deployment, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L116" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4274,7 +4408,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_create_device_request_request(record, device_request, deployment, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L116" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L120" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4314,7 +4448,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_create_device_request_request!(record, device_request, deployment, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L116" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L120" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4354,7 +4488,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_create_env_file_request(record, env_file, deployment, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4394,7 +4528,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_create_env_file_request!(record, env_file, deployment, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L128" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4434,7 +4568,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_create_file_bind_request(record, file_bind, deployment, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L120" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4474,7 +4608,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_create_file_bind_request!(record, file_bind, deployment, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L120" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L124" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4754,7 +4888,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_release_command(record, release, command, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L132" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L136" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4794,7 +4928,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">send_release_command!(record, release, command, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L132" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L136" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -4804,6 +4938,86 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
   <section class="docstring">
 
 <p>Sends a command for the given application release.</p><p>Raises any errors instead of returning them</p><h1>Arguments</h1><ul><li>release - The release target of the command.</li><li>command</li></ul><h2 id="send_release_command!/5-options" class="section-heading"><a href="#send_release_command!/5-options" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Options</span></h2><ul><li><p><code class="inline">:params</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Parameters to supply, ignored if the input is a changeset, only used when an identifier is given.</p></li><li><p><code class="inline">:atomic_upgrade?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If true the action will be done atomically if it can (and is configured to do so), ignoring the in memory transformations and validations. You should not generally need to disable this. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:timeout</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">timeout/0</code></a>) - A positive integer, or <code class="inline">:infinity</code>. If none is provided, the timeout configured on the domain is used.</p></li><li><p><code class="inline">:tracer</code> (one or a list of module that adopts <a href="https://ash.hexdocs.pm/3.37.2/Ash.Tracer.html"><code class="inline">Ash.Tracer</code></a>) - A tracer that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Tracer.html"><code class="inline">Ash.Tracer</code></a> behaviour. See that module for more.</p></li><li><p><code class="inline">:action</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - The action to use, either an Action struct or the name of the action</p></li><li><p><code class="inline">:authorize?</code> - If an actor option is provided (even if it is <code class="inline">nil</code>), authorization happens automatically. If not, this flag can be used to authorize with no user.</p></li><li><p><code class="inline">:context</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Context to set on the query, changeset, or input</p></li><li><p><code class="inline">:tenant</code> (value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.ToTenant.html"><code class="inline">Ash.ToTenant</code></a> protocol) - A tenant to set on the query or changeset</p></li><li><p><code class="inline">:as_of</code> - A point in time to run the action &quot;as of&quot; (time travel). See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Query.html#as_of/2"><code class="inline">Ash.Query.as_of/2</code></a>.</p></li><li><p><code class="inline">:actor</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access</p></li><li><p><code class="inline">:scope</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> protocol, for passing around actor/tenant/context in a single value. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> for more.</p></li><li><p><code class="inline">:return_notifications?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Use this if you're running ash actions in your own transaction and you want to manually handle sending notifications.<br/>If a transaction is ongoing, and this is false, notifications will be discarded, otherwise
+the return value is <code class="inline">{:ok, result, notifications}</code> (or <code class="inline">{:ok, notifications}</code>)<br/>To send notifications later, use <code class="inline">Ash.Notifier.notify(notifications)</code>. It sends any notifications
+that can be sent, and returns the rest. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:rollback_on_error?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to rollback the transaction on error, if the resource is in a transaction.<br/>If the action has <code class="inline">transaction? false</code> this option has no effect. If an error is returned from the
+data layer and the resource is in a transaction, the transaction is always rolled back, regardless. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:notification_metadata</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - Metadata to be merged into the metadata field for all notifications sent from this operation. The default value is <code class="inline">%{}</code>.</p></li><li><p><code class="inline">:skip_unknown_inputs</code> - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use <code class="inline">:*</code> to indicate all unknown keys.</p></li><li><p><code class="inline">:load</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A load statement to add onto the changeset</p></li><li><p><code class="inline">:strict?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If set to true, only the fields listed for a relationship in <code class="inline">load</code> are loaded on it,
+as with the <code class="inline">strict?</code> option to <a href="https://ash.hexdocs.pm/3.37.2/Ash.html#load/3"><code class="inline">Ash.load/3</code></a>. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:bulk_options</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">keyword/0</code></a>) - Options passed to <code class="inline">Ash.bulk_update</code>, if a query, list, or stream of inputs is provided.</p><ul><li><p><code class="inline">:atomic_update</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - A map of atomic updates to apply. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Changeset.html#atomic_update/3"><code class="inline">Ash.Changeset.atomic_update/3</code></a> for more.</p></li><li><p><code class="inline">:stream_batch_size</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">integer/0</code></a>) - Batch size to use if provided a query and the query must be streamed</p></li><li><p><code class="inline">:allow_stream_with</code> - The 'worst' strategy allowed to be used to fetch records if the <code class="inline">:stream</code> strategy is chosen. See the <a href="https://ash.hexdocs.pm/3.37.2/Ash.html#stream!/2"><code class="inline">Ash.stream!/2</code></a> docs for more. The default value is <code class="inline">:keyset</code>.</p></li><li><p><code class="inline">:authorize_query?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If a query is given, determines whether or not authorization is run on that query. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:select</code> (list of <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">atom/0</code></a>) - A select statement to apply to records. Ignored if <code class="inline">return_records?</code> is not true.</p></li><li><p><code class="inline">:filter</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A filter to apply to records. This is also applied to a stream of inputs.</p></li><li><p><code class="inline">:strategy</code> - The strategy or strategies to enable. :stream is used in all cases if the data layer does not support atomics. The default value is <code class="inline">[:atomic]</code>.</p></li><li><p><code class="inline">:transform_changeset</code> (function of arity 1) - A function that takes and returns a changeset, applied to each changeset after it is built but before validation. Used internally by managed relationships to set foreign keys and context.</p></li><li><p><code class="inline">:allow_stream_with</code> - The 'worst' strategy allowed to be used to fetch records. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.html#stream!/2"><code class="inline">Ash.stream!/2</code></a> docs for more. The default value is <code class="inline">:keyset</code>.</p></li><li><p><code class="inline">:stream_with</code> - The specific strategy to use to fetch records. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.html#stream!/2"><code class="inline">Ash.stream!/2</code></a> docs for more.</p></li><li><p><code class="inline">:max_concurrency</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">non_neg_integer/0</code></a>) - The maximum number of processes allowed to be started for parallel loading of relationships and calculations. Defaults to <code class="inline">System.schedulers_online() * 2</code></p></li><li><p><code class="inline">:lock</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A lock statement to add onto the query</p></li><li><p><code class="inline">:reuse_values?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If <code class="inline">true</code>, allow <strong>calculations</strong> to use attributes and other dependencies
+already on the struct instead of refetching from the data layer. Default
+<code class="inline">false</code> (prefer persisted data; avoids stale structs acting as an implicit
+cache).</p><pre><code class="makeup elixir" translate="no"><span class="nc">Ash</span><span class="o">.</span><span class="n">load!</span><span class="p" data-group-id="group-1">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="ss">:full_name</span><span class="p">,</span><span class="w"> </span><span class="ss">reuse_values?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="group-1">)</span></code></pre><p>The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:authorize_with</code> - If set to <code class="inline">:error</code>, instead of applying authorization filters as a filter, any records not matching the authorization filter will cause an error to be returned. The default value is <code class="inline">:filter</code>.</p></li><li><p><code class="inline">:read_action</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">atom/0</code></a>) - The action to use when building the read query.</p></li><li><p><code class="inline">:assume_casted?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to cast attributes and arguments as input. This is an optimization for cases where the input is already casted and/or not in need of casting The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:select</code> (list of <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">atom/0</code></a>) - A select statement to apply to records. Ignored if <code class="inline">return_records?</code> is not true.</p></li><li><p><code class="inline">:authorize_query_with</code> - If set to <code class="inline">:error</code>, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. Uses <code class="inline">authorize_with</code> if not set.</p></li><li><p><code class="inline">:authorize_changeset_with</code> - If set to <code class="inline">:error</code>, instead of filtering unauthorized changes, unauthorized changes will raise an appropriate forbidden error. Uses <code class="inline">authorize_with</code> if not set.</p></li><li><p><code class="inline">:authorize_with</code> - If set to <code class="inline">:error</code>, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. The default value is <code class="inline">:filter</code>.</p></li><li><p><code class="inline">:private_arguments</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Private argument values to set on each changeset before validations and changes are run. The default value is <code class="inline">%{}</code>.</p></li><li><p><code class="inline">:sorted?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to sort results by their input position, in cases where <code class="inline">return_records?: true</code> was provided. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:return_records?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to return all of the records that were inserted. Defaults to false to account for large inserts. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:return_errors?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether to return all errors that occur during the operation. Defaults to the value of <code class="inline">:bulk_actions_default_to_errors?</code> in your config, or <code class="inline">false</code> if not set. Returning all errors may be expensive for large inserts. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:batch_size</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">pos_integer/0</code></a>) - The number of records to include in each batch. Defaults to the <code class="inline">default_limit</code>
+or <code class="inline">max_page_size</code> of the action, or 100.</p></li><li><p><code class="inline">:return_stream?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If set to <code class="inline">true</code>, instead of an <a href="https://ash.hexdocs.pm/3.37.2/Ash.BulkResult.html"><code class="inline">Ash.BulkResult</code></a>, a mixed stream is returned.</p><p>Potential elements:</p><p><code class="inline">{:notification, notification}</code> - if <code class="inline">return_notifications?</code> is set to <code class="inline">true</code>
+<code class="inline">{:ok, record}</code> - if <code class="inline">return_records?</code> is set to <code class="inline">true</code>
+<code class="inline">{:error, error}</code> - an error that occurred. May be changeset or an individual error.</p><p>The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:return_nothing?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Mutes warnings about returning nothing.</p><p>Only relevant if <code class="inline">return_stream?</code> is set to <code class="inline">true</code> and all other
+<code class="inline">return_*?</code> options are set to <code class="inline">false</code>.</p><p>The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:stop_on_error?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If true, the first encountered error will stop the action and be returned. Otherwise, errors
+will be skipped. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:notify?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to generate any notifications. If this is set to <code class="inline">true</code> then the data layer must return
+the results from each batch. This may be intensive for large bulk actions.</p><p>Notifications will be automatically sent unless <code class="inline">return_notifications?</code> is set to <code class="inline">true</code>.</p><p>The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:transaction</code> - Whether or not to wrap the entire execution in a transaction, each batch, or not at all.</p><p>Keep in mind:</p><p><code class="inline">before_transaction</code> and <code class="inline">after_transaction</code> hooks attached to changesets will have to be run
+<em>inside</em> the transaction if you choose <code class="inline">transaction: :all</code>.</p><p>The default value is <code class="inline">:batch</code>.</p></li><li><p><code class="inline">:max_concurrency</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">non_neg_integer/0</code></a>) - If set to a value greater than 0, up to that many tasks will be started to run batches asynchronously The default value is <code class="inline">0</code>.</p></li></ul></li><li><p><code class="inline">:private_arguments</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Private argument values to set before validations and changes. The default value is <code class="inline">%{}</code>.</p></li></ul>
+  </section>
+</section>
+<section class="detail" id="send_volume_command_request/5">
+
+    <span id="send_volume_command_request/3"></span>
+
+    <span id="send_volume_command_request/4"></span>
+
+  <div class="detail-header">
+    <a href="#send_volume_command_request/5" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">send_volume_command_request(record, volume, command, params \\ nil, opts \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Sends a command for the given device volume.</p><h1>Arguments</h1><ul><li>volume - The volume target of the command.</li><li>command</li></ul><h2 id="send_volume_command_request/5-options" class="section-heading"><a href="#send_volume_command_request/5-options" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Options</span></h2><ul><li><p><code class="inline">:params</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Parameters to supply, ignored if the input is a changeset, only used when an identifier is given.</p></li><li><p><code class="inline">:atomic_upgrade?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If true the action will be done atomically if it can (and is configured to do so), ignoring the in memory transformations and validations. You should not generally need to disable this. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:timeout</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">timeout/0</code></a>) - A positive integer, or <code class="inline">:infinity</code>. If none is provided, the timeout configured on the domain is used.</p></li><li><p><code class="inline">:tracer</code> (one or a list of module that adopts <a href="https://ash.hexdocs.pm/3.37.2/Ash.Tracer.html"><code class="inline">Ash.Tracer</code></a>) - A tracer that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Tracer.html"><code class="inline">Ash.Tracer</code></a> behaviour. See that module for more.</p></li><li><p><code class="inline">:action</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - The action to use, either an Action struct or the name of the action</p></li><li><p><code class="inline">:authorize?</code> - If an actor option is provided (even if it is <code class="inline">nil</code>), authorization happens automatically. If not, this flag can be used to authorize with no user.</p></li><li><p><code class="inline">:context</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Context to set on the query, changeset, or input</p></li><li><p><code class="inline">:tenant</code> (value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.ToTenant.html"><code class="inline">Ash.ToTenant</code></a> protocol) - A tenant to set on the query or changeset</p></li><li><p><code class="inline">:as_of</code> - A point in time to run the action &quot;as of&quot; (time travel). See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Query.html#as_of/2"><code class="inline">Ash.Query.as_of/2</code></a>.</p></li><li><p><code class="inline">:actor</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access</p></li><li><p><code class="inline">:scope</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> protocol, for passing around actor/tenant/context in a single value. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> for more.</p></li><li><p><code class="inline">:return_notifications?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Use this if you're running ash actions in your own transaction and you want to manually handle sending notifications.<br/>If a transaction is ongoing, and this is false, notifications will be discarded, otherwise
+the return value is <code class="inline">{:ok, result, notifications}</code> (or <code class="inline">{:ok, notifications}</code>)<br/>To send notifications later, use <code class="inline">Ash.Notifier.notify(notifications)</code>. It sends any notifications
+that can be sent, and returns the rest. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:rollback_on_error?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to rollback the transaction on error, if the resource is in a transaction.<br/>If the action has <code class="inline">transaction? false</code> this option has no effect. If an error is returned from the
+data layer and the resource is in a transaction, the transaction is always rolled back, regardless. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:notification_metadata</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - Metadata to be merged into the metadata field for all notifications sent from this operation. The default value is <code class="inline">%{}</code>.</p></li><li><p><code class="inline">:skip_unknown_inputs</code> - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use <code class="inline">:*</code> to indicate all unknown keys.</p></li><li><p><code class="inline">:load</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A load statement to add onto the changeset</p></li><li><p><code class="inline">:strict?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If set to true, only the fields listed for a relationship in <code class="inline">load</code> are loaded on it,
+as with the <code class="inline">strict?</code> option to <a href="https://ash.hexdocs.pm/3.37.2/Ash.html#load/3"><code class="inline">Ash.load/3</code></a>. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:bulk_options</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">keyword/0</code></a>) - Options passed to <code class="inline">Ash.bulk_update</code>, if a query, list, or stream of inputs is provided.</p><ul><li><p><code class="inline">:atomic_update</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - A map of atomic updates to apply. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Changeset.html#atomic_update/3"><code class="inline">Ash.Changeset.atomic_update/3</code></a> for more.</p></li><li><p><code class="inline">:stream_batch_size</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">integer/0</code></a>) - Batch size to use if provided a query and the query must be streamed</p></li><li><p><code class="inline">:allow_stream_with</code> - The 'worst' strategy allowed to be used to fetch records if the <code class="inline">:stream</code> strategy is chosen. See the <a href="https://ash.hexdocs.pm/3.37.2/Ash.html#stream!/2"><code class="inline">Ash.stream!/2</code></a> docs for more. The default value is <code class="inline">:keyset</code>.</p></li><li><p><code class="inline">:authorize_query?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If a query is given, determines whether or not authorization is run on that query. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:select</code> (list of <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">atom/0</code></a>) - A select statement to apply to records. Ignored if <code class="inline">return_records?</code> is not true.</p></li><li><p><code class="inline">:filter</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A filter to apply to records. This is also applied to a stream of inputs.</p></li><li><p><code class="inline">:strategy</code> - The strategy or strategies to enable. :stream is used in all cases if the data layer does not support atomics. The default value is <code class="inline">[:atomic]</code>.</p></li><li><p><code class="inline">:transform_changeset</code> (function of arity 1) - A function that takes and returns a changeset, applied to each changeset after it is built but before validation. Used internally by managed relationships to set foreign keys and context.</p></li><li><p><code class="inline">:allow_stream_with</code> - The 'worst' strategy allowed to be used to fetch records. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.html#stream!/2"><code class="inline">Ash.stream!/2</code></a> docs for more. The default value is <code class="inline">:keyset</code>.</p></li><li><p><code class="inline">:stream_with</code> - The specific strategy to use to fetch records. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.html#stream!/2"><code class="inline">Ash.stream!/2</code></a> docs for more.</p></li><li><p><code class="inline">:max_concurrency</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">non_neg_integer/0</code></a>) - The maximum number of processes allowed to be started for parallel loading of relationships and calculations. Defaults to <code class="inline">System.schedulers_online() * 2</code></p></li><li><p><code class="inline">:lock</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A lock statement to add onto the query</p></li><li><p><code class="inline">:reuse_values?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If <code class="inline">true</code>, allow <strong>calculations</strong> to use attributes and other dependencies
+already on the struct instead of refetching from the data layer. Default
+<code class="inline">false</code> (prefer persisted data; avoids stale structs acting as an implicit
+cache).</p><pre><code class="makeup elixir" translate="no"><span class="nc">Ash</span><span class="o">.</span><span class="n">load!</span><span class="p" data-group-id="group-1">(</span><span class="n">user</span><span class="p">,</span><span class="w"> </span><span class="ss">:full_name</span><span class="p">,</span><span class="w"> </span><span class="ss">reuse_values?</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="group-1">)</span></code></pre><p>The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:authorize_with</code> - If set to <code class="inline">:error</code>, instead of applying authorization filters as a filter, any records not matching the authorization filter will cause an error to be returned. The default value is <code class="inline">:filter</code>.</p></li><li><p><code class="inline">:read_action</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">atom/0</code></a>) - The action to use when building the read query.</p></li><li><p><code class="inline">:assume_casted?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to cast attributes and arguments as input. This is an optimization for cases where the input is already casted and/or not in need of casting The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:select</code> (list of <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">atom/0</code></a>) - A select statement to apply to records. Ignored if <code class="inline">return_records?</code> is not true.</p></li><li><p><code class="inline">:authorize_query_with</code> - If set to <code class="inline">:error</code>, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. Uses <code class="inline">authorize_with</code> if not set.</p></li><li><p><code class="inline">:authorize_changeset_with</code> - If set to <code class="inline">:error</code>, instead of filtering unauthorized changes, unauthorized changes will raise an appropriate forbidden error. Uses <code class="inline">authorize_with</code> if not set.</p></li><li><p><code class="inline">:authorize_with</code> - If set to <code class="inline">:error</code>, instead of filtering unauthorized query results, unauthorized query results will raise an appropriate forbidden error. The default value is <code class="inline">:filter</code>.</p></li><li><p><code class="inline">:private_arguments</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Private argument values to set on each changeset before validations and changes are run. The default value is <code class="inline">%{}</code>.</p></li><li><p><code class="inline">:sorted?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to sort results by their input position, in cases where <code class="inline">return_records?: true</code> was provided. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:return_records?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to return all of the records that were inserted. Defaults to false to account for large inserts. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:return_errors?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether to return all errors that occur during the operation. Defaults to the value of <code class="inline">:bulk_actions_default_to_errors?</code> in your config, or <code class="inline">false</code> if not set. Returning all errors may be expensive for large inserts. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:batch_size</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">pos_integer/0</code></a>) - The number of records to include in each batch. Defaults to the <code class="inline">default_limit</code>
+or <code class="inline">max_page_size</code> of the action, or 100.</p></li><li><p><code class="inline">:return_stream?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If set to <code class="inline">true</code>, instead of an <a href="https://ash.hexdocs.pm/3.37.2/Ash.BulkResult.html"><code class="inline">Ash.BulkResult</code></a>, a mixed stream is returned.</p><p>Potential elements:</p><p><code class="inline">{:notification, notification}</code> - if <code class="inline">return_notifications?</code> is set to <code class="inline">true</code>
+<code class="inline">{:ok, record}</code> - if <code class="inline">return_records?</code> is set to <code class="inline">true</code>
+<code class="inline">{:error, error}</code> - an error that occurred. May be changeset or an individual error.</p><p>The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:return_nothing?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Mutes warnings about returning nothing.</p><p>Only relevant if <code class="inline">return_stream?</code> is set to <code class="inline">true</code> and all other
+<code class="inline">return_*?</code> options are set to <code class="inline">false</code>.</p><p>The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:stop_on_error?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If true, the first encountered error will stop the action and be returned. Otherwise, errors
+will be skipped. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:notify?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to generate any notifications. If this is set to <code class="inline">true</code> then the data layer must return
+the results from each batch. This may be intensive for large bulk actions.</p><p>Notifications will be automatically sent unless <code class="inline">return_notifications?</code> is set to <code class="inline">true</code>.</p><p>The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:transaction</code> - Whether or not to wrap the entire execution in a transaction, each batch, or not at all.</p><p>Keep in mind:</p><p><code class="inline">before_transaction</code> and <code class="inline">after_transaction</code> hooks attached to changesets will have to be run
+<em>inside</em> the transaction if you choose <code class="inline">transaction: :all</code>.</p><p>The default value is <code class="inline">:batch</code>.</p></li><li><p><code class="inline">:max_concurrency</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">non_neg_integer/0</code></a>) - If set to a value greater than 0, up to that many tasks will be started to run batches asynchronously The default value is <code class="inline">0</code>.</p></li></ul></li><li><p><code class="inline">:private_arguments</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Private argument values to set before validations and changes. The default value is <code class="inline">%{}</code>.</p></li></ul>
+  </section>
+</section>
+<section class="detail" id="send_volume_command_request!/5">
+
+    <span id="send_volume_command_request!/3"></span>
+
+    <span id="send_volume_command_request!/4"></span>
+
+  <div class="detail-header">
+    <a href="#send_volume_command_request!/5" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">send_volume_command_request!(record, volume, command, params \\ nil, opts \\ nil)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L112" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Sends a command for the given device volume.</p><p>Raises any errors instead of returning them</p><h1>Arguments</h1><ul><li>volume - The volume target of the command.</li><li>command</li></ul><h2 id="send_volume_command_request!/5-options" class="section-heading"><a href="#send_volume_command_request!/5-options" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Options</span></h2><ul><li><p><code class="inline">:params</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Parameters to supply, ignored if the input is a changeset, only used when an identifier is given.</p></li><li><p><code class="inline">:atomic_upgrade?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If true the action will be done atomically if it can (and is configured to do so), ignoring the in memory transformations and validations. You should not generally need to disable this. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:timeout</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">timeout/0</code></a>) - A positive integer, or <code class="inline">:infinity</code>. If none is provided, the timeout configured on the domain is used.</p></li><li><p><code class="inline">:tracer</code> (one or a list of module that adopts <a href="https://ash.hexdocs.pm/3.37.2/Ash.Tracer.html"><code class="inline">Ash.Tracer</code></a>) - A tracer that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Tracer.html"><code class="inline">Ash.Tracer</code></a> behaviour. See that module for more.</p></li><li><p><code class="inline">:action</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - The action to use, either an Action struct or the name of the action</p></li><li><p><code class="inline">:authorize?</code> - If an actor option is provided (even if it is <code class="inline">nil</code>), authorization happens automatically. If not, this flag can be used to authorize with no user.</p></li><li><p><code class="inline">:context</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#basic-types"><code class="inline">map/0</code></a>) - Context to set on the query, changeset, or input</p></li><li><p><code class="inline">:tenant</code> (value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.ToTenant.html"><code class="inline">Ash.ToTenant</code></a> protocol) - A tenant to set on the query or changeset</p></li><li><p><code class="inline">:as_of</code> - A point in time to run the action &quot;as of&quot; (time travel). See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Query.html#as_of/2"><code class="inline">Ash.Query.as_of/2</code></a>.</p></li><li><p><code class="inline">:actor</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - If an actor is provided, it will be used in conjunction with the authorizers of a resource to authorize access</p></li><li><p><code class="inline">:scope</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A value that implements the <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> protocol, for passing around actor/tenant/context in a single value. See <a href="https://ash.hexdocs.pm/3.37.2/Ash.Scope.ToOpts.html"><code class="inline">Ash.Scope.ToOpts</code></a> for more.</p></li><li><p><code class="inline">:return_notifications?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Use this if you're running ash actions in your own transaction and you want to manually handle sending notifications.<br/>If a transaction is ongoing, and this is false, notifications will be discarded, otherwise
 the return value is <code class="inline">{:ok, result, notifications}</code> (or <code class="inline">{:ok, notifications}</code>)<br/>To send notifications later, use <code class="inline">Ash.Notifier.notify(notifications)</code>. It sends any notifications
 that can be sent, and returns the rest. The default value is <code class="inline">false</code>.</p></li><li><p><code class="inline">:rollback_on_error?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - Whether or not to rollback the transaction on error, if the resource is in a transaction.<br/>If the action has <code class="inline">transaction? false</code> this option has no effect. If an error is returned from the
 data layer and the resource is in a transaction, the transaction is always rolled back, regardless. The default value is <code class="inline">true</code>.</p></li><li><p><code class="inline">:notification_metadata</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - Metadata to be merged into the metadata field for all notifications sent from this operation. The default value is <code class="inline">%{}</code>.</p></li><li><p><code class="inline">:skip_unknown_inputs</code> - A list of inputs that, if provided, will be ignored if they are not recognized by the action. Use <code class="inline">:*</code> to indicate all unknown keys.</p></li><li><p><code class="inline">:load</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">term/0</code></a>) - A load statement to add onto the changeset</p></li><li><p><code class="inline">:strict?</code> (<a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types"><code class="inline">boolean/0</code></a>) - If set to true, only the fields listed for a relationship in <code class="inline">load</code> are loaded on it,
@@ -4974,7 +5188,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">update_application(record, from, to, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L136" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L140" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -5015,7 +5229,7 @@ the results from each batch. This may be intensive for large bulk actions.</p><p
       <h1 class="signature" translate="no">update_application!(record, from, to, params \\ nil, opts \\ nil)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L136" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/devices/devices.ex#L140" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 

@@ -1773,7 +1773,7 @@ The endpoint is parametric and `network_id` can be replaced with any valid strin
 The value of the property can be unset.
 
 
-## io.edgehog.devicemanager.apps.AvailableVolumes v0.1
+## io.edgehog.devicemanager.apps.AvailableVolumes v0.2
 
 
 
@@ -1788,6 +1788,7 @@ Thanks to this type of interface, the device can set a persistent, stateful, syn
 The interface has the following mappings:
 
 - `/%{volume_id}/created` with `boolean` type. Volume created
+- `/%{volume_id}/status` with `string` type. Current status of the volume on the device.
 
 
 ### `/%{volume_id}/created`
@@ -1797,6 +1798,18 @@ Volume created
 
 
 This endpoint accepts values of type `boolean`: either true or false, adhering to JSON boolean type.
+
+The endpoint is parametric and `volume_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+### `/%{volume_id}/status`
+
+Current status of the volume on the device.
+
+Possible values [Received, Missing, Present, Deleting, Error]
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 
 The endpoint is parametric and `volume_id` can be replaced with any valid string to send data on specialized paths.
 
@@ -3759,7 +3772,7 @@ Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.
 
 
-## io.edgehog.devicemanager.apps.CreateVolumeRequest v0.1
+## io.edgehog.devicemanager.apps.CreateVolumeRequest v0.2
 
 
 
@@ -3779,6 +3792,7 @@ The interface has the following mappings:
 - `/volume/deploymentId` with `string` type. Reference to a Deployment using the volume
 - `/volume/driver` with `string` type. Volume driver name
 - `/volume/options` with `stringarray` type. Volume driver options
+- `/volume/reclaimPolicy` with `string` type. Affect how the deletion of the volume as part of the deployment is handled.
 
 
 ### `/volume/id`
@@ -3827,6 +3841,19 @@ Volume driver options
 An array of key=value options to set for the driver. The key cannot contain an `=`.
 
 This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/volume/reclaimPolicy`
+
+Affect how the deletion of the volume as part of the deployment is handled.
+
+Possible values [Retain, Delete]. If the policy is 'Reclaim' this volume won't be deleted when the deployment gets deleted. Otherwise it will be deleted. Delete is the default.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when it has been received at least once by the recipient.
@@ -4269,6 +4296,41 @@ The endpoint is parametric and `network_id` can be replaced with any valid strin
 
 The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Astarte expects a valid timestamp to be attached each time data is produced.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+
+## io.edgehog.devicemanager.apps.VolumeCommand v0.1
+
+
+
+### About
+
+This interface is of type `datastream` and is owned by the `server`, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `individual` aggregation.
+Each mapping is treated as an independent value and is managed individually.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/%{volume_id}/command` with `string` type. Request execution of a command on a specific volume.
+
+
+### `/%{volume_id}/command`
+
+Request execution of a command on a specific volume.
+
+Possible values [Delete].
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `volume_id` can be replaced with any valid string to send data on specialized paths.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
 Data is considered delivered when the transport successfully sends the data regardless of the outcome.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 31556952 seconds before it is erased from the database.
