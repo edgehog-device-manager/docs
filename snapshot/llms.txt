@@ -309,6 +309,7 @@ resources using the specified `read_action`.
   - [Edgehog.Containers.Volume.Deployment.Provisioner](Edgehog.Containers.Volume.Deployment.Provisioner.md): The provisioner for deploying volumes on a device.
   - [Edgehog.Containers.Volume.Deployment.Provisioner.Audit](Edgehog.Containers.Volume.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the volume deployment provisioner.
   - [Edgehog.Containers.Volume.Deployment.Provisioner.Core](Edgehog.Containers.Volume.Deployment.Provisioner.Core.md): The module describing the Core functions required by the volume deployment provisioner.
+  - [Edgehog.Containers.Volume.Deployment.VolumeDeploymentsByDevice.Config](Edgehog.Containers.Volume.Deployment.VolumeDeploymentsByDevice.Config.md)
   - [Edgehog.Containers.Volume.Volume.Config](Edgehog.Containers.Volume.Volume.Config.md)
 
 - Devices
