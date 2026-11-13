@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-RXHHCTJW.css" />
 
-    <script defer src="dist/sidebar_items-DD82BFAD.js"></script>
+    <script defer src="dist/sidebar_items-E0D51713.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-MI33G4N7.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -165,7 +165,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#c:api_error/2" data-no-tooltip="" translate="no">api_error(resource, error)</a>
+        <a href="#c:api_error/3" data-no-tooltip="" translate="no">api_error(resource, error, t)</a>
 
       </div>
 
@@ -215,7 +215,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
 
     <div class="summary-row">
       <div class="summary-signature">
-        <a href="#c:sent_to_device/2" data-no-tooltip="" translate="no">sent_to_device(resource, resource)</a>
+        <a href="#c:sent_to_device/3" data-no-tooltip="" translate="no">sent_to_device(resource, resource, t)</a>
 
       </div>
 
@@ -257,7 +257,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
       <h1 class="signature" translate="no">error()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L99" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L100" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -285,7 +285,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
       <h1 class="signature" translate="no">resource()</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L97" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L98" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -316,17 +316,17 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
     </h2>
 
     <div class="callbacks-list">
-<section class="detail" id="c:api_error/2">
+<section class="detail" id="c:api_error/3">
 
   <div class="detail-header">
-    <a href="#c:api_error/2" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
+    <a href="#c:api_error/3" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">api_error(resource, error)</h1>
+      <h1 class="signature" translate="no">api_error(resource, error, t)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L70" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L71" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -337,7 +337,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@callback</span> api_error(<a href="#t:resource/0">resource</a>(), <a href="#t:error/0">error</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
+          <pre translate="no"><span class="attribute">@callback</span> api_error(<a href="#t:resource/0">resource</a>(), <a href="#t:error/0">error</a>(), <a href="Edgehog.Tenants.Tenant.html#t:t/0">Edgehog.Tenants.Tenant.t</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -354,7 +354,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
       <h1 class="signature" translate="no">device_status(t, boolean)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L50" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L51" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -382,7 +382,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
       <h1 class="signature" translate="no">provisioning_completed(resource, keyword, start_metadata, retries, result)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L75" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L76" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -416,7 +416,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
       <h1 class="signature" translate="no">provisioning_failed(resource, keyword, start_metadata, retries, reason)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L86" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L87" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -450,7 +450,7 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
       <h1 class="signature" translate="no">provisioning_started(resource, keyword)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L58" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L59" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -469,17 +469,17 @@ end</code></pre><p>which will declare the module implements the behaviour.</p>
 provisioning completed or failed events.</p>
   </section>
 </section>
-<section class="detail" id="c:sent_to_device/2">
+<section class="detail" id="c:sent_to_device/3">
 
   <div class="detail-header">
-    <a href="#c:sent_to_device/2" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
+    <a href="#c:sent_to_device/3" class="detail-link" data-no-tooltip="" aria-label="Link to this callback">
       <i class="ri-link-m" aria-hidden="true"></i>
     </a>
     <div class="heading-with-actions">
-      <h1 class="signature" translate="no">sent_to_device(resource, resource)</h1>
+      <h1 class="signature" translate="no">sent_to_device(resource, resource, t)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L65" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L66" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -490,7 +490,7 @@ provisioning completed or failed events.</p>
 
       <div class="specs">
 
-          <pre translate="no"><span class="attribute">@callback</span> sent_to_device(<a href="#t:resource/0">resource</a>(), <a href="#t:resource/0">resource</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
+          <pre translate="no"><span class="attribute">@callback</span> sent_to_device(<a href="#t:resource/0">resource</a>(), <a href="#t:resource/0">resource</a>(), <a href="Edgehog.Tenants.Tenant.html#t:t/0">Edgehog.Tenants.Tenant.t</a>()) :: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()</pre>
 
       </div>
 
@@ -507,7 +507,7 @@ provisioning completed or failed events.</p>
       <h1 class="signature" translate="no">subscribing_to_events(t)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L45" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/provisioner/audit/behaviour.ex#L46" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 

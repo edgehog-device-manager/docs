@@ -34,7 +34,7 @@ See `Edgehog.Provisioner.Behaviour.resource()`.
 # `api_error`
 
 ```elixir
-@callback api_error(resource(), error()) :: term()
+@callback api_error(resource(), error(), Edgehog.Tenants.Tenant.t()) :: term()
 ```
 
 Audits a failed send to device operation.
@@ -89,7 +89,7 @@ provisioning completed or failed events.
 # `sent_to_device`
 
 ```elixir
-@callback sent_to_device(resource(), resource()) :: term()
+@callback sent_to_device(resource(), resource(), Edgehog.Tenants.Tenant.t()) :: term()
 ```
 
 Audits a successful send of the resource to the device.

@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-RXHHCTJW.css" />
 
-    <script defer src="dist/sidebar_items-DD82BFAD.js"></script>
+    <script defer src="dist/sidebar_items-E0D51713.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-MI33G4N7.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -137,6 +137,14 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#t:convenience_option/0" data-no-tooltip="" translate="no">convenience_option()</a>
+
+      </div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#t:option/0" data-no-tooltip="" translate="no">option()</a>
 
       </div>
@@ -151,12 +159,52 @@ Clea Edgehog
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#debug/2" data-no-tooltip="" translate="no">debug(message, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Registers an audit event at debug level.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#error/2" data-no-tooltip="" translate="no">error(message, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Registers an audit event at error level.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#info/2" data-no-tooltip="" translate="no">info(message, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Registers an audit event at info level.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#register_event/5" data-no-tooltip="" translate="no">register_event(message, log_level, ash_action_info \\ nil, metadata \\ %{}, opts \\ [])</a>
 
       </div>
 
         <div class="summary-synopsis"><p>Registers an event by logging the given message and creating an <a href="Edgehog.Audit.Event.html"><code class="inline">Edgehog.Audit.Event</code></a>
 resource, if configured.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#warning/2" data-no-tooltip="" translate="no">warning(message, opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Registers an audit event at warning level.</p></div>
 
     </div>
 
@@ -174,6 +222,37 @@ resource, if configured.</p></div>
     </h2>
 
     <div class="types-list">
+<section class="detail" id="t:convenience_option/0">
+
+  <div class="detail-header">
+    <a href="#t:convenience_option/0" class="detail-link" data-no-tooltip="" aria-label="Link to this type">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">convenience_option()</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/audit/audit_service.ex#L35" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@type</span> convenience_option() ::
+  <a href="#t:option/0">option</a>()
+  | {:metadata, <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">map</a>()}
+  | {:ash_action_info, <a href="Edgehog.Audit.Types.ActionEventInfo.html#t:t/0">Edgehog.Audit.Types.ActionEventInfo.t</a>() | nil}</pre>
+
+      </div>
+
+
+  </section>
+</section>
 <section class="detail" id="t:option/0">
 
   <div class="detail-header">
@@ -215,6 +294,96 @@ resource, if configured.</p></div>
     </h2>
 
     <div class="functions-list">
+<section class="detail" id="debug/2">
+
+    <span id="debug/1"></span>
+
+  <div class="detail-header">
+    <a href="#debug/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">debug(message, opts \\ [])</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/audit/audit_service.ex#L66" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> debug(<a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>(), [<a href="#t:convenience_option/0">convenience_option</a>()]) :: :ok | {:error, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Registers an audit event at debug level.</p>
+  </section>
+</section>
+<section class="detail" id="error/2">
+
+    <span id="error/1"></span>
+
+  <div class="detail-header">
+    <a href="#error/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">error(message, opts \\ [])</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/audit/audit_service.ex#L78" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> error(<a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>(), [<a href="#t:convenience_option/0">convenience_option</a>()]) :: :ok | {:error, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Registers an audit event at error level.</p>
+  </section>
+</section>
+<section class="detail" id="info/2">
+
+    <span id="info/1"></span>
+
+  <div class="detail-header">
+    <a href="#info/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">info(message, opts \\ [])</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/audit/audit_service.ex#L70" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> info(<a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>(), [<a href="#t:convenience_option/0">convenience_option</a>()]) :: :ok | {:error, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Registers an audit event at info level.</p>
+  </section>
+</section>
 <section class="detail" id="register_event/5">
 
     <span id="register_event/2"></span>
@@ -231,7 +400,7 @@ resource, if configured.</p></div>
       <h1 class="signature" translate="no">register_event(message, log_level, ash_action_info \\ nil, metadata \\ %{}, opts \\ [])</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/audit/audit_service.ex#L46" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/audit/audit_service.ex#L51" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -254,6 +423,36 @@ resource, if configured.</p></div>
 
 <p>Registers an event by logging the given message and creating an <a href="Edgehog.Audit.Event.html"><code class="inline">Edgehog.Audit.Event</code></a>
 resource, if configured.</p>
+  </section>
+</section>
+<section class="detail" id="warning/2">
+
+    <span id="warning/1"></span>
+
+  <div class="detail-header">
+    <a href="#warning/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">warning(message, opts \\ [])</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/audit/audit_service.ex#L74" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+      <div class="specs">
+
+          <pre translate="no"><span class="attribute">@spec</span> warning(<a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>(), [<a href="#t:convenience_option/0">convenience_option</a>()]) :: :ok | {:error, <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">term</a>()}</pre>
+
+      </div>
+
+<p>Registers an audit event at warning level.</p>
   </section>
 </section>
 
