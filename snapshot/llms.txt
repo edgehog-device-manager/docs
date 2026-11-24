@@ -510,7 +510,11 @@ This module represents an actor performing a call trough the GraphQL APIs.
 It implements the ID Token from the OpenID Connect spec.
   - [Edgehog.Audit.AuditService](Edgehog.Audit.AuditService.md): Service module exposing the API to audit events across the application.
 
+  - [Edgehog.Audit.Changes.RegisterEvent](Edgehog.Audit.Changes.RegisterEvent.md): A change that registers an audit event about the create, update, destroy action
+being run on the resource, through `Edgehog.Audit.AuditService`.
   - [Edgehog.Audit.Event](Edgehog.Audit.Event.md): Represents an action or change made by a user, to be stored for auditing purposes.
+  - [Edgehog.Audit.Preparations.RegisterEvent](Edgehog.Audit.Preparations.RegisterEvent.md): A preparation that registers an audit event about the manual action
+being run on the resource, through `Edgehog.Audit.AuditService`.
   - [Edgehog.Audit.Types.ActionEventInfo](Edgehog.Audit.Types.ActionEventInfo.md): Type containing all the data regarding an Ash action that triggered the creation
 of an audit event.
   - [Edgehog.Audit.Types.LogLevel](Edgehog.Audit.Types.LogLevel.md): Represents the all the possible levels a log can have.

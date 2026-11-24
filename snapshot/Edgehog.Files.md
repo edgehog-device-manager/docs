@@ -2937,13 +2937,13 @@ completes so redeploys can reuse it.
 * user_id - Optional unix uid of the user owning the file, set to default if -1.
 * url - The URL from which the file can be downloaded.
 * digest - The digest of the file being downloaded, used for integrity verification.
-* group_id - Optional unix gid of the group owning the file, set to default if -1.
 * destination_type - Device-specific field, supported values are storage, streaming and filesystem.
-* device_id - The ID identifying the Device the File Download Request will be sent to
 * ttl_seconds - Optional ttl for how long to keep the file for, if 0 is forever, default value is 0.
 * file_mode - Optional unix mode for the file, set to default if 0. All files are immutable, so setting it to writable has no effect.
-* progress_tracked - Flag to enable the progress reporting of the download.
+* group_id - Optional unix gid of the group owning the file, set to default if -1.
+* device_id - The ID identifying the Device the File Download Request will be sent to
 * uncompressed_file_size_bytes - The size of the file being downloaded, in bytes, before compression.
+* progress_tracked - Flag to enable the progress reporting of the download.
 
 ## Options
 
@@ -3086,13 +3086,13 @@ Raises any errors instead of returning them
 * user_id - Optional unix uid of the user owning the file, set to default if -1.
 * url - The URL from which the file can be downloaded.
 * digest - The digest of the file being downloaded, used for integrity verification.
-* group_id - Optional unix gid of the group owning the file, set to default if -1.
 * destination_type - Device-specific field, supported values are storage, streaming and filesystem.
-* device_id - The ID identifying the Device the File Download Request will be sent to
 * ttl_seconds - Optional ttl for how long to keep the file for, if 0 is forever, default value is 0.
 * file_mode - Optional unix mode for the file, set to default if 0. All files are immutable, so setting it to writable has no effect.
-* progress_tracked - Flag to enable the progress reporting of the download.
+* group_id - Optional unix gid of the group owning the file, set to default if -1.
+* device_id - The ID identifying the Device the File Download Request will be sent to
 * uncompressed_file_size_bytes - The size of the file being downloaded, in bytes, before compression.
+* progress_tracked - Flag to enable the progress reporting of the download.
 
 ## Options
 
@@ -3233,13 +3233,13 @@ completes so redeploys can reuse it.
 * user_id - Optional unix uid of the user owning the file, set to default if -1.
 * url - The URL from which the file can be downloaded.
 * digest - The digest of the file being downloaded, used for integrity verification.
-* group_id - Optional unix gid of the group owning the file, set to default if -1.
 * destination_type - Device-specific field, supported values are storage, streaming and filesystem.
-* device_id - The ID identifying the Device the File Download Request will be sent to
 * ttl_seconds - Optional ttl for how long to keep the file for, if 0 is forever, default value is 0.
 * file_mode - Optional unix mode for the file, set to default if 0. All files are immutable, so setting it to writable has no effect.
-* progress_tracked - Flag to enable the progress reporting of the download.
+* group_id - Optional unix gid of the group owning the file, set to default if -1.
+* device_id - The ID identifying the Device the File Download Request will be sent to
 * uncompressed_file_size_bytes - The size of the file being downloaded, in bytes, before compression.
+* progress_tracked - Flag to enable the progress reporting of the download.
 
 ## Options
 
@@ -3382,13 +3382,13 @@ Raises any errors instead of returning them
 * user_id - Optional unix uid of the user owning the file, set to default if -1.
 * url - The URL from which the file can be downloaded.
 * digest - The digest of the file being downloaded, used for integrity verification.
-* group_id - Optional unix gid of the group owning the file, set to default if -1.
 * destination_type - Device-specific field, supported values are storage, streaming and filesystem.
-* device_id - The ID identifying the Device the File Download Request will be sent to
 * ttl_seconds - Optional ttl for how long to keep the file for, if 0 is forever, default value is 0.
 * file_mode - Optional unix mode for the file, set to default if 0. All files are immutable, so setting it to writable has no effect.
-* progress_tracked - Flag to enable the progress reporting of the download.
+* group_id - Optional unix gid of the group owning the file, set to default if -1.
+* device_id - The ID identifying the Device the File Download Request will be sent to
 * uncompressed_file_size_bytes - The size of the file being downloaded, in bytes, before compression.
+* progress_tracked - Flag to enable the progress reporting of the download.
 
 ## Options
 
@@ -6470,8 +6470,8 @@ Calls the set_response action on Edgehog.Files.FileDownloadRequest.
 
 * status - The status of the file download (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* response_message - Optional message for the response sent by the device.
 * progress_percentage - The progress of the file download as a percentage (0-100).
+* response_message - Optional message for the response sent by the device.
 
 ## Options
 
@@ -6626,8 +6626,8 @@ Raises any errors instead of returning them
 
 * status - The status of the file download (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* response_message - Optional message for the response sent by the device.
 * progress_percentage - The progress of the file download as a percentage (0-100).
+* response_message - Optional message for the response sent by the device.
 
 ## Options
 
@@ -7390,8 +7390,8 @@ Calls the update_status action on Edgehog.Files.FileUploadRequest.
 
 * status - The status of the file upload (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* response_message - Optional message for the response sent by the device.
 * progress_percentage - The progress of the file upload as a percentage (0-100).
+* response_message - Optional message for the response sent by the device.
 
 ## Options
 
@@ -7546,8 +7546,8 @@ Raises any errors instead of returning them
 
 * status - The status of the file upload (e.g., 'pending', 'sent', 'in_progress', 'completed', 'failed').
 * response_code - A 0 code is a success, errors are POSIX error numbers.
-* response_message - Optional message for the response sent by the device.
 * progress_percentage - The progress of the file upload as a percentage (0-100).
+* response_message - Optional message for the response sent by the device.
 
 ## Options
 

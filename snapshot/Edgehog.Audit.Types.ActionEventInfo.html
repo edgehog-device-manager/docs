@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-RXHHCTJW.css" />
 
-    <script defer src="dist/sidebar_items-E0D51713.js"></script>
+    <script defer src="dist/sidebar_items-3205D370.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-MI33G4N7.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -203,9 +203,9 @@ of an audit event.</p><p>Fields:</p><ul><li>resource module</li><li>record id</l
 
           <pre translate="no"><span class="attribute">@type</span> t() :: %{
   resource_module: <a href="https://elixir.hexdocs.pm/typespecs.html#built-in-types">module</a>(),
-  record_id: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">integer</a>() | <a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>() | <a href="https://ash.hexdocs.pm/3.37.2/Ash.Union.html#t:t/0">Ash.Union.t</a>(),
+  record_id: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">integer</a>() | <a href="https://elixir.hexdocs.pm/String.html#t:t/0">String.t</a>() | <a href="https://ash.hexdocs.pm/3.37.2/Ash.Union.html#t:t/0">Ash.Union.t</a>() | nil,
   action_name: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">atom</a>(),
-  action_type: :create | :read | :update | :destroy | :action,
+  action_type: :create | :update | :destroy | :action,
   action_inputs: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">map</a>(),
   changed_attributes: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">map</a>(),
   actor: <a href="https://elixir.hexdocs.pm/typespecs.html#basic-types">map</a>() | nil

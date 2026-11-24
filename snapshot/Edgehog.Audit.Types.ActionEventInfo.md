@@ -18,9 +18,9 @@ Fields:
 ```elixir
 @type t() :: %{
   resource_module: module(),
-  record_id: integer() | String.t() | Ash.Union.t(),
+  record_id: integer() | String.t() | Ash.Union.t() | nil,
   action_name: atom(),
-  action_type: :create | :read | :update | :destroy | :action,
+  action_type: :create | :update | :destroy | :action,
   action_inputs: map(),
   changed_attributes: map(),
   actor: map() | nil
