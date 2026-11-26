@@ -5991,7 +5991,80 @@ The endpoint is parametric and `fileId` can be replaced with any valid string to
 The value of the property can be unset.
 
 
-## io.edgehog.devicemanager.storage.Response v0.1
+## io.edgehog.devicemanager.storage.MoveFile v0.1
+
+Move a file stored on a device
+
+Requests moving a file stored on the device to another storage location identified by a file UUID. The source file must be one published through the `io.edgehog.devicemanager.storage.File` interface. If a file already exists at the destination UUID, it is only overwritten when `force` is true.
+
+### About
+
+This interface is of type `datastream` and is owned by the `server`, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `object` aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/request/id` with `string` type. ID of the move request
+- `/request/source` with `string` type. ID of the file to move
+- `/request/destination` with `string` type. ID of the destination file
+- `/request/force` with `boolean` type. Allow the move of source files that are in use
+
+
+### `/request/id`
+
+ID of the move request
+
+ID of the request which will be used to send the `io.edgehog.devicemanager.storage.Response`.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+
+### `/request/source`
+
+ID of the file to move
+
+UUID of the source file on the device published through the `io.edgehog.devicemanager.storage.File` interface.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+
+### `/request/destination`
+
+ID of the destination file
+
+UUID identifying the destination `io.edgehog.devicemanager.storage.File`. If a file with this ID already exists, the operation fails unless `force` is true.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+
+### `/request/force`
+
+Allow the move of source files that are in use
+
+When true forces the deletion of the source file even if it is currently in use. When false, the move fails if the source file is in use. Defaults to false.
+
+This endpoint accepts values of type `boolean`: either true or false, adhering to JSON boolean type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when the transport successfully sends the data regardless of the outcome.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+
+
+## io.edgehog.devicemanager.storage.Response v0.2
 
 Response for a storage operation
 
@@ -6032,7 +6105,7 @@ Delivered data is kept for 3600 seconds before it is erased from the database.
 
 Type of storage response
 
-Specifies the direction of the transfer. Allowed values: 'delete'.
+Specifies the type of storage operation. Allowed values: 'delete', 'move'.
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 

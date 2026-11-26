@@ -10,12 +10,14 @@ Define the resource as `belong_to` with a `Edgehog.Tenant.Tenant`.
 :disable_logging              :: boolean()
 :fga_type                     :: atom() | nil
 :fga_id_attribute             :: atom() | nil
+:audit?                       :: boolean()
 
 ## Description
 :tenant_id_in_primary_key?    :: whether the tenant_id is primary key in the relationship
 :disable_logging              :: whether to disable debug logging on each action
 :fga_type                     :: name of the FGA type for this resource, defined in the model
 :fga_id_attribute             :: name of the attribute to be used as FGA id in tuples
+:audit?                       :: whether the resource should support auditing of its actions
 
 `:fga_id_attribute` should be defined only if `:fga_type` is `nil`.
 When defined, `:fga_type` should correspond to a type defined in the FGA model,
