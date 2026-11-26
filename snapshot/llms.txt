@@ -318,6 +318,8 @@ resources using the specified `read_action`.
   - [Edgehog.Devices.Device.Changes.DeployPending](Edgehog.Devices.Device.Changes.DeployPending.md): After the transaction, deploy all deployments still marked as `:pending` for
 the given device.
 
+  - [Edgehog.Devices.Device.Changes.EmitFleetTelemetry](Edgehog.Devices.Device.Changes.EmitFleetTelemetry.md): Emits the fleet telemetry when a device is created or destroyed, or when its
+`online` status changes.
   - [Edgehog.Devices.Device.Changes.SetupReconciler](Edgehog.Devices.Device.Changes.SetupReconciler.md): Sets up the reconciler on connection events.
 
   - [Edgehog.Devices.Device.Changes.TearDownReconciler](Edgehog.Devices.Device.Changes.TearDownReconciler.md): Tears down the reconciler when a device disconnects.
@@ -325,13 +327,16 @@ the given device.
   - [Edgehog.Devices.Device.DeviceChanged.Config](Edgehog.Devices.Device.DeviceChanged.Config.md)
   - [Edgehog.Devices.HardwareType.HardwareType.Config](Edgehog.Devices.HardwareType.HardwareType.Config.md)
   - [Edgehog.Devices.HardwareTypePartNumber.HardwareTypePartNumber.Config](Edgehog.Devices.HardwareTypePartNumber.HardwareTypePartNumber.Config.md)
+  - [Edgehog.Devices.PromExPlugin](Edgehog.Devices.PromExPlugin.md): PromEx plugin for tenant fleet metrics.
   - [Edgehog.Devices.Reconciler.Core](Edgehog.Devices.Reconciler.Core.md): Device reconciler core utilities.
   - [Edgehog.Devices.SystemModelPartNumber.SystemModelPartNumber.Config](Edgehog.Devices.SystemModelPartNumber.SystemModelPartNumber.Config.md)
+  - [Edgehog.Devices.Telemetry](Edgehog.Devices.Telemetry.md): Emits the telemetry events of the devices fleet.
 
 - Device forwarder
   - [Edgehog.Forwarder.Guardian](Edgehog.Forwarder.Guardian.md): Auth layer to handle connections to the device forwarder.
 
   - [Edgehog.Forwarder.Guardian.Plug](Edgehog.Forwarder.Guardian.Plug.md)
+  - [Edgehog.Forwarder.Telemetry](Edgehog.Forwarder.Telemetry.md): Emits the telemetry events of the forwarder feature.
 
 - Device groups
   - [Edgehog.Groups](Edgehog.Groups.md): The Groups context.
@@ -466,6 +471,8 @@ for a file upload request before persisting it.
   - [Edgehog.Triggers.IncomingData.Handlers.FileTransfer.Progress](Edgehog.Triggers.IncomingData.Handlers.FileTransfer.Progress.md): Available Images handler
 
   - [Edgehog.Triggers.IncomingData.Handlers.FileTransfer.Response](Edgehog.Triggers.IncomingData.Handlers.FileTransfer.Response.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.ForwarderSessionState](Edgehog.Triggers.IncomingData.Handlers.ForwarderSessionState.md): Forwarder session state handler.
 
   - [Edgehog.Triggers.IncomingData.Handlers.OTAEvent](Edgehog.Triggers.IncomingData.Handlers.OTAEvent.md): Available Images handler
 

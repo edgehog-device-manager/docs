@@ -3851,7 +3851,7 @@ Delivered data is kept for 31556952 seconds before it is erased from the databas
 
 Affect how the deletion of the volume as part of the deployment is handled.
 
-Possible values [Retain, Delete]. If the policy is 'Reclaim' this volume won't be deleted when the deployment gets deleted. Otherwise it will be deleted. Delete is the default.
+Possible values [Retain, Delete]. If the policy is 'Retain' this volume won't be deleted when the deployment gets deleted. Otherwise it will be deleted. Delete is the default.
 
 This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
 
