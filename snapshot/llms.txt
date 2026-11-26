@@ -90,6 +90,9 @@ provide insightful data on it
   - [Edgehog.Campaigns.Campaign.Campaign.Config](Edgehog.Campaigns.Campaign.Campaign.Config.md)
   - [Edgehog.Campaigns.Campaign.Campaigns.Config](Edgehog.Campaigns.Campaign.Campaigns.Config.md)
   - [Edgehog.Campaigns.Campaign.Changes.ComputeCampaignTargets](Edgehog.Campaigns.Campaign.Changes.ComputeCampaignTargets.md): Computes campaign targets and start campaign executor.
+  - [Edgehog.Campaigns.Campaign.Changes.EmitStartedTelemetry](Edgehog.Campaigns.Campaign.Changes.EmitStartedTelemetry.md): Emits the campaign started telemetry once the campaign has been marked as
+in progress and the transaction has been committed.
+
   - [Edgehog.Campaigns.Campaign.DeploymentCampaigns.Config](Edgehog.Campaigns.Campaign.DeploymentCampaigns.Config.md)
   - [Edgehog.Campaigns.Campaign.FileDownloadCampaigns.Config](Edgehog.Campaigns.Campaign.FileDownloadCampaigns.Config.md)
   - [Edgehog.Campaigns.Campaign.UpdateCampaigns.Config](Edgehog.Campaigns.Campaign.UpdateCampaigns.Config.md)
@@ -139,6 +142,9 @@ This change fetches the deployment from the arguments and links it to the target
   - [Edgehog.Campaigns.Channel.Calculations.DeployableDevices](Edgehog.Campaigns.Channel.Calculations.DeployableDevices.md): Containers calculation to compute valid devices in a channel to receive a deploy.
   - [Edgehog.Campaigns.Channel.Channels.Config](Edgehog.Campaigns.Channel.Channels.Config.md)
   - [Edgehog.Campaigns.Executors.Lazy.LazyBatch](Edgehog.Campaigns.Executors.Lazy.LazyBatch.md): Generic lazy batch executor for campaigns using a macro-based approach.
+
+  - [Edgehog.Campaigns.PromExPlugin](Edgehog.Campaigns.PromExPlugin.md): PromEx plugin for the Edgehog campaigns feature.
+  - [Edgehog.Campaigns.Telemetry](Edgehog.Campaigns.Telemetry.md): Emits the telemetry events of the campaigns feature.
 
 - Containers
   - [Edgehog.Containers.Application.Application.Config](Edgehog.Containers.Application.Application.Config.md)
