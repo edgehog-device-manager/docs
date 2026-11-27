@@ -82,6 +82,8 @@ file transfer capabilities from an Astarte device.
 
   - [Edgehog.Astarte.Device.FileUploadRequest.RequestData](Edgehog.Astarte.Device.FileUploadRequest.RequestData.md): Struct representing the data needed to request a file upload on an Astarte device.
 
+  - [Edgehog.Astarte.Device.ResourceEvent.Data](Edgehog.Astarte.Device.ResourceEvent.Data.md): Data astarte sends on a resource event.
+
   - [Edgehog.Astarte.Device.StorageUsage.StorageUnit](Edgehog.Astarte.Device.StorageUsage.StorageUnit.md): Device storage units. They represent a storage available on a device and
 provide insightful data on it
 
@@ -194,6 +196,8 @@ any deployment-time `:env` and `:env_strategy` overrides.
   - [Edgehog.Containers.Container.Deployment.Provisioner](Edgehog.Containers.Container.Deployment.Provisioner.md): A container deployment provisioner.
   - [Edgehog.Containers.Container.Deployment.Provisioner.Audit](Edgehog.Containers.Container.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the container deployment provisioner.
   - [Edgehog.Containers.Container.Deployment.Provisioner.Core](Edgehog.Containers.Container.Deployment.Provisioner.Core.md): The module describing the Core functions required by the container deployment provisioner.
+  - [Edgehog.Containers.Container.Deployment.Types.EventStatus](Edgehog.Containers.Container.Deployment.Types.EventStatus.md): Expresses the status of an event a device can communicate to the backend through the `ContainerEvent` interface.
+
   - [Edgehog.Containers.Container.Deployment.Validations.EnvOrEnvFile](Edgehog.Containers.Container.Deployment.Validations.EnvOrEnvFile.md): Ensures that a container deployment does not have both additional env vars and env files.
 At most one of `env` and `env_files` may be set; setting both is ambiguous.
 `none` (both empty) is allowed to inherit the image defaults.
@@ -205,6 +209,9 @@ At most one of `env` and `env_files` may be set; setting both is ambiguous.
   - [Edgehog.Containers.Container.Types.EnvVar](Edgehog.Containers.Container.Types.EnvVar.md): The type used to specify environment variables in a key-value pair format
 
   - [Edgehog.Containers.Container.Validations.NoRefs](Edgehog.Containers.Container.Validations.NoRefs.md): Container validation for deletion.
+  - [Edgehog.Containers.DeploymentResources](Edgehog.Containers.DeploymentResources.md): Shared helpers for loading and collecting unique child resources of release
+and container deployments.
+
   - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.md): The provisioner for deploying device mappings on a device.
   - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Audit](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the device mapping deployment provisioner.
   - [Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core](Edgehog.Containers.DeviceMapping.Deployment.Provisioner.Core.md): The module describing the Core functions required by the device mapping deployment provisioner.
@@ -221,6 +228,8 @@ for a target-less env file.
   - [Edgehog.Containers.EnvFile.Provisioner.Audit](Edgehog.Containers.EnvFile.Provisioner.Audit.md): The module describing the Audit functions for the env file provisioner.
   - [Edgehog.Containers.EnvFile.Provisioner.Core](Edgehog.Containers.EnvFile.Provisioner.Core.md): The module describing the Core functions required by the env file provisioner.
   - [Edgehog.Containers.EnvFile.Storage](Edgehog.Containers.EnvFile.Storage.md): Storage helpers for target-less env files.
+  - [Edgehog.Containers.EnvFile.Types.EventStatus](Edgehog.Containers.EnvFile.Types.EventStatus.md): Expresses the status of an event a device can communicate to the backend through the `EnvFileEvent` interface.
+
   - [Edgehog.Containers.FileBind.Calculations.GetUploadUrl](Edgehog.Containers.FileBind.Calculations.GetUploadUrl.md): Returns a presigned PUT URL the client can use to upload the file
 for a target-less file bind.
   - [Edgehog.Containers.FileBind.Changes.HandleFileBindDeletion](Edgehog.Containers.FileBind.Changes.HandleFileBindDeletion.md): Deletes the bucket object uploaded for a target-less file bind.
@@ -228,16 +237,22 @@ for a target-less file bind.
   - [Edgehog.Containers.FileBind.Provisioner.Audit](Edgehog.Containers.FileBind.Provisioner.Audit.md): The module describing the Audit functions for the file bind provisioner.
   - [Edgehog.Containers.FileBind.Provisioner.Core](Edgehog.Containers.FileBind.Provisioner.Core.md): The module describing the Core functions required by the file bind provisioner.
   - [Edgehog.Containers.FileBind.Storage](Edgehog.Containers.FileBind.Storage.md): Storage helpers for target-less file binds.
+  - [Edgehog.Containers.FileBind.Types.EventStatus](Edgehog.Containers.FileBind.Types.EventStatus.md): Expresses the status of an event a device can communicate to the backend through the `FileBindEvent` interface.
+
   - [Edgehog.Containers.Image.Calculations.Reference](Edgehog.Containers.Image.Calculations.Reference.md): Calculates the full OCI/Docker reference string from an image's discrete segments.
 
   - [Edgehog.Containers.Image.Deployment.Provisioner](Edgehog.Containers.Image.Deployment.Provisioner.md): The provisioner for deploying images on a device.
   - [Edgehog.Containers.Image.Deployment.Provisioner.Audit](Edgehog.Containers.Image.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the image deployment provisioner.
   - [Edgehog.Containers.Image.Deployment.Provisioner.Core](Edgehog.Containers.Image.Deployment.Provisioner.Core.md): The module describing the Core functions required by the image deployment provisioner.
+  - [Edgehog.Containers.Image.Deployment.Types.EventStatus](Edgehog.Containers.Image.Deployment.Types.EventStatus.md): Expresses the status of an event a device can communicate to the backend through the `ImageEvent` interface.
+
   - [Edgehog.Containers.Image.Image.Config](Edgehog.Containers.Image.Image.Config.md)
   - [Edgehog.Containers.ImageCredentials.ImageCredentials.Config](Edgehog.Containers.ImageCredentials.ImageCredentials.Config.md)
   - [Edgehog.Containers.Network.Deployment.Provisioner](Edgehog.Containers.Network.Deployment.Provisioner.md): The provisioner for deploying networks on a device.
   - [Edgehog.Containers.Network.Deployment.Provisioner.Audit](Edgehog.Containers.Network.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the network deployment provisioner.
   - [Edgehog.Containers.Network.Deployment.Provisioner.Core](Edgehog.Containers.Network.Deployment.Provisioner.Core.md): The module describing the Core functions required by the network deployment provisioner.
+  - [Edgehog.Containers.Network.Deployment.Types.EventStatus](Edgehog.Containers.Network.Deployment.Types.EventStatus.md): Expresses the status of an event a device can communicate to the backend through the `NetworkEvent` interface.
+
   - [Edgehog.Containers.Network.Network.Config](Edgehog.Containers.Network.Network.Config.md)
   - [Edgehog.Containers.PromExPlugin](Edgehog.Containers.PromExPlugin.md): PromEx plugin for the Edgehog containers feature.
   - [Edgehog.Containers.Reconciler](Edgehog.Containers.Reconciler.md): Reconciler for container-related data between the device and the backend.
@@ -254,8 +269,6 @@ A deployment is ready when:
  - Its state is either `:started` or `:stopped`
  - All underlying container deployments are ready
 
-  - [Edgehog.Containers.Release.Deployment.Changes.AppendEvent](Edgehog.Containers.Release.Deployment.Changes.AppendEvent.md): Appends an event with the given argument details.
-
   - [Edgehog.Containers.Release.Deployment.Changes.Reconcile](Edgehog.Containers.Release.Deployment.Changes.Reconcile.md): Starts a reconciliation with the device.
   - [Edgehog.Containers.Release.Deployment.Changes.Relate](Edgehog.Containers.Release.Deployment.Changes.Relate.md): Relates a deployment to underlying container deployments, by creating a deep
 copy of the release and its underlying container resources when deployed.
@@ -265,9 +278,6 @@ copy of the release and its underlying container resources when deployed.
   - [Edgehog.Containers.Release.Deployment.Deployment.Config](Edgehog.Containers.Release.Deployment.Deployment.Config.md)
   - [Edgehog.Containers.Release.Deployment.DeploymentById.Config](Edgehog.Containers.Release.Deployment.DeploymentById.Config.md)
   - [Edgehog.Containers.Release.Deployment.DeploymentsByDevice.Config](Edgehog.Containers.Release.Deployment.DeploymentsByDevice.Config.md)
-  - [Edgehog.Containers.Release.Deployment.Event.DeploymentEvent.Config](Edgehog.Containers.Release.Deployment.Event.DeploymentEvent.Config.md)
-  - [Edgehog.Containers.Release.Deployment.EventType](Edgehog.Containers.Release.Deployment.EventType.md): Expresses the type of event a device can communicate to the backend trough the `DeploymentEvent` interface.
-
   - [Edgehog.Containers.Release.Deployment.ManualActions.StartSupervisor](Edgehog.Containers.Release.Deployment.ManualActions.StartSupervisor.md): Manual action to start a deployment supervisor without the need for a database transaction.
 
   - [Edgehog.Containers.Release.Deployment.Orchestrator](Edgehog.Containers.Release.Deployment.Orchestrator.md): Orchestrator for all provisioner processes of a deployment.
@@ -281,7 +291,8 @@ copy of the release and its underlying container resources when deployed.
   - [Edgehog.Containers.Release.Deployment.Starter.Core](Edgehog.Containers.Release.Deployment.Starter.Core.md): Deployment starter core functions.
   - [Edgehog.Containers.Release.Deployment.Types.DeploymentContext](Edgehog.Containers.Release.Deployment.Types.DeploymentContext.md): Deployment context. An auxiliary type to track requests and pending operations on a deployment.
 
-  - [Edgehog.Containers.Release.Deployment.Validations.Event](Edgehog.Containers.Release.Deployment.Validations.Event.md): Checks if the received event matches some fields.
+  - [Edgehog.Containers.Release.Deployment.Types.EventStatus](Edgehog.Containers.Release.Deployment.Types.EventStatus.md): Expresses the status of an event a device can communicate to the backend through the `DeploymentEvent` interface.
+
   - [Edgehog.Containers.Release.Deployment.Validations.NoConflictingCampaign](Edgehog.Containers.Release.Deployment.Validations.NoConflictingCampaign.md): Validates that a deployment is not part of an in-progress campaign with a different operation type.
 
   - [Edgehog.Containers.Release.Release.Config](Edgehog.Containers.Release.Release.Config.md)
@@ -315,6 +326,8 @@ resources using the specified `read_action`.
   - [Edgehog.Containers.Volume.Deployment.Provisioner](Edgehog.Containers.Volume.Deployment.Provisioner.md): The provisioner for deploying volumes on a device.
   - [Edgehog.Containers.Volume.Deployment.Provisioner.Audit](Edgehog.Containers.Volume.Deployment.Provisioner.Audit.md): The module describing the Audit functions for the volume deployment provisioner.
   - [Edgehog.Containers.Volume.Deployment.Provisioner.Core](Edgehog.Containers.Volume.Deployment.Provisioner.Core.md): The module describing the Core functions required by the volume deployment provisioner.
+  - [Edgehog.Containers.Volume.Deployment.Types.EventStatus](Edgehog.Containers.Volume.Deployment.Types.EventStatus.md): Expresses the status of an event a device can communicate to the backend through the `VolumeEvent` interface.
+
   - [Edgehog.Containers.Volume.Deployment.VolumeDeploymentsByDevice.Config](Edgehog.Containers.Volume.Deployment.VolumeDeploymentsByDevice.Config.md)
   - [Edgehog.Containers.Volume.Volume.Config](Edgehog.Containers.Volume.Volume.Config.md)
 
@@ -427,6 +440,7 @@ for a file upload request before persisting it.
 
 - Multitenancy
   - [Edgehog.Tenants.Reconciler](Edgehog.Tenants.Reconciler.md): The tenant reconciler.
+  - [Edgehog.Tenants.Reconciler.AstarteResources](Edgehog.Tenants.Reconciler.AstarteResources.md): Elixir representation of astarte resources
   - [Edgehog.Tenants.Reconciler.Context](Edgehog.Tenants.Reconciler.Context.md): Helper function for tenant reconciliation.
   - [Edgehog.Tenants.Reconciler.Core](Edgehog.Tenants.Reconciler.Core.md): Tenants reconciler module.
   - [Edgehog.Tenants.Reconciler.Core.DeliveryPolicies](Edgehog.Tenants.Reconciler.Core.DeliveryPolicies.md): Edgehog tenant reconciler responsible for delivery policies.
@@ -468,7 +482,13 @@ for a file upload request before persisting it.
 
   - [Edgehog.Triggers.IncomingData.Handlers.AvailableVolumes](Edgehog.Triggers.IncomingData.Handlers.AvailableVolumes.md): Available Images handler
 
-  - [Edgehog.Triggers.IncomingData.Handlers.DeploymentEvent](Edgehog.Triggers.IncomingData.Handlers.DeploymentEvent.md): Available Images handler
+  - [Edgehog.Triggers.IncomingData.Handlers.ContainerEvent](Edgehog.Triggers.IncomingData.Handlers.ContainerEvent.md): Container Event handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.DeploymentEvent](Edgehog.Triggers.IncomingData.Handlers.DeploymentEvent.md): Deployment Event handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.EnvFileEvent](Edgehog.Triggers.IncomingData.Handlers.EnvFileEvent.md): EnvFile Event handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.FileBindEvent](Edgehog.Triggers.IncomingData.Handlers.FileBindEvent.md): FileBind Event handler
 
   - [Edgehog.Triggers.IncomingData.Handlers.FileDeleteResponse](Edgehog.Triggers.IncomingData.Handlers.FileDeleteResponse.md): File delete response handler
 
@@ -480,11 +500,17 @@ for a file upload request before persisting it.
 
   - [Edgehog.Triggers.IncomingData.Handlers.ForwarderSessionState](Edgehog.Triggers.IncomingData.Handlers.ForwarderSessionState.md): Forwarder session state handler.
 
+  - [Edgehog.Triggers.IncomingData.Handlers.ImageEvent](Edgehog.Triggers.IncomingData.Handlers.ImageEvent.md): Image Event handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.NetworkEvent](Edgehog.Triggers.IncomingData.Handlers.NetworkEvent.md): Network Event handler
+
   - [Edgehog.Triggers.IncomingData.Handlers.OTAEvent](Edgehog.Triggers.IncomingData.Handlers.OTAEvent.md): Available Images handler
 
   - [Edgehog.Triggers.IncomingData.Handlers.OTAResponse](Edgehog.Triggers.IncomingData.Handlers.OTAResponse.md): Available Images handler
 
   - [Edgehog.Triggers.IncomingData.Handlers.SystemInfo](Edgehog.Triggers.IncomingData.Handlers.SystemInfo.md): Available Images handler
+
+  - [Edgehog.Triggers.IncomingData.Handlers.VolumeEvent](Edgehog.Triggers.IncomingData.Handlers.VolumeEvent.md): Volume Event handler
 
 - Localization
   - [Edgehog.Localization.Changes.UpsertLocalizedAttribute](Edgehog.Localization.Changes.UpsertLocalizedAttribute.md): Creates a localized attribute.

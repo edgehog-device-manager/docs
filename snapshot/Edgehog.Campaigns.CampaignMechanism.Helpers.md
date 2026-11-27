@@ -31,6 +31,10 @@ Retries a target operation by executing the specified update action on the deplo
   - `:ok` if the retry is successful.
   - `{:error, reason}` if the retry fails.
 
+# `get_latest_error_for_deployment`
+
+Fetches the latest error event for a deployment across the deployment and its child resources.
+
 # `link_target_deployment`
 
 Links a target to its deployment based on device and release.

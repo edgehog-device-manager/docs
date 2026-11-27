@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="dist/html-elixir-RXHHCTJW.css" />
 
-    <script defer src="dist/sidebar_items-0BE61220.js"></script>
+    <script defer src="dist/sidebar_items-8336D00B.js"></script>
     <script defer src="docs_config.js"></script>
     <script defer src="dist/html-MI33G4N7.js"></script>
 <link rel="stylesheet" href="style/cards.css">
@@ -158,6 +158,16 @@ including deployment operations, timeout handling, and notification processing.<
 
     <div class="summary-row">
       <div class="summary-signature">
+        <a href="#get_latest_error_for_deployment/2" data-no-tooltip="" translate="no">get_latest_error_for_deployment(tenant_id, deployment_id)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Fetches the latest error event for a deployment across the deployment and its child resources.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
         <a href="#link_target_deployment/2" data-no-tooltip="" translate="no">link_target_deployment(target, release)</a>
 
       </div>
@@ -198,7 +208,7 @@ including deployment operations, timeout handling, and notification processing.<
       <h1 class="signature" translate="no">application_deployed?(target, release)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/campaigns/campaign_mechanism/helpers.ex#L45" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/campaigns/campaign_mechanism/helpers.ex#L48" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -220,7 +230,7 @@ including deployment operations, timeout handling, and notification processing.<
       <h1 class="signature" translate="no">do_retry_target_operation(target, update_action)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/campaigns/campaign_mechanism/helpers.ex#L106" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/campaigns/campaign_mechanism/helpers.ex#L109" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -230,6 +240,28 @@ including deployment operations, timeout handling, and notification processing.<
   <section class="docstring">
 
 <p>Retries a target operation by executing the specified update action on the deployment.</p><h2 id="do_retry_target_operation/2-parameters" class="section-heading"><a href="#do_retry_target_operation/2-parameters" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Parameters</span></h2><ul><li>target: The deployment target struct.</li><li>update_action: The action atom to execute (e.g., :start, :stop, :delete, :send_deployment).</li></ul><h2 id="do_retry_target_operation/2-returns" class="section-heading"><a href="#do_retry_target_operation/2-returns" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Returns</span></h2><ul><li><code class="inline">:ok</code> if the retry is successful.</li><li><code class="inline">{:error, reason}</code> if the retry fails.</li></ul>
+  </section>
+</section>
+<section class="detail" id="get_latest_error_for_deployment/2">
+
+  <div class="detail-header">
+    <a href="#get_latest_error_for_deployment/2" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">get_latest_error_for_deployment(tenant_id, deployment_id)</h1>
+
+
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/campaigns/campaign_mechanism/helpers.ex#L129" class="icon-action" rel="help nofollow" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Fetches the latest error event for a deployment across the deployment and its child resources.</p>
   </section>
 </section>
 <section class="detail" id="link_target_deployment/2">
@@ -242,7 +274,7 @@ including deployment operations, timeout handling, and notification processing.<
       <h1 class="signature" translate="no">link_target_deployment(target, release)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/campaigns/campaign_mechanism/helpers.ex#L78" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/campaigns/campaign_mechanism/helpers.ex#L81" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 
@@ -264,7 +296,7 @@ including deployment operations, timeout handling, and notification processing.<
       <h1 class="signature" translate="no">resolve_file_binds(target, configs)</h1>
 
 
-        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/campaigns/campaign_mechanism/helpers.ex#L119" class="icon-action" rel="help nofollow" aria-label="View Source">
+        <a href="https://github.com/edgehog-device-manager/edgehog/blob/v0.14.1/backend/lib/edgehog/campaigns/campaign_mechanism/helpers.ex#L122" class="icon-action" rel="help nofollow" aria-label="View Source">
           <i class="ri-code-s-slash-line" aria-hidden="true"></i>
         </a>
 

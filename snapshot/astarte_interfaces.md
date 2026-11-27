@@ -1743,6 +1743,38 @@ The endpoint is parametric and `image_id` can be replaced with any valid string 
 The value of the property can be unset.
 
 
+## io.edgehog.devicemanager.apps.AvailableNetworkOptions v0.1
+
+The available network options.
+
+Exposes the container network options available on the device.
+
+### About
+
+This interface is of type `properties` and is owned by the `device`, meaning that it is the device which initiates the data flow.
+Thanks to this type of interface, the device can set a persistent, stateful, synchronized state with no concept of history or timestamping.
+
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/%{network_options_id}/status` with `string` type. Network options status
+
+
+### `/%{network_options_id}/status`
+
+Network options status
+
+The status of the network options with ID `network_options_id`, available values are: [Present, Error].
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint is parametric and `network_options_id` can be replaced with any valid string to send data on specialized paths.
+
+The value of the property can be unset.
+
+
 ## io.edgehog.devicemanager.apps.AvailableNetworks v0.1
 
 
@@ -3667,6 +3699,307 @@ The endpoint has a specific configuration for how data is stored, transferred an
 Data is considered delivered when it has been received at least once by the recipient.
 Data is discarded if the transport is temporarily uncapable of delivering it.
 Delivered data is kept for 600 seconds before it is erased from the database.
+
+
+## io.edgehog.devicemanager.apps.CreateNetworkOptionsRequest v0.1
+
+Network endpoint configuration for a container on a specific network.
+
+Configures the network endpoint settings when connecting a container to a network.
+
+### About
+
+This interface is of type `datastream` and is owned by the `server`, meaning that it is the server which initiates the data flow.
+Thanks to this type of interface, the server can send a mutable, ordered stream of data, with no concept of persistent state or synchronization.
+
+Data gets sent with an `object` aggregation.
+Astarte expects the owner to send all of the interface's mappings at the same time, packed in a single message.
+
+### Mappings
+
+The interface has the following mappings:
+
+- `/networkOptions/id` with `string` type. Create Network Options Request id
+- `/networkOptions/deploymentId` with `string` type. Reference to a Deployment using the network options
+- `/networkOptions/containerId` with `string` type. Target container id
+- `/networkOptions/networkId` with `string` type. Target network id
+- `/networkOptions/ipv4Address` with `string` type. IPAM IPv4 address
+- `/networkOptions/ipv6Address` with `string` type. IPAM IPv6 address
+- `/networkOptions/linkLocalIps` with `stringarray` type. IPAM link-local IP addresses
+- `/networkOptions/links` with `stringarray` type. Endpoint links
+- `/networkOptions/macAddress` with `string` type. MAC address for the endpoint on this network
+- `/networkOptions/aliases` with `stringarray` type. Network aliases
+- `/networkOptions/driverOptKeys` with `stringarray` type. Driver options keys
+- `/networkOptions/driverOptValues` with `stringarray` type. Driver options values
+- `/networkOptions/gwPriority` with `longinteger` type. Gateway priority
+- `/networkOptions/gateway` with `string` type. Gateway address
+- `/networkOptions/ipAddress` with `string` type. IPv4 address
+- `/networkOptions/ipPrefixLen` with `integer` type. Mask length of the IPv4 address
+- `/networkOptions/ipv6Gateway` with `string` type. IPv6 gateway address
+- `/networkOptions/globalIpv6Address` with `string` type. Global IPv6 address
+- `/networkOptions/globalIpv6PrefixLen` with `longinteger` type. Mask length of the global IPv6 address
+- `/networkOptions/dnsNames` with `stringarray` type. List of DNS names for the endpoint
+
+
+### `/networkOptions/id`
+
+Create Network Options Request id
+
+Unique id for the network options request.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/deploymentId`
+
+Reference to a Deployment using the network options
+
+The deployment in which the network options are used, so the device can send deployment events to Astarte for the create request.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/containerId`
+
+Target container id
+
+The id of the container to which these network options apply.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/networkId`
+
+Target network id
+
+The id of the network to connect with the container.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/ipv4Address`
+
+IPAM IPv4 address
+
+IPv4 address for the endpoint's IPAM configuration.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/ipv6Address`
+
+IPAM IPv6 address
+
+IPv6 address for the endpoint's IPAM configuration.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/linkLocalIps`
+
+IPAM link-local IP addresses
+
+List of link-local IP addresses for the endpoint's IPAM configuration.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/links`
+
+Endpoint links
+
+List of links for the endpoint.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/macAddress`
+
+MAC address for the endpoint on this network
+
+MAC address for the endpoint on this network. The network driver might ignore this parameter.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/aliases`
+
+Network aliases
+
+List of network aliases for the endpoint.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/driverOptKeys`
+
+Driver options keys
+
+Keys for the mapping of driver options and values in `driverOptValues`. These options are passed directly to the driver and are driver specific.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/driverOptValues`
+
+Driver options values
+
+Values for the mapping of driver options and values in `driverOptKeys`. These options are passed directly to the driver and are driver specific.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/gwPriority`
+
+Gateway priority
+
+This property determines which endpoint will provide the default gateway for a container. The endpoint with the highest priority will be used. If multiple endpoints have the same priority, endpoints are lexicographically sorted based on their network name, and the one that sorts first is picked.
+
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/gateway`
+
+Gateway address
+
+Gateway address for this network.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/ipAddress`
+
+IPv4 address
+
+IPv4 address.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/ipPrefixLen`
+
+Mask length of the IPv4 address
+
+Mask length of the IPv4 address.
+
+This endpoint accepts values of type `integer`: a signed 32 bit integer.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/ipv6Gateway`
+
+IPv6 gateway address
+
+IPv6 gateway address.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/globalIpv6Address`
+
+Global IPv6 address
+
+Global IPv6 address.
+
+This endpoint accepts values of type `string`: an UTF-8 string, at most 65536 bytes long.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/globalIpv6PrefixLen`
+
+Mask length of the global IPv6 address
+
+Mask length of the global IPv6 address.
+
+This endpoint accepts values of type `longinteger`: a signed 64 bit integer (please note that longinteger is represented as a string by default in JSON-based APIs.).
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
+
+### `/networkOptions/dnsNames`
+
+List of DNS names for the endpoint
+
+List of all DNS names an endpoint has on a specific network. This list is based on the container name, network aliases, container short ID, and hostname. These DNS names are non-fully qualified but can contain several dots. You can get fully qualified DNS names by appending `.<network-name>`. For instance, if container name is `my.ctr` and the network is named `testnet`, `dnsNames` will contain `my.ctr` and the FQDN will be `my.ctr.testnet`.
+
+This endpoint accepts values of type `stringarray`: a list of values, represented as a JSON Array. Arrays can have up to 1024 items and each item must respect the limits of its scalar type.
+
+The endpoint has a specific configuration for how data is stored, transferred and indexed.
+Data is considered delivered when it has been received at least once by the recipient.
+Data is discarded if the transport is temporarily uncapable of delivering it.
+Delivered data is kept for 31556952 seconds before it is erased from the database.
 
 
 ## io.edgehog.devicemanager.apps.CreateNetworkRequest v0.1
